@@ -1,0 +1,5 @@
+[bundle]
+name = "stitch-patches"
+author = "Stitch"
+description = "Patches for Android apps"
+format_version = 1

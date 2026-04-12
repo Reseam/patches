@@ -1,0 +1,28 @@
+# Gradle / Kotlin build outputs
+build/
+.gradle/
+.kotlin/
+out/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Local config / secrets
+local.properties
+*.keystore
+*.jks
+*.pk8
+*.der
+*.pem
+
+# OS
+.DS_Store
+Thumbs.db
+
+# External reference projects (not part of this repo)
+references/
+
+# Logs / scratch
+*.log
