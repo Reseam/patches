@@ -22,14 +22,19 @@
 
 package dev.stitch.runtime.settings;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -74,22 +79,30 @@ public final class StitchSettingsScreen {
         StitchSettings.init(ctx);
         initReflection();
 
+        LinearLayout container = new LinearLayout(ctx);
+        container.setOrientation(LinearLayout.VERTICAL);
+        container.setBackgroundColor(Color.BLACK);
+
+        container.addView(buildToolbar(ctx, "Stitch Settings"),
+                new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dpToPx(ctx, 56)));
+
         ScrollView scroll = new ScrollView(ctx);
-        scroll.setBackgroundColor(Color.parseColor("#121212"));
+        scroll.setBackgroundColor(Color.BLACK);
 
         LinearLayout root = new LinearLayout(ctx);
         root.setOrientation(LinearLayout.VERTICAL);
-        root.setPadding(dpToPx(ctx, 16), dpToPx(ctx, 16), dpToPx(ctx, 16), dpToPx(ctx, 24));
+        root.setPadding(0, 0, 0, dpToPx(ctx, 24));
         scroll.addView(root);
 
-        addTitle(root, "Stitch Settings");
+        container.addView(scroll, new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f));
 
         try {
             JSONObject schema = new JSONObject(readAsset(ctx, "stitch/settings.json"));
             JSONArray sections = schema.optJSONArray("sections");
             if (sections == null || sections.length() == 0) {
                 addDescription(root, "No settings are available for the selected patches.");
-                return scroll;
+                return container;
             }
             for (int i = 0; i < sections.length(); i++) {
                 JSONObject section = sections.getJSONObject(i);
@@ -105,7 +118,41 @@ public final class StitchSettingsScreen {
             addDescription(root, "Could not load settings: " + t.getMessage());
         }
 
-        return scroll;
+        return container;
+    }
+
+    private static View buildToolbar(Context ctx, String title) {
+        FrameLayout bar = new FrameLayout(ctx);
+        bar.setBackgroundColor(Color.BLACK);
+        bar.setPadding(dpToPx(ctx, 4), 0, dpToPx(ctx, 16), 0);
+
+        ImageView back = new ImageView(ctx);
+        back.setImageResource(android.R.drawable.ic_media_previous);
+        int backRes = ctx.getResources().getIdentifier("ic_arrow_back", "drawable", "android");
+        if (backRes != 0) back.setImageResource(backRes);
+        back.setColorFilter(Color.WHITE);
+        int pad = dpToPx(ctx, 12);
+        back.setPadding(pad, pad, pad, pad);
+        back.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        back.setOnClickListener(v -> {
+            if (ctx instanceof Activity) ((Activity) ctx).finish();
+        });
+        FrameLayout.LayoutParams backLp = new FrameLayout.LayoutParams(
+                dpToPx(ctx, 48), dpToPx(ctx, 48), Gravity.START | Gravity.CENTER_VERTICAL);
+        bar.addView(back, backLp);
+
+        TextView tv = new TextView(ctx);
+        tv.setText(title);
+        tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18f);
+        tv.setTypeface(Typeface.DEFAULT_BOLD);
+        tv.setTextColor(Color.WHITE);
+        FrameLayout.LayoutParams tvLp = new FrameLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT,
+                Gravity.START | Gravity.CENTER_VERTICAL);
+        tvLp.leftMargin = dpToPx(ctx, 56);
+        bar.addView(tv, tvLp);
+
+        return bar;
     }
 
     /**
@@ -246,59 +293,52 @@ public final class StitchSettingsScreen {
         }
     }
 
-    private static void addTitle(ViewGroup parent, String title) {
-        Context ctx = parent.getContext();
-        TextView tv = new TextView(ctx, null, 0);
-        tv.setText(title);
-        tv.setTextSize(24f);
-        tv.setTypeface(Typeface.DEFAULT_BOLD);
-        tv.setTextColor(Color.WHITE);
-        tv.setPadding(0, 0, 0, dpToPx(ctx, 16));
-        parent.addView(tv);
-    }
-
     private static void addSectionHeader(ViewGroup parent, String title) {
         Context ctx = parent.getContext();
 
-        TextView tv = new TextView(ctx, null, 0);
-        tv.setText(title.toUpperCase());
-        tv.setTextSize(12f);
-        tv.setTypeface(Typeface.DEFAULT_BOLD);
-        tv.setTextColor(Color.parseColor("#888888"));
-        tv.setPadding(0, dpToPx(ctx, 24), 0, dpToPx(ctx, 8));
-        tv.setLetterSpacing(0.1f);
-        parent.addView(tv);
-
         View divider = new View(ctx);
-        divider.setBackgroundColor(Color.parseColor("#333333"));
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, dpToPx(ctx, 1));
-        lp.bottomMargin = dpToPx(ctx, 8);
-        parent.addView(divider, lp);
+        divider.setBackgroundColor(Color.parseColor("#1C1C1C"));
+        parent.addView(divider, new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, dpToPx(ctx, 8)));
+
+        TextView tv = new TextView(ctx, null, 0);
+        tv.setText(title);
+        tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13f);
+        tv.setTextColor(Color.parseColor("#A8A8A8"));
+        tv.setPadding(dpToPx(ctx, 16), dpToPx(ctx, 16), dpToPx(ctx, 16), dpToPx(ctx, 8));
+        parent.addView(tv);
     }
 
     private static void addDescription(ViewGroup parent, String text) {
         Context ctx = parent.getContext();
         TextView tv = new TextView(ctx, null, 0);
         tv.setText(text);
-        tv.setTextSize(14f);
-        tv.setTextColor(Color.parseColor("#A0A0A0"));
-        tv.setPadding(0, dpToPx(ctx, 8), 0, dpToPx(ctx, 8));
+        tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13f);
+        tv.setTextColor(Color.parseColor("#A8A8A8"));
+        tv.setPadding(dpToPx(ctx, 16), dpToPx(ctx, 8), dpToPx(ctx, 16), dpToPx(ctx, 8));
         parent.addView(tv);
     }
 
     private static void addTextSetting(ViewGroup parent, String label, String summary, String key, String defaultValue) {
         Context ctx = parent.getContext();
 
+        LinearLayout row = new LinearLayout(ctx);
+        row.setOrientation(LinearLayout.VERTICAL);
+        row.setPadding(dpToPx(ctx, 16), dpToPx(ctx, 12), dpToPx(ctx, 16), dpToPx(ctx, 12));
+
         TextView tv = new TextView(ctx, null, 0);
         tv.setText(label);
-        tv.setTextSize(16f);
+        tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f);
         tv.setTextColor(Color.WHITE);
-        tv.setPadding(0, dpToPx(ctx, 12), 0, dpToPx(ctx, 4));
-        parent.addView(tv);
+        row.addView(tv);
 
         if (summary != null && !summary.isEmpty()) {
-            addDescription(parent, summary);
+            TextView sub = new TextView(ctx, null, 0);
+            sub.setText(summary);
+            sub.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13f);
+            sub.setTextColor(Color.parseColor("#A8A8A8"));
+            sub.setPadding(0, dpToPx(ctx, 2), 0, dpToPx(ctx, 6));
+            row.addView(sub);
         }
 
         EditText edit = new EditText(ctx, null, 0);
@@ -306,19 +346,21 @@ public final class StitchSettingsScreen {
         edit.setText(StitchSettings.getString(key, defaultValue));
         edit.setTextColor(Color.WHITE);
         edit.setHintTextColor(Color.parseColor("#666666"));
-        edit.setBackgroundColor(Color.parseColor("#1E1E1E"));
+        edit.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f);
+        edit.setBackgroundColor(Color.parseColor("#1C1C1C"));
         edit.setPadding(dpToPx(ctx, 12), dpToPx(ctx, 10), dpToPx(ctx, 12), dpToPx(ctx, 10));
         edit.setOnFocusChangeListener((view, hasFocus) -> {
             if (!hasFocus) {
                 StitchSettings.setString(key, edit.getText().toString());
             }
         });
-
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
-        lp.bottomMargin = dpToPx(ctx, 8);
-        parent.addView(edit, lp);
+        lp.topMargin = dpToPx(ctx, 4);
+        row.addView(edit, lp);
+
+        parent.addView(row);
     }
 
     private static int dpToPx(Context ctx, int dp) {

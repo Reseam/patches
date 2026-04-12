@@ -45,7 +45,7 @@ val downloadPatch = patch(
         ),
     ),
 ) {
-    extendWith("download.dex")
+    extendWith("instagram-download.dex")
 
     execute { ctx ->
         hookFeedMenuClick(ctx)
