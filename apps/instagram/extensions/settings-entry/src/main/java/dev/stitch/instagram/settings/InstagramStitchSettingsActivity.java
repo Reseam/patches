@@ -23,6 +23,7 @@
 package dev.stitch.instagram.settings;
 
 import android.content.ComponentName;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -43,6 +44,14 @@ public final class InstagramStitchSettingsActivity extends IgActivity {
         StitchSettings.init(this);
         setTitle("Stitch Settings");
         setContentView(StitchSettingsScreen.build(this));
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (StitchSettingsScreen.onActivityResult(this, requestCode, resultCode, data)) {
+            setContentView(StitchSettingsScreen.build(this));
+        }
     }
 
     private void applyInstagramActivityTheme() {

@@ -85,7 +85,7 @@ object DownloadSettings {
     val Folder = FolderSetting(
         key = "download.folder",
         title = "Download folder",
-        default = "StitchDownloads/Instagram",
+        default = "StitchInsta",
     )
 
     val ShowToast = ToggleSetting(

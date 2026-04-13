@@ -55,5 +55,7 @@ val downloadPatch = patch(
         hookLegacyReelsMenu(ctx)
 
         hookStoryMenu(ctx)
+
+        hookMediaMeta(ctx)
     }
 }

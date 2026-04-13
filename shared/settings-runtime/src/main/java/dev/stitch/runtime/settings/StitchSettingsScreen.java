@@ -23,9 +23,12 @@
 package dev.stitch.runtime.settings;
 
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -58,6 +61,8 @@ import java.lang.reflect.Method;
  */
 public final class StitchSettingsScreen {
     private static final String TAG = "StitchSettings";
+    public static final int FOLDER_PICKER_REQUEST_CODE = 0x57C4;
+    private static String pendingFolderKey;
 
     // Instagram component class name (non-obfuscated, stable across versions)
     private static final String IGDS_LIST_CELL_CLASS = "com.instagram.igds.components.textcell.IgdsListCell";
@@ -238,9 +243,100 @@ public final class StitchSettingsScreen {
 
         if ("toggle".equals(type)) {
             addToggle(ctx, parent, title, summary, key, setting.optBoolean("default", false));
-        } else if ("text".equals(type) || "folder".equals(type) || "choice".equals(type)) {
+        } else if ("folder".equals(type)) {
+            addFolderPicker(ctx, parent, title, summary, key, setting.optString("default", ""));
+        } else if ("text".equals(type) || "choice".equals(type)) {
             addTextSetting(parent, title, summary, key, setting.optString("default", ""));
         }
+    }
+
+    private static void addFolderPicker(Context ctx, ViewGroup parent, String title, String summary, String key, String defaultValue) {
+        LinearLayout row = new LinearLayout(ctx);
+        row.setOrientation(LinearLayout.VERTICAL);
+        row.setPadding(dpToPx(ctx, 16), dpToPx(ctx, 12), dpToPx(ctx, 16), dpToPx(ctx, 12));
+        row.setClickable(true);
+        row.setFocusable(true);
+
+        TextView titleView = new TextView(ctx, null, 0);
+        titleView.setText(title);
+        titleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f);
+        titleView.setTextColor(Color.WHITE);
+        row.addView(titleView);
+
+        TextView valueView = new TextView(ctx, null, 0);
+        valueView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13f);
+        valueView.setTextColor(Color.parseColor("#A8A8A8"));
+        valueView.setPadding(0, dpToPx(ctx, 4), 0, 0);
+        valueView.setText(displayFolder(StitchSettings.getString(key, defaultValue)));
+        row.addView(valueView);
+
+        if (summary != null && !summary.isEmpty()) {
+            TextView sub = new TextView(ctx, null, 0);
+            sub.setText(summary);
+            sub.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f);
+            sub.setTextColor(Color.parseColor("#666666"));
+            sub.setPadding(0, dpToPx(ctx, 2), 0, 0);
+            row.addView(sub);
+        }
+
+        row.setOnClickListener(v -> launchFolderPicker(ctx, key));
+        parent.addView(row);
+    }
+
+    private static void launchFolderPicker(Context ctx, String key) {
+        Activity activity = findActivity(ctx);
+        if (activity == null) {
+            Log.e(TAG, "Cannot launch folder picker: no Activity context");
+            return;
+        }
+        pendingFolderKey = key;
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION
+                | Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+                | Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+        activity.startActivityForResult(intent, FOLDER_PICKER_REQUEST_CODE);
+    }
+
+    public static boolean onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
+        if (requestCode != FOLDER_PICKER_REQUEST_CODE) return false;
+        String key = pendingFolderKey;
+        pendingFolderKey = null;
+        if (resultCode != Activity.RESULT_OK || data == null || key == null) return true;
+        Uri uri = data.getData();
+        if (uri == null) return true;
+        try {
+            int flags = Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION;
+            ContentResolver resolver = activity.getContentResolver();
+            resolver.takePersistableUriPermission(uri, flags);
+        } catch (SecurityException e) {
+            Log.w(TAG, "Could not persist permission for " + uri, e);
+        }
+        StitchSettings.setString(key, uri.toString());
+        return true;
+    }
+
+    private static Activity findActivity(Context ctx) {
+        while (ctx instanceof android.content.ContextWrapper) {
+            if (ctx instanceof Activity) return (Activity) ctx;
+            ctx = ((android.content.ContextWrapper) ctx).getBaseContext();
+        }
+        return null;
+    }
+
+    private static String displayFolder(String value) {
+        if (value == null || value.isEmpty()) return "(not set)";
+        if (value.startsWith("content://")) {
+            try {
+                Uri uri = Uri.parse(value);
+                String last = uri.getLastPathSegment();
+                if (last != null) {
+                    int colon = last.lastIndexOf(':');
+                    if (colon >= 0 && colon + 1 < last.length()) last = last.substring(colon + 1);
+                    return last.isEmpty() ? value : last;
+                }
+            } catch (Throwable ignored) {}
+        }
+        return value;
     }
 
     /**
