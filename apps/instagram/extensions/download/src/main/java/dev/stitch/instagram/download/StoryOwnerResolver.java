@@ -24,31 +24,17 @@ package dev.stitch.instagram.download;
 
 import android.content.Context;
 
-import java.lang.reflect.Field;
-
 final class StoryOwnerResolver {
-    private static final String REEL_ITEM_CLASS = "com.instagram.model.reels.ReelItem";
-
     private StoryOwnerResolver() {}
 
     static Object reelItem(Object owner) {
-        if (owner == null) return null;
-        for (Field field : Reflect.fields(owner.getClass())) {
-            if (REEL_ITEM_CLASS.equals(field.getType().getName())) {
-                return Reflect.fieldValue(field, owner);
-            }
-        }
-        return null;
+        return owner == null ? null : MediaMeta.storyOwnerReelItem(owner);
     }
 
     static Context context(Object owner) {
         if (owner == null) return ContextResolver.fromObjects();
-        for (Field field : Reflect.fields(owner.getClass())) {
-            if (Context.class.isAssignableFrom(field.getType())) {
-                Object value = Reflect.fieldValue(field, owner);
-                if (value instanceof Context) return ContextResolver.safe((Context) value);
-            }
-        }
+        Object ctx = MediaMeta.storyOwnerContext(owner);
+        if (ctx instanceof Context) return ContextResolver.safe((Context) ctx);
         return ContextResolver.fromObjects(owner);
     }
 }

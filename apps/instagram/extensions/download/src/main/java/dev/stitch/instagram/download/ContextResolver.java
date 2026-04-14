@@ -42,8 +42,7 @@ final class ContextResolver {
     }
 
     static Context find(Object object) {
-        Object context = Reflect.find(object, ContextResolver::isContext, 6);
-        return context instanceof Context ? (Context) context : null;
+        return object instanceof Context ? (Context) object : null;
     }
 
     static Context safe(Context context) {

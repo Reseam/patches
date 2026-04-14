@@ -34,18 +34,54 @@ import dev.stitch.patch.indexOfFirstInstruction
 import dev.stitch.patch.indexOfFirstInstructionReversed
 
 internal fun hookFeedMenuClick(ctx: PatchRuntime) {
-    val method = feedMenuClickListenerMethod(ctx)
+    rewriteFeedHandlerMedia(ctx)
+
+    val method = feedClickHandlerFingerprint.method
     val pThis = method.registersSize - method.insSize
-    val resultReg = method.findFreeRegister(0, exclude = listOf(pThis))
+    val pOptions = pThis + 1
+    val (handlerReg, optionsReg) = method.findFreeRegisters(
+        0,
+        2,
+        exclude = listOf(pThis, pOptions),
+    )
+    val resultReg = method.findFreeRegister(
+        0,
+        exclude = listOf(pThis, pOptions, handlerReg, optionsReg),
+    )
 
     method.addInstructions(0) {
-        invokeStatic(EXT, "handleFeedMenuClick", "(Ljava/lang/Object;)Z", pThis)
+        moveObjectFrom16(handlerReg, pThis)
+        moveObjectFrom16(optionsReg, pOptions)
+        invokeStatic(
+            EXT,
+            "handleFeedClick",
+            "(Ljava/lang/Object;Ljava/lang/Object;)Z",
+            handlerReg,
+            optionsReg,
+        )
         moveResult(resultReg)
         ifEqz(resultReg, "not_stitch_download")
         returnVoid()
         label("not_stitch_download")
     }
-    ctx.log.info("Hooked feed menu click handler")
+    ctx.log.info("Hooked feed click handler ${method.info.classDescriptor}.${method.info.methodName}")
+}
+
+private fun rewriteFeedHandlerMedia(ctx: PatchRuntime) {
+    val handlerClass = feedClickHandlerFingerprint.method.info.classDescriptor
+    val mediaField = feedMediaField(feedClickHandlerFingerprint.method)
+    val bridge = ctx.bytecode.findClass("Ldev/stitch/instagram/download/MediaMeta;")
+        ?.methods
+        ?.firstOrNull { it.info.methodName == "feedHandlerMedia" }
+        ?: error("MediaMeta.feedHandlerMedia bridge not found")
+
+    bridge.setRegisters(registersSize = 2, outsSize = 0)
+    bridge.setInstructions(buildInstructions {
+        checkCast(1, handlerClass)
+        igetObject(0, 1, mediaField)
+        returnObject(0)
+    })
+    ctx.log.info("Bound MediaMeta.feedHandlerMedia -> $handlerClass.${mediaField.name}")
 }
 
 internal fun hookFeedMenuItems(ctx: PatchRuntime) {
@@ -88,7 +124,7 @@ internal fun hookFeedMenuItems(ctx: PatchRuntime) {
 
 internal fun feedMediaType(): String = feedMediaField(feedClickHandlerFingerprint.method).fieldType
 
-private fun feedMenuClickListenerMethod(ctx: PatchRuntime): Method {
+internal fun feedMenuClickListenerMethod(ctx: PatchRuntime): Method {
     val clickHandler = feedClickHandlerFingerprint.method.info
     return ctx.bytecode.classes
         .flatMap { it.methods }

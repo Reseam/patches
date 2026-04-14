@@ -22,28 +22,10 @@
 
 package dev.stitch.instagram.download;
 
-import java.lang.reflect.Field;
-
 final class ReelItemResolver {
     private ReelItemResolver() {}
 
     static Object media(Object reelItem) {
-        if (reelItem == null) return null;
-
-        Object media = mediaFromFields(reelItem, true);
-        if (media != null) return media;
-
-        return mediaFromFields(reelItem, false);
-    }
-
-    private static Object mediaFromFields(Object reelItem, boolean requireFinal) {
-        for (Field field : Reflect.fields(reelItem.getClass())) {
-            if (field.getType().isPrimitive()) continue;
-            if (requireFinal && !java.lang.reflect.Modifier.isFinal(field.getModifiers())) continue;
-
-            Object value = Reflect.fieldValue(field, reelItem);
-            if (value != null && UrlExtractor.best(value) != null) return value;
-        }
-        return null;
+        return reelItem == null ? null : MediaMeta.reelItemMedia(reelItem);
     }
 }

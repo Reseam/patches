@@ -25,62 +25,19 @@ package dev.stitch.instagram.download;
 import android.content.Context;
 import android.view.View;
 
-import java.lang.reflect.Method;
-
 final class MenuInjector {
     private MenuInjector() {}
 
-    static void addActionSheetRow(Object menu, Object media, Context context) {
-        if (menu == null || media == null) return;
-        if (StoryOptions.containsDownload(menu)) return;
-
-        Context rowContext = ContextResolver.best(context, menu);
-        Method add = findActionSheetRowMethod(menu.getClass());
-        if (rowContext == null || add == null) return;
-
-        Reflect.invoke(add, menu, "Download", listener(media, rowContext));
-        Logcat.d("addDownloadRow: added to " + Reflect.className(menu));
-    }
-
     static void addLegacyRow(Object menu, Object media, Context context) {
         if (menu == null || media == null) return;
-        if (StoryOptions.containsDownload(menu)) return;
 
         Context rowContext = ContextResolver.best(context, menu);
-        Method add = findLegacyRowMethod(menu.getClass());
-        if (rowContext == null || add == null) return;
+        if (rowContext == null) return;
 
-        Reflect.invoke(add, menu, rowContext, listener(media, rowContext), "Download", 0, false);
-        Logcat.d("addLegacyDownloadRow: added to " + Reflect.className(menu));
-    }
+        final Context boundContext = rowContext;
+        View.OnClickListener listener = view ->
+                DownloadEnqueuer.download(media, boundContext != null ? boundContext : view.getContext());
 
-    private static Method findActionSheetRowMethod(Class<?> cls) {
-        for (Method method : Reflect.methods(cls)) {
-            Class<?>[] params = method.getParameterTypes();
-            if (params.length == 2 && params[0] == String.class
-                    && View.OnClickListener.class.isAssignableFrom(params[1])) {
-                return method;
-            }
-        }
-        return null;
-    }
-
-    private static Method findLegacyRowMethod(Class<?> cls) {
-        for (Method method : Reflect.methods(cls)) {
-            Class<?>[] params = method.getParameterTypes();
-            if (params.length == 5
-                    && Context.class.isAssignableFrom(params[0])
-                    && View.OnClickListener.class.isAssignableFrom(params[1])
-                    && params[2] == String.class
-                    && params[3] == int.class
-                    && params[4] == boolean.class) {
-                return method;
-            }
-        }
-        return null;
-    }
-
-    private static View.OnClickListener listener(Object media, Context context) {
-        return view -> DownloadEnqueuer.download(media, context != null ? context : view.getContext());
+        MediaMeta.addLegacyMenuRow(menu, rowContext, listener, "Download", 0, false);
     }
 }

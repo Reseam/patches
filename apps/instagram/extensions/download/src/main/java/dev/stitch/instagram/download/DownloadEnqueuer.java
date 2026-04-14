@@ -49,7 +49,7 @@ final class DownloadEnqueuer {
     private DownloadEnqueuer() {}
 
     static void download(Object media, Context context) {
-        Logcat.d("downloadMedia: media=" + Reflect.className(media));
+        Logcat.d("downloadMedia: media=" + (media == null ? "null" : media.getClass().getName()));
         if (media == null) return;
 
         Context safe = ContextResolver.safe(context);
@@ -73,8 +73,8 @@ final class DownloadEnqueuer {
 
     static void downloadReelItem(Object reelItem, Context context) {
         Object media = ReelItemResolver.media(reelItem);
-        Logcat.d("downloadReelItem: reelItem=" + Reflect.className(reelItem)
-                + ", media=" + Reflect.className(media));
+        Logcat.d("downloadReelItem: reelItem=" + (reelItem == null ? "null" : reelItem.getClass().getName())
+                + ", media=" + (media == null ? "null" : media.getClass().getName()));
         if (media != null) {
             download(media, context);
         } else {
@@ -85,8 +85,8 @@ final class DownloadEnqueuer {
     static void downloadStory(Object owner) {
         Object reelItem = StoryOwnerResolver.reelItem(owner);
         Context context = StoryOwnerResolver.context(owner);
-        Logcat.d("downloadStory: owner=" + Reflect.className(owner)
-                + ", reelItem=" + Reflect.className(reelItem));
+        Logcat.d("downloadStory: owner=" + (owner == null ? "null" : owner.getClass().getName())
+                + ", reelItem=" + (reelItem == null ? "null" : reelItem.getClass().getName()));
         if (reelItem != null) {
             downloadReelItem(reelItem, context);
         } else {
@@ -113,7 +113,7 @@ final class DownloadEnqueuer {
         UrlExtractor.MediaUrl mediaUrl = UrlExtractor.best(media);
         if (mediaUrl == null) {
             if (index == 0) showToast(context, "Could not extract media URL");
-            Logcat.w("Could not extract URL from " + Reflect.className(media));
+            Logcat.w("Could not extract URL from " + (media == null ? "null" : media.getClass().getName()));
             return false;
         }
 

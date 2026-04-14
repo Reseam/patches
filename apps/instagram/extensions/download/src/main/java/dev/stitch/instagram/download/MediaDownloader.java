@@ -39,12 +39,8 @@ public final class MediaDownloader {
         return StoryOptions.appendDownload(items);
     }
 
-    public static boolean handleFeedMenuClick(Object listener) {
-        return FeedClickHandler.handleListener(listener);
-    }
-
-    public static void addDownloadRow(Object menu, Object media, Context context) {
-        MenuInjector.addActionSheetRow(menu, media, context);
+    public static boolean handleFeedClick(Object handler, Object option) {
+        return FeedClickHandler.handleFeedClick(handler, option);
     }
 
     public static void addLegacyDownloadRow(Object menu, Object media, Context context) {

@@ -32,25 +32,14 @@ final class StoryOptions {
     }
 
     static CharSequence[] appendDownload(CharSequence[] items) {
-        try {
-            if (items == null) return new CharSequence[]{LABEL};
-            if (containsDownload(items)) return items;
-
-            CharSequence[] expanded = new CharSequence[items.length + 1];
-            System.arraycopy(items, 0, expanded, 0, items.length);
-            expanded[items.length] = LABEL;
-            return expanded;
-        } catch (Throwable t) {
-            Logcat.e("appendStoryDownload failed", t);
-            return items;
+        if (items == null) return new CharSequence[]{LABEL};
+        for (CharSequence item : items) {
+            if (isDownload(item)) return items;
         }
-    }
 
-    static boolean containsDownload(Object object) {
-        return Reflect.find(object, StoryOptions::isDownloadObject, 5) != null;
-    }
-
-    private static boolean isDownloadObject(Object object) {
-        return object instanceof CharSequence && isDownload((CharSequence) object);
+        CharSequence[] expanded = new CharSequence[items.length + 1];
+        System.arraycopy(items, 0, expanded, 0, items.length);
+        expanded[items.length] = LABEL;
+        return expanded;
     }
 }

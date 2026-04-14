@@ -23,23 +23,19 @@
 package dev.stitch.patches.instagram.media.download
 
 import dev.stitch.patch.FieldRef
+import dev.stitch.patch.Instruction
+import dev.stitch.patch.Method
 import dev.stitch.patch.MethodRef
 import dev.stitch.patch.Opcodes
 import dev.stitch.patch.PatchRuntime
 import dev.stitch.patch.buildInstructions
-import dev.stitch.patch.fieldRef
-import dev.stitch.patch.methodRef
-import dev.stitch.patch.opcode
-import dev.stitch.patch.parameterTypes
-import dev.stitch.patch.returnType
+import dev.stitch.patch.indexOfFirstInstruction
 
 private const val MEDIA_META = "Ldev/stitch/instagram/download/MediaMeta;"
-private const val SHARE_SHEET = "Linstagram/features/direct/fragment/sharesheet/DirectShareSheetFragment;"
-private const val DIRECT_SHARE_TARGET = "Lcom/instagram/model/direct/DirectShareTarget;"
 
 internal fun hookMediaMeta(ctx: PatchRuntime) {
     val mediaClass = feedMediaType()
-    val (userField, usernameCall) = resolveUsernameAccessor(ctx, mediaClass)
+    val path = resolveAuthorPath(ctx, mediaClass)
 
     val bridge = ctx.bytecode.findClass(MEDIA_META)
         ?.methods
@@ -49,40 +45,110 @@ internal fun hookMediaMeta(ctx: PatchRuntime) {
     bridge.setRegisters(registersSize = 2, outsSize = 1)
     bridge.setInstructions(buildInstructions {
         checkCast(1, mediaClass)
-        igetObject(0, 1, userField)
-        invokeInterface(usernameCall.definingClass, usernameCall.name, usernameCall.proto, 0)
+        igetObject(0, 1, path.dictField)
+        invokeInterface(path.ownerAccessor.definingClass, path.ownerAccessor.name, path.ownerAccessor.proto, 0)
+        moveResultObject(0)
+        igetObject(0, 0, path.principalField)
+        invokeInterface(path.handleAccessor.definingClass, path.handleAccessor.name, path.handleAccessor.proto, 0)
         moveResultObject(0)
         returnObject(0)
     })
 
-    ctx.log.info("Bound MediaMeta.username -> ${usernameCall.definingClass}->${usernameCall.name}")
+    ctx.log.info(
+        "Bound MediaMeta.username via ${path.dictField.name} -> ${path.ownerAccessor.name}" +
+            " -> ${path.principalField.name} -> ${path.handleAccessor.name}"
+    )
 }
 
-private fun resolveUsernameAccessor(ctx: PatchRuntime, mediaClass: String): Pair<FieldRef, MethodRef> {
-    val shareSheet = ctx.bytecode.findClass(SHARE_SHEET)
-        ?: error("DirectShareSheetFragment not found; cannot anchor username accessor")
+private data class AuthorPath(
+    val dictField: FieldRef,
+    val ownerAccessor: MethodRef,
+    val principalField: FieldRef,
+    val handleAccessor: MethodRef,
+)
 
-    val method = shareSheet.methods.firstOrNull { m ->
-        m.returnType == "V" && m.parameterTypes == listOf(DIRECT_SHARE_TARGET, "I", "Z")
-    } ?: error("DirectShareSheet username-binding method not found")
+private fun resolveAuthorPath(ctx: PatchRuntime, mediaClass: String): AuthorPath {
+    val carrier = shareUrlCarrierMethod(ctx)
 
-    val insns = method.instructions
+    val dictReadIdx = carrier.indexOfFirstInstruction {
+        this is Instruction.RegField &&
+            value0.opcode.toInt() == Opcodes.IGET_OBJECT &&
+            value0.field.definingClass == mediaClass
+    }
+    if (dictReadIdx < 0) error("Author path: media dict read not located")
+    val dictField = carrier.fieldRef(dictReadIdx)
+        ?: error("Author path: dict field ref unreadable")
 
-    val userField = insns.firstNotNullOfOrNull { ins ->
-        if (ins.opcode() == Opcodes.IGET_OBJECT) {
-            ins.fieldRef()?.takeIf { it.definingClass == mediaClass }
-        } else null
-    } ?: error("Media->user iget-object not found in DirectShareSheet anchor")
+    val ownerCallIdx = carrier.indexOfFirstInstruction(dictReadIdx + 1) {
+        (this is Instruction.Invoke || this is Instruction.InvokeRange) &&
+            matchInterfaceReturningObject(this, dictField.fieldType)
+    }
+    if (ownerCallIdx < 0) error("Author path: owner accessor not located")
+    val ownerAccessor = carrier.methodRef(ownerCallIdx)
+        ?: error("Author path: owner accessor ref unreadable")
+    val ownerWrapper = returnTypeOf(ownerAccessor.proto)
 
-    val userInterface = userField.fieldType
+    val principalReadIdx = carrier.indexOfFirstInstruction(ownerCallIdx + 1) {
+        this is Instruction.RegField &&
+            value0.opcode.toInt() == Opcodes.IGET_OBJECT &&
+            value0.field.definingClass == ownerWrapper
+    }
+    if (principalReadIdx < 0) error("Author path: principal field not located")
+    val principalField = carrier.fieldRef(principalReadIdx)
+        ?: error("Author path: principal field ref unreadable")
 
-    val usernameCall = insns.firstNotNullOfOrNull { ins ->
-        val op = ins.opcode()
-        if (op != Opcodes.INVOKE_INTERFACE && op != Opcodes.INVOKE_INTERFACE_RANGE) return@firstNotNullOfOrNull null
-        ins.methodRef()?.takeIf {
-            it.definingClass == userInterface && it.proto == "()Ljava/lang/String;"
+    val handleCallIdx = carrier.indexOfFirstInstruction(principalReadIdx + 1) {
+        (this is Instruction.Invoke || this is Instruction.InvokeRange) &&
+            matchInterfaceReturningString(this, principalField.fieldType)
+    }
+    if (handleCallIdx < 0) error("Author path: handle accessor not located")
+    val handleAccessor = carrier.methodRef(handleCallIdx)
+        ?: error("Author path: handle accessor ref unreadable")
+
+    return AuthorPath(dictField, ownerAccessor, principalField, handleAccessor)
+}
+
+private fun matchInterfaceReturningObject(ins: Instruction, owner: String): Boolean {
+    val op = invokeOpcode(ins) ?: return false
+    if (op != Opcodes.INVOKE_INTERFACE && op != Opcodes.INVOKE_INTERFACE_RANGE) return false
+    val m = invokeTarget(ins) ?: return false
+    return m.definingClass == owner && m.proto.startsWith("()L") && m.proto.endsWith(";")
+}
+
+private fun matchInterfaceReturningString(ins: Instruction, owner: String): Boolean {
+    val op = invokeOpcode(ins) ?: return false
+    if (op != Opcodes.INVOKE_INTERFACE && op != Opcodes.INVOKE_INTERFACE_RANGE) return false
+    val m = invokeTarget(ins) ?: return false
+    return m.definingClass == owner && m.proto == "()Ljava/lang/String;"
+}
+
+private fun invokeOpcode(ins: Instruction): Int? = when (ins) {
+    is Instruction.Invoke -> ins.value0.opcode.toInt()
+    is Instruction.InvokeRange -> ins.value0.opcode.toInt()
+    else -> null
+}
+
+private fun invokeTarget(ins: Instruction): MethodRef? = when (ins) {
+    is Instruction.Invoke -> ins.value0.method
+    is Instruction.InvokeRange -> ins.value0.method
+    else -> null
+}
+
+private fun returnTypeOf(proto: String): String {
+    val close = proto.indexOf(')')
+    if (close < 0) error("Malformed proto: $proto")
+    return proto.substring(close + 1)
+}
+
+private fun shareUrlCarrierMethod(ctx: PatchRuntime): Method {
+    val needleA = "https://www.instagram.com/p/"
+    val needleB = "unknown"
+    for (cls in ctx.bytecode.classes) {
+        for (m in cls.methods) {
+            if (m.indexOfFirstString(needleA) == null) continue
+            if (m.indexOfFirstString(needleB) == null) continue
+            return m
         }
-    } ?: error("User String accessor not found in DirectShareSheet anchor")
-
-    return userField to usernameCall
+    }
+    error("Author path: carrier method not discovered")
 }
