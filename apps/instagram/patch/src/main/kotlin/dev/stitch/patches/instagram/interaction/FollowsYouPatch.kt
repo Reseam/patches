@@ -26,33 +26,32 @@ import dev.stitch.patches.instagram.core.FollowSettings
 import dev.stitch.patches.instagram.core.signatureCheckPatch
 import dev.stitch.patches.instagram.core.settingsPatch
 
+import dev.stitch.patch.Instruction
+import dev.stitch.patch.MethodRef
 import dev.stitch.patch.Opcodes
 import dev.stitch.patch.compatibleWith
 import dev.stitch.patch.fingerprint
-import dev.stitch.patch.methodRef
-import dev.stitch.patch.opcode
+import dev.stitch.patch.parameterTypes
 import dev.stitch.patch.patch
-import dev.stitch.patch.returnType
-import dev.stitch.patch.stringValue
 import dev.stitch.patch.settings.SettingsSection
 
-private val friendshipStatusPropertyMapFingerprint = fingerprint {
-    strings("followed_by", "blocking", "following")
-    returnType("Ljava/util/Map;")
-}
+private const val EXT = "Ldev/stitch/instagram/follows/FollowsYouIndicator;"
+private const val USER_SESSION = "Lcom/instagram/common/session/UserSession;"
+private const val FRIENDSHIP_STATUS = "Lcom/instagram/user/model/FriendshipStatus;"
 
-private val searchSubtitleFingerprint = fingerprint {
-    strings(" \u2022 ")
-    returnType("Ljava/lang/String;")
+// Row binder in the search-result subtitle builder. Strings are stable across versions.
+private val searchRowBinderFingerprint = fingerprint {
+    strings("search_navigate_to_user", " \u2022 ")
+    returnType("V")
 }
 
 val followsYouPatch = patch(
     name = "Follows you indicator",
-    description = "Shows a 'Follows you' badge next to usernames in search results and user lists",
+    description = "Shows a 'Follows you' badge next to usernames in search results",
     compatibleWith = listOf(compatibleWith("com.instagram.android")),
     settingsHost = settingsPatch,
     dependsOn = listOf(signatureCheckPatch, settingsPatch),
-    enabledByDefault = false,
+    enabledByDefault = true,
     settings = listOf(
         SettingsSection(
             title = "Social",
@@ -60,61 +59,101 @@ val followsYouPatch = patch(
         ),
     ),
 ) {
-    extendWith("follows-you.dex")
+    extendWith("instagram-follows-you.dex")
 
     execute { ctx ->
-        val propMapMethod = friendshipStatusPropertyMapFingerprint.method
-        val insns = propMapMethod.instructions
+        val method = searchRowBinderFingerprint.method
+        val insns = method.instructions
 
-        var followedByMethodName: String? = null
-        var friendshipInterface: String? = null
+        fun staticCalls() = insns.withIndex().mapNotNull { (i, ins) ->
+            if (ins is Instruction.Invoke && ins.value0.opcode.toInt() == Opcodes.INVOKE_STATIC)
+                i to ins else null
+        }
+        val statics = staticCalls()
 
-        for (i in insns.indices) {
-            if (insns[i].stringValue() != "followed_by") continue
-            for (j in (i + 1)..(i + 3).coerceAtMost(insns.lastIndex)) {
-                val ref = insns[j].methodRef() ?: continue
-                if (ref.definingClass.contains("FriendshipStatus")) {
-                    followedByMethodName = ref.name
-                    friendshipInterface = ref.definingClass
-                    break
+        // Resolve the (userModel -> FriendshipStatus) helper by its stable return type.
+        val statusHelper = statics.map { it.second.value0.method }.firstOrNull {
+            it.proto.endsWith(")$FRIENDSHIP_STATUS") && it.parameterTypes.size == 1
+        } ?: run {
+            ctx.log.warn("FollowsYouPatch: status helper not found"); return@execute
+        }
+        val userModelType = statusHelper.parameterTypes[0]
+
+        // Resolve the (UserSession, D3X -> userModel) helper.
+        val userResolver = statics.map { it.second.value0.method }.firstOrNull {
+            it.proto.endsWith(")$userModelType") &&
+                it.parameterTypes.size == 2 &&
+                it.parameterTypes[0] == USER_SESSION
+        } ?: run {
+            ctx.log.warn("FollowsYouPatch: user resolver not found"); return@execute
+        }
+        val d3xType = userResolver.parameterTypes[1]
+
+        // Follow-state getter: invoke-interface on FriendshipStatus returning Boolean,
+        // whose receiver traces back to the status helper call.
+        val followedByName = run {
+            for ((i, ins) in insns.withIndex()) {
+                if (ins !is Instruction.Invoke) continue
+                val m = ins.value0.method
+                if (ins.value0.opcode.toInt() != Opcodes.INVOKE_INTERFACE) continue
+                if (m.definingClass != FRIENDSHIP_STATUS) continue
+                if (!m.proto.endsWith(")Ljava/lang/Boolean;")) continue
+                val recv = ins.value0.registers[0].toInt()
+                for (j in (i - 1) downTo maxOf(0, i - 6)) {
+                    val prev = insns[j] as? Instruction.Invoke ?: continue
+                    if (prev.value0.method != statusHelper) continue
+                    if (method.registerA(j + 1) == recv) return@run m.name
                 }
             }
-            if (followedByMethodName != null) break
+            null
+        } ?: run {
+            ctx.log.warn("FollowsYouPatch: followed_by getter not found"); return@execute
         }
 
-        if (followedByMethodName == null || friendshipInterface == null) {
-            ctx.log.warn("Could not resolve followed_by method on FriendshipStatus")
-            return@execute
+        // Subtitle builder: static String-returning call taking (..., UserSession, ..., D3X, ...).
+        val subtitleSites = statics.filter { (_, ins) ->
+            val m = ins.value0.method
+            m.proto.endsWith(")Ljava/lang/String;") &&
+                m.parameterTypes.contains(USER_SESSION) &&
+                m.parameterTypes.contains(d3xType)
         }
-
-        ctx.log.info("Found followed_by: $friendshipInterface->$followedByMethodName")
-
-        if (!searchSubtitleFingerprint.matched) {
-            ctx.log.warn("Search subtitle fingerprint not matched")
-            return@execute
-        }
-
-        val subtitleMethod = searchSubtitleFingerprint.method
-        val subtitleInsns = subtitleMethod.instructions
-        val returnIndices = subtitleInsns.mapIndexedNotNull { i, insn ->
-            if (insn.opcode() == Opcodes.RETURN_OBJECT) i else null
+        if (subtitleSites.isEmpty()) {
+            ctx.log.warn("FollowsYouPatch: subtitle call sites not found"); return@execute
         }
 
         var injected = 0
-        for (retIdx in returnIndices.reversed()) {
-            val retReg = subtitleMethod.registerA(retIdx)
-            subtitleMethod.insertInvokeStaticWithMoveResult(
-                retIdx,
-                "Ldev/stitch/extension/instagram/follows/FollowsYouIndicator;",
-                "maybeAppend",
-                "(Ljava/lang/String;)Ljava/lang/String;",
-                listOf(retReg),
-                retReg,
-                isObject = true,
+        for ((idx, ins) in subtitleSites.reversed()) {
+            val params = ins.value0.method.parameterTypes
+            val callRegs = ins.value0.registers
+            val userSessionReg = callRegs[params.indexOf(USER_SESSION)].toInt()
+            val d3xReg = callRegs[params.indexOf(d3xType)].toInt()
+            val subtitleReg = method.registerA(idx + 1)
+
+            val (tmp1, tmp2) = method.findFreeRegisters(
+                idx + 2, 2,
+                exclude = listOf(subtitleReg, userSessionReg, d3xReg),
             )
+
+            val done = "fy_done_$idx"
+            method.addInstructions(idx + 2) {
+                invokeStatic(userResolver.definingClass, userResolver.name, userResolver.proto,
+                    userSessionReg, d3xReg)
+                moveResultObject(tmp1)
+                ifEqz(tmp1, done)
+                invokeStatic(statusHelper.definingClass, statusHelper.name, statusHelper.proto, tmp1)
+                moveResultObject(tmp2)
+                ifEqz(tmp2, done)
+                invokeInterface(FRIENDSHIP_STATUS, followedByName, "()Ljava/lang/Boolean;", tmp2)
+                moveResultObject(tmp2)
+                invokeStatic(EXT, "maybeAppend",
+                    "(Ljava/lang/String;Ljava/lang/Boolean;)Ljava/lang/String;",
+                    subtitleReg, tmp2)
+                moveResultObject(subtitleReg)
+                label(done)
+            }
             injected++
         }
 
-        ctx.log.info("Injected follows-you check at $injected return points")
+        ctx.log.info("FollowsYouPatch: injected at $injected subtitle sites")
     }
 }

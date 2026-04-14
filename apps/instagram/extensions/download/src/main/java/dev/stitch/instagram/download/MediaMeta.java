@@ -25,30 +25,12 @@ package dev.stitch.instagram.download;
 import android.content.Context;
 import android.view.View;
 
-import java.util.List;
-
 public final class MediaMeta {
     private MediaMeta() {}
 
     // All bodies are replaced at patch time with direct invokes using
     // fingerprint-resolved method/field refs. See download patch UrlHooks /
     // OwnerHooks / MenuHooks in the patch module.
-
-    public static String username(Object media) {
-        return null;
-    }
-
-    public static String videoUrl(Object media) {
-        return null;
-    }
-
-    public static String imageUrl(Object media) {
-        return null;
-    }
-
-    public static List carouselChildren(Object media) {
-        return null;
-    }
 
     public static Object feedHandlerMedia(Object handler) {
         return null;

@@ -27,13 +27,15 @@ import dev.stitch.patch.patch
 import dev.stitch.patch.settings.SettingsSection
 import dev.stitch.patches.instagram.core.DownloadSettings
 import dev.stitch.patches.instagram.core.settingsPatch
+import dev.stitch.patches.instagram.refs.mediaRefs
+import dev.stitch.patches.instagram.refs.userRefs
 
 val downloadPatch = patch(
     name = "Download media",
     description = "Adds a download option to feed, reels, and story overflow menus.",
     compatibleWith = listOf(compatibleWith("com.instagram.android")),
     settingsHost = settingsPatch,
-    dependsOn = listOf(settingsPatch),
+    dependsOn = listOf(settingsPatch, userRefs, mediaRefs),
     enabledByDefault = true,
     settings = listOf(
         SettingsSection(
@@ -56,6 +58,7 @@ val downloadPatch = patch(
 
         hookStoryMenu(ctx)
 
-        hookMediaMeta(ctx)
+        hookOwnerBridges(ctx)
+        hookMenuBridges(ctx)
     }
 }

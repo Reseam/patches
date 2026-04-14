@@ -24,25 +24,18 @@ package dev.stitch.instagram.follows;
 
 import dev.stitch.runtime.settings.StitchSettings;
 
-/**
- * Appends a " . Follows you" suffix to a subtitle string. Wired in by FollowsYouPatch
- * just before every RETURN_OBJECT in the search-result subtitle builder.
- * <p>
- * This naive version tags every subtitle unconditionally. A proper implementation
- * needs access to the row's FriendshipStatus — the subtitle method doesn't receive it
- * directly, so that will require a small helper that walks the caller chain (see
- * WORK_LOG notes). Until then, the patch stays off by default.
- */
 public final class FollowsYouIndicator {
-    private static final String SUFFIX = " \u00b7 Follows you";
+    private static final String LABEL = "Follows you";
+    private static final String SUFFIX = " \u00b7 " + LABEL;
     private static final String SETTING_KEY = "follow.follows_you_indicator";
 
     private FollowsYouIndicator() {}
 
-    public static String maybeAppend(String subtitle) {
+    public static String maybeAppend(String subtitle, Boolean followedBy) {
         if (!StitchSettings.getBoolean(SETTING_KEY, false)) return subtitle;
-        if (subtitle == null || subtitle.isEmpty()) return subtitle;
-        if (subtitle.endsWith(SUFFIX)) return subtitle;
+        if (followedBy == null || !followedBy.booleanValue()) return subtitle;
+        if (subtitle == null || subtitle.isEmpty()) return LABEL;
+        if (subtitle.endsWith(SUFFIX) || subtitle.equals(LABEL)) return subtitle;
         return subtitle + SUFFIX;
     }
 }

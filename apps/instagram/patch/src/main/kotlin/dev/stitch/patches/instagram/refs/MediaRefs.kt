@@ -2,25 +2,10 @@
  * Stitch — part of the Stitch Android patcher.
  * Copyright (C) 2026 Aunali321 <accounts@auna.li>
  *
- * This file is part of Stitch.
- *
- * Stitch is free software: you can redistribute it and/or modify it
- * under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Stitch is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
- * General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program. If not, see <https://www.gnu.org/licenses/>.
- *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-package dev.stitch.patches.instagram.media.download
+package dev.stitch.patches.instagram.refs
 
 import dev.stitch.patch.DexClass
 import dev.stitch.patch.FieldRef
@@ -30,36 +15,58 @@ import dev.stitch.patch.MethodRef
 import dev.stitch.patch.Opcodes
 import dev.stitch.patch.PatchRuntime
 import dev.stitch.patch.buildInstructions
+import dev.stitch.patch.compatibleWith
 import dev.stitch.patch.findInstructionsByInvoke
-import dev.stitch.patch.methodRef
+import dev.stitch.patch.indexOfFirstInstruction
 import dev.stitch.patch.opcode
+import dev.stitch.patch.patch
 import dev.stitch.patch.typeRef
+import dev.stitch.patches.instagram.core.signatureCheckPatch
 
-private const val MEDIA_META = "Ldev/stitch/instagram/download/MediaMeta;"
+private const val REFS_MEDIA = "Ldev/stitch/instagram/refs/Media;"
 private const val LIST_TYPE = "Ljava/util/List;"
+private const val EXTENDED_IMAGE_URL_TYPE = "Lcom/instagram/model/mediasize/ExtendedImageUrl;"
+private const val VIDEO_VERSION_INTF_TYPE = "Lcom/instagram/model/mediasize/VideoVersionIntf;"
 
-internal fun hookUrlBridges(ctx: PatchRuntime) {
-    val mediaClass = feedMediaType()
-    val mediaClassDef = ctx.bytecode.findClass(mediaClass)
-        ?: error("feed media class not found: $mediaClass")
+val mediaRefs = patch(
+    name = "Media refs",
+    description = "Internal: binds dev.stitch.instagram.refs.Media bridges to Instagram's media value class.",
+    compatibleWith = listOf(compatibleWith("com.instagram.android")),
+    dependsOn = listOf(signatureCheckPatch),
+    enabledByDefault = false,
+) {
+    extendWith("instagram-refs.dex")
 
-    rewriteImageUrlBridge(ctx, mediaClass, mediaClassDef)
+    execute { ctx ->
+        val mediaClass = resolveMediaClass(ctx)
+        val mediaClassDef = ctx.bytecode.findClass(mediaClass)
+            ?: error("Media refs: class not found: $mediaClass")
 
-    val dictField = resolveDictField(ctx, mediaClassDef)
-    val videoGetter = resolveDictListGetter(ctx, dictField.fieldType, VIDEO_VERSION_INTF_TYPE)
-        ?: error("Could not correlate video_versions getter on ${dictField.fieldType}")
-    val carouselGetter = resolveDictListGetter(ctx, dictField.fieldType, mediaClass)
-        ?: error("Could not correlate carousel_media getter on ${dictField.fieldType}")
+        bindPhotoUrl(ctx, mediaClass, mediaClassDef)
 
-    rewriteVideoUrlBridge(ctx, mediaClass, dictField, videoGetter)
-    rewriteCarouselChildrenBridge(ctx, mediaClass, dictField, carouselGetter)
+        val dictField = resolveDictField(ctx, mediaClassDef)
+        val videoGetter = resolveDictListGetter(ctx, dictField.fieldType, VIDEO_VERSION_INTF_TYPE)
+            ?: error("Media refs: video_versions getter not correlated on ${dictField.fieldType}")
+        val carouselGetter = resolveDictListGetter(ctx, dictField.fieldType, mediaClass)
+            ?: error("Media refs: carousel_media getter not correlated on ${dictField.fieldType}")
+
+        bindVideoUrl(ctx, mediaClass, dictField, videoGetter)
+        bindChildren(ctx, mediaClass, dictField, carouselGetter)
+
+        ctx.log.info(
+            "Media refs bound: $mediaClass " +
+                "(photo=${EXTENDED_IMAGE_URL_TYPE.substringAfterLast('/').trimEnd(';')}, " +
+                "video=${dictField.fieldType}->${videoGetter.name}, " +
+                "carousel=${dictField.fieldType}->${carouselGetter.name})"
+        )
+    }
 }
 
-private fun rewriteImageUrlBridge(ctx: PatchRuntime, mediaClass: String, mediaClassDef: DexClass) {
+private fun bindPhotoUrl(ctx: PatchRuntime, mediaClass: String, mediaClassDef: DexClass) {
     val imageField = mediaClassDef.instanceFields.firstOrNull { it.fieldType == EXTENDED_IMAGE_URL_TYPE }
-        ?: error("ExtendedImageUrl field not found on $mediaClass")
+        ?: error("Media refs: ExtendedImageUrl field not on $mediaClass")
 
-    val bridge = findBridge(ctx, "imageUrl")
+    val bridge = bridgeMethod(ctx, "photoUrl")
     bridge.setRegisters(registersSize = 2, outsSize = 1)
     bridge.setInstructions(buildInstructions {
         checkCast(1, mediaClass)
@@ -72,19 +79,17 @@ private fun rewriteImageUrlBridge(ctx: PatchRuntime, mediaClass: String, mediaCl
         const_(0, 0)
         returnObject(0)
     })
-    ctx.log.info("Bound MediaMeta.imageUrl -> $mediaClass.${imageField.name}")
 }
 
-private fun rewriteVideoUrlBridge(
+private fun bindVideoUrl(
     ctx: PatchRuntime,
     mediaClass: String,
     dictField: FieldRef,
     videoGetter: MethodRef,
 ) {
-    val bridge = findBridge(ctx, "videoUrl")
+    val bridge = bridgeMethod(ctx, "videoUrl")
     bridge.setRegisters(registersSize = 3, outsSize = 2)
     bridge.setInstructions(buildInstructions {
-        // v2 = p0 (Object media)
         checkCast(2, mediaClass)
         igetObject(0, 2, dictField)
         ifEqz(0, "ret_null")
@@ -106,16 +111,15 @@ private fun rewriteVideoUrlBridge(
         const_(0, 0)
         returnObject(0)
     })
-    ctx.log.info("Bound MediaMeta.videoUrl -> ${dictField.fieldType}->${videoGetter.name}")
 }
 
-private fun rewriteCarouselChildrenBridge(
+private fun bindChildren(
     ctx: PatchRuntime,
     mediaClass: String,
     dictField: FieldRef,
     carouselGetter: MethodRef,
 ) {
-    val bridge = findBridge(ctx, "carouselChildren")
+    val bridge = bridgeMethod(ctx, "children")
     bridge.setRegisters(registersSize = 2, outsSize = 1)
     bridge.setInstructions(buildInstructions {
         checkCast(1, mediaClass)
@@ -128,40 +132,61 @@ private fun rewriteCarouselChildrenBridge(
         const_(0, 0)
         returnObject(0)
     })
-    ctx.log.info("Bound MediaMeta.carouselChildren -> ${dictField.fieldType}->${carouselGetter.name}")
 }
 
-private fun findBridge(ctx: PatchRuntime, name: String): Method =
-    ctx.bytecode.findClass(MEDIA_META)
+private fun bridgeMethod(ctx: PatchRuntime, name: String): Method =
+    ctx.bytecode.findClass(REFS_MEDIA)
         ?.methods
         ?.firstOrNull { it.info.methodName == name }
-        ?: error("MediaMeta.$name bridge not found")
+        ?: error("Media refs: stub $name not found")
+
+// Media class is the field type of the first IGET_OBJECT in the share-URL
+// carrier method (strings "https://www.instagram.com/p/" + "unknown"). This
+// mirrors UserRefs: independent discovery, no shared fingerprint handle.
+private fun resolveMediaClass(ctx: PatchRuntime): String {
+    val carrier = shareUrlCarrierMethod(ctx)
+    val idx = carrier.indexOfFirstInstruction {
+        this is Instruction.RegField && value0.opcode.toInt() == Opcodes.IGET_OBJECT
+    }
+    if (idx < 0) error("Media refs: media bearer not located in carrier")
+    return carrier.fieldRef(idx)?.fieldType
+        ?: error("Media refs: media bearer field ref unreadable")
+}
+
+private fun shareUrlCarrierMethod(ctx: PatchRuntime): Method {
+    val a = "https://www.instagram.com/p/"
+    val b = "unknown"
+    for (cls in ctx.bytecode.classes) {
+        for (m in cls.methods) {
+            if (m.indexOfFirstString(a) == null) continue
+            if (m.indexOfFirstString(b) == null) continue
+            return m
+        }
+    }
+    error("Media refs: share-URL carrier method not discovered")
+}
 
 // The feed media class holds an instance field typed as the "XDTMediaDict"
-// interface. Identify it as the instance field whose type is an interface class
-// with the most zero-arg getters returning List. Avoids hardcoding the
-// obfuscated descriptor (e.g. LX/9kQ;) from a specific IG build.
+// interface — the instance field whose type is an interface with the most
+// zero-arg getters returning List.
 private fun resolveDictField(ctx: PatchRuntime, mediaClassDef: DexClass): FieldRef {
     val mediaClass = mediaClassDef.info.descriptor
     var best: Pair<FieldRef, Int>? = null
     for (f in mediaClassDef.instanceFields) {
         if (!f.fieldType.startsWith("L")) continue
         val klass = ctx.bytecode.findClass(f.fieldType) ?: continue
-        val listGetters = klass.methods.count { m ->
-            m.info.proto == "()$LIST_TYPE"
-        }
+        val listGetters = klass.methods.count { m -> m.info.proto == "()$LIST_TYPE" }
         if (listGetters >= 5 && (best == null || listGetters > best.second)) {
             best = FieldRef(mediaClass, f.name, f.fieldType) to listGetters
         }
     }
     return best?.first
-        ?: error("dict interface field not found on $mediaClass")
+        ?: error("Media refs: dict interface field not on $mediaClass")
 }
 
-// For each zero-arg List-returning method on the dict interface, count how
-// many call sites are followed (within lookAhead) by a check-cast to
-// targetCastType. The winner is the getter for that list. Uses the native
-// invoke-index so it doesn't have to walk every class in the APK.
+// For each zero-arg List-returning method on the dict interface, count callers
+// that follow the invoke with a check-cast to targetCastType. Winner owns the
+// list. Uses the native invoke-index so we don't walk every class.
 private fun resolveDictListGetter(
     ctx: PatchRuntime,
     dictType: String,

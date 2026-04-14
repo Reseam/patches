@@ -17,3 +17,7 @@ project(":apps:instagram:extensions:download").projectDir =
 include(":apps:instagram:extensions:follows")
 project(":apps:instagram:extensions:follows").projectDir =
     file("apps/instagram/extensions/follows")
+
+include(":apps:instagram:extensions:refs")
+project(":apps:instagram:extensions:refs").projectDir =
+    file("apps/instagram/extensions/refs")

@@ -122,7 +122,8 @@ final class DownloadEnqueuer {
     }
 
     private static String buildFilename(Object media, boolean isVideo, int index) {
-        String user = MediaMeta.username(media);
+        Object principal = dev.stitch.instagram.refs.User.fromMedia(media);
+        String user = principal == null ? null : dev.stitch.instagram.refs.User.username(principal);
         if (user == null || user.isEmpty()) user = "unknown";
         String ts = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.US).format(new Date());
         String uuid = UUID.randomUUID().toString();

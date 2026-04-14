@@ -24,21 +24,23 @@ package dev.stitch.instagram.download;
 
 import java.util.List;
 
+import dev.stitch.instagram.refs.Media;
+
 final class UrlExtractor {
     private UrlExtractor() {}
 
     static MediaUrl best(Object media) {
-        String video = MediaMeta.videoUrl(media);
+        String video = Media.videoUrl(media);
         if (video != null && video.startsWith("http")) return new MediaUrl(video, true);
 
-        String photo = MediaMeta.imageUrl(media);
+        String photo = Media.photoUrl(media);
         if (photo != null && photo.startsWith("http")) return new MediaUrl(photo, false);
 
         return null;
     }
 
     static List<?> carouselChildren(Object media) {
-        List<?> children = MediaMeta.carouselChildren(media);
+        List<?> children = Media.children(media);
         return children != null && children.size() > 1 ? children : null;
     }
 
