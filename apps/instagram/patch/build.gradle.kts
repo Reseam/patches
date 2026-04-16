@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 AunAli K. <hello@auna.li>
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 plugins {
     kotlin("jvm") version "1.9.25"
 }
@@ -10,8 +13,8 @@ dependencies {
     implementation(kotlin("stdlib"))
     implementation(
         files(
-            fileTree("${rootDir}/../stitch/kotlin-sdk/build/libs") {
-                include("stitch-patch-sdk-*.jar")
+            fileTree("${rootDir}/../reseam/kotlin-sdk/build/libs") {
+                include("reseam-patch-sdk-*.jar")
             }
         )
     )

@@ -1,4 +1,7 @@
-rootProject.name = "stitch-patches"
+// SPDX-FileCopyrightText: 2026 AunAli K. <hello@auna.li>
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+rootProject.name = "reseam-patches"
 
 include(":shared-settings-runtime")
 project(":shared-settings-runtime").projectDir = file("shared/settings-runtime")

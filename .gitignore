@@ -26,3 +26,6 @@ references/
 
 # Logs / scratch
 *.log
+
+*.md
+!README.md

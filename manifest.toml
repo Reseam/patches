@@ -1,5 +1,5 @@
 [bundle]
-name = "stitch-patches"
-author = "Stitch"
+name = "reseam-patches"
+author = "Reseam"
 description = "Patches for Android apps"
 format_version = 1

@@ -1,0 +1,29 @@
+version = 1
+
+# ── Project source (default) ────────────────────────────────────────────────
+
+[[annotations]]
+path = [
+    "manifest.toml",
+    "build.gradle.kts",
+    "settings.gradle.kts",
+    "android-extension-module.gradle.kts",
+    "apps/**",
+    "shared/**",
+    ".gitignore",
+    "LICENSE",
+]
+SPDX-FileCopyrightText = "2026 AunAli K. <hello@auna.li>"
+SPDX-License-Identifier = "GPL-3.0-or-later"
+
+# ── Gradle wrapper (Apache-2.0, from the Gradle project) ────────────────────
+
+[[annotations]]
+path = [
+    "gradle/wrapper/gradle-wrapper.jar",
+    "gradle/wrapper/gradle-wrapper.properties",
+    "gradlew",
+    "gradlew.bat",
+]
+SPDX-FileCopyrightText = "2015-2024 the original authors"
+SPDX-License-Identifier = "Apache-2.0"
