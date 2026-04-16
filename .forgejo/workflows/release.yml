@@ -1,0 +1,55 @@
+name: release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: docker
+    container:
+      image: ghcr.io/cirruslabs/android-sdk:34
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: gradle-${{ hashFiles('**/*.gradle.kts', 'gradle/libs.versions.toml') }}
+
+      - env:
+          TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        run: |
+          curl -sSL --fail -H "authorization: token $TOKEN" \
+            -o /usr/local/bin/reseam \
+            https://git.reseam.app/reseam/reseam/releases/latest/download/reseam-linux-x64
+          chmod +x /usr/local/bin/reseam
+
+      - run: |
+          mkdir -p "$HOME/.reseam"
+          printf '%s' "${{ secrets.BUNDLE_SIGNING_KEY_B64 }}" | base64 -d > "$HOME/.reseam/bundle-signing.key"
+          chmod 600 "$HOME/.reseam/bundle-signing.key"
+
+      - env:
+          RESEAM_BIN: /usr/local/bin/reseam
+        run: |
+          TAG="${GITHUB_REF#refs/tags/}"
+          export RESEAM_BUNDLE_KEY="$HOME/.reseam/bundle-signing.key"
+          export RESEAM_RELEASE_VERSION="${TAG#v}"
+          export RESEAM_BUNDLE_URL="https://git.reseam.app/${GITHUB_REPOSITORY}/releases/download/${TAG}/reseam-patches.reseam"
+          ./gradlew generatePatchesJson --no-daemon
+
+      - run: |
+          install -D -m 0644 build/bundle/reseam-patches.reseam dist/reseam-patches.reseam
+          install -D -m 0644 build/bundle/patches.json dist/patches.json
+
+      - uses: https://code.forgejo.org/actions/forgejo-release@v2
+        with:
+          direction: upload
+          url: https://git.reseam.app
+          token: ${{ secrets.RELEASE_TOKEN }}
+          release-dir: dist
+          override: true
