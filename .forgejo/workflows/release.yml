@@ -11,7 +11,7 @@ jobs:
     container:
       image: ghcr.io/cirruslabs/android-sdk:34
     steps:
-      - run: apt-get update && apt-get install -y --no-install-recommends nodejs curl ca-certificates
+      - run: apt-get update && apt-get install -y --no-install-recommends nodejs curl ca-certificates jq
 
       - uses: actions/checkout@v4
 
@@ -25,9 +25,11 @@ jobs:
       - env:
           TOKEN: ${{ secrets.RELEASE_TOKEN }}
         run: |
-          curl -sSL --fail -H "authorization: token $TOKEN" \
-            -o /usr/local/bin/reseam \
-            https://git.reseam.app/reseam/reseam/releases/latest/download/reseam-linux-x64
+          URL=$(curl -sSL --fail -H "authorization: token $TOKEN" \
+            https://git.reseam.app/api/v1/repos/reseam/reseam/releases/latest \
+            | jq -r '.assets[] | select(.name=="reseam-linux-x64") | .browser_download_url')
+          test -n "$URL"
+          curl -sSL --fail -H "authorization: token $TOKEN" -o /usr/local/bin/reseam "$URL"
           chmod +x /usr/local/bin/reseam
 
       - run: |
