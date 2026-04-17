@@ -7,17 +7,14 @@ plugins {
 
 repositories {
     mavenCentral()
+    maven {
+        url = uri("https://git.reseam.app/api/packages/reseam/maven")
+    }
 }
 
 dependencies {
     implementation(kotlin("stdlib"))
-    implementation(
-        files(
-            fileTree("${rootDir}/../reseam/kotlin-sdk/build/libs") {
-                include("reseam-patch-sdk-*.jar")
-            }
-        )
-    )
+    implementation("app.reseam:reseam-patch-sdk:0.1.0")
 }
 
 kotlin {

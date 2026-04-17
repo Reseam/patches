@@ -11,7 +11,7 @@ jobs:
     container:
       image: ghcr.io/cirruslabs/android-sdk:34
     steps:
-      - run: apt-get update && apt-get install -y --no-install-recommends nodejs curl ca-certificates jq openjdk-17-jdk-headless
+      - run: apt-get update && apt-get install -y --no-install-recommends nodejs curl ca-certificates jq openjdk-17-jdk-headless zstd
 
       - run: echo "JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64" >> "$GITHUB_ENV"
 
@@ -23,6 +23,8 @@ jobs:
             ~/.gradle/caches
             ~/.gradle/wrapper
           key: gradle-${{ hashFiles('**/*.gradle.kts', 'gradle/libs.versions.toml') }}
+          restore-keys: |
+            gradle-
 
       - env:
           TOKEN: ${{ secrets.RELEASE_TOKEN }}
