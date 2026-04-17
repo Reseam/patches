@@ -55,10 +55,13 @@ jobs:
           install -D -m 0644 build/bundle/reseam-patches.reseam dist/reseam-patches.reseam
           install -D -m 0644 build/bundle/patches.json dist/patches.json
 
-      - uses: https://code.forgejo.org/actions/forgejo-release@v2
+      - uses: https://code.forgejo.org/actions/forgejo-release@v2.11.1
         with:
           direction: upload
           url: https://git.reseam.app
+          repo: reseam/patches
+          tag: ${{ github.ref_name }}
+          sha: ${{ github.sha }}
           token: ${{ secrets.RELEASE_TOKEN }}
           release-dir: dist
           override: true
