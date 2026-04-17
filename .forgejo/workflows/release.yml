@@ -41,7 +41,7 @@ jobs:
           TAG="${GITHUB_REF#refs/tags/}"
           export RESEAM_BUNDLE_KEY="$HOME/.reseam/bundle-signing.key"
           export RESEAM_RELEASE_VERSION="${TAG#v}"
-          export RESEAM_BUNDLE_URL="https://git.reseam.app/${GITHUB_REPOSITORY}/releases/download/${TAG}/reseam-patches.reseam"
+          export RESEAM_BUNDLE_URL="https://api.reseam.app/patches/${TAG}/reseam-patches.reseam"
           ./gradlew generatePatchesJson --no-daemon
 
       - run: |
