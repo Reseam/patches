@@ -13,6 +13,10 @@ public final class FollowsYouIndicator {
 
     private FollowsYouIndicator() {}
 
+    public static String appendFromSession(String subtitle, Object userSession, Object d3x) {
+        return subtitle;
+    }
+
     public static String maybeAppend(String subtitle, Boolean followedBy) {
         if (!ReseamSettings.getBoolean(SETTING_KEY, true)) return subtitle;
         if (followedBy == null || !followedBy.booleanValue()) return subtitle;

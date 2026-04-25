@@ -5,6 +5,8 @@
 package app.reseam.patches.instagram.core
 
 import app.reseam.patch.PatchRuntime
+import app.reseam.patch.before
+import app.reseam.patch.classesExtending
 import app.reseam.patch.compatibleWith
 import app.reseam.patch.settings.SettingsHost
 import app.reseam.patch.settings.settingsHostPatch
@@ -37,28 +39,21 @@ val settingsPatch = settingsHostPatch(
 private fun hookApplicationOnCreate(ctx: PatchRuntime) {
     val appDescriptor = "Landroid/app/Application;"
     var hooked = 0
-    for (cls in ctx.bytecode.classes) {
-        val chain = runCatching { cls.superclassChain }.getOrNull() ?: continue
-        val isApplication = cls.superclass == appDescriptor ||
-            chain.any { it.info.descriptor == appDescriptor }
-        if (!isApplication) continue
-
+    for (cls in ctx.bytecode.classesExtending(appDescriptor)) {
         val onCreate = cls.methods.firstOrNull {
             it.info.methodName == "onCreate" && it.info.proto == "()V"
         } ?: continue
 
-        val thisReg = onCreate.registersSize - onCreate.insSize
-        val ok = onCreate.insertInvokeStatic(
-            0,
-            "Lapp/reseam/instagram/settings/InstagramSettingsEntry;",
-            "init",
-            "(Landroid/content/Context;)V",
-            listOf(thisReg),
-        )
-        if (ok) {
-            hooked++
-            ctx.log.info("Hooked Application.onCreate: ${cls.info.descriptor}")
+        onCreate.before {
+            staticCall(
+                "Lapp/reseam/instagram/settings/InstagramSettingsEntry;",
+                "init",
+                "(Landroid/content/Context;)V",
+                thisObject(),
+            )
         }
+        hooked++
+        ctx.log.info("Hooked Application.onCreate: ${cls.info.descriptor}")
     }
     if (hooked == 0) ctx.log.warn("No Application subclass hooked; Reseam settings will lack a Context")
 }

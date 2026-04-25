@@ -8,20 +8,15 @@ import app.reseam.patches.instagram.core.DeveloperSettings
 import app.reseam.patches.instagram.core.signatureCheckPatch
 import app.reseam.patches.instagram.core.settingsPatch
 
-import app.reseam.patch.Opcodes
 import app.reseam.patch.compatibleWith
-import app.reseam.patch.fingerprint
-import app.reseam.patch.methodRef
-import app.reseam.patch.opcode
+import app.reseam.patch.findMethod
+import app.reseam.patch.findMethods
 import app.reseam.patch.patch
-import app.reseam.patch.returnType
-import app.reseam.patch.stringValue
 import app.reseam.patch.settings.SettingsSection
 import app.reseam.patch.settings.returnTrueWhen
 
-private val developerOptionsRowFingerprint = fingerprint {
-    strings("com.instagram.bugreporter.rageshake.compose.DeveloperOptionsRow")
-}
+private const val ACC_STATIC = 0x08
+private const val DEVELOPER_OPTIONS_ROW = "com.instagram.bugreporter.rageshake.compose.DeveloperOptionsRow"
 
 val developerOptionsPatch = patch(
     name = "Unlock developer options",
@@ -37,34 +32,41 @@ val developerOptionsPatch = patch(
     ),
 ) {
     execute { ctx ->
-        val method = runCatching { developerOptionsRowFingerprint.method }.getOrElse {
-            ctx.log.warn("Developer options row not found")
-            return@execute
-        }
-        val insns = method.instructions
-        val stringIdx = insns.indexOfFirst {
-            it.stringValue() == "com.instagram.bugreporter.rageshake.compose.DeveloperOptionsRow"
+        val row = ctx.findMethod(debug = "developerOptionsRow") {
+            strings(DEVELOPER_OPTIONS_ROW)
         }
 
-        for (i in (stringIdx - 10).coerceAtLeast(0) until stringIdx) {
-            val ref = insns[i].methodRef() ?: continue
-            if (insns[i].opcode() != Opcodes.INVOKE_STATIC) continue
-            if (ref.proto != "()Z") continue
-            if (ref.definingClass.startsWith("Ljava/") ||
-                ref.definingClass.startsWith("Landroid/") ||
-                ref.definingClass.startsWith("Lkotlin/")
-            ) continue
-
-            val guardClass = ctx.bytecode.findClass(ref.definingClass) ?: continue
-            val guardMethod = guardClass.methods.firstOrNull { m ->
-                m.info.methodName == ref.name && m.returnType == "Z" && m.instructionCount < 20
-            } ?: continue
-
-            guardMethod.returnTrueWhen(DeveloperSettings.UnlockDeveloperOptions)
-            ctx.log.info("Installed setting-controlled developer options guard")
-            return@execute
+        val candidates = ctx.findMethods(debug = "developerOptionsGuardCandidates") {
+            calledBy(row)
+            returnType("Z")
+            parameterTypes()
+        }
+        val narrowed = candidates.filter { handle ->
+            val owner = handle.classDescriptor
+            val isAppClass = !owner.startsWith("Ljava/") &&
+                !owner.startsWith("Landroid/") &&
+                !owner.startsWith("Lkotlin/")
+            val isStatic = (handle.method.info.accessFlags.toInt() and ACC_STATIC) != 0
+            isAppClass && isStatic && handle.method.instructionCount < 20
         }
 
-        ctx.log.warn("Developer options guard method not found")
+        when (narrowed.size) {
+            1 -> {
+                narrowed.single().returnTrueWhen(DeveloperSettings.UnlockDeveloperOptions)
+                ctx.log.info("Installed setting-controlled developer options guard")
+            }
+            0 -> {
+                ctx.log.warn("Developer options guard method not found")
+            }
+            else -> {
+                error(
+                    "Developer options guard is ambiguous: ${
+                        narrowed.joinToString { handle ->
+                            "${handle.classDescriptor}->${handle.methodName}${handle.proto}"
+                        }
+                    }"
+                )
+            }
+        }
     }
 }
