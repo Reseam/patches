@@ -9,6 +9,7 @@ import app.reseam.patches.instagram.core.signatureCheckPatch
 import app.reseam.patch.compatibleWith
 import app.reseam.patch.optionsOf
 import app.reseam.patch.patch
+import app.reseam.patch.replaceAllStringsIndexed
 import app.reseam.patch.stringOption
 
 private const val INSTAGRAM_PACKAGE = "com.instagram.android"
@@ -84,12 +85,7 @@ val cloneInstagram = patch(
 
         // Replace the package name string constant in all bytecode methods.
         // Instagram has 14 occurrences across 17 dex files.
-        var replacedCount = 0
-        for (cls in ctx.bytecode.classes) {
-            for (method in cls.methods) {
-                replacedCount += method.replaceAllStrings(INSTAGRAM_PACKAGE, newPackage)
-            }
-        }
+        val replacedCount = ctx.bytecode.replaceAllStringsIndexed(INSTAGRAM_PACKAGE, newPackage)
         ctx.log.info("Replaced $replacedCount package name references in bytecode")
     }
 }

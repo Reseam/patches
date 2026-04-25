@@ -12,9 +12,8 @@ import java.util.List;
 public final class MediaMeta {
     private MediaMeta() {}
 
-    // All bodies are replaced at patch time with direct invokes using
-    // fingerprint-resolved method/field refs. See download patch UrlHooks /
-    // OwnerHooks / MenuHooks in the patch module.
+    // All bodies are rewritten at patch time to read app objects directly
+    // through the download patch bindings and resolved member refs.
 
     public static String username(Object media) {
         return null;

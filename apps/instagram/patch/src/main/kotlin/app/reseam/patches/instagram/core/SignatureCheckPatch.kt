@@ -4,18 +4,13 @@
 
 package app.reseam.patches.instagram.core
 
-import app.reseam.patch.Method
 import app.reseam.patch.compatibleWith
-import app.reseam.patch.fingerprint
+import app.reseam.patch.findClass
+import app.reseam.patch.findMethods
 import app.reseam.patch.methodRef
 import app.reseam.patch.parameterTypes
 import app.reseam.patch.patch
 import app.reseam.patch.returnEarly
-import app.reseam.patch.returnType
-
-private val isValidSignatureClassFingerprint = fingerprint {
-    strings("The provider for uri '", "' is not trusted: ")
-}
 
 val signatureCheckPatch = patch(
     name = "Disable signature check",
@@ -24,14 +19,25 @@ val signatureCheckPatch = patch(
     enabledByDefault = true,
 ) {
     execute { ctx ->
-        val classDescriptor = isValidSignatureClassFingerprint.method.info.classDescriptor
-        val targetClass = ctx.bytecode.findClass(classDescriptor)
-            ?: error("Signature check class not found: $classDescriptor")
-        val method = targetClass.methods.first { m: Method ->
-            m.returnType == "Z" &&
-                m.parameterTypes.lastOrNull() == "Z" &&
-                m.instructions.any { it.methodRef()?.name == "keySet" }
+        val targetClass = ctx.findClass(debug = "signatureCheckClass") {
+            strings("The provider for uri '", "' is not trusted: ")
         }
-        method.returnEarly(true)
+        val narrowed = ctx.findMethods(debug = "signatureCheckCandidates") {
+            inClass(targetClass)
+            returnType("Z")
+            hasParameter("Z")
+        }.filter { handle ->
+            handle.method.parameterTypes.lastOrNull() == "Z" &&
+                handle.method.instructions.any { it.methodRef()?.name == "keySet" }
+        }
+        val method = narrowed.singleOrNull()
+            ?: error(
+                "Signature check method is ambiguous: ${
+                    narrowed.joinToString { handle ->
+                        "${handle.classDescriptor}->${handle.methodName}${handle.proto}"
+                    }
+                }"
+            )
+        method.method.returnEarly(true)
     }
 }

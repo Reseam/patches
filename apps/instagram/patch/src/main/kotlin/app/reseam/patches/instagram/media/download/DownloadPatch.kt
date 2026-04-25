@@ -30,17 +30,6 @@ val downloadPatch = patch(
     extendWith("instagram-download.dex")
 
     execute { ctx ->
-        hookFeedMenuClick(ctx)
-        hookFeedMenuItems(ctx)
-
-        hookReelsMenuClick(ctx)
-        hookLegacyReelsMenu(ctx)
-
-        hookStoryMenu(ctx)
-
-        hookUrlBridges(ctx)
-        hookOwnerBridges(ctx)
-        hookListenerBridges(ctx)
-        hookMenuBridges(ctx)
+        InstagramDownload(ctx).install()
     }
 }

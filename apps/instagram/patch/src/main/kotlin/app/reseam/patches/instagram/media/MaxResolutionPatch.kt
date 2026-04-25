@@ -7,20 +7,11 @@ package app.reseam.patches.instagram.media
 import app.reseam.patches.instagram.core.MediaSettings
 import app.reseam.patches.instagram.core.settingsPatch
 
-import app.reseam.patch.Instruction
-import app.reseam.patch.Opcodes
-import app.reseam.patch.RegLiteralInsn
 import app.reseam.patch.compatibleWith
-import app.reseam.patch.fingerprint
+import app.reseam.patch.findClass
+import app.reseam.patch.findMethods
 import app.reseam.patch.patch
-import app.reseam.patch.parameterTypes
-import app.reseam.patch.returnType
 import app.reseam.patch.settings.SettingsSection
-import app.reseam.patch.settings.prependWhen
-
-private val imageUrlSelectionFingerprint = fingerprint {
-    strings("_8.jpg", "_6.jpg")
-}
 
 val maxResolutionPatch = patch(
     name = "Max resolution",
@@ -36,28 +27,20 @@ val maxResolutionPatch = patch(
     ),
 ) {
     execute { ctx ->
-        val selectorClass = imageUrlSelectionFingerprint.classDef
-        val method = selectorClass.methods.first { m ->
-            m.returnType == "Lcom/instagram/model/mediasize/ExtendedImageUrl;" &&
-                m.parameterTypes.contains("Ljava/util/List;")
+        val selectorClass = ctx.findClass(debug = "imageUrlSelectorClass") {
+            strings("_8.jpg", "_6.jpg")
         }
+        val selector = ctx.findMethods(debug = "imageUrlSelector") {
+            inClass(selectorClass)
+            returnType("Lcom/instagram/model/mediasize/ExtendedImageUrl;")
+            hasParameter("Ljava/util/List;")
+        }.single()
 
-        val listReg = method.registersSize - method.insSize + 1
-        val tempReg = method.findFreeRegister(0, exclude = listOf(listReg))
-        require(listReg <= 15 && tempReg <= 15) {
-            "Cannot insert max-resolution setting check: list/temp registers must fit invoke-* encoding"
-        }
-
-        method.prependWhen(MediaSettings.MaxResolution) {
-            invokeInterface("Ljava/util/List;", "size", "()I", listReg)
-            moveResult(tempReg)
-            add(Instruction.RegLiteral(RegLiteralInsn(
-                Opcodes.ADD_INT_LIT8.toUShort(), tempReg.toUShort(), tempReg.toUShort(), -1L
-            )))
-            invokeInterface("Ljava/util/List;", "get", "(I)Ljava/lang/Object;", listReg, tempReg)
-            moveResultObject(tempReg)
-            checkCast(tempReg, "Lcom/instagram/model/mediasize/ExtendedImageUrl;")
-            returnObject(tempReg)
+        selector.prependWhen(MediaSettings.MaxResolution) {
+            val list = parameterOfType("Ljava/util/List;")
+            val lastIndex = list.size().minus(int(1))
+            val selected = list.get(lastIndex).cast("Lcom/instagram/model/mediasize/ExtendedImageUrl;")
+            returnObject(selected)
         }
 
         ctx.log.info("Installed setting-controlled image resolution selection")
