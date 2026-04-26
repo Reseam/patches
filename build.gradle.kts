@@ -6,11 +6,71 @@ val dexProjects = subprojects.filter {
     it.path.contains(":extensions:") || it.name == "shared-settings-runtime"
 }
 
+fun d8Executable(): String {
+    System.getenv("D8_BIN")?.takeIf { it.isNotBlank() }?.let { return it }
+    val androidHome = System.getenv("ANDROID_HOME")
+        ?: System.getenv("ANDROID_SDK_ROOT")
+        ?: error("ANDROID_HOME, ANDROID_SDK_ROOT, or D8_BIN is required to build Android patch jars")
+    val buildTools = file("$androidHome/build-tools")
+        .listFiles()
+        ?.filter { file("${it.absolutePath}/d8").isFile }
+        ?.maxByOrNull { it.name }
+        ?: error("Could not find d8 under $androidHome/build-tools")
+    return file("${buildTools.absolutePath}/d8").absolutePath
+}
+
+val universalPatchJarFiles = patchProjects.map { proj ->
+    val appName = proj.path.removePrefix(":apps:").substringBefore(":")
+    val inputJar = providers.provider {
+        (proj.tasks.named("jar").get() as Jar).archiveFile.get().asFile
+    }
+    val dexJar = layout.buildDirectory.file("patch-dex-jars/$appName-patches-dex.jar")
+    val dexTaskName = "${proj.path.replace(':', '_').trim('_')}PatchDexJar"
+    val dexTask = tasks.register<Exec>(dexTaskName) {
+        group = "build"
+        description = "Dexes ${proj.path} so its patch JAR can load on Android."
+        dependsOn("${proj.path}:jar")
+
+        inputs.file(inputJar)
+        outputs.file(dexJar)
+
+        doFirst {
+            val outFile = dexJar.get().asFile
+            outFile.parentFile.mkdirs()
+            if (outFile.exists()) outFile.delete()
+            commandLine(
+                d8Executable(),
+                "--release",
+                "--min-api", "26",
+                "--output", outFile.absolutePath,
+                inputJar.get().absolutePath,
+            )
+        }
+    }
+
+    val universalTaskName = "${proj.path.replace(':', '_').trim('_')}UniversalPatchJar"
+    val universalTask = tasks.register<Jar>(universalTaskName) {
+        group = "build"
+        description = "Builds a universal JVM/Android patch JAR for ${proj.path}."
+        dependsOn(dexTask)
+
+        archiveFileName.set("$appName-patches.jar")
+        destinationDirectory.set(layout.buildDirectory.dir("universal-patch-jars"))
+
+        from(inputJar.map { zipTree(it) })
+        from(dexJar.map { zipTree(it) }) {
+            include("classes*.dex")
+        }
+    }
+
+    universalTask.flatMap { it.archiveFile }.map { it.asFile }
+}
+
 val stageBundle = tasks.register<Copy>("stageBundle") {
     group = "build"
-    description = "Stages manifest + patch JARs + extension DEXes for packaging."
+    description = "Stages manifest + universal patch JARs + extension DEXes for packaging."
 
-    dependsOn(patchProjects.map { "${it.path}:jar" })
+    dependsOn(universalPatchJarFiles)
     dependsOn(dexProjects.map { "${it.path}:build" })
 
     val outDir = layout.buildDirectory.dir("bundle-stage")
@@ -20,12 +80,7 @@ val stageBundle = tasks.register<Copy>("stageBundle") {
 
     from("manifest.toml")
 
-    patchProjects.forEach { proj ->
-        val appName = proj.path.removePrefix(":apps:").substringBefore(":")
-        from(proj.tasks.named("jar").flatMap { (it as Jar).archiveFile }) {
-            rename { "$appName-patches.jar" }
-        }
-    }
+    from(universalPatchJarFiles)
 
     from(dexProjects.map { it.layout.buildDirectory.dir("dex") }) {
         include("*.dex")

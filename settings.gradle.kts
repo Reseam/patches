@@ -3,7 +3,7 @@
 
 rootProject.name = "reseam-patches"
 
-includeBuild("../reseam/kotlin-sdk")
+includeBuild("../reseam/patch-api")
 
 include(":shared-settings-runtime")
 project(":shared-settings-runtime").projectDir = file("shared/settings-runtime")
