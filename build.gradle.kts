@@ -6,6 +6,17 @@ val dexProjects = subprojects.filter {
     it.path.contains(":extensions:") || it.name == "shared-settings-runtime"
 }
 
+val reseamWorkspace: String? = (providers.gradleProperty("reseam.workspace").orNull
+    ?: System.getenv("RESEAM_WORKSPACE"))?.takeIf { it.isNotBlank() }
+
+val reseamBin: Provider<String> = providers.environmentVariable("RESEAM_BIN")
+    .orElse(providers.provider {
+        reseamWorkspace?.let { "$it/target/release/reseam" }
+            ?: throw GradleException(
+                "RESEAM_BIN env var or -Preseam.workspace property required to locate the reseam CLI"
+            )
+    })
+
 fun d8Executable(): String {
     System.getenv("D8_BIN")?.takeIf { it.isNotBlank() }?.let { return it }
     val androidHome = System.getenv("ANDROID_HOME")
@@ -94,8 +105,6 @@ tasks.register<Exec>("bundle") {
 
     val stageDir = layout.buildDirectory.dir("bundle-stage")
     val outFile = layout.buildDirectory.file("bundle/reseam-patches.reseam")
-    val reseamBin = providers.environmentVariable("RESEAM_BIN")
-        .orElse("${projectDir}/../reseam/target/release/reseam")
     val signingKey = providers.environmentVariable("RESEAM_BUNDLE_KEY")
         .orElse("${System.getProperty("user.home")}/.reseam/bundle-signing.key")
 
@@ -122,8 +131,6 @@ tasks.register<Exec>("generatePatchesJson") {
     val outFile = providers.environmentVariable("RESEAM_PATCHES_JSON_OUT")
         .map { file(it) }
         .orElse(layout.buildDirectory.file("bundle/patches.json").map { it.asFile })
-    val reseamBin = providers.environmentVariable("RESEAM_BIN")
-        .orElse("${projectDir}/../reseam/target/release/reseam")
     val version = providers.environmentVariable("RESEAM_RELEASE_VERSION")
     val bundleUrl = providers.environmentVariable("RESEAM_BUNDLE_URL")
     val description = providers.environmentVariable("RESEAM_RELEASE_DESCRIPTION")

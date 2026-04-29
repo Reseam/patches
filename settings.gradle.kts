@@ -3,7 +3,25 @@
 
 rootProject.name = "reseam-patches"
 
-includeBuild("../reseam/patch-api")
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+        maven("https://git.reseam.app/api/packages/reseam/maven") {
+            mavenContent { includeGroup("app.reseam") }
+        }
+    }
+}
+
+val reseamWorkspace: String? = (settings.providers.gradleProperty("reseam.workspace").orNull
+    ?: System.getenv("RESEAM_WORKSPACE"))?.takeIf { it.isNotBlank() }
+
+if (reseamWorkspace != null) {
+    val workspaceDir = file(reseamWorkspace)
+    require(workspaceDir.isDirectory) {
+        "reseam.workspace points to a missing directory: $workspaceDir"
+    }
+    includeBuild(workspaceDir.resolve("patch-api"))
+}
 
 include(":shared-settings-runtime")
 project(":shared-settings-runtime").projectDir = file("shared/settings-runtime")
