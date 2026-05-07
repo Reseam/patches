@@ -36,4 +36,11 @@ object TelegramSettings {
         title = "Boost download speed",
         default = true,
     )
+
+    val SaveFromRestricted = ToggleSetting(
+        key = "privacy.save_from_restricted",
+        title = "Save from restricted chats",
+        summary = "Re-enables copy, save, and forward in chats with content protection on.",
+        default = true,
+    )
 }

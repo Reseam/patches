@@ -30,6 +30,8 @@ public final class TelegramReseamSettingsActivity extends Activity {
         new Toggle("premium.unlock_client", "Unlock Premium",
             "Server-checked features still need a real subscription.", true),
         new Toggle("privacy.hide_typing", "Hide typing indicator", null, true),
+        new Toggle("privacy.save_from_restricted", "Save from restricted chats",
+            "Re-enables copy, save, and forward in chats with content protection on.", true),
         new Toggle("downloads.boost", "Boost download speed", null, true),
     };
 
