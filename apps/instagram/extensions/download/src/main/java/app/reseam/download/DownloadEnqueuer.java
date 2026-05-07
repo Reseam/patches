@@ -104,8 +104,7 @@ final class DownloadEnqueuer {
     }
 
     private static String buildFilename(Object media, boolean isVideo, int index) {
-        Object principal = app.reseam.instagram.refs.User.fromMedia(media);
-        String user = principal == null ? null : app.reseam.instagram.refs.User.username(principal);
+        String user = MediaMeta.username(media);
         if (user == null || user.isEmpty()) user = "unknown";
         String ts = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.US).format(new Date());
         String uuid = UUID.randomUUID().toString();

@@ -4,10 +4,15 @@
 package app.reseam.patches.instagram.media.download
 
 import app.reseam.patch.PatchContext
+import app.reseam.patch.bind
 import app.reseam.patch.bindStub
+import app.reseam.patch.classHandle
+import app.reseam.patch.findMethod
 import app.reseam.patches.instagram.internal.InstagramMediaGraph
 
 private const val MEDIA_META = "Lapp/reseam/instagram/download/MediaMeta;"
+
+private interface RuntimeUserPrincipal
 
 internal class InstagramDownload(private val ctx: PatchContext) {
     private val graph = InstagramMediaGraph(ctx)
@@ -120,9 +125,50 @@ internal class InstagramDownload(private val ctx: PatchContext) {
     }
 
     private fun bindMediaMetaStubs() {
+        val shareUrlCarrier = ctx.findMethod(debug = "shareUrlCarrier") {
+            strings("https://www.instagram.com/p/", "unknown")
+        }
+
+        val principalFromMedia = ctx.bind<RuntimeUserPrincipal>(debug = "userPrincipalFromMedia") {
+            fromField(debug = "principalMediaField") {
+                owner(graph.feedClickHandler.classDescriptor)
+                nearestObjectReadBeforeString("click_media_option")
+            }
+
+            fromMethod(debug = "shareUrlCarrier") {
+                sameAs(shareUrlCarrier)
+            }
+
+            raw {
+                nextFieldRead(owner = sourceType)
+                nextInterfaceCall(returningObject = true)
+                nextFieldRead(owner = null)
+            }
+        }
+
+        val principalClass = ctx.classHandle(principalFromMedia.sourceType, debug = "userPrincipalClass")
+        val usernameAccessor = ctx.findMethod(debug = "userUsernameAccessor") {
+            inClass(principalClass)
+            calledBy(shareUrlCarrier)
+            returnType("Ljava/lang/String;")
+            parameterTypes()
+        }
+
+        val principal = ctx.bind<RuntimeUserPrincipal>(debug = "userPrincipal") {
+            fromClass(principalClass)
+
+            string("username") {
+                callInterface(
+                    usernameAccessor.classDescriptor,
+                    usernameAccessor.methodName,
+                    usernameAccessor.proto,
+                )
+            }
+        }
+
         ctx.bindStub(MEDIA_META) {
             method("username", "(Ljava/lang/Object;)Ljava/lang/String;") {
-                returnObject(string(""))
+                returnObject(principal.member("username", principalFromMedia.of(parameter(0))))
             }
 
             method("videoUrl", "(Ljava/lang/Object;)Ljava/lang/String;") {

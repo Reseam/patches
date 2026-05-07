@@ -10,12 +10,8 @@ import app.reseam.patches.instagram.core.settingsPatch
 
 import app.reseam.patch.compatibleWith
 import app.reseam.patch.findMethod
-import app.reseam.patch.findMethods
-import app.reseam.patch.MethodHandle
-import app.reseam.patch.parameterTypes
 import app.reseam.patch.patch
 import app.reseam.patch.settings.SettingsSection
-import app.reseam.patch.settings.ToggleSetting
 
 val ghostModePatch = patch(
     name = "Ghost mode",
@@ -37,58 +33,29 @@ val ghostModePatch = patch(
     ),
 ) {
     execute { ctx ->
-        skipMethodWhen(
-            ctx.findMethod(debug = "typingIndicator") {
-                strings("is_typing_indicator_enabled", "activityIndicatorSender")
-                returnType("V")
-            },
-            GhostSettings.HideTyping,
-            "typing indicator",
-        )
+        ctx.findMethod(debug = "typingIndicator") {
+            strings("is_typing_indicator_enabled", "activityIndicatorSender")
+            returnType("V")
+        }.skipWhen(GhostSettings.HideTyping)
 
-        skipMethodWhen(
-            ctx.findMethod(debug = "dmSeen") {
-                strings("mark_thread_seen-")
-                returnType("V")
-            },
-            GhostSettings.HideDmSeen,
-            "DM read receipts",
-        )
+        ctx.findMethod(debug = "dmSeen") {
+            strings("mark_thread_seen-")
+            returnType("V")
+        }.skipWhen(GhostSettings.HideDmSeen)
 
-        skipMethodWhen(
-            ctx.findMethod(debug = "storySeen") {
-                strings("media/seen/")
-                returnType("V")
-            },
-            GhostSettings.HideStorySeen,
-            "story seen",
-        )
+        ctx.findMethod(debug = "storySeen") {
+            strings("media/seen/")
+            returnType("V")
+        }.skipWhen(GhostSettings.HideStorySeen)
 
-        returnNullMethodWhen(
-            ctx.findMethod(debug = "liveSeen") {
-                strings("live/%s/heartbeat_and_get_viewer_count/")
-            },
-            GhostSettings.HideLiveSeen,
-            "live seen heartbeat",
-        )
+        ctx.findMethod(debug = "liveSeen") {
+            strings("live/%s/heartbeat_and_get_viewer_count/")
+        }.returnNullWhen(GhostSettings.HideLiveSeen)
 
-        skipMethodWhen(
-            ctx.findMethods(debug = "screenshotNotificationCandidates") {
-                strings("ScreenshotNotificationManager")
-                returnType("V")
-            }.first { handle ->
-                handle.method.info.parameterTypes.any { it.endsWith("Window;") }
-            },
-            GhostSettings.HideScreenshotNotifications,
-            "screenshot notifications",
-        )
+        ctx.findMethod(debug = "screenshotNotificationManager") {
+            strings("ScreenshotNotificationManager")
+            returnType("V")
+            hasParameter("Landroid/view/Window;")
+        }.skipWhen(GhostSettings.HideScreenshotNotifications)
     }
-}
-
-private fun skipMethodWhen(handle: MethodHandle, setting: ToggleSetting, label: String) {
-    handle.skipWhen(setting)
-}
-
-private fun returnNullMethodWhen(handle: MethodHandle, setting: ToggleSetting, label: String) {
-    handle.returnNullWhen(setting)
 }

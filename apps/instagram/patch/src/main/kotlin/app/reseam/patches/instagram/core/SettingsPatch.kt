@@ -58,8 +58,10 @@ private fun hookApplicationOnCreate(ctx: PatchRuntime) {
     if (hooked == 0) ctx.log.warn("No Application subclass hooked; Reseam settings will lack a Context")
 }
 
-// Registers a LAUNCHER-visible Activity that opens Reseam Settings. Works as a
-// guaranteed entry point in addition to the runtime hamburger long-press hook.
+// Registers the Reseam Settings activity in the manifest. The activity is required for
+// the runtime's hamburger long-press hook (which `startActivity`s into it from inside
+// the app); we deliberately do NOT add a LAUNCHER intent-filter, so the activity stays
+// hidden from the home-screen app drawer and only appears via the in-app entry point.
 private fun registerSettingsActivity(ctx: PatchRuntime) {
     val activityName = "app.reseam.instagram.settings.InstagramReseamSettingsActivity"
     ctx.manifest.document().use { doc ->
@@ -83,21 +85,13 @@ private fun registerSettingsActivity(ctx: PatchRuntime) {
 
         val activity = doc.createElement("activity").apply {
             this["android:name"] = activityName
-            this["android:exported"] = "true"
+            this["android:exported"] = "false"
             this["android:label"] = "Reseam Settings"
             setResourceRef("android:theme", theme)
         }
-        val filter = doc.createElement("intent-filter")
-        filter.appendChild(doc.createElement("action").apply {
-            this["android:name"] = "android.intent.action.MAIN"
-        })
-        filter.appendChild(doc.createElement("category").apply {
-            this["android:name"] = "android.intent.category.LAUNCHER"
-        })
-        activity.appendChild(filter)
         application.appendChild(activity)
 
-        ctx.log.info("Registered Reseam Settings Activity with LAUNCHER intent filter")
+        ctx.log.info("Registered Reseam Settings Activity (no launcher entry)")
     }
 }
 

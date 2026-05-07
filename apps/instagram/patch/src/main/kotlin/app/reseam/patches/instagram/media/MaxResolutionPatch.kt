@@ -9,7 +9,7 @@ import app.reseam.patches.instagram.core.settingsPatch
 
 import app.reseam.patch.compatibleWith
 import app.reseam.patch.findClass
-import app.reseam.patch.findMethods
+import app.reseam.patch.findMethod
 import app.reseam.patch.patch
 import app.reseam.patch.settings.SettingsSection
 
@@ -30,11 +30,11 @@ val maxResolutionPatch = patch(
         val selectorClass = ctx.findClass(debug = "imageUrlSelectorClass") {
             strings("_8.jpg", "_6.jpg")
         }
-        val selector = ctx.findMethods(debug = "imageUrlSelector") {
+        val selector = ctx.findMethod(debug = "imageUrlSelector") {
             inClass(selectorClass)
             returnType("Lcom/instagram/model/mediasize/ExtendedImageUrl;")
             hasParameter("Ljava/util/List;")
-        }.single()
+        }
 
         selector.prependWhen(MediaSettings.MaxResolution) {
             val list = parameterOfType("Ljava/util/List;")

@@ -179,7 +179,7 @@ internal class InstagramMediaGraph(private val ctx: PatchContext) {
     val reelsLegacyMenuDisplay: MethodHandle = ctx.findMethod(debug = "reelsLegacyMenuDisplay") {
         calledBy(reelsClickHandler)
         returnType("V")
-        parameterTypes("Landroid/view/View;", "Ljava/lang/Object;")
+        hasParameter("Landroid/view/View;")
     }
 
     val legacyMenu: Binding<RuntimeLegacyMenu> = ctx.bind(debug = "reelsLegacyMenu") {
