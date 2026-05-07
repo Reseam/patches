@@ -44,3 +44,11 @@ project(":apps:instagram:extensions:follows").projectDir =
 include(":apps:instagram:extensions:refs")
 project(":apps:instagram:extensions:refs").projectDir =
     file("apps/instagram/extensions/refs")
+
+include(":apps:telegram:patch")
+project(":apps:telegram:patch").projectDir = file("apps/telegram/patch")
+
+include(":apps:telegram:extensions:settings-entry")
+project(":apps:telegram:extensions:settings-entry").projectDir =
+    file("apps/telegram/extensions/settings-entry")
+
