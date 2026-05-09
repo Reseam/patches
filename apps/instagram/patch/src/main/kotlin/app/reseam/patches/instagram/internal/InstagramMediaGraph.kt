@@ -14,11 +14,11 @@ import app.reseam.patch.PatchContext
 import app.reseam.patch.bind
 import app.reseam.patch.classHandle
 import app.reseam.patch.fieldRef
+import app.reseam.patch.indexOfFirstInstructionReversed
 import app.reseam.patch.opcode
 import app.reseam.patch.findClass
 import app.reseam.patch.findMethod
 import app.reseam.patch.findMethods
-import app.reseam.patch.indexOfFirstFieldAccess
 import app.reseam.patch.wrapField
 import app.reseam.patches.instagram.media.download.ACTIVITY_TYPE
 import app.reseam.patches.instagram.media.download.CONTEXT_TYPE
@@ -30,7 +30,6 @@ private const val EXTENDED_IMAGE_URL_TYPE = "Lcom/instagram/model/mediasize/Exte
 private const val VIDEO_VERSION_INTF_TYPE = "Lcom/instagram/model/mediasize/VideoVersionIntf;"
 
 internal interface RuntimeMedia
-internal interface RuntimeFeedListener
 internal interface RuntimeStoryOwner
 internal interface RuntimeReelItem
 internal interface RuntimeLegacyMenu
@@ -56,12 +55,6 @@ internal class InstagramMediaGraph(private val ctx: PatchContext) {
         strings("click_media_option", "MediaOptionsOverflowHelper")
         returnType("V")
         parameterTypes(MEDIA_OPTION_TYPE)
-    }
-
-    val feedClickListener: MethodHandle = ctx.findMethod(debug = "feedClickListener") {
-        returnType("V")
-        parameterTypes("Landroid/view/View;")
-        calls(feedClickHandler)
     }
 
     val reelsClickHandler: MethodHandle = ctx.findMethod(debug = "reelsClickHandler") {
@@ -131,22 +124,6 @@ internal class InstagramMediaGraph(private val ctx: PatchContext) {
         }
     }
 
-    val extractMediaClickId: MethodHandle = ctx.findMethod(debug = "extractMediaClickId") {
-        strings(
-            "extractMediaClickId: currentCarouselPosition out of bounds, positionFromState: ",
-            ", carouselSize: ",
-        )
-    }
-
-    val carouselStateClass: ClassHandle = run {
-        val method = extractMediaClickId.method
-        val idx = method.indexOfFirstFieldAccess(Opcodes.IGET, fieldType = "I")
-            ?: error("No IGET 'I' instruction in extractMediaClickId — carousel state class anchor is gone.")
-        val ref = method.instructions[idx].fieldRef()
-            ?: error("Instruction at index $idx in extractMediaClickId has no field reference.")
-        ctx.classHandle(ref.definingClass, debug = "carouselStateClass")
-    }
-
     val carouselIndexSetter: MethodHandle = ctx.findMethod(debug = "carouselIndexSetter") {
         strings("DirectShareSheetConstants.carousel_index")
     }
@@ -155,55 +132,28 @@ internal class InstagramMediaGraph(private val ctx: PatchContext) {
         val callers = ctx.findMethods(debug = "carouselIndexSetterCallers") {
             calls(carouselIndexSetter)
         }
-        require(callers.isNotEmpty()) {
-            "No callers of carouselIndexSetter (LX/MvR.A02) — cannot anchor carousel-position field."
-        }
-        val stateDescriptor = carouselStateClass.descriptor
-        var found: FieldRef? = null
-        outer@ for (caller in callers) {
-            val insns = caller.method.instructions
-            for (i in insns.indices) {
-                val cur = insns[i]
-                if (cur.opcode() != Opcodes.IGET) continue
-                val ref = cur.fieldRef() ?: continue
-                if (ref.definingClass != stateDescriptor) continue
-                if (ref.fieldType != "I") continue
-                found = ref
-                break@outer
+        val ref = callers.firstNotNullOfOrNull { caller ->
+            val method = caller.method
+            val invokeIdx = method.indexOfFirstMethodCall(
+                carouselIndexSetter.classDescriptor,
+                carouselIndexSetter.methodName,
+            ) ?: return@firstNotNullOfOrNull null
+            val getIdx = method.indexOfFirstInstructionReversed(invokeIdx - 1) {
+                opcode() == Opcodes.IGET && fieldRef()?.fieldType == "I"
             }
-        }
-        val ref = found
-            ?: error("No IGET 'I' on $stateDescriptor in any caller of carouselIndexSetter.")
+            if (getIdx < 0) null else method.instructions[getIdx].fieldRef()
+        } ?: error("No IGET 'I' preceding INVOKE carouselIndexSetter in any caller.")
         ctx.wrapField(ref, debug = "carouselIndexField")
     }
+
+    val carouselStateClass: ClassHandle =
+        ctx.classHandle(carouselIndexField.owner, debug = "carouselStateClass")
 
     val carouselState: Binding<RuntimeCarouselState> = ctx.bind(debug = "carouselState") {
         fromClass(carouselStateClass)
 
         intValue("currentIndex") {
             field(carouselIndexField)
-        }
-    }
-
-    val feedListener: Binding<RuntimeFeedListener> = ctx.bind(debug = "feedListener") {
-        fromMethod(debug = "feedOverflowClickListener") {
-            sameAs(feedClickListener)
-        }
-
-        objectValue("clickedOption") {
-            objectSlots().firstInstanceOf(MEDIA_OPTION_TYPE)
-        }
-
-        bind("media", media) {
-            objectSlots().firstInstanceOf(feedClickHandler.classDescriptor)
-            field(media.sourceField())
-            asBinding(media)
-        }
-
-        bind("carouselState", carouselState) {
-            objectSlots().firstInstanceOf(feedClickHandler.classDescriptor)
-            instanceField(type = carouselStateClass.descriptor)
-            asBinding(carouselState)
         }
     }
 
