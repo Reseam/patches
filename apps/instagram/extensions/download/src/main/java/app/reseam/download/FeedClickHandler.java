@@ -9,23 +9,19 @@ import android.content.Context;
 final class FeedClickHandler {
     private FeedClickHandler() {}
 
-    static boolean handleListener(Object listener) {
-        if (listener == null) return false;
-
-        Object option = MediaMeta.listenerDownloadOption(listener);
+    static boolean handle(Object media, Object option, Context context, int currentIndex) {
         if (!DownloadOption.isDownload(option)) return false;
 
-        Context context = ContextResolver.fromObjects(listener);
+        Context safe = ContextResolver.safe(context);
         try {
-            Object media = MediaMeta.listenerMedia(listener);
             if (media != null) {
-                DownloadEnqueuer.download(media, context);
+                DownloadEnqueuer.download(media, safe, currentIndex);
             } else {
-                Ui.showToast(context, "Could not extract media URL");
+                Ui.showToast(safe, "Could not extract media URL");
             }
         } catch (Throwable t) {
             Logcat.e("handleFeedMenuClick failed", t);
-            Ui.showToast(context, "Download failed");
+            Ui.showToast(safe, "Download failed");
         }
         return true;
     }

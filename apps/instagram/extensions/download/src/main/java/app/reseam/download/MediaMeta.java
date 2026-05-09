@@ -31,14 +31,6 @@ public final class MediaMeta {
         return null;
     }
 
-    public static Object listenerMedia(Object listener) {
-        return null;
-    }
-
-    public static Object listenerDownloadOption(Object listener) {
-        return null;
-    }
-
     public static Object reelItemMedia(Object reelItem) {
         return null;
     }

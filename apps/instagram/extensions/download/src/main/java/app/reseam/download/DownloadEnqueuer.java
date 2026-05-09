@@ -31,7 +31,12 @@ final class DownloadEnqueuer {
     private DownloadEnqueuer() {}
 
     static void download(Object media, Context context) {
-        Logcat.d("downloadMedia: media=" + (media == null ? "null" : media.getClass().getName()));
+        download(media, context, -1);
+    }
+
+    static void download(Object media, Context context, int currentIndex) {
+        Logcat.d("downloadMedia: media=" + (media == null ? "null" : media.getClass().getName())
+                + ", currentIndex=" + currentIndex);
         if (media == null) return;
 
         Context safe = ContextResolver.safe(context);
@@ -43,14 +48,39 @@ final class DownloadEnqueuer {
         try {
             List<?> children = UrlExtractor.carouselChildren(media);
             if (children != null && children.size() > 1) {
-                downloadCarousel(media, children, safe);
+                handleCarousel(media, children, safe, currentIndex);
                 return;
             }
-            downloadSingle(media, media, safe, 0);
+            boolean ok = downloadSingle(media, media, safe, 0);
+            showToast(safe, ok ? "Downloading" : "Could not extract media URL");
         } catch (Throwable t) {
             Logcat.e("downloadMedia failed", t);
             showToast(safe, "Download failed");
         }
+    }
+
+    private static void handleCarousel(Object parentMedia, List<?> children, Context context, int currentIndex) {
+        boolean canPickCurrent = currentIndex >= 0 && currentIndex < children.size();
+        if (!canPickCurrent) {
+            downloadCarousel(parentMedia, children, context);
+            return;
+        }
+
+        CarouselDialog.show(context, children.size(), currentIndex, new CarouselDialog.Callbacks() {
+            @Override
+            public void onCurrent() {
+                Object child = children.get(currentIndex);
+                boolean ok = downloadSingle(parentMedia, child, context, currentIndex + 1);
+                showToast(context, ok
+                        ? "Downloading slide " + (currentIndex + 1)
+                        : "Slide " + (currentIndex + 1) + ": could not extract URL");
+            }
+
+            @Override
+            public void onAll() {
+                downloadCarousel(parentMedia, children, context);
+            }
+        });
     }
 
     static void downloadReelItem(Object reelItem, Context context) {
@@ -79,11 +109,16 @@ final class DownloadEnqueuer {
     private static void downloadCarousel(Object parentMedia, List<?> children, Context context) {
         int count = 0;
         for (int i = 0; i < children.size(); i++) {
-            if (downloadSingle(parentMedia, children.get(i), context, i + 1)) count++;
+            boolean ok = downloadSingle(parentMedia, children.get(i), context, i + 1);
+            if (ok) {
+                count++;
+            } else {
+                showToast(context, "Slide " + (i + 1) + ": could not extract URL");
+            }
         }
 
         if (count > 0) {
-            showToast(context, "Downloading " + count + " items");
+            showToast(context, "Downloading " + count + " of " + children.size() + " items");
         } else {
             showToast(context, "Could not extract carousel URLs");
         }
@@ -94,8 +129,7 @@ final class DownloadEnqueuer {
 
         UrlExtractor.MediaUrl mediaUrl = UrlExtractor.best(media);
         if (mediaUrl == null) {
-            if (index == 0) showToast(context, "Could not extract media URL");
-            Logcat.w("Could not extract URL from " + (media == null ? "null" : media.getClass().getName()));
+            Logcat.w("Could not extract URL from " + media.getClass().getName());
             return false;
         }
 
@@ -137,18 +171,16 @@ final class DownloadEnqueuer {
         if (manager == null) return;
 
         manager.enqueue(request);
-        if (index <= 1) showToast(context, "Downloading " + filename);
     }
 
     private static void downloadToSafTree(Context context, Uri tree, String filename, String url, boolean isVideo, int index) {
-        if (index <= 1) showToast(context, "Downloading " + filename);
         final String mime = isVideo ? "video/mp4" : "image/jpeg";
+        final ContentResolver resolver = context.getApplicationContext().getContentResolver();
         new Thread(() -> {
             HttpURLConnection conn = null;
             InputStream in = null;
             OutputStream out = null;
             try {
-                ContentResolver resolver = context.getContentResolver();
                 Uri parentDoc = DocumentsContract.buildDocumentUriUsingTree(tree, DocumentsContract.getTreeDocumentId(tree));
                 Uri fileDoc = DocumentsContract.createDocument(resolver, parentDoc, mime, filename);
                 if (fileDoc == null) {

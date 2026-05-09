@@ -3,15 +3,23 @@
 
 package app.reseam.patches.instagram.internal
 
+import app.reseam.patch.AccessFlags
 import app.reseam.patch.Binding
 import app.reseam.patch.ClassHandle
+import app.reseam.patch.FieldHandle
+import app.reseam.patch.FieldRef
 import app.reseam.patch.MethodHandle
+import app.reseam.patch.Opcodes
 import app.reseam.patch.PatchContext
 import app.reseam.patch.bind
 import app.reseam.patch.classHandle
+import app.reseam.patch.fieldRef
+import app.reseam.patch.opcode
 import app.reseam.patch.findClass
 import app.reseam.patch.findMethod
 import app.reseam.patch.findMethods
+import app.reseam.patch.indexOfFirstFieldAccess
+import app.reseam.patch.wrapField
 import app.reseam.patches.instagram.media.download.ACTIVITY_TYPE
 import app.reseam.patches.instagram.media.download.CONTEXT_TYPE
 import app.reseam.patches.instagram.media.download.FRAGMENT_ACTIVITY_TYPE
@@ -26,6 +34,7 @@ internal interface RuntimeFeedListener
 internal interface RuntimeStoryOwner
 internal interface RuntimeReelItem
 internal interface RuntimeLegacyMenu
+internal interface RuntimeCarouselState
 
 internal class InstagramMediaGraph(private val ctx: PatchContext) {
     val feedMenuBuilder: MethodHandle = ctx.findMethod(debug = "feedMenuBuilder") {
@@ -122,6 +131,60 @@ internal class InstagramMediaGraph(private val ctx: PatchContext) {
         }
     }
 
+    val extractMediaClickId: MethodHandle = ctx.findMethod(debug = "extractMediaClickId") {
+        strings(
+            "extractMediaClickId: currentCarouselPosition out of bounds, positionFromState: ",
+            ", carouselSize: ",
+        )
+    }
+
+    val carouselStateClass: ClassHandle = run {
+        val method = extractMediaClickId.method
+        val idx = method.indexOfFirstFieldAccess(Opcodes.IGET, fieldType = "I")
+            ?: error("No IGET 'I' instruction in extractMediaClickId — carousel state class anchor is gone.")
+        val ref = method.instructions[idx].fieldRef()
+            ?: error("Instruction at index $idx in extractMediaClickId has no field reference.")
+        ctx.classHandle(ref.definingClass, debug = "carouselStateClass")
+    }
+
+    val carouselIndexSetter: MethodHandle = ctx.findMethod(debug = "carouselIndexSetter") {
+        strings("DirectShareSheetConstants.carousel_index")
+    }
+
+    val carouselIndexField: FieldHandle = run {
+        val callers = ctx.findMethods(debug = "carouselIndexSetterCallers") {
+            calls(carouselIndexSetter)
+        }
+        require(callers.isNotEmpty()) {
+            "No callers of carouselIndexSetter (LX/MvR.A02) — cannot anchor carousel-position field."
+        }
+        val stateDescriptor = carouselStateClass.descriptor
+        var found: FieldRef? = null
+        outer@ for (caller in callers) {
+            val insns = caller.method.instructions
+            for (i in insns.indices) {
+                val cur = insns[i]
+                if (cur.opcode() != Opcodes.IGET) continue
+                val ref = cur.fieldRef() ?: continue
+                if (ref.definingClass != stateDescriptor) continue
+                if (ref.fieldType != "I") continue
+                found = ref
+                break@outer
+            }
+        }
+        val ref = found
+            ?: error("No IGET 'I' on $stateDescriptor in any caller of carouselIndexSetter.")
+        ctx.wrapField(ref, debug = "carouselIndexField")
+    }
+
+    val carouselState: Binding<RuntimeCarouselState> = ctx.bind(debug = "carouselState") {
+        fromClass(carouselStateClass)
+
+        intValue("currentIndex") {
+            field(carouselIndexField)
+        }
+    }
+
     val feedListener: Binding<RuntimeFeedListener> = ctx.bind(debug = "feedListener") {
         fromMethod(debug = "feedOverflowClickListener") {
             sameAs(feedClickListener)
@@ -136,6 +199,26 @@ internal class InstagramMediaGraph(private val ctx: PatchContext) {
             field(media.sourceField())
             asBinding(media)
         }
+
+        bind("carouselState", carouselState) {
+            objectSlots().firstInstanceOf(feedClickHandler.classDescriptor)
+            instanceField(type = carouselStateClass.descriptor)
+            asBinding(carouselState)
+        }
+    }
+
+    val reelItemMediaField: FieldHandle = run {
+        val mediaType = media.sourceType
+        val reelClass = ctx.classHandle(REEL_ITEM_TYPE, debug = "reelItem").classDef
+        val finalCandidates = reelClass.instanceFields.filter {
+            it.fieldType == mediaType && (it.accessFlags.toInt() and AccessFlags.FINAL) != 0
+        }
+        val info = finalCandidates.singleOrNull()
+            ?: error(
+                "Expected exactly one final ${mediaType} field on ${REEL_ITEM_TYPE}, " +
+                    "found ${finalCandidates.size} (${finalCandidates.joinToString { it.name }})",
+            )
+        ctx.wrapField(FieldRef(REEL_ITEM_TYPE, info.name, info.fieldType), debug = "reelItemMediaField")
     }
 
     val storyOwner: Binding<RuntimeStoryOwner> = ctx.bind(debug = "storyOwner") {
@@ -151,11 +234,7 @@ internal class InstagramMediaGraph(private val ctx: PatchContext) {
 
         bind("media", media) {
             member("reelItem")
-            field("reelItemMedia") {
-                rankBy("list-bearing media field") {
-                    type().methods(proto = "()Ljava/util/List;").size
-                }
-            }
+            field(reelItemMediaField)
             asBinding(media)
         }
     }
@@ -164,11 +243,7 @@ internal class InstagramMediaGraph(private val ctx: PatchContext) {
         fromClass(ctx.classHandle(REEL_ITEM_TYPE, debug = "reelItem"))
 
         bind("media", media) {
-            field("reelItemMedia") {
-                rankBy("list-bearing media field") {
-                    type().methods(proto = "()Ljava/util/List;").size
-                }
-            }
+            field(reelItemMediaField)
             asBinding(media)
         }
     }

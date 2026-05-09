@@ -28,11 +28,7 @@ final class ContextResolver {
     }
 
     static Context safe(Context context) {
-        try {
-            if (context != null && context.getApplicationContext() != null) {
-                return context.getApplicationContext();
-            }
-        } catch (Throwable ignored) {}
+        if (context != null) return context;
         return app();
     }
 

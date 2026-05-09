@@ -27,9 +27,22 @@ internal class InstagramDownload(private val ctx: PatchContext) {
     }
 
     private fun installFeedMenuClick() {
-        graph.feedClickListener.before {
-            val listener = thisObject()
-            val handled = staticCall(EXT, "handleFeedMenuClick", "(Ljava/lang/Object;)Z", listener)
+        graph.feedClickHandler.before {
+            val handler = thisObject()
+            val option = parameter(0)
+            val mediaValue = handler.field(graph.media.sourceField())
+            val contextValue = handler.field(type = FRAGMENT_ACTIVITY_TYPE)
+            val stateValue = handler.field(type = graph.carouselStateClass.descriptor)
+            val currentIndex = graph.carouselState.member("currentIndex", stateValue)
+            val handled = staticCall(
+                EXT,
+                "handleFeedMenuClick",
+                "(Ljava/lang/Object;Ljava/lang/Object;Landroid/content/Context;I)Z",
+                mediaValue,
+                option,
+                contextValue,
+                currentIndex,
+            )
             ifTrue(handled) {
                 returnVoid()
             }
@@ -181,14 +194,6 @@ internal class InstagramDownload(private val ctx: PatchContext) {
 
             method("carouselChildren", "(Ljava/lang/Object;)Ljava/util/List;") {
                 returnObject(graph.media.member("carouselChildren", parameter(0)))
-            }
-
-            method("listenerMedia", "(Ljava/lang/Object;)Ljava/lang/Object;") {
-                returnObject(graph.feedListener.member("media", parameter(0)))
-            }
-
-            method("listenerDownloadOption", "(Ljava/lang/Object;)Ljava/lang/Object;") {
-                returnObject(graph.feedListener.member("clickedOption", parameter(0)))
             }
 
             method("reelItemMedia", "(Ljava/lang/Object;)Ljava/lang/Object;") {
