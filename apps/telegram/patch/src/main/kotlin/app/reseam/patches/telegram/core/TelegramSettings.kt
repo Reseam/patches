@@ -43,4 +43,18 @@ object TelegramSettings {
         summary = "Re-enables copy, save, and forward in chats with content protection on.",
         default = true,
     )
+
+    val RecoverDeleted = ToggleSetting(
+        key = "privacy.recover_deleted",
+        title = "Recover deleted messages",
+        summary = "Keep messages others delete; they stay in the chat with a 🗑️ marker.",
+        default = true,
+    )
+
+    val AllowScreenshots = ToggleSetting(
+        key = "privacy.allow_screenshots",
+        title = "Allow screenshots in secret viewers",
+        summary = "Disable FLAG_SECURE so you can screenshot or record view-once / self-destruct media.",
+        default = true,
+    )
 }

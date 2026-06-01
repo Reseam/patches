@@ -52,3 +52,7 @@ include(":apps:telegram:extensions:settings-entry")
 project(":apps:telegram:extensions:settings-entry").projectDir =
     file("apps/telegram/extensions/settings-entry")
 
+include(":apps:telegram:extensions:anti-delete")
+project(":apps:telegram:extensions:anti-delete").projectDir =
+    file("apps/telegram/extensions/anti-delete")
+

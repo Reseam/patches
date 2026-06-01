@@ -33,6 +33,10 @@ public final class TelegramReseamSettingsActivity extends Activity {
         new Toggle("privacy.save_from_restricted", "Save from restricted chats",
             "Re-enables copy, save, and forward in chats with content protection on.", true),
         new Toggle("downloads.boost", "Boost download speed", null, true),
+        new Toggle("privacy.recover_deleted", "Recover deleted messages",
+            "Keep messages others delete; they stay in the chat with a 🗑️ marker.", true),
+        new Toggle("privacy.allow_screenshots", "Allow screenshots in secret viewers",
+            "Disable FLAG_SECURE so you can screenshot or record view-once / self-destruct media.", true),
     };
 
     @Override
