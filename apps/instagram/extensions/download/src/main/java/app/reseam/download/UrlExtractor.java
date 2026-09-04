@@ -1,27 +1,23 @@
 // SPDX-FileCopyrightText: 2026 AunAli K. <hello@auna.li>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-
 package app.reseam.instagram.download;
 
 import java.util.List;
 
+/**
+ * Media URL extraction. Delegates to {@link MediaScanner}, which reads URLs by value (shape)
+ * instead of by obfuscated field name, so it does not break across Instagram versions.
+ */
 final class UrlExtractor {
     private UrlExtractor() {}
 
     static MediaUrl best(Object media) {
-        String video = MediaMeta.videoUrl(media);
-        if (video != null && video.startsWith("http")) return new MediaUrl(video, true);
-
-        String photo = MediaMeta.imageUrl(media);
-        if (photo != null && photo.startsWith("http")) return new MediaUrl(photo, false);
-
-        return null;
+        return MediaScanner.best(media);
     }
 
     static List<?> carouselChildren(Object media) {
-        List<?> children = MediaMeta.carouselChildren(media);
-        return children != null && children.size() > 1 ? children : null;
+        return MediaScanner.carouselChildren(media);
     }
 
     static final class MediaUrl {
