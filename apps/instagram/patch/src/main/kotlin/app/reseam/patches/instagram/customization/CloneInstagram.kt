@@ -42,6 +42,13 @@ val cloneInstagram = patch(
         // While open, also capture the app label resource ID so we can rename the app in
         // the resource table without relying on a key name (Instagram strips resource keys).
         var appLabelResId: UInt? = null
+        // Authorities that don't contain the package name (e.g. com.instagram.fileprovider,
+        // com.instagram.contentprovider.*) still collide with the official app on install.
+        // Every provider authority must be globally unique, so namespace them all under the
+        // clone package. Those referenced by string literal in code (fileprovider, content://
+        // URIs) are re-pointed in bytecode below; init-only providers have no code refs and a
+        // manifest-only rename is enough.
+        val authorityRenames = mutableMapOf<String, String>()
         ctx.manifest.document().use { doc ->
             doc.root["package"] = newPackage
 
@@ -53,8 +60,17 @@ val cloneInstagram = patch(
 
             doc.findByTag("provider").forEach { provider ->
                 val auth = provider["android:authorities"] ?: return@forEach
-                if (INSTAGRAM_PACKAGE in auth) {
-                    provider["android:authorities"] = auth.replace(INSTAGRAM_PACKAGE, newPackage)
+                // authorities may be a ';'-separated list; rename each element.
+                provider["android:authorities"] = auth.split(";").joinToString(";") { single ->
+                    when {
+                        single.isEmpty() -> single
+                        // already carries the package name -> the global bytecode replace covers code refs.
+                        INSTAGRAM_PACKAGE in single -> single.replace(INSTAGRAM_PACKAGE, newPackage)
+                        // vendor-prefixed authority -> namespace under the clone package.
+                        single.startsWith("com.instagram.") ->
+                            ("$newPackage." + single.removePrefix("com.instagram.")).also { authorityRenames[single] = it }
+                        else -> "$newPackage.$single".also { authorityRenames[single] = it }
+                    }
                 }
             }
 
@@ -87,5 +103,13 @@ val cloneInstagram = patch(
         // Instagram has 14 occurrences across 17 dex files.
         val replacedCount = ctx.bytecode.replaceAllStringsIndexed(INSTAGRAM_PACKAGE, newPackage)
         ctx.log.info("Replaced $replacedCount package name references in bytecode")
+
+        // Re-point code references (fileprovider literals, content:// URIs) to the namespaced
+        // authorities. Must run AFTER the package replace: the new values contain the package
+        // name, so an earlier package pass would double-rewrite them.
+        authorityRenames.forEach { (old, new) ->
+            val n = ctx.bytecode.replaceAllStringsIndexed(old, new)
+            ctx.log.info("Renamed provider authority '$old' -> '$new' ($n bytecode refs)")
+        }
     }
 }
