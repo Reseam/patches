@@ -17,8 +17,8 @@ jobs:
       RESEAM_BIN: engine/reseam-linux-x64
       RESEAM_BUNDLE_KEY: bundle-signing.key
     steps:
-      - name: Install Java
-        run: apt-get update && apt-get install -y --no-install-recommends openjdk-17-jdk-headless
+      - name: Install Java and Node for the actions
+        run: apt-get update && apt-get install -y --no-install-recommends openjdk-17-jdk-headless nodejs ca-certificates
 
       - name: Checkout sources
         uses: actions/checkout@v4
