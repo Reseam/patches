@@ -7,8 +7,6 @@ package app.reseam.instagram.download;
 import android.content.Context;
 import android.view.View;
 
-import java.util.List;
-
 public final class MediaMeta {
     private MediaMeta() {}
 
@@ -16,18 +14,6 @@ public final class MediaMeta {
     // through the download patch bindings and resolved member refs.
 
     public static String username(Object media) {
-        return null;
-    }
-
-    public static String videoUrl(Object media) {
-        return null;
-    }
-
-    public static String imageUrl(Object media) {
-        return null;
-    }
-
-    public static List carouselChildren(Object media) {
         return null;
     }
 

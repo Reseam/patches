@@ -184,18 +184,6 @@ internal class InstagramDownload(private val ctx: PatchContext) {
                 returnObject(principal.member("username", principalFromMedia.of(parameter(0))))
             }
 
-            method("videoUrl", "(Ljava/lang/Object;)Ljava/lang/String;") {
-                returnObject(graph.media.member("videoUrl", parameter(0)))
-            }
-
-            method("imageUrl", "(Ljava/lang/Object;)Ljava/lang/String;") {
-                returnObject(graph.media.member("imageUrl", parameter(0)))
-            }
-
-            method("carouselChildren", "(Ljava/lang/Object;)Ljava/util/List;") {
-                returnObject(graph.media.member("carouselChildren", parameter(0)))
-            }
-
             method("reelItemMedia", "(Ljava/lang/Object;)Ljava/lang/Object;") {
                 returnObject(graph.reelItem.member("media", parameter(0)))
             }

@@ -9,10 +9,6 @@ import android.content.Context;
 public final class MediaDownloader {
     private MediaDownloader() {}
 
-    public static boolean isDownloadOption(Object option) {
-        return DownloadOption.isDownload(option);
-    }
-
     public static boolean isStoryDownload(CharSequence option) {
         return StoryOptions.isDownload(option);
     }
@@ -31,10 +27,6 @@ public final class MediaDownloader {
 
     public static void downloadMedia(Object media, Context context) {
         DownloadEnqueuer.download(media, context);
-    }
-
-    public static void downloadReelItem(Object reelItem, Context context) {
-        DownloadEnqueuer.downloadReelItem(reelItem, context);
     }
 
     public static void downloadStory(Object owner) {

@@ -26,7 +26,6 @@ import app.reseam.runtime.settings.ReseamSettings;
 final class DownloadEnqueuer {
     private static final String DEFAULT_DOWNLOAD_DIR = "ReseamInsta";
     private static final String DOWNLOAD_FOLDER_KEY = "download.folder";
-    private static final String SHOW_TOAST_KEY = "download.show_toast";
 
     private DownloadEnqueuer() {}
 
@@ -52,10 +51,10 @@ final class DownloadEnqueuer {
                 return;
             }
             boolean ok = downloadSingle(media, media, safe, 0);
-            showToast(safe, ok ? "Downloading" : "Could not extract media URL");
+            Ui.showToast(safe, ok ? "Downloading" : "Could not extract media URL");
         } catch (Throwable t) {
             Logcat.e("downloadMedia failed", t);
-            showToast(safe, "Download failed");
+            Ui.showToast(safe, "Download failed");
         }
     }
 
@@ -71,7 +70,7 @@ final class DownloadEnqueuer {
             public void onCurrent() {
                 Object child = children.get(currentIndex);
                 boolean ok = downloadSingle(parentMedia, child, context, currentIndex + 1);
-                showToast(context, ok
+                Ui.showToast(context, ok
                         ? "Downloading slide " + (currentIndex + 1)
                         : "Slide " + (currentIndex + 1) + ": could not extract URL");
             }
@@ -90,7 +89,7 @@ final class DownloadEnqueuer {
         if (media != null) {
             download(media, context);
         } else {
-            showToast(context, "Could not extract media URL");
+            Ui.showToast(context, "Could not extract media URL");
         }
     }
 
@@ -102,7 +101,7 @@ final class DownloadEnqueuer {
         if (reelItem != null) {
             downloadReelItem(reelItem, context);
         } else {
-            showToast(context, "Could not extract story media");
+            Ui.showToast(context, "Could not extract story media");
         }
     }
 
@@ -113,14 +112,14 @@ final class DownloadEnqueuer {
             if (ok) {
                 count++;
             } else {
-                showToast(context, "Slide " + (i + 1) + ": could not extract URL");
+                Ui.showToast(context, "Slide " + (i + 1) + ": could not extract URL");
             }
         }
 
         if (count > 0) {
-            showToast(context, "Downloading " + count + " of " + children.size() + " items");
+            Ui.showToast(context, "Downloading " + count + " of " + children.size() + " items");
         } else {
-            showToast(context, "Could not extract carousel URLs");
+            Ui.showToast(context, "Could not extract carousel URLs");
         }
     }
 
@@ -224,9 +223,4 @@ final class DownloadEnqueuer {
         return value.isEmpty() ? DEFAULT_DOWNLOAD_DIR : value;
     }
 
-    private static void showToast(Context context, String message) {
-        if (ReseamSettings.getBoolean(SHOW_TOAST_KEY, true)) {
-            Ui.showToast(context, message);
-        }
-    }
 }
