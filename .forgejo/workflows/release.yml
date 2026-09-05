@@ -11,51 +11,41 @@ jobs:
     runs-on: docker
     container:
       image: ghcr.io/cirruslabs/android-sdk:34
+    env:
+      ENGINE_VERSION: v0.3.0
+      JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
+      RESEAM_BIN: engine/reseam-linux-x64
+      RESEAM_BUNDLE_KEY: bundle-signing.key
     steps:
-      - run: apt-get update && apt-get install -y --no-install-recommends nodejs curl ca-certificates jq openjdk-17-jdk-headless zstd
+      - name: Install Java
+        run: apt-get update && apt-get install -y --no-install-recommends openjdk-17-jdk-headless
 
-      - run: echo "JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64" >> "$GITHUB_ENV"
+      - name: Checkout sources
+        uses: actions/checkout@v4
 
-      - uses: actions/checkout@v4
+      - name: Set up Gradle
+        uses: https://github.com/gradle/actions/setup-gradle@v5
 
-      - uses: actions/cache@v4
+      - name: Download the Reseam CLI
+        uses: https://code.forgejo.org/actions/forgejo-release@v2.11.1
         with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: gradle-${{ hashFiles('**/*.gradle.kts', 'gradle/libs.versions.toml') }}
-          restore-keys: |
-            gradle-
+          direction: download
+          url: https://git.reseam.app
+          repo: reseam/reseam
+          tag: ${{ env.ENGINE_VERSION }}
+          token: ${{ secrets.RELEASE_TOKEN }}
+          release-dir: engine
 
-      - env:
-          TOKEN: ${{ secrets.RELEASE_TOKEN }}
+      - name: Install the signing key
         run: |
-          URL=$(curl -sSL --fail -H "authorization: token $TOKEN" \
-            https://git.reseam.app/api/v1/repos/reseam/reseam/releases/latest \
-            | jq -r '.assets[] | select(.name=="reseam-linux-x64") | .browser_download_url')
-          test -n "$URL"
-          curl -sSL --fail -H "authorization: token $TOKEN" -o /usr/local/bin/reseam "$URL"
-          chmod +x /usr/local/bin/reseam
+          chmod +x engine/reseam-linux-x64
+          echo "${{ secrets.BUNDLE_SIGNING_KEY_B64 }}" | base64 -d > bundle-signing.key
 
-      - run: |
-          mkdir -p "$HOME/.reseam"
-          printf '%s' "${{ secrets.BUNDLE_SIGNING_KEY_B64 }}" | base64 -d > "$HOME/.reseam/bundle-signing.key"
-          chmod 600 "$HOME/.reseam/bundle-signing.key"
+      - name: Build and stage the release
+        run: ./gradlew stageRelease -PreleaseTag=${{ github.ref_name }} --no-daemon
 
-      - env:
-          RESEAM_BIN: /usr/local/bin/reseam
-        run: |
-          TAG="${GITHUB_REF#refs/tags/}"
-          export RESEAM_BUNDLE_KEY="$HOME/.reseam/bundle-signing.key"
-          export RESEAM_RELEASE_VERSION="${TAG#v}"
-          export RESEAM_BUNDLE_URL="https://api.reseam.app/patches/${TAG}/reseam-patches.reseam"
-          ./gradlew generatePatchesJson --no-daemon
-
-      - run: |
-          install -D -m 0644 build/bundle/reseam-patches.reseam dist/reseam-patches.reseam
-          install -D -m 0644 build/bundle/patches.json dist/patches.json
-
-      - uses: https://code.forgejo.org/actions/forgejo-release@v2.11.1
+      - name: Upload to the Forgejo release
+        uses: https://code.forgejo.org/actions/forgejo-release@v2.11.1
         with:
           direction: upload
           url: https://git.reseam.app
@@ -63,5 +53,5 @@ jobs:
           tag: ${{ github.ref_name }}
           sha: ${{ github.sha }}
           token: ${{ secrets.RELEASE_TOKEN }}
-          release-dir: dist
+          release-dir: build/release
           override: true

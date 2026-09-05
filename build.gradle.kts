@@ -131,8 +131,11 @@ tasks.register<Exec>("generatePatchesJson") {
     val outFile = providers.environmentVariable("RESEAM_PATCHES_JSON_OUT")
         .map { file(it) }
         .orElse(layout.buildDirectory.file("bundle/patches.json").map { it.asFile })
+    val releaseTag = providers.gradleProperty("releaseTag")
     val version = providers.environmentVariable("RESEAM_RELEASE_VERSION")
+        .orElse(releaseTag.map { it.removePrefix("v") })
     val bundleUrl = providers.environmentVariable("RESEAM_BUNDLE_URL")
+        .orElse(releaseTag.map { "https://api.reseam.app/patches/$it/reseam-patches.reseam" })
     val description = providers.environmentVariable("RESEAM_RELEASE_DESCRIPTION")
     val descriptionFile = providers.environmentVariable("RESEAM_RELEASE_DESCRIPTION_FILE")
     val homepage = providers.environmentVariable("RESEAM_HOMEPAGE")
@@ -173,4 +176,12 @@ tasks.register<Exec>("generatePatchesJson") {
         outFile.get().parentFile.mkdirs()
         commandLine = args
     }
+}
+
+tasks.register<Sync>("stageRelease") {
+    group = "distribution"
+    description = "Collects the bundle and patches.json for a release."
+    dependsOn("generatePatchesJson")
+    from(layout.buildDirectory.dir("bundle")) { include("reseam-patches.reseam", "patches.json") }
+    into(layout.buildDirectory.dir("release"))
 }

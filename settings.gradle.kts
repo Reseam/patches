@@ -20,7 +20,7 @@ if (reseamWorkspace != null) {
     require(workspaceDir.isDirectory) {
         "reseam.workspace points to a missing directory: $workspaceDir"
     }
-    includeBuild(workspaceDir.resolve("patch-api"))
+    includeBuild(workspaceDir)
 }
 
 include(":shared-settings-runtime")
