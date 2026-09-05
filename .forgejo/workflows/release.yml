@@ -10,16 +10,12 @@ jobs:
     if: ${{ !github.event.deleted }}
     runs-on: docker
     container:
-      image: ghcr.io/cirruslabs/android-sdk:34
+      image: cimg/android:2026.03-node
     env:
       ENGINE_VERSION: v0.3.0
-      JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
       RESEAM_BIN: engine/reseam-linux-x64
       RESEAM_BUNDLE_KEY: bundle-signing.key
     steps:
-      - name: Install Java and Node for the actions
-        run: apt-get update && apt-get install -y --no-install-recommends openjdk-17-jdk-headless nodejs ca-certificates
-
       - name: Checkout sources
         uses: actions/checkout@v4
 
