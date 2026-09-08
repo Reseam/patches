@@ -14,7 +14,7 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
-    implementation("app.reseam:reseam-patch-sdk:0.3.0")
+    implementation("app.reseam:reseam-patch-sdk:0.4.0")
 }
 
 kotlin {
