@@ -8,15 +8,13 @@ import app.reseam.patch.bind
 import app.reseam.patch.classTarget
 import app.reseam.patch.method
 
-interface RuntimeUserPrincipal
-
 /** How Instagram's user principal is reached from a media object, shared by the refs and download patches. */
 object InstagramUserGraph {
     val shareUrlCarrier = method("shareUrlCarrier") {
         strings("https://www.instagram.com/p/", "unknown")
     }
 
-    val principalFromMedia = bind<RuntimeUserPrincipal>("userPrincipalFromMedia") {
+    val principalFromMedia = bind("userPrincipalFromMedia") {
         fromField("mediaField") {
             owner(InstagramMediaGraph.feedClickHandler.owner)
             nearestObjectReadBeforeString("click_media_option")
@@ -40,7 +38,7 @@ object InstagramUserGraph {
         params()
     }
 
-    val principal = bind<RuntimeUserPrincipal>("userPrincipal") {
+    val principal = bind("userPrincipal") {
         fromClass(principalClass)
         string("username") {
             callInterface(usernameAccessor.owner, usernameAccessor.name, usernameAccessor.proto)

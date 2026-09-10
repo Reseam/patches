@@ -23,12 +23,6 @@ import app.reseam.patches.instagram.core.MEDIA_OPTION
 import app.reseam.patches.instagram.core.REEL_ITEM
 import app.reseam.patches.instagram.core.VIDEO_VERSION_INTF
 
-interface RuntimeMedia
-interface RuntimeStoryOwner
-interface RuntimeReelItem
-interface RuntimeLegacyMenu
-interface RuntimeCarouselState
-
 /** How Instagram's media value class, menus, and story sheets are found, shared by the media patches. */
 object InstagramMediaGraph {
     val feedMenuBuilder = method("feedMenuBuilder") {
@@ -74,7 +68,7 @@ object InstagramMediaGraph {
         hasParam(Type.CharSequence)
     }
 
-    val media = bind<RuntimeMedia>("media") {
+    val media = bind("media") {
         fromField("feedMediaField") {
             owner(feedClickHandler.owner)
             nearestObjectReadBeforeString("click_media_option")
@@ -131,7 +125,7 @@ object InstagramMediaGraph {
         bytecode.findClass(carouselIndexField.owner) ?: error("carousel state class missing")
     }
 
-    val carouselState = bind<RuntimeCarouselState>("carouselState") {
+    val carouselState = bind("carouselState") {
         fromClass(carouselStateClass)
         intValue("currentIndex") { field(carouselIndexField) }
     }
@@ -146,7 +140,7 @@ object InstagramMediaGraph {
         field.ref
     }
 
-    val storyOwner = bind<RuntimeStoryOwner>("storyOwner") {
+    val storyOwner = bind("storyOwner") {
         fromClass(storyActionSheet)
         objectValue("reelItem") { instanceField(REEL_ITEM) }
         context("context") { instanceField(listOf(Type.Activity, FRAGMENT_ACTIVITY, Type.Context)) }
@@ -156,7 +150,7 @@ object InstagramMediaGraph {
         }
     }
 
-    val reelItem = bind<RuntimeReelItem>("reelItem") {
+    val reelItem = bind("reelItem") {
         fromClass(reelItemClass)
         bind("media", media) {
             field(reelItemMediaField)
@@ -174,7 +168,7 @@ object InstagramMediaGraph {
         hasParam(Type.View)
     }
 
-    val legacyMenu = bind<RuntimeLegacyMenu>("reelsLegacyMenu") {
+    val legacyMenu = bind("reelsLegacyMenu") {
         fromMethod(reelsLegacyMenuDisplay)
         raw { param(1) }
     }
