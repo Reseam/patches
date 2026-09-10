@@ -6,7 +6,7 @@ pluginManagement {
         mavenCentral()
         gradlePluginPortal()
         maven("https://git.reseam.app/api/packages/reseam/maven") {
-            mavenContent { includeGroup("app.reseam") }
+            mavenContent { includeGroupAndSubgroups("app.reseam") }
         }
     }
     (System.getenv("RESEAM_WORKSPACE") ?: providers.gradleProperty("reseam.workspace").orNull)
@@ -15,7 +15,7 @@ pluginManagement {
 }
 
 plugins {
-    id("app.reseam.workspace") version "0.5.0"
+    id("app.reseam.workspace") version "0.5.1"
 }
 
 rootProject.name = "reseam-patches"
