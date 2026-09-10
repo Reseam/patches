@@ -3,41 +3,29 @@
 
 package app.reseam.patches.telegram.update
 
-import app.reseam.patch.compatibleWith
+import app.reseam.patch.Type
+import app.reseam.patch.klass
+import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.SettingsSection
 import app.reseam.patch.settings.returnFalseWhen
+import app.reseam.patch.settings.section
 import app.reseam.patch.settings.skipWhen
+import app.reseam.patches.telegram.core.TELEGRAM
 import app.reseam.patches.telegram.core.TelegramSettings
-import app.reseam.patches.telegram.core.settingsPatch
+import app.reseam.patches.telegram.core.telegramSettings
 
-val disableAutoUpdatePatch = patch(
-    name = "Disable auto-update",
-    description = "Stops in-app update checks and prompts.",
-    compatibleWith = listOf(compatibleWith("org.telegram.messenger", "12.7.1")),
-    settingsHost = settingsPatch,
-    dependsOn = listOf(settingsPatch),
-    settings = listOf(
-        SettingsSection("Updates", listOf(TelegramSettings.DisableAutoUpdate)),
-    ),
-) {
-    execute { ctx ->
-        ctx.bytecode.findClass("Lorg/telegram/ui/LaunchActivity;")
-            ?.methods?.firstOrNull {
-                it.info.methodName == "checkAppUpdate" && it.info.proto.endsWith(")V")
-            }?.skipWhen(TelegramSettings.DisableAutoUpdate)
-            ?: error("LaunchActivity.checkAppUpdate(...) not found")
+val disableAutoUpdate = patch("Disable auto-update") {
+    description("Stops in-app update checks and prompts.")
+    compatibleWith(TELEGRAM)
+    settings(telegramSettings, section("Updates", TelegramSettings.disableAutoUpdate))
 
-        ctx.bytecode.findClass("Lorg/telegram/messenger/SharedConfig;")
-            ?.methods?.firstOrNull {
-                it.info.methodName == "setNewAppVersionAvailable" && it.info.proto.endsWith(")Z")
-            }?.returnFalseWhen(TelegramSettings.DisableAutoUpdate)
-            ?: error("SharedConfig.setNewAppVersionAvailable(...) not found")
-
-        ctx.bytecode.findClass("Lorg/telegram/ui/Components/BlockingUpdateView;")
-            ?.methods?.firstOrNull {
-                it.info.methodName == "show" && it.info.proto.endsWith(")V")
-            }?.skipWhen(TelegramSettings.DisableAutoUpdate)
-            ?: error("BlockingUpdateView.show(...) not found")
+    execute {
+        checkAppUpdate.skipWhen(TelegramSettings.disableAutoUpdate)
+        setNewAppVersionAvailable.returnFalseWhen(TelegramSettings.disableAutoUpdate)
+        showBlockingUpdate.skipWhen(TelegramSettings.disableAutoUpdate)
     }
 }
+
+val checkAppUpdate = klass("org.telegram.ui.LaunchActivity").method("checkAppUpdate") { returns(Type.Void) }
+val setNewAppVersionAvailable = klass("org.telegram.messenger.SharedConfig").method("setNewAppVersionAvailable") { returns(Type.Boolean) }
+val showBlockingUpdate = klass("org.telegram.ui.Components.BlockingUpdateView").method("show") { returns(Type.Void) }

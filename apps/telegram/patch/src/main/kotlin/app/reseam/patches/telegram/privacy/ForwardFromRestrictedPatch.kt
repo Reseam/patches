@@ -3,71 +3,50 @@
 
 package app.reseam.patches.telegram.privacy
 
+import app.reseam.patch.Type
 import app.reseam.patch.before
-import app.reseam.patch.compatibleWith
+import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.prependWhen
+import app.reseam.patch.settings.before
+import app.reseam.patches.telegram.core.MESSAGE_OBJECT
+import app.reseam.patches.telegram.core.MESSAGE_SUGGESTION_PARAMS
+import app.reseam.patches.telegram.core.SEND_MESSAGE_PARAMS
+import app.reseam.patches.telegram.core.TELEGRAM
+import app.reseam.patches.telegram.core.TelegramForwardBridge
 import app.reseam.patches.telegram.core.TelegramSettings
-import app.reseam.patches.telegram.core.settingsPatch
+import app.reseam.patches.telegram.core.sendMessagesHelper
+import app.reseam.patches.telegram.core.telegramSettings
 
-/**
- * Server enforces `noforwards` on `messages.forwardMessages` API calls — a client return-false
- * hook on `isChatNoForwards` only re-enables the UI buttons. To actually deliver, route forwards
- * from no-forwards chats through `SendMessagesHelper.processForwardFromMyName`, which the app
- * already uses for encrypted dialogs: it re-sends each message via `messages.sendMedia` /
- * `sendMessage` as new uploads, so the server-side forward block doesn't apply.
- */
-val forwardFromRestrictedPatch = patch(
-    name = "Forward from restricted chats",
-    description = "Re-sends as a new message when forwarding from a no-forwards chat.",
-    compatibleWith = listOf(compatibleWith("org.telegram.messenger", "12.7.1")),
-    settingsHost = settingsPatch,
-    dependsOn = listOf(settingsPatch),
-) {
-    extendWith("telegram-settings.dex")
-    execute { ctx ->
-        val proto =
-            "(Ljava/util/ArrayList;JZZZIILorg/telegram/messenger/MessageObject;" +
-                "IJJLorg/telegram/messenger/MessageSuggestionParams;)I"
-        val sendMessage = ctx.bytecode.findClass("Lorg/telegram/messenger/SendMessagesHelper;")
-            ?.methods?.firstOrNull {
-                it.info.methodName == "sendMessage" && it.info.proto == proto
-            } ?: error("SendMessagesHelper.sendMessage(ArrayList,...)I not found")
+// The server enforces `noforwards` on messages.forwardMessages, so re-enabling the UI is not
+// enough. Forwards from such chats go through processForwardFromMyName, which the app already
+// uses for encrypted dialogs: each message is re-sent as a fresh upload.
+val forwardFromRestricted = patch("Forward from restricted chats") {
+    description("Re-sends as a new message when forwarding from a no-forwards chat.")
+    compatibleWith(TELEGRAM)
+    dependsOn(telegramSettings)
 
-        sendMessage.prependWhen(TelegramSettings.SaveFromRestricted) {
-            val handled = staticCall(
-                "Lapp/reseam/telegram/forward/TelegramForwardBridge;",
-                "tryFakeForward",
-                "(Ljava/util/ArrayList;JJJLorg/telegram/messenger/MessageSuggestionParams;)Z",
-                parameter(0),                              // messages
-                parameter(1),                              // peer
-                parameter(9),                              // payStars
-                parameter(10),                             // monoForumPeerId
-                parameter(11),                             // suggestionParams
-            )
-            ifTrue(handled) {
-                // Method returns int; const-0 + return is a valid int return on any 32-bit type.
-                returnFalse()
+    execute {
+        sendMessages.before(TelegramSettings.saveFromRestricted) {
+            val handled = call(TelegramForwardBridge.tryFakeForward, param(0), param(1), param(9), param(10), param(11))
+            whenTrue(handled) {
+                returnValue(int(0))
             }
         }
 
-        // The redirect routes through processForwardFromMyName, which builds SendMessageParams
-        // with `path = null` for photos and an unset attachPath for received documents. That
-        // makes the eventual `messages.sendMedia` reference the server-side media id of a
-        // no-forwards source, and the server rejects it. Set `path` to the local cache so the
-        // send re-uploads instead.
-        val sendOne = ctx.bytecode.findClass("Lorg/telegram/messenger/SendMessagesHelper;")
-            ?.methods?.firstOrNull {
-                it.info.methodName == "sendMessage" &&
-                    it.info.proto == "(Lorg/telegram/messenger/SendMessagesHelper\$SendMessageParams;)V"
-            } ?: error("SendMessagesHelper.sendMessage(SendMessageParams)V not found")
-        sendOne.before {
-            staticCall(
-                "Lapp/reseam/telegram/forward/TelegramForwardBridge;",
-                "fixPathForNoForwards",
-                "(Lorg/telegram/messenger/SendMessagesHelper\$SendMessageParams;)V",
-                parameter(0),
-            )
+        // processForwardFromMyName leaves `path` unset for received media, which makes the
+        // eventual messages.sendMedia reference a server-side media id the server rejects.
+        // Pointing it at the local cache makes the send re-upload instead.
+        sendOneMessage.before {
+            call(TelegramForwardBridge.fixPathForNoForwards, param(0))
         }
     }
 }
+
+val sendMessages = sendMessagesHelper.method("sendMessage") {
+    params(
+        Type.ArrayList, Type.Long, Type.Boolean, Type.Boolean, Type.Boolean, Type.Int, Type.Int,
+        MESSAGE_OBJECT, Type.Int, Type.Long, Type.Long, MESSAGE_SUGGESTION_PARAMS,
+    )
+}
+
+val sendOneMessage = sendMessagesHelper.method("sendMessage") { params(SEND_MESSAGE_PARAMS) }

@@ -3,40 +3,36 @@
 
 package app.reseam.patches.telegram.integrity
 
-import app.reseam.patch.compatibleWith
-import app.reseam.patch.findMethod
+import app.reseam.patch.Type
+import app.reseam.patch.after
+import app.reseam.patch.alwaysReturn
+import app.reseam.patch.dex.Opcode
+import app.reseam.patch.klass
+import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.returnEarlyString
+import app.reseam.patch.point
+import app.reseam.patches.telegram.core.TELEGRAM
 
-val bypassIntegrityPatch = patch(
-    name = "Bypass integrity",
-    description = "Allows login on rooted or non-Google devices.",
-    compatibleWith = listOf(compatibleWith("org.telegram.messenger", "12.7.1")),
-) {
-    execute { ctx ->
-        val anchors = listOf("basicIntegrity", "ctsProfileMatch")
-        val method = ctx.findMethod(debug = "safetyNetHandler") {
-            strings(anchors[0], anchors[1])
-            returnType("V")
-        }.method
+val bypassIntegrity = patch("Bypass integrity") {
+    description("Allows login on rooted or non-Google devices.")
+    compatibleWith(TELEGRAM)
 
-        // Replace each `MOVE_RESULT` (two ops past the verdict-key CONST_STRING) with `const/4 vR, 1`.
-        // Reverse order so earlier indices don't shift after each splice.
-        anchors.mapNotNull { method.indexOfFirstString(it)?.plus(2) }
-            .sortedDescending()
-            .forEach { idx ->
-                val reg = method.registerA(idx)
-                method.removeInstruction(idx)
-                method.addInstructions(idx) { const4(reg, 1) }
-            }
+    execute {
+        // Each verdict is read from the SafetyNet JSON right after its key is loaded; force both true.
+        for (verdict in listOf("basicIntegrity", "ctsProfileMatch")) {
+            safetyNetHandler.point { string(verdict) }
+                .next { opcode(Opcode.MOVE_RESULT) }
+                .captureAs("verdict")
+                .after { capture("verdict").assign(bool(true)) }
+        }
 
-        // SHA1 + SHA256 cert getters share an "X509" anchor; resolve by name.
-        ctx.bytecode.findClass("Lorg/telegram/messenger/AndroidUtilities;")
-            ?.methods?.firstOrNull {
-                it.info.methodName == "getCertificateSHA256Fingerprint" &&
-                    it.info.proto == "()Ljava/lang/String;"
-            }
-            ?.returnEarlyString("49C1522548EBACD46CE322B6FD47F6092BB745D0F88082145CAF35E14DCC38E1")
-            ?: error("getCertificateSHA256Fingerprint not found")
+        certificateSha256.alwaysReturn("49C1522548EBACD46CE322B6FD47F6092BB745D0F88082145CAF35E14DCC38E1")
     }
 }
+
+val safetyNetHandler = method("safetyNetHandler") {
+    strings("basicIntegrity", "ctsProfileMatch")
+    returns(Type.Void)
+}
+
+val certificateSha256 = klass("org.telegram.messenger.AndroidUtilities").method("getCertificateSHA256Fingerprint") { params() }

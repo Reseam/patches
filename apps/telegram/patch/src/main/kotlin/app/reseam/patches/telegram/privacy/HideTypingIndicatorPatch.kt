@@ -3,30 +3,27 @@
 
 package app.reseam.patches.telegram.privacy
 
-import app.reseam.patch.compatibleWith
+import app.reseam.patch.Type
+import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.SettingsSection
 import app.reseam.patch.settings.returnFalseWhen
+import app.reseam.patch.settings.section
+import app.reseam.patches.telegram.core.TELEGRAM
 import app.reseam.patches.telegram.core.TelegramSettings
-import app.reseam.patches.telegram.core.settingsPatch
+import app.reseam.patches.telegram.core.messagesController
+import app.reseam.patches.telegram.core.telegramSettings
 
-val hideTypingIndicatorPatch = patch(
-    name = "Hide typing indicator",
-    description = "Don't notify others when you're typing or recording.",
-    compatibleWith = listOf(compatibleWith("org.telegram.messenger", "12.7.1")),
-    settingsHost = settingsPatch,
-    dependsOn = listOf(settingsPatch),
-    settings = listOf(
-        SettingsSection("Privacy", listOf(TelegramSettings.HideTyping)),
-    ),
-) {
-    execute { ctx ->
-        // Both sendTyping overloads route through the 5-arg one.
-        ctx.bytecode.findClass("Lorg/telegram/messenger/MessagesController;")
-            ?.methods?.firstOrNull {
-                it.info.methodName == "sendTyping" &&
-                    it.info.proto == "(JJILjava/lang/String;I)Z"
-            }?.returnFalseWhen(TelegramSettings.HideTyping)
-            ?: error("MessagesController.sendTyping(JJILjava/lang/String;I)Z not found")
+val hideTypingIndicator = patch("Hide typing indicator") {
+    description("Don't notify others when you're typing or recording.")
+    compatibleWith(TELEGRAM)
+    settings(telegramSettings, section("Privacy", TelegramSettings.hideTyping))
+
+    execute {
+        sendTyping.returnFalseWhen(TelegramSettings.hideTyping)
     }
+}
+
+// Both sendTyping overloads route through the 5-arg one.
+val sendTyping = messagesController.method("sendTyping") {
+    params(Type.Long, Type.Long, Type.Int, Type.String, Type.Int)
 }

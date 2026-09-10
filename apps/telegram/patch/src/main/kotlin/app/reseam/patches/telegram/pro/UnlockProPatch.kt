@@ -3,57 +3,41 @@
 
 package app.reseam.patches.telegram.pro
 
-import app.reseam.patch.compatibleWith
+import app.reseam.patch.Type
+import app.reseam.patch.klass
+import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.SettingsSection
-import app.reseam.patch.settings.prependWhen
+import app.reseam.patch.settings.before
 import app.reseam.patch.settings.returnTrueWhen
+import app.reseam.patch.settings.section
+import app.reseam.patches.telegram.core.TELEGRAM
+import app.reseam.patches.telegram.core.TL_USER
 import app.reseam.patches.telegram.core.TelegramSettings
-import app.reseam.patches.telegram.core.settingsPatch
+import app.reseam.patches.telegram.core.messagesController
+import app.reseam.patches.telegram.core.telegramSettings
 
-val unlockProPatch = patch(
-    name = "Unlock Premium",
-    description = "Unlocks Premium-only features in the UI.",
-    compatibleWith = listOf(compatibleWith("org.telegram.messenger", "12.7.1")),
-    settingsHost = settingsPatch,
-    dependsOn = listOf(settingsPatch),
-    settings = listOf(
-        SettingsSection("Premium", listOf(TelegramSettings.UnlockPremium)),
-    ),
-) {
-    execute { ctx ->
-        // Self-only premium checks: forcing true is safe — caller is asking about the local user.
-        val selfOnly = listOf(
-            Triple("Lorg/telegram/messenger/UserConfig;", "isPremium", "()Z"),
-            Triple("Lorg/telegram/ui/Stories/StoriesController;", "isPremium", "(J)Z"),
-        )
-        for ((descriptor, name, proto) in selfOnly) {
-            ctx.bytecode.findClass(descriptor)
-                ?.methods?.firstOrNull { it.info.methodName == name && it.info.proto == proto }
-                ?.returnTrueWhen(TelegramSettings.UnlockPremium)
-                ?: error("$descriptor->$name$proto not found")
-        }
+val unlockPremium = patch("Unlock Premium") {
+    description("Unlocks Premium-only features in the UI.")
+    compatibleWith(TELEGRAM)
+    settings(telegramSettings, section("Premium", TelegramSettings.unlockPremium))
 
-        // MessagesController.isPremiumUser(User) is called per-user (UI cells, story rings,
-        // chat title). Forcing true unconditionally drew premium stars on every user
-        // (issue #52). Gate the early-return on UserObject.isUserSelf so only the local
-        // user reads as premium; the original method handles everyone else.
-        val isPremiumUser = ctx.bytecode.findClass("Lorg/telegram/messenger/MessagesController;")
-            ?.methods?.firstOrNull {
-                it.info.methodName == "isPremiumUser" &&
-                    it.info.proto == "(Lorg/telegram/tgnet/TLRPC\$User;)Z"
-            }
-            ?: error("MessagesController->isPremiumUser(TLRPC\$User)Z not found")
-        isPremiumUser.prependWhen(TelegramSettings.UnlockPremium) {
-            val isSelf = staticCall(
-                "Lorg/telegram/messenger/UserObject;",
-                "isUserSelf",
-                "(Lorg/telegram/tgnet/TLRPC\$User;)Z",
-                parameter(0),
-            )
-            ifTrue(isSelf) {
+    execute {
+        userConfigIsPremium.returnTrueWhen(TelegramSettings.unlockPremium)
+        storiesIsPremium.returnTrueWhen(TelegramSettings.unlockPremium)
+
+        isPremiumUser.before(TelegramSettings.unlockPremium) {
+            whenTrue(call(isUserSelf, param(0))) {
                 returnTrue()
             }
         }
     }
 }
+
+// Self-only premium checks: the caller asks about the local user, so forcing true is safe.
+val userConfigIsPremium = klass("org.telegram.messenger.UserConfig").method("isPremium") { params() }
+val storiesIsPremium = klass("org.telegram.ui.Stories.StoriesController").method("isPremium") { params(Type.Long) }
+
+// isPremiumUser(User) runs per user (cells, story rings, chat titles). Forcing it true drew
+// premium stars on everyone (issue #52), so only the local user reads as premium.
+val isPremiumUser = messagesController.method("isPremiumUser") { params(TL_USER) }
+val isUserSelf = klass("org.telegram.messenger.UserObject").method("isUserSelf") { params(TL_USER) }

@@ -3,27 +3,26 @@
 
 package app.reseam.patches.telegram.ads
 
-import app.reseam.patch.compatibleWith
-import app.reseam.patch.findMethod
+import app.reseam.patch.Type
+import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.SettingsSection
+import app.reseam.patch.settings.section
+import app.reseam.patch.settings.skipWhen
+import app.reseam.patches.telegram.core.TELEGRAM
 import app.reseam.patches.telegram.core.TelegramSettings
-import app.reseam.patches.telegram.core.settingsPatch
+import app.reseam.patches.telegram.core.telegramSettings
 
-val hideSponsoredAdsPatch = patch(
-    name = "Hide sponsored messages",
-    description = "Removes promoted posts from channels.",
-    compatibleWith = listOf(compatibleWith("org.telegram.messenger", "12.7.1")),
-    settingsHost = settingsPatch,
-    dependsOn = listOf(settingsPatch),
-    settings = listOf(
-        SettingsSection("Ads", listOf(TelegramSettings.HideSponsoredAds)),
-    ),
-) {
-    execute { ctx ->
-        ctx.findMethod(debug = "addSponsoredMessages") {
-            strings("https://t\\.me/(\\w+)(?:/(\\d+))?")
-            returnType("V")
-        }.skipWhen(TelegramSettings.HideSponsoredAds)
+val hideSponsoredAds = patch("Hide sponsored messages") {
+    description("Removes promoted posts from channels.")
+    compatibleWith(TELEGRAM)
+    settings(telegramSettings, section("Ads", TelegramSettings.hideSponsoredAds))
+
+    execute {
+        addSponsoredMessages.skipWhen(TelegramSettings.hideSponsoredAds)
     }
+}
+
+val addSponsoredMessages = method("addSponsoredMessages") {
+    strings("https://t\\.me/(\\w+)(?:/(\\d+))?")
+    returns(Type.Void)
 }
