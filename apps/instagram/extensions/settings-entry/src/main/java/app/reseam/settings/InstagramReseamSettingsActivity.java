@@ -24,6 +24,7 @@ public final class InstagramReseamSettingsActivity extends IgActivity {
         applyInstagramActivityTheme();
         super.onCreate(savedInstanceState);
         ReseamSettings.init(this);
+        IgdsToggleRows.install();
         setTitle("Reseam Settings");
         setContentView(ReseamSettingsScreen.build(this));
     }

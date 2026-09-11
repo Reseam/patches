@@ -22,6 +22,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -29,46 +30,37 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 
 /**
- * Settings screen using Instagram's native IGDS components for a native feel.
- *
- * Uses only non-obfuscated class/method names to remain version-resilient:
- * - Class: com.instagram.igds.components.textcell.IgdsListCell
- * - Methods: getTitleView(), getSubtitleView(), setTextCellType(), setChecked()
- * - Enum values by string name: "TYPE_SWITCH", "TYPE_CHECKBOX", etc.
+ * Settings screen built from the bundle's settings schema with plain Android widgets. A host can
+ * swap in native-looking toggle rows through {@link #setToggleRowFactory}.
  */
 public final class ReseamSettingsScreen {
+    /** Builds one toggle row; the listener must fire whenever the user changes the value. */
+    public interface ToggleRowFactory {
+        View create(Context ctx, String title, String summary, boolean checked, CompoundButton.OnCheckedChangeListener listener);
+    }
+
     private static final String TAG = "ReseamSettings";
     public static final int FOLDER_PICKER_REQUEST_CODE = 0x57C4;
     private static String pendingFolderKey;
 
-    // Instagram component class name (non-obfuscated, stable across versions)
-    private static final String IGDS_LIST_CELL_CLASS = "com.instagram.igds.components.textcell.IgdsListCell";
-
-    // Cached reflection data (initialized once)
-    private static boolean reflectionInitialized = false;
-    private static Class<?> igdsListCellClass;
-    private static Class<?> textCellTypeEnum;
-    private static Object typeSwitchValue;
-    private static Method setTextCellTypeMethod;
-    private static Method setCheckedMethod;
-    private static Method getTitleViewMethod;
-    private static Method getSubtitleViewMethod;
-    private static Method setOnCheckedChangeListenerMethod;
+    private static volatile ToggleRowFactory toggleRows = ReseamSettingsScreen::plainToggleRow;
 
     private ReseamSettingsScreen() {}
 
+    public static void setToggleRowFactory(ToggleRowFactory factory) {
+        toggleRows = factory;
+    }
+
     public static View build(Context ctx) {
         ReseamSettings.init(ctx);
-        initReflection();
 
         LinearLayout container = new LinearLayout(ctx);
         container.setOrientation(LinearLayout.VERTICAL);
         container.setBackgroundColor(Color.BLACK);
+        // Hosts targeting API 35+ draw edge to edge; keep the toolbar below the status bar.
+        container.setFitsSystemWindows(true);
 
         container.addView(buildToolbar(ctx, "Reseam Settings"),
                 new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dpToPx(ctx, 56)));
@@ -140,81 +132,6 @@ public final class ReseamSettingsScreen {
         bar.addView(tv, tvLp);
 
         return bar;
-    }
-
-    /**
-     * Initialize reflection for Instagram IGDS components.
-     * Finds classes and methods by their non-obfuscated names and signatures.
-     */
-    private static synchronized void initReflection() {
-        if (reflectionInitialized) return;
-        reflectionInitialized = true;
-
-        try {
-            // Load the IgdsListCell class (non-obfuscated name)
-            igdsListCellClass = Class.forName(IGDS_LIST_CELL_CLASS);
-
-            // Find setTextCellType method (non-obfuscated name)
-            // Its parameter type is the TextCellType enum (obfuscated class name)
-            for (Method m : igdsListCellClass.getDeclaredMethods()) {
-                if ("setTextCellType".equals(m.getName()) && m.getParameterCount() == 1) {
-                    Class<?> paramType = m.getParameterTypes()[0];
-                    if (paramType.isEnum()) {
-                        setTextCellTypeMethod = m;
-                        textCellTypeEnum = paramType;
-                        break;
-                    }
-                }
-            }
-
-            if (textCellTypeEnum == null) {
-                throw new RuntimeException("Could not find TextCellType enum via setTextCellType method");
-            }
-
-            // Find TYPE_SWITCH enum value by its non-obfuscated string name
-            typeSwitchValue = findEnumByName(textCellTypeEnum, "TYPE_SWITCH");
-            if (typeSwitchValue == null) {
-                throw new RuntimeException("Could not find TYPE_SWITCH enum value");
-            }
-
-            // Find non-obfuscated methods
-            setCheckedMethod = igdsListCellClass.getMethod("setChecked", boolean.class);
-            getTitleViewMethod = igdsListCellClass.getMethod("getTitleView");
-            getSubtitleViewMethod = igdsListCellClass.getMethod("getSubtitleView");
-
-            // Find the listener setter by parameter type (method name is obfuscated)
-            for (Method m : igdsListCellClass.getDeclaredMethods()) {
-                Class<?>[] params = m.getParameterTypes();
-                if (params.length == 1 && CompoundButton.OnCheckedChangeListener.class.isAssignableFrom(params[0])) {
-                    setOnCheckedChangeListenerMethod = m;
-                    setOnCheckedChangeListenerMethod.setAccessible(true);
-                    break;
-                }
-            }
-
-            Log.i(TAG, "IGDS components initialized successfully");
-
-        } catch (Throwable t) {
-            Log.e(TAG, "Failed to initialize IGDS reflection", t);
-            throw new RuntimeException("IGDS components required but not available", t);
-        }
-    }
-
-    /**
-     * Find an enum constant by its name (non-obfuscated).
-     */
-    @SuppressWarnings("unchecked")
-    private static Object findEnumByName(Class<?> enumClass, String name) {
-        try {
-            return Enum.valueOf((Class<Enum>) enumClass, name);
-        } catch (Throwable t) {
-            for (Object constant : enumClass.getEnumConstants()) {
-                if (name.equals(((Enum<?>) constant).name())) {
-                    return constant;
-                }
-            }
-            return null;
-        }
     }
 
     private static void addSetting(Context ctx, ViewGroup parent, JSONObject setting) {
@@ -321,54 +238,44 @@ public final class ReseamSettingsScreen {
         return value;
     }
 
-    /**
-     * Create a toggle row using Instagram's native IgdsListCell component.
-     */
     private static void addToggle(Context ctx, ViewGroup parent, String title, String summary, String key, boolean defaultValue) {
-        try {
-            // Create IgdsListCell using its Context constructor
-            View cell = (View) igdsListCellClass.getConstructor(Context.class).newInstance(ctx);
+        boolean checked = ReseamSettings.getBoolean(key, defaultValue);
+        View row = toggleRows.create(ctx, title, summary, checked, (button, isChecked) -> ReseamSettings.setBoolean(key, isChecked));
+        parent.addView(row, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+    }
 
-            // Set the cell type to TYPE_SWITCH
-            setTextCellTypeMethod.invoke(cell, typeSwitchValue);
+    private static View plainToggleRow(Context ctx, String title, String summary, boolean checked, CompoundButton.OnCheckedChangeListener listener) {
+        LinearLayout row = new LinearLayout(ctx);
+        row.setOrientation(LinearLayout.HORIZONTAL);
+        row.setGravity(Gravity.CENTER_VERTICAL);
+        row.setPadding(dpToPx(ctx, 16), dpToPx(ctx, 12), dpToPx(ctx, 16), dpToPx(ctx, 12));
 
-            // Set title using getTitleView().setText()
-            TextView titleView = (TextView) getTitleViewMethod.invoke(cell);
-            if (titleView != null) {
-                titleView.setText(title);
-            }
-
-            // Set subtitle if present
-            if (summary != null && !summary.isEmpty()) {
-                TextView subtitleView = (TextView) getSubtitleViewMethod.invoke(cell);
-                if (subtitleView != null) {
-                    subtitleView.setText(summary);
-                    subtitleView.setVisibility(View.VISIBLE);
-                }
-            }
-
-            // Set initial checked state
-            boolean currentValue = ReseamSettings.getBoolean(key, defaultValue);
-            setCheckedMethod.invoke(cell, currentValue);
-
-            // Set the listener
-            if (setOnCheckedChangeListenerMethod != null) {
-                CompoundButton.OnCheckedChangeListener listener = (buttonView, isChecked) -> {
-                    ReseamSettings.setBoolean(key, isChecked);
-                };
-                setOnCheckedChangeListenerMethod.invoke(cell, listener);
-            }
-
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-            );
-            parent.addView(cell, lp);
-
-        } catch (Throwable t) {
-            Log.e(TAG, "Failed to create IGDS toggle for: " + title, t);
-            throw new RuntimeException("Failed to create toggle: " + title, t);
+        LinearLayout text = new LinearLayout(ctx);
+        text.setOrientation(LinearLayout.VERTICAL);
+        TextView titleView = new TextView(ctx, null, 0);
+        titleView.setText(title);
+        titleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f);
+        titleView.setTextColor(Color.WHITE);
+        text.addView(titleView);
+        if (summary != null && !summary.isEmpty()) {
+            TextView sub = new TextView(ctx, null, 0);
+            sub.setText(summary);
+            sub.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13f);
+            sub.setTextColor(Color.parseColor("#A8A8A8"));
+            sub.setPadding(0, dpToPx(ctx, 2), 0, 0);
+            text.addView(sub);
         }
+        row.addView(text, new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
+
+        Switch toggle = new Switch(ctx);
+        toggle.setChecked(checked);
+        toggle.setOnCheckedChangeListener(listener);
+        LinearLayout.LayoutParams toggleLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        toggleLp.leftMargin = dpToPx(ctx, 16);
+        row.addView(toggle, toggleLp);
+
+        row.setOnClickListener(v -> toggle.toggle());
+        return row;
     }
 
     private static void addSectionHeader(ViewGroup parent, String title) {
