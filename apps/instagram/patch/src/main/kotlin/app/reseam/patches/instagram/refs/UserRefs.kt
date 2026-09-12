@@ -9,11 +9,10 @@ import app.reseam.patches.instagram.core.UserRefs
 import app.reseam.patches.instagram.core.signatureCheck
 import app.reseam.patches.instagram.internal.InstagramUserGraph
 
-val userRefs = patch("User refs") {
-    description("Internal: binds app.reseam.instagram.refs.User bridges to Instagram's user principal.")
+val userRefs = patch {
+    description("Binds app.reseam.instagram.refs.User bridges to Instagram's user principal.")
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
-    enabledByDefault(false)
 
     execute {
         UserRefs.fromMedia.implement {
