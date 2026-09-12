@@ -21,7 +21,7 @@ Writes `build/reseam/reseam-patches.reseam`. Try it on an APK:
 reseam patch app.apk --bundle build/reseam/reseam-patches.reseam --trust <your public key> --output patched.apk
 ```
 
-To build against a local engine checkout instead of the published SDK and plugin, set `RESEAM_WORKSPACE=/path/to/reseam`.
+Only when changing the engine alongside the patches, set `RESEAM_WORKSPACE=/path/to/reseam` to build against that checkout's SDK, plugin, and CLI instead of the published ones.
 
 How patches are written is documented in the engine repository under `docs/`.
 
