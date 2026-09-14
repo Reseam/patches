@@ -4,6 +4,8 @@ on:
   push:
     tags:
       - 'v*'
+  # Builds the release as CI build 0.0.<run> without uploading, to validate a release or warm the caches.
+  workflow_dispatch:
 
 jobs:
   build:
@@ -19,8 +21,12 @@ jobs:
       - name: Checkout sources
         uses: actions/checkout@v4
 
+      # Releases run on tags, which setup-gradle treats as read-only by default.
       - name: Set up Gradle
-        uses: https://github.com/gradle/actions/setup-gradle@v5
+        uses: https://github.com/gradle/actions/setup-gradle@v6
+        with:
+          cache-provider: basic
+          cache-read-only: false
 
       - name: Download the Reseam CLI
         uses: https://code.forgejo.org/actions/forgejo-release@v2.13.4
@@ -38,9 +44,10 @@ jobs:
           echo "${{ secrets.BUNDLE_SIGNING_KEY_B64 }}" | base64 -d > bundle-signing.key
 
       - name: Build and stage the release
-        run: ./gradlew stageRelease -PreleaseTag=${{ github.ref_name }} --no-daemon
+        run: ./gradlew stageRelease -PreleaseTag=${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || format('v0.0.{0}', github.run_number) }} --no-daemon
 
       - name: Upload to the Forgejo release
+        if: startsWith(github.ref, 'refs/tags/')
         uses: https://code.forgejo.org/actions/forgejo-release@v2.13.4
         with:
           direction: upload
