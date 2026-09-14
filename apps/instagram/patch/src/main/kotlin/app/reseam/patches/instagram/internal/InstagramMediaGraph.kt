@@ -160,7 +160,7 @@ object InstagramMediaGraph {
     /** The label resource the feed menu passes for the DOWNLOAD option: the literal right after the enum load. */
     val feedDownloadLabel = feedMenuBuilder
         .point("feedDownloadLabel") { opcode(Opcode.SGET_OBJECT); field { owner(MEDIA_OPTION); name("DOWNLOAD") } }
-        .next { where { this is app.reseam.patch.Instruction.RegLiteral } }
+        .next { where { this is app.reseam.patch.native.Instruction.RegLiteral } }
 
     val reelsLegacyMenuDisplay = method("reelsLegacyMenuDisplay") {
         calledBy(reelsClickHandler)
