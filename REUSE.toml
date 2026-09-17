@@ -16,6 +16,67 @@ path = [
 SPDX-FileCopyrightText = "2026 AunAli K. <hello@auna.li>"
 SPDX-License-Identifier = "GPL-3.0-or-later"
 
+# ── Ported from ReVanced (GPL-3.0-or-later, the same licence) ──────────────
+
+[[annotations]]
+path = [
+    "apps/youtube/extensions/player/src/main/java/app/reseam/youtube/player/**",
+    "apps/youtube/extensions/ads/src/main/java/app/reseam/youtube/ads/**",
+    "apps/youtube/extensions/litho/src/main/java/app/reseam/youtube/litho/**",
+    "apps/youtube/extensions/misc/src/main/java/app/reseam/youtube/misc/**",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/PlayerType.kt",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/Litho.kt",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/CronetImageUrl.kt",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/EngagementPanel.kt",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/RecyclerViewTree.kt",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/Toolbar.kt",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/ClientContextHook.kt",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/VerticalScrollFix.kt",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/FixBackToExitGesture.kt",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/ads/**",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/misc/**",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/layout/**",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/interaction/**",
+    "apps/youtube/extensions/video/src/main/java/app/reseam/youtube/video/**",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/PlayerResponse.kt",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/VideoId.kt",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/VideoInformation.kt",
+    "apps/youtube/extensions/playerui/src/main/java/app/reseam/youtube/playerui/**",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/player/**",
+    "apps/youtube/extensions/navigation/src/main/java/app/reseam/youtube/navigation/**",
+    "apps/youtube/extensions/navbuttons/src/main/java/app/reseam/youtube/navbuttons/**",
+    "apps/youtube/extensions/miniplayer/src/main/java/app/reseam/youtube/miniplayer/**",
+    "apps/youtube/extensions/hidelayout/src/main/java/app/reseam/youtube/hidelayout/**",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/NavigationBar.kt",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/hide/HideLayoutComponents.kt",
+    "apps/youtube/extensions/shorts/src/main/java/app/reseam/youtube/shorts/**",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/hide/**",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/shorts/**",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/OpenVideosFullscreenHook.kt",
+    "apps/youtube/extensions/theme/src/main/java/app/reseam/youtube/theme/**",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/LithoColorHook.kt",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/SeekbarColor.kt",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/layout/Theme.kt",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/layout/CustomBranding.kt",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/layout/ChangeHeader.kt",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/interaction/Seekbar.kt",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/interaction/HideSeekbar.kt",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/interaction/EnableSlideToSeek.kt",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/interaction/EnableTapToSeek.kt",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/interaction/DisablePreciseSeekingGesture.kt",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/interaction/AddMoreDoubleTapToSeekLengthOptions.kt",
+    "apps/youtube/extensions/controls/src/main/java/app/reseam/youtube/controls/**",
+    "apps/youtube/extensions/buttons/src/main/java/app/reseam/youtube/buttons/**",
+    "apps/youtube/extensions/quality/src/main/java/app/reseam/youtube/quality/**",
+    "apps/youtube/extensions/speed/src/main/java/app/reseam/youtube/speed/**",
+    "apps/youtube/extensions/spoof/src/main/java/app/reseam/youtube/spoof/**",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/PlayerControls.kt",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/video/**",
+    "apps/youtube/patch/src/main/resources/buttons/**",
+]
+SPDX-FileCopyrightText = ["2026 AunAli K. <hello@auna.li>", "2026 ReVanced contributors"]
+SPDX-License-Identifier = "GPL-3.0-or-later"
+
 # ── Gradle wrapper (Apache-2.0, from the Gradle project) ────────────────────
 
 [[annotations]]

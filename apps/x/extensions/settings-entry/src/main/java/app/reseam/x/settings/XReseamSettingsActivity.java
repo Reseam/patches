@@ -23,8 +23,6 @@ public final class XReseamSettingsActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (ReseamSettingsScreen.onActivityResult(this, requestCode, resultCode, data)) {
-            setContentView(ReseamSettingsScreen.build(this));
-        }
+        ReseamSettingsScreen.onActivityResult(this, requestCode, resultCode, data);
     }
 }

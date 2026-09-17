@@ -27,12 +27,9 @@ val settingsEntry = patch("Reseam entry in X settings") {
     dependsOn(xSettings)
 
     execute {
-        // resources.arsc holds a file resource as a string value with the file's path and the
-        // loader only follows that path, so the logo is registered as a string-typed entry.
         val logo = Resources::class.java.getResourceAsStream("/reseam-logo.png")?.use { it.readBytes() }
             ?: error("reseam-logo.png missing from patch jar resources")
-        files.write(LOGO_PATH, logo)
-        val logoId = resources.addString("reseam_logo", LOGO_PATH) ?: error("could not register $LOGO_PATH")
+        val logoId = resources.addFile("drawable", "reseam_logo", LOGO_PATH, logo)
         val iconType = settingsItemCtor.parameterTypes[2]
 
         // R8 renames kotlin.Unit.INSTANCE, so the Function0 body is emitted here.

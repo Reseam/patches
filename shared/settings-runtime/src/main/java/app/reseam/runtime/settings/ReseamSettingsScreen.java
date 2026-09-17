@@ -5,6 +5,7 @@
 package app.reseam.runtime.settings;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -43,7 +44,8 @@ public final class ReseamSettingsScreen {
 
     private static final String TAG = "ReseamSettings";
     public static final int FOLDER_PICKER_REQUEST_CODE = 0x57C4;
-    private static String pendingFolderKey;
+    private static final String PAGE_EXTRA = "app.reseam.settings.PAGE";
+    private static final String FOLDER_KEY_EXTRA = "app.reseam.settings.FOLDER_KEY";
 
     private static volatile ToggleRowFactory toggleRows = ReseamSettingsScreen::plainToggleRow;
 
@@ -62,10 +64,9 @@ public final class ReseamSettingsScreen {
         // Hosts targeting API 35+ draw edge to edge; keep the toolbar below the status bar.
         container.setFitsSystemWindows(true);
 
-        container.addView(buildToolbar(ctx, "Reseam Settings"),
-                new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dpToPx(ctx, 56)));
-
         ScrollView scroll = new ScrollView(ctx);
+        // Stable across activity recreation so Android restores each page's scroll position.
+        scroll.setId(android.R.id.list);
         scroll.setBackgroundColor(Color.BLACK);
 
         LinearLayout root = new LinearLayout(ctx);
@@ -76,28 +77,91 @@ public final class ReseamSettingsScreen {
         container.addView(scroll, new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f));
 
+        String title = "Reseam Settings";
         try {
             JSONObject schema = new JSONObject(readAsset(ctx, "reseam/settings.json"));
-            JSONArray sections = schema.optJSONArray("sections");
-            if (sections == null || sections.length() == 0) {
-                addDescription(root, "No settings are available for the selected patches.");
-                return container;
-            }
-            for (int i = 0; i < sections.length(); i++) {
-                JSONObject section = sections.getJSONObject(i);
-                addSectionHeader(root, section.optString("title", "Settings"));
-                JSONArray settings = section.optJSONArray("settings");
-                if (settings == null) continue;
-                for (int j = 0; j < settings.length(); j++) {
-                    addSetting(ctx, root, settings.getJSONObject(j));
+            Activity activity = findActivity(ctx);
+            String pageId = activity == null ? null : activity.getIntent().getStringExtra(PAGE_EXTRA);
+            if (pageId == null) pageId = "";
+            JSONArray pages = schema.optJSONArray("pages");
+            boolean foundPage = pageId.isEmpty();
+            if (pages != null) {
+                for (int i = 0; i < pages.length(); i++) {
+                    JSONObject page = pages.getJSONObject(i);
+                    if (pageId.equals(page.getString("id"))) {
+                        title = page.getString("title");
+                        foundPage = true;
+                    }
+                    if (pageId.equals(destination(page, "parent"))) {
+                        addPage(ctx, root, page);
+                    }
                 }
             }
-        } catch (Throwable t) {
-            Log.e(TAG, "Failed to load settings", t);
-            addDescription(root, "Could not load settings: " + t.getMessage());
+            if (!foundPage) throw new IllegalArgumentException("Unknown settings page: " + pageId);
+            JSONArray sections = schema.optJSONArray("sections");
+            if (sections != null) {
+                for (int i = 0; i < sections.length(); i++) {
+                    JSONObject section = sections.getJSONObject(i);
+                    if (!pageId.equals(destination(section, "page"))) continue;
+                    JSONArray settings = section.optJSONArray("settings");
+                    if (settings == null || settings.length() == 0) continue;
+                    addSectionHeader(root, section.getString("title"));
+                    for (int j = 0; j < settings.length(); j++) {
+                        addSetting(ctx, root, settings.getJSONObject(j));
+                    }
+                }
+            }
+            if (root.getChildCount() == 0) {
+                addDescription(root, "No settings are available for the selected patches.");
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to load settings", e);
+            root.removeAllViews();
+            addDescription(root, "Could not load settings: " + e.getMessage());
         }
+        container.addView(buildToolbar(ctx, title), 0,
+                new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dpToPx(ctx, 56)));
 
         return container;
+    }
+
+    private static String destination(JSONObject object, String key) {
+        return object.isNull(key) ? "" : object.optString(key, "");
+    }
+
+    private static void addPage(Context ctx, ViewGroup parent, JSONObject page) throws org.json.JSONException {
+        Activity activity = findActivity(ctx);
+        if (activity == null) throw new IllegalArgumentException("Settings pages require an Activity context");
+        String id = page.getString("id");
+        String title = page.getString("title");
+
+        LinearLayout row = new LinearLayout(ctx);
+        row.setGravity(Gravity.CENTER_VERTICAL);
+        row.setPadding(dpToPx(ctx, 16), dpToPx(ctx, 18), dpToPx(ctx, 16), dpToPx(ctx, 18));
+        row.setFocusable(true);
+        TypedValue background = new TypedValue();
+        if (ctx.getTheme().resolveAttribute(android.R.attr.selectableItemBackground, background, true)) {
+            row.setBackgroundResource(background.resourceId);
+        }
+
+        TextView label = new TextView(ctx);
+        label.setText(title);
+        label.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f);
+        label.setTextColor(Color.WHITE);
+        row.addView(label, new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
+        TextView arrow = new TextView(ctx);
+        arrow.setText("›");
+        arrow.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24f);
+        arrow.setTextColor(Color.LTGRAY);
+        arrow.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+        row.addView(arrow);
+        row.setOnClickListener(v -> {
+            // Reuse the host's activity and theme. Android owns the page stack and Back gestures.
+            Intent intent = new Intent(activity, activity.getClass());
+            intent.putExtra(PAGE_EXTRA, id);
+            activity.startActivity(intent);
+        });
+        parent.addView(row);
     }
 
     private static View buildToolbar(Context ctx, String title) {
@@ -106,15 +170,14 @@ public final class ReseamSettingsScreen {
         bar.setPadding(dpToPx(ctx, 4), 0, dpToPx(ctx, 16), 0);
 
         ImageView back = new ImageView(ctx);
-        back.setImageResource(android.R.drawable.ic_media_previous);
-        int backRes = ctx.getResources().getIdentifier("ic_arrow_back", "drawable", "android");
-        if (backRes != 0) back.setImageResource(backRes);
-        back.setColorFilter(Color.WHITE);
+        back.setImageDrawable(new BackArrowDrawable(dpToPx(ctx, 24)));
         int pad = dpToPx(ctx, 12);
         back.setPadding(pad, pad, pad, pad);
         back.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        back.setContentDescription("Back");
         back.setOnClickListener(v -> {
-            if (ctx instanceof Activity) ((Activity) ctx).finish();
+            Activity activity = findActivity(ctx);
+            if (activity != null) activity.finish();
         });
         FrameLayout.LayoutParams backLp = new FrameLayout.LayoutParams(
                 dpToPx(ctx, 48), dpToPx(ctx, 48), Gravity.START | Gravity.CENTER_VERTICAL);
@@ -144,9 +207,73 @@ public final class ReseamSettingsScreen {
             addToggle(ctx, parent, title, summary, key, setting.optBoolean("default", false));
         } else if ("folder".equals(type)) {
             addFolderPicker(ctx, parent, title, summary, key, setting.optString("default", ""));
-        } else if ("text".equals(type) || "choice".equals(type)) {
+        } else if ("choice".equals(type)) {
+            addChoice(ctx, parent, title, summary, key, setting.optString("default", ""), setting.optJSONArray("choices"));
+        } else if ("text".equals(type)) {
             addTextSetting(parent, title, summary, key, setting.optString("default", ""));
         }
+    }
+
+    private static void addChoice(Context ctx, ViewGroup parent, String title, String summary, String key,
+                                  String defaultValue, JSONArray choices) {
+        if (choices == null || choices.length() == 0) {
+            addTextSetting(parent, title, summary, key, defaultValue);
+            return;
+        }
+
+        String[] values = new String[choices.length()];
+        String[] labels = new String[choices.length()];
+        for (int i = 0; i < choices.length(); i++) {
+            JSONObject choice = choices.optJSONObject(i);
+            values[i] = choice == null ? "" : choice.optString("value", "");
+            labels[i] = choice == null ? "" : choice.optString("title", values[i]);
+        }
+
+        LinearLayout row = new LinearLayout(ctx);
+        row.setOrientation(LinearLayout.VERTICAL);
+        row.setPadding(dpToPx(ctx, 16), dpToPx(ctx, 12), dpToPx(ctx, 16), dpToPx(ctx, 12));
+        row.setClickable(true);
+        row.setFocusable(true);
+
+        TextView titleView = new TextView(ctx, null, 0);
+        titleView.setText(title);
+        titleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f);
+        titleView.setTextColor(Color.WHITE);
+        row.addView(titleView);
+
+        TextView valueView = new TextView(ctx, null, 0);
+        valueView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13f);
+        valueView.setTextColor(Color.parseColor("#A8A8A8"));
+        valueView.setPadding(0, dpToPx(ctx, 4), 0, 0);
+        valueView.setText(labels[selectedIndex(values, ReseamSettings.getString(key, defaultValue))]);
+        row.addView(valueView);
+
+        if (summary != null && !summary.isEmpty()) {
+            TextView sub = new TextView(ctx, null, 0);
+            sub.setText(summary);
+            sub.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f);
+            sub.setTextColor(Color.parseColor("#666666"));
+            sub.setPadding(0, dpToPx(ctx, 2), 0, 0);
+            row.addView(sub);
+        }
+
+        row.setOnClickListener(v -> new AlertDialog.Builder(ctx)
+                .setTitle(title)
+                .setSingleChoiceItems(labels, selectedIndex(values, ReseamSettings.getString(key, defaultValue)), (dialog, which) -> {
+                    ReseamSettings.setString(key, values[which]);
+                    valueView.setText(labels[which]);
+                    dialog.dismiss();
+                })
+                .show());
+        parent.addView(row);
+    }
+
+    /** Falls back to the first choice, so the row always shows something the list can highlight. */
+    private static int selectedIndex(String[] values, String current) {
+        for (int i = 0; i < values.length; i++) {
+            if (values[i].equals(current)) return i;
+        }
+        return 0;
     }
 
     private static void addFolderPicker(Context ctx, ViewGroup parent, String title, String summary, String key, String defaultValue) {
@@ -188,7 +315,7 @@ public final class ReseamSettingsScreen {
             Log.e(TAG, "Cannot launch folder picker: no Activity context");
             return;
         }
-        pendingFolderKey = key;
+        activity.getIntent().putExtra(FOLDER_KEY_EXTRA, key);
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION
                 | Intent.FLAG_GRANT_WRITE_URI_PERMISSION
@@ -198,8 +325,8 @@ public final class ReseamSettingsScreen {
 
     public static boolean onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
         if (requestCode != FOLDER_PICKER_REQUEST_CODE) return false;
-        String key = pendingFolderKey;
-        pendingFolderKey = null;
+        String key = activity.getIntent().getStringExtra(FOLDER_KEY_EXTRA);
+        activity.getIntent().removeExtra(FOLDER_KEY_EXTRA);
         if (resultCode != Activity.RESULT_OK || data == null || key == null) return true;
         Uri uri = data.getData();
         if (uri == null) return true;
@@ -211,6 +338,11 @@ public final class ReseamSettingsScreen {
             Log.w(TAG, "Could not persist permission for " + uri, e);
         }
         ReseamSettings.setString(key, uri.toString());
+        ScrollView previous = activity.findViewById(android.R.id.list);
+        int scrollY = previous == null ? 0 : previous.getScrollY();
+        activity.setContentView(build(activity));
+        ScrollView current = activity.findViewById(android.R.id.list);
+        current.post(() -> current.scrollTo(0, scrollY));
         return true;
     }
 
@@ -280,11 +412,6 @@ public final class ReseamSettingsScreen {
 
     private static void addSectionHeader(ViewGroup parent, String title) {
         Context ctx = parent.getContext();
-
-        View divider = new View(ctx);
-        divider.setBackgroundColor(Color.parseColor("#1C1C1C"));
-        parent.addView(divider, new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, dpToPx(ctx, 8)));
 
         TextView tv = new TextView(ctx, null, 0);
         tv.setText(title);

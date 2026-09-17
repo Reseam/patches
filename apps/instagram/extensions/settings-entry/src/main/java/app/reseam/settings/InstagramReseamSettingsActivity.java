@@ -32,9 +32,7 @@ public final class InstagramReseamSettingsActivity extends IgActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (ReseamSettingsScreen.onActivityResult(this, requestCode, resultCode, data)) {
-            setContentView(ReseamSettingsScreen.build(this));
-        }
+        ReseamSettingsScreen.onActivityResult(this, requestCode, resultCode, data);
     }
 
     private void applyInstagramActivityTheme() {

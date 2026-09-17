@@ -6,6 +6,12 @@ package app.reseam.patches.x.core
 import app.reseam.patch.settings.toggle
 
 object XSettings {
+    val defaultToFollowing by toggle(
+        "Default to Following",
+        summary = "Opens Following on launch and stops automatic switches to For You. You can still change tabs.",
+        default = true,
+    )
+    val hidePromotionPrompts by toggle("Hide promotion prompts", summary = "Removes Boost and Promote prompts on your posts.", default = true)
     val hideAds by toggle("Hide ads", summary = "Removes promoted posts and Google ads from timelines.", default = true)
     val hidePremiumUpsells by toggle("Hide Premium upsells", default = true)
     val unlockPremium by toggle(
