@@ -44,6 +44,7 @@ public final class ShortsFilter extends Filter {
     private final StringFilterGroup paidPromotionLabel;
     private final StringFilterGroup autoDubbedLabel;
     private final StringFilterGroup likeFountain;
+    private final StringFilterGroup commentsButton;
 
     public ShortsFilter() {
         final StringFilterGroup shortsIdentifiers = new StringFilterGroup(
@@ -72,6 +73,10 @@ public final class ShortsFilter extends Filter {
                 "hide_shorts_sound_metadata_label", false, "reel_sound_metadata");
         final StringFilterGroup soundButton = new StringFilterGroup(
                 "hide_shorts_sound_button", false, "reel_pivot_button");
+        // The action bar carries a Save button and no Dislike button on this release, so the
+        // button index no longer identifies the comment button; its accessibility id does.
+        commentsButton = new StringFilterGroup(
+                "hide_shorts_comments_button", false, "reel_action_button.e");
         final StringFilterGroup infoPanel = new StringFilterGroup(
                 "hide_shorts_info_panel", true, "shorts_info_panel_overview");
         final StringFilterGroup stickers = new StringFilterGroup(
@@ -141,7 +146,7 @@ public final class ShortsFilter extends Filter {
                 paidPromotionLabel, livePreview, suggestedAction, pausedOverlayButtons, channelBar,
                 infoPanel, previewComment, autoDubbedLabel, fullVideoLinkLabel, videoTitle,
                 useSoundButton, useTemplateButton, soundButton, stickers, reelCarousel, soundMetadata,
-                likeFountain, likeButton, dislikeButton);
+                likeFountain, likeButton, dislikeButton, commentsButton);
     }
 
     @Override
@@ -159,6 +164,10 @@ public final class ShortsFilter extends Filter {
                 || matchedGroup == paidPromotionLabel || matchedGroup == autoDubbedLabel) {
             return filtered(path.startsWith(REEL_CHANNEL_BAR_PATH) || path.startsWith(REEL_METAPANEL_PATH)
                     || path.startsWith(REEL_PLAYER_OVERLAY_PATH), contentType, identifier, path);
+        }
+        if (matchedGroup == commentsButton) {
+            return filtered(accessibility != null && accessibility.contains("id.reel_comment_button"),
+                    contentType, identifier, path);
         }
         if (matchedGroup == reelCarousel) {
             return filtered(reelCarouselBuffer.check(buffer).isFiltered(), contentType, identifier, path);
@@ -221,8 +230,7 @@ public final class ShortsFilter extends Filter {
             if (results.get(0) == null || !COMPONENT_TYPE.equals(results.get(0).toString())) return;
             for (int i = results.size() - 1; i >= 0; i--) {
                 if (results.get(i) == null) continue;
-                final boolean hide = (i == 2 && Settings.getBoolean("hide_shorts_comments_button", false))
-                        || (i == 3 && Settings.getBoolean("hide_shorts_share_button", false))
+                final boolean hide = (i == 3 && Settings.getBoolean("hide_shorts_share_button", false))
                         || (i == 4 && Settings.getBoolean("hide_shorts_remix_button", false));
                 if (hide) {
                     final int index = i;
