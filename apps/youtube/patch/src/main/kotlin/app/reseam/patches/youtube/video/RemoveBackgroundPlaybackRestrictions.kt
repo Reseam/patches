@@ -72,15 +72,12 @@ val removeBackgroundPlaybackRestrictions = patch("Remove background playback res
             whenEnabled(YouTubeSettings.allowShortsBackgroundPlayback) { capture("result").assign(bool(true)) }
         }
         settingsBoolean.returnTrueWhen(YouTubeSettings.removeBackgroundPlaybackRestrictions)
+        // ReVanced also forces feature 45698813 off here, for background playback of some video
+        // types. On 21.37.42 that flag selects the player-type enum the control overlay is built
+        // from, so forcing it off leaves the player with no controls and no seekbar at all.
         booleanFeatureReads(45415425L).forEach { site ->
             site.next { resultOf(Type.Boolean) }.captureAs("enabled", Type.Boolean)
                 .after(YouTubeSettings.removeBackgroundPlaybackRestrictions) { capture("enabled").assign(bool(true)) }
-        }
-        // Keep the background-compatible player implementation.
-        booleanFeatureReads(45698813L).forEach { site ->
-            site.next { resultOf(Type.Boolean) }.captureAs("enabled", Type.Boolean).after {
-                capture("enabled").assign(bool(false))
-            }
         }
         kidsPlaybackPolicy.skipWhen(YouTubeSettings.removeBackgroundPlaybackRestrictions)
     }
