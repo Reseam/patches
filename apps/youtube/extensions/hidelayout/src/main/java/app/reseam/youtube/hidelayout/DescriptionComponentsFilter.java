@@ -28,7 +28,8 @@ public final class DescriptionComponentsFilter extends Filter {
     public DescriptionComponentsFilter() {
         StringFilterGroup aiSummary = new StringFilterGroup(
                 "hide_ai_generated_video_summary_section", false, "cell_expandable_metadata.e");
-        StringFilterGroup ask = new StringFilterGroup("hide_ask_section", false, "youchat_entrypoint.e");
+        // The Ask entry point is the description panel's composer button on this release.
+        StringFilterGroup ask = new StringFilterGroup("hide_ask_section", false, "input_composer_button.e");
         StringFilterGroup attributes = new StringFilterGroup(
                 "hide_attributes_section", false, "video_attributes_section");
         featuredLinks = new StringFilterGroup("hide_featured_links_section", false, "media_lockup");
