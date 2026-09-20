@@ -27,8 +27,10 @@ public final class VideoActionButtonsFilter extends Filter {
         buttonFilterPathGroup = new StringFilterGroup(null, false, "|ContainerType|button.e");
         addPathCallbacks(
                 likeSubscribeGlow,
+                // Like and dislike are separate components with their own paths; the combined
+                // segmented_like_dislike_button is not built on this release.
                 new StringFilterGroup("hide_like_dislike_button", false,
-                        "|segmented_like_dislike_button"),
+                        "|like_button_with_vm_input.e", "|dislike_button_vm.e"),
                 new StringFilterGroup("hide_download_button", false, "|download_button.e"),
                 new StringFilterGroup("hide_save_button", false, "|save_to_playlist_button"),
                 buttonFilterPathGroup);
