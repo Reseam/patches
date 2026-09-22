@@ -58,6 +58,7 @@ public final class ReturnYouTubeDislikeFilter extends Filter {
     private final ByteArrayFilterGroupList videoIdFilterGroup = new ByteArrayFilterGroupList();
 
     public ReturnYouTubeDislikeFilter() {
+        addPathCallbacks(new StringFilterGroup(null, true, "|like_button.e"));
         // When a new Short is opened, the like buttons always seem to load before the dislike.
         // But if swiping back to a previous video and liking/disliking, then only that single button reloads.
         // So must check for both buttons.
@@ -88,6 +89,10 @@ public final class ReturnYouTubeDislikeFilter extends Filter {
     @Override
     public boolean isFiltered(String identifier, String accessibility, String path, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+        if (path.startsWith("compactify_video_action_bar.e")) {
+            DislikeLabel.observeLikes(path, accessibility);
+            return false;
+        }
         if (!Settings.getBoolean("ryd_enabled", true) || !Settings.getBoolean("ryd_shorts", true)) {
             return false;
         }

@@ -3,7 +3,6 @@
 package app.reseam.youtube.dislike;
 
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
@@ -26,7 +25,7 @@ import app.reseam.youtube.core.YouTubeContext;
 import app.reseam.youtube.video.VideoInformation;
 import app.reseam.runtime.settings.ReseamSettings;
 
-/** A label mounted by Litho inside the existing dislike button, never in a window overlay. */
+/** Paired count labels mounted by Litho inside YouTube's existing voting buttons. */
 public final class DislikeLabel extends Drawable {
     private static final Handler MAIN = new Handler(Looper.getMainLooper());
     private static final Set<DislikeLabel> labels = Collections.newSetFromMap(new WeakHashMap<>());
@@ -55,30 +54,34 @@ public final class DislikeLabel extends Drawable {
         if (id != null && !id.isEmpty() && !VideoInformation.lastVideoIdIsShort()) regularVideoId = id;
     }
     private final ReturnYouTubeDislike data;
+    private final boolean likes;
     private final Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private WeakReference<View> accessibilityHost = new WeakReference<>(null);
     private String lastDescription;
 
-    private DislikeLabel(ReturnYouTubeDislike data) {
+    private DislikeLabel(ReturnYouTubeDislike data, boolean likes) {
         this.data = data;
+        this.likes = likes;
         android.util.DisplayMetrics metrics = YouTubeContext.get().getResources().getDisplayMetrics();
         paint.setTextSize(11 * metrics.scaledDensity);
         paint.setTextAlign(Paint.Align.CENTER);
-        setBounds(0, 0, Math.max(Math.round(40 * metrics.density), (int) Math.ceil(paint.measureText("99.9M") + 4 * metrics.density)),
+        // Share one text slot between both native buttons, including enlarged system fonts.
+        setBounds(0, 0, Math.round(40 * Math.max(metrics.density, metrics.scaledDensity)),
                 Math.max(Math.round(14 * metrics.density), (int) Math.ceil(paint.descent() - paint.ascent())));
         synchronized (labels) { labels.add(this); }
     }
 
     public static CharSequence create(StringBuilder path) {
         if (path == null || !Settings.getBoolean("ryd_enabled", true)
-                || path.indexOf("compactify_video_action_bar.e") != 0
-                || path.indexOf("|dislike_button_vm.e") < 0
-                || path.indexOf("|button_inner.e") < 0
-                || path.lastIndexOf("|ContainerType|") != path.length() - "|ContainerType|".length()) return null;
+                || path.indexOf("compactify_video_action_bar.e") != 0) return null;
+        boolean likes = path.indexOf("|like_button.e") >= 0;
+        int button = path.indexOf(likes ? "|fullscreen_video_action_button.e" : "|button_inner.e");
+        if (button < 0 || (!likes && path.indexOf("|dislike_button_vm.e") < 0)
+                || path.indexOf("|ContainerType|", button) != path.length() - "|ContainerType|".length()) return null;
         String id = regularVideoId;
         if (id.isEmpty()) return null;
-        DislikeLabel label = new DislikeLabel(ReturnYouTubeDislike.getFetchForVideoId(id));
-        SpannableString text = new SpannableString("Dislikes");
+        DislikeLabel label = new DislikeLabel(ReturnYouTubeDislike.getFetchForVideoId(id), likes);
+        SpannableString text = new SpannableString(likes ? "Likes" : "Dislikes");
         text.setSpan(new ImageSpan(label), 0, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         return text;
     }
@@ -89,13 +92,47 @@ public final class DislikeLabel extends Drawable {
     }
     public static int withFlags(int flags, int mask) { return flags | mask; }
 
+    /** Observe YouTube's own spoken count, not RYD's estimated likes. No view-tree scans. */
+    public static void observeLikes(String path, String accessibility) {
+        if (!Settings.getBoolean("ryd_enabled", true) || path == null || accessibility == null
+                || !path.startsWith("compactify_video_action_bar.e")
+                || !path.contains("|like_button.e") || !path.contains("|fullscreen_video_action_button.e")) return;
+        // The shared hook prefixes the optional accessibility identifier with a pipe separator.
+        String description = accessibility.substring(accessibility.lastIndexOf('|') + 1);
+        if (description.isBlank() || description.startsWith("id.")) return;
+        String id = regularVideoId;
+        if (!id.isEmpty()) ReturnYouTubeDislike.getFetchForVideoId(id).setNativeLikeCount(parseLikeCount(description));
+    }
+
+    private static long parseLikeCount(String description) {
+        for (int i = 0; i < description.length(); i++) {
+            if (!Character.isDigit(description.charAt(i))) continue;
+            if (i > 0 && (description.charAt(i - 1) == '-' || description.charAt(i - 1) == '\u2212')) return -1;
+            java.text.ParsePosition position = new java.text.ParsePosition(i);
+            Number value = java.text.NumberFormat.getNumberInstance(java.util.Locale.getDefault()).parse(description, position);
+            if (!(value instanceof Long) || value.longValue() < 0) return -1;
+            // Reject ambiguous descriptions containing another number rather than merging them.
+            for (int j = position.getIndex(); j < description.length(); j++) {
+                if (Character.isDigit(description.charAt(j))) return -1;
+            }
+            return value.longValue();
+        }
+        return -1;
+    }
+
+    private String count() { return likes ? data.getNativeLikeCountText() : data.getDislikeCountText(); }
+    private String description() {
+        if (!Settings.getBoolean("ryd_enabled", true)) return "";
+        String count = count();
+        return count == null ? (likes ? "Likes unavailable" : "Dislikes unavailable")
+                : count + (likes ? " likes" : " dislikes");
+    }
+
     public static CharSequence accessibilityText(CharSequence text) {
         if (text instanceof Spanned) {
             for (ImageSpan span : ((Spanned) text).getSpans(0, text.length(), ImageSpan.class)) {
                 if (span.getDrawable() instanceof DislikeLabel) {
-                    if (!Settings.getBoolean("ryd_enabled", true)) return "";
-                    String count = ((DislikeLabel) span.getDrawable()).data.getDislikeCountText();
-                    return count == null ? "Dislikes unavailable" : count + " dislikes";
+                    return ((DislikeLabel) span.getDrawable()).description();
                 }
             }
         }
@@ -105,7 +142,7 @@ public final class DislikeLabel extends Drawable {
     @Override public void draw(Canvas canvas) {
         updateAccessibility();
         if (!Settings.getBoolean("ryd_enabled", true)) return;
-        String count = data.getDislikeCountText();
+        String count = count();
         paint.setColor(RuntimeUtils.isDarkModeEnabled() ? 0xFFAAAAAA : 0xFF606060);
         canvas.drawText(count == null ? "—" : count, getBounds().exactCenterX(),
                 getBounds().exactCenterY() - (paint.ascent() + paint.descent()) / 2, paint);
@@ -120,8 +157,7 @@ public final class DislikeLabel extends Drawable {
         if (!(callback instanceof View)) return;
         View host = (View) callback;
         boolean enabled = Settings.getBoolean("ryd_enabled", true);
-        String count = data.getDislikeCountText();
-        String description = !enabled ? "" : count == null ? "Dislikes unavailable" : count + " dislikes";
+        String description = description();
         if (host == accessibilityHost.get() && description.equals(lastDescription)) return;
         accessibilityHost = new WeakReference<>(host);
         lastDescription = description;

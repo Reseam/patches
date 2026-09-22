@@ -25,8 +25,9 @@ second implementation.
 ## Runtime design
 
 - RYD never waits for a network response in rendering or player-response hooks. The compact
-  action bar uses a native Litho label beneath its existing dislike icon, inside the same
-  clickable button. Fetch/vote/settings events update it without rebinding the component.
+  action bar uses matching native Litho labels beneath its existing like/dislike icons,
+  inside their original clickable buttons. Likes come from YouTube's native accessibility
+  count, never RYD estimates. Fetch/vote/settings events update labels without rebinding.
   Pending/failed requests show a dash, never another video's count. Legacy inline text,
   including existing Shorts dislike labels, still updates on binds. There is no player overlay.
   Text matching reads the resolved path directly without serializing the conversion
@@ -47,69 +48,18 @@ second implementation.
 
 ## Verification
 
-Build the bundle and run the network-independent interval regressions:
-
-```sh
-./gradlew :apps:youtube:extensions:sponsorblock:testTimeline bundle
-```
-
-The ten regression checks cover transitive overlap, touching intervals, gaps,
-eligibility, clipping, empty lists and zero-duration highlights.
-
-After installing the current combined APK, run the isolated Android RYD regressions
-from this repository root (requires JDK 17 and `ANDROID_HOME`):
-
-```sh
-bash apps/youtube/extensions/dislike/src/test/run-device-tests.sh
-```
-
-On rooted devices whose system font configuration is unreadable to the shell (including
-this Android 16 device), use `RYD_TEST_ROOT=1` to initialize Android's fonts in the isolated
-test process. This does not grant the harness access to app preferences or real network votes.
-
-The harness loads the installed APK's actual extension classes in a separate Android
-process, uses in-memory settings, and intercepts every URL connection. It does not
-read/write the app's preferences or publish votes. The suite contains 171 assertions.
-Coverage includes pending/failed fetches, cached counts,
-repeated binds, styling, rolling/static geometry, live appearance toggles, Shorts video
-association, stale responses, cache expiration, 800 concurrent render/vote updates per
-run, and all five API endpoints' success/error/timeout/disconnection paths. Malformed,
-negative and oversized responses and fetch rate-limit backoff are also covered. Native
-label tests cover regular/Shorts video association, disabled settings, actual drawable
-rendering, percentage formatting, accessibility text, and fetch/vote notifications.
-
-The expanded tests caught cached static spans being reused for rolling-number text.
-The cache now includes layout and appearance settings, so separator geometry and
-percentage/compact/hidden-like changes cannot reuse an incompatible cached span.
-
-Tested against the declared YouTube **21.37.42** APK on the connected Android 16
-device. Separate patch runs passed for SponsorBlock, RYD, thumbnails, swipe controls,
-branding + theme, and thumbnails + region-restriction bypass. Each run produced a
-signed APK in approximately 3 seconds on the development machine; this is total
-patching/output time, not fingerprint-only time or a cross-machine benchmark.
-
-Combined-device checks covered dislike rendering without duplicate counts, real
-SponsorBlock segment retrieval, automatic skipping, jump-to-start, adjusted duration,
-seekbar markers, native menus, still-thumbnail replacement, launcher alias switching,
-fullscreen volume/brightness overlays, and expandable posts without the Litho crash.
-The combined APK also included GmsCore support, the settings entry, ad patches and
-the existing stream-spoofing patch for playback compatibility.
-
-The subsequent RYD regression run also opened and expanded a long image post via
-its “Read more” control on the channel's Posts tab. No protobuf serialization crash
-or app-process error was recorded. The six isolated patch runs were repeated after
-the RYD cache correction and all passed (approximately 3.0–3.1 seconds each).
-
-SponsorBlock voting/submission publication is deliberately not part of the device
-smoke test. Service timeout behavior was encountered as well as successful responses.
-Other APK versions, Android versions, locales and all server-side experiment variants
-have not been exhaustively validated; compatibility declarations were not broadened.
+Build with `./gradlew bundle`, patch the supported APK, and check the result on-device.
+The current device validation target is YouTube **21.37.42** on Android 16; other versions
+and server-side layout variants are not guaranteed by these checks.
 
 ### Compact action bar
 
 The device received `compactify_video_action_bar` with icon-only like/dislike buttons.
 The patch retains the existing gesture component and its voting handlers, placing a
-small secondary-color count below the icon within its original horizontal footprint.
+small secondary-color count below each icon within its original horizontal footprint.
+Both icons share one row and both labels share one baseline. The existing indexed
+Litho filter observes YouTube's like-button accessibility count; absent or unparseable
+counts remain unavailable instead of falling back to estimates.
 Height and alignment properties are resolved through retained Yoga bridge calls and
 typed native builders, not obfuscated field names or experiment IDs. Litho owns the
 label's layout, drawable callbacks and lifecycle. Process-lifetime callbacks retain only

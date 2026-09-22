@@ -130,6 +130,7 @@ public class ReturnYouTubeDislike {
      * for network I/O. Null means pending or unavailable; both retain YouTube's original text.
      */
     private volatile RYDVoteData fetchedVotes;
+    private long nativeLikeCount = -1;
 
     /**
      * Time this instance and its background fetch were created.
@@ -409,6 +410,19 @@ public class ReturnYouTubeDislike {
             fetchedVotes = ReturnYouTubeDislikeAPI.fetchVotes(videoId);
             onChange.fire(videoId);
         });
+    }
+
+    /** Nonblocking count for a native button label. */
+    public synchronized String getNativeLikeCountText() {
+        return nativeLikeCount < 0 ? null : formatDislikeCount(nativeLikeCount);
+    }
+
+    public void setNativeLikeCount(long count) {
+        synchronized (this) {
+            if (nativeLikeCount == count) return;
+            nativeLikeCount = count;
+        }
+        onChange.fire(videoId);
     }
 
     /** Nonblocking count for a native button label. */
