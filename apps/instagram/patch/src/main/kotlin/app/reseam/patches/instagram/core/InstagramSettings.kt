@@ -30,6 +30,10 @@ object FollowSettings {
     val followsYouIndicator by toggle("Follows-you indicator", default = false)
 }
 
+object AppearanceSettings {
+    val hideRepostButtons by toggle("Hide repost buttons", default = false)
+}
+
 object DownloadSettings {
     val folder by folder("Download folder", default = "ReseamInsta")
     val showToast by toggle("Show download toast", default = true)

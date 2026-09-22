@@ -38,7 +38,7 @@ final class DownloadEnqueuer {
                 + ", currentIndex=" + currentIndex);
         if (media == null) return;
 
-        Context safe = ContextResolver.safe(context);
+        Context safe = context;
         if (safe == null) {
             Logcat.e("downloadMedia: no context available");
             return;

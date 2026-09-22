@@ -14,9 +14,8 @@ final class StoryOwnerResolver {
     }
 
     static Context context(Object owner) {
-        if (owner == null) return ContextResolver.fromObjects();
+        if (owner == null) return null;
         Object ctx = MediaMeta.storyOwnerContext(owner);
-        if (ctx instanceof Context) return ContextResolver.safe((Context) ctx);
-        return ContextResolver.fromObjects(owner);
+        return ctx instanceof Context ? (Context) ctx : null;
     }
 }

@@ -13,14 +13,16 @@ import app.reseam.patch.methodTarget
 import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
-import app.reseam.patches.instagram.core.FRIENDSHIP_STATUS
 import app.reseam.patches.instagram.core.FollowSettings
 import app.reseam.patches.instagram.core.FollowsYouIndicator
 import app.reseam.patches.instagram.core.INSTAGRAM
-import app.reseam.patches.instagram.core.PANDO_FRIENDSHIP_STATUS
 import app.reseam.patches.instagram.core.USER_SESSION
 import app.reseam.patches.instagram.core.instagramSettings
 import app.reseam.patches.instagram.core.signatureCheck
+
+private const val USER = "com.instagram.user.model.User"
+private const val RELATIONSHIP = "com.instagram.api.schemas.RelationshipInfoDict"
+private const val PANDO_RELATIONSHIP = "com.instagram.api.schemas.ImmutablePandoRelationshipInfoDict"
 
 val followsYou = patch("Follows you indicator") {
     description("Shows a 'Follows you' badge next to usernames in search results")
@@ -38,11 +40,12 @@ val followsYou = patch("Follows you indicator") {
             val subtitle = param(0)
             val userSession = param(1).cast(USER_SESSION)
             val userViewModel = param(2).cast(userViewModelClass.descriptor)
-            val relation = call(userRelationGetter, userSession, userViewModel)
-            whenNotNull(relation) {
-                val status = call(friendshipStatusExtractor, relation)
-                whenNotNull(status) {
-                    val followedBy = status.callInterface(FRIENDSHIP_STATUS, pandoFollowsViewer.name, "()Ljava/lang/Boolean;")
+            val cache = call(userCacheProviderGetter, userSession)
+            val user = userViewModel.call(userFromSearchModel, cache)
+            whenNotNull(user) {
+                val relation = user.call(userRelationship)
+                whenNotNull(relation) {
+                    val followedBy = relation.callInterface(RELATIONSHIP, pandoFollowedBy.name, "()Ljava/lang/Boolean;")
                     returnValue(call(FollowsYouIndicator.maybeAppend, subtitle, followedBy))
                 }
             }
@@ -76,26 +79,37 @@ val searchSubtitleBuilder = methodTarget("searchSubtitleBuilder") {
     }.method
 }
 
-// The subtitle builder's fourth parameter is the user view model, whose static
-// relationGetter(UserSession, Self) returns the relation carrying the friendship status.
 val userViewModelClass = classTarget("userViewModelClass") {
     bytecode.findClass(searchSubtitleBuilder.parameterTypes[3]) ?: error("user view model class missing")
 }
 
-val userRelationGetter = method("userRelationGetter") {
+val userCacheProvider = klass("userCacheProvider") {
+    hasInstanceField(USER_SESSION)
+    hasInstanceField("com.instagram.feed.media.MediaCache")
+    hasInstanceField("com.instagram.user.model.UserCache")
+    implements(userFromSearchModel.parameterTypes.single())
+}
+
+val userCacheProviderGetter = method("userCacheProviderGetter") {
+    inClass(userCacheProvider)
+    returns(userCacheProvider.descriptor)
+    params(USER_SESSION)
+}
+
+val userFromSearchModel = method("userFromSearchModel") {
     inClass(userViewModelClass)
-    params(USER_SESSION, userViewModelClass.descriptor)
+    returns(USER)
+    custom { parameterTypes.size == 1 }
 }
 
-val friendshipStatusExtractor = method("friendshipStatusExtractor") {
-    returns(FRIENDSHIP_STATUS)
-    params(userRelationGetter.returnType)
+val userRelationship = method("userRelationship") {
+    inClass(klass(USER))
+    returns(RELATIONSHIP)
+    params()
 }
 
-// The Pando (Meta GraphQL) implementation identifies each field by String.hashCode of its
-// GraphQL key, which pins the "follows the viewer" accessor across renames.
-val pandoFollowsViewer = method("pandoFollowsViewer") {
-    inClass(klass(PANDO_FRIENDSHIP_STATUS))
+val pandoFollowedBy = method("pandoFollowedBy") {
+    inClass(klass(PANDO_RELATIONSHIP))
     returns("java.lang.Boolean")
     params()
     literals("followed_by".hashCode().toLong())

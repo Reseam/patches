@@ -3,11 +3,30 @@
 
 package app.reseam.patches.instagram.refs
 
+import app.reseam.patch.Type
+import app.reseam.patch.klass
+import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.UserRefs
 import app.reseam.patches.instagram.core.signatureCheck
-import app.reseam.patches.instagram.internal.InstagramUserGraph
+
+private const val MEDIA = "com.instagram.feed.media.Media"
+private const val USER = "com.instagram.user.model.User"
+
+private val mediaUser = method("mediaUser") {
+    inClass(klass(MEDIA))
+    strings("user")
+    returns(USER)
+    params()
+}
+
+private val userUsername = method("userUsername") {
+    inClass(klass(USER))
+    literals("username".hashCode().toLong())
+    returns(Type.String)
+    params()
+}
 
 val userRefs = patch {
     description("Binds app.reseam.instagram.refs.User bridges to Instagram's user principal.")
@@ -16,10 +35,16 @@ val userRefs = patch {
 
     execute {
         UserRefs.fromMedia.implement {
-            returnValue(InstagramUserGraph.principalFromMedia.of(param(0)))
+            whenNotNull(param(0)) {
+                returnValue(param(0).cast(MEDIA).call(mediaUser))
+            }
+            returnNull()
         }
         UserRefs.username.implement {
-            returnValue(InstagramUserGraph.principal.member("username", param(0)))
+            whenNotNull(param(0)) {
+                returnValue(param(0).cast(USER).call(userUsername))
+            }
+            returnNull()
         }
     }
 }

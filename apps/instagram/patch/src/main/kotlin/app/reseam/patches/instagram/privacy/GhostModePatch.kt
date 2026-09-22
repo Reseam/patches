@@ -4,6 +4,7 @@
 package app.reseam.patches.instagram.privacy
 
 import app.reseam.patch.Type
+import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.returnNullWhen
@@ -11,6 +12,7 @@ import app.reseam.patch.settings.section
 import app.reseam.patch.settings.skipWhen
 import app.reseam.patches.instagram.core.GhostSettings
 import app.reseam.patches.instagram.core.INSTAGRAM
+import app.reseam.patches.instagram.core.USER_SESSION
 import app.reseam.patches.instagram.core.instagramSettings
 import app.reseam.patches.instagram.core.signatureCheck
 
@@ -40,8 +42,9 @@ val ghostMode = patch("Ghost mode") {
 }
 
 val typingIndicator = method("typingIndicator") {
-    strings("is_typing_indicator_enabled", "activityIndicatorSender")
+    strings("is_typing_indicator_enabled")
     returns(Type.Void)
+    params(Type.Boolean)
 }
 
 val dmSeen = method("dmSeen") {
@@ -49,9 +52,14 @@ val dmSeen = method("dmSeen") {
     returns(Type.Void)
 }
 
+val storySeenRequest = method("storySeenRequest") {
+    strings("media/seen/?reel=%s&live_vod=0")
+}
+
 val storySeen = method("storySeen") {
-    strings("media/seen/")
+    inClass(klass(storySeenRequest.owner))
     returns(Type.Void)
+    hasParam(USER_SESSION)
 }
 
 val liveSeen = method("liveSeen") {

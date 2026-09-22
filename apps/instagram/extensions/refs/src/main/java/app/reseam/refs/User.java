@@ -4,14 +4,6 @@
 
 package app.reseam.instagram.refs;
 
-/**
- * Bridges to Instagram's obfuscated user principal. Bodies are rewritten at
- * patch time by {@code UserRefs.kt}.
- *
- * <p>{@link #fromMedia(Object)} walks the chain
- * {@code media -> dict -> owner wrapper -> user principal}; the other methods
- * accept the resolved user principal.
- */
 public final class User {
     private User() {}
 

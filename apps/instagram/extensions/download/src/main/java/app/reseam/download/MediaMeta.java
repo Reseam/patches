@@ -4,14 +4,8 @@
 
 package app.reseam.instagram.download;
 
-import android.content.Context;
-import android.view.View;
-
 public final class MediaMeta {
     private MediaMeta() {}
-
-    // All bodies are rewritten at patch time to read app objects directly
-    // through the download patch bindings and resolved member refs.
 
     public static String username(Object media) {
         return null;
@@ -29,14 +23,4 @@ public final class MediaMeta {
         return null;
     }
 
-    public static void addLegacyMenuRow(
-            Object menu,
-            Context context,
-            View.OnClickListener listener,
-            String label,
-            int icon,
-            boolean extra) {
-        // Patched at runtime to invoke-virtual the resolved addRow method on
-        // the legacy reels menu class.
-    }
 }

@@ -20,7 +20,14 @@ public final class InstagramSettingsEntry {
     private static final String TAG = "ReseamSettings";
     private static final int RESEAM_VIEW_TAG = 0x7f5151cc;
     private static final int RESEAM_DECOR_TAG = 0x7f5151cd;
+    private static final int RESEAM_REPOST_VISIBILITY_TAG = 0x7f5151ce;
+    private static final String HIDE_REPOST_SETTING = "appearance_settings.hide_repost_buttons";
+    private static final String[] REPOST_VIEW_NAMES = {
+        "clips_repost_button", "repost_button", "repost_button_container",
+        "row_feed_button_repost", "tisu_ufi_repost_button"
+    };
     private static boolean hookInstalled = false;
+    private static int[] repostViewIds;
 
     private InstagramSettingsEntry() {}
 
@@ -29,8 +36,17 @@ public final class InstagramSettingsEntry {
         ReseamSettings.init(ctx);
         Context app = ctx == null ? null : ctx.getApplicationContext();
         if (app instanceof Application) {
+            repostViewIds = resolveRepostViewIds(app);
             installLongPressHook((Application) app);
         }
+    }
+
+    private static int[] resolveRepostViewIds(Context context) {
+        int[] ids = new int[REPOST_VIEW_NAMES.length];
+        for (int i = 0; i < REPOST_VIEW_NAMES.length; i++) {
+            ids[i] = context.getResources().getIdentifier(REPOST_VIEW_NAMES[i], "id", context.getPackageName());
+        }
+        return ids;
     }
 
     private static void installLongPressHook(Application app) {
@@ -54,14 +70,24 @@ public final class InstagramSettingsEntry {
         decor.setTag(RESEAM_DECOR_TAG, Boolean.TRUE);
         decor.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override public void onGlobalLayout() {
-                walk(decor, activity);
+                walk(decor, activity, ReseamSettings.getBoolean(HIDE_REPOST_SETTING, false));
             }
         });
-        walk(decor, activity);
+        walk(decor, activity, ReseamSettings.getBoolean(HIDE_REPOST_SETTING, false));
     }
 
-    private static void walk(View v, Activity activity) {
+    private static void walk(View v, Activity activity, boolean hideRepost) {
         if (v == null) return;
+        if (isRepostView(v.getId())) {
+            Object original = v.getTag(RESEAM_REPOST_VISIBILITY_TAG);
+            if (hideRepost) {
+                if (original == null) v.setTag(RESEAM_REPOST_VISIBILITY_TAG, v.getVisibility());
+                if (v.getVisibility() != View.GONE) v.setVisibility(View.GONE);
+            } else if (original instanceof Integer) {
+                v.setTag(RESEAM_REPOST_VISIBILITY_TAG, null);
+                v.setVisibility((Integer) original);
+            }
+        }
         CharSequence cd = v.getContentDescription();
         if (cd != null) {
             String s = cd.toString().toLowerCase();
@@ -86,7 +112,15 @@ public final class InstagramSettingsEntry {
         if (v instanceof ViewGroup) {
             ViewGroup g = (ViewGroup) v;
             int n = g.getChildCount();
-            for (int i = 0; i < n; i++) walk(g.getChildAt(i), activity);
+            for (int i = 0; i < n; i++) walk(g.getChildAt(i), activity, hideRepost);
         }
+    }
+
+    private static boolean isRepostView(int id) {
+        if (id == View.NO_ID || repostViewIds == null) return false;
+        for (int repostId : repostViewIds) {
+            if (repostId != 0 && repostId == id) return true;
+        }
+        return false;
     }
 }

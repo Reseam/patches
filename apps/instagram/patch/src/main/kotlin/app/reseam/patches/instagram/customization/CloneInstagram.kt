@@ -6,6 +6,7 @@ package app.reseam.patches.instagram.customization
 import app.reseam.patch.patch
 import app.reseam.patch.resourceRef
 import app.reseam.patches.instagram.core.INSTAGRAM
+import app.reseam.patches.instagram.core.INSTAGRAM_PACKAGE
 import app.reseam.patches.instagram.core.signatureCheck
 
 val cloneInstagram = patch("Clone Instagram") {
@@ -47,7 +48,7 @@ val cloneInstagram = patch("Clone Instagram") {
                     provider["android:authorities"] = authorities.split(";").joinToString(";") { single ->
                         when {
                             single.isEmpty() -> single
-                            INSTAGRAM in single -> single.replace(INSTAGRAM, newPackage)
+                            INSTAGRAM_PACKAGE in single -> single.replace(INSTAGRAM_PACKAGE, newPackage)
                             single.startsWith("com.instagram.") ->
                                 ("$newPackage." + single.removePrefix("com.instagram.")).also { authorityRenames[single] = it }
                             else -> "$newPackage.$single".also { authorityRenames[single] = it }
@@ -58,7 +59,7 @@ val cloneInstagram = patch("Clone Instagram") {
                 for (tag in listOf("permission", "uses-permission")) {
                     findByTag(tag).forEach { element ->
                         val name = element["android:name"] ?: return@forEach
-                        if (INSTAGRAM in name) element["android:name"] = name.replace(INSTAGRAM, newPackage)
+                        if (INSTAGRAM_PACKAGE in name) element["android:name"] = name.replace(INSTAGRAM_PACKAGE, newPackage)
                     }
                 }
             }
@@ -74,7 +75,7 @@ val cloneInstagram = patch("Clone Instagram") {
             else -> resources.replaceEntry(labelId, poolIndex)
         }
 
-        val replaced = bytecode.replaceAllStrings(INSTAGRAM, newPackage)
+        val replaced = bytecode.replaceAllStrings(INSTAGRAM_PACKAGE, newPackage)
         log.info("Replaced $replaced package name references in bytecode")
 
         // Runs after the package pass: the new authorities contain the package name and would

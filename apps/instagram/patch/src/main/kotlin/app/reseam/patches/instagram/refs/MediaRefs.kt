@@ -6,6 +6,7 @@ package app.reseam.patches.instagram.refs
 import app.reseam.patch.patch
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.MediaRefs
+import app.reseam.patches.instagram.core.EXTENDED_IMAGE_URL
 import app.reseam.patches.instagram.core.signatureCheck
 import app.reseam.patches.instagram.internal.InstagramMediaGraph
 
@@ -16,7 +17,12 @@ val mediaRefs = patch {
 
     execute {
         val media = InstagramMediaGraph.media
-        MediaRefs.photoUrl.implement { returnValue(media.member("imageUrl", param(0))) }
+        MediaRefs.imageCandidates.implement {
+            returnValue(InstagramMediaGraph.imageInfo.member("candidates", param(0).cast("com.instagram.feed.media.Media").call(InstagramMediaGraph.imageInfoGetter)))
+        }
+        MediaRefs.imageCandidateUrl.implement {
+            returnValue(param(0).cast(EXTENDED_IMAGE_URL).callVirtual(EXTENDED_IMAGE_URL, "getUrl", "()Ljava/lang/String;"))
+        }
         MediaRefs.videoUrl.implement { returnValue(media.member("videoUrl", param(0))) }
         MediaRefs.children.implement { returnValue(media.member("carouselChildren", param(0))) }
     }

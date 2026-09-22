@@ -12,7 +12,7 @@ final class FeedClickHandler {
     static boolean handle(Object media, Object option, Context context, int currentIndex) {
         if (!DownloadOption.isDownload(option)) return false;
 
-        Context safe = ContextResolver.safe(context);
+        Context safe = context;
         try {
             if (media != null) {
                 DownloadEnqueuer.download(media, safe, currentIndex);

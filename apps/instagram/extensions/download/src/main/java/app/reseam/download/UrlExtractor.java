@@ -3,21 +3,23 @@
 
 package app.reseam.instagram.download;
 
+import app.reseam.instagram.refs.Media;
+
 import java.util.List;
 
-/**
- * Media URL extraction. Delegates to {@link MediaScanner}, which reads URLs by value (shape)
- * instead of by obfuscated field name, so it does not break across Instagram versions.
- */
 final class UrlExtractor {
     private UrlExtractor() {}
 
     static MediaUrl best(Object media) {
-        return MediaScanner.best(media);
+        if (media == null) return null;
+        String video = Media.videoUrl(media);
+        if (video != null && !video.isEmpty()) return new MediaUrl(video, true);
+        String photo = Media.photoUrl(media);
+        return photo == null || photo.isEmpty() ? null : new MediaUrl(photo, false);
     }
 
     static List<?> carouselChildren(Object media) {
-        return MediaScanner.carouselChildren(media);
+        return media == null ? null : Media.children(media);
     }
 
     static final class MediaUrl {

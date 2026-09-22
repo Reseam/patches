@@ -17,8 +17,7 @@ final class Ui {
     static void showToast(Context context, String message) {
         try {
             if (!ReseamSettings.getBoolean(SHOW_TOAST_KEY, true)) return;
-            Context safe = ContextResolver.safe(context);
-            if (safe != null) Toast.makeText(safe, message, Toast.LENGTH_SHORT).show();
+            if (context != null) Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
         } catch (Throwable t) {
             Logcat.e("showToast failed", t);
         }
