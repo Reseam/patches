@@ -19,9 +19,19 @@ public final class PlayerControls {
     private static final Set<PlayerControlButton> BUTTONS =
             Collections.newSetFromMap(new WeakHashMap<>());
     private static volatile boolean shown;
+    private static final Set<Runnable> VISIBILITY_LISTENERS = new java.util.concurrent.CopyOnWriteArraySet<>();
     private static WeakReference<View> fullscreenButton = new WeakReference<>(null);
 
     private PlayerControls() {}
+
+    public static boolean isVisible() {
+        return shown;
+    }
+
+    /** Register process-lifetime observers; callbacks must not capture an Activity. */
+    public static void addVisibilityListener(Runnable listener) {
+        VISIBILITY_LISTENERS.add(listener);
+    }
 
     public static void register(PlayerControlButton button) {
         BUTTONS.add(button);
@@ -29,11 +39,13 @@ public final class PlayerControls {
     }
 
     public static void setVisibility(boolean visible, boolean animated) {
+        boolean changed = shown != visible;
         shown = visible;
         for (PlayerControlButton button : BUTTONS.toArray(new PlayerControlButton[0])) {
             button.setVisibility(visible, animated);
         }
         Logger.debug(() -> "Player controls visibility: " + (visible ? "shown" : "hidden"));
+        if (changed) for (Runnable listener : VISIBILITY_LISTENERS) listener.run();
     }
 
     public static void setVisibilityImmediate(boolean visible) {

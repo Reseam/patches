@@ -63,6 +63,14 @@ public enum PlayerType {
         return this == NONE || this == HIDDEN;
     }
 
+    public boolean isNoneHiddenOrMinimized() {
+        return isNoneHiddenOrSlidingMinimized() || this == WATCH_WHILE_MINIMIZED;
+    }
+
+    public boolean isNoneHiddenOrSlidingMinimized() {
+        return isNoneOrHidden() || this == WATCH_WHILE_SLIDING_MINIMIZED_DISMISSED;
+    }
+
     public boolean isMaximizedOrFullscreen() {
         return this == WATCH_WHILE_MAXIMIZED || this == WATCH_WHILE_FULLSCREEN;
     }

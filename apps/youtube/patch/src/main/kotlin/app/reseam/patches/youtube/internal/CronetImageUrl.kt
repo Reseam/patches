@@ -5,6 +5,8 @@
 package app.reseam.patches.youtube.internal
 
 import app.reseam.patch.Type
+import app.reseam.patch.dex.AccessFlags
+import app.reseam.patch.klass
 import app.reseam.patch.method
 
 /**
@@ -16,4 +18,12 @@ val imageUrlEscapeCharacters = method("imageUrlEscapeCharacters") {
     strings("@#&=*+-_.,:!?()/~'%;\$[]")
     returns(Type.String)
     params()
+}
+
+/** The delegating one-argument constructor also reaches this hook. Cached and shared by users. */
+val imageRequestConstructor = method("imageRequestConstructor") {
+    inClass(klass(imageUrlEscapeCharacters.owner))
+    flags(AccessFlags.CONSTRUCTOR)
+    paramCount(2)
+    param(0, Type.String)
 }

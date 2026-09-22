@@ -17,11 +17,9 @@ import app.reseam.patch.fieldOfType
 import app.reseam.patch.fieldTarget
 import app.reseam.patch.klass
 import app.reseam.patch.method
-import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.reserveLocal
-import app.reseam.patch.replace
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.youTubeSettings
 
@@ -34,29 +32,11 @@ val lithoFilter = patch {
     dependsOn(youTubeSettings)
 
     execute {
-        // Both parsers implement the same contract. Route the UPB implementation through
-        // FlatBuffers as well, so identifier/path filtering does not depend on a server flag
-        // or on how the current release's dependency providers choose a parser.
-        val parserInterface = klass(flatbufferParserClass.classDef.interfaces.single())
-        check(parserInterface.descriptor in upbParserClass.classDef.interfaces) {
-            "The UPB and FlatBuffer parsers no longer share their interface"
-        }
-        parserInterface.methods("elementParserOperations") { flags(AccessFlags.ABSTRACT) }.forEach {
-            val operation = this
-            val fallback = flatbufferParserClass.method(operation.name) {
-                params(*operation.parameterTypes.toTypedArray())
-                returns(operation.returnType)
-            }
-            upbParserClass.method(operation.name) {
-                params(*operation.parameterTypes.toTypedArray())
-                returns(operation.returnType)
-            }.replace {
-                val arguments = operation.parameterTypes.indices.map { param(it) }.toTypedArray()
-                returnValue(staticField(flatbufferParserInstance).call(fallback, *arguments))
-            }
-        }
-        // Capture the original bytes at the parser that now handles both provider paths.
+        // Observe both providers without changing their model representation. Some components
+        // (notably expandable community posts) serialize UPB models back to protobuf; the
+        // FlatBuffer implementation of the same interface cannot perform that operation.
         flatbufferElementParser.before { call(LithoFilter.setProtoBuffer, param(0)) }
+        upbElementParser.before { call(LithoFilter.setProtoBuffer, param(0)) }
 
         lithoLayoutExecutor.before {
             param(0).assign(call(LithoFilter.layoutThreadCount, param(0)))
@@ -193,22 +173,6 @@ val upbElementParser = method("upbElementParser") {
     calls(protobufBufferSetter)
     params("[B", Type.Boolean)
     returns(flatbufferElementParser.returnType)
-}
-
-val flatbufferParserClass = classTarget("flatbufferParserClass") {
-    flatbufferElementParser.method.let { bytecode.findClass(it.owner) }
-        ?: error("The FlatBuffer parser class is missing")
-}
-
-val upbParserClass = classTarget("upbParserClass") {
-    upbElementParser.method.let { bytecode.findClass(it.owner) }
-        ?: error("The UPB parser class is missing")
-}
-
-val flatbufferParserInstance = fieldTarget("flatbufferParserInstance") {
-    flatbufferParserClass.classDef.staticFields.single {
-        it.fieldType == flatbufferParserClass.descriptor
-    }.ref
 }
 
 // The layout pool is sized by core count and memory; its thread factory is what names it litho's.

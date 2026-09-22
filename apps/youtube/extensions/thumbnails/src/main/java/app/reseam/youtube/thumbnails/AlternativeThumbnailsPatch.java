@@ -1,0 +1,680 @@
+// SPDX-FileCopyrightText: 2026 ReVanced contributors
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+package app.reseam.youtube.thumbnails;
+
+import static app.reseam.youtube.navigation.NavigationBar.NavigationButton;
+
+import android.net.Uri;
+
+
+
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
+
+import app.reseam.youtube.core.Logger;
+import app.reseam.youtube.core.Settings;
+import app.reseam.youtube.navigation.NavigationBar;
+import app.reseam.youtube.player.PlayerType;
+
+/**
+ * Alternative YouTube thumbnails.
+ * <p>
+ * Can show YouTube provided screen captures of beginning/middle/end of the video.
+ * (ie: sd1.jpg, sd2.jpg, sd3.jpg).
+ * <p>
+ * Or can show crowdsourced thumbnails provided by DeArrow (<a href="http://dearrow.ajay.app">...</a>).
+ * <p>
+ * Or can use DeArrow and fall back to screen captures if DeArrow is not available.
+ * <p>
+ * Has an additional option to use 'fast' video still thumbnails,
+ * where it forces sd thumbnail quality and skips verifying if the alt thumbnail image exists.
+ * The UI loading time will be the same or better than using original thumbnails,
+ * but thumbnails will initially fail to load for all live streams, unreleased, and occasionally very old videos.
+ * If a failed thumbnail load is reloaded (ie: scroll off, then on screen), then the original thumbnail
+ * is reloaded instead.  Fast thumbnails requires using SD or lower thumbnail resolution,
+ * because a noticeable number of videos do not have hq720 and too much fail to load.
+ */
+@SuppressWarnings("unused")
+public final class AlternativeThumbnailsPatch {
+    private static final String DEFAULT_API = "https://dearrow-thumb.ajay.app/api/v1/getThumbnail";
+
+    private static ThumbnailOption option(String key) {
+        try { return ThumbnailOption.valueOf(Settings.getString(key, "ORIGINAL")); }
+        catch (IllegalArgumentException ignored) { return ThumbnailOption.ORIGINAL; }
+    }
+
+    private static ThumbnailStillTime stillTime() {
+        try { return ThumbnailStillTime.valueOf(Settings.getString("alt_thumbnail_stills_time", "MIDDLE")); }
+        catch (IllegalArgumentException ignored) { return ThumbnailStillTime.MIDDLE; }
+    }
+
+    private static void toast(String message) {
+        new android.os.Handler(android.os.Looper.getMainLooper()).post(() ->
+            android.widget.Toast.makeText(app.reseam.youtube.core.YouTubeContext.get(), message,
+                android.widget.Toast.LENGTH_LONG).show());
+    }
+
+    private static boolean verifyImage(String url) throws IOException {
+        // Some app versions build requests on the UI thread. Never perform network IO there.
+        if (android.os.Looper.myLooper() == android.os.Looper.getMainLooper()) return false;
+        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+        try {
+            connection.setConnectTimeout(3000);
+            connection.setReadTimeout(3000);
+            connection.setRequestMethod("HEAD");
+            connection.setRequestProperty("Range", "bytes=0-0");
+            int status = connection.getResponseCode();
+            String contentType = connection.getContentType();
+            return (status == 200 || status == 206) && contentType != null && contentType.startsWith("image/");
+        } finally {
+            connection.disconnect();
+        }
+    }
+
+
+    public enum ThumbnailOption {
+        ORIGINAL(false, false),
+        DEARROW(true, false),
+        DEARROW_STILL_IMAGES(true, true),
+        STILL_IMAGES(false, true);
+
+        final boolean useDeArrow;
+        final boolean useStillImages;
+
+        ThumbnailOption(boolean useDeArrow, boolean useStillImages) {
+            this.useDeArrow = useDeArrow;
+            this.useStillImages = useStillImages;
+        }
+    }
+
+    public enum ThumbnailStillTime {
+        BEGINNING(1),
+        MIDDLE(2),
+        END(3);
+
+        /**
+         * The url alt image number. Such as the 2 in 'hq720_2.jpg'
+         */
+        final int altImageNumber;
+
+        ThumbnailStillTime(int altImageNumber) {
+            this.altImageNumber = altImageNumber;
+        }
+    }
+
+    private static final Uri dearrowAPIURI;
+
+    /**
+     * The scheme and host of {@link #dearrowAPIURI}.
+     */
+    private static final String deArrowAPIURLPrefix;
+
+    /**
+     * How long to temporarily turn off DeArrow if it fails for any reason.
+     */
+    private static final long DEARROW_FAILURE_API_BACKOFF_MILLISECONDS = 5 * 60 * 1000; // 5 Minutes.
+
+    /**
+     * If non-zero, then the system time of when DeArrow API calls can resume.
+     */
+    private static volatile long timeToResumeDeArrowAPICalls;
+
+    static {
+        dearrowAPIURI = validateSettings();
+        final int port = dearrowAPIURI.getPort();
+        String portString = port == -1 ? "" : (":" + port);
+        deArrowAPIURLPrefix = dearrowAPIURI.getScheme() + "://" + dearrowAPIURI.getHost() + portString + "/";
+        Logger.debug(() -> "Using DeArrow API address: " + deArrowAPIURLPrefix);
+    }
+
+    /**
+     * Fix any bad imported data.
+     */
+    private static Uri validateSettings() {
+        Uri apiURI = Uri.parse(Settings.getString("alt_thumbnail_dearrow_api_url", DEFAULT_API));
+        // Cannot use unsecured 'http', otherwise the connections fail to start and no callbacks hooks are made.
+        String scheme = apiURI.getScheme();
+        if (!"https".equals(scheme) || apiURI.getHost() == null) {
+            toast("Invalid DeArrow API URL. Using default");
+            return Uri.parse(DEFAULT_API);
+        }
+        return apiURI;
+    }
+
+    private static ThumbnailOption optionSettingForCurrentNavigation() {
+        // Must check player type first, as search bar can be active behind the player.
+        if (PlayerType.current().isMaximizedOrFullscreen()) {
+            return option("alt_thumbnail_player");
+        }
+
+        // Must check second, as search can be from any tab.
+        if (NavigationBar.isSearchBarActive()) {
+            return option("alt_thumbnail_search");
+        }
+
+        // Avoid checking which navigation button is selected, if all other settings are the same.
+        ThumbnailOption homeOption = option("alt_thumbnail_home");
+        ThumbnailOption subscriptionsOption = option("alt_thumbnail_subscriptions");
+        ThumbnailOption libraryOption = option("alt_thumbnail_library");
+        if ((homeOption == subscriptionsOption) && (homeOption == libraryOption)) {
+            return homeOption; // All are the same option.
+        }
+
+        NavigationButton selectedNavButton = NavigationButton.getSelectedNavigationButton();
+        if (selectedNavButton == null) {
+            // Unknown tab, treat as the home tab;
+            return homeOption;
+        }
+
+        return switch (selectedNavButton) {
+            case SUBSCRIPTIONS, NOTIFICATIONS -> subscriptionsOption;
+            case LIBRARY -> libraryOption;
+            // Home or explore tab.
+            default -> homeOption;
+        };
+    }
+
+    /**
+     * Build the alternative thumbnail URL using YouTube provided still video captures.
+     *
+     * @param decodedURL Decoded original thumbnail request url.
+     * @return The alternative thumbnail URL, or if not available NULL.
+     */
+        private static String buildYouTubeVideoStillURL(DecodedThumbnailURL decodedURL,
+                                                    ThumbnailQuality qualityToUse) {
+        String sanitizedReplacement = decodedURL.createStillsURL(qualityToUse, false);
+        if (VerifiedQualities.verifyAltThumbnailExist(decodedURL.videoId, qualityToUse, sanitizedReplacement)) {
+            return sanitizedReplacement;
+        }
+
+        return null;
+    }
+
+    /**
+     * Build the alternative thumbnail URL using DeArrow thumbnail cache.
+     *
+     * @param videoId ID of the video to get a thumbnail of.  Can be any video (regular or Short).
+     * @param fallbackURL URL to fall back to in case.
+     * @return The alternative thumbnail URL, without tracking parameters.
+     */
+    private static String buildDeArrowThumbnailURL(String videoId, String fallbackURL) {
+        // Build thumbnail request URL.
+        // See https://github.com/ajayyy/DeArrowThumbnailCache/blob/29eb4359ebdf823626c79d944a901492d760bbbc/app.py#L29.
+        return dearrowAPIURI
+                .buildUpon()
+                .appendQueryParameter("videoID", videoId)
+                .appendQueryParameter("redirectUrl", fallbackURL)
+                .build()
+                .toString();
+    }
+
+    private static boolean urlIsDeArrow(String imageURL) {
+        return imageURL.startsWith(deArrowAPIURLPrefix);
+    }
+
+    /**
+     * @return If this client has not recently experienced any DeArrow API errors.
+     */
+    private static boolean canUseDeArrowAPI() {
+        if (timeToResumeDeArrowAPICalls == 0) {
+            return true;
+        }
+        if (timeToResumeDeArrowAPICalls < System.currentTimeMillis()) {
+            Logger.debug(() -> "Resuming DeArrow API calls");
+            timeToResumeDeArrowAPICalls = 0;
+            return true;
+        }
+        return false;
+    }
+
+    private static void handleDeArrowError(String url, int statusCode) {
+        Logger.debug(() -> "Encountered DeArrow error.  URL: " + url);
+        final long now = System.currentTimeMillis();
+        if (timeToResumeDeArrowAPICalls < now) {
+            timeToResumeDeArrowAPICalls = now + DEARROW_FAILURE_API_BACKOFF_MILLISECONDS;
+            if (Settings.getBoolean("alt_thumbnail_dearrow_connection_toast", true)) {
+                String toastMessage = (statusCode != 0)
+                        ? "DeArrow returned HTTP " + statusCode
+                        : "Could not connect to DeArrow";
+                toast(toastMessage);
+            }
+        }
+    }
+
+    /**
+     * Injection point. Called off the main thread and by multiple threads at the same time.
+     *
+     * @param originalURL Image URL for all URL images loaded, including video thumbnails.
+     */
+    public static String overrideImageURL(String originalURL) {
+        try {
+            ThumbnailOption option = optionSettingForCurrentNavigation();
+
+            if (option == ThumbnailOption.ORIGINAL) {
+                return originalURL;
+            }
+
+            final var decodedURL = DecodedThumbnailURL.decodeImageURL(originalURL);
+            if (decodedURL == null) {
+                return originalURL; // Not a thumbnail.
+            }
+
+            Logger.debug(() -> "Original URL: " + decodedURL.sanitizedURL);
+
+            ThumbnailQuality qualityToUse = ThumbnailQuality.getQualityToUse(decodedURL.imageQuality);
+            if (qualityToUse == null) {
+                // Thumbnail is a Short or a Storyboard image used for seekbar thumbnails (must not replace these).
+                return originalURL;
+            }
+
+            String sanitizedReplacementURL;
+            final boolean includeTracking;
+            if (option.useDeArrow && canUseDeArrowAPI()) {
+                includeTracking = false; // Do not include view tracking parameters with API call.
+                String fallbackURL = null;
+                if (option.useStillImages) {
+                    fallbackURL = buildYouTubeVideoStillURL(decodedURL, qualityToUse);
+                }
+                if (fallbackURL == null) {
+                    fallbackURL = decodedURL.sanitizedURL;
+                }
+
+                sanitizedReplacementURL = buildDeArrowThumbnailURL(decodedURL.videoId, fallbackURL);
+            } else if (option.useStillImages) {
+                includeTracking = true; // Include view tracking parameters if present.
+                sanitizedReplacementURL = buildYouTubeVideoStillURL(decodedURL, qualityToUse);
+                if (sanitizedReplacementURL == null) {
+                    return originalURL; // Still capture is not available.  Return the untouched original url.
+                }
+            } else {
+                return originalURL; // Recently experienced DeArrow failure and video stills are not enabled.
+            }
+
+            // Do not log any tracking parameters.
+            Logger.debug(() -> "Replacement URL: " + sanitizedReplacementURL);
+
+            return includeTracking
+                    ? sanitizedReplacementURL + decodedURL.viewTrackingParameters
+                    : sanitizedReplacementURL;
+        } catch (Exception ex) {
+            Logger.error(() -> "overrideImageURL failure: " + ex);
+            return originalURL;
+        }
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * Cronet considers all completed connections as a success, even if the response is 404 or 5xx.
+     */
+    public static void onResponse(String url, int statusCode) {
+        try {
+            if (statusCode == 200) {
+                return;
+            }
+
+
+            if (urlIsDeArrow(url)) {
+                Logger.debug(() -> "handleCronetSuccess, statusCode: " + statusCode);
+                if (statusCode == 304) {
+                    // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/304
+                    return; // Normal response.
+                }
+                handleDeArrowError(url, statusCode);
+                return;
+            }
+
+            if (statusCode == 404) {
+                // Fast alt thumbnails is enabled and the thumbnail is not available.
+                // The video is:
+                // - live stream
+                // - upcoming unreleased video
+                // - very old
+                // - very low view count
+                // Take note of this, so if the image reloads the original thumbnail will be used.
+                DecodedThumbnailURL decodedURL = DecodedThumbnailURL.decodeImageURL(url);
+                if (decodedURL == null) {
+                    return; // Not a thumbnail.
+                }
+
+                Logger.debug(() -> "handleCronetSuccess, image not available: " + decodedURL.sanitizedURL);
+
+                ThumbnailQuality quality = ThumbnailQuality.altImageNameToQuality(decodedURL.imageQuality);
+                if (quality == null) {
+                    // Video is a short or a seekbar thumbnail, but somehow did not load.  Should not happen.
+                    Logger.debug(() -> "Failed to recognize image quality of URL: " + decodedURL.sanitizedURL);
+                    return;
+                }
+
+                VerifiedQualities.setAltThumbnailDoesNotExist(decodedURL.videoId, quality);
+            }
+        } catch (Exception ex) {
+            Logger.error(() -> "Callback success error: " + ex);
+        }
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * To test failure cases, try changing the API URL to each of:
+     * - A non-existent domain.
+     * - A url path of something incorrect (ie: /v1/nonExistentEndPoint).
+     * <p>
+     * Cronet uses a very timeout (several minutes), so if the API never responds this hook can take a while to be called.
+     * But this does not appear to be a problem, as the DeArrow API has not been observed to 'go silent'
+     * Instead if there's a problem it returns an error code status response, which is handled in this patch.
+     */
+    public interface ImageRequest {
+        String reseam_imageUrl();
+    }
+
+    public static void onFailure(Object request) {
+        if (!(request instanceof ImageRequest)) return;
+        String url = ((ImageRequest) request).reseam_imageUrl();
+        if (url != null && urlIsDeArrow(url)) handleDeArrowError(url, 0);
+    }
+
+    private enum ThumbnailQuality {
+        // In order of lowest to highest resolution.
+        DEFAULT("default", ""), // effective alt name is 1.jpg, 2.jpg, 3.jpg
+        MQDEFAULT("mqdefault", "mq"),
+        HQDEFAULT("hqdefault", "hq"),
+        SDDEFAULT("sddefault", "sd"),
+        HQ720("hq720", "hq720_"),
+        MAXRESDEFAULT("maxresdefault", "maxres");
+
+        /**
+         * Lookup map of original name to enum.
+         */
+        private static final Map<String, ThumbnailQuality> originalNameToEnum = new HashMap<>();
+
+        /**
+         * Lookup map of alt name to enum.  ie: "hq720_1" to {@link #HQ720}.
+         */
+        private static final Map<String, ThumbnailQuality> altNameToEnum = new HashMap<>();
+
+        static {
+            for (ThumbnailQuality quality : values()) {
+                originalNameToEnum.put(quality.originalName, quality);
+
+                for (ThumbnailStillTime time : ThumbnailStillTime.values()) {
+                    // 'custom' thumbnails set by the content creator.
+                    // These show up in place of regular thumbnails
+                    // and seem to be limited to the same [1, 3] range as the still captures.
+                    originalNameToEnum.put(quality.originalName + "_custom_" + time.altImageNumber, quality);
+
+                    altNameToEnum.put(quality.altImageName + time.altImageNumber, quality);
+                }
+            }
+        }
+
+        /**
+         * Convert an alt image name to enum.
+         * ie: "hq720_2" returns {@link #HQ720}.
+         */
+        static ThumbnailQuality altImageNameToQuality(String altImageName) {
+            return altNameToEnum.get(altImageName);
+        }
+
+        /**
+         * Original quality to effective alt quality to use.
+         * ie: If fast alt image is enabled, then "hq720" returns {@link #SDDEFAULT}.
+         */
+        static ThumbnailQuality getQualityToUse(String originalSize) {
+            ThumbnailQuality quality = originalNameToEnum.get(originalSize);
+            if (quality == null) {
+                return null; // Not a thumbnail for a regular video.
+            }
+
+            final boolean useFastQuality = Settings.getBoolean("alt_thumbnail_stills_fast", false);
+            return switch (quality) {
+                // SD alt images have somewhat worse quality with washed out color and poor contrast.
+                // But the 720 images look much better and don't suffer from these issues.
+                // For unknown reasons, the 720 thumbnails are used only for the home feed,
+                // while SD is used for the search and subscription feed
+                // (even though search and subscriptions use the exact same layout as the home feed).
+                // Of note, this image quality issue only appears with the alt thumbnail images,
+                // and the regular thumbnails have identical color/contrast quality for all sizes.
+                // Fix this by falling through and upgrading SD to 720.
+                case SDDEFAULT, HQ720 -> {  // SD is max resolution for fast alt images.
+                    if (useFastQuality) {
+                        yield SDDEFAULT;
+                    }
+                    yield HQ720;
+                }
+                case MAXRESDEFAULT -> {
+                    if (useFastQuality) {
+                        yield SDDEFAULT;
+                    }
+                    yield MAXRESDEFAULT;
+                }
+                default -> quality;
+            };
+        }
+
+        final String originalName;
+        final String altImageName;
+
+        ThumbnailQuality(String originalName, String altImageName) {
+            this.originalName = originalName;
+            this.altImageName = altImageName;
+        }
+
+        String getAltImageNameToUse() {
+            return altImageName + stillTime().altImageNumber;
+        }
+    }
+
+    /**
+     * Uses HTTP HEAD requests to verify and keep track of which thumbnail sizes
+     * are available and not available.
+     */
+    private static class VerifiedQualities {
+        /**
+         * After a quality is verified as not available, how long until the quality is re-verified again.
+         * Used only if fast mode is not enabled. Intended for live streams and unreleased videos
+         * that are now finished and available (and thus, the alt thumbnails are also now available).
+         */
+        private static final long NOT_AVAILABLE_TIMEOUT_MILLISECONDS = 10 * 60 * 1000; // 10 minutes.
+
+        /**
+         * Cache used to verify if an alternative thumbnails exists for a given video ID.
+         */
+        private static final Map<String, VerifiedQualities> altVideoIdLookup =
+                new LinkedHashMap<>(128, 0.75f, true) {
+                    @Override protected boolean removeEldestEntry(Map.Entry<String, VerifiedQualities> entry) {
+                        return size() > 1000;
+                    }
+                };
+
+        private static VerifiedQualities getVerifiedQualities(String videoId, boolean returnNullIfDoesNotExist) {
+            synchronized (altVideoIdLookup) {
+                VerifiedQualities verified = altVideoIdLookup.get(videoId);
+                if (verified == null) {
+                    if (returnNullIfDoesNotExist) {
+                        return null;
+                    }
+                    verified = new VerifiedQualities();
+                    altVideoIdLookup.put(videoId, verified);
+                }
+                return verified;
+            }
+        }
+
+        static boolean verifyAltThumbnailExist(String videoId, ThumbnailQuality quality,
+                                               String imageURL) {
+            // Do not even take a per-video monitor on the UI thread: another request worker
+            // may currently hold it while probing the server.
+            if (android.os.Looper.myLooper() == android.os.Looper.getMainLooper()) return false;
+            VerifiedQualities verified = getVerifiedQualities(videoId, Settings.getBoolean("alt_thumbnail_stills_fast", false));
+            if (verified == null) return true; // Fast alt thumbnails is enabled.
+            return verified.verifyYouTubeThumbnailExists(videoId, quality, imageURL);
+        }
+
+        static void setAltThumbnailDoesNotExist(String videoId, ThumbnailQuality quality) {
+            VerifiedQualities verified = getVerifiedQualities(videoId, false);
+            //noinspection ConstantConditions
+            verified.setQualityVerified(videoId, quality, false);
+        }
+
+        /**
+         * Highest quality verified as existing.
+         */
+        private ThumbnailQuality highestQualityVerified;
+        /**
+         * Lowest quality verified as not existing.
+         */
+        private ThumbnailQuality lowestQualityNotAvailable;
+
+        /**
+         * System time, of when to invalidate {@link #lowestQualityNotAvailable}.
+         * Used only if fast mode is not enabled.
+         */
+        private long timeToReVerifyLowestQuality;
+
+        private synchronized void setQualityVerified(String videoId, ThumbnailQuality quality, boolean isVerified) {
+            if (isVerified) {
+                if (highestQualityVerified == null || highestQualityVerified.ordinal() < quality.ordinal()) {
+                    highestQualityVerified = quality;
+                }
+            } else {
+                if (lowestQualityNotAvailable == null || lowestQualityNotAvailable.ordinal() > quality.ordinal()) {
+                    lowestQualityNotAvailable = quality;
+                    timeToReVerifyLowestQuality = System.currentTimeMillis() + NOT_AVAILABLE_TIMEOUT_MILLISECONDS;
+                }
+                Logger.debug(() -> quality + " not available for video: " + videoId);
+            }
+        }
+
+        /**
+         * Verify if a video alt thumbnail exists.  Does so by making a minimal HEAD HTTP request.
+         */
+        synchronized boolean verifyYouTubeThumbnailExists(String videoId, ThumbnailQuality quality,
+                                                          String imageURL) {
+            if (highestQualityVerified != null && highestQualityVerified.ordinal() >= quality.ordinal()) {
+                return true; // Previously verified as existing.
+            }
+
+            final boolean fastQuality = Settings.getBoolean("alt_thumbnail_stills_fast", false);
+            if (lowestQualityNotAvailable != null && lowestQualityNotAvailable.ordinal() <= quality.ordinal()) {
+                if (fastQuality || System.currentTimeMillis() < timeToReVerifyLowestQuality) {
+                    return false; // Previously verified as not existing.
+                }
+                // Enough time has passed, and should re-verify again.
+                Logger.debug(() -> "Resetting lowest verified quality for: " + videoId);
+                lowestQualityNotAvailable = null;
+            }
+
+            if (fastQuality) {
+                return true; // Unknown if it exists or not. Use the URL anyway and update afterward if loading fails.
+            }
+
+            // A skipped UI-thread check is not evidence that the image is missing. Leave the
+            // cache untouched so a later background request can verify it normally.
+            if (android.os.Looper.myLooper() == android.os.Looper.getMainLooper()) return false;
+
+            boolean imageFileFound;
+            try {
+                // Verify directly on the request worker; no extra executor hop or blocked future.
+                final long start = System.currentTimeMillis();
+                imageFileFound = verifyImage(imageURL);
+
+                Logger.debug(() -> "Verification took: " + (System.currentTimeMillis() - start) + "ms for image: " + imageURL);
+            } catch (IOException ex) {
+                Logger.debug(() -> "Could not verify alt URL: " + imageURL + ": " + ex);
+                imageFileFound = false;
+            }
+
+            setQualityVerified(videoId, quality, imageFileFound);
+            return imageFileFound;
+        }
+    }
+
+    /**
+     * YouTube video thumbnail url, decoded into it's relevant parts.
+     */
+    private static class DecodedThumbnailURL {
+        private static final String YOUTUBE_THUMBNAIL_DOMAIN = "https://i.ytimg.com/";
+
+        static DecodedThumbnailURL decodeImageURL(String url) {
+            Uri uri = Uri.parse(url);
+            String host = uri.getHost();
+            if (host == null || !(host.equals("ytimg.com") || host.endsWith(".ytimg.com"))) return null;
+            String path = uri.getPath();
+            if (path == null || !(path.startsWith("/vi/") || path.startsWith("/vi_webp/"))) return null;
+            final int urlPathStartIndex = url.indexOf('/', "https://".length()) + 1;
+            if (urlPathStartIndex <= 0) return null;
+
+            final int urlPathEndIndex = url.indexOf('/', urlPathStartIndex);
+            if (urlPathEndIndex < 0) return null;
+
+            final int videoIdStartIndex = url.indexOf('/', urlPathEndIndex) + 1;
+            if (videoIdStartIndex <= 0) return null;
+
+            final int videoIdEndIndex = url.indexOf('/', videoIdStartIndex);
+            if (videoIdEndIndex < 0) return null;
+
+            final int imageSizeStartIndex = videoIdEndIndex + 1;
+            final int imageSizeEndIndex = url.indexOf('.', imageSizeStartIndex);
+            if (imageSizeEndIndex < 0) return null;
+
+            int imageExtensionEndIndex = url.indexOf('?', imageSizeEndIndex);
+            if (imageExtensionEndIndex < 0) imageExtensionEndIndex = url.length();
+
+            return new DecodedThumbnailURL(url, urlPathStartIndex, urlPathEndIndex, videoIdStartIndex, videoIdEndIndex,
+                    imageSizeStartIndex, imageSizeEndIndex, imageExtensionEndIndex);
+        }
+
+        final String originalFullURL;
+        /** Full usable url, but stripped of any tracking information. */
+        final String sanitizedURL;
+        /** URL path, such as 'vi' or 'vi_webp' */
+        final String urlPath;
+        final String videoId;
+        /** Quality, such as hq720 or sddefault. */
+        final String imageQuality;
+        /** JPG or WEBP */
+        final String imageExtension;
+        /** User view tracking parameters, only present on some images. */
+        final String viewTrackingParameters;
+
+        DecodedThumbnailURL(String fullURL, int urlPathStartIndex, int urlPathEndIndex, int videoIdStartIndex, int videoIdEndIndex,
+                            int imageSizeStartIndex, int imageSizeEndIndex, int imageExtensionEndIndex) {
+            originalFullURL = fullURL;
+            sanitizedURL = fullURL.substring(0, imageExtensionEndIndex);
+            urlPath = fullURL.substring(urlPathStartIndex, urlPathEndIndex);
+            videoId = fullURL.substring(videoIdStartIndex, videoIdEndIndex);
+            imageQuality = fullURL.substring(imageSizeStartIndex, imageSizeEndIndex);
+            imageExtension = fullURL.substring(imageSizeEndIndex + 1, imageExtensionEndIndex);
+            viewTrackingParameters = (imageExtensionEndIndex == fullURL.length())
+                    ? "" : fullURL.substring(imageExtensionEndIndex);
+        }
+
+        @SuppressWarnings("SameParameterValue")
+        String createStillsURL(ThumbnailQuality qualityToUse, boolean includeViewTracking) {
+            // Images could be upgraded to webp if they are not already, but this fails quite often,
+            // especially for new videos uploaded in the last hour.
+            // And even if alt webp images do exist, sometimes they can load much slower than the original jpg alt images.
+            // (as much as 4x slower network response has been observed, despite the alt webp image being a smaller file).
+            StringBuilder builder = new StringBuilder(originalFullURL.length() + 2);
+            // Many different "i.ytimage.com" domains exist such as "i9.ytimg.com",
+            // but still captures are frequently not available on the other domains (especially newly uploaded videos).
+            // So always use the primary domain for a higher success rate.
+            builder.append(YOUTUBE_THUMBNAIL_DOMAIN).append(urlPath).append('/');
+            builder.append(videoId).append('/');
+            builder.append(qualityToUse.getAltImageNameToUse());
+            builder.append('.').append(imageExtension);
+            if (includeViewTracking) {
+                builder.append(viewTrackingParameters);
+            }
+            return builder.toString();
+        }
+    }
+}

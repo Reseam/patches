@@ -7,16 +7,13 @@ package app.reseam.patches.youtube.layout
 import app.reseam.patch.ExtClass
 import app.reseam.patch.Type
 import app.reseam.patch.before
-import app.reseam.patch.dex.AccessFlags
-import app.reseam.patch.klass
-import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
-import app.reseam.patches.youtube.internal.imageUrlEscapeCharacters
+import app.reseam.patches.youtube.internal.imageRequestConstructor
 
 val bypassImageRegionRestrictions = patch("Bypass image region restrictions") {
     description("Loads avatars and channel images from a host that is not blocked in some countries.")
@@ -24,14 +21,8 @@ val bypassImageRegionRestrictions = patch("Bypass image region restrictions") {
     settings(youTubeSettings, section(YouTubeSettingsPages.Appearance, "Images", YouTubeSettings.bypassImageRegionRestrictions))
 
     execute {
-        val imageRequest = klass(imageUrlEscapeCharacters.owner)
         // The single-argument constructor delegates here, so one hook covers every image load.
-        method("imageRequestConstructor") {
-            inClass(imageRequest)
-            flags(AccessFlags.CONSTRUCTOR)
-            paramCount(2)
-            param(0, Type.String)
-        }.before {
+        imageRequestConstructor.before {
             param(0).assign(call(ImageUrl.override, param(0)))
         }
     }

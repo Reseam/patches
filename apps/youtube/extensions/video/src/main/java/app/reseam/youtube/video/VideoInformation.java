@@ -134,6 +134,10 @@ public final class VideoInformation {
         }
     }
 
+    public static void setVideoWindow(long start, long end) {
+        setVideoLength(Math.max(0, end - start));
+    }
+
     public static void setVideoTime(long currentPlaybackTime) {
         videoTime = currentPlaybackTime;
         Logger.debug(() -> "Video time: " + currentPlaybackTime);

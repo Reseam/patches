@@ -16,6 +16,9 @@ public final class ThemePatch {
 
     private ThemePatch() {}
 
+    private static volatile int darkColorId;
+    private static volatile int lightColorId;
+
     public static int getValue(int originalValue) {
         for (int value : DARK_VALUES) if (originalValue == value) return color("yt_black1", originalValue);
         for (int value : WHITE_VALUES) if (originalValue == value) return color("yt_white1", originalValue);
@@ -24,8 +27,13 @@ public final class ThemePatch {
 
     private static int color(String name, int fallback) {
         try {
-            int id = app.reseam.youtube.core.YouTubeContext.get().getResources()
-                    .getIdentifier(name, "color", app.reseam.youtube.core.YouTubeContext.get().getPackageName());
+            boolean dark = "yt_black1".equals(name);
+            int id = dark ? darkColorId : lightColorId;
+            if (id == 0) {
+                id = app.reseam.youtube.core.YouTubeContext.get().getResources()
+                        .getIdentifier(name, "color", app.reseam.youtube.core.YouTubeContext.get().getPackageName());
+                if (dark) darkColorId = id; else lightColorId = id;
+            }
             return id == 0 ? fallback : app.reseam.youtube.core.YouTubeContext.get().getResources().getColor(id);
         } catch (Throwable ignored) {
             return fallback;

@@ -55,6 +55,7 @@ object VideoInformation : ExtClass(EXTENSION_CLASS) {
     val setPlayerResponseVideoId = static("setPlayerResponseVideoId", Type.String, Type.Boolean)
     val setVideoLength = static("setVideoLength", Type.Long)
     val setVideoTime = static("setVideoTime", Type.Long)
+    val setVideoWindow = static("setVideoWindow", Type.Long, Type.Long)
     val videoSpeedChanged = static("videoSpeedChanged", Type.Float)
     val userSelectedPlaybackSpeed = static("userSelectedPlaybackSpeed", Type.Float)
     val fixVideoQualityResolution = static("fixVideoQualityResolution", Type.String, Type.Int, returns = Type.Int)
@@ -410,7 +411,7 @@ val videoInformationHook = patch {
         mdxPlayerConstructor.after {
             call(VideoInformation.initializeMdx, thisObject)
         }
-        playerTimeMethod.before { call(VideoInformation.setVideoLength, param(2)) }
+        playerTimeMethod.before { call(VideoInformation.setVideoWindow, param(2), param(3)) }
         setPlaybackSpeedMethod.before { call(VideoInformation.videoSpeedChanged, param(0)) }
         legacySpeedSelection.after {
             call(VideoInformation.userSelectedPlaybackSpeed, capture("selectedSpeed"))

@@ -27,4 +27,16 @@ public final class Logger {
     public static void error(Message message) {
         Log.e(TAG, message.build());
     }
+
+    public static void error(Message message, Throwable error) {
+        Log.e(TAG, message.build(), error);
+    }
+
+    public static void info(Message message, Throwable error) {
+        Log.i(TAG, message.build(), error);
+    }
+
+    public static void debug(Message message, Throwable error) {
+        if (Settings.getBoolean("debug_logging", false)) Log.d(TAG, message.build(), error);
+    }
 }

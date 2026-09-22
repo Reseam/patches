@@ -11,6 +11,87 @@ import app.reseam.patch.settings.toggle
 // Keys derive from this object's name: `you_tube_settings.<property>`. The patched app stores
 // values under them, so renaming a property resets it for everyone.
 object YouTubeSettings {
+    private val segmentBehaviors = listOf(Choice("skip", "Skip automatically"), Choice("skip-once", "Skip once"),
+        Choice("manual-skip", "Show skip button"), Choice("seekbar-only", "Show in seekbar"), Choice("ignore", "Ignore"))
+    val sbEnabled by toggle("SponsorBlock", summary = "Crowdsourced segments provided by sponsor.ajay.app.", default = true)
+    val sbSponsor by choice("Sponsor segments", default = "skip-once", choices = segmentBehaviors)
+    val sbSelfpromo by choice("Self promotion", default = "manual-skip", choices = segmentBehaviors)
+    val sbInteraction by choice("Interaction reminders", default = "manual-skip", choices = segmentBehaviors)
+    val sbPoiHighlight by choice("Highlights", default = "manual-skip", choices = segmentBehaviors.filter { it.value != "skip-once" })
+    val sbIntro by choice("Intros", default = "manual-skip", choices = segmentBehaviors)
+    val sbOutro by choice("Outros", default = "manual-skip", choices = segmentBehaviors)
+    val sbPreview by choice("Previews", default = "manual-skip", choices = segmentBehaviors)
+    val sbHook by choice("Hooks", default = "ignore", choices = segmentBehaviors)
+    val sbFiller by choice("Filler", default = "ignore", choices = segmentBehaviors)
+    val sbMusicOfftopic by choice("Non-music sections", default = "skip", choices = segmentBehaviors)
+    val sbSponsorColor by text("Sponsor color", default = "#CC00D400")
+    val sbSelfpromoColor by text("Self promotion color", default = "#CCFFFF00")
+    val sbInteractionColor by text("Interaction color", default = "#CCCC00FF")
+    val sbPoiHighlightColor by text("Highlight color", default = "#CCFF1684")
+    val sbIntroColor by text("Intro color", default = "#CC00FFFF")
+    val sbOutroColor by text("Outro color", default = "#CC0202ED")
+    val sbPreviewColor by text("Preview color", default = "#CC008FD6")
+    val sbHookColor by text("Hook color", default = "#CC395699")
+    val sbFillerColor by text("Filler color", default = "#CC7300FF")
+    val sbMusicOfftopicColor by text("Non-music color", default = "#CCFF9900")
+    val sbVotingButton by toggle("SponsorBlock voting button", default = false)
+    val sbCreateNewSegment by toggle("Create SponsorBlock segments", default = false)
+    val sbCompactSkipButton by toggle("Compact skip button", default = false)
+    val sbSquareLayout by toggle("Square skip button", default = false)
+    val sbAutoHideSkipButton by toggle("Auto-hide skip button", default = true)
+    val sbAutoHideSkipButtonDuration by text("Skip button timeout (ms)", default = "4000")
+    val sbToastOnSkip by toggle("Show a message after skipping", default = true)
+    val sbToastOnConnectionError by toggle("Show SponsorBlock connection errors", default = true)
+    val sbTrackSkipCount by toggle("Track SponsorBlock skips",
+        summary = "Saves local statistics and reports segment skips to SponsorBlock.", default = true)
+    val sbMinSegmentDuration by text("Minimum segment duration (seconds)", default = "0")
+    val sbVideoLengthWithoutSegments by toggle("Show duration without segments", default = false)
+    val sbApiUrl by text("SponsorBlock API URL", default = "https://sponsor.ajay.app")
+
+    val rydEnabled by toggle("Return YouTube Dislike",
+        summary = "Dislike estimates and voting provided by returnyoutubedislike.com.", default = true)
+    val rydShorts by toggle("Show dislikes on Shorts", default = true)
+    val rydDislikePercentage by toggle("Show dislike percentage", default = false)
+    val rydCompactLayout by toggle("Compact like and dislike counts", default = false)
+    val rydEstimatedLike by toggle("Estimate hidden like counts", default = false)
+    val rydToastOnConnectionError by toggle("Show dislike service connection errors", default = true)
+
+    val swipeBrightness by toggle("Swipe for brightness", default = true)
+    val swipeVolume by toggle("Swipe for volume", default = true)
+    val swipePressToEngage by toggle("Press before swiping", default = false)
+    val swipeHapticFeedback by toggle("Swipe haptic feedback", default = true)
+    val swipeSaveAndRestoreBrightness by toggle("Restore brightness outside fullscreen", default = true)
+    val swipeLowestValueEnableAutoBrightness by toggle("Use automatic brightness at minimum", default = false)
+    val swipeOverlayStyle by choice("Swipe overlay", default = "CIRCULAR",
+        choices = listOf(Choice("CIRCULAR", "Circular"), Choice("PROGRESS", "Progress bar"),
+            Choice("TEXT", "Text"), Choice("NONE", "Hidden")))
+    val swipeOverlayBackgroundOpacity by text("Swipe overlay opacity (%)", default = "70")
+    val swipeOverlayProgressBrightnessColor by text("Brightness indicator color", default = "#FFFFFFFF")
+    val swipeOverlayProgressVolumeColor by text("Volume indicator color", default = "#FFFFFFFF")
+    val swipeTextOverlaySize by text("Swipe overlay text size", default = "22")
+    val swipeOverlayTimeout by text("Swipe overlay timeout (ms)", default = "1000")
+    val swipeThreshold by text("Swipe threshold (dp)", default = "30")
+    val swipeVolumeSensitivity by text("Volume sensitivity", default = "1")
+
+    private val thumbnailChoices = listOf(
+        Choice("ORIGINAL", "Original"), Choice("DEARROW", "DeArrow"),
+        Choice("DEARROW_STILL_IMAGES", "DeArrow, then video stills"), Choice("STILL_IMAGES", "Video stills"),
+    )
+    val altThumbnailHome by choice("Home thumbnails", default = "ORIGINAL", choices = thumbnailChoices)
+    val altThumbnailSubscriptions by choice("Subscription thumbnails", default = "ORIGINAL", choices = thumbnailChoices)
+    val altThumbnailLibrary by choice("Library thumbnails", default = "ORIGINAL", choices = thumbnailChoices)
+    val altThumbnailPlayer by choice("Player thumbnails", default = "ORIGINAL", choices = thumbnailChoices)
+    val altThumbnailSearch by choice("Search thumbnails", default = "ORIGINAL", choices = thumbnailChoices)
+    val altThumbnailDearrowApiUrl by text("DeArrow API URL",
+        summary = "Crowdsourced thumbnails provided by DeArrow (dearrow.ajay.app). Restart after changing.",
+        default = "https://dearrow-thumb.ajay.app/api/v1/getThumbnail")
+    val altThumbnailDearrowConnectionToast by toggle("Show DeArrow connection errors", default = true)
+    val altThumbnailStillsFast by toggle("Fast video stills",
+        summary = "Uses SD images without checking availability. Failed images use the original when reloaded.",
+        default = false)
+    val altThumbnailStillsTime by choice("Video still position", default = "MIDDLE",
+        choices = listOf(Choice("BEGINNING", "Beginning"), Choice("MIDDLE", "Middle"), Choice("END", "End")))
+
     val debugLogging by toggle(
         "Debug logging",
         summary = "Writes what the Reseam patches are doing to the Android log.",

@@ -55,10 +55,24 @@ val theme = patch("Theme") {
             "yt_black0", "yt_black1", "yt_black1_opacity95", "yt_black1_opacity98",
             "yt_black2", "yt_black3", "yt_black4", "yt_status_bar_background_dark",
             "material_grey_850",
+            "yt_sys_color_baseline_dark_menu_background",
+            "yt_sys_color_baseline_dark_static_black",
+            "yt_sys_color_baseline_dark_raised_background",
+            "yt_sys_color_baseline_dark_base_background",
+            "yt_sys_color_baseline_light_inverted_background",
+            "yt_sys_color_baseline_light_static_black",
         ).forEach { resources.addColor(it, dark) }
-        listOf("yt_white1", "yt_white1_opacity95", "yt_white1_opacity98", "yt_white2", "yt_white3", "yt_white4")
+        listOf("yt_white1", "yt_white1_opacity95", "yt_white1_opacity98", "yt_white2", "yt_white3", "yt_white4",
+            "yt_sys_color_baseline_light_base_background", "yt_sys_color_baseline_light_raised_background")
             .forEach { resources.addColor(it, light) }
-        resources.addColor(SPLASH_COLOR, light)
+        // File-backed color selectors let Android select the night variant before app startup.
+        // A default-only splash color produces a white flash even when the app uses a dark theme.
+        listOf("" to "yt_white1", "night" to "yt_black1").forEach { (qualifier, color) ->
+            val directory = if (qualifier.isEmpty()) "color" else "color-$qualifier"
+            resources.addFile("color", SPLASH_COLOR, "res/$directory/$SPLASH_COLOR.xml",
+                """<selector xmlns:android="http://schemas.android.com/apk/res/android"><item android:color="@color/$color" /></selector>""".toByteArray(),
+                qualifier)
+        }
 
         // Both launchscreen configurations are file-backed even though the release APK has no
         // res/drawable path with the resource name.

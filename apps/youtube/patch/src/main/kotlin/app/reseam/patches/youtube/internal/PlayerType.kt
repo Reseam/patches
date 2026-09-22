@@ -27,6 +27,7 @@ val playerTypeHook = patch {
 
     execute {
         playerTypeSetter.before { call(PlayerType.set, param(0)) }
+        nativePlayerTypeSetter.before { call(PlayerType.set, param(0)) }
 
         // Resource ids only exist against a loaded app, so the targets they seed are built here.
         val reelWatchPlayer = resources.id("id", "reel_watch_player")?.toLong()
@@ -66,6 +67,15 @@ val playerTypeSetter = method("playerTypeSetter") {
     params(playerTypeEnum.descriptor)
     returns(Type.Void)
     // A private overload takes the same enum.
+    flags(AccessFlags.PUBLIC)
+}
+
+// The newer overlay provider no longer notifies YouTubePlayerOverlaysLayout. The actual
+// player view still receives the shared mode dispatch, including the initial mode.
+val nativePlayerTypeSetter = method("nativePlayerTypeSetter") {
+    inClass(klass("com.google.android.apps.youtube.app.player.YouTubePlayerViewNotForReflection"))
+    params(playerTypeEnum.descriptor)
+    returns(Type.Void)
     flags(AccessFlags.PUBLIC)
 }
 
