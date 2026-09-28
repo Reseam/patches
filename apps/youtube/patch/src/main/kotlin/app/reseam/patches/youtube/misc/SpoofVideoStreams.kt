@@ -36,6 +36,14 @@ private const val STREAMING_DATA =
     "Lcom/google/protos/youtube/api/innertube/StreamingDataOuterClass\$StreamingData;"
 private const val BYTE_BUFFER = "java.nio.ByteBuffer"
 
+// Served to the extension's web runtime from assets/reseam/web.
+private val WEB_ASSETS = listOf(
+    "index.html", "host.js", "botguard.js", "player.js",
+    "ejs/yt.solver.lib.min.js", "ejs/yt.solver.core.min.js",
+)
+
+private object WebAssets
+
 object SpoofVideoStreams : ExtClass("app.reseam.youtube.spoof.SpoofVideoStreams") {
     val setClientOrderToUse = static("setClientOrderToUse")
     val isSpoofingEnabled = static("isSpoofingEnabled", returns = Type.Boolean)
@@ -206,14 +214,18 @@ val spoofVideoStreams = patch("Spoof video streams") {
             "Stream compatibility",
             YouTubeSettings.spoofVideoStreams,
             YouTubeSettings.spoofVideoStreamsClient,
-            YouTubeSettings.spoofVideoStreamsAv1,
             YouTubeSettings.spoofVideoStreamsStatsForNerds,
         ),
     )
 
     execute {
-        mainActivityOnCreate.before { call(SpoofVideoStreams.setClientOrderToUse) }
+        WEB_ASSETS.forEach { name ->
+            val asset = WebAssets::class.java.getResourceAsStream("/web/$name")?.use { it.readBytes() }
+                ?: error("web/$name is missing from the patch jar")
+            files.write("assets/reseam/web/$name", asset)
+        }
 
+        mainActivityOnCreate.before { call(SpoofVideoStreams.setClientOrderToUse) }
 
         hookClientContextOsName(ClientContextEndpoint.BROWSE, SpoofVideoStreams.rewriteClientContextOsName)
         hookClientContextOsName(ClientContextEndpoint.SEARCH, SpoofVideoStreams.rewriteClientContextOsName)

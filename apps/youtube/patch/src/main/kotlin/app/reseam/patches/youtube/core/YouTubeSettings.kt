@@ -1202,19 +1202,11 @@ object YouTubeSettings {
     val spoofVideoStreamsClient by choice(
         "Default client",
         summary = "The client asked first for playback streams; the others are tried when it returns none.",
-        default = "android_reel_no_auth",
+        default = "tv_simply",
         choices = listOf(
-            Choice("android_reel", "Android Reel"),
-            Choice("android_reel_no_auth", "Android Reel (no auth)"),
-            Choice("android_creator", "Android Studio"),
-            Choice("android_vr_1_43", "Android VR"),
+            Choice("tv_simply", "TV Simply"),
             Choice("visionos", "visionOS"),
         ),
-    )
-    val spoofVideoStreamsAv1 by toggle(
-        "Allow Android VR AV1",
-        summary = "With the Android VR client, also allows the AV1 codec, which may use software decoding.",
-        default = false,
     )
     val spoofVideoStreamsStatsForNerds by toggle(
         "Show spoofed client in stats",

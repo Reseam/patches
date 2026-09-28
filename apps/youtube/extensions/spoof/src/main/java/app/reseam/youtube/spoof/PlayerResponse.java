@@ -5,19 +5,20 @@
 package app.reseam.youtube.spoof;
 
 import java.io.ByteArrayOutputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.UnaryOperator;
 
 /**
  * The parts of an InnerTube player response the spoof request reads, decoded from protobuf
  * wire format. Field numbers follow YouTube's messages:
  * PlayerResponse { PlayabilityStatus playability_status = 2; StreamingData streaming_data = 4; },
  * PlayabilityStatus { Status status = 1; string reason = 2; },
- * StreamingData { repeated Format adaptiveFormats = 3; },
- * Format { string mimeType = 5; string qualityLabel = 26; },
- * ReelItemWatchResponse { PlayerResponse player_response = 4; }.
+ * StreamingData { repeated Format formats = 2; repeated Format adaptiveFormats = 3; },
+ * Format { string url = 2; string mimeType = 5; string qualityLabel = 26; }.
  */
 final class PlayerResponse {
     private static final int WIRE_VARINT = 0;
@@ -29,10 +30,11 @@ final class PlayerResponse {
     private static final int STREAMING_DATA = 4;
     private static final int STATUS = 1;
     private static final int REASON = 2;
+    private static final int FORMATS = 2;
     private static final int ADAPTIVE_FORMATS = 3;
+    private static final int URL = 2;
     private static final int MIME_TYPE = 5;
     private static final int QUALITY_LABEL = 26;
-    private static final int REEL_PLAYER_RESPONSE = 4;
 
     /** PlayabilityStatus.Status.OK, also the value of an absent status. */
     static final int STATUS_OK = 0;
@@ -63,15 +65,6 @@ final class PlayerResponse {
             }
         }
         return new PlayerResponse(status, reason, streamingData);
-    }
-
-    /** The player response a reel item watch response wraps, or null. */
-    static byte[] unwrapReel(byte[] reelItemWatchResponse) {
-        byte[] playerResponse = null;
-        for (Field field : fields(reelItemWatchResponse)) {
-            if (field.number == REEL_PLAYER_RESPONSE && field.wireType == WIRE_LENGTH) playerResponse = field.bytes;
-        }
-        return playerResponse;
     }
 
     static int adaptiveFormatCount(byte[] streamingData) {
@@ -107,12 +100,49 @@ final class PlayerResponse {
         return output.toByteArray();
     }
 
+    /** The URL of every muxed and adaptive format that has one. */
+    static List<String> formatUrls(byte[] streamingData) {
+        List<String> urls = new ArrayList<>();
+        for (Field field : fields(streamingData)) {
+            if (!isFormat(field)) continue;
+            for (Field item : fields(field.bytes)) {
+                if (item.number == URL && item.wireType == WIRE_LENGTH) urls.add(item.string());
+            }
+        }
+        return urls;
+    }
+
+    /** `streamingData` with each format URL replaced by `rewrite`'s result; formats without a URL are dropped. */
+    static byte[] rewriteFormatUrls(byte[] streamingData, UnaryOperator<String> rewrite) {
+        ByteArrayOutputStream output = new ByteArrayOutputStream(streamingData.length);
+        for (Field field : fields(streamingData)) {
+            if (!isFormat(field)) {
+                output.write(streamingData, field.start, field.end - field.start);
+                continue;
+            }
+            ByteArrayOutputStream format = new ByteArrayOutputStream(field.bytes.length);
+            boolean hasUrl = false;
+            for (Field item : fields(field.bytes)) {
+                if (item.number == URL && item.wireType == WIRE_LENGTH) {
+                    writeBytes(format, URL, rewrite.apply(item.string()).getBytes(StandardCharsets.UTF_8));
+                    hasUrl = true;
+                } else {
+                    format.write(field.bytes, item.start, item.end - item.start);
+                }
+            }
+            if (hasUrl) writeBytes(output, field.number, format.toByteArray());
+        }
+        return output.toByteArray();
+    }
+
+    private static boolean isFormat(Field field) {
+        return (field.number == FORMATS || field.number == ADAPTIVE_FORMATS) && field.wireType == WIRE_LENGTH;
+    }
+
     /** A PlayerResponse holding only `streamingData`, as the app's parser reads it. */
     static byte[] withStreamingData(byte[] streamingData) {
         ByteArrayOutputStream output = new ByteArrayOutputStream(streamingData.length + 6);
-        writeVarint(output, ((long) STREAMING_DATA << 3) | WIRE_LENGTH);
-        writeVarint(output, streamingData.length);
-        output.write(streamingData, 0, streamingData.length);
+        writeBytes(output, STREAMING_DATA, streamingData);
         return output.toByteArray();
     }
 
@@ -155,7 +185,7 @@ final class PlayerResponse {
         }
 
         String string() {
-            return new String(bytes, java.nio.charset.StandardCharsets.UTF_8);
+            return new String(bytes, StandardCharsets.UTF_8);
         }
     }
 
@@ -211,6 +241,12 @@ final class PlayerResponse {
             if (b >= 0) return value;
         }
         throw new IllegalArgumentException("Malformed protobuf varint");
+    }
+
+    private static void writeBytes(ByteArrayOutputStream output, int number, byte[] bytes) {
+        writeVarint(output, ((long) number << 3) | WIRE_LENGTH);
+        writeVarint(output, bytes.length);
+        output.write(bytes, 0, bytes.length);
     }
 
     private static void writeVarint(ByteArrayOutputStream output, long value) {

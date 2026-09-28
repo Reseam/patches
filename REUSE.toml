@@ -77,6 +77,13 @@ path = [
 SPDX-FileCopyrightText = ["2026 AunAli K. <hello@auna.li>", "2026 ReVanced contributors"]
 SPDX-License-Identifier = "GPL-3.0-or-later"
 
+# ── yt-dlp's ejs challenge solver 0.8.0, unmodified release files ──────────
+
+[[annotations]]
+path = "apps/youtube/patch/src/main/resources/web/ejs/**"
+SPDX-FileCopyrightText = "yt-dlp ejs contributors <https://github.com/yt-dlp/ejs>"
+SPDX-License-Identifier = "Unlicense"
+
 # ── Gradle wrapper (Apache-2.0, from the Gradle project) ────────────────────
 
 [[annotations]]

@@ -3,6 +3,4 @@
 
 dependencies {
     compileOnly(project(":apps:youtube:extensions:core"))
-    compileOnly(project(":apps:youtube:extensions:web"))
-    compileOnly(project(":shared:settings-runtime"))
 }

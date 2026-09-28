@@ -1,0 +1,26 @@
+// Entry points for the app, which calls them through `host.call` and hears back on `reseamHost`.
+const web = {
+    /** Loads the player and a BotGuard session; returns the player's signature timestamp. */
+    prepare: async () => (await Promise.all([player.load(), botguard.init()]))[0],
+
+    /** A PoToken bound to `binding` and the solution of each `n` challenge. */
+    unlock: async (binding, challenges) => {
+        const [poToken, n] = await Promise.all([botguard.mint(binding), player.solveN(challenges)]);
+        return { poToken, n };
+    },
+};
+
+const host = {
+    call(id, task, args) {
+        Promise.resolve()
+            .then(() => task(...args))
+            .then(result => reseamHost.resolve(id, JSON.stringify(result ?? null)),
+                error => reseamHost.reject(id, String(error?.stack ?? error)));
+    },
+};
+
+(async () => {
+    const source = path => fetch(path).then(response => response.text());
+    player.start(await source("ejs/yt.solver.lib.min.js"), await source("ejs/yt.solver.core.min.js"));
+    reseamHost.ready();
+})().catch(error => reseamHost.fail(String(error?.stack ?? error)));

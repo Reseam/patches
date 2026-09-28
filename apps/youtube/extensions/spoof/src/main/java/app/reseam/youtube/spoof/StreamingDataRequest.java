@@ -4,11 +4,11 @@
 
 package app.reseam.youtube.spoof;
 
+import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
@@ -17,14 +17,19 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
-import java.util.LinkedHashMap;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -32,24 +37,20 @@ import java.util.concurrent.TimeUnit;
 
 import app.reseam.youtube.core.Logger;
 import app.reseam.youtube.core.YouTubeContext;
+import app.reseam.youtube.web.WebPlayer;
 
 /**
  * Fetches the player response of the first client in the configured order that returns playable
  * streams, while YouTube is building its own player request.
  */
 final class StreamingDataRequest {
-    private static final String API_URL = "https://youtubei.googleapis.com/youtubei/v1/";
-    private static final String PLAYER_ROUTE = "player?fields=streamingData&alt=proto";
-    private static final String REEL_ROUTE = "reel/reel_item_watch"
-            + "?fields=playerResponse.playabilityStatus,playerResponse.streamingData&alt=proto";
-    private static final String AUTHORIZATION_HEADER = "Authorization";
-    private static final String[] REQUEST_HEADER_KEYS = {
-            AUTHORIZATION_HEADER, "X-GOOG-API-FORMAT-VERSION", "X-Goog-Visitor-Id",
-    };
+    private static final String PLAYER_URL = "https://youtubei.googleapis.com/youtubei/v1/player?fields=streamingData&alt=proto";
+    private static final String VISITOR_ID_HEADER = "X-Goog-Visitor-Id";
+    private static final String[] REQUEST_HEADER_KEYS = {"X-GOOG-API-FORMAT-VERSION", VISITOR_ID_HEADER};
     private static final int HTTP_TIMEOUT_MILLISECONDS = 10_000;
     private static final int MAX_MILLISECONDS_TO_WAIT_FOR_FETCH = 20_000;
     private static final int MAX_CACHED_REQUESTS = 50;
-    /** Norwegian Bokmål: not auto-dubbed by YouTube, and a language Android VR supports. */
+    /** Norwegian Bokmål: a language YouTube does not auto-dub into. */
     private static final Locale ORIGINAL_AUDIO_LOCALE = new Locale("nb");
 
     private static final ExecutorService EXECUTOR = Executors.newCachedThreadPool();
@@ -61,7 +62,7 @@ final class StreamingDataRequest {
                 }
             });
 
-    private static volatile ClientType[] clientOrder = {ClientType.ANDROID_REEL_NO_AUTH};
+    private static volatile ClientType[] clientOrder = {ClientType.TV_SIMPLY};
     private static volatile boolean preferMultipleAvcQualities;
     private static volatile Locale languageOverride;
     private static volatile ClientType lastSpoofedClient;
@@ -69,8 +70,8 @@ final class StreamingDataRequest {
     private StreamingDataRequest() {}
 
     /**
-     * With original audio forced, an unauthenticated client without multiple audio tracks is asked
-     * for a language YouTube does not dub into, so it answers with the original audio.
+     * With original audio forced, the client is asked for a language YouTube does not dub into, so
+     * it answers with the original audio.
      */
     static void setClientOrder(ClientType preferred, List<ClientType> available,
                                boolean preferMultipleAvc, boolean forceOriginalAudio) {
@@ -81,10 +82,12 @@ final class StreamingDataRequest {
         }
         clientOrder = order.toArray(new ClientType[0]);
         preferMultipleAvcQualities = preferMultipleAvc;
-        languageOverride = forceOriginalAudio && !preferred.useAuth && !preferred.supportsMultiAudioTracks
-                ? ORIGINAL_AUDIO_LOCALE
-                : null;
+        languageOverride = forceOriginalAudio ? ORIGINAL_AUDIO_LOCALE : null;
         Logger.debug(() -> "Available spoof clients: " + order);
+    }
+
+    static boolean usesWebPlayer() {
+        return Arrays.stream(clientOrder).anyMatch(client -> client.usesWebPlayer);
     }
 
     static String getClientOsName() {
@@ -116,9 +119,15 @@ final class StreamingDataRequest {
     }
 
     private static byte[] fetch(String videoId, Map<String, String> playerHeaders) {
+        String encodedVisitorData = playerHeaders.get(VISITOR_ID_HEADER);
+        String visitorData = encodedVisitorData == null ? null : URLDecoder.decode(encodedVisitorData, StandardCharsets.UTF_8);
         for (ClientType client : clientOrder) {
-            byte[] response = send(client, videoId, playerHeaders);
-            byte[] replacement = response == null ? null : playableResponse(client, response);
+            if (client.usesWebPlayer && visitorData == null) {
+                Logger.debug(() -> "Skipping " + client + " without visitor data to bind its PoToken to");
+                continue;
+            }
+            byte[] response = send(client, videoId, playerHeaders, visitorData);
+            byte[] replacement = response == null ? null : playableResponse(client, response, visitorData);
             if (replacement != null) {
                 lastSpoofedClient = client;
                 Logger.debug(() -> "Spoofed player response built for " + videoId + " using " + client.friendlyName);
@@ -131,24 +140,14 @@ final class StreamingDataRequest {
         return null;
     }
 
-    private static byte[] send(ClientType client, String videoId, Map<String, String> playerHeaders) {
+    private static byte[] send(ClientType client, String videoId, Map<String, String> playerHeaders,
+                               String visitorData) {
         HttpURLConnection connection = null;
         try {
-            boolean authorized = false;
-            connection = (HttpURLConnection) new URL(API_URL + (client.usePlayerEndpoint ? PLAYER_ROUTE : REEL_ROUTE))
-                    .openConnection();
+            connection = (HttpURLConnection) new URL(PLAYER_URL).openConnection();
             for (String key : REQUEST_HEADER_KEYS) {
-                String value = playerHeaders == null ? null : playerHeaders.get(key);
-                if (value == null) continue;
-                if (key.equals(AUTHORIZATION_HEADER)) {
-                    if (!client.useAuth) continue;
-                    authorized = true;
-                }
-                connection.setRequestProperty(key, value);
-            }
-            if (client.useAuth && !authorized) {
-                Logger.debug(() -> "Skipping " + client + " since the user is not signed in");
-                return null;
+                String value = playerHeaders.get(key);
+                if (value != null) connection.setRequestProperty(key, value);
             }
             connection.setConnectTimeout(HTTP_TIMEOUT_MILLISECONDS);
             connection.setReadTimeout(HTTP_TIMEOUT_MILLISECONDS);
@@ -162,7 +161,7 @@ final class StreamingDataRequest {
             connection.setRequestProperty("X-YouTube-Client-Version", client.clientVersion);
 
             Logger.debug(() -> "Fetching video streams for: " + videoId + " using client: " + client.friendlyName);
-            byte[] body = innertubeBody(client, videoId).getBytes(StandardCharsets.UTF_8);
+            byte[] body = innertubeBody(client, videoId, visitorData).getBytes(StandardCharsets.UTF_8);
             connection.setFixedLengthStreamingMode(body.length);
             try (OutputStream output = connection.getOutputStream()) {
                 output.write(body);
@@ -176,7 +175,7 @@ final class StreamingDataRequest {
             }
             if (connection.getContentLength() == 0) return null;
             return readAll(connection.getInputStream());
-        } catch (IOException | JSONException exception) {
+        } catch (Exception exception) {
             Logger.info(() -> "Spoof client " + client + " request failed: " + exception);
             return null;
         } finally {
@@ -184,7 +183,7 @@ final class StreamingDataRequest {
         }
     }
 
-    private static String innertubeBody(ClientType client, String videoId) throws JSONException {
+    private static String innertubeBody(ClientType client, String videoId, String visitorData) throws Exception {
         Locale locale = languageOverride == null ? Locale.getDefault() : languageOverride;
         JSONObject clientJson = new JSONObject()
                 .put("deviceMake", client.deviceMake)
@@ -195,19 +194,22 @@ final class StreamingDataRequest {
                 .put("osVersion", client.osVersion)
                 .put("hl", locale.getLanguage())
                 .put("gl", locale.getCountry());
-        if (client.androidSdkVersion != null) clientJson.put("androidSdkVersion", client.androidSdkVersion);
-        JSONObject body = new JSONObject().put("context", new JSONObject().put("client", clientJson));
-        JSONObject playerRequest = client.usePlayerEndpoint ? body : new JSONObject();
-        playerRequest.put("contentCheckOk", true).put("racyCheckOk", true).put("videoId", videoId);
-        if (!client.usePlayerEndpoint) body.put("playerRequest", playerRequest).put("disablePlayerResponse", false);
+        JSONObject body = new JSONObject()
+                .put("context", new JSONObject().put("client", clientJson))
+                .put("contentCheckOk", true)
+                .put("racyCheckOk", true)
+                .put("videoId", videoId);
+        if (client.usesWebPlayer) {
+            clientJson.put("visitorData", visitorData);
+            body.put("playbackContext", new JSONObject().put("contentPlaybackContext",
+                    new JSONObject().put("signatureTimestamp", WebPlayer.signatureTimestamp())));
+        }
         return body.toString();
     }
 
-    private static byte[] playableResponse(ClientType client, byte[] response) {
+    private static byte[] playableResponse(ClientType client, byte[] response, String visitorData) {
         try {
-            byte[] playerResponse = client.usePlayerEndpoint ? response : PlayerResponse.unwrapReel(response);
-            if (playerResponse == null) return null;
-            PlayerResponse parsed = PlayerResponse.parse(playerResponse);
+            PlayerResponse parsed = PlayerResponse.parse(response);
             if (parsed.streamingData == null) {
                 Logger.debug(() -> "Ignoring " + client + " without streaming data, status "
                         + parsed.status + (parsed.reason == null ? "" : ": " + parsed.reason));
@@ -220,11 +222,37 @@ final class StreamingDataRequest {
             byte[] streamingData = preferMultipleAvcQualities
                     ? PlayerResponse.preferMultipleAvcQualities(parsed.streamingData)
                     : parsed.streamingData;
+            if (client.usesWebPlayer) streamingData = unlockWebStreams(streamingData, visitorData);
             return PlayerResponse.withStreamingData(streamingData);
         } catch (IllegalArgumentException exception) {
             Logger.error(() -> "Spoof client " + client + " returned an unreadable response: " + exception);
             return null;
+        } catch (Exception exception) {
+            Logger.error(() -> "Could not unlock " + client + " streams: " + exception);
+            return null;
         }
+    }
+
+    /** Solves each URL's `n` challenge and adds a PoToken bound to the visitor data the request carried. */
+    private static byte[] unlockWebStreams(byte[] streamingData, String visitorData) throws Exception {
+        Set<String> challenges = new HashSet<>();
+        for (String url : PlayerResponse.formatUrls(streamingData)) {
+            String n = Uri.parse(url).getQueryParameter("n");
+            if (n != null) challenges.add(n);
+        }
+        long start = System.currentTimeMillis();
+        WebPlayer.Unlocked unlocked = WebPlayer.unlock(visitorData, challenges);
+        Logger.debug(() -> "Unlocked " + challenges.size() + " n challenges in "
+                + (System.currentTimeMillis() - start) + " ms");
+        return PlayerResponse.rewriteFormatUrls(streamingData, url -> {
+            Uri uri = Uri.parse(url);
+            Uri.Builder builder = uri.buildUpon().clearQuery();
+            for (String name : uri.getQueryParameterNames()) {
+                String value = uri.getQueryParameter(name);
+                builder.appendQueryParameter(name, name.equals("n") ? Objects.requireNonNull(unlocked.n().get(value)) : value);
+            }
+            return builder.appendQueryParameter("pot", unlocked.poToken()).build().toString();
+        });
     }
 
     private static void showToast(String message) {

@@ -12,6 +12,7 @@ import java.util.Map;
 
 import app.reseam.youtube.core.Logger;
 import app.reseam.youtube.core.Settings;
+import app.reseam.youtube.web.WebPlayer;
 
 /** Runtime hooks for replacing the app's player response with a compatible client response. */
 public final class SpoofVideoStreams {
@@ -20,17 +21,11 @@ public final class SpoofVideoStreams {
 
     private SpoofVideoStreams() {}
 
-    /** VR 1.61 carries AV1 and is used in place of VR 1.43 when AV1 is allowed and AVC is not forced. */
     public static void setClientOrderToUse() {
-        ClientType client = ClientType.fromSetting(Settings.getString("spoof_video_streams_client", "android_reel_no_auth"));
-        if (client == ClientType.ANDROID_VR_1_43 && Settings.getBoolean("spoof_video_streams_av1", false)
-                && !Settings.getBoolean("force_avc_codec", false)) {
-            client = ClientType.ANDROID_VR_1_61;
-        }
-        // Reel requests can take a minute to start playback, so the reel client is used only when chosen.
-        StreamingDataRequest.setClientOrder(client,
-                Arrays.asList(ClientType.ANDROID_CREATOR, ClientType.ANDROID_VR_1_43, ClientType.VISIONOS),
+        ClientType client = ClientType.fromSetting(Settings.getString("spoof_video_streams_client", "tv_simply"));
+        StreamingDataRequest.setClientOrder(client, Arrays.asList(ClientType.values()),
                 true, Settings.getBoolean("force_original_audio", true));
+        if (isSpoofingEnabled() && StreamingDataRequest.usesWebPlayer()) WebPlayer.warmUp();
     }
 
     public static boolean isSpoofingEnabled() {
