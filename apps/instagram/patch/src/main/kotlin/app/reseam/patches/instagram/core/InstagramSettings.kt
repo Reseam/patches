@@ -32,6 +32,14 @@ object FollowSettings {
 
 object AppearanceSettings {
     val hideRepostButtons by toggle("Hide repost buttons", default = false)
+    val hideEngagementCounts by toggle("Hide engagement counts", summary = "Hides like, comment, share and repost counts in the feed.", default = false)
+    val hideReelsTab by toggle("Hide Reels tab", default = false)
+    val hideCreateTab by toggle("Hide Create tab", default = false)
+}
+
+object FeedSettings {
+    val hideAds by toggle("Hide ads", summary = "Stops sponsored posts in feed, stories, explore, reels and search.", default = true)
+    val followingOnly by toggle("Following-only feed", summary = "Home shows posts from accounts you follow, in time order.", default = false)
 }
 
 object DownloadSettings {

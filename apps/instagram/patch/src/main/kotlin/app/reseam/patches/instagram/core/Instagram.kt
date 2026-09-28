@@ -66,3 +66,11 @@ object FeedMenuOption : ExtClass("app.reseam.instagram.download.FeedMenuOption")
     val option = static("option", Type.Object, returns = Type.Object)
     val setLabel = static("setLabel", Type.Object, Type.String)
 }
+
+object FollowingFeed : ExtClass("app.reseam.instagram.feed.FollowingFeed") {
+    val following = static("following", Type.Map, returns = Type.Map)
+}
+
+object NavigationTabs : ExtClass("app.reseam.instagram.navigation.NavigationTabs") {
+    val filter = static("filter", Type.List, Type.Boolean, Type.Boolean, returns = Type.List)
+}

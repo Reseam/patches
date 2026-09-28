@@ -17,7 +17,6 @@ import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.instagramSettings
 import app.reseam.patches.instagram.core.signatureCheck
 
-// Both surfaces already honour a flag of their own; forcing it keeps Instagram's layout intact.
 val hideRepostButtons = patch("Hide repost buttons") {
     description("Hides repost controls in Instagram's feed and reels.")
     compatibleWith(INSTAGRAM)
@@ -34,7 +33,7 @@ val hideRepostButtons = patch("Hide repost buttons") {
     }
 }
 
-private val feedUfiConfig = klass("feedUfiConfig") { strings(", isRepostButtonEnabled=") }
+internal val feedUfiConfig = klass("feedUfiConfig") { strings(", isRepostButtonEnabled=") }
 
 private val clipsViewerConfig = klass("com.instagram.clips.intf.ClipsViewerConfig")
 
@@ -42,7 +41,7 @@ private val feedRepostEnabled = labelledBoolean(feedUfiConfig.method("toString")
 
 private val reelsHideRepost = labelledBoolean(clipsViewerConfig.method("toString"), ", hideReshareButton=")
 
-private fun labelledBoolean(toString: MethodTarget, label: String) =
+internal fun labelledBoolean(toString: MethodTarget, label: String) =
     toString.point { string(label); then(within = 6) { invokeVirtual { name("append"); params(Type.Boolean) } } }
         .writer(1)
         .field(label.trim(',', ' ', '='))
