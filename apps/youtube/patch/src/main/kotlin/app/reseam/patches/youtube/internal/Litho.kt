@@ -77,7 +77,7 @@ val lithoFilter = patch {
  * selected patches are ever searched.
  */
 fun registerLithoFilter(filter: ExtClass) {
-    appEntry.before { call(LithoFilter.register, newInstance(filter.descriptor)) }
+    appEntry { call(LithoFilter.register, newInstance(filter.descriptor)) }
 }
 
 object LithoFilter : ExtClass("app.reseam.youtube.litho.LithoFilter") {

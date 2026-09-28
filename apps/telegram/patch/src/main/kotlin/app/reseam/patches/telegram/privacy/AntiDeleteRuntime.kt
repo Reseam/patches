@@ -4,7 +4,6 @@
 package app.reseam.patches.telegram.privacy
 
 import app.reseam.patch.appEntry
-import app.reseam.patch.before
 import app.reseam.patch.patch
 import app.reseam.patches.telegram.core.DeletedArchive
 import app.reseam.patches.telegram.core.TELEGRAM
@@ -14,8 +13,8 @@ val antiDeleteRuntime = patch {
     compatibleWith(TELEGRAM)
 
     execute {
-        appEntry.before {
-            call(DeletedArchive.init, thisObject)
+        appEntry {
+            call(DeletedArchive.init, application)
         }
     }
 }

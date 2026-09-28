@@ -28,7 +28,7 @@ val featureSwitchOverrides = patch {
 
 /** Forces the given feature switches off while [toggle] is on. Requires [featureSwitchOverrides]. */
 fun PatchRuntime.disableFeatureSwitches(toggle: ToggleSetting, vararg keys: String) {
-    appEntry.before {
+    appEntry {
         for (key in keys) call(FeatureSwitchOverrides.disable, string(key), string(toggle.key), bool(toggle.default))
     }
 }

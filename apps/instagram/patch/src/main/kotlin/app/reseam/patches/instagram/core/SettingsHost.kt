@@ -4,7 +4,6 @@
 package app.reseam.patches.instagram.core
 
 import app.reseam.patch.appEntry
-import app.reseam.patch.before
 import app.reseam.patch.resourceRef
 import app.reseam.patch.settings.settingsHost
 
@@ -18,8 +17,8 @@ val instagramSettings = settingsHost("instagram") {
     dependsOn(signatureCheck)
 
     install {
-        appEntry.before {
-            call(InstagramSettingsEntry.init, thisObject)
+        appEntry {
+            call(InstagramSettingsEntry.init, application)
         }
 
         val theme = manifest.edit {

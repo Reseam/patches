@@ -18,7 +18,7 @@ val youTubeSettings = settingsHost("youtube") {
 
     install {
         // Every extension reads settings and logs, so the context lands before any hooked code runs.
-        appEntry.before { call(YouTubeContext.init, thisObject) }
+        appEntry { call(YouTubeContext.init, application) }
         // Opened from the Reseam row in YouTube's settings (SettingsEntryPatch); no launcher entry.
         manifest.addActivity(SETTINGS_ACTIVITY) {
             this["android:label"] = "Reseam Settings"

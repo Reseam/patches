@@ -29,7 +29,7 @@ val hideAds = patch("Hide ads") {
     execute {
         disableFeatureSwitches(XSettings.hideAds, "android_x_lite_ssp_ads_enabled", "ssp_ads_home_enabled")
 
-        appEntry.before {
+        appEntry {
             call(TimelineQueryFilter.init, string(XSettings.hideAds.key), bool(XSettings.hideAds.default))
         }
 
