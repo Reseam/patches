@@ -6,6 +6,7 @@ package app.reseam.youtube.web;
 import android.os.Looper;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Collection;
@@ -20,7 +21,7 @@ import app.reseam.youtube.core.YouTubeContext;
 
 /**
  * What a web client's streams need: the web player's signature timestamp for the player request,
- * then a PoToken and solved `n` challenges for the stream URLs it returns.
+ * then a PoToken and the solved `n` and `sig` challenges for the stream URLs it returns.
  */
 public final class WebPlayer {
     private static final long TIMEOUT_SECONDS = 20;
@@ -29,8 +30,8 @@ public final class WebPlayer {
     private static CompletableFuture<Void> started;
     private static CompletableFuture<Integer> prepared;
 
-    /** Stream URL parameters for one player response. */
-    public record Unlocked(String poToken, Map<String, String> n) {}
+    /** Stream URL parameters for one player response: each challenge maps to its solution. */
+    public record Unlocked(String poToken, Map<String, String> n, Map<String, String> sig) {}
 
     private WebPlayer() {}
 
@@ -51,18 +52,23 @@ public final class WebPlayer {
         return await(prepare());
     }
 
-    /** A PoToken bound to `binding`, a visitor data string, and the solution of each `n` challenge. */
-    public static Unlocked unlock(String binding, Collection<String> challenges) throws Exception {
+    /** A PoToken bound to `binding`, a visitor data string, and the solution of each challenge. */
+    public static Unlocked unlock(String binding, Collection<String> n, Collection<String> sig) throws Exception {
         signatureTimestamp();
+        JSONObject challenges = new JSONObject().put("n", new JSONArray(n)).put("sig", new JSONArray(sig));
         JSONObject result = new JSONObject(await(RUNTIME.call("web.unlock",
-                new JSONArray().put(binding).put(new JSONArray(challenges)))));
-        JSONObject solved = result.getJSONObject("n");
-        Map<String, String> n = new HashMap<>();
+                new JSONArray().put(binding).put(challenges))));
+        return new Unlocked(result.getString("poToken"), solutions(result.getJSONObject("n")),
+                solutions(result.getJSONObject("sig")));
+    }
+
+    private static Map<String, String> solutions(JSONObject solved) throws JSONException {
+        Map<String, String> solutions = new HashMap<>();
         for (Iterator<String> keys = solved.keys(); keys.hasNext(); ) {
             String challenge = keys.next();
-            n.put(challenge, solved.getString(challenge));
+            solutions.put(challenge, solved.getString(challenge));
         }
-        return new Unlocked(result.getString("poToken"), n);
+        return solutions;
     }
 
     /** The current preparation, restarted when the last one failed (for example while offline). */

@@ -222,7 +222,13 @@ final class StreamingDataRequest {
             byte[] streamingData = preferMultipleAvcQualities
                     ? PlayerResponse.preferMultipleAvcQualities(parsed.streamingData)
                     : parsed.streamingData;
-            if (client.usesWebPlayer) streamingData = unlockWebStreams(streamingData, visitorData);
+            if (client.usesWebPlayer) {
+                streamingData = unlockWebStreams(streamingData, visitorData);
+                if (PlayerResponse.adaptiveFormatCount(streamingData) == 0) {
+                    Logger.debug(() -> "Ignoring " + client + " without adaptive formats it can stream");
+                    return null;
+                }
+            }
             return PlayerResponse.withStreamingData(streamingData);
         } catch (IllegalArgumentException exception) {
             Logger.error(() -> "Spoof client " + client + " returned an unreadable response: " + exception);
@@ -233,26 +239,51 @@ final class StreamingDataRequest {
         }
     }
 
-    /** Solves each URL's `n` challenge and adds a PoToken bound to the visitor data the request carried. */
+    /**
+     * Deciphers each stream's signature, solves its `n` challenge and adds a PoToken bound to the
+     * visitor data the request carried.
+     */
     private static byte[] unlockWebStreams(byte[] streamingData, String visitorData) throws Exception {
-        Set<String> challenges = new HashSet<>();
-        for (String url : PlayerResponse.formatUrls(streamingData)) {
-            String n = Uri.parse(url).getQueryParameter("n");
-            if (n != null) challenges.add(n);
+        Set<String> n = new HashSet<>();
+        Set<String> sig = new HashSet<>();
+        for (PlayerResponse.StreamUrl location : PlayerResponse.streamUrls(streamingData)) {
+            Stream stream = Stream.of(location);
+            String challenge = Uri.parse(stream.url()).getQueryParameter("n");
+            if (challenge != null) n.add(challenge);
+            if (stream.signature() != null) sig.add(stream.signature());
         }
         long start = System.currentTimeMillis();
-        WebPlayer.Unlocked unlocked = WebPlayer.unlock(visitorData, challenges);
-        Logger.debug(() -> "Unlocked " + challenges.size() + " n challenges in "
+        WebPlayer.Unlocked unlocked = WebPlayer.unlock(visitorData, n, sig);
+        Logger.debug(() -> "Unlocked " + n.size() + " n and " + sig.size() + " signature challenges in "
                 + (System.currentTimeMillis() - start) + " ms");
-        return PlayerResponse.rewriteFormatUrls(streamingData, url -> {
-            Uri uri = Uri.parse(url);
+        return PlayerResponse.withResolvedUrls(streamingData, location -> {
+            Stream stream = Stream.of(location);
+            Uri uri = Uri.parse(stream.url());
             Uri.Builder builder = uri.buildUpon().clearQuery();
             for (String name : uri.getQueryParameterNames()) {
                 String value = uri.getQueryParameter(name);
                 builder.appendQueryParameter(name, name.equals("n") ? Objects.requireNonNull(unlocked.n().get(value)) : value);
             }
+            if (stream.signature() != null) {
+                builder.appendQueryParameter(stream.signatureParameter(),
+                        Objects.requireNonNull(unlocked.sig().get(stream.signature())));
+            }
             return builder.appendQueryParameter("pot", unlocked.poToken()).build().toString();
         });
+    }
+
+    /** A stream's URL and, when ciphered, the signature to solve and the parameter its solution goes in. */
+    private record Stream(String url, String signature, String signatureParameter) {
+        static Stream of(PlayerResponse.StreamUrl location) {
+            if (location.url() != null) return new Stream(location.url(), null, null);
+            Map<String, String> cipher = new HashMap<>();
+            for (String pair : location.signatureCipher().split("&")) {
+                int split = pair.indexOf('=');
+                cipher.put(URLDecoder.decode(pair.substring(0, split), StandardCharsets.UTF_8),
+                        URLDecoder.decode(pair.substring(split + 1), StandardCharsets.UTF_8));
+            }
+            return new Stream(cipher.get("url"), cipher.get("s"), cipher.getOrDefault("sp", "signature"));
+        }
     }
 
     private static void showToast(String message) {

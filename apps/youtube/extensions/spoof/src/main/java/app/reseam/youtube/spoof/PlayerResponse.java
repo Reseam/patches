@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.function.UnaryOperator;
+import java.util.function.Function;
 
 /**
  * The parts of an InnerTube player response the spoof request reads, decoded from protobuf
@@ -18,7 +18,7 @@ import java.util.function.UnaryOperator;
  * PlayerResponse { PlayabilityStatus playability_status = 2; StreamingData streaming_data = 4; },
  * PlayabilityStatus { Status status = 1; string reason = 2; },
  * StreamingData { repeated Format formats = 2; repeated Format adaptiveFormats = 3; },
- * Format { string url = 2; string mimeType = 5; string qualityLabel = 26; }.
+ * Format { string url = 2; string mimeType = 5; string qualityLabel = 26; string signatureCipher = 48; }.
  */
 final class PlayerResponse {
     private static final int WIRE_VARINT = 0;
@@ -35,6 +35,7 @@ final class PlayerResponse {
     private static final int URL = 2;
     private static final int MIME_TYPE = 5;
     private static final int QUALITY_LABEL = 26;
+    private static final int SIGNATURE_CIPHER = 48;
 
     /** PlayabilityStatus.Status.OK, also the value of an absent status. */
     static final int STATUS_OK = 0;
@@ -100,39 +101,51 @@ final class PlayerResponse {
         return output.toByteArray();
     }
 
-    /** The URL of every muxed and adaptive format that has one. */
-    static List<String> formatUrls(byte[] streamingData) {
-        List<String> urls = new ArrayList<>();
+    /** Where a format streams from: a plain URL, or a signature cipher (`s`, `sp`, `url` query) when null. */
+    record StreamUrl(String url, String signatureCipher) {}
+
+    /** The stream location of every muxed and adaptive format that has one. */
+    static List<StreamUrl> streamUrls(byte[] streamingData) {
+        List<StreamUrl> urls = new ArrayList<>();
         for (Field field : fields(streamingData)) {
             if (!isFormat(field)) continue;
-            for (Field item : fields(field.bytes)) {
-                if (item.number == URL && item.wireType == WIRE_LENGTH) urls.add(item.string());
-            }
+            StreamUrl url = streamUrl(field.bytes);
+            if (url != null) urls.add(url);
         }
         return urls;
     }
 
-    /** `streamingData` with each format URL replaced by `rewrite`'s result; formats without a URL are dropped. */
-    static byte[] rewriteFormatUrls(byte[] streamingData, UnaryOperator<String> rewrite) {
+    /**
+     * `streamingData` with each format's stream location replaced by the plain URL `resolve` returns;
+     * formats without one are dropped.
+     */
+    static byte[] withResolvedUrls(byte[] streamingData, Function<StreamUrl, String> resolve) {
         ByteArrayOutputStream output = new ByteArrayOutputStream(streamingData.length);
         for (Field field : fields(streamingData)) {
             if (!isFormat(field)) {
                 output.write(streamingData, field.start, field.end - field.start);
                 continue;
             }
+            StreamUrl url = streamUrl(field.bytes);
+            if (url == null) continue;
             ByteArrayOutputStream format = new ByteArrayOutputStream(field.bytes.length);
-            boolean hasUrl = false;
             for (Field item : fields(field.bytes)) {
-                if (item.number == URL && item.wireType == WIRE_LENGTH) {
-                    writeBytes(format, URL, rewrite.apply(item.string()).getBytes(StandardCharsets.UTF_8));
-                    hasUrl = true;
-                } else {
-                    format.write(field.bytes, item.start, item.end - item.start);
-                }
+                boolean location = item.wireType == WIRE_LENGTH && (item.number == URL || item.number == SIGNATURE_CIPHER);
+                if (!location) format.write(field.bytes, item.start, item.end - item.start);
             }
-            if (hasUrl) writeBytes(output, field.number, format.toByteArray());
+            writeBytes(format, URL, resolve.apply(url).getBytes(StandardCharsets.UTF_8));
+            writeBytes(output, field.number, format.toByteArray());
         }
         return output.toByteArray();
+    }
+
+    private static StreamUrl streamUrl(byte[] format) {
+        for (Field item : fields(format)) {
+            if (item.wireType != WIRE_LENGTH) continue;
+            if (item.number == URL) return new StreamUrl(item.string(), null);
+            if (item.number == SIGNATURE_CIPHER) return new StreamUrl(null, item.string());
+        }
+        return null;
     }
 
     private static boolean isFormat(Field field) {

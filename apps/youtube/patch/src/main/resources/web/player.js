@@ -54,18 +54,19 @@ const player = (() => {
         return signatureTimestamp;
     };
 
-    /** Maps each `n` challenge to its solution. */
-    const solveN = async challenges => {
+    /** Solves stream URL challenges, given as lists by type (`n`, `sig`); maps each to its solution by type. */
+    const solveChallenges = async challenges => {
         if (!current) throw new Error("Player is not loaded");
-        const output = await solve({
-            type: "preprocessed",
-            preprocessed_player: current.preprocessed,
-            requests: [{ type: "n", challenges }],
-        });
-        const [response] = output.responses;
-        if (response.type !== "result") throw new Error(response.error);
-        return response.data;
+        const requests = Object.entries(challenges)
+            .filter(([, values]) => values.length)
+            .map(([type, values]) => ({ type, challenges: values }));
+        if (!requests.length) return {};
+        const output = await solve({ type: "preprocessed", preprocessed_player: current.preprocessed, requests });
+        return Object.fromEntries(output.responses.map((response, index) => {
+            if (response.type !== "result") throw new Error(response.error);
+            return [requests[index].type, response.data];
+        }));
     };
 
-    return { start, load, solveN };
+    return { start, load, solveChallenges };
 })();
