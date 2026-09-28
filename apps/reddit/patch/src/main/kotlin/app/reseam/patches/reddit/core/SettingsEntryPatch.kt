@@ -33,14 +33,13 @@ private const val LOGO_PATH = "res/drawable/reseam_logo.png"
 // Account settings has order 0 in General.
 private const val GENERAL_ORDER = 1
 
-// Defaulted row parameters, as Compose's synthetic defaults mask reads them: modifier, enabled,
-// subtitle, trailing slot, colors, and the trailing flag. The leading icon slot is passed.
+// Compose defaults mask: every row parameter except title, click and the leading icon.
 private const val ROW_DEFAULTS = 0b111011100
 
-// Defaulted icon parameters: modifier, tint and the flag, so the icon takes the row's theme tint.
+// Compose defaults mask: modifier, tint and flag, so the icon takes the theme tint.
 private const val ICON_DEFAULTS = 0b11100
 
-// Reddit's icon size is two packed 32-bit dp values; settings rows use 20 by 20.
+// 20x20 dp, packed as two 32-bit values.
 private const val ICON_SIZE = 0x14_00000014L
 
 val settingsEntry = patch("Reseam entry in Reddit settings") {
@@ -59,7 +58,7 @@ val settingsEntry = patch("Reseam entry in Reddit settings") {
             returnValue(staticField(unitInstance))
         }
         ReseamSettingsIcon.unit.implement { returnValue(staticField(unitInstance)) }
-        // Inserted rather than replaced: the icon call needs more than a replaced body's 16 locals.
+        // A replaced body is capped at 16 locals, too few for this call.
         ReseamSettingsIcon.draw.target.before {
             call(
                 icon,
@@ -79,8 +78,7 @@ val settingsEntry = patch("Reseam entry in Reddit settings") {
                 descriptor(SETTINGS_SECTION) -> bridge.replace { returnValue(enumValue(SETTINGS_SECTION, "General")) }
                 Type.String -> bridge.replace { returnValue(string("key_pref_reseam")) }
                 Type.Int -> bridge.replace { returnValue(int(GENERAL_ORDER)) }
-                // Emitted before the bridge's return: a replaced body is capped at 16 locals, and the
-                // 12-argument row call needs its values plus a range copy of them.
+                // A replaced body is capped at 16 locals, too few for this call.
                 Type.Void -> bridge.before {
                     call(
                         settingsRow,
@@ -99,14 +97,12 @@ val settingsEntry = patch("Reseam entry in Reddit settings") {
     }
 }
 
-// Collects every contributed settings item and rejects duplicate keys; the view model reads its item set.
 val settingsItemRegistry = method("settingsItemRegistry") {
     name("<init>")
     calls { owner(CONTRIBUTION_EXCEPTION); name("<init>") }
 }
 val settingsItemKey = settingsItemRegistry.point { invokeInterface { returns(Type.String); paramCount(0) } }.callee("settingsItemKey")
 
-// The Privacy Policy item renders a plain row: title, click, then defaulted parameters.
 val privacyPolicyItemContent = method("privacyPolicyItemContent") {
     inClass(klass("privacyPolicyItem") { strings("key_pref_privacy_policy") })
     returns(Type.Void)
@@ -120,7 +116,6 @@ val unitInstance = fieldTarget("unitInstance") {
     unit.staticFields.single { it.fieldType == descriptor("kotlin.Unit") }.ref
 }
 
-/** An empty `return-void` method of [member]'s signature on this class, for a DSL body to fill. */
 private fun DexClass.addBridge(member: Method): MethodTarget {
     val ins = 1 + parseParameterTypes(member.proto).sumOf(::registerWordCount)
     addMethod(NewMethod(
@@ -137,8 +132,6 @@ private fun DexClass.addBridge(member: Method): MethodTarget {
     return methodTarget("${member.name}${member.proto} of $descriptor") { this@addBridge.method(member.name, member.proto) ?: error("added method missing") }
 }
 
-// Reddit's icon composable, as the post overflow menu calls it: icon, content description,
-// modifier, tint, a flag, then the composer and its two Compose ints.
 val icon = method("postOverflowItem") { strings("post_overflow_item_icon", "post_overflow_item_label") }
     .point { invokeStatic { returns(Type.Void); paramCount(8); hasParam(Type.String); hasParam(Type.Long) } }
     .callee("icon")

@@ -10,10 +10,7 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-/**
- * The Reseam row among Reddit's user settings items. R8 names the item interface and its
- * members, so the patch adds the interface and implements its methods on this class.
- */
+/** Reddit's settings item interface is R8-named, so the patch adds it and its methods to this class. */
 public final class ReseamSettingsItem {
     public static Set<UserSettingsSession> sessions() {
         return new HashSet<>(Arrays.asList(UserSettingsSession.LoggedIn, UserSettingsSession.LoggedOut, UserSettingsSession.Incognito));

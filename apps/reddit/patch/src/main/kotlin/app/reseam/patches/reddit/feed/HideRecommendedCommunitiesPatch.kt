@@ -21,6 +21,6 @@ val hideRecommendedCommunities = patch("Hide recommended communities") {
     }
 }
 
-// One section per feed layout; each keys its items with its own prefix. "recomendation" is Reddit's spelling.
+// "recomendation" is Reddit's spelling.
 private val recommendationSections = listOf("", "card_post_", "compact_post_", "list_style_")
     .map { layout -> feedSectionContent("${layout}community_recomendation_section_") }

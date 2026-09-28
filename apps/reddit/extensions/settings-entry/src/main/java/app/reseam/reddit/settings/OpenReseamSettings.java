@@ -6,10 +6,6 @@ package app.reseam.reddit.settings;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 
-/**
- * The click handler of the Reseam row in Reddit's settings. The body is emitted by the patch:
- * R8 renames the Unit singleton, so the patch resolves it and returns it.
- */
 public final class OpenReseamSettings implements Function0<Unit> {
     @Override
     public Unit invoke() {

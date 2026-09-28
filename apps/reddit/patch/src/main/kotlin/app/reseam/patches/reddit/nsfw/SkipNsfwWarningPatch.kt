@@ -14,7 +14,6 @@ import app.reseam.patches.reddit.core.redditSettings
 
 private const val FUNCTION0 = "kotlin.jvm.functions.Function0"
 
-// The parameter is what the dialog's Continue button runs.
 val skipNsfwWarning = patch("Skip NSFW community warning") {
     description("Opens mature communities without the confirmation dialog.")
     compatibleWith(REDDIT)

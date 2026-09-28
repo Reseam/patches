@@ -16,7 +16,6 @@ import app.reseam.patches.reddit.core.redditSettings
 
 private const val ADS_LOAD_COMPLETED = ", adsLoadCompleted="
 
-// The comment ad loader returns the state untouched once it reports its load as completed.
 val hideCommentAds = patch("Hide comment ads") {
     description("Stops loading ads between comments.")
     compatibleWith(REDDIT)

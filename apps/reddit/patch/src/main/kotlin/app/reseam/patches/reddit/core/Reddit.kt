@@ -27,3 +27,14 @@ object ReseamSettingsIcon : ExtClass("app.reseam.reddit.settings.ReseamSettingsI
     val draw = static("draw", Type.Object)
     val unit = static("unit", returns = "kotlin.Unit")
 }
+
+object FeedAds : ExtClass("app.reseam.reddit.ads.FeedAds") {
+    val isAd = static("isAd", Type.Object, returns = Type.Boolean)
+    val adClassNames = static("adClassNames", returns = Type.String)
+}
+
+object FlagOverrides : ExtClass("app.reseam.reddit.flags.FlagOverrides") {
+    val isDisabled = static("isDisabled", Type.String, returns = Type.Boolean)
+    val isForced = static("isForced", Type.String, returns = Type.Boolean)
+    val spec = static("spec", returns = Type.String)
+}

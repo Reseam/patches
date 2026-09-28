@@ -15,7 +15,6 @@ val redditSettings = settingsHost("reddit") {
         appEntry {
             call(RedditSettingsEntry.init, application)
         }
-        // Opened from the Reseam row in Reddit's settings (SettingsEntryPatch); no launcher entry.
         manifest.addActivity(SETTINGS_ACTIVITY) {
             this["android:label"] = "Reseam Settings"
         }

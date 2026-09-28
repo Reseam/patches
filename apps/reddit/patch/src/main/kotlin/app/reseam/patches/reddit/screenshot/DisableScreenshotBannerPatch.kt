@@ -16,7 +16,6 @@ import app.reseam.patches.reddit.core.redditSettings
 
 private const val BOOLEAN = "java.lang.Boolean"
 
-// Both banner effects flip a Compose state to TRUE after a screenshot; the banner draws only from it.
 val disableScreenshotBanner = patch("Disable screenshot banner") {
     description("No share prompt after taking a screenshot.")
     compatibleWith(REDDIT)
