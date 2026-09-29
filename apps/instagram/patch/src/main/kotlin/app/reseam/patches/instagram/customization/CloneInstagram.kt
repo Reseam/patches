@@ -10,7 +10,7 @@ import app.reseam.patches.instagram.core.INSTAGRAM_PACKAGE
 import app.reseam.patches.instagram.core.signatureCheck
 
 val cloneInstagram = patch("Clone Instagram") {
-    description("Allows the app to be installed alongside the official Instagram app with a distinct package name")
+    description("Allows the app to be installed alongside the official Instagram app with a distinct package name.")
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
     val packageName = stringOption(

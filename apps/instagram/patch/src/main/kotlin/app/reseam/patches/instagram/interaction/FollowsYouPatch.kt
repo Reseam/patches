@@ -25,7 +25,7 @@ private const val RELATIONSHIP = "com.instagram.api.schemas.RelationshipInfoDict
 private const val PANDO_RELATIONSHIP = "com.instagram.api.schemas.ImmutablePandoRelationshipInfoDict"
 
 val followsYou = patch("Follows you indicator") {
-    description("Shows a 'Follows you' badge next to usernames in search results")
+    description("Shows a 'Follows you' badge next to usernames in search results.")
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
     settings(instagramSettings, section("Social", FollowSettings.followsYouIndicator))

@@ -61,8 +61,8 @@ object FeedSettings {
     val hideAds by toggle("Hide ads", summary = "Stops sponsored posts in feed, stories, explore, reels and search.", default = true)
     val followingOnly by toggle("Following-only feed", summary = "Home shows posts from accounts you follow, in time order.", default = false)
     val hideSuggestedAccounts by toggle("Hide suggested accounts", summary = "Removes suggested-account carousels from Home.", default = false)
-    val hideThreadsUnits by toggle("Hide Threads units", summary = "May leave an empty gap where a unit was.", default = false)
-    val hideShoppingUnits by toggle("Hide shopping units", summary = "May leave an empty gap where a unit was.", default = false)
+    val hideThreadsUnits by toggle("Hide Threads units", summary = "Removes Threads units from Home. May leave an empty gap.", default = false)
+    val hideShoppingUnits by toggle("Hide shopping units", summary = "Removes shopping units from Home. May leave an empty gap.", default = false)
 }
 
 object DownloadSettings {

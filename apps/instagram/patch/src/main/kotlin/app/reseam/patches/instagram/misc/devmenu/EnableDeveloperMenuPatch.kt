@@ -17,13 +17,7 @@ import app.reseam.patches.instagram.core.instagramSettings
 import app.reseam.patches.instagram.core.signatureCheck
 
 val enableDeveloperMenu = patch("Enable developer menu") {
-    description(
-        """
-        Surfaces Instagram's hidden developer menu as 'Internal Settings' at the bottom
-        of the settings screen. Recommended on alpha/beta builds. On stable builds the
-        developer flags appear as numeric IDs without descriptions.
-        """,
-    )
+    description("Surfaces Instagram's hidden developer menu as 'Internal Settings' at the bottom of the settings screen. Recommended on alpha/beta builds.")
     compatibleWith(INSTAGRAM)
     enabledByDefault(false)
     dependsOn(signatureCheck)
