@@ -14,7 +14,7 @@ jobs:
     container:
       image: cimg/android:2026.03-node
     env:
-      ENGINE_VERSION: v0.14.1
+      ENGINE_VERSION: v0.14.2
       RESEAM_BIN: engine/reseam-linux-x64
       RESEAM_BUNDLE_KEY: bundle-signing.key
     steps:
