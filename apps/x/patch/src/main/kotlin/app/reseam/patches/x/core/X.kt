@@ -28,7 +28,8 @@ object FeatureSwitchOverrides : ExtClass("app.reseam.x.featureswitches.FeatureSw
     val disable = static("disable", Type.String, Type.String, Type.Boolean)
 }
 
-object TimelineQueryFilter : ExtClass("app.reseam.x.ads.TimelineQueryFilter") {
-    val init = static("init", Type.String, Type.Boolean)
+object TimelineQueryFilter : ExtClass("app.reseam.x.timeline.TimelineQueryFilter") {
+    val hidePromoted = static("hidePromoted", Type.String, Type.Boolean)
+    val hideRecommendations = static("hideRecommendations", Type.String, Type.Boolean)
     val rewrite = static("rewrite", Type.String, returns = Type.String)
 }

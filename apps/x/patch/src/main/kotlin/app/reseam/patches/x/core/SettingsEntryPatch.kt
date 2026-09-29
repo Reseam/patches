@@ -7,6 +7,7 @@ import app.reseam.patch.Type
 import app.reseam.patch.after
 import app.reseam.patch.descriptor
 import app.reseam.patch.dex.ref
+import app.reseam.patch.dex.typeRef
 import app.reseam.patch.fieldTarget
 import app.reseam.patch.klass
 import app.reseam.patch.method
@@ -60,12 +61,16 @@ val settingsRootComponent = klass("settingsRootComponent") {
     strings("settingsListComponentFactory", "subscriptionsFeatures", "inAppUpdateManager")
     rankBy("pageSections") { zeroArgListGetters() }
 }
-// The page factory reads the lazily built section list; the row is appended where it is read.
+// The page factory reads the lazily built section list; the row is appended where it is read. R8
+// merges the factory into the settings router, which casts the component before reading the list.
 val settingsRootPage = method("settingsRootPage") {
-    inClass(settingsRootComponent)
     strings("stackNavigator", "screenNavigator", "screenName")
+    custom { instructions.any { it.typeRef == settingsRootComponent.descriptor } }
 }
-val settingsRootPageSections = settingsRootPage.point { checkCast(Type.List) }.captureAs("sections", Type.List)
+val settingsRootPageSections = settingsRootPage
+    .point { checkCast(settingsRootComponent.descriptor) }
+    .next { checkCast(Type.List) }
+    .captureAs("sections", Type.List)
 
 // The Additional resources page builds plain rows around stable URLs; its constructors give the model shapes.
 val additionalResourcesRows = method("additionalResourcesRows") {
