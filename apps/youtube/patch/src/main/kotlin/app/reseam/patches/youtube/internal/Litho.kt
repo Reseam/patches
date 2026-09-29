@@ -7,6 +7,7 @@ package app.reseam.patches.youtube.internal
 import app.reseam.patch.ExtClass
 import app.reseam.patch.Type
 import app.reseam.patch.appEntry
+import app.reseam.patch.after
 import app.reseam.patch.before
 import app.reseam.patch.classTarget
 import app.reseam.patch.dex.AccessFlags
@@ -37,6 +38,21 @@ val lithoFilter = patch {
         // FlatBuffer implementation of the same interface cannot perform that operation.
         flatbufferElementParser.before { call(LithoFilter.setProtoBuffer, param(0)) }
         upbElementParser.before { call(LithoFilter.setProtoBuffer, param(0)) }
+
+        // A tree's components take its root's own bytes. Templates are materialized into new
+        // elements natively, so a parsed buffer cannot be traced to the tree built from it, and the
+        // materialized root does not carry its identifier; the conversion context does.
+        val outerTree = elementTreeBuild.reserveLocal("outerTree", Type.Object)
+        elementTreeBuild.before {
+            local(outerTree).assign(call(LithoFilter.enterTree, param(2), param(1).field(conversionContextIdentifier)))
+        }
+        elementTreeBuild.after { call(LithoFilter.exitTree, local(outerTree)) }
+        LithoFilter.encodeElement.implement {
+            whenInstanceOf(param(0), upbElementEncode.owner) {
+                returnValue(param(0).cast(upbElementEncode.owner).call(upbElementEncode))
+            }
+            returnNull()
+        }
 
         lithoLayoutExecutor.before {
             param(0).assign(call(LithoFilter.layoutThreadCount, param(0)))
@@ -83,6 +99,9 @@ fun registerLithoFilter(filter: ExtClass) {
 object LithoFilter : ExtClass("app.reseam.youtube.litho.LithoFilter") {
     val register = static("register", "app.reseam.youtube.litho.Filter")
     val setProtoBuffer = static("setProtoBuffer", "[B")
+    val enterTree = static("enterTree", Type.Object, Type.String, returns = Type.Object)
+    val exitTree = static("exitTree", Type.Object)
+    val encodeElement = static("encodeElement", Type.Object, returns = "[B")
     val layoutThreadCount = static("layoutThreadCount", Type.Int, returns = Type.Int)
     val isFiltered = static(
         "isFiltered",
@@ -100,6 +119,13 @@ val componentCreate = method("componentCreate") {
 }
 
 val componentCreateReturn = componentCreate.point { opcode(Opcode.RETURN_OBJECT) }
+
+// Builds the whole tree under a root element into components, synchronously. Its trace section is
+// labelled with the root's identifier.
+val elementTreeBuild = method("elementTreeBuild") {
+    strings("Elements.toComponent:eml=")
+    returns(componentCreate.returnType)
+}
 
 // The conversion context carries the component's identifier and the path built up to it. Only its
 // toString names the two fields, by labelling each value as it appends it.
@@ -156,6 +182,13 @@ val emptyComponentField = fieldTarget("emptyComponent") {
 val upbMessage = klass("com.google.android.libraries.elements.adl.UpbMessage")
 
 val upbMessageDecode = upbMessage.method("jniDecode")
+
+// Elements backed by a native message serialize themselves through it; the one encoder is theirs.
+val upbElementEncode = method("upbElementEncode") {
+    calls(upbMessage.method("jniEncode"))
+    params()
+    returns("[B")
+}
 
 val protobufBufferSetter = method("protobufBufferSetter") {
     calls(upbMessageDecode)

@@ -4,6 +4,7 @@
 
 package app.reseam.youtube.quality;
 
+import android.view.Choreographer;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -30,18 +31,36 @@ public final class AdvancedVideoQualityMenu {
             public void onDraw() {
                 if (!quickMenuVisible || list.getChildCount() == 0) return;
                 quickMenuVisible = false;
-                try {
-                    View first = list.getChildAt(0);
-                    if (!(first instanceof ViewGroup) || ((ViewGroup) first).getChildCount() < 4) return;
-                    View advanced = ((ViewGroup) first).getChildAt(3);
-                    ViewGroup parent = parentAt(list, 3);
-                    if (advanced == null || parent == null) return;
-                    advanced.setSoundEffectsEnabled(false);
-                    if (!advanced.performClick()) return;
-                    parent.setVisibility(View.GONE);
+                View first = list.getChildAt(0);
+                if (!(first instanceof ViewGroup) || ((ViewGroup) first).getChildCount() < 4) return;
+                View advanced = ((ViewGroup) first).getChildAt(3);
+                advanced.setSoundEffectsEnabled(false);
+                clickWhenSettled(list, advanced);
+            }
+        });
+    }
+
+    /**
+     * The resolution list replaces the quick options inside the same sheet. Swapping them while the
+     * sheet still slides in leaves the sheet sized for the old content with no rows, so the click
+     * waits until the list holds its on-screen position for two frames.
+     */
+    private static void clickWhenSettled(View list, View advanced) {
+        Choreographer.getInstance().postFrameCallback(new Choreographer.FrameCallback() {
+            private final int[] location = new int[2];
+            private int lastY = Integer.MIN_VALUE;
+            private int stableFrames;
+
+            @Override
+            public void doFrame(long frameTimeNanos) {
+                if (!advanced.isAttachedToWindow()) return;
+                list.getLocationOnScreen(location);
+                stableFrames = location[1] == lastY ? stableFrames + 1 : 0;
+                lastY = location[1];
+                if (stableFrames < 2) {
+                    Choreographer.getInstance().postFrameCallback(this);
+                } else if (advanced.performClick()) {
                     Logger.debug(() -> "Advanced video quality menu opened");
-                } catch (Exception exception) {
-                    Logger.error(() -> "Advanced video quality menu failure: " + exception);
                 }
             }
         });
@@ -72,13 +91,4 @@ public final class AdvancedVideoQualityMenu {
     public static boolean forceAdvancedVideoQualityMenuCreation(boolean original) {
         return Settings.getBoolean("advanced_video_quality_menu", true) || original;
     }
-
-    private static ViewGroup parentAt(View view, int depth) {
-        View current = view;
-        for (int i = 0; i < depth && current.getParent() instanceof View; i++) {
-            current = (View) current.getParent();
-        }
-        return current.getParent() instanceof ViewGroup ? (ViewGroup) current.getParent() : null;
-    }
-
 }

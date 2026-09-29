@@ -69,19 +69,18 @@ public final class NavigationButtons {
     }
 
     public static void hideCreateButton(Enum<?> button, View view) {
-        hideToolbarButton("create", button, view, "hide_toolbar_create_button");
+        hideToolbarButton("create", button, view, Settings.getBoolean("hide_toolbar_create_button", true));
     }
 
     public static void hideNotificationButton(Enum<?> button, View view) {
-        hideToolbarButton("notification", button, view, "hide_toolbar_notification_button");
+        hideToolbarButton("notification", button, view, Settings.getBoolean("hide_toolbar_notification_button", false));
     }
 
     public static void hideSearchButton(Enum<?> button, View view) {
-        hideToolbarButton("search", button, view, "hide_toolbar_search_button");
+        hideToolbarButton("search", button, view, Settings.getBoolean("hide_toolbar_search_button", false));
     }
 
-    private static void hideToolbarButton(String kind, Enum<?> button, View view, String key) {
-        boolean enabled = Settings.getBoolean(key, false);
+    private static void hideToolbarButton(String kind, Enum<?> button, View view, boolean enabled) {
         boolean matches = button != null && matches(kind, button.name());
         boolean hidden = enabled && matches;
         Logger.debug(() -> "Navigation toolbar " + kind + ": "

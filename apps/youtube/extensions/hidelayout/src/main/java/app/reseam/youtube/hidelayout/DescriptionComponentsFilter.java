@@ -24,6 +24,8 @@ public final class DescriptionComponentsFilter extends Filter {
     private final StringFilterGroup featuredLinks;
     private final StringFilterGroup featuredVideos;
     private final StringFilterGroup subscribeButton;
+    private final StringFilterGroup card;
+    private final ByteArrayFilterGroupList cardBuffers = new ByteArrayFilterGroupList();
 
     public DescriptionComponentsFilter() {
         StringFilterGroup aiSummary = new StringFilterGroup(
@@ -60,7 +62,11 @@ public final class DescriptionComponentsFilter extends Filter {
                 new ByteArrayFilterGroup("hide_key_concepts_section", false,
                         "learning_concept_macro_markers_carousel_shelf", "learning-concept"));
 
-        addPathCallbacks(aiSummary, ask, attributes, courseProgress, featuredLinks, featuredVideos,
+        // Newer releases show the music section as an album hero card.
+        card = new StringFilterGroup(null, false, "card.e");
+        cardBuffers.addAll(new ByteArrayFilterGroup("hide_music_section", false, "music_album_hero_card"));
+
+        addPathCallbacks(aiSummary, card, ask, attributes, courseProgress, featuredLinks, featuredVideos,
                 howMade, hype, infoCards, macroMarkers, playlistSection, subscribeButton, transcript);
     }
 
@@ -82,6 +88,11 @@ public final class DescriptionComponentsFilter extends Filter {
             boolean filtered = contentIndex == 0
                     && (Settings.getBoolean("hide_explore_section", true)
                     || playlistBuffers.check(buffer).isFiltered());
+            if (filtered) Logger.debug(() -> "DescriptionComponentsFilter filtered path: " + path);
+            return filtered;
+        }
+        if (matchedGroup == card) {
+            boolean filtered = contentIndex == 0 && cardBuffers.check(buffer).isFiltered();
             if (filtered) Logger.debug(() -> "DescriptionComponentsFilter filtered path: " + path);
             return filtered;
         }

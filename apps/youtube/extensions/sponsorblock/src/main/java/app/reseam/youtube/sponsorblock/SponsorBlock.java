@@ -14,6 +14,7 @@ import android.os.SystemClock;
 import android.view.View;
 import android.view.ViewGroup;
 import java.lang.ref.WeakReference;
+import java.util.Locale;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -287,6 +288,13 @@ public final class SponsorBlock {
         long removed = SegmentTimeline.removedDuration(segments, length,
                 segment -> !segment.ignored() && !segment.highlight());
         if (removed == 0) return original;
-        return original + " (" + android.text.format.DateUtils.formatElapsedTime(Math.max(0, length - removed) / 1000) + ")";
+        return original + " (" + formatDuration(Math.max(0, length - removed) / 1000) + ")";
+    }
+
+    /** YouTube's own style, unpadded leading unit: 3:38, 1:02:05. */
+    static String formatDuration(long seconds) {
+        long hours = seconds / 3600, minutes = seconds / 60 % 60, rest = seconds % 60;
+        return hours > 0 ? String.format(Locale.US, "%d:%02d:%02d", hours, minutes, rest)
+                : String.format(Locale.US, "%d:%02d", minutes, rest);
     }
 }

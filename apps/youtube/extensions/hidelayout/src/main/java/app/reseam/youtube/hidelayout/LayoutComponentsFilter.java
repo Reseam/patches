@@ -6,6 +6,7 @@ package app.reseam.youtube.hidelayout;
 
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,6 +55,17 @@ public final class LayoutComponentsFilter extends Filter {
     private final StringFilterGroup chipBar;
     private final StringFilterGroup channelProfile;
     private final StringFilterGroupList channelProfileGroups = new StringFilterGroupList();
+    /** A header action button kind: the marker the header buffer carries for it, and the setting that hides it. */
+    private record HeaderAction(ByteArrayFilterGroup marker, String setting, boolean hiddenByDefault) {
+        HeaderAction(String marker, String setting, boolean hiddenByDefault) {
+            this(new ByteArrayFilterGroup(null, false, marker), setting, hiddenByDefault);
+        }
+    }
+
+    private static final HeaderAction[] HEADER_ACTIONS = {
+            new HeaderAction("eml.header_community_button", "hide_community_button", true),
+            new HeaderAction("id.sponsor_button", "hide_join_button", false),
+    };
     private final StringFilterGroup horizontalShelves;
     private final StringFilterGroup movieSections;
     private final ByteArrayFilterGroup playablesBuffer;
@@ -72,7 +84,6 @@ public final class LayoutComponentsFilter extends Filter {
         StringFilterGroup chips = new StringFilterGroup("hide_chips_shelf", true, "chips_shelf");
         StringFilterGroup audioButton = new StringFilterGroup(null, false, "multi_feed_icon_button");
         addIdentifierCallbacks(
-                new StringFilterGroup("hide_compact_banner", true, "cell_divider"),
                 chips,
                 new StringFilterGroup("hide_live_chat_replay_button", false, "live_chat_ep_entrypoint.e"),
                 new StringFilterGroup("hide_visual_spacer", true, "cell_divider"));
@@ -158,6 +169,26 @@ public final class LayoutComponentsFilter extends Filter {
                 videoTitle, recommendationLabels, webResults);
     }
 
+    /** The header's plain action button, which newer releases use for both Community and Join. */
+    private static boolean isHeaderActionButton(String path) {
+        int row = path.indexOf("channel_action_buttons_phone.e");
+        return row >= 0 && path.indexOf("|button.e", row) >= 0;
+    }
+
+    /**
+     * The button carries no id of its own; only the header buffer names the kinds it shows. Hide it
+     * only when every kind present is hidden, so a button that should stay is never removed.
+     */
+    private static boolean hideHeaderActionButton(byte[] buffer) {
+        boolean present = false;
+        for (HeaderAction action : HEADER_ACTIONS) {
+            if (!action.marker().check(buffer).isFiltered()) continue;
+            if (!Settings.getBoolean(action.setting(), action.hiddenByDefault())) return false;
+            present = true;
+        }
+        return present;
+    }
+
     private void addDescriptionSearch(String setting, String pattern) {
         descriptionSearch.addPattern(pattern.getBytes(StandardCharsets.UTF_8),
                 (text, start, length, result) -> {
@@ -183,9 +214,15 @@ public final class LayoutComponentsFilter extends Filter {
         }
         if (matchedGroup == notifyMe || matchedGroup == surveys || matchedGroup == expandableMetadata) return true;
         if (matchedGroup == movieSections) {
-            return !path.contains("video_lockup_with_attachment.e") || buyMovieBuffer.check(buffer).isFiltered();
+            // A lockup's attachments (product rows, comment teasers) share its identifier and buffer;
+            // only the lockup itself is a movie offer.
+            if (!path.contains("video_lockup_with_attachment.e")) return true;
+            return path.equals(identifier + "|CellType|") && buyMovieBuffer.check(buffer).isFiltered();
         }
-        if (matchedGroup == channelProfile) return channelProfileGroups.check(accessibility).isFiltered();
+        if (matchedGroup == channelProfile) {
+            return channelProfileGroups.check(accessibility).isFiltered()
+                    || isHeaderActionButton(path) && hideHeaderActionButton(buffer);
+        }
         if (matchedGroup == communityPosts && NavigationBar.isBackButtonVisible()
                 && !NavigationBar.isSearchBarActive() && PlayerType.current() != PlayerType.WATCH_WHILE_MAXIMIZED) {
             return false;
@@ -252,18 +289,50 @@ public final class LayoutComponentsFilter extends Filter {
     }
 
     public static CharSequence modifyFeedSubtitleSpan(CharSequence original, float dimension) {
-        if (original == null || (!Settings.getBoolean("hide_view_count", false) && !Settings.getBoolean("hide_upload_time", false))
-                || (dimension != 16f && dimension != 42f)) return original;
-        String delimiter = " · ";
-        int viewStart = TextUtils.indexOf(original, delimiter);
-        int uploadStart = viewStart < 0 ? -1 : TextUtils.indexOf(original, delimiter, viewStart + delimiter.length());
-        if (uploadStart < 0 || TextUtils.indexOf(original, delimiter, uploadStart + delimiter.length()) >= 0) return original;
+        boolean hideViews = Settings.getBoolean("hide_view_count", false);
+        boolean hideUpload = Settings.getBoolean("hide_upload_time", false);
+        if (original == null || (!hideViews && !hideUpload) || (dimension != 16f && dimension != 42f)) return original;
+        int[] parts = subtitleParts(original);
+        if (parts == null) return original;
         SpannableStringBuilder builder = new SpannableStringBuilder(original);
-        if (Settings.getBoolean("hide_upload_time", false)) builder.delete(uploadStart, builder.length());
-        if (Settings.getBoolean("hide_view_count", false)) builder.delete(viewStart, uploadStart);
-        SpannableString replacement = new SpannableString(builder);
+        if (hideUpload) builder.delete(parts[1], builder.length());
+        if (hideViews) builder.delete(parts[0], parts[1]);
         Logger.debug(() -> "LayoutComponentsFilter modified subtitle: " + original);
-        return replacement;
+        return new SpannableString(builder);
+    }
+
+    /**
+     * Start of the view count and of the upload time in a "channel, views, age" subtitle, or null
+     * for any other shape. Older layouts separate the parts with " · "; the current one uses runs
+     * of spaces, with the verified badge and the views icon drawn as spans over the first run.
+     */
+    private static int[] subtitleParts(CharSequence subtitle) {
+        String delimiter = " · ";
+        int viewStart = TextUtils.indexOf(subtitle, delimiter);
+        if (viewStart >= 0) {
+            int uploadStart = TextUtils.indexOf(subtitle, delimiter, viewStart + delimiter.length());
+            if (uploadStart < 0 || TextUtils.indexOf(subtitle, delimiter, uploadStart + delimiter.length()) >= 0) return null;
+            return new int[]{viewStart, uploadStart};
+        }
+        List<int[]> runs = new ArrayList<>();
+        for (int i = 0; i < subtitle.length(); ) {
+            int end = i;
+            while (end < subtitle.length() && subtitle.charAt(end) == ' ') end++;
+            if (end - i >= 2) runs.add(new int[]{i, end});
+            i = Math.max(end, i + 1);
+        }
+        if (runs.size() != 2) return null;
+        int viewsText = runs.get(0)[1];
+        viewStart = viewsText;
+        // Keep the badge: only the icon that ends at the count belongs to the views.
+        if (subtitle instanceof Spanned) {
+            Spanned spanned = (Spanned) subtitle;
+            for (Object span : spanned.getSpans(runs.get(0)[0], viewsText, Object.class)) {
+                int spanStart = spanned.getSpanStart(span);
+                if (spanned.getSpanEnd(span) == viewsText && spanStart > runs.get(0)[0]) viewStart = Math.min(viewStart, spanStart);
+            }
+        }
+        return new int[]{viewStart, runs.get(1)[0]};
     }
 
     public static CharSequence hideFlyoutMenu(CharSequence title) {

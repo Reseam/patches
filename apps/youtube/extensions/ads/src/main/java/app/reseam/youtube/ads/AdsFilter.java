@@ -13,8 +13,6 @@ public final class AdsFilter extends Filter {
     private final StringTrieSearch exceptions = new StringTrieSearch();
     private final StringFilterGroup promotionBanner;
     private final ByteArrayFilterGroup promotionBannerBuffer;
-    private final StringFilterGroup buyMovieAd;
-    private final ByteArrayFilterGroup buyMovieAdBuffer;
 
     public AdsFilter() {
         exceptions.addPattern("home_video_with_context");
@@ -65,21 +63,6 @@ public final class AdsFilter extends Filter {
                 "product_carousel", "shopping_carousel.e"
         );
 
-        final StringFilterGroup movieAds = new StringFilterGroup(
-                "hide_general_ads", true,
-                "browsy_bar",
-                "compact_movie",
-                "compact_tvfilm_item",
-                "horizontal_movie_shelf",
-                "movie_and_show_upsell_card",
-                "offer_module_root"
-        );
-
-        buyMovieAd = new StringFilterGroup(
-                "hide_general_ads", true, "video_lockup_with_attachment.e"
-        );
-        buyMovieAdBuffer = new ByteArrayFilterGroup(null, false, "FEstorefront");
-
         final StringFilterGroup viewProducts = new StringFilterGroup(
                 "hide_view_products_banner", true,
                 "product_item", "products_in_video", "shopping_overlay.e"
@@ -102,10 +85,8 @@ public final class AdsFilter extends Filter {
 
         addIdentifierCallbacks(carouselAd);
         addPathCallbacks(
-                buyMovieAd,
                 generalAds,
                 merchandise,
-                movieAds,
                 promotionBanner,
                 selfSponsor,
                 shoppingLinks,
@@ -116,9 +97,6 @@ public final class AdsFilter extends Filter {
     @Override
     public boolean isFiltered(String identifier, String accessibility, String path, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
-        if (matchedGroup == buyMovieAd) {
-            return contentIndex == 0 && buffer != null && buyMovieAdBuffer.check(buffer).isFiltered();
-        }
         if (matchedGroup == promotionBanner) {
             return contentIndex == 0 && buffer != null && promotionBannerBuffer.check(buffer).isFiltered();
         }

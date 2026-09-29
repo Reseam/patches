@@ -100,8 +100,8 @@ object YouTubeSettings {
 
     val featureFlagOverrides by text(
         "Feature flag overrides",
-        summary = "Comma-separated `flag=value` pairs applied to YouTube's experiment flags, " +
-            "for example `45419603=false`. Values are true, false, or a string.",
+        summary = "Comma-separated flag=value pairs applied to YouTube's experiment flags, " +
+            "for example 45419603=false. Values are true, false, or a string.",
         default = "",
     )
 
@@ -331,7 +331,7 @@ object YouTubeSettings {
     val hideAttributesSection by toggle("Hide video attributes", summary = "Removes attribute rows from descriptions and shelves.", default = false)
     val hideChannelBar by toggle("Hide channel bar", summary = "Removes the compact channel bar below videos.", default = false)
     val hideChannelTab by toggle("Hide channel tabs", summary = "Removes channel tabs whose names match your filter list.", default = false)
-    val hideChannelTabFilterStrings by text("Channel tab names", summary = "One channel-tab name per line; matching tabs are removed.", default = "")
+    val hideChannelTabFilterStrings by text("Channel tab names", summary = "One channel-tab name per line; matching tabs are removed.", default = "", multiline = true)
     val hideChannelWatermark by toggle("Hide channel watermarks", summary = "Removes channel watermarks from the player.", default = true)
     val hideChipsShelf by toggle("Hide chips shelves", summary = "Removes chips shelves from feeds.", default = true)
     val hideCommunityButton by toggle("Hide community button", summary = "Removes the Community tab button from channel pages.", default = true)
@@ -344,7 +344,7 @@ object YouTubeSettings {
     val hideExpandableCard by toggle("Hide expandable cards", summary = "Removes expandable metadata cards.", default = true)
     val hideFeaturedPlacesSection by toggle("Hide featured places", summary = "Removes featured-place sections from descriptions.", default = false)
     val hideFeedFlyoutMenu by toggle("Hide feed flyout items", summary = "Hides feed menu items whose titles match your filter list.", default = false)
-    val hideFeedFlyoutMenuFilterStrings by text("Feed flyout item names", summary = "One exact feed menu title per line.", default = "")
+    val hideFeedFlyoutMenuFilterStrings by text("Feed flyout item names", summary = "One exact feed menu title per line.", default = "", multiline = true)
     val hideFilterBarFeedInFeed by toggle("Hide the feed filter bar", summary = "Removes the filter bar from the home feed.", default = false)
     val hideFilterBarFeedInHistory by toggle("Hide the history filter bar", summary = "Removes the filter bar from History.", default = false)
     val hideFilterBarFeedInRelatedVideos by toggle("Hide the related-videos filter bar", summary = "Removes the filter bar below the player.", default = false)
@@ -421,9 +421,9 @@ object YouTubeSettings {
     val hideKeywordContentHome by toggle("Filter keywords on Home", summary = "Hides home-feed videos whose buffer contains a configured phrase.", default = false)
     val hideKeywordContentSubscriptions by toggle("Filter keywords in Subscriptions", summary = "Hides subscription videos whose buffer contains a configured phrase.", default = false)
     val hideKeywordContentSearch by toggle("Filter keywords in Search", summary = "Hides search results whose buffer contains a configured phrase.", default = false)
-    val hideKeywordContentPhrases by text("Keyword phrases", summary = "One phrase per line. Quote a phrase to match whole words only.", default = "")
+    val hideKeywordContentPhrases by text("Keyword phrases", summary = "One phrase per line. Quote a phrase to match whole words only.", default = "", multiline = true)
     val customFilter by toggle("Enable custom component filter", summary = "Enables expressions in the custom component-filter field.", default = false)
-    val customFilterStrings by text("Custom component filters", summary = "One expression per line: ^path#accessibility\$buffer.", default = "")
+    val customFilterStrings by text("Custom component filters", summary = "One expression per line: ^path#accessibility\$buffer.", default = "", multiline = true)
 
     val hideShortsAiButton by toggle(
         "Hide Shorts AI button",
@@ -733,7 +733,7 @@ object YouTubeSettings {
 
     val hideEndScreenSuggestedVideo by toggle(
         "Hide end-screen suggested video",
-        summary = "Removes the suggested video shown at the end of playback.",
+        summary = "Removes the suggested video shown at the end of playback when autoplay is off.",
         default = false,
     )
 
@@ -1149,7 +1149,7 @@ object YouTubeSettings {
     )
     val restoreOldPlaybackSpeedMenu by toggle(
         "Restore old playback speed menu",
-        summary = "Uses a compact list of custom speeds instead of the modern speed dialog.",
+        summary = "Uses YouTube's own speed menu instead of the custom speed dialog.",
         default = false,
     )
     val customPlaybackSpeeds by text(

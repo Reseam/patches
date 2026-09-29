@@ -89,12 +89,14 @@ public final class Downloads {
                 .setPackage(packageName)
                 .putExtra(Intent.EXTRA_TEXT, "https://youtu.be/" + videoId);
         if (findActivity(context) == null) intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        try {
-            // An explicit launch also works when Android package visibility hides the downloader.
-            context.startActivity(intent);
-            return true;
-        } catch (ActivityNotFoundException exception) {
+        // YouTube's activities swallow ActivityNotFoundException into a generic toast, so resolve
+        // first. The manifest queries SEND text/plain, which makes every downloader visible.
+        if (intent.resolveActivity(context.getPackageManager()) == null) {
             showNotInstalledDialog(context, packageName);
+            return true;
+        }
+        try {
+            context.startActivity(intent);
             return true;
         } catch (SecurityException exception) {
             Logger.error(() -> "External downloader launch denied: " + exception);

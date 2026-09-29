@@ -4,6 +4,7 @@
 
 package app.reseam.youtube.misc;
 
+import android.content.Intent;
 import android.net.Uri;
 
 import java.util.Arrays;
@@ -18,6 +19,15 @@ public final class SharingLinks {
 
     private SharingLinks() {}
 
+    /** Injection point, from the share intents; the patch gates the call on the setting. */
+    public static String sanitizeExtra(String key, String value) {
+        return Intent.EXTRA_TEXT.equals(key) ? sanitize(value) : value;
+    }
+
+    private static boolean isYouTube(String host) {
+        return host != null && (host.equals("youtu.be") || host.equals("youtube.com") || host.endsWith(".youtube.com"));
+    }
+
     /** Injection point, from the copy-link path; the patch gates the call on the setting. */
     public static String sanitize(String url) {
         if (url == null) return url;
@@ -26,6 +36,8 @@ public final class SharingLinks {
             String scheme = uri.getScheme();
             // The share sheet also passes the video title through here, which is not a URL.
             if (!"https".equals(scheme) && !"http".equals(scheme)) return url;
+            // Other sites may use these parameter names for real content.
+            if (!isYouTube(uri.getHost())) return url;
 
             Uri.Builder builder = uri.buildUpon().clearQuery();
             for (String name : uri.getQueryParameterNames()) {

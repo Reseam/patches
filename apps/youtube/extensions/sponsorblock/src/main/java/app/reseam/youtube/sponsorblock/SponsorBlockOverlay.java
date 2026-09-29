@@ -9,7 +9,6 @@ import android.app.AlertDialog;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.text.InputType;
-import android.text.format.DateUtils;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -157,8 +156,8 @@ final class SponsorBlockOverlay extends FrameLayout {
         String[] labels = new String[segments.size()];
         for (int i = 0; i < labels.length; i++) {
             Segment segment = segments.get(i);
-            labels[i] = segment.category.title + ": " + DateUtils.formatElapsedTime(segment.start / 1000)
-                    + "–" + DateUtils.formatElapsedTime(segment.end / 1000);
+            labels[i] = segment.category.title + ": " + SponsorBlock.formatDuration(segment.start / 1000)
+                    + "–" + SponsorBlock.formatDuration(segment.end / 1000);
         }
         if (labels.length == 0) { SponsorBlockApi.toast("No segments for this video"); return; }
         new AlertDialog.Builder(getContext()).setTitle("Segments").setItems(labels, (dialog, which) -> {
@@ -292,7 +291,7 @@ final class SponsorBlockOverlay extends FrameLayout {
 
     private void showStats() {
         String local = SponsorBlock.storedLong("sb_local_skip_count") + " segments skipped\n"
-                + DateUtils.formatElapsedTime(SponsorBlock.storedLong("sb_local_time_saved") / 1000) + " saved on this device";
+                + SponsorBlock.formatDuration(SponsorBlock.storedLong("sb_local_time_saved") / 1000) + " saved on this device";
         new AlertDialog.Builder(getContext()).setTitle("SponsorBlock statistics").setMessage(local)
                 .setPositiveButton("OK", null).setNeutralButton("My contributions", (dialog, which) ->
                     SponsorBlockApi.execute(() -> {

@@ -7,8 +7,10 @@ package app.reseam.patches.youtube.misc
 import app.reseam.patch.ExtClass
 import app.reseam.patch.Type
 import app.reseam.patch.method
+import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.point
+import app.reseam.patch.points
 import app.reseam.patch.settings.before
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.YOUTUBE
@@ -25,6 +27,14 @@ val sanitizeSharingLinks = patch("Sanitize sharing links") {
         shareSheetUrl.before(YouTubeSettings.sanitizeSharingLinks) {
             capture("shareUrl").assign(call(SharingLinks.sanitize, capture("shareUrl").cast(Type.String)))
         }
+        val extras = shareToAppExtras.all + shareChooserExtras.all
+        check(extras.isNotEmpty()) { "No share intent extras" }
+        extras.forEach {
+            it.captureArgumentAs("key", 1, Type.String).captureArgumentAs("value", 2, Type.String)
+                .before(YouTubeSettings.sanitizeSharingLinks) {
+                    capture("value").assign(call(SharingLinks.sanitizeExtra, capture("key"), capture("value")))
+                }
+        }
     }
 }
 
@@ -40,6 +50,29 @@ val shareSheetUrl = shareSheetCopyLink.point {
     invokeStatic { owner("android.content.ClipData"); name("newPlainText") }
 }.captureArgumentAs("shareUrl", 1, Type.CharSequence)
 
+private const val INTENT = "android.content.Intent"
+
+// Sharing to an app copies the extras the share command lists into the outgoing intent; the link is
+// the text extra. The share sheet's own app targets address the app by class name, and the system
+// chooser path logs the share with its endpoint.
+private val shareToAppExtras = methods("share to app extras") {
+    paramCount(2)
+    param(1, "java.util.Map")
+    returns(Type.Void)
+    calls { owner(INTENT); name("setClassName") }
+    calls { owner(INTENT); name("putExtra"); params(Type.String, Type.String) }
+}.points("share text extra") {
+    invokeVirtual { owner(INTENT); name("putExtra"); params(Type.String, Type.String) }
+}
+
+private val shareChooserExtras = methods("share chooser extras") {
+    strings("YTShare_Logging_Share_Intent_Endpoint_Byte_Array")
+    calls { owner(INTENT); name("putExtra"); params(Type.String, Type.String) }
+}.points("share text extra") {
+    invokeVirtual { owner(INTENT); name("putExtra"); params(Type.String, Type.String) }
+}
+
 object SharingLinks : ExtClass("app.reseam.youtube.misc.SharingLinks") {
     val sanitize = static("sanitize", Type.String, returns = Type.String)
+    val sanitizeExtra = static("sanitizeExtra", Type.String, Type.String, returns = Type.String)
 }
