@@ -33,7 +33,7 @@ private fun asset(path: String): ByteArray =
 val customBranding = patch("Custom branding") {
     description("Adds selectable launcher icon and app-name presets.")
     compatibleWith(YOUTUBE)
-    dependsOn(youTubeSettings)
+    dependsOn(youTubeSettings, reseamMark)
     settings(youTubeSettings, section(YouTubeSettingsPages.Appearance, "General", YouTubeSettings.customBrandingName, YouTubeSettings.customBrandingIcon))
 
     execute {
@@ -43,7 +43,6 @@ val customBranding = patch("Custom branding") {
 
         listOf(
             "reseam_adaptive_background.xml",
-            "reseam_adaptive_foreground.xml",
             "reseam_adaptive_monochrome.xml",
             "reseam_notification_icon.xml",
         ).forEach { file ->

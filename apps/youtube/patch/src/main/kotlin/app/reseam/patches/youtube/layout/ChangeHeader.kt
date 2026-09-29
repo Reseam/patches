@@ -33,6 +33,7 @@ private fun asset(path: String): ByteArray =
 val changeHeader = patch("Change header") {
     description("Adds an option to change the logo in YouTube's top-left header.")
     compatibleWith(YOUTUBE)
+    dependsOn(reseamMark)
     settings(youTubeSettings, section(YouTubeSettingsPages.Appearance, "General", YouTubeSettings.changeHeaderLogo))
 
     execute {
