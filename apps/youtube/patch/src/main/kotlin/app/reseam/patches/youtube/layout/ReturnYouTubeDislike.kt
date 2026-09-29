@@ -20,7 +20,7 @@ private const val CHAR_SEQUENCE = "java.lang.CharSequence"
 val returnYouTubeDislike = patch("Return YouTube Dislike") {
     description("Shows dislike counts from Return YouTube Dislike and supports voting and Shorts.")
     compatibleWith(YOUTUBE)
-    dependsOn(lithoFilter, videoInformationHook, playerTypeHook)
+    dependsOn(lithoFilter, lithoTextHook, videoInformationHook, playerTypeHook)
     settings(youTubeSettings, section(YouTubeSettingsPages.Video, "Return YouTube Dislike",
         YouTubeSettings.rydEnabled, YouTubeSettings.rydShorts, YouTubeSettings.rydDislikePercentage,
         YouTubeSettings.rydCompactLayout, YouTubeSettings.rydEstimatedLike, YouTubeSettings.rydToastOnConnectionError))
@@ -67,39 +67,7 @@ val returnYouTubeDislike = patch("Return YouTube Dislike") {
                 .before { call(Dislike.sendVote, int(vote)) }
         }
 
-        val contextTypes = setOf(conversionContext.descriptor, conversionContext.classDef.info.superclass)
-        val contextField = fieldTarget("text conversion context") {
-            textComponent.classDef.instanceFields.single { it.fieldType in contextTypes }.ref
-        }
-        // Read only the resolved path, not the expensive context.toString(). Save it at entry:
-        // current releases reuse the incoming this register.
-        val context = textLookup.reserveLocal("dislikePath", "java.lang.StringBuilder")
-        textLookup.before {
-            local(context).assign(nullObject)
-            val source = thisObject.field(contextField)
-            whenNotNull(source) {
-                local(context).assign(source.cast(conversionContext.descriptor).field(conversionContextPath))
-            }
-        }
-        textLookup.point("cached text span") {
-            opcode(Opcode.IPUT_OBJECT)
-            field { type(CHAR_SEQUENCE) }
-        }.captureAs("text", CHAR_SEQUENCE).before {
-            capture("text").assign(call(Dislike.onLithoTextLoaded, local(context), capture("text")))
-        }
-
-        // Both TextComponent and TextViewComponent call this formatter. Following the call
-        // covers the new rendering path without depending on the experiment flag or register offsets.
-        val textFormatter = textLookup.point("text formatter") {
-            invokeStatic { returns(CHAR_SEQUENCE); hasParam(contextField.ref.fieldType) }
-        }.callee()
-        check(textFormatter.parameterTypes.first() == contextField.ref.fieldType)
-        textFormatter.after {
-            whenNotNull(param(0)) {
-                returnValue(call(Dislike.onLithoTextLoaded,
-                    param(0).cast(conversionContext.descriptor).field(conversionContextPath), capture("result")))
-            }
-        }
+        hookLithoText(Dislike.onLithoTextLoaded)
 
         val rollingContext = rollingSetter.reserveLocal("rollingPath", "java.lang.StringBuilder")
         rollingSetter.before {
@@ -137,7 +105,6 @@ val returnYouTubeDislike = patch("Return YouTube Dislike") {
     }
 }
 
-private val textComponent = klass("text component") { strings("TextComponent") }
 private val nativeGesture = klass("native gesture component") { strings("ElementEventWithGesture") }
 private val nativeColumn = klass("native Litho column") {
     strings("Column")
@@ -226,12 +193,6 @@ private object NativeDislikeLabel : ExtClass("app.reseam.youtube.dislike.Dislike
     val create = static("create", "java.lang.StringBuilder", returns = CHAR_SEQUENCE)
     val children = static("children", "java.lang.Object", "java.lang.Object", returns = "java.util.List")
     val accessibilityText = static("accessibilityText", CHAR_SEQUENCE, returns = CHAR_SEQUENCE)
-}
-private val textLookup = method("cached text component") {
-    inClass(textComponent)
-    strings("…")
-    flags(AccessFlags.PROTECTED or AccessFlags.FINAL)
-    paramCount(1)
 }
 private val rollingSetter = method("rolling number model builder") {
     stringsStartingWith("RollingNumberType required properties missing!")

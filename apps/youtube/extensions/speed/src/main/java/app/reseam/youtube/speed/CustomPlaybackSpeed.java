@@ -22,6 +22,7 @@ import android.icu.text.NumberFormat;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.text.SpannableStringBuilder;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.GridLayout;
@@ -31,6 +32,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import app.reseam.runtime.settings.ReseamSettings;
 import app.reseam.youtube.controls.SheetDialog;
@@ -61,12 +64,17 @@ public final class CustomPlaybackSpeed {
     public static final float[] customPlaybackSpeeds = loadCustomSpeeds();
     private static final float TAP_AND_HOLD_SPEED = loadTapAndHoldSpeed();
     private static final NumberFormat speedFormatter = NumberFormat.getNumberInstance();
+    private static final NumberFormat labelFormatter = NumberFormat.getNumberInstance();
+    /** The chip YouTube shows while a hold speeds playback up, with its speed as "2x". */
+    private static final String TAP_AND_HOLD_CHIP = "seek_edu_overlay";
+    private static final Pattern SPEED_LABEL = Pattern.compile("\\s*(\\d+(?:\\.\\d+)?)\\s*[x×]\\s*");
 
     private static volatile long lastOldMenuTime;
 
     static {
         speedFormatter.setMinimumFractionDigits(2);
         speedFormatter.setMaximumFractionDigits(2);
+        labelFormatter.setMaximumFractionDigits(2);
     }
 
     private CustomPlaybackSpeed() {}
@@ -79,6 +87,16 @@ public final class CustomPlaybackSpeed {
     /** Injection point. */
     public static float getTapAndHoldSpeed() {
         return TAP_AND_HOLD_SPEED;
+    }
+
+    /** Litho text hook: shows the configured tap-and-hold speed in the hold chip. */
+    public static CharSequence onLithoTextLoaded(StringBuilder path, CharSequence text) {
+        if (path == null || text == null || path.indexOf(TAP_AND_HOLD_CHIP) < 0) return text;
+        Matcher speed = SPEED_LABEL.matcher(text);
+        if (!speed.matches()) return text;
+        // Replace only the number so the chip keeps YouTube's text styling spans.
+        return new SpannableStringBuilder(text)
+                .replace(speed.start(1), speed.end(1), labelFormatter.format(TAP_AND_HOLD_SPEED));
     }
 
     private static float loadTapAndHoldSpeed() {
@@ -134,6 +152,12 @@ public final class CustomPlaybackSpeed {
         if (!(recyclerView instanceof ViewGroup)) return;
         ViewGroup menu = (ViewGroup) recyclerView;
         menu.getViewTreeObserver().addOnDrawListener(() -> {
+            // YouTube's own menu is the old menu on this version and already lists the custom speeds.
+            if (Settings.getBoolean("restore_old_playback_speed_menu", false)) {
+                PlaybackSpeedMenuFilter.playbackRateSelectorMenuVisible = false;
+                PlaybackSpeedMenuFilter.oldPlaybackSpeedMenuVisible = false;
+                return;
+            }
             if (PlaybackSpeedMenuFilter.playbackRateSelectorMenuVisible && replaceLithoMenu(menu, 5)) {
                 PlaybackSpeedMenuFilter.playbackRateSelectorMenuVisible = false;
             }
@@ -163,13 +187,8 @@ public final class CustomPlaybackSpeed {
         third.setVisibility(View.GONE);
         fourth.setVisibility(View.GONE);
 
-        if (Settings.getBoolean("restore_old_playback_speed_menu", false)) {
-            showOldPlaybackSpeedMenu();
-            Logger.debug(() -> "Old playback speed menu shown");
-        } else {
-            showModernDialog(recyclerView.getContext());
-            Logger.debug(() -> "Custom playback speed dialog shown");
-        }
+        showModernDialog(recyclerView.getContext());
+        Logger.debug(() -> "Custom playback speed dialog shown");
         return true;
     }
 

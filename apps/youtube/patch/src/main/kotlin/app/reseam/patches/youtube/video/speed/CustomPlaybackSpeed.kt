@@ -27,13 +27,16 @@ import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
+import app.reseam.patches.youtube.internal.hookLithoText
 import app.reseam.patches.youtube.internal.lithoFilter
+import app.reseam.patches.youtube.internal.lithoTextHook
 import app.reseam.patches.youtube.internal.lithoRecyclerViewBinder
 import app.reseam.patches.youtube.internal.registerLithoFilter
 import app.reseam.patches.youtube.internal.videoInformationHook
 
 object CustomPlaybackSpeed : ExtClass("app.reseam.youtube.speed.CustomPlaybackSpeed") {
     val getTapAndHoldSpeed = static("getTapAndHoldSpeed", returns = Type.Float)
+    val onLithoTextLoaded = static("onLithoTextLoaded", "java.lang.StringBuilder", Type.CharSequence, returns = Type.CharSequence)
     val customPlaybackSpeedCount = static("customPlaybackSpeedCount", returns = Type.Int)
     val onFlyoutMenuCreate = static("onFlyoutMenuCreate", Type.View)
     val openOldPlaybackSpeedMenu = static("openOldPlaybackSpeedMenu")
@@ -118,7 +121,7 @@ private val playbackSpeedRecyclerViewAttached = lithoRecyclerViewBinder.point("p
 val customPlaybackSpeed = patch("Custom playback speed") {
     description("Adds configured playback speeds and supports the modern tap-and-hold speed.")
     compatibleWith(YOUTUBE)
-    dependsOn(youTubeSettings, videoInformationHook, lithoFilter)
+    dependsOn(youTubeSettings, videoInformationHook, lithoFilter, lithoTextHook)
     settings(
         youTubeSettings,
         section(
@@ -183,6 +186,7 @@ val customPlaybackSpeed = patch("Custom playback speed") {
         tapAndHoldSpeedLiteral.after {
             capture("tapSpeed").assign(call(CustomPlaybackSpeed.getTapAndHoldSpeed))
         }
+        hookLithoText(CustomPlaybackSpeed.onLithoTextLoaded)
 
         playbackSpeedRecyclerViewAttached.before {
             call(CustomPlaybackSpeed.onFlyoutMenuCreate, param(1))
