@@ -12,6 +12,9 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
+import android.text.Editable;
+import android.text.InputType;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -83,6 +86,7 @@ public final class ReseamSettingsScreen {
             Activity activity = findActivity(ctx);
             String pageId = activity == null ? null : activity.getIntent().getStringExtra(PAGE_EXTRA);
             if (pageId == null) pageId = "";
+            if (activity != null && pageId.isEmpty()) RestartPrompt.watch(activity);
             JSONArray pages = schema.optJSONArray("pages");
             boolean foundPage = pageId.isEmpty();
             if (pages != null) {
@@ -210,14 +214,14 @@ public final class ReseamSettingsScreen {
         } else if ("choice".equals(type)) {
             addChoice(ctx, parent, title, summary, key, setting.optString("default", ""), setting.optJSONArray("choices"));
         } else if ("text".equals(type)) {
-            addTextSetting(parent, title, summary, key, setting.optString("default", ""));
+            addTextSetting(parent, title, summary, key, setting.optString("default", ""), setting.optBoolean("multiline", false));
         }
     }
 
     private static void addChoice(Context ctx, ViewGroup parent, String title, String summary, String key,
                                   String defaultValue, JSONArray choices) {
         if (choices == null || choices.length() == 0) {
-            addTextSetting(parent, title, summary, key, defaultValue);
+            addTextSetting(parent, title, summary, key, defaultValue, false);
             return;
         }
 
@@ -431,7 +435,8 @@ public final class ReseamSettingsScreen {
         parent.addView(tv);
     }
 
-    private static void addTextSetting(ViewGroup parent, String label, String summary, String key, String defaultValue) {
+    private static void addTextSetting(ViewGroup parent, String label, String summary, String key, String defaultValue,
+                                       boolean multiline) {
         Context ctx = parent.getContext();
 
         LinearLayout row = new LinearLayout(ctx);
@@ -453,17 +458,34 @@ public final class ReseamSettingsScreen {
             row.addView(sub);
         }
 
-        EditText edit = new EditText(ctx, null, 0);
-        edit.setSingleLine(true);
+        // The default EditText style is what makes the field focusable by touch.
+        EditText edit = new EditText(ctx);
+        // Values are identifiers, URLs, colors and numbers, never prose.
+        edit.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
+                | (multiline ? InputType.TYPE_TEXT_FLAG_MULTI_LINE : 0));
+        if (multiline) {
+            edit.setMinLines(3);
+            edit.setGravity(Gravity.TOP | Gravity.START);
+        } else {
+            edit.setSingleLine(true);
+        }
         edit.setText(ReseamSettings.getString(key, defaultValue));
         edit.setTextColor(Color.WHITE);
         edit.setHintTextColor(Color.parseColor("#666666"));
         edit.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f);
         edit.setBackgroundColor(Color.parseColor("#1C1C1C"));
         edit.setPadding(dpToPx(ctx, 12), dpToPx(ctx, 10), dpToPx(ctx, 12), dpToPx(ctx, 10));
-        edit.setOnFocusChangeListener((view, hasFocus) -> {
-            if (!hasFocus) {
-                ReseamSettings.setString(key, edit.getText().toString());
+        // Leaving the screen does not clear focus, so persist every edit.
+        edit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                ReseamSettings.setString(key, s.toString());
             }
         });
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
