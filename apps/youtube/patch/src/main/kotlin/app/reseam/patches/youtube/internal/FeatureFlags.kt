@@ -17,10 +17,13 @@ internal fun booleanFeatureReads(flag: Long): List<PointTarget> =
         argument(1) { literal(flag) }
     }.all.also { check(it.isNotEmpty()) { "No boolean reads of feature $flag" } }
 
+private fun booleanFeatureResults(flag: Long) =
+    booleanFeatureReads(flag).map { it.next { resultOf(Type.Boolean) }.captureAs("enabled", Type.Boolean) }
+
 internal fun overrideBooleanFeature(flag: Long, hook: ExtMethod) {
-    booleanFeatureReads(flag).forEach {
-        it.next { resultOf(Type.Boolean) }.captureAs("enabled", Type.Boolean).after {
-            capture("enabled").assign(call(hook, capture("enabled")))
-        }
-    }
+    booleanFeatureResults(flag).forEach { it.after { capture("enabled").assign(call(hook, capture("enabled"))) } }
+}
+
+internal fun enableBooleanFeature(flag: Long) {
+    booleanFeatureResults(flag).forEach { it.after { capture("enabled").assign(bool(true)) } }
 }

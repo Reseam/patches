@@ -15,6 +15,7 @@ import app.reseam.patch.replaceAllStrings
 import app.reseam.patches.youtube.core.mainActivityOnCreate
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YOUTUBE_PACKAGE
+import app.reseam.patches.youtube.internal.enableBooleanFeature
 
 // GmsCore is Play Services rebuilt under the vendor's own group id: everything Google publishes
 // below com.google.android.* exists there below <vendor>.android.*. Moving the app's references
@@ -46,6 +47,12 @@ private val GMS_AUTHORITIES = listOf(
 
 private val PERMISSION_DECLARATIONS = setOf("permission", "uses-permission", "uses-permission-sdk-23")
 private val PERMISSION_ATTRIBUTES = listOf("android:permission", "android:readPermission", "android:writePermission")
+
+// GmsCore has no Phenotype service, so until the app's own config sync takes effect (its third
+// launch) every experiment reads its compiled-in default. These flags are on for every client, and
+// the release breaks with their default: 45698813 off registers the watch-page timebar under no
+// player state, so the player finds no active timebar, draws no seekbar and shows 0:00.
+private val PHENOTYPE_DELIVERED_FLAGS = listOf(45698813L)
 
 // The certificate GmsCore presents to Google's servers on the app's behalf.
 private const val SPOOFED_PACKAGE_SIGNATURE = "24bb24c05e47e0aefa68a58a766179d9b613a600"
@@ -163,6 +170,8 @@ val gmsCoreSupport = patch("GmsCore support") {
 
         GmsCoreSupport.vendorGroupId.implement { returnValue(string(vendor)) }
         GmsCoreSupport.originalPackageName.implement { returnValue(string(YOUTUBE_PACKAGE)) }
+
+        PHENOTYPE_DELIVERED_FLAGS.forEach(::enableBooleanFeature)
 
         mainActivityOnCreate.after { call(GmsCoreSupport.check, thisObject) }
     }
