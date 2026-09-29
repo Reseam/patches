@@ -3,6 +3,7 @@
 
 package app.reseam.patches.x.home
 
+import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
@@ -20,11 +21,14 @@ val hideLiveBar = patch("Hide Live bar") {
     settings(xSettings, section("Home", XSettings.hideLiveBar, XSettings.hideLiveAvatarRings))
 
     execute {
+        // The bar's row content is the only user of its content description, and only the bar builds it.
+        val barDescription = resources.id("string", "content_description_fleetline")?.toLong()
+            ?: error("string/content_description_fleetline missing")
+        val liveBarContent = method("liveBarContent") { literals(barDescription) }
+        val liveBar = method("liveBar") { calls(klass(liveBarContent.owner).method("<init>")) }
         // Skipped before the composable opens its restart group, so Compose groups stay balanced.
         liveBar.skipWhen(XSettings.hideLiveBar)
         disableFeatureSwitches(XSettings.hideLiveBar, "x_lite_livestream_pill_enabled")
         disableFeatureSwitches(XSettings.hideLiveAvatarRings, "x_lite_live_avatar_ring_enabled", "x_lite_sports_live_profile_rings_enabled")
     }
 }
-
-val liveBar = method("liveBar") { strings("stateFlow", "onSpaceClicked") }

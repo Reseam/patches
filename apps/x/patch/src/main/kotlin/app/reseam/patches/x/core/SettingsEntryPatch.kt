@@ -4,10 +4,10 @@
 package app.reseam.patches.x.core
 
 import app.reseam.patch.Type
-import app.reseam.patch.after
+import app.reseam.patch.before
 import app.reseam.patch.descriptor
+import app.reseam.patch.dex.Opcode
 import app.reseam.patch.dex.ref
-import app.reseam.patch.dex.typeRef
 import app.reseam.patch.fieldTarget
 import app.reseam.patch.klass
 import app.reseam.patch.method
@@ -39,7 +39,7 @@ val settingsEntry = patch("Reseam entry in X settings") {
             returnValue(staticField(unitInstance))
         }
 
-        settingsRootPageSections.after {
+        SettingsRows.section.implement {
             val title = newInstance(literalTextCtor.owner, literalTextCtor.proto, string("Reseam Settings"))
             val subtitle = newInstance(literalTextCtor.owner, literalTextCtor.proto, string("Ads, downloads, Premium, Grok, and privacy toggles."))
             val item = newInstance(
@@ -47,30 +47,33 @@ val settingsEntry = patch("Reseam entry in X settings") {
                 title, subtitle, newInstance(iconType, "(I)V", int(logoId.toInt())), newInstance(OpenReseamSettings.descriptor), nullObject, nullObject,
                 int(ITEM_DEFAULTS_ACTION_AND_TRAILING),
             )
-            val section = newInstance(
-                settingsSectionCtor.owner, settingsSectionCtor.proto,
-                nullObject, nullObject, call(SettingsRows.single, item), int(SECTION_DEFAULTS_HEADER_AND_SUBTITLE),
+            returnValue(
+                newInstance(
+                    settingsSectionCtor.owner, settingsSectionCtor.proto,
+                    nullObject, nullObject, call(SettingsRows.single, item), int(SECTION_DEFAULTS_HEADER_AND_SUBTITLE),
+                ),
             )
-            capture("sections").assign(call(SettingsRows.withSection, capture("sections"), section))
+        }
+
+        val settingsTitle = resources.id("string", "settings") ?: error("string/settings missing")
+        // Every settings page is a SettingsListState; the root page is the one titled Settings.
+        settingsListState.method("<init>").before {
+            whenEqual(paramOfType(resourceText.descriptor).field(resourceTextId), int(settingsTitle.toInt())) {
+                val sections = paramOfType(Type.List)
+                sections.assign(call(SettingsRows.withSection, sections, call(SettingsRows.section)))
+            }
         }
     }
 }
 
-// Three classes check these constructor arguments; the settings root also has a List getter.
-val settingsRootComponent = klass("settingsRootComponent") {
-    strings("settingsListComponentFactory", "subscriptionsFeatures", "inAppUpdateManager")
-    rankBy("pageSections") { zeroArgListGetters() }
-}
-// The page factory reads the lazily built section list; the row is appended where it is read. R8
-// merges the factory into the settings router, which casts the component before reading the list.
-val settingsRootPage = method("settingsRootPage") {
-    strings("stackNavigator", "screenNavigator", "screenName")
-    custom { instructions.any { it.typeRef == settingsRootComponent.descriptor } }
-}
-val settingsRootPageSections = settingsRootPage
-    .point { checkCast(settingsRootComponent.descriptor) }
-    .next { checkCast(Type.List) }
-    .captureAs("sections", Type.List)
+private val settingsListState = klass("settingsListState") { strings("SettingsListState(onBackClicked=") }
+
+// A title given as a string resource.
+private val resourceText = klass("resourceText") { strings("Resource(id=", ", formatArgs=") }
+private val resourceTextId = resourceText.method("toString")
+    .point { string("Resource(id=") }
+    .next { opcode(Opcode.IGET) }
+    .field("resourceTextId")
 
 // The Additional resources page builds plain rows around stable URLs; its constructors give the model shapes.
 val additionalResourcesRows = method("additionalResourcesRows") {
@@ -78,7 +81,11 @@ val additionalResourcesRows = method("additionalResourcesRows") {
 }
 val settingsItemCtor = additionalResourcesRows.point { invokeDirect { name("<init>"); hasParam(FUNCTION0) } }.callee("settingsItemCtor")
 val settingsSectionCtor = additionalResourcesRows.point { invokeDirect { name("<init>"); hasParam(Type.List); paramCount(4) } }.callee("settingsSectionCtor")
-val literalTextCtor = additionalResourcesRows.point { invokeDirect { name("<init>"); params(Type.String) } }.callee("literalTextCtor")
+// The literal variant of the text type settings rows take.
+val literalTextCtor = klass("literalText") {
+    strings("Literal(text=")
+    extends(settingsItemCtor.parameterTypes[0])
+}.method("<init>") { params(Type.String) }
 
 private object Resources
 

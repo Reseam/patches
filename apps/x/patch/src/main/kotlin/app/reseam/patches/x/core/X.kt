@@ -3,11 +3,16 @@
 
 package app.reseam.patches.x.core
 
+import app.reseam.patch.CompatiblePackage
 import app.reseam.patch.ExtClass
 import app.reseam.patch.Type
+import app.reseam.patch.invoke
 
-// Unpinned: a target that stops matching fails loudly, so a pin would only hide breakage.
-const val X = "com.twitter.android"
+const val X_PACKAGE = "com.twitter.android"
+
+// Pinned: X changes what R8 keeps between releases (12.29 dropped the parameter-name strings older
+// targets were anchored on), so targets are read against one release at a time.
+val X: CompatiblePackage = X_PACKAGE("12.29.1-prod.01")
 
 object XSettingsEntry : ExtClass("app.reseam.x.settings.XSettingsEntry") {
     val init = static("init", Type.Context)
@@ -19,6 +24,7 @@ object OpenReseamSettings : ExtClass("app.reseam.x.settings.OpenReseamSettings")
 }
 
 object SettingsRows : ExtClass("app.reseam.x.settings.SettingsRows") {
+    val section = static("section", returns = Type.Object)
     val single = static("single", Type.Object, returns = Type.List)
     val withSection = static("withSection", Type.List, Type.Object, returns = Type.List)
 }

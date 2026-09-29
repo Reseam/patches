@@ -3,9 +3,11 @@
 
 package app.reseam.patches.x.timeline
 
+import app.reseam.patch.Type
 import app.reseam.patch.method
 import app.reseam.patch.methods
 import app.reseam.patch.patch
+import app.reseam.patch.point
 import app.reseam.patch.settings.before
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.X
@@ -31,4 +33,21 @@ val hideViewCounts = patch("Hide view counts") {
     }
 }
 
-val inlineActionButton = method("inlineActionButton") { strings("actionType", "onClick", "onLongClick") }
+private const val MODIFIER = "androidx.compose.ui.Modifier"
+
+// The action type enum keeps its constant names for serialization.
+private val inlineActionTypes = method("inlineActionTypes") {
+    name("<clinit>")
+    strings("ViewCount", "UndoRetweet")
+}
+
+// The action button is the only composable taking an action type. The action bar and the button's
+// own recompose lambda both call it, so either caller leads to the same method.
+private val inlineActionCaller = method("inlineActionCaller") {
+    calls { hasParam(inlineActionTypes.owner); hasParam(MODIFIER); returns(Type.Void) }
+    first()
+}
+
+val inlineActionButton = inlineActionCaller
+    .point { invokeStatic { hasParam(inlineActionTypes.owner); hasParam(MODIFIER) } }
+    .callee("inlineActionButton")
