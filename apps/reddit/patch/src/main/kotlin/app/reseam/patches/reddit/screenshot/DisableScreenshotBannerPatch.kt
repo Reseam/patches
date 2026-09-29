@@ -10,6 +10,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.before
 import app.reseam.patch.settings.section
+import app.reseam.patch.settings.skipWhen
 import app.reseam.patches.reddit.core.REDDIT
 import app.reseam.patches.reddit.core.RedditSettings
 import app.reseam.patches.reddit.core.redditSettings
@@ -17,11 +18,13 @@ import app.reseam.patches.reddit.core.redditSettings
 private const val BOOLEAN = "java.lang.Boolean"
 
 val disableScreenshotBanner = patch("Disable screenshot banner") {
-    description("No share prompt after taking a screenshot.")
+    description("Stops Reddit from detecting screenshots, so neither its share prompt nor the system's screenshot notice appears.")
     compatibleWith(REDDIT)
     settings(redditSettings, section("Sharing", RedditSettings.disableScreenshotBanner))
 
     execute {
+        screenCaptureRegistration.point { invokeVirtual { name("registerScreenCaptureCallback") } }
+            .skipWhen(RedditSettings.disableScreenshotBanner)
         for (effect in bannerEffects) {
             effect.method("invokeSuspend")
                 .point { invokeInterface { name("setValue") } }
@@ -35,5 +38,9 @@ private val bannerEffects = listOf(
     "com.reddit.sharing.screenshot.RedditScreenshotTriggerSharingListener\$ScreenshotBanner\$1\$1",
     "com.reddit.sharing.screenshot.composables.ScreenshotTakenBannerKt\$ScreenshotTakenBanner\$1\$1",
 ).map(::klass)
+
+private val screenCaptureRegistration = method("screenCaptureRegistration") {
+    calls { owner("android.app.Activity"); name("registerScreenCaptureCallback") }
+}
 
 private val booleanFalse = field(BOOLEAN, "FALSE", BOOLEAN)

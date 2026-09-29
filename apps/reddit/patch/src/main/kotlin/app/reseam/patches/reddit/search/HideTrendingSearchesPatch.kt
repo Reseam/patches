@@ -4,25 +4,32 @@
 package app.reseam.patches.reddit.search
 
 import app.reseam.patch.Type
+import app.reseam.patch.klass
+import app.reseam.patch.fieldOfType
 import app.reseam.patch.method
 import app.reseam.patch.patch
+import app.reseam.patch.settings.after
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.skipWhen
+import app.reseam.patches.reddit.core.FeedElements
 import app.reseam.patches.reddit.core.REDDIT
 import app.reseam.patches.reddit.core.RedditSettings
+import app.reseam.patches.reddit.core.feedElementClassNames
 import app.reseam.patches.reddit.core.redditSettings
 
 val hideTrendingSearches = patch("Hide trending searches") {
-    description("Removes Trending Today queries from the search screen.")
+    description("Removes the Trending section from the search screen.")
     compatibleWith(REDDIT)
     settings(redditSettings, section("Search", RedditSettings.hideTrendingSearches))
 
     execute {
-        trendingQueryItem.skipWhen(RedditSettings.hideTrendingSearches)
+        val trendingQuery = feedElementClassNames(listOf("SearchTrendingQuery(id="))
+        // Reddit skips a search list with no children, header included.
+        searchList.method("<init>").after(RedditSettings.hideTrendingSearches) {
+            thisObject.set(searchListChildren, call(FeedElements.without, thisObject.field(searchListChildren), string(trendingQuery)))
+        }
     }
 }
 
-private val trendingQueryItem = method("trendingQueryItem") {
-    strings("search_trending_item")
-    returns(Type.Void)
-}
+private val searchList = klass("searchList") { strings("SearchTypeaheadList(id=") }
+
+private val searchListChildren = searchList.fieldOfType(Type.List)

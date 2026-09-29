@@ -11,8 +11,12 @@ import app.reseam.patch.settings.before
 import app.reseam.patch.settings.section
 import app.reseam.patches.reddit.core.REDDIT
 import app.reseam.patches.reddit.core.RedditSettings
+import app.reseam.patches.reddit.core.overrideIntConfigs
 import app.reseam.patches.reddit.core.redditSettings
 import app.reseam.patches.reddit.core.unitInstance
+
+// A hundred years; Int.MAX_VALUE days overflows Instant.plus.
+private const val COOLDOWN_DAYS = 36_500
 
 val disableAppRatePrompt = patch("Disable rate-the-app prompt") {
     description("Stops Reddit from asking for a Play Store rating.")
@@ -21,6 +25,12 @@ val disableAppRatePrompt = patch("Disable rate-the-app prompt") {
 
     execute {
         showAppRatePrompt.before(RedditSettings.disableAppRatePrompt) { returnValue(staticField(unitInstance)) }
+        overrideIntConfigs(RedditSettings.disableAppRatePrompt, mapOf(
+            "android_app_rater_open_thresh" to Int.MAX_VALUE,
+            "android_app_rater_action_thresh" to Int.MAX_VALUE,
+            "android_app_rater_v2_action_thresh" to Int.MAX_VALUE,
+            "android_app_rater_cooldown_days" to COOLDOWN_DAYS,
+        ))
     }
 }
 

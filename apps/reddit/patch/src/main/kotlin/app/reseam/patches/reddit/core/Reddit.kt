@@ -28,13 +28,24 @@ object ReseamSettingsIcon : ExtClass("app.reseam.reddit.settings.ReseamSettingsI
     val unit = static("unit", returns = "kotlin.Unit")
 }
 
-object FeedAds : ExtClass("app.reseam.reddit.ads.FeedAds") {
-    val isAd = static("isAd", Type.Object, returns = Type.Boolean)
-    val adClassNames = static("adClassNames", returns = Type.String)
+object FeedElements : ExtClass("app.reseam.reddit.feed.FeedElements") {
+    val isAny = static("isAny", Type.Object, Type.String, returns = Type.Boolean)
+    val without = static("without", Type.List, Type.String, returns = Type.List)
+}
+
+object SettingsRows : ExtClass("app.reseam.reddit.settings.SettingsRows") {
+    val withoutUpsells = static("withoutUpsells", "java.util.Set", returns = "java.util.Set")
+    val section = static("section", Type.Object, returns = "com.reddit.settings.usersettings.UserSettingsSection")
+    val key = static("key", Type.Object, returns = Type.String)
 }
 
 object FlagOverrides : ExtClass("app.reseam.reddit.flags.FlagOverrides") {
     val isDisabled = static("isDisabled", Type.String, returns = Type.Boolean)
     val isForced = static("isForced", Type.String, returns = Type.Boolean)
     val spec = static("spec", returns = Type.String)
+}
+
+object DynamicConfigOverrides : ExtClass("app.reseam.reddit.flags.DynamicConfigOverrides") {
+    val intValue = static("intValue", Type.String, Type.String, returns = "java.lang.Integer")
+    val stringValue = static("stringValue", Type.String, Type.String, returns = Type.String)
 }

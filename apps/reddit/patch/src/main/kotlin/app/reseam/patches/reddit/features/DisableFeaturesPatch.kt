@@ -59,6 +59,14 @@ private val FLAG_GROUPS: Map<ToggleSetting, FlagGroup> = mapOf(
         "android_ads_animated_convo_video_previews",
     )),
     RedditSettings.hideSearchAds to FlagGroup(disable = listOf("android_search_ads_ff")),
+    // Inputs of the Home and Popular feed queries; the Hide feed units patch hides what still arrives.
+    RedditSettings.skipFeedUnitRequests to FlagGroup(disable = listOf(
+        "android_trending_feed_unit_ks",
+        "android_storycluster_popular",
+        "android_feed_video_carousel",
+        "android_continuous_onboarding_in_feed",
+    )),
+    RedditSettings.disableVideoChaining to FlagGroup(disable = listOf("android_fbp_m1_vertical_chaining")),
     // The server-driven bottom bar reads dynamic_games_tab_android instead of the Games nav flag.
     RedditSettings.hideGames to FlagGroup(disable = listOf(
         "android_games_bottom_nav",
@@ -72,7 +80,7 @@ private val FLAG_GROUPS: Map<ToggleSetting, FlagGroup> = mapOf(
 )
 
 val disableFeatures = patch("Disable Reddit features") {
-    description("Turns off Reddit Answers, prompts, nudges, upsells, search ads, ad autoplay, Games and more through Reddit's own feature flags.")
+    description("Turns off Reddit Answers, prompts, nudges, upsells, search ads, feed unit requests, ad autoplay, Games and more through Reddit's own feature flags.")
     compatibleWith(REDDIT)
     settings(redditSettings, section("Features", *FLAG_GROUPS.keys.toTypedArray()))
 
