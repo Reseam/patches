@@ -10,7 +10,7 @@ import android.widget.Toast;
 import app.reseam.runtime.settings.ReseamSettings;
 
 final class Ui {
-    private static final String SHOW_TOAST_KEY = "download.show_toast";
+    private static final String SHOW_TOAST_KEY = "download_settings.show_toast";
 
     private Ui() {}
 

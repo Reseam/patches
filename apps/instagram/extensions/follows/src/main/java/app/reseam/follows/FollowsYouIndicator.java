@@ -9,7 +9,7 @@ import app.reseam.runtime.settings.ReseamSettings;
 public final class FollowsYouIndicator {
     private static final String LABEL = "Follows you";
     private static final String SUFFIX = " \u00b7 " + LABEL;
-    private static final String SETTING_KEY = "follow.follows_you_indicator";
+    private static final String SETTING_KEY = "follow_settings.follows_you_indicator";
 
     private FollowsYouIndicator() {}
 

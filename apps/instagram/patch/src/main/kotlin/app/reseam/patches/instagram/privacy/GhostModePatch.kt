@@ -37,7 +37,7 @@ val ghostMode = patch("Ghost mode") {
         dmSeen.skipWhen(GhostSettings.hideDmSeen)
         storySeen.skipWhen(GhostSettings.hideStorySeen)
         liveSeen.returnNullWhen(GhostSettings.hideLiveSeen)
-        screenshotNotificationManager.skipWhen(GhostSettings.hideScreenshotNotifications)
+        screenshotDetected.skipWhen(GhostSettings.hideScreenshotNotifications)
     }
 }
 
@@ -70,4 +70,11 @@ val screenshotNotificationManager = method("screenshotNotificationManager") {
     strings("ScreenshotNotificationManager")
     returns(Type.Void)
     hasParam("android.view.Window")
+}
+
+// The MediaStore screenshot watcher reports here; it forwards to the DM notice sender.
+val screenshotDetected = method("screenshotDetected") {
+    inClass(klass(screenshotNotificationManager.owner))
+    params(Type.Long)
+    returns(Type.Void)
 }

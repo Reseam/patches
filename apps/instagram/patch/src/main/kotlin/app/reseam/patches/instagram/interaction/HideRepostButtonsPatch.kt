@@ -11,6 +11,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.after
+import app.reseam.patch.settings.returnNullWhen
 import app.reseam.patch.settings.section
 import app.reseam.patches.instagram.core.AppearanceSettings
 import app.reseam.patches.instagram.core.INSTAGRAM
@@ -27,19 +28,29 @@ val hideRepostButtons = patch("Hide repost buttons") {
         feedUfiConfig.method("<init>").after(AppearanceSettings.hideRepostButtons) {
             thisObject.set(feedRepostEnabled, bool(false))
         }
-        clipsViewerConfig.method("<init>").after(AppearanceSettings.hideRepostButtons) {
-            thisObject.set(reelsHideRepost, bool(true))
-        }
+        reelsRepostButtonFactory.returnNullWhen(AppearanceSettings.hideRepostButtons)
+        val repostCount = resources.id("id", "repost_count")?.toLong() ?: error("id/repost_count missing")
+        method("reelsRepostCountFactory") {
+            inClass(klass(reelsRepostButtonFactory.owner))
+            literals(repostCount)
+        }.returnNullWhen(AppearanceSettings.hideRepostButtons)
     }
 }
 
 internal val feedUfiConfig = klass("feedUfiConfig") { strings(", isRepostButtonEnabled=") }
 
-private val clipsViewerConfig = klass("com.instagram.clips.intf.ClipsViewerConfig")
-
 private val feedRepostEnabled = labelledBoolean(feedUfiConfig.method("toString"), ", isRepostButtonEnabled=")
 
-private val reelsHideRepost = labelledBoolean(clipsViewerConfig.method("toString"), ", hideReshareButton=")
+private val reelsRepostIcon = method("reelsRepostIcon") { strings("clips_ufi_repost_button_component") }
+
+private val reelsRepostButton = method("reelsRepostButton") { calls(klass(reelsRepostIcon.owner).method("<init>")) }
+
+// The reels action rail builds the repost button and its count through two factories and already
+// leaves either slot out when its factory returns null, as it does for media that cannot be reposted.
+private val reelsRepostButtonFactory = method("reelsRepostButtonFactory") {
+    calls(klass(reelsRepostButton.owner).method("<init>"))
+    returns(reelsRepostButton.owner)
+}
 
 internal fun labelledBoolean(toString: MethodTarget, label: String) =
     toString.point { string(label); then(within = 6) { invokeVirtual { name("append"); params(Type.Boolean) } } }

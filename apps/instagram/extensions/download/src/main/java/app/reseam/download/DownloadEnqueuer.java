@@ -25,7 +25,7 @@ import app.reseam.runtime.settings.ReseamSettings;
 
 final class DownloadEnqueuer {
     private static final String DEFAULT_DOWNLOAD_DIR = "ReseamInsta";
-    private static final String DOWNLOAD_FOLDER_KEY = "download.folder";
+    private static final String DOWNLOAD_FOLDER_KEY = "download_settings.folder";
 
     private DownloadEnqueuer() {}
 

@@ -74,3 +74,16 @@ object FollowingFeed : ExtClass("app.reseam.instagram.feed.FollowingFeed") {
 object NavigationTabs : ExtClass("app.reseam.instagram.navigation.NavigationTabs") {
     val filter = static("filter", Type.List, Type.Boolean, Type.Boolean, returns = Type.List)
 }
+
+object ExternalLinks : ExtClass("app.reseam.instagram.links.ExternalLinks") {
+    val open = static("open", Type.Context, Type.String, returns = Type.Boolean)
+}
+
+object FeedUnits : ExtClass("app.reseam.instagram.feed.FeedUnits") {
+    val hide = static("hide", Type.String, Type.String, Type.Boolean)
+    val matches = static("matches", Type.String, Type.Object, returns = Type.Boolean)
+}
+
+object StorySuggestions : ExtClass("app.reseam.instagram.stories.StorySuggestions") {
+    val isSuggested = static("isSuggested", "java.lang.Enum", returns = Type.Boolean)
+}
