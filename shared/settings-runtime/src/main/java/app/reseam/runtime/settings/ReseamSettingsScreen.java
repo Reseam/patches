@@ -261,7 +261,7 @@ public final class ReseamSettingsScreen {
             row.addView(sub);
         }
 
-        row.setOnClickListener(v -> new AlertDialog.Builder(ctx)
+        row.setOnClickListener(v -> dialog(ctx)
                 .setTitle(title)
                 .setSingleChoiceItems(labels, selectedIndex(values, ReseamSettings.getString(key, defaultValue)), (dialog, which) -> {
                     ReseamSettings.setString(key, values[which]);
@@ -270,6 +270,11 @@ public final class ReseamSettingsScreen {
                 })
                 .show());
         parent.addView(row);
+    }
+
+    /** Reseam's pages are always dark, so its dialogs use the platform's dark theme rather than the host app's. */
+    static AlertDialog.Builder dialog(Context ctx) {
+        return new AlertDialog.Builder(ctx, android.R.style.Theme_DeviceDefault_Dialog_Alert);
     }
 
     /** Falls back to the first choice, so the row always shows something the list can highlight. */

@@ -4,7 +4,6 @@
 package app.reseam.runtime.settings;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
@@ -49,7 +48,7 @@ final class RestartPrompt implements Application.ActivityLifecycleCallbacks {
     public void onActivityResumed(Activity activity) {
         if (!pending) return;
         pending = false;
-        new AlertDialog.Builder(activity)
+        ReseamSettingsScreen.dialog(activity)
                 .setTitle("Restart to apply changes?")
                 .setMessage("Most settings take effect after the app restarts.")
                 .setPositiveButton("Restart", (dialog, which) -> restart(activity))
