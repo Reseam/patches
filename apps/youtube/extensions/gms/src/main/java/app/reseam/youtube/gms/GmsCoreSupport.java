@@ -16,6 +16,9 @@ import android.provider.Settings;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.util.Map;
+import java.util.Objects;
+
 /**
  * A patched Google app talks to GmsCore instead of Play Services. GmsCore has to be installed,
  * and Android has to leave it running, or every signed-in request fails with an error the app
@@ -82,6 +85,11 @@ public final class GmsCoreSupport {
                     "Open website",
                     () -> open(activity, Uri.parse("https://dontkillmyapp.com/?app=MicroG")));
         }
+    }
+
+    /** Injection point, before the app's gservices cache takes the rows a prefix query read. */
+    public static void dropNullValues(Map<?, ?> rows) {
+        rows.values().removeIf(Objects::isNull);
     }
 
     /** Check whether GmsCore's gservices provider is accessible. Acquisition can start its process. */

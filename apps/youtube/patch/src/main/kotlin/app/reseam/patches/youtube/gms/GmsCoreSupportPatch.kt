@@ -8,8 +8,10 @@ import app.reseam.patch.Type
 import app.reseam.patch.XmlElement
 import app.reseam.patch.after
 import app.reseam.patch.alwaysReturn
+import app.reseam.patch.before
 import app.reseam.patch.method
 import app.reseam.patch.patch
+import app.reseam.patch.point
 import app.reseam.patch.points
 import app.reseam.patch.replaceAllStrings
 import app.reseam.patches.youtube.core.mainActivityOnCreate
@@ -173,6 +175,10 @@ val gmsCoreSupport = patch("GmsCore support") {
 
         PHENOTYPE_DELIVERED_FLAGS.forEach(::enableBooleanFeature)
 
+        // GmsCore can serve a Gservices key with no value, and the cache the rows land in rejects
+        // nulls, which crashes the app at launch and on every background refresh.
+        gservicesCacheFill.before { call(GmsCoreSupport.dropNullValues, capture("rows")) }
+
         mainActivityOnCreate.after { call(GmsCoreSupport.check, thisObject) }
     }
 }
@@ -214,6 +220,16 @@ val gnpPackageName = gnpRegistration
     .captureAs("packageName", Type.String)
 
 
+// The Gservices prefix query, which copies the rows it read into the app's cache.
+val gservicesPrefixQuery = method("gservicesPrefixQuery") {
+    strings("ContentProvider query returned null cursor")
+    returns(Type.Void)
+    params("android.content.ContentResolver", "java.lang.String[]")
+}
+val gservicesCacheFill = gservicesPrefixQuery
+    .point("gservicesCacheFill") { invokeInterface { name("putAll"); params(Type.Map) } }
+    .captureArgumentAs("rows", 1, Type.Map)
+
 private fun XmlElement.descendants(): Sequence<XmlElement> =
     sequenceOf(this) + children.asSequence().flatMap { it.descendants() }
 
@@ -221,4 +237,5 @@ private object GmsCoreSupport : ExtClass("app.reseam.youtube.gms.GmsCoreSupport"
     val check = static("check", Type.Activity)
     val vendorGroupId = static("vendorGroupId", returns = Type.String)
     val originalPackageName = static("originalPackageName", returns = Type.String)
+    val dropNullValues = static("dropNullValues", Type.Map)
 }
