@@ -7,11 +7,11 @@ import app.reseam.patch.settings.folder
 import app.reseam.patch.settings.toggle
 
 object GhostSettings {
-    val hideTyping by toggle("Hide typing indicator", summary = "Others don't see when you're typing.", default = true)
-    val hideDmSeen by toggle("Hide DM read receipts", summary = "Senders don't see that you read their messages.", default = true)
-    val hideStorySeen by toggle("Hide story views", summary = "You don't appear in story viewer lists.", default = true)
-    val hideLiveSeen by toggle("Hide live views", summary = "You don't appear as a viewer of live videos.", default = true)
-    val hideScreenshotNotifications by toggle("Hide screenshot notifications", summary = "Others aren't told when you take a screenshot.", default = true)
+    val hideTyping by toggle("Hide typing indicator", summary = "Others don't see when you're typing. Risk of account ban.", default = false)
+    val hideDmSeen by toggle("Hide DM read receipts", summary = "Senders don't see that you read their messages. Risk of account ban.", default = false)
+    val hideStorySeen by toggle("Hide story views", summary = "You don't appear in story viewer lists. Risk of account ban.", default = false)
+    val hideLiveSeen by toggle("Hide live views", summary = "You don't appear as a viewer of live videos. Risk of account ban.", default = false)
+    val hideScreenshotNotifications by toggle("Hide screenshot notifications", summary = "Others aren't told when you take a screenshot. Risk of account ban.", default = false)
 }
 
 object MediaSettings {
