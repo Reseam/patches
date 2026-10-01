@@ -14,12 +14,14 @@ jobs:
     container:
       image: cimg/android:2026.03-node
     env:
-      ENGINE_VERSION: v0.15.0
       RESEAM_BIN: engine/reseam-linux-x64
       RESEAM_BUNDLE_KEY: bundle-signing.key
     steps:
       - name: Checkout sources
         uses: actions/checkout@v4
+
+      - name: Read the pinned engine version
+        run: echo "ENGINE_VERSION=v$(sed -n 's/.*id("app.reseam.workspace") version "\(.*\)".*/\1/p' settings.gradle.kts)" >> "$GITHUB_ENV"
 
       # Releases run on tags, which setup-gradle treats as read-only by default.
       - name: Set up Gradle
