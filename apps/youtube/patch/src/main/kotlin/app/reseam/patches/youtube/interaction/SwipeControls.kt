@@ -10,13 +10,14 @@ import app.reseam.patch.dex.buildInstructions
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.*
 import app.reseam.patches.youtube.internal.appHelper
+import app.reseam.patches.youtube.internal.engagementPanelHook
 import app.reseam.patches.youtube.internal.playerControls
 import app.reseam.patches.youtube.internal.playerTypeHook
 
 val swipeControls = patch("Swipe controls") {
     description("Adds fullscreen volume and brightness gestures, configurable feedback, and brightness restoration.")
     compatibleWith(YOUTUBE)
-    dependsOn(playerTypeHook, playerControls)
+    dependsOn(playerTypeHook, playerControls, engagementPanelHook)
     settings(youTubeSettings, section(YouTubeSettingsPages.Controls, "Swipe controls",
         YouTubeSettings.swipeBrightness, YouTubeSettings.swipeVolume,
         YouTubeSettings.swipePressToEngage, YouTubeSettings.swipeHapticFeedback,

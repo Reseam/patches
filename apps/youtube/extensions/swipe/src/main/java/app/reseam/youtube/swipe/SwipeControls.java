@@ -26,6 +26,7 @@ import java.util.Locale;
 import app.reseam.youtube.core.Logger;
 import app.reseam.youtube.core.Settings;
 import app.reseam.youtube.player.PlayerType;
+import app.reseam.youtube.player.EngagementPanel;
 import app.reseam.youtube.controls.PlayerControls;
 
 /** Fullscreen gestures attached to the real activity, without replacing its superclass. */
@@ -111,7 +112,7 @@ public final class SwipeControls {
             overlay.setClickable(false);
             hide = () -> overlay.setVisibility(View.GONE);
             engagePress = () -> {
-                if (!eligible || !fullscreen()) return;
+                if (!eligible || !fullscreen() || panelOpen()) return;
                 MotionEvent cancel = MotionEvent.obtain(downTime, android.os.SystemClock.uptimeMillis(),
                         MotionEvent.ACTION_CANCEL, startX, startY, 0);
                 try { captureGesture(cancel); }
@@ -130,7 +131,7 @@ public final class SwipeControls {
                 View decor = activity.getWindow().getDecorView();
                 float width = decor.getWidth(), height = decor.getHeight();
                 volumeZone = startX > width * 0.625f;
-                eligible = fullscreen() && event.getPointerCount() == 1
+                eligible = fullscreen() && !panelOpen() && event.getPointerCount() == 1
                         && startX > 20 * density && startX < width - 20 * density
                         && startY > 40 * density && startY < height - 80 * density
                         && (volumeZone || startX < width * 0.375f)
@@ -152,15 +153,16 @@ public final class SwipeControls {
             if (action == MotionEvent.ACTION_UP || action == MotionEvent.ACTION_CANCEL || event.getPointerCount() > 1) {
                 MAIN.removeCallbacks(engagePress);
             }
-            if (!eligible) return captured;
-            if (!fullscreen() || event.getPointerCount() > 1) {
-                eligible = false;
-                return captured; // A cancelled downstream gesture must not receive an orphan UP.
-            }
             if (action == MotionEvent.ACTION_UP || action == MotionEvent.ACTION_CANCEL) {
                 boolean consumed = captured;
                 eligible = captured = false;
                 return consumed;
+            }
+            if (!eligible) return captured;
+            if (!fullscreen() || panelOpen() || event.getPointerCount() > 1) {
+                eligible = false;
+                MAIN.removeCallbacks(engagePress);
+                return captured; // A cancelled downstream gesture must not receive an orphan UP.
             }
             if (action != MotionEvent.ACTION_MOVE) return captured;
             float dx = event.getX() - startX, dy = startY - event.getY();
@@ -211,6 +213,12 @@ public final class SwipeControls {
             if (Settings.getBoolean("swipe_haptic_feedback", true)) {
                 overlay.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
             }
+        }
+
+        private boolean panelOpen() {
+            // Chapters, comments and description sheets own their scrolling even after
+            // the player controls fade out, and also when press-to-engage is enabled.
+            return !EngagementPanel.openPanelId().isEmpty();
         }
 
         void setVolume(int volume) {
