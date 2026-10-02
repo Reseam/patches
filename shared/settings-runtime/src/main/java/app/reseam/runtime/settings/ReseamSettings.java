@@ -34,6 +34,14 @@ public final class ReseamSettings {
         return prefs == null ? defaultValue : prefs.getString(key, defaultValue);
     }
 
+    /** The stored value of a choice setting if its schema lists it, and the schema default otherwise. */
+    public static String getChoice(String key) {
+        Context ctx = appContext;
+        if (ctx == null) throw new IllegalStateException("ReseamSettings.init has not run");
+        SettingsSchema.Choice choice = (SettingsSchema.Choice) SettingsSchema.load(ctx).setting(key);
+        return choice.values[choice.index(getString(key, choice.defaultValue))];
+    }
+
     public static void setString(String key, String value) {
         SharedPreferences prefs = prefs();
         if (prefs != null) prefs.edit().putString(key, value).apply();

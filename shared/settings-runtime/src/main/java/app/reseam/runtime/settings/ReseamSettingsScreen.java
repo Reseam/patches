@@ -29,12 +29,6 @@ import android.widget.ScrollView;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-
 /**
  * Settings screen built from the bundle's settings schema with plain Android widgets. A host can
  * swap in native-looking toggle rows through {@link #setToggleRowFactory}.
@@ -82,37 +76,27 @@ public final class ReseamSettingsScreen {
 
         String title = "Reseam Settings";
         try {
-            JSONObject schema = new JSONObject(readAsset(ctx, "reseam/settings.json"));
+            SettingsSchema schema = SettingsSchema.load(ctx);
             Activity activity = findActivity(ctx);
             String pageId = activity == null ? null : activity.getIntent().getStringExtra(PAGE_EXTRA);
             if (pageId == null) pageId = "";
             if (activity != null && pageId.isEmpty()) RestartPrompt.watch(activity);
-            JSONArray pages = schema.optJSONArray("pages");
             boolean foundPage = pageId.isEmpty();
-            if (pages != null) {
-                for (int i = 0; i < pages.length(); i++) {
-                    JSONObject page = pages.getJSONObject(i);
-                    if (pageId.equals(page.getString("id"))) {
-                        title = page.getString("title");
-                        foundPage = true;
-                    }
-                    if (pageId.equals(destination(page, "parent"))) {
-                        addPage(ctx, root, page);
-                    }
+            for (SettingsSchema.Page page : schema.pages) {
+                if (pageId.equals(page.id)) {
+                    title = page.title;
+                    foundPage = true;
+                }
+                if (pageId.equals(page.parent)) {
+                    addPage(ctx, root, page);
                 }
             }
             if (!foundPage) throw new IllegalArgumentException("Unknown settings page: " + pageId);
-            JSONArray sections = schema.optJSONArray("sections");
-            if (sections != null) {
-                for (int i = 0; i < sections.length(); i++) {
-                    JSONObject section = sections.getJSONObject(i);
-                    if (!pageId.equals(destination(section, "page"))) continue;
-                    JSONArray settings = section.optJSONArray("settings");
-                    if (settings == null || settings.length() == 0) continue;
-                    addSectionHeader(root, section.getString("title"));
-                    for (int j = 0; j < settings.length(); j++) {
-                        addSetting(ctx, root, settings.getJSONObject(j));
-                    }
+            for (SettingsSchema.Section section : schema.sections) {
+                if (!pageId.equals(section.page) || section.settings.isEmpty()) continue;
+                addSectionHeader(root, section.title);
+                for (SettingsSchema.Setting setting : section.settings) {
+                    addSetting(ctx, root, setting);
                 }
             }
             if (root.getChildCount() == 0) {
@@ -129,15 +113,11 @@ public final class ReseamSettingsScreen {
         return container;
     }
 
-    private static String destination(JSONObject object, String key) {
-        return object.isNull(key) ? "" : object.optString(key, "");
-    }
-
-    private static void addPage(Context ctx, ViewGroup parent, JSONObject page) throws org.json.JSONException {
+    private static void addPage(Context ctx, ViewGroup parent, SettingsSchema.Page page) {
         Activity activity = findActivity(ctx);
         if (activity == null) throw new IllegalArgumentException("Settings pages require an Activity context");
-        String id = page.getString("id");
-        String title = page.getString("title");
+        String id = page.id;
+        String title = page.title;
 
         LinearLayout row = new LinearLayout(ctx);
         row.setGravity(Gravity.CENTER_VERTICAL);
@@ -201,37 +181,29 @@ public final class ReseamSettingsScreen {
         return bar;
     }
 
-    private static void addSetting(Context ctx, ViewGroup parent, JSONObject setting) {
-        String type = setting.optString("type", "");
-        String key = setting.optString("key", "");
-        String title = setting.optString("title", key);
-        String summary = setting.isNull("summary") ? null : setting.optString("summary", null);
+    private static void addSetting(Context ctx, ViewGroup parent, SettingsSchema.Setting setting) {
+        String key = setting.key;
+        String title = setting.title;
+        String summary = setting.summary;
 
-        if ("toggle".equals(type)) {
-            addToggle(ctx, parent, title, summary, key, setting.optBoolean("default", false));
-        } else if ("folder".equals(type)) {
-            addFolderPicker(ctx, parent, title, summary, key, setting.optString("default", ""));
-        } else if ("choice".equals(type)) {
-            addChoice(ctx, parent, title, summary, key, setting.optString("default", ""), setting.optJSONArray("choices"));
-        } else if ("text".equals(type)) {
-            addTextSetting(parent, title, summary, key, setting.optString("default", ""), setting.optBoolean("multiline", false));
+        if (setting instanceof SettingsSchema.Toggle) {
+            addToggle(ctx, parent, title, summary, key, ((SettingsSchema.Toggle) setting).defaultValue);
+        } else if (setting instanceof SettingsSchema.Folder) {
+            addFolderPicker(ctx, parent, title, summary, key, ((SettingsSchema.Folder) setting).defaultValue);
+        } else if (setting instanceof SettingsSchema.Choice) {
+            addChoice(ctx, parent, (SettingsSchema.Choice) setting);
+        } else if (setting instanceof SettingsSchema.Text) {
+            SettingsSchema.Text text = (SettingsSchema.Text) setting;
+            addTextSetting(parent, title, summary, key, text.defaultValue, text.multiline);
         }
     }
 
-    private static void addChoice(Context ctx, ViewGroup parent, String title, String summary, String key,
-                                  String defaultValue, JSONArray choices) {
-        if (choices == null || choices.length() == 0) {
-            addTextSetting(parent, title, summary, key, defaultValue, false);
-            return;
-        }
-
-        String[] values = new String[choices.length()];
-        String[] labels = new String[choices.length()];
-        for (int i = 0; i < choices.length(); i++) {
-            JSONObject choice = choices.optJSONObject(i);
-            values[i] = choice == null ? "" : choice.optString("value", "");
-            labels[i] = choice == null ? "" : choice.optString("title", values[i]);
-        }
+    private static void addChoice(Context ctx, ViewGroup parent, SettingsSchema.Choice choice) {
+        String key = choice.key;
+        String title = choice.title;
+        String summary = choice.summary;
+        String[] values = choice.values;
+        String[] labels = choice.titles;
 
         LinearLayout row = new LinearLayout(ctx);
         row.setOrientation(LinearLayout.VERTICAL);
@@ -249,7 +221,7 @@ public final class ReseamSettingsScreen {
         valueView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13f);
         valueView.setTextColor(Color.parseColor("#A8A8A8"));
         valueView.setPadding(0, dpToPx(ctx, 4), 0, 0);
-        valueView.setText(labels[selectedIndex(values, ReseamSettings.getString(key, defaultValue))]);
+        valueView.setText(labels[selectedIndex(choice)]);
         row.addView(valueView);
 
         if (summary != null && !summary.isEmpty()) {
@@ -263,7 +235,7 @@ public final class ReseamSettingsScreen {
 
         row.setOnClickListener(v -> dialog(ctx)
                 .setTitle(title)
-                .setSingleChoiceItems(labels, selectedIndex(values, ReseamSettings.getString(key, defaultValue)), (dialog, which) -> {
+                .setSingleChoiceItems(labels, selectedIndex(choice), (dialog, which) -> {
                     ReseamSettings.setString(key, values[which]);
                     valueView.setText(labels[which]);
                     dialog.dismiss();
@@ -277,12 +249,8 @@ public final class ReseamSettingsScreen {
         return new AlertDialog.Builder(ctx, android.R.style.Theme_DeviceDefault_Dialog_Alert);
     }
 
-    /** Falls back to the first choice, so the row always shows something the list can highlight. */
-    private static int selectedIndex(String[] values, String current) {
-        for (int i = 0; i < values.length; i++) {
-            if (values[i].equals(current)) return i;
-        }
-        return 0;
+    private static int selectedIndex(SettingsSchema.Choice choice) {
+        return choice.index(ReseamSettings.getString(choice.key, choice.defaultValue));
     }
 
     private static void addFolderPicker(Context ctx, ViewGroup parent, String title, String summary, String key, String defaultValue) {
@@ -505,20 +473,5 @@ public final class ReseamSettingsScreen {
     private static int dpToPx(Context ctx, int dp) {
         float density = ctx.getResources().getDisplayMetrics().density;
         return Math.round(dp * density);
-    }
-
-    private static String readAsset(Context ctx, String path) throws Exception {
-        InputStream in = ctx.getAssets().open(path);
-        try {
-            ByteArrayOutputStream out = new ByteArrayOutputStream();
-            byte[] buf = new byte[4096];
-            int read;
-            while ((read = in.read(buf)) != -1) {
-                out.write(buf, 0, read);
-            }
-            return out.toString("UTF-8");
-        } finally {
-            in.close();
-        }
     }
 }
