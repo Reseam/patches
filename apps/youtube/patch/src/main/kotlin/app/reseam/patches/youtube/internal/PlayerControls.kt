@@ -172,7 +172,6 @@ val playerControls = patch {
 
         if (layouts.isEmpty()) return@afterDependents
         val fullscreenId = resources.id("fullscreen_button")
-        val fullscreenStubId = resources.id("youtube_controls_fullscreen_button_stub")
         // Placed before these, the buttons would overlap them; they move left of the last button.
         val followingIds = setOf(resources.id("bottom_end_container"), resources.id("multiview_button"))
         resources.editXml("layout", "youtube_controls_bottom_ui_container") {
@@ -182,12 +181,6 @@ val playerControls = patch {
             fun idOf(element: XmlElement, attr: String) = resourceRef(element[attr].orEmpty())?.toLong()
             val anchor = parent.children.firstOrNull { idOf(it, "android:inflatedId") == fullscreenId }
                 ?: error("fullscreen_button is missing from youtube_controls_bottom_ui_container")
-            // The stub sits lower than the added buttons, so it gets their width and bottom margin.
-            val stub = parent.children.firstOrNull { idOf(it, "android:id") == fullscreenStubId }
-                ?: error("youtube_controls_fullscreen_button_stub is missing")
-            stub["android:layout_marginBottom"] = "6.0dip"
-            stub["android:layout_width"] = "48.0dip"
-
             var last = "@id/fullscreen_button"
             var insertBefore = anchor
             for (layout in layouts) {

@@ -67,10 +67,19 @@ public final class PlayerControls {
         Logger.debug(() -> "Fullscreen button set");
         button.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             private int lastVisibility = button.getVisibility();
+            private final int[] position = new int[2];
+            private final int[] referencePosition = new int[2];
+            private float alignmentOffset;
+            private float appliedTranslation;
 
             @Override
             public void onGlobalLayout() {
                 try {
+                    // YouTube can replace the translation during a transition. An external
+                    // value belongs entirely to YouTube; do not subtract our previous offset.
+                    if (button.getTranslationY() != appliedTranslation) alignmentOffset = 0;
+                    alignmentOffset = alignFullscreenButton(button, position, referencePosition, alignmentOffset);
+                    appliedTranslation = button.getTranslationY();
                     final int visibility = button.getVisibility();
                     if (visibility != lastVisibility) {
                         lastVisibility = visibility;
@@ -84,5 +93,41 @@ public final class PlayerControls {
                 }
             }
         });
+    }
+
+    private static float alignFullscreenButton(View button, int[] position, int[] referencePosition,
+                                              float alignmentOffset) {
+        if (!button.isShown() || button.getHeight() == 0) return alignmentOffset;
+        button.getLocationInWindow(position);
+        float center = position[1] + button.getPaddingTop()
+                + (button.getHeight() - button.getPaddingTop() - button.getPaddingBottom()) / 2f;
+        View nearest = null;
+        int distance = Integer.MAX_VALUE;
+        for (PlayerControlButton control : BUTTONS) {
+            View candidate = control.alignmentView();
+            if (candidate == null || !candidate.isShown() || candidate.getHeight() == 0
+                    || candidate.getRootView() != button.getRootView()) continue;
+            candidate.getLocationInWindow(referencePosition);
+            int dx = Math.abs(referencePosition[0] - position[0]);
+            if (dx < distance) {
+                nearest = candidate;
+                distance = dx;
+            }
+        }
+        if (nearest == null) {
+            if (alignmentOffset != 0) button.setTranslationY(button.getTranslationY() - alignmentOffset);
+            return 0;
+        }
+        nearest.getLocationInWindow(referencePosition);
+        float target = referencePosition[1] + nearest.getPaddingTop()
+                + (nearest.getHeight() - nearest.getPaddingTop() - nearest.getPaddingBottom()) / 2f;
+        // Native portrait/fullscreen layouts use different sizes and padding. Move only
+        // the view to the adjacent icon's baseline; leave its appearance and hit area intact.
+        float delta = target - center;
+        if (Math.abs(delta) >= 1) {
+            button.setTranslationY(button.getTranslationY() + delta);
+            alignmentOffset += delta;
+        }
+        return alignmentOffset;
     }
 }

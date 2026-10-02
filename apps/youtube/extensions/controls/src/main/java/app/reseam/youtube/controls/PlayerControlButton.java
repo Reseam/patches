@@ -74,6 +74,10 @@ public class PlayerControlButton {
         }
     }
 
+    View alignmentView() {
+        return button.get();
+    }
+
     public void setVisibility(boolean shouldShow, boolean animated) {
         try {
             final View view = container.get();
