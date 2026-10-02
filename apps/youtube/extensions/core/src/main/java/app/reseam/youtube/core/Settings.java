@@ -22,4 +22,8 @@ public final class Settings {
     public static String getString(String key, String defaultValue) {
         return ReseamSettings.getString(PREFIX + key, defaultValue);
     }
+
+    public static String getChoice(String key) {
+        return ReseamSettings.getChoice(PREFIX + key);
+    }
 }

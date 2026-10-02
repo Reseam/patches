@@ -7,6 +7,7 @@ package app.reseam.youtube.theme;
 import android.app.Notification;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 
@@ -15,8 +16,8 @@ import app.reseam.youtube.core.Settings;
 import app.reseam.youtube.core.YouTubeContext;
 
 public final class CustomBranding {
-    private static final String[] ICON_STYLES = { "original", "reseam" };
-    private static final int NAME_COUNT = 4;
+    private static final String NAME_KEY = "custom_branding_name";
+    private static final String ICON_KEY = "custom_branding_icon";
 
     private CustomBranding() {}
 
@@ -25,21 +26,20 @@ public final class CustomBranding {
             Context context = YouTubeContext.get();
             PackageManager manager = context.getPackageManager();
             String packageName = context.getPackageName();
-            String name = Settings.getString("custom_branding_name", "2");
-            String icon = Settings.getString("custom_branding_icon", "original");
-            final String selectedName = java.util.Arrays.asList("1", "2", "3", "4").contains(name) ? name : "2";
-            final String selectedIcon = java.util.Arrays.asList(ICON_STYLES).contains(icon) ? icon : "original";
-            String selectedAlias = packageName + ".reseam_" + selectedIcon + "_" + selectedName;
+            String name = Settings.getChoice(NAME_KEY);
+            String icon = Settings.getChoice(ICON_KEY);
+            String aliasPrefix = packageName + ".reseam_";
+            String selectedAlias = aliasPrefix + icon + "_" + name;
             // Enable the destination first so switching presets always leaves a launcher entry.
             setEnabled(manager, new ComponentName(packageName, selectedAlias), true);
-            for (String style : ICON_STYLES) {
-                for (int index = 1; index <= NAME_COUNT; index++) {
-                    String className = packageName + ".reseam_" + style + "_" + index;
-                    boolean enabled = style.equals(selectedIcon) && Integer.toString(index).equals(selectedName);
-                    if (!enabled) setEnabled(manager, new ComponentName(packageName, className), false);
+            ActivityInfo[] activities = manager.getPackageInfo(packageName,
+                    PackageManager.GET_ACTIVITIES | PackageManager.MATCH_DISABLED_COMPONENTS).activities;
+            for (ActivityInfo activity : activities) {
+                if (activity.name.startsWith(aliasPrefix) && !activity.name.equals(selectedAlias)) {
+                    setEnabled(manager, new ComponentName(packageName, activity.name), false);
                 }
             }
-            Logger.debug(() -> "Custom branding: name=" + selectedName + " icon=" + selectedIcon);
+            Logger.debug(() -> "Custom branding: name=" + name + " icon=" + icon);
         } catch (Throwable ex) {
             Logger.error(() -> "Custom branding failed: " + ex.getClass().getSimpleName());
         }
@@ -52,9 +52,10 @@ public final class CustomBranding {
         }
     }
 
+    /** The Reseam glyph only matches the Reseam icon; a custom icon keeps YouTube's notification icon. */
     public static void setNotificationIcon(Notification.Builder builder) {
         try {
-            if ("original".equals(Settings.getString("custom_branding_icon", "original"))) return;
+            if (!"reseam".equals(Settings.getChoice(ICON_KEY))) return;
             Context context = YouTubeContext.get();
             int id = context.getResources().getIdentifier(
                     "reseam_notification_icon", "drawable", context.getPackageName());
