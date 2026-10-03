@@ -1,30 +1,54 @@
-# Reseam patches
+<p align="center">
+  <img src="https://reseam.app/logo.svg" alt="Reseam logo" width="96">
+</p>
 
-The official patch bundle for Reseam. Each app under `apps/` has a `patch` module with the patches and, where needed, extension modules with code that gets injected into the app. The `app.reseam.workspace` Gradle plugin configures every module from the directory layout.
+<h1 align="center">Reseam Patches</h1>
 
-## Setup
+<p align="center">
+  <a href="https://reseam.app/patches/">Browse the patches</a> ·
+  <a href="https://reseam.app/download/">Get Reseam Manager</a>
+</p>
 
-- JDK 17.
-- Android SDK, with `ANDROID_HOME` pointing at it.
-- The `reseam` CLI on `PATH`, or its path in `RESEAM_BIN`. Get the release that matches the plugin version in `settings.gradle.kts`.
-- A signing key: `reseam bundle keygen --out ~/.reseam/bundle-signing.key`.
+The official patch bundle for Reseam. Reseam Manager includes it by default, and [reseam.app/patches](https://reseam.app/patches/) lists every patch in it.
+
+To write your own bundle, start from the [patch bundle template](https://git.reseam.app/reseam/patches-template) and the [docs](https://reseam.app/docs/authoring/start/). This README covers building this repository.
+
+## Layout
+
+```text
+apps/<app>/patch        the patches for one app
+apps/<app>/extensions   code added to that app, when its patches need it
+apps/universal          patches that work on any app
+shared/                 code used by several apps, such as the in-app settings screen
+manifest.toml           bundle name, author, and description
+```
+
+The `app.reseam.workspace` Gradle plugin configures every module from this layout. Its version is pinned in `settings.gradle.kts`.
 
 ## Build
+
+You need:
+
+- JDK 17, and the Android SDK with `ANDROID_HOME` set.
+- The `reseam` CLI at the same version as the plugin, on `PATH` or in `RESEAM_BIN`.
+- A signing key: `reseam bundle keygen --out ~/.reseam/bundle-signing.key`.
 
 ```shell
 ./gradlew bundle
 ```
 
-Writes `build/reseam/reseam-patches.reseam`. Try it on an APK:
+This writes `build/reseam/reseam-patches.reseam`. Try it on an APK, trusting your own key:
 
 ```shell
-reseam patch app.apk --bundle build/reseam/reseam-patches.reseam --trust <your public key> --output patched.apk
+reseam patch app.apk --bundle build/reseam/reseam-patches.reseam --trust <your public key>
 ```
 
-Only when changing the engine alongside the patches, set `RESEAM_WORKSPACE=/path/to/reseam` to build against that checkout's SDK, plugin, and CLI instead of the published ones.
-
-How patches are written is documented in the engine repository under `docs/`.
+When changing the engine at the same time, set `RESEAM_WORKSPACE=/path/to/reseam` to build against that checkout instead of the published engine.
 
 ## Release
 
-Tag `vX.Y.Z`. CI builds and signs the bundle, writes `patches.json`, and uploads both to the Forgejo release.
+Push a `vX.Y.Z` tag. CI builds and signs the bundle with the official key, writes `patches.json`, and uploads both. Reseam Manager picks up the new release on its next bundle check.
+
+## License
+
+GPL-3.0-or-later. Some files carry other licenses; see `REUSE.toml` and `LICENSES/`.

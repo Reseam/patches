@@ -8,7 +8,7 @@ Tested on YouTube 21.37.42, Android 16. Other versions and server-side layout va
 - Playback time hooks the progress broadcaster's event constructor. The VideoTimes snapshot is not updated by every provider.
 - Player mode hooks both the legacy overlay and the native player-view setter. The newer provider bypasses the overlay.
 - Litho parsers are observed without changing their model. Routing UPB through FlatBuffers breaks expandable posts.
-- RYD never blocks rendering on the network. Likes come from YouTube's accessibility count, never RYD estimates. Pending or failed requests show a dash.
+- Return YouTube Dislike (RYD) never blocks rendering on the network. Likes come from YouTube's accessibility count, never RYD estimates. Pending or failed requests show a dash.
 - Swipe controls wrap the activity's touch dispatch without replacing its superclass. Open engagement panels keep their scrolling. Brightness is window-local.
 - The fullscreen button is aligned to the adjacent player icon after layout. YouTube owns its size and appearance.
 - Thumbnail verification stays off the UI thread. Third-party thumbnail requests omit YouTube tracking parameters.
