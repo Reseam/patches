@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.text.Editable;
 import android.text.InputType;
@@ -20,36 +21,46 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
-import android.widget.Switch;
 import android.widget.TextView;
+
+import java.util.function.Consumer;
 
 /**
  * Settings screen built from the bundle's settings schema with plain Android widgets. A host can
  * swap in native-looking toggle rows through {@link #setToggleRowFactory}.
  */
 public final class ReseamSettingsScreen {
+    public interface ToggleRow {
+        View view();
+
+        void setChecked(boolean checked);
+    }
+
     /** Builds one toggle row; the listener must fire whenever the user changes the value. */
     public interface ToggleRowFactory {
-        View create(Context ctx, String title, String summary, boolean checked, CompoundButton.OnCheckedChangeListener listener);
+        ToggleRow create(Context ctx, String title, String summary, boolean checked, CompoundButton.OnCheckedChangeListener listener);
     }
 
     private static final String TAG = "ReseamSettings";
     public static final int FOLDER_PICKER_REQUEST_CODE = 0x57C4;
     private static final String PAGE_EXTRA = "app.reseam.settings.PAGE";
     private static final String FOLDER_KEY_EXTRA = "app.reseam.settings.FOLDER_KEY";
-
-    private static volatile ToggleRowFactory toggleRows = ReseamSettingsScreen::plainToggleRow;
+    static final int SECONDARY_TEXT = Color.parseColor("#A8A8A8");
+    static final int TERTIARY_TEXT = Color.parseColor("#666666");
+    static final int FIELD_BACKGROUND = Color.parseColor("#1C1C1C");
 
     private ReseamSettingsScreen() {}
 
     public static void setToggleRowFactory(ToggleRowFactory factory) {
-        toggleRows = factory;
+        SettingRows.toggleRows = factory;
     }
 
     public static View build(Context ctx) {
@@ -66,13 +77,20 @@ public final class ReseamSettingsScreen {
         scroll.setId(android.R.id.list);
         scroll.setBackgroundColor(Color.BLACK);
 
+        LinearLayout body = new LinearLayout(ctx);
+        body.setOrientation(LinearLayout.VERTICAL);
+        body.setPadding(0, 0, 0, dpToPx(ctx, 24));
+        scroll.addView(body);
+
         LinearLayout root = new LinearLayout(ctx);
         root.setOrientation(LinearLayout.VERTICAL);
-        root.setPadding(0, 0, 0, dpToPx(ctx, 24));
-        scroll.addView(root);
+        body.addView(root);
 
         container.addView(scroll, new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f));
+
+        SettingRows rows = new SettingRows(ctx);
+        rows.follow(container);
 
         String title = "Reseam Settings";
         try {
@@ -80,32 +98,30 @@ public final class ReseamSettingsScreen {
             Activity activity = findActivity(ctx);
             String pageId = activity == null ? null : activity.getIntent().getStringExtra(PAGE_EXTRA);
             if (pageId == null) pageId = "";
-            if (activity != null && pageId.isEmpty()) RestartPrompt.watch(activity);
-            boolean foundPage = pageId.isEmpty();
+            if (!pageId.isEmpty()) title = schema.page(pageId).title;
             for (SettingsSchema.Page page : schema.pages) {
-                if (pageId.equals(page.id)) {
-                    title = page.title;
-                    foundPage = true;
-                }
-                if (pageId.equals(page.parent)) {
-                    addPage(ctx, root, page);
-                }
+                if (pageId.equals(page.parent)) addPage(ctx, root, page);
             }
-            if (!foundPage) throw new IllegalArgumentException("Unknown settings page: " + pageId);
             for (SettingsSchema.Section section : schema.sections) {
                 if (!pageId.equals(section.page) || section.settings.isEmpty()) continue;
-                addSectionHeader(root, section.title);
+                root.addView(sectionHeader(ctx, section.title));
                 for (SettingsSchema.Setting setting : section.settings) {
-                    addSetting(ctx, root, setting);
+                    root.addView(rows.create(setting));
                 }
             }
             if (root.getChildCount() == 0) {
-                addDescription(root, "No settings are available for the selected patches.");
+                root.addView(description(ctx, "No settings are available for the selected patches."));
+            }
+            if (activity != null && pageId.isEmpty()) {
+                RestartPrompt.watch(activity);
+                SearchResults results = new SearchResults(ctx, schema, rows, root);
+                body.addView(results.view());
+                container.addView(buildSearchField(ctx, results, scroll), 0);
             }
         } catch (Exception e) {
             Log.e(TAG, "Failed to load settings", e);
-            root.removeAllViews();
-            addDescription(root, "Could not load settings: " + e.getMessage());
+            body.removeAllViews();
+            body.addView(description(ctx, "Could not load settings: " + e.getMessage()));
         }
         container.addView(buildToolbar(ctx, title), 0,
                 new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dpToPx(ctx, 56)));
@@ -181,67 +197,45 @@ public final class ReseamSettingsScreen {
         return bar;
     }
 
-    private static void addSetting(Context ctx, ViewGroup parent, SettingsSchema.Setting setting) {
-        String key = setting.key;
-        String title = setting.title;
-        String summary = setting.summary;
+    private static View buildSearchField(Context ctx, SearchResults results, ScrollView scroll) {
+        FrameLayout bar = new FrameLayout(ctx);
+        bar.setPadding(dpToPx(ctx, 16), dpToPx(ctx, 4), dpToPx(ctx, 16), dpToPx(ctx, 8));
 
-        if (setting instanceof SettingsSchema.Toggle) {
-            addToggle(ctx, parent, title, summary, key, ((SettingsSchema.Toggle) setting).defaultValue);
-        } else if (setting instanceof SettingsSchema.Folder) {
-            addFolderPicker(ctx, parent, title, summary, key, ((SettingsSchema.Folder) setting).defaultValue);
-        } else if (setting instanceof SettingsSchema.Choice) {
-            addChoice(ctx, parent, (SettingsSchema.Choice) setting);
-        } else if (setting instanceof SettingsSchema.Text) {
-            SettingsSchema.Text text = (SettingsSchema.Text) setting;
-            addTextSetting(parent, title, summary, key, text.defaultValue, text.multiline);
-        }
-    }
+        EditText field = new EditText(ctx);
+        // Stable across activity recreation so Android restores the query, which re-runs the search.
+        field.setId(android.R.id.edit);
+        field.setHint("Search settings");
+        field.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+        field.setSingleLine(true);
+        field.setImeOptions(EditorInfo.IME_ACTION_SEARCH);
+        field.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f);
+        field.setTextColor(Color.WHITE);
+        field.setHintTextColor(TERTIARY_TEXT);
+        GradientDrawable shape = new GradientDrawable();
+        shape.setColor(FIELD_BACKGROUND);
+        shape.setCornerRadius(dpToPx(ctx, 28));
+        field.setBackground(shape);
+        field.setPadding(dpToPx(ctx, 20), 0, dpToPx(ctx, 48), 0);
+        bar.addView(field, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dpToPx(ctx, 48)));
 
-    private static void addChoice(Context ctx, ViewGroup parent, SettingsSchema.Choice choice) {
-        String key = choice.key;
-        String title = choice.title;
-        String summary = choice.summary;
-        String[] values = choice.values;
-        String[] labels = choice.titles;
+        TextView clear = text(ctx, "✕", 16f, SECONDARY_TEXT);
+        clear.setGravity(Gravity.CENTER);
+        clear.setContentDescription("Clear search");
+        clear.setVisibility(View.GONE);
+        clear.setOnClickListener(v -> field.setText(""));
+        bar.addView(clear, new FrameLayout.LayoutParams(dpToPx(ctx, 48), dpToPx(ctx, 48), Gravity.END | Gravity.CENTER_VERTICAL));
 
-        LinearLayout row = new LinearLayout(ctx);
-        row.setOrientation(LinearLayout.VERTICAL);
-        row.setPadding(dpToPx(ctx, 16), dpToPx(ctx, 12), dpToPx(ctx, 16), dpToPx(ctx, 12));
-        row.setClickable(true);
-        row.setFocusable(true);
-
-        TextView titleView = new TextView(ctx, null, 0);
-        titleView.setText(title);
-        titleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f);
-        titleView.setTextColor(Color.WHITE);
-        row.addView(titleView);
-
-        TextView valueView = new TextView(ctx, null, 0);
-        valueView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13f);
-        valueView.setTextColor(Color.parseColor("#A8A8A8"));
-        valueView.setPadding(0, dpToPx(ctx, 4), 0, 0);
-        valueView.setText(labels[selectedIndex(choice)]);
-        row.addView(valueView);
-
-        if (summary != null && !summary.isEmpty()) {
-            TextView sub = new TextView(ctx, null, 0);
-            sub.setText(summary);
-            sub.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f);
-            sub.setTextColor(Color.parseColor("#666666"));
-            sub.setPadding(0, dpToPx(ctx, 2), 0, 0);
-            row.addView(sub);
-        }
-
-        row.setOnClickListener(v -> dialog(ctx)
-                .setTitle(title)
-                .setSingleChoiceItems(labels, selectedIndex(choice), (dialog, which) -> {
-                    ReseamSettings.setString(key, values[which]);
-                    valueView.setText(labels[which]);
-                    dialog.dismiss();
-                })
-                .show());
-        parent.addView(row);
+        field.addTextChangedListener(afterTextChanged(query -> {
+            clear.setVisibility(query.isEmpty() ? View.GONE : View.VISIBLE);
+            results.show(query);
+            scroll.scrollTo(0, 0);
+        }));
+        field.setOnEditorActionListener((v, actionId, event) -> {
+            if (actionId != EditorInfo.IME_ACTION_SEARCH) return false;
+            ctx.getSystemService(InputMethodManager.class).hideSoftInputFromWindow(v.getWindowToken(), 0);
+            return true;
+        });
+        return bar;
     }
 
     /** Reseam's pages are always dark, so its dialogs use the platform's dark theme rather than the host app's. */
@@ -249,44 +243,7 @@ public final class ReseamSettingsScreen {
         return new AlertDialog.Builder(ctx, android.R.style.Theme_DeviceDefault_Dialog_Alert);
     }
 
-    private static int selectedIndex(SettingsSchema.Choice choice) {
-        return choice.index(ReseamSettings.getString(choice.key, choice.defaultValue));
-    }
-
-    private static void addFolderPicker(Context ctx, ViewGroup parent, String title, String summary, String key, String defaultValue) {
-        LinearLayout row = new LinearLayout(ctx);
-        row.setOrientation(LinearLayout.VERTICAL);
-        row.setPadding(dpToPx(ctx, 16), dpToPx(ctx, 12), dpToPx(ctx, 16), dpToPx(ctx, 12));
-        row.setClickable(true);
-        row.setFocusable(true);
-
-        TextView titleView = new TextView(ctx, null, 0);
-        titleView.setText(title);
-        titleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f);
-        titleView.setTextColor(Color.WHITE);
-        row.addView(titleView);
-
-        TextView valueView = new TextView(ctx, null, 0);
-        valueView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13f);
-        valueView.setTextColor(Color.parseColor("#A8A8A8"));
-        valueView.setPadding(0, dpToPx(ctx, 4), 0, 0);
-        valueView.setText(displayFolder(ReseamSettings.getString(key, defaultValue)));
-        row.addView(valueView);
-
-        if (summary != null && !summary.isEmpty()) {
-            TextView sub = new TextView(ctx, null, 0);
-            sub.setText(summary);
-            sub.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f);
-            sub.setTextColor(Color.parseColor("#666666"));
-            sub.setPadding(0, dpToPx(ctx, 2), 0, 0);
-            row.addView(sub);
-        }
-
-        row.setOnClickListener(v -> launchFolderPicker(ctx, key));
-        parent.addView(row);
-    }
-
-    private static void launchFolderPicker(Context ctx, String key) {
+    static void launchFolderPicker(Context ctx, String key) {
         Activity activity = findActivity(ctx);
         if (activity == null) {
             Log.e(TAG, "Cannot launch folder picker: no Activity context");
@@ -315,11 +272,6 @@ public final class ReseamSettingsScreen {
             Log.w(TAG, "Could not persist permission for " + uri, e);
         }
         ReseamSettings.setString(key, uri.toString());
-        ScrollView previous = activity.findViewById(android.R.id.list);
-        int scrollY = previous == null ? 0 : previous.getScrollY();
-        activity.setContentView(build(activity));
-        ScrollView current = activity.findViewById(android.R.id.list);
-        current.post(() -> current.scrollTo(0, scrollY));
         return true;
     }
 
@@ -331,125 +283,28 @@ public final class ReseamSettingsScreen {
         return null;
     }
 
-    private static String displayFolder(String value) {
-        if (value == null || value.isEmpty()) return "(not set)";
-        if (value.startsWith("content://")) {
-            try {
-                Uri uri = Uri.parse(value);
-                String last = uri.getLastPathSegment();
-                if (last != null) {
-                    int colon = last.lastIndexOf(':');
-                    if (colon >= 0 && colon + 1 < last.length()) last = last.substring(colon + 1);
-                    return last.isEmpty() ? value : last;
-                }
-            } catch (Throwable ignored) {}
-        }
-        return value;
-    }
-
-    private static void addToggle(Context ctx, ViewGroup parent, String title, String summary, String key, boolean defaultValue) {
-        boolean checked = ReseamSettings.getBoolean(key, defaultValue);
-        View row = toggleRows.create(ctx, title, summary, checked, (button, isChecked) -> ReseamSettings.setBoolean(key, isChecked));
-        parent.addView(row, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-    }
-
-    private static View plainToggleRow(Context ctx, String title, String summary, boolean checked, CompoundButton.OnCheckedChangeListener listener) {
-        LinearLayout row = new LinearLayout(ctx);
-        row.setOrientation(LinearLayout.HORIZONTAL);
-        row.setGravity(Gravity.CENTER_VERTICAL);
-        row.setPadding(dpToPx(ctx, 16), dpToPx(ctx, 12), dpToPx(ctx, 16), dpToPx(ctx, 12));
-
-        LinearLayout text = new LinearLayout(ctx);
-        text.setOrientation(LinearLayout.VERTICAL);
-        TextView titleView = new TextView(ctx, null, 0);
-        titleView.setText(title);
-        titleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f);
-        titleView.setTextColor(Color.WHITE);
-        text.addView(titleView);
-        if (summary != null && !summary.isEmpty()) {
-            TextView sub = new TextView(ctx, null, 0);
-            sub.setText(summary);
-            sub.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13f);
-            sub.setTextColor(Color.parseColor("#A8A8A8"));
-            sub.setPadding(0, dpToPx(ctx, 2), 0, 0);
-            text.addView(sub);
-        }
-        row.addView(text, new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
-
-        Switch toggle = new Switch(ctx);
-        toggle.setChecked(checked);
-        toggle.setOnCheckedChangeListener(listener);
-        LinearLayout.LayoutParams toggleLp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        toggleLp.leftMargin = dpToPx(ctx, 16);
-        row.addView(toggle, toggleLp);
-
-        row.setOnClickListener(v -> toggle.toggle());
-        return row;
-    }
-
-    private static void addSectionHeader(ViewGroup parent, String title) {
-        Context ctx = parent.getContext();
-
+    static TextView text(Context ctx, CharSequence value, float sp, int color) {
         TextView tv = new TextView(ctx, null, 0);
-        tv.setText(title);
-        tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13f);
-        tv.setTextColor(Color.parseColor("#A8A8A8"));
+        tv.setText(value);
+        tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, sp);
+        tv.setTextColor(color);
+        return tv;
+    }
+
+    static TextView sectionHeader(Context ctx, String title) {
+        TextView tv = text(ctx, title, 13f, SECONDARY_TEXT);
         tv.setPadding(dpToPx(ctx, 16), dpToPx(ctx, 16), dpToPx(ctx, 16), dpToPx(ctx, 8));
-        parent.addView(tv);
+        return tv;
     }
 
-    private static void addDescription(ViewGroup parent, String text) {
-        Context ctx = parent.getContext();
-        TextView tv = new TextView(ctx, null, 0);
-        tv.setText(text);
-        tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13f);
-        tv.setTextColor(Color.parseColor("#A8A8A8"));
+    static TextView description(Context ctx, String value) {
+        TextView tv = text(ctx, value, 13f, SECONDARY_TEXT);
         tv.setPadding(dpToPx(ctx, 16), dpToPx(ctx, 8), dpToPx(ctx, 16), dpToPx(ctx, 8));
-        parent.addView(tv);
+        return tv;
     }
 
-    private static void addTextSetting(ViewGroup parent, String label, String summary, String key, String defaultValue,
-                                       boolean multiline) {
-        Context ctx = parent.getContext();
-
-        LinearLayout row = new LinearLayout(ctx);
-        row.setOrientation(LinearLayout.VERTICAL);
-        row.setPadding(dpToPx(ctx, 16), dpToPx(ctx, 12), dpToPx(ctx, 16), dpToPx(ctx, 12));
-
-        TextView tv = new TextView(ctx, null, 0);
-        tv.setText(label);
-        tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f);
-        tv.setTextColor(Color.WHITE);
-        row.addView(tv);
-
-        if (summary != null && !summary.isEmpty()) {
-            TextView sub = new TextView(ctx, null, 0);
-            sub.setText(summary);
-            sub.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13f);
-            sub.setTextColor(Color.parseColor("#A8A8A8"));
-            sub.setPadding(0, dpToPx(ctx, 2), 0, dpToPx(ctx, 6));
-            row.addView(sub);
-        }
-
-        // The default EditText style is what makes the field focusable by touch.
-        EditText edit = new EditText(ctx);
-        // Values are identifiers, URLs, colors and numbers, never prose.
-        edit.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
-                | (multiline ? InputType.TYPE_TEXT_FLAG_MULTI_LINE : 0));
-        if (multiline) {
-            edit.setMinLines(3);
-            edit.setGravity(Gravity.TOP | Gravity.START);
-        } else {
-            edit.setSingleLine(true);
-        }
-        edit.setText(ReseamSettings.getString(key, defaultValue));
-        edit.setTextColor(Color.WHITE);
-        edit.setHintTextColor(Color.parseColor("#666666"));
-        edit.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f);
-        edit.setBackgroundColor(Color.parseColor("#1C1C1C"));
-        edit.setPadding(dpToPx(ctx, 12), dpToPx(ctx, 10), dpToPx(ctx, 12), dpToPx(ctx, 10));
-        // Leaving the screen does not clear focus, so persist every edit.
-        edit.addTextChangedListener(new TextWatcher() {
+    static TextWatcher afterTextChanged(Consumer<String> action) {
+        return new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
@@ -458,19 +313,12 @@ public final class ReseamSettingsScreen {
 
             @Override
             public void afterTextChanged(Editable s) {
-                ReseamSettings.setString(key, s.toString());
+                action.accept(s.toString());
             }
-        });
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT);
-        lp.topMargin = dpToPx(ctx, 4);
-        row.addView(edit, lp);
-
-        parent.addView(row);
+        };
     }
 
-    private static int dpToPx(Context ctx, int dp) {
+    static int dpToPx(Context ctx, int dp) {
         float density = ctx.getResources().getDisplayMetrics().density;
         return Math.round(dp * density);
     }

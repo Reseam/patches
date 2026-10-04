@@ -62,7 +62,7 @@ public final class IgdsToggleRows implements ReseamSettingsScreen.ToggleRowFacto
     }
 
     @Override
-    public View create(Context ctx, String title, String summary, boolean checked, CompoundButton.OnCheckedChangeListener listener) {
+    public ReseamSettingsScreen.ToggleRow create(Context ctx, String title, String summary, boolean checked, CompoundButton.OnCheckedChangeListener listener) {
         try {
             View cell = (View) cellClass.getConstructor(Context.class).newInstance(ctx);
             setTextCellType.invoke(cell, typeSwitch);
@@ -74,7 +74,21 @@ public final class IgdsToggleRows implements ReseamSettingsScreen.ToggleRowFacto
             }
             setChecked.invoke(cell, checked);
             setOnCheckedChangeListener.invoke(cell, listener);
-            return cell;
+            return new ReseamSettingsScreen.ToggleRow() {
+                @Override
+                public View view() {
+                    return cell;
+                }
+
+                @Override
+                public void setChecked(boolean checked) {
+                    try {
+                        setChecked.invoke(cell, checked);
+                    } catch (ReflectiveOperationException e) {
+                        throw new IllegalStateException("IgdsListCell changed shape", e);
+                    }
+                }
+            };
         } catch (ReflectiveOperationException e) {
             throw new IllegalStateException("IgdsListCell changed shape", e);
         }

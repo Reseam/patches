@@ -43,6 +43,20 @@ final class SettingsSchema {
         }
     }
 
+    Page page(String id) {
+        for (Page page : pages) {
+            if (page.id.equals(id)) return page;
+        }
+        throw new IllegalArgumentException("Unknown settings page: " + id);
+    }
+
+    String path(String id) {
+        if (id.isEmpty()) return "";
+        Page page = page(id);
+        String parent = path(page.parent);
+        return parent.isEmpty() ? page.title : parent + " › " + page.title;
+    }
+
     Setting setting(String key) {
         for (Section section : sections) {
             for (Setting setting : section.settings) {
