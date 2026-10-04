@@ -31,8 +31,6 @@ val settingsEntry = patch("Reseam entry in YouTube settings") {
             }
         }
 
-        // Read now, not from a constant: gmsCoreSupport renames the package before this runs.
-        val target = manifest.packageName ?: error("the manifest declares no package")
         val icon = SettingsEntryResources::class.java.getResourceAsStream("/reseam-settings/$ICON.xml")
             ?.use { it.readBytes() }
             ?: error("reseam-settings/$ICON.xml is missing from the patch jar")
@@ -51,9 +49,10 @@ val settingsEntry = patch("Reseam entry in YouTube settings") {
                         this["app:iconSpaceReserved"] = "true"
                     }
                     appendChild(
+                        // An action, not an explicit component: the package is not baked in, so the row
+                        // survives a later Change package name. SettingsHost declares the matching filter.
                         createElement("intent").apply {
-                            this["android:targetPackage"] = target
-                            this["android:targetClass"] = SETTINGS_ACTIVITY
+                            this["android:action"] = SETTINGS_ACTION
                         },
                     )
                 },
