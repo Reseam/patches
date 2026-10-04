@@ -162,8 +162,8 @@ public final class LayoutComponentsFilter extends Filter {
                 crowdfunding, emergency, expandableMetadata, forYou, horizontalShelves, chips,
                 imageShelf, infoPanel, latestPosts, medical, movieSections, notifyMeGroup, paidPromotion,
                 new StringFilterGroup("hide_playables", true, "horizontal_gaming_shelf.e", "mini_game_card.e"),
-                new StringFilterGroup("hide_quick_actions", false, "quick_actions"),
-                new StringFilterGroup("hide_related_videos", false, "fullscreen_related_videos"),
+                new StringFilterGroup("hide_fullscreen_quick_actions", false, "quick_actions"),
+                new StringFilterGroup("hide_more_videos_button", false, "fullscreen_related_videos"),
                 singleItemInformationPanel, subscribedChannels, subscribersGuidelines, subscriptionsChipBar,
                 surveys, new StringFilterGroup("hide_timed_reactions", true, "emoji_control_panel", "timed_reaction"),
                 videoTitle, recommendationLabels, webResults);
