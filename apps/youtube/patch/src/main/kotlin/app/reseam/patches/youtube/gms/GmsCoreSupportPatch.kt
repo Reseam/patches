@@ -13,7 +13,6 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.points
-import app.reseam.patch.replaceAllStrings
 import app.reseam.patches.youtube.core.mainActivityOnCreate
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YOUTUBE_PACKAGE
@@ -167,9 +166,9 @@ val gmsCoreSupport = patch("GmsCore support") {
         // takes its own path that skips the check.
         deviceComplianceCheckEnabled.after { capture("enabled").assign(bool(false)) }
 
-        // This one method reports the app's own package to the Play Store; it has to name the
-        // installed package, unlike everything else that keeps reporting the original.
-        primePackages.replaceAllStrings(YOUTUBE_PACKAGE, newPackage)
+        // Primes only initializes in an app it recognizes as Google's, judged by the installed
+        // package, which neither this rename nor a later Change package name keeps on its list.
+        primePackages.alwaysReturn(true)
 
         // Notification registration is keyed on the package Google's servers know.
         gnpPackageName.after { capture("packageName").assign(string(YOUTUBE_PACKAGE)) }
