@@ -162,6 +162,10 @@ val gmsCoreSupport = patch("GmsCore support") {
         playServicesCheck.alwaysReturn()
         castContextFetch.alwaysReturn()
         playServicesAvailability.alwaysReturn(0)
+        // GmsCore reports the device as not Play Protect certified, and the app answers by hiding
+        // behind UncertifiedDeviceActivity. With the check's Gservices switch read as off, the app
+        // takes its own path that skips the check.
+        deviceComplianceCheckEnabled.after { capture("enabled").assign(bool(false)) }
 
         // This one method reports the app's own package to the Play Store; it has to name the
         // installed package, unlike everything else that keeps reporting the original.
@@ -208,6 +212,18 @@ val primePackages = method("primePackages") {
     strings("com.google.android.GoogleCamera")
     returns(Type.Boolean)
 }
+
+private const val DEVICE_COMPLIANCE_CHECK_FLAG = "failsafe_enable_gms_device_compliance_check"
+
+// Asks Play Services whether the device is Play Protect certified and emits the answer.
+val deviceComplianceCheck = method("deviceComplianceCheck") {
+    strings(DEVICE_COMPLIANCE_CHECK_FLAG)
+    returns(Type.Void)
+}
+val deviceComplianceCheckEnabled = deviceComplianceCheck
+    .point("deviceComplianceCheckEnabled") { string(DEVICE_COMPLIANCE_CHECK_FLAG) }
+    .next { resultOf(Type.Boolean) }
+    .captureAs("enabled", Type.Boolean)
 
 val gnpRegistration = method("gnpRegistration") {
     strings("Exception reading GServices key.")
