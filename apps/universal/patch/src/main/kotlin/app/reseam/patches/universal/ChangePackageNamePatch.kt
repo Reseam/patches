@@ -67,6 +67,22 @@ val changePackageName = patch("Change package name") {
         // resource table is renamed with the manifest; otherwise its resources resolve to nothing.
         resources.components().forEach { resources.component(it).setPackageName(renamed) }
 
+        // An explicit intent in compiled XML, such as a preference's <intent>, names the package
+        // to launch. Android 14 refuses implicit intents to unexported activities, so apps bake it.
+        var intents = 0
+        for (component in files.components()) {
+            val apk = files.component(component)
+            for (path in apk.list()) {
+                if (!path.startsWith("res/") || !path.endsWith(".xml") || apk.read(path)?.isBinaryXml() != true) continue
+                apk.editXml(path) {
+                    findByAttribute(TARGET_PACKAGE, original).forEach {
+                        it[TARGET_PACKAGE] = renamed
+                        intents++
+                    }
+                }
+            }
+        }
+
         val count = literals.sumOf { old -> rename(old)?.let { bytecode.replaceAllStrings(old, it) } ?: 0 }
 
         // An authority also appears inside the content:// URI built around it, which a whole-string
@@ -78,9 +94,17 @@ val changePackageName = patch("Change package name") {
             rename(authority)?.let { "content://$it${rest.removePrefix(authority)}" }
         }
 
-        log.info("Renamed $original to $renamed across ${literals.size} names, $count literals and $uris content:// URIs")
+        log.info(
+            "Renamed $original to $renamed across ${literals.size} names, $count literals, " +
+                "$uris content:// URIs and $intents intents",
+        )
     }
 }
+
+private const val TARGET_PACKAGE = "android:targetPackage"
+
+// res/raw can hold text XML, which is not a compiled document; binary XML opens with RES_XML_TYPE.
+private fun ByteArray.isBinaryXml(): Boolean = size >= 2 && this[0] == 0x03.toByte() && this[1] == 0x00.toByte()
 
 private fun XmlElement.descendants(): Sequence<XmlElement> =
     sequenceOf(this) + children.asSequence().flatMap { it.descendants() }
