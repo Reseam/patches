@@ -4,76 +4,25 @@
 package app.reseam.telegram.settings;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
 
 import app.reseam.runtime.settings.ReseamSettings;
-import org.telegram.ui.Cells.HeaderCell;
-import org.telegram.ui.Cells.TextCheckCell;
+import app.reseam.runtime.settings.ReseamSettingsScreen;
 
 public final class TelegramReseamSettingsActivity extends Activity {
-    private static final class Toggle {
-        final String key;
-        final String title;
-        final String summary;
-        final boolean defaultValue;
-        Toggle(String key, String title, String summary, boolean defaultValue) {
-            this.key = key; this.title = title; this.summary = summary; this.defaultValue = defaultValue;
-        }
-    }
-
-    private static final Toggle[] TOGGLES = new Toggle[] {
-        new Toggle("ads.hide_sponsored", "Hide sponsored messages", null, true),
-        new Toggle("update.disable_auto_check", "Disable auto-update", null, true),
-        new Toggle("premium.unlock_client", "Unlock Premium",
-            "Server-checked features still need a real subscription.", true),
-        new Toggle("privacy.hide_typing", "Hide typing indicator", null, true),
-        new Toggle("privacy.save_from_restricted", "Save from restricted chats",
-            "Re-enables copy, save, and forward in chats with content protection on.", true),
-        new Toggle("downloads.boost", "Boost download speed", null, true),
-        new Toggle("privacy.recover_deleted", "Recover deleted messages",
-            "Keep messages others delete; they stay in the chat with a 🗑️ marker.", true),
-        new Toggle("privacy.allow_screenshots", "Allow screenshots in secret viewers",
-            "Disable FLAG_SECURE so you can screenshot or record view-once / self-destruct media.", true),
-    };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(android.R.style.Theme_DeviceDefault_NoActionBar);
         super.onCreate(savedInstanceState);
         ReseamSettings.init(this);
         setTitle("Reseam Settings");
+        setContentView(ReseamSettingsScreen.build(this));
+    }
 
-        LinearLayout root = new LinearLayout(this);
-        root.setOrientation(LinearLayout.VERTICAL);
-
-        HeaderCell header = new HeaderCell(this);
-        header.setText("Telegram tweaks");
-        root.addView(header, new LinearLayout.LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-
-        for (int i = 0; i < TOGGLES.length; i++) {
-            Toggle t = TOGGLES[i];
-            boolean isLast = i == TOGGLES.length - 1;
-            TextCheckCell cell = new TextCheckCell(this);
-            boolean checked = ReseamSettings.getBoolean(t.key, t.defaultValue);
-            if (t.summary != null) {
-                cell.setTextAndValueAndCheck(t.title, t.summary, checked, true, !isLast);
-            } else {
-                cell.setTextAndCheck(t.title, checked, !isLast);
-            }
-            cell.setOnClickListener(v -> {
-                boolean now = !((TextCheckCell) v).isChecked();
-                ((TextCheckCell) v).setChecked(now);
-                ReseamSettings.setBoolean(t.key, now);
-            });
-            root.addView(cell, new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        }
-
-        ScrollView scroll = new ScrollView(this);
-        scroll.addView(root);
-        setContentView(scroll);
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        ReseamSettingsScreen.onActivityResult(this, requestCode, resultCode, data);
     }
 }
