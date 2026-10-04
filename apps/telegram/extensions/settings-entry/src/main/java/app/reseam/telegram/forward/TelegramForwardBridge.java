@@ -9,7 +9,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import app.reseam.runtime.settings.ReseamSettings;
 import org.telegram.messenger.FileLoader;
 import org.telegram.messenger.MessageObject;
 import org.telegram.messenger.MessageSuggestionParams;
@@ -33,10 +32,8 @@ public final class TelegramForwardBridge {
             long payStars,
             long monoForumPeerId,
             MessageSuggestionParams suggestionParams) {
-        boolean settingOn = ReseamSettings.getBoolean("privacy.save_from_restricted", true);
         int size = messages == null ? -1 : messages.size();
-        Log.i(TAG, "tryFakeForward called: settingOn=" + settingOn + " size=" + size + " peer=" + peer);
-        if (!settingOn) return false;
+        Log.i(TAG, "tryFakeForward called: size=" + size + " peer=" + peer);
         if (messages == null || messages.isEmpty()) return false;
 
         Object first = messages.get(0);
@@ -95,7 +92,6 @@ public final class TelegramForwardBridge {
         if (params.path != null && !params.path.isEmpty()) return;
         if (params.photo == null && params.document == null) return;
         if (!(params.parentObject instanceof MessageObject)) return;
-        if (!ReseamSettings.getBoolean("privacy.save_from_restricted", true)) return;
 
         MessageObject m = (MessageObject) params.parentObject;
         if (m.messageOwner == null) return;

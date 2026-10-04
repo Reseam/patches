@@ -36,7 +36,7 @@ val forwardFromRestricted = patch("Forward from restricted chats") {
         // processForwardFromMyName leaves `path` unset for received media, which makes the
         // eventual messages.sendMedia reference a server-side media id the server rejects.
         // Pointing it at the local cache makes the send re-upload instead.
-        sendOneMessage.before {
+        sendOneMessage.before(TelegramSettings.saveFromRestricted) {
             call(TelegramForwardBridge.fixPathForNoForwards, param(0))
         }
     }
