@@ -38,24 +38,20 @@ val sponsorBlock = patch("SponsorBlock") {
         mainActivityOnCreate.after { call(SponsorBlock.attach, thisObject) }
         nativePlayerTypeSetter.before { call(SponsorBlock.playerView, thisObject) }
 
-        // onLayout first copies the full track bounds before applying the horizontal insets.
-        // Follow that receiver to its field; the class has several other Rects for progress.
-        val bounds = klass(seekbarOnDraw.owner).method("onLayout") {
-            params(Type.Boolean, Type.Int, Type.Int, Type.Int, Type.Int)
-        }.point("seekbar track layout") {
-            invokeVirtual { owner("android.graphics.Rect"); name("set"); params("android.graphics.Rect") }
-        }.writer(0).field()
-        val rect = seekbarOnDraw.reserveLocal("sponsorBlockBounds", "android.graphics.Rect")
-        seekbarOnDraw.before { local(rect).assign(thisObject.field(bounds)) }
+        // onDraw sets this Rect to the bar YouTube draws in this frame. Its height follows the
+        // controls' fade, so it is empty while the seekbar is hidden.
+        val bar = seekbarOnDraw.points("seekbar bar bounds") {
+            invokeVirtual { owner("android.graphics.Rect"); name("set"); params(Type.Int, Type.Int, Type.Int, Type.Int) }
+        }.all.first().writer(0).field()
+        val rect = seekbarOnDraw.reserveLocal("sponsorBlockBar", "android.graphics.Rect")
+        seekbarOnDraw.before { local(rect).assign(thisObject.field(bar)) }
         val thumb = seekbarOnDraw.points("seekbar circles") {
             invokeVirtual { owner("android.graphics.Canvas"); name("drawCircle")
                 params(Type.Float, Type.Float, Type.Float, "android.graphics.Paint") }
         }.all.last()
-        thumb.captureArgumentAs("canvas", 0, "android.graphics.Canvas")
-            .captureArgumentAs("centerY", 2, Type.Float)
-            .captureArgumentAs("radius", 3, Type.Float).before {
-                call(SponsorBlock.drawSegments, capture("canvas"), local(rect), capture("centerY"), capture("radius"))
-            }
+        thumb.captureArgumentAs("canvas", 0, "android.graphics.Canvas").before {
+            call(SponsorBlock.drawSegments, capture("canvas"), local(rect))
+        }
 
         val totalTime = resources.id("string", "total_time")?.toLong() ?: error("string/total_time is missing")
         method("player total time text") {
@@ -81,6 +77,6 @@ private object SponsorBlock : ExtClass("app.reseam.youtube.sponsorblock.SponsorB
     val newVideoLoaded = static("newVideoLoaded", Type.String)
     val setVideoTime = static("setVideoTime", Type.Long)
     val setAdVisibility = static("setAdVisibility", Type.Int)
-    val drawSegments = static("drawSegments", "android.graphics.Canvas", "android.graphics.Rect", Type.Float, Type.Float)
+    val drawSegments = static("drawSegments", "android.graphics.Canvas", "android.graphics.Rect")
     val appendTime = static("appendTime", Type.String, returns = Type.String)
 }

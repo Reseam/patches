@@ -268,17 +268,16 @@ public final class SponsorBlock {
         catch (NumberFormatException ignored) { return 0; }
     }
 
-    public static void drawSegments(Canvas canvas, Rect bounds, float centerY, float radius) {
-        if (!active() || bounds == null || bounds.width() <= 0) return;
+    public static void drawSegments(Canvas canvas, Rect bar) {
+        if (!active() || bar == null || bar.isEmpty()) return;
         long length = VideoInformation.getVideoLength();
         if (length <= 0) return;
-        float halfHeight = Math.max(2, radius / 3);
         for (Segment segment : segments) {
             if (segment.ignored()) continue;
-            float left = bounds.left + bounds.width() * Math.min(1f, (float) segment.start / length);
-            float right = bounds.left + bounds.width() * Math.min(1f, (float) segment.end / length);
+            float left = bar.left + bar.width() * Math.min(1f, (float) segment.start / length);
+            float right = bar.left + bar.width() * Math.min(1f, (float) segment.end / length);
             PAINT.setColor(segment.category.color());
-            canvas.drawRect(left, centerY - halfHeight, Math.max(left + 2, right), centerY + halfHeight, PAINT);
+            canvas.drawRect(left, bar.top, Math.max(left + 2, right), bar.bottom, PAINT);
         }
     }
 
