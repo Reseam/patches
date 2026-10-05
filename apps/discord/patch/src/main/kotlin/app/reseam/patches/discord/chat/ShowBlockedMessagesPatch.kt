@@ -5,7 +5,7 @@ package app.reseam.patches.discord.chat
 
 import app.reseam.patch.function
 import app.reseam.patch.patch
-import app.reseam.patch.settings.returnFalseWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
@@ -18,7 +18,9 @@ val showBlockedMessages = patch("Show blocked messages") {
     settings(discordSettings, section("Chat", DiscordSettings.showBlockedMessages))
 
     execute {
-        isBlockedForMessage.returnFalseWhen(DiscordSettings.showBlockedMessages)
+        gate(DiscordSettings.showBlockedMessages) {
+            isBlockedForMessage.alwaysReturn(false)
+        }
     }
 }
 

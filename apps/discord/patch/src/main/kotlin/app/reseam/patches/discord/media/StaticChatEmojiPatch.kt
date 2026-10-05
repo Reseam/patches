@@ -4,8 +4,8 @@
 package app.reseam.patches.discord.media
 
 import app.reseam.patch.patch
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.setArgumentWhen
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
 import app.reseam.patches.discord.core.createMessageContent
@@ -18,7 +18,9 @@ val staticChatEmoji = patch("Static chat emoji") {
     settings(discordSettings, section("Media", DiscordSettings.staticChatEmoji))
 
     execute {
-        createMessageContent.setArgumentWhen(DiscordSettings.staticChatEmoji, 0, "options.animateEmoji", false)
+        gate(DiscordSettings.staticChatEmoji) {
+            createMessageContent.setArgument(0, "options.animateEmoji", false)
+        }
     }
 }
 

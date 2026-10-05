@@ -5,8 +5,8 @@ package app.reseam.patches.discord.chat
 
 import app.reseam.patch.function
 import app.reseam.patch.patch
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.wrapWhen
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
 import app.reseam.patches.discord.core.discordSettings
@@ -19,7 +19,9 @@ val localEditHistory = patch("Local edit history") {
     settings(discordSettings, section("Chat", DiscordSettings.localEditHistory))
 
     execute {
-        updateMessageRecord.wrapWhen(DiscordSettings.localEditHistory, MessageHistory.updateMessageRecord)
+        gate(DiscordSettings.localEditHistory) {
+            updateMessageRecord.wrap(MessageHistory.updateMessageRecord)
+        }
     }
 }
 

@@ -4,8 +4,8 @@
 package app.reseam.patches.discord.layout
 
 import app.reseam.patch.patch
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.setArgumentWhen
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
 import app.reseam.patches.discord.core.createMessageContent
@@ -18,7 +18,9 @@ val hideReactions = patch("Hide reactions") {
     settings(discordSettings, section("Layout", DiscordSettings.hideReactions))
 
     execute {
-        createMessageContent.setArgumentWhen(DiscordSettings.hideReactions, 0, "options.renderReactions", false)
+        gate(DiscordSettings.hideReactions) {
+            createMessageContent.setArgument(0, "options.renderReactions", false)
+        }
     }
 }
 

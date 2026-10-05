@@ -19,12 +19,8 @@ exports.returnNullWhen = function (key, defaultValue, original, ...args) {
     return isEnabled(key, defaultValue) ? null : original(...args);
 };
 
-exports.returnTrueWhen = function (key, defaultValue, original, ...args) {
-    return isEnabled(key, defaultValue) ? true : original(...args);
-};
-
-exports.returnFalseWhen = function (key, defaultValue, original, ...args) {
-    return isEnabled(key, defaultValue) ? false : original(...args);
+exports.returnWhen = function (key, defaultValue, value, original, ...args) {
+    return isEnabled(key, defaultValue) ? value : original(...args);
 };
 
 exports.wrapWhen = function (key, defaultValue, wrapper, original, ...args) {

@@ -4,8 +4,8 @@
 package app.reseam.patches.discord.layout
 
 import app.reseam.patch.patch
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.setArgumentWhen
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
 import app.reseam.patches.discord.core.createMessageContent
@@ -18,7 +18,9 @@ val hideReplyPreviews = patch("Hide reply previews") {
     settings(discordSettings, section("Layout", DiscordSettings.hideReplyPreviews))
 
     execute {
-        createMessageContent.setArgumentWhen(DiscordSettings.hideReplyPreviews, 0, "options.renderReplies", false)
+        gate(DiscordSettings.hideReplyPreviews) {
+            createMessageContent.setArgument(0, "options.renderReplies", false)
+        }
     }
 }
 

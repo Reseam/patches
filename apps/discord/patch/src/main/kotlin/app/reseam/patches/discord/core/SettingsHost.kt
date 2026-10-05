@@ -11,6 +11,7 @@ import app.reseam.patch.function
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.settings.settingsHost
+import app.reseam.patch.wrap
 
 private const val SETTINGS_ACTIVITY = "app.reseam.discord.settings.DiscordReseamSettingsActivity"
 
@@ -33,8 +34,8 @@ val discordSettings = settingsHost("discord") {
 }
 
 private object SettingsRow : ExtJsModule("discord-settings-row") {
-    val settingRows = export("settingRows")
-    val settingsList = export("settingsList")
+    val settingRows by export()
+    val settingsList by export()
 }
 
 /** The module that defines every row in Discord's settings, keyed by setting. */

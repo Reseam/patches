@@ -5,8 +5,8 @@ package app.reseam.patches.discord.privacy
 
 import app.reseam.patch.function
 import app.reseam.patch.patch
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.skipWhen
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
 import app.reseam.patches.discord.core.discordSettings
@@ -17,7 +17,9 @@ val blockAnalytics = patch("Block analytics") {
     settings(discordSettings, section("Privacy", DiscordSettings.blockAnalytics))
 
     execute {
-        handleTrack.skipWhen(DiscordSettings.blockAnalytics)
+        gate(DiscordSettings.blockAnalytics) {
+            handleTrack.alwaysReturn()
+        }
     }
 }
 

@@ -6,8 +6,8 @@ package app.reseam.patches.discord.chat
 import app.reseam.patch.ExtJsModule
 import app.reseam.patch.function
 import app.reseam.patch.patch
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.wrapWhen
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
 import app.reseam.patches.discord.core.discordSettings
@@ -19,12 +19,14 @@ val cleanOutgoingLinks = patch("Clean outgoing links") {
     settings(discordSettings, section("Chat", DiscordSettings.cleanOutgoingLinks))
 
     execute {
-        sendMessage.wrapWhen(DiscordSettings.cleanOutgoingLinks, CleanOutgoingLinks.sendMessage)
+        gate(DiscordSettings.cleanOutgoingLinks) {
+            sendMessage.wrap(CleanOutgoingLinks.sendMessage)
+        }
     }
 }
 
 private object CleanOutgoingLinks : ExtJsModule("discord-clean-links") {
-    val sendMessage = export("sendMessage")
+    val sendMessage by export()
 }
 
 private val sendMessage = function {

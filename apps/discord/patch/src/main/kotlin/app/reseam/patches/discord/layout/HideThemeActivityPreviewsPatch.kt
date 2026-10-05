@@ -5,7 +5,7 @@ package app.reseam.patches.discord.layout
 
 import app.reseam.patch.function
 import app.reseam.patch.patch
-import app.reseam.patch.settings.returnNullWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
@@ -17,7 +17,9 @@ val hideThemeActivityPreviews = patch("Hide theme activity previews") {
     settings(discordSettings, section("Layout", DiscordSettings.hideThemeActivityPreviews))
 
     execute {
-        activityCardsItem.returnNullWhen(DiscordSettings.hideThemeActivityPreviews)
+        gate(DiscordSettings.hideThemeActivityPreviews) {
+            activityCardsItem.alwaysReturnNull()
+        }
     }
 }
 

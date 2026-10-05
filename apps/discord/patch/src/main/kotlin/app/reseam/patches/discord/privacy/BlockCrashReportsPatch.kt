@@ -7,7 +7,7 @@ import app.reseam.patch.Type
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.returnTrueWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
@@ -19,7 +19,9 @@ val blockCrashReports = patch("Block crash reports") {
     settings(discordSettings, section("Privacy", DiscordSettings.blockCrashReports))
 
     execute {
-        isDisabled.returnTrueWhen(DiscordSettings.blockCrashReports)
+        gate(DiscordSettings.blockCrashReports) {
+            isDisabled.alwaysReturn(true)
+        }
     }
 }
 

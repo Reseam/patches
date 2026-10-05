@@ -5,8 +5,8 @@ package app.reseam.patches.discord.layout
 
 import app.reseam.patch.ExtJsModule
 import app.reseam.patch.patch
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.wrapWhen
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
 import app.reseam.patches.discord.core.createMessageContent
@@ -19,10 +19,12 @@ val hideLinkCards = patch("Hide link cards") {
     settings(discordSettings, section("Layout", DiscordSettings.hideLinkCards))
 
     execute {
-        createMessageContent.wrapWhen(DiscordSettings.hideLinkCards, HideLinkCards.createMessageContent)
+        gate(DiscordSettings.hideLinkCards) {
+            createMessageContent.wrap(HideLinkCards.createMessageContent)
+        }
     }
 }
 
 private object HideLinkCards : ExtJsModule("discord-link-cards") {
-    val createMessageContent = export("createMessageContent")
+    val createMessageContent by export()
 }

@@ -5,8 +5,8 @@ package app.reseam.patches.discord.chat
 
 import app.reseam.patch.function
 import app.reseam.patch.patch
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.wrapWhen
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
 import app.reseam.patches.discord.core.discordSettings
@@ -19,8 +19,10 @@ val keepDeletedMessages = patch("Keep deleted messages") {
     settings(discordSettings, section("Chat", DiscordSettings.keepDeletedMessages))
 
     execute {
-        handleMessageDelete.wrapWhen(DiscordSettings.keepDeletedMessages, MessageHistory.handleMessageDelete)
-        handleMessageDeleteBulk.wrapWhen(DiscordSettings.keepDeletedMessages, MessageHistory.handleMessageDeleteBulk)
+        gate(DiscordSettings.keepDeletedMessages) {
+            handleMessageDelete.wrap(MessageHistory.handleMessageDelete)
+            handleMessageDeleteBulk.wrap(MessageHistory.handleMessageDeleteBulk)
+        }
     }
 }
 

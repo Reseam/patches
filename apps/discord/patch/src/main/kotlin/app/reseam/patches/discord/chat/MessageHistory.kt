@@ -6,6 +6,7 @@ package app.reseam.patches.discord.chat
 import app.reseam.patch.ExtJsModule
 import app.reseam.patch.function
 import app.reseam.patch.patch
+import app.reseam.patch.wrap
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.createMessageContent
 
@@ -22,13 +23,13 @@ internal val messageHistory = patch {
 }
 
 internal object MessageHistory : ExtJsModule("discord-message-history") {
-    val getOrCreate = export("getOrCreate")
-    val commit = export("commit")
-    val createMessageContent = export("createMessageContent")
-    val _dispatch = export("_dispatch")
-    val handleMessageDelete = export("handleMessageDelete")
-    val handleMessageDeleteBulk = export("handleMessageDeleteBulk")
-    val updateMessageRecord = export("updateMessageRecord")
+    val getOrCreate by export()
+    val commit by export()
+    val createMessageContent by export()
+    val _dispatch by export()
+    val handleMessageDelete by export()
+    val handleMessageDeleteBulk by export()
+    val updateMessageRecord by export()
 }
 
 private val getOrCreate = function {

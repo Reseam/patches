@@ -6,11 +6,8 @@ package app.reseam.patches.discord.premium
 import app.reseam.patch.ExtJsModule
 import app.reseam.patch.function
 import app.reseam.patch.patch
-import app.reseam.patch.settings.returnFalseWhen
-import app.reseam.patch.settings.returnTrueWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.setArgumentWhen
-import app.reseam.patch.settings.wrapWhen
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
 import app.reseam.patches.discord.core.discordSettings
@@ -21,17 +18,19 @@ val localThemes = patch("Local themes") {
     settings(discordSettings, section("Nitro", DiscordSettings.localThemes))
 
     execute {
-        canUseClientThemes.returnTrueWhen(DiscordSettings.localThemes)
-        isPreview.returnFalseWhen(DiscordSettings.localThemes)
-        initialize.setArgumentWhen(DiscordSettings.localThemes, 0, "canUseClientThemes", true)
-        themePicker.wrapWhen(DiscordSettings.localThemes, LocalThemes.ThemePicker)
-        shouldSync.wrapWhen(DiscordSettings.localThemes, LocalThemes.shouldSync)
+        gate(DiscordSettings.localThemes) {
+            canUseClientThemes.alwaysReturn(true)
+            isPreview.alwaysReturn(false)
+            initialize.setArgument(0, "canUseClientThemes", true)
+            themePicker.wrap(LocalThemes.ThemePicker)
+            shouldSync.wrap(LocalThemes.shouldSync)
+        }
     }
 }
 
 private object LocalThemes : ExtJsModule("discord-local-themes") {
-    val ThemePicker = export("ThemePicker")
-    val shouldSync = export("shouldSync")
+    val ThemePicker by export()
+    val shouldSync by export()
 }
 
 private val canUseClientThemes = function {

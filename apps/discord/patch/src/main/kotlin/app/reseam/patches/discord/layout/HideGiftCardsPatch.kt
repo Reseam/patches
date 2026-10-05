@@ -4,8 +4,8 @@
 package app.reseam.patches.discord.layout
 
 import app.reseam.patch.patch
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.setArgumentWhen
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
 import app.reseam.patches.discord.core.createMessageContent
@@ -17,7 +17,9 @@ val hideGiftCards = patch("Hide gift cards") {
     settings(discordSettings, section("Layout", DiscordSettings.hideGiftCards))
 
     execute {
-        createMessageContent.setArgumentWhen(DiscordSettings.hideGiftCards, 0, "options.renderGiftCode", false)
+        gate(DiscordSettings.hideGiftCards) {
+            createMessageContent.setArgument(0, "options.renderGiftCode", false)
+        }
     }
 }
 

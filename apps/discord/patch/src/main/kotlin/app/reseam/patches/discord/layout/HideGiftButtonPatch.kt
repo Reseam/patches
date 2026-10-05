@@ -5,7 +5,7 @@ package app.reseam.patches.discord.layout
 
 import app.reseam.patch.function
 import app.reseam.patch.patch
-import app.reseam.patch.settings.returnNullWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
@@ -17,7 +17,9 @@ val hideGiftButton = patch("Hide gift button") {
     settings(discordSettings, section("Layout", DiscordSettings.hideGiftButton))
 
     execute {
-        chatInputActionButtonGift.returnNullWhen(DiscordSettings.hideGiftButton)
+        gate(DiscordSettings.hideGiftButton) {
+            chatInputActionButtonGift.alwaysReturnNull()
+        }
     }
 }
 

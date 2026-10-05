@@ -5,10 +5,8 @@ package app.reseam.patches.discord.chat
 
 import app.reseam.patch.function
 import app.reseam.patch.patch
-import app.reseam.patch.settings.returnFalseWhen
-import app.reseam.patch.settings.returnTrueWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.setArgumentWhen
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
 import app.reseam.patches.discord.core.createMessageContent
@@ -21,9 +19,11 @@ val revealSpoilers = patch("Reveal spoilers") {
     settings(discordSettings, section("Chat", DiscordSettings.revealSpoilers))
 
     execute {
-        computeGlobalSpoilerDisplay.returnTrueWhen(DiscordSettings.revealSpoilers)
-        useShouldDisplaySpoilerObscurity.returnFalseWhen(DiscordSettings.revealSpoilers)
-        createMessageContent.setArgumentWhen(DiscordSettings.revealSpoilers, 0, "options.shouldObscureSpoiler", false)
+        gate(DiscordSettings.revealSpoilers) {
+            computeGlobalSpoilerDisplay.alwaysReturn(true)
+            useShouldDisplaySpoilerObscurity.alwaysReturn(false)
+            createMessageContent.setArgument(0, "options.shouldObscureSpoiler", false)
+        }
     }
 }
 

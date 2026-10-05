@@ -5,7 +5,7 @@ package app.reseam.patches.discord.media
 
 import app.reseam.patch.function
 import app.reseam.patch.patch
-import app.reseam.patch.settings.returnNullWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
@@ -17,7 +17,9 @@ val quietSuperReactions = patch("Quiet Super Reactions") {
     settings(discordSettings, section("Media", DiscordSettings.quietSuperReactions))
 
     execute {
-        superReactionLocalImageAnimation.returnNullWhen(DiscordSettings.quietSuperReactions)
+        gate(DiscordSettings.quietSuperReactions) {
+            superReactionLocalImageAnimation.alwaysReturnNull()
+        }
     }
 }
 

@@ -5,7 +5,7 @@ package app.reseam.patches.discord.layout
 
 import app.reseam.patch.function
 import app.reseam.patch.patch
-import app.reseam.patch.settings.returnNullWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
@@ -17,7 +17,9 @@ val hideNitroButtons = patch("Hide Nitro buttons") {
     settings(discordSettings, section("Layout", DiscordSettings.hideNitroButtons))
 
     execute {
-        premiumFeatureUpsellPill.returnNullWhen(DiscordSettings.hideNitroButtons)
+        gate(DiscordSettings.hideNitroButtons) {
+            premiumFeatureUpsellPill.alwaysReturnNull()
+        }
     }
 }
 

@@ -7,7 +7,7 @@ import app.reseam.patch.Type
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.before
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
@@ -20,7 +20,9 @@ val disableMessageSwipes = patch("Disable message swipes") {
     settings(discordSettings, section("Chat", DiscordSettings.disableMessageSwipes))
 
     execute {
-        movementFlags.before(DiscordSettings.disableMessageSwipes) { returnValue(int(0)) }
+        gate(DiscordSettings.disableMessageSwipes) {
+            movementFlags.before { returnValue(int(0)) }
+        }
     }
 }
 

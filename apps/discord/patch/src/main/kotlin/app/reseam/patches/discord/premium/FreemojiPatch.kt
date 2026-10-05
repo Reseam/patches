@@ -6,8 +6,8 @@ package app.reseam.patches.discord.premium
 import app.reseam.patch.ExtJsModule
 import app.reseam.patch.function
 import app.reseam.patch.patch
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.wrapWhen
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
 import app.reseam.patches.discord.core.discordSettings
@@ -18,18 +18,20 @@ val freemoji = patch("Freemoji") {
     settings(discordSettings, section("Nitro", DiscordSettings.freemoji))
 
     execute {
-        canUseEmojisEverywhere.wrapWhen(DiscordSettings.freemoji, Freemoji.canUseEmojisEverywhere)
-        canUseAnimatedEmojis.wrapWhen(DiscordSettings.freemoji, Freemoji.canUseAnimatedEmojis)
-        getEmojiUnavailableReason.wrapWhen(DiscordSettings.freemoji, Freemoji.getEmojiUnavailableReason)
-        parseMessage.wrapWhen(DiscordSettings.freemoji, Freemoji.parse)
+        gate(DiscordSettings.freemoji) {
+            canUseEmojisEverywhere.wrap(Freemoji.canUseEmojisEverywhere)
+            canUseAnimatedEmojis.wrap(Freemoji.canUseAnimatedEmojis)
+            getEmojiUnavailableReason.wrap(Freemoji.getEmojiUnavailableReason)
+            parseMessage.wrap(Freemoji.parse)
+        }
     }
 }
 
 private object Freemoji : ExtJsModule("discord-freemoji") {
-    val canUseEmojisEverywhere = export("canUseEmojisEverywhere")
-    val canUseAnimatedEmojis = export("canUseAnimatedEmojis")
-    val getEmojiUnavailableReason = export("getEmojiUnavailableReason")
-    val parse = export("parse")
+    val canUseEmojisEverywhere by export()
+    val canUseAnimatedEmojis by export()
+    val getEmojiUnavailableReason by export()
+    val parse by export()
 }
 
 private val canUseEmojisEverywhere = function {

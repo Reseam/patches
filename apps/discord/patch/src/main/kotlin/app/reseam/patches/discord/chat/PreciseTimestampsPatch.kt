@@ -5,8 +5,8 @@ package app.reseam.patches.discord.chat
 
 import app.reseam.patch.ExtJsModule
 import app.reseam.patch.patch
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.wrapWhen
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
 import app.reseam.patches.discord.core.createMessageContent
@@ -19,10 +19,12 @@ val preciseTimestamps = patch("Precise timestamps") {
     settings(discordSettings, section("Chat", DiscordSettings.preciseTimestamps))
 
     execute {
-        createMessageContent.wrapWhen(DiscordSettings.preciseTimestamps, PreciseTimestamps.createMessageContent)
+        gate(DiscordSettings.preciseTimestamps) {
+            createMessageContent.wrap(PreciseTimestamps.createMessageContent)
+        }
     }
 }
 
 private object PreciseTimestamps : ExtJsModule("discord-timestamps") {
-    val createMessageContent = export("createMessageContent")
+    val createMessageContent by export()
 }

@@ -6,10 +6,8 @@ package app.reseam.patches.discord.layout
 import app.reseam.patch.ExtJsModule
 import app.reseam.patch.function
 import app.reseam.patch.patch
-import app.reseam.patch.settings.returnFalseWhen
-import app.reseam.patch.settings.returnNullWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.wrapWhen
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
 import app.reseam.patches.discord.core.discordSettings
@@ -20,20 +18,22 @@ val hideQuests = patch("Hide quests") {
     settings(discordSettings, section("Layout", DiscordSettings.hideQuests))
 
     execute {
-        questDock.returnNullWhen(DiscordSettings.hideQuests)
-        questActivityButton.returnNullWhen(DiscordSettings.hideQuests)
-        questsSettingVisible.returnFalseWhen(DiscordSettings.hideQuests)
-        useIsMobileQuestDockRenderedBase.returnFalseWhen(DiscordSettings.hideQuests)
-        useMobileQuestDockHeight.wrapWhen(DiscordSettings.hideQuests, HideQuests.useMobileQuestDockHeight)
-        profileActions.wrapWhen(DiscordSettings.hideQuests, HideQuests.profileActions)
-        getIsEligibleForQuests.wrapWhen(DiscordSettings.hideQuests, HideQuests.getIsEligibleForQuests)
+        gate(DiscordSettings.hideQuests) {
+            questDock.alwaysReturnNull()
+            questActivityButton.alwaysReturnNull()
+            questsSettingVisible.alwaysReturn(false)
+            useIsMobileQuestDockRenderedBase.alwaysReturn(false)
+            useMobileQuestDockHeight.wrap(HideQuests.useMobileQuestDockHeight)
+            profileActions.wrap(HideQuests.profileActions)
+            getIsEligibleForQuests.wrap(HideQuests.getIsEligibleForQuests)
+        }
     }
 }
 
 private object HideQuests : ExtJsModule("discord-quests") {
-    val useMobileQuestDockHeight = export("useMobileQuestDockHeight")
-    val profileActions = export("profileActions")
-    val getIsEligibleForQuests = export("getIsEligibleForQuests")
+    val useMobileQuestDockHeight by export()
+    val profileActions by export()
+    val getIsEligibleForQuests by export()
 }
 
 private val questDock = function {

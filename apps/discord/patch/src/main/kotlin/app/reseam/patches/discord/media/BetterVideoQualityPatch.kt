@@ -5,7 +5,7 @@ package app.reseam.patches.discord.media
 
 import app.reseam.patch.function
 import app.reseam.patch.patch
-import app.reseam.patch.settings.returnTrueWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
@@ -18,7 +18,9 @@ val betterVideoQuality = patch("Better video quality") {
     settings(discordSettings, section("Media", DiscordSettings.betterVideoQuality))
 
     execute {
-        canUseHighVideoUploadQuality.returnTrueWhen(DiscordSettings.betterVideoQuality)
+        gate(DiscordSettings.betterVideoQuality) {
+            canUseHighVideoUploadQuality.alwaysReturn(true)
+        }
     }
 }
 

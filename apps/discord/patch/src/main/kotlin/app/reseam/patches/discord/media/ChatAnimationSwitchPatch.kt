@@ -6,8 +6,8 @@ package app.reseam.patches.discord.media
 import app.reseam.patch.ExtJsModule
 import app.reseam.patch.function
 import app.reseam.patch.patch
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.wrapWhen
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
 import app.reseam.patches.discord.core.createMessageContent
@@ -20,14 +20,16 @@ val chatAnimationSwitch = patch("Chat animation switch") {
     settings(discordSettings, section("Media", DiscordSettings.chatAnimationSwitch))
 
     execute {
-        gifAutoplayTitle.wrapWhen(DiscordSettings.chatAnimationSwitch, ChatAnimationSwitch.useTitle)
-        createMessageContent.wrapWhen(DiscordSettings.chatAnimationSwitch, ChatAnimationSwitch.createMessageContent)
+        gate(DiscordSettings.chatAnimationSwitch) {
+            gifAutoplayTitle.wrap(ChatAnimationSwitch.useTitle)
+            createMessageContent.wrap(ChatAnimationSwitch.createMessageContent)
+        }
     }
 }
 
 private object ChatAnimationSwitch : ExtJsModule("discord-animation-switch") {
-    val useTitle = export("useTitle")
-    val createMessageContent = export("createMessageContent")
+    val useTitle by export()
+    val createMessageContent by export()
 }
 
 private val gifAutoplayTitle = function {

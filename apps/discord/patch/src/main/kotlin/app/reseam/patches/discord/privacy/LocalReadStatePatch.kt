@@ -6,8 +6,8 @@ package app.reseam.patches.discord.privacy
 import app.reseam.patch.ExtJsModule
 import app.reseam.patch.function
 import app.reseam.patch.patch
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.wrapWhen
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
 import app.reseam.patches.discord.core.discordSettings
@@ -19,14 +19,16 @@ val localReadState = patch("Local read state") {
     settings(discordSettings, section("Privacy", DiscordSettings.localReadState))
 
     execute {
-        ack.wrapWhen(DiscordSettings.localReadState, LocalReadState.ack)
-        handleBulkAck.wrapWhen(DiscordSettings.localReadState, LocalReadState.handleBulkAck)
+        gate(DiscordSettings.localReadState) {
+            ack.wrap(LocalReadState.ack)
+            handleBulkAck.wrap(LocalReadState.handleBulkAck)
+        }
     }
 }
 
 private object LocalReadState : ExtJsModule("discord-read-state") {
-    val ack = export("ack")
-    val handleBulkAck = export("handleBulkAck")
+    val ack by export()
+    val handleBulkAck by export()
 }
 
 private val ack = function {

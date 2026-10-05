@@ -6,8 +6,8 @@ package app.reseam.patches.discord.premium
 import app.reseam.patch.ExtJsModule
 import app.reseam.patch.function
 import app.reseam.patch.patch
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.wrapWhen
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
 import app.reseam.patches.discord.core.discordSettings
@@ -18,16 +18,18 @@ val premiumAppIcons = patch("Premium app icons") {
     settings(discordSettings, section("Nitro", DiscordSettings.premiumAppIcons))
 
     execute {
-        getOfficialAlternateIcons.wrapWhen(DiscordSettings.premiumAppIcons, PremiumAppIcons.getOfficialAlternateIcons)
-        getLimitedAlternateIcons.wrapWhen(DiscordSettings.premiumAppIcons, PremiumAppIcons.getLimitedAlternateIcons)
-        getIconById.wrapWhen(DiscordSettings.premiumAppIcons, PremiumAppIcons.getIconById)
+        gate(DiscordSettings.premiumAppIcons) {
+            getOfficialAlternateIcons.wrap(PremiumAppIcons.getOfficialAlternateIcons)
+            getLimitedAlternateIcons.wrap(PremiumAppIcons.getLimitedAlternateIcons)
+            getIconById.wrap(PremiumAppIcons.getIconById)
+        }
     }
 }
 
 private object PremiumAppIcons : ExtJsModule("discord-app-icons") {
-    val getOfficialAlternateIcons = export("getOfficialAlternateIcons")
-    val getLimitedAlternateIcons = export("getLimitedAlternateIcons")
-    val getIconById = export("getIconById")
+    val getOfficialAlternateIcons by export()
+    val getLimitedAlternateIcons by export()
+    val getIconById by export()
 }
 
 private val getOfficialAlternateIcons = function {

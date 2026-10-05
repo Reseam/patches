@@ -7,7 +7,7 @@ import app.reseam.patch.Type
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.before
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
@@ -20,7 +20,9 @@ val instantChatJumps = patch("Instant chat jumps") {
     settings(discordSettings, section("Chat", DiscordSettings.instantChatJumps))
 
     execute {
-        scrollToPosition.before(DiscordSettings.instantChatJumps) { param(2).assign(bool(false)) }
+        gate(DiscordSettings.instantChatJumps) {
+            scrollToPosition.before { param(2).assign(bool(false)) }
+        }
     }
 }
 

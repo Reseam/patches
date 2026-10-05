@@ -5,9 +5,8 @@ package app.reseam.patches.discord.privacy
 
 import app.reseam.patch.function
 import app.reseam.patch.patch
-import app.reseam.patch.settings.returnFalseWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.skipWhen
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
 import app.reseam.patches.discord.core.discordSettings
@@ -18,8 +17,10 @@ val hideTypingIndicator = patch("Hide typing indicator") {
     settings(discordSettings, section("Privacy", DiscordSettings.hideTypingIndicator))
 
     execute {
-        handleTypingStartLocal.returnFalseWhen(DiscordSettings.hideTypingIndicator)
-        sendTyping.skipWhen(DiscordSettings.hideTypingIndicator)
+        gate(DiscordSettings.hideTypingIndicator) {
+            handleTypingStartLocal.alwaysReturn(false)
+            sendTyping.alwaysReturn()
+        }
     }
 }
 

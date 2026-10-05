@@ -5,7 +5,7 @@ package app.reseam.patches.discord.chat
 
 import app.reseam.patch.function
 import app.reseam.patch.patch
-import app.reseam.patch.settings.returnTrueWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
@@ -18,7 +18,9 @@ val skipMaskedLinkWarnings = patch("Skip masked link warnings") {
     settings(discordSettings, section("Chat", DiscordSettings.skipMaskedLinkWarnings))
 
     execute {
-        isLinkTrusted.returnTrueWhen(DiscordSettings.skipMaskedLinkWarnings)
+        gate(DiscordSettings.skipMaskedLinkWarnings) {
+            isLinkTrusted.alwaysReturn(true)
+        }
     }
 }
 

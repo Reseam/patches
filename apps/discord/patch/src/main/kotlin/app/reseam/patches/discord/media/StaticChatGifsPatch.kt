@@ -4,8 +4,8 @@
 package app.reseam.patches.discord.media
 
 import app.reseam.patch.patch
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.setArgumentWhen
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
 import app.reseam.patches.discord.core.createMessageContent
@@ -18,7 +18,9 @@ val staticChatGifs = patch("Static chat GIFs") {
     settings(discordSettings, section("Media", DiscordSettings.staticChatGifs))
 
     execute {
-        createMessageContent.setArgumentWhen(DiscordSettings.staticChatGifs, 0, "options.gifAutoPlay", false)
+        gate(DiscordSettings.staticChatGifs) {
+            createMessageContent.setArgument(0, "options.gifAutoPlay", false)
+        }
     }
 }
 

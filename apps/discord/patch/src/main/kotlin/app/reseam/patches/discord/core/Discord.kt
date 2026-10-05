@@ -11,6 +11,6 @@ import app.reseam.patch.invoke
 val DISCORD: CompatiblePackage = "com.discord"("347.12 - Stable")
 
 object DiscordSettingsEntry : ExtClass("app.reseam.discord.settings.DiscordSettingsEntry") {
-    val init = static("init", Type.Context)
-    val addReactPackage = static("addReactPackage", Type.List)
+    val init by static(Type.Context)
+    val addReactPackage by static(Type.List)
 }

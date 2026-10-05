@@ -4,8 +4,8 @@
 package app.reseam.patches.discord.layout
 
 import app.reseam.patch.patch
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.setArgumentWhen
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
 import app.reseam.patches.discord.core.createMessageContent
@@ -17,8 +17,10 @@ val hideActivityInvites = patch("Hide activity invites") {
     settings(discordSettings, section("Layout", DiscordSettings.hideActivityInvites))
 
     execute {
-        createMessageContent.setArgumentWhen(DiscordSettings.hideActivityInvites, 0, "options.renderActivityInstanceEmbed", false)
-        createMessageContent.setArgumentWhen(DiscordSettings.hideActivityInvites, 0, "options.renderActivityInviteEmbed", false)
+        gate(DiscordSettings.hideActivityInvites) {
+            createMessageContent.setArgument(0, "options.renderActivityInstanceEmbed", false)
+            createMessageContent.setArgument(0, "options.renderActivityInviteEmbed", false)
+        }
     }
 }
 

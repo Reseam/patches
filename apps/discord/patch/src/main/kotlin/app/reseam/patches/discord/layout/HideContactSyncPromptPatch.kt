@@ -5,7 +5,7 @@ package app.reseam.patches.discord.layout
 
 import app.reseam.patch.function
 import app.reseam.patch.patch
-import app.reseam.patch.settings.returnNullWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
@@ -17,7 +17,9 @@ val hideContactSyncPrompt = patch("Hide contact sync prompt") {
     settings(discordSettings, section("Layout", DiscordSettings.hideContactSyncPrompt))
 
     execute {
-        contactSyncUpsellCta.returnNullWhen(DiscordSettings.hideContactSyncPrompt)
+        gate(DiscordSettings.hideContactSyncPrompt) {
+            contactSyncUpsellCta.alwaysReturnNull()
+        }
     }
 }
 

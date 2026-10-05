@@ -5,7 +5,7 @@ package app.reseam.patches.discord.media
 
 import app.reseam.patch.function
 import app.reseam.patch.patch
-import app.reseam.patch.settings.returnFalseWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
@@ -18,7 +18,9 @@ val staticStickers = patch("Static stickers") {
     settings(discordSettings, section("Media", DiscordSettings.staticStickers))
 
     execute {
-        shouldAnimateSticker.returnFalseWhen(DiscordSettings.staticStickers)
+        gate(DiscordSettings.staticStickers) {
+            shouldAnimateSticker.alwaysReturn(false)
+        }
     }
 }
 

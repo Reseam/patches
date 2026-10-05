@@ -6,9 +6,8 @@ package app.reseam.patches.discord.layout
 import app.reseam.patch.ExtJsModule
 import app.reseam.patch.function
 import app.reseam.patch.patch
-import app.reseam.patch.settings.returnNullWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.wrapWhen
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.DiscordSettings
 import app.reseam.patches.discord.core.discordSettings
@@ -19,15 +18,17 @@ val hideShopEntry = patch("Hide shop entry") {
     settings(discordSettings, section("Layout", DiscordSettings.hideShopEntry))
 
     execute {
-        shopEntryButton.returnNullWhen(DiscordSettings.hideShopEntry)
-        nitroCard.wrapWhen(DiscordSettings.hideShopEntry, HideShopEntry.nitroCard)
-        createRoute.wrapWhen(DiscordSettings.hideShopEntry, HideShopEntry.createRoute)
+        gate(DiscordSettings.hideShopEntry) {
+            shopEntryButton.alwaysReturnNull()
+            nitroCard.wrap(HideShopEntry.nitroCard)
+            createRoute.wrap(HideShopEntry.createRoute)
+        }
     }
 }
 
 private object HideShopEntry : ExtJsModule("discord-shop") {
-    val nitroCard = export("nitroCard")
-    val createRoute = export("createRoute")
+    val nitroCard by export()
+    val createRoute by export()
 }
 
 private val shopEntryButton = function {
