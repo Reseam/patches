@@ -188,11 +188,11 @@ private val nativeLayoutProperties = nativeHeightSetter.point {
     invokeVirtual { owner(nativeCommonPropertiesField.type) }
 }.callee()
 private object NativeDislikeLabel : ExtClass("app.reseam.youtube.dislike.DislikeLabel") {
-    val iconHeight = static("iconHeight", returns = Type.Int)
-    val withFlags = static("withFlags", Type.Int, Type.Int, returns = Type.Int)
-    val create = static("create", "java.lang.StringBuilder", returns = CHAR_SEQUENCE)
-    val children = static("children", "java.lang.Object", "java.lang.Object", returns = "java.util.List")
-    val accessibilityText = static("accessibilityText", CHAR_SEQUENCE, returns = CHAR_SEQUENCE)
+    val iconHeight by static(returns = Type.Int)
+    val withFlags by static(Type.Int, Type.Int, returns = Type.Int)
+    val create by static("java.lang.StringBuilder", returns = CHAR_SEQUENCE)
+    val children by static("java.lang.Object", "java.lang.Object", returns = "java.util.List")
+    val accessibilityText by static(CHAR_SEQUENCE, returns = CHAR_SEQUENCE)
 }
 private val rollingSetter = method("rolling number model builder") {
     stringsStartingWith("RollingNumberType required properties missing!")
@@ -214,14 +214,14 @@ private val rollingImageUpdate = method("rolling number image update") {
 }
 
 private object DislikeFilter : ExtClass("app.reseam.youtube.dislike.ReturnYouTubeDislikeFilter") {
-    val newPlayerResponseVideoId = static("newPlayerResponseVideoId", Type.String, Type.Boolean)
+    val newPlayerResponseVideoId by static(Type.String, Type.Boolean)
 }
 private object Dislike : ExtClass("app.reseam.youtube.dislike.ReturnYouTubeDislikePatch") {
-    val newVideoLoaded = static("newVideoLoaded", Type.String)
-    val preloadVideoId = static("preloadVideoId", Type.String, Type.Boolean)
-    val sendVote = static("sendVote", Type.Int)
-    val onLithoTextLoaded = static("onLithoTextLoaded", "java.lang.StringBuilder", CHAR_SEQUENCE, returns = CHAR_SEQUENCE)
-    val onRollingNumberLoaded = static("onRollingNumberLoaded", "java.lang.StringBuilder", Type.String, returns = Type.String)
-    val onRollingNumberMeasured = static("onRollingNumberMeasured", Type.String, Type.Float, returns = Type.Float)
-    val updateRollingNumber = static("updateRollingNumber", "android.widget.TextView", CHAR_SEQUENCE, returns = CHAR_SEQUENCE)
+    val newVideoLoaded by static(Type.String)
+    val preloadVideoId by static(Type.String, Type.Boolean)
+    val sendVote by static(Type.Int)
+    val onLithoTextLoaded by static("java.lang.StringBuilder", CHAR_SEQUENCE, returns = CHAR_SEQUENCE)
+    val onRollingNumberLoaded by static("java.lang.StringBuilder", Type.String, returns = Type.String)
+    val onRollingNumberMeasured by static(Type.String, Type.Float, returns = Type.Float)
+    val updateRollingNumber by static("android.widget.TextView", CHAR_SEQUENCE, returns = CHAR_SEQUENCE)
 }

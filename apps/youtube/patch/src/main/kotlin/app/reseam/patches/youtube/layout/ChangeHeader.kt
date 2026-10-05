@@ -67,5 +67,5 @@ val changeHeader = patch("Change header") {
 }
 
 object ChangeHeader : ExtClass("app.reseam.youtube.theme.ChangeHeader") {
-    val getHeaderAttributeId = static("getHeaderAttributeId", Type.Int, returns = Type.Int)
+    val getHeaderAttributeId by static(Type.Int, returns = Type.Int)
 }

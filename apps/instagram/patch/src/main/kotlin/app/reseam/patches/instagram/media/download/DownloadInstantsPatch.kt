@@ -22,13 +22,13 @@ private const val MEDIA = "com.instagram.feed.media.Media"
 private const val USER = "com.instagram.user.model.User"
 
 private object InstantDownloader : ExtClass("app.reseam.instagram.download.InstantDownloader") {
-    val attach = static("attach", Type.Object, Type.View)
-    val showItem = static("showItem", Type.Object)
-    val detach = static("detach", Type.Object)
+    val attach by static(Type.Object, Type.View)
+    val showItem by static(Type.Object)
+    val detach by static(Type.Object)
 }
 
 private object InstantMedia : ExtClass("app.reseam.instagram.download.InstantMedia") {
-    val media = static("media", Type.Object, returns = Type.Object)
+    val media by static(Type.Object, returns = Type.Object)
 }
 
 private val instantViewer = klass("instantViewer447") {

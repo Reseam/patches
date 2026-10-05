@@ -10,8 +10,7 @@ import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
-import app.reseam.patch.settings.after
-import app.reseam.patch.settings.returnNullWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.instagram.core.AppearanceSettings
 import app.reseam.patches.instagram.core.INSTAGRAM
@@ -25,15 +24,19 @@ val hideRepostButtons = patch("Hide repost buttons") {
     settings(instagramSettings, section("Appearance", AppearanceSettings.hideRepostButtons))
 
     execute {
-        feedUfiConfig.method("<init>").after(AppearanceSettings.hideRepostButtons) {
-            thisObject.set(feedRepostEnabled, bool(false))
+        gate(AppearanceSettings.hideRepostButtons) {
+            feedUfiConfig.method("<init>").after {
+                thisObject.set(feedRepostEnabled, bool(false))
+            }
+            reelsRepostButtonFactory.alwaysReturnNull()
         }
-        reelsRepostButtonFactory.returnNullWhen(AppearanceSettings.hideRepostButtons)
         val repostCount = resources.id("id", "repost_count")?.toLong() ?: error("id/repost_count missing")
-        method("reelsRepostCountFactory") {
-            inClass(klass(reelsRepostButtonFactory.owner))
-            literals(repostCount)
-        }.returnNullWhen(AppearanceSettings.hideRepostButtons)
+        gate(AppearanceSettings.hideRepostButtons) {
+            method("reelsRepostCountFactory") {
+                inClass(klass(reelsRepostButtonFactory.owner))
+                literals(repostCount)
+            }.alwaysReturnNull()
+        }
     }
 }
 

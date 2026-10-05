@@ -15,8 +15,8 @@ import app.reseam.patch.proto
 private const val GMA = "com.google.android.gms.ads"
 
 private object AdMobLoader : ExtClass("app.reseam.universal.googleads.AdMobLoader") {
-    val load = static("load", Type.Context, Type.String, "$GMA.AdRequest", "$GMA.AdLoadCallback")
-    val loadManager = static("loadManager", Type.Context, Type.String, "$GMA.admanager.AdManagerAdRequest", "$GMA.AdLoadCallback")
+    val load by static(Type.Context, Type.String, "$GMA.AdRequest", "$GMA.AdLoadCallback")
+    val loadManager by static(Type.Context, Type.String, "$GMA.admanager.AdManagerAdRequest", "$GMA.AdLoadCallback")
 }
 
 /** Static full-screen loaders whose fourth argument is the load callback, by request type. */

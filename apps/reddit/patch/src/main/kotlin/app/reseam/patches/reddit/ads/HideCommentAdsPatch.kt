@@ -8,7 +8,7 @@ import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
-import app.reseam.patch.settings.after
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.reddit.core.REDDIT
 import app.reseam.patches.reddit.core.RedditSettings
@@ -22,12 +22,14 @@ val hideCommentAds = patch("Hide comment ads") {
     execute {
         // Every state the comments screen holds is built here, copies included, so each one
         // leaves with the ad slots of the empty initial state.
-        commentsAdState.method("<init>").after(RedditSettings.hideCommentAds) {
-            listOf(conversationAd, conversationAdLink, afterCommentsAd, afterCommentsAdLink)
-                .forEach { thisObject.set(it, nullObject) }
-            thisObject.set(commentTreeAds, staticField(noCommentTreeAds))
-            thisObject.set(adPlaceholderEligible, bool(false))
-            thisObject.set(adsLoadCompleted, bool(true))
+        gate(RedditSettings.hideCommentAds) {
+            commentsAdState.method("<init>").after {
+                listOf(conversationAd, conversationAdLink, afterCommentsAd, afterCommentsAdLink)
+                    .forEach { thisObject.set(it, nullObject) }
+                thisObject.set(commentTreeAds, staticField(noCommentTreeAds))
+                thisObject.set(adPlaceholderEligible, bool(false))
+                thisObject.set(adsLoadCompleted, bool(true))
+            }
         }
     }
 }

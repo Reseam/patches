@@ -6,7 +6,7 @@ package app.reseam.patches.reddit.nsfw
 import app.reseam.patch.Type
 import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.before
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.reddit.core.REDDIT
 import app.reseam.patches.reddit.core.RedditSettings
@@ -20,9 +20,11 @@ val skipNsfwWarning = patch("Skip NSFW community warning") {
     settings(redditSettings, section("Communities", RedditSettings.skipNsfwWarning))
 
     execute {
-        showNsfwWarning.before(RedditSettings.skipNsfwWarning) {
-            param(0).callInterface(FUNCTION0, "invoke", "()Ljava/lang/Object;")
-            returnVoid()
+        gate(RedditSettings.skipNsfwWarning) {
+            showNsfwWarning.before {
+                param(0).callInterface(FUNCTION0, "invoke", "()Ljava/lang/Object;")
+                returnVoid()
+            }
         }
     }
 }

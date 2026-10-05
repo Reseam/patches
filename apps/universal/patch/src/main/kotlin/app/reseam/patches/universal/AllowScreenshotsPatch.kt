@@ -13,14 +13,14 @@ private const val VIEW_MANAGER = "android.view.ViewManager"
 private const val LAYOUT_PARAMS = "android.view.ViewGroup\$LayoutParams"
 
 private object SecureFlags : ExtClass("app.reseam.universal.screenshots.SecureFlags") {
-    val addFlags = static("addFlags", WINDOW, Type.Int)
-    val setFlags = static("setFlags", WINDOW, Type.Int, Type.Int)
-    val setAttributes = static("setAttributes", WINDOW, "android.view.WindowManager\$LayoutParams")
-    val addWindow = static("addView", WINDOW_MANAGER, Type.View, LAYOUT_PARAMS)
-    val updateWindow = static("updateViewLayout", WINDOW_MANAGER, Type.View, LAYOUT_PARAMS)
-    val addView = static("addView", VIEW_MANAGER, Type.View, LAYOUT_PARAMS)
-    val updateViewLayout = static("updateViewLayout", VIEW_MANAGER, Type.View, LAYOUT_PARAMS)
-    val setSecure = static("setSecure", "android.view.SurfaceView", Type.Boolean)
+    val addFlags by static(WINDOW, Type.Int)
+    val setFlags by static(WINDOW, Type.Int, Type.Int)
+    val setAttributes by static(WINDOW, "android.view.WindowManager\$LayoutParams")
+    val addWindow by static(WINDOW_MANAGER, Type.View, LAYOUT_PARAMS, name = "addView")
+    val updateWindow by static(WINDOW_MANAGER, Type.View, LAYOUT_PARAMS, name = "updateViewLayout")
+    val addView by static(VIEW_MANAGER, Type.View, LAYOUT_PARAMS)
+    val updateViewLayout by static(VIEW_MANAGER, Type.View, LAYOUT_PARAMS)
+    val setSecure by static("android.view.SurfaceView", Type.Boolean)
 }
 
 val allowScreenshots = patch("Allow screenshots") {

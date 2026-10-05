@@ -7,7 +7,7 @@ package app.reseam.patches.youtube.misc
 import app.reseam.patch.ExtClass
 import app.reseam.patch.Type
 import app.reseam.patch.patch
-import app.reseam.patch.settings.after
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
@@ -22,11 +22,13 @@ val checkWatchHistoryDns = patch("Check watch history domain name resolution") {
 
     execute {
         // The check needs an Activity to put a dialog on, and it is cheap enough to run at launch.
-        mainActivityOnCreate.after(YouTubeSettings.checkWatchHistoryDns) { call(WatchHistoryDns.check, thisObject) }
+        gate(YouTubeSettings.checkWatchHistoryDns) {
+            mainActivityOnCreate.after { call(WatchHistoryDns.check, thisObject) }
+        }
     }
 }
 
 
 object WatchHistoryDns : ExtClass("app.reseam.youtube.misc.WatchHistoryDns") {
-    val check = static("check", Type.Activity)
+    val check by static(Type.Activity)
 }

@@ -9,7 +9,7 @@ import app.reseam.patch.dex.AccessFlags
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.before
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
@@ -28,15 +28,17 @@ val spoofDeviceDimensions = patch("Spoof device dimensions") {
 
     execute {
         val dimensions = klass(deviceDimensionsToString.owner)
-        method("deviceDimensionsConstructor") {
-            inClass(dimensions)
-            flags(AccessFlags.CONSTRUCTOR)
-            params(Type.Int, Type.Int, Type.Int, Type.Int)
-        }.before(YouTubeSettings.spoofDeviceDimensions) {
-            param(0).assign(int(MIN_HEIGHT_OR_WIDTH))
-            param(1).assign(int(MAX_HEIGHT_OR_WIDTH))
-            param(2).assign(int(MIN_HEIGHT_OR_WIDTH))
-            param(3).assign(int(MAX_HEIGHT_OR_WIDTH))
+        gate(YouTubeSettings.spoofDeviceDimensions) {
+            method("deviceDimensionsConstructor") {
+                inClass(dimensions)
+                flags(AccessFlags.CONSTRUCTOR)
+                params(Type.Int, Type.Int, Type.Int, Type.Int)
+            }.before {
+                param(0).assign(int(MIN_HEIGHT_OR_WIDTH))
+                param(1).assign(int(MAX_HEIGHT_OR_WIDTH))
+                param(2).assign(int(MIN_HEIGHT_OR_WIDTH))
+                param(3).assign(int(MAX_HEIGHT_OR_WIDTH))
+            }
         }
     }
 }

@@ -8,7 +8,7 @@ import app.reseam.patch.Type
 import app.reseam.patch.classTarget
 import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.before
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
@@ -37,6 +37,8 @@ val hideRelatedVideoOverlay = patch("Hide related-video overlay") {
             params(Type.Int, Type.Boolean, Type.Int)
             returns(Type.Void)
         }
-        renderer.before(YouTubeSettings.hideRelatedVideoOverlay) { returnVoid() }
+        gate(YouTubeSettings.hideRelatedVideoOverlay) {
+            renderer.before { returnVoid() }
+        }
     }
 }

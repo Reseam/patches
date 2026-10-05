@@ -11,7 +11,7 @@ import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.points
-import app.reseam.patch.settings.before
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
@@ -24,16 +24,20 @@ val sanitizeSharingLinks = patch("Sanitize sharing links") {
     settings(youTubeSettings, section(YouTubeSettingsPages.Advanced, "Privacy", YouTubeSettings.sanitizeSharingLinks))
 
     execute {
-        shareSheetUrl.before(YouTubeSettings.sanitizeSharingLinks) {
-            capture("shareUrl").assign(call(SharingLinks.sanitize, capture("shareUrl").cast(Type.String)))
+        gate(YouTubeSettings.sanitizeSharingLinks) {
+            shareSheetUrl.before {
+                capture("shareUrl").assign(call(SharingLinks.sanitize, capture("shareUrl").cast(Type.String)))
+            }
         }
         val extras = shareToAppExtras.all + shareChooserExtras.all
         check(extras.isNotEmpty()) { "No share intent extras" }
         extras.forEach {
-            it.captureArgumentAs("key", 1, Type.String).captureArgumentAs("value", 2, Type.String)
-                .before(YouTubeSettings.sanitizeSharingLinks) {
-                    capture("value").assign(call(SharingLinks.sanitizeExtra, capture("key"), capture("value")))
-                }
+            gate(YouTubeSettings.sanitizeSharingLinks) {
+                it.captureArgumentAs("key", 1, Type.String).captureArgumentAs("value", 2, Type.String)
+                    .before {
+                        capture("value").assign(call(SharingLinks.sanitizeExtra, capture("key"), capture("value")))
+                    }
+            }
         }
     }
 }
@@ -73,6 +77,6 @@ private val shareChooserExtras = methods("share chooser extras") {
 }
 
 object SharingLinks : ExtClass("app.reseam.youtube.misc.SharingLinks") {
-    val sanitize = static("sanitize", Type.String, returns = Type.String)
-    val sanitizeExtra = static("sanitizeExtra", Type.String, Type.String, returns = Type.String)
+    val sanitize by static(Type.String, returns = Type.String)
+    val sanitizeExtra by static(Type.String, Type.String, returns = Type.String)
 }

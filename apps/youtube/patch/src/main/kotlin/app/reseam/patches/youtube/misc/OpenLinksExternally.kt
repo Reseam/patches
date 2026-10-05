@@ -8,7 +8,7 @@ import app.reseam.patch.Type
 import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.points
-import app.reseam.patch.settings.after
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
@@ -25,8 +25,10 @@ val openLinksExternally = patch("Open links externally") {
     execute {
         // An empty action finds no Custom Tabs provider, so the link falls through to the browser.
         customTabsServiceLookups.points { string(CUSTOM_TABS_SERVICE) }.forEach {
-            captureAs("customTabsAction", Type.String)
-                .after(YouTubeSettings.openLinksExternally) { capture("customTabsAction").assign(string("")) }
+            gate(YouTubeSettings.openLinksExternally) {
+                captureAs("customTabsAction", Type.String)
+                    .after { capture("customTabsAction").assign(string("")) }
+            }
         }
     }
 }

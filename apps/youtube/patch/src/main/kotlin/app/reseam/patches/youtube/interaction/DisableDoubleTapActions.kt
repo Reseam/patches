@@ -9,7 +9,7 @@ import app.reseam.patch.dex.AccessFlags
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.before
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
@@ -25,11 +25,13 @@ val disableDoubleTapActions = patch("Disable double tap actions") {
 
     execute {
         // The flag is read twice: once as it is recorded, once as the seek source is chosen.
-        doubleTapInfoConstructor.before(YouTubeSettings.disableChapterSkipDoubleTap) {
-            param(2).assign(bool(false))
-        }
-        doubleTapSeekSource.before(YouTubeSettings.disableChapterSkipDoubleTap) {
-            param(0).assign(bool(false))
+        gate(YouTubeSettings.disableChapterSkipDoubleTap) {
+            doubleTapInfoConstructor.before {
+                param(2).assign(bool(false))
+            }
+            doubleTapSeekSource.before {
+                param(0).assign(bool(false))
+            }
         }
     }
 }

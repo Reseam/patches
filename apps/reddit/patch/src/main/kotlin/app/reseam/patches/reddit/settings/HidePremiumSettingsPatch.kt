@@ -6,7 +6,7 @@ package app.reseam.patches.reddit.settings
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.before
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.reddit.core.REDDIT
 import app.reseam.patches.reddit.core.RedditSettings
@@ -25,8 +25,10 @@ val hidePremiumSettings = patch("Hide Premium settings") {
     execute {
         SettingsRows.section.implement { returnValue(param(0).cast(settingsItemSection.owner).call(settingsItemSection)) }
         SettingsRows.key.implement { returnValue(param(0).cast(settingsItemKey.owner).call(settingsItemKey)) }
-        settingsItemRegistry.before(RedditSettings.hidePremiumSettings) {
-            param(0).assign(call(SettingsRows.withoutUpsells, param(0)))
+        gate(RedditSettings.hidePremiumSettings) {
+            settingsItemRegistry.before {
+                param(0).assign(call(SettingsRows.withoutUpsells, param(0)))
+            }
         }
     }
 }

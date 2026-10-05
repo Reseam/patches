@@ -9,9 +9,8 @@ import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
-import app.reseam.patch.settings.after
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.skipWhen
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettings
 import app.reseam.patches.x.core.xSettings
@@ -43,14 +42,18 @@ val grok = patch("Grok") {
         // The header button is built only while this switch is on, before any per-post flag.
         disableFeatureSwitches(XSettings.hideGrokPostButton, "grok_android_analyze_timelines_enabled", "grok_android_analyze_ads_enabled")
         // The profile header leaves out any menu item that is null. The constructor taking a defaults mask delegates here.
-        profileMenuItems.method("<init>") { custom { Type.Int !in parameterTypes } }.after(XSettings.hideGrokPostButton) {
-            thisObject.set(askGrokItem, nullObject)
+        gate(XSettings.hideGrokPostButton) {
+            profileMenuItems.method("<init>") { custom { Type.Int !in parameterTypes } }.after {
+                thisObject.set(askGrokItem, nullObject)
+            }
         }
 
         // The drawer entry is its own composable, located by the two labels it can show.
         val getGrok = resources.id("string", "drawer_get_grok") ?: error("string/drawer_get_grok missing")
         val openGrok = resources.id("string", "drawer_open_grok") ?: error("string/drawer_open_grok missing")
-        method("drawerGrokEntry") { literals(getGrok.toLong(), openGrok.toLong()) }.skipWhen(XSettings.hideGrokDrawerEntry)
+        gate(XSettings.hideGrokDrawerEntry) {
+            method("drawerGrokEntry") { literals(getGrok.toLong(), openGrok.toLong()) }.alwaysReturn()
+        }
         disableFeatureSwitches(XSettings.hideGrokDrawerEntry, "android_grok_bot_sidebar_enabled")
 
         disableFeatureSwitches(

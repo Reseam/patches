@@ -18,7 +18,7 @@ import app.reseam.patches.youtube.internal.registerPlayerControlLayout
 import app.reseam.patches.youtube.internal.videoPlaybackStateHook
 
 object CopyVideoUrl : ExtClass("app.reseam.youtube.buttons.CopyVideoUrl") {
-    val initialize = static("initialize", Type.View)
+    val initialize by static(Type.View)
 }
 
 val copyVideoUrl = patch("Copy video URL") {

@@ -7,7 +7,7 @@ import app.reseam.patch.Type
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.before
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.instagram.core.EXTENDED_IMAGE_URL
 import app.reseam.patches.instagram.core.INSTAGRAM
@@ -20,10 +20,12 @@ val maxResolution = patch("Max resolution") {
     settings(instagramSettings, section("Media", MediaSettings.maxResolution))
 
     execute {
-        imageUrlSelector.before(MediaSettings.maxResolution) {
-            val candidates = paramOfType(Type.List)
-            val largest = candidates[candidates.size() - int(1)].cast(EXTENDED_IMAGE_URL)
-            returnValue(largest)
+        gate(MediaSettings.maxResolution) {
+            imageUrlSelector.before {
+                val candidates = paramOfType(Type.List)
+                val largest = candidates[candidates.size() - int(1)].cast(EXTENDED_IMAGE_URL)
+                returnValue(largest)
+            }
         }
     }
 }

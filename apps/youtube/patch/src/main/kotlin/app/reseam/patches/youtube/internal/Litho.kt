@@ -97,14 +97,13 @@ fun registerLithoFilter(filter: ExtClass) {
 }
 
 object LithoFilter : ExtClass("app.reseam.youtube.litho.LithoFilter") {
-    val register = static("register", "app.reseam.youtube.litho.Filter")
-    val setProtoBuffer = static("setProtoBuffer", "[B")
-    val enterTree = static("enterTree", Type.Object, Type.String, returns = Type.Object)
-    val exitTree = static("exitTree", Type.Object)
-    val encodeElement = static("encodeElement", Type.Object, returns = "[B")
-    val layoutThreadCount = static("layoutThreadCount", Type.Int, returns = Type.Int)
-    val isFiltered = static(
-        "isFiltered",
+    val register by static("app.reseam.youtube.litho.Filter")
+    val setProtoBuffer by static("[B")
+    val enterTree by static(Type.Object, Type.String, returns = Type.Object)
+    val exitTree by static(Type.Object)
+    val encodeElement by static(Type.Object, returns = "[B")
+    val layoutThreadCount by static(Type.Int, returns = Type.Int)
+    val isFiltered by static(
         Type.String,
         Type.String,
         Type.String,

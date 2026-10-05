@@ -7,8 +7,8 @@ import app.reseam.patch.Type
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.skipWhen
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.StorySettings
 import app.reseam.patches.instagram.core.instagramSettings
@@ -21,7 +21,9 @@ val disableStoryAutoAdvance = patch("Disable story auto-advance") {
     settings(instagramSettings, section("Stories", StorySettings.disableAutoAdvance))
 
     execute {
-        storyItemFinished.skipWhen(StorySettings.disableAutoAdvance)
+        gate(StorySettings.disableAutoAdvance) {
+            storyItemFinished.alwaysReturn()
+        }
     }
 }
 

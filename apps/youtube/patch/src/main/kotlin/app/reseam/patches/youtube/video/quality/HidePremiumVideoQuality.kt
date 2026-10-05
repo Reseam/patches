@@ -24,7 +24,7 @@ import app.reseam.patches.youtube.internal.videoQualityClass
 private const val EXTENSION_VIDEO_QUALITY_ARRAY = "[Lapp/reseam/youtube/video/VideoInformation\$VideoQualityInterface;"
 
 object HidePremiumVideoQuality : ExtClass("app.reseam.youtube.quality.HidePremiumVideoQuality") {
-    val hidePremiumVideoQuality = static("hidePremiumVideoQuality", EXTENSION_VIDEO_QUALITY_ARRAY, returns = EXTENSION_VIDEO_QUALITY_ARRAY)
+    val hidePremiumVideoQuality by static(EXTENSION_VIDEO_QUALITY_ARRAY, returns = EXTENSION_VIDEO_QUALITY_ARRAY)
 }
 
 private val currentVideoFormatToString = method("current video format toString") {

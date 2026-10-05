@@ -4,8 +4,8 @@
 package app.reseam.patches.reddit.ads
 
 import app.reseam.patch.patch
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.skipWhen
 import app.reseam.patches.reddit.core.REDDIT
 import app.reseam.patches.reddit.core.RedditSettings
 import app.reseam.patches.reddit.core.feedSectionContent
@@ -18,7 +18,7 @@ val hideFeedAds = patch("Hide feed ads") {
     settings(redditSettings, section("Ads", RedditSettings.hideFeedAds))
 
     execute {
-        adSections.forEach { it.skipWhen(RedditSettings.hideFeedAds) }
+        gate(RedditSettings.hideFeedAds) { adSections.forEach { it.alwaysReturn() } }
         hideFeedElements(RedditSettings.hideFeedAds, adElements)
     }
 }

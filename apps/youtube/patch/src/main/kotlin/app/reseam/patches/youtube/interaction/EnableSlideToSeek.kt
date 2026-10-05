@@ -12,7 +12,7 @@ import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.points
-import app.reseam.patch.settings.after
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
@@ -27,20 +27,22 @@ val enableSlideToSeek = patch {
         val abCheck = slideToSeekMethod
             .point("slideToSeekCheck") { invokeVirtual { returns(Type.Boolean); paramCount(0) } }
             .callee()
-        methods("slideToSeekCallers") {
-            calls(abCheck)
-        }.points { calls(abCheck) }.forEach {
-            this
-                .next { resultOf(Type.Boolean) }
-                .captureAs("disabled", Type.Boolean)
-                .after(YouTubeSettings.slideToSeek) { capture("disabled").assign(bool(false)) }
-        }
+        gate(YouTubeSettings.slideToSeek) {
+            methods("slideToSeekCallers") {
+                calls(abCheck)
+            }.points { calls(abCheck) }.forEach {
+                this
+                    .next { resultOf(Type.Boolean) }
+                    .captureAs("disabled", Type.Boolean)
+                    .after { capture("disabled").assign(bool(false)) }
+            }
 
-        fastForwardGesture
-            .point { invokeVirtual { returns(Type.Boolean); params() } }
-            .next { resultOf(Type.Boolean) }
-            .captureAs("fastForward", Type.Boolean)
-            .after(YouTubeSettings.slideToSeek) { capture("fastForward").assign(bool(false)) }
+            fastForwardGesture
+                .point { invokeVirtual { returns(Type.Boolean); params() } }
+                .next { resultOf(Type.Boolean) }
+                .captureAs("fastForward", Type.Boolean)
+                .after { capture("fastForward").assign(bool(false)) }
+        }
     }
 }
 

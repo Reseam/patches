@@ -249,8 +249,8 @@ private fun XmlElement.descendants(): Sequence<XmlElement> =
     sequenceOf(this) + children.asSequence().flatMap { it.descendants() }
 
 private object GmsCoreSupport : ExtClass("app.reseam.youtube.gms.GmsCoreSupport") {
-    val check = static("check", Type.Activity)
-    val vendorGroupId = static("vendorGroupId", returns = Type.String)
-    val originalPackageName = static("originalPackageName", returns = Type.String)
-    val dropNullValues = static("dropNullValues", Type.Map)
+    val check by static(Type.Activity)
+    val vendorGroupId by static(returns = Type.String)
+    val originalPackageName by static(returns = Type.String)
+    val dropNullValues by static(Type.Map)
 }

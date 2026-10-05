@@ -45,35 +45,41 @@ private val WEB_ASSETS = listOf(
 private object WebAssets
 
 object SpoofVideoStreams : ExtClass("app.reseam.youtube.spoof.SpoofVideoStreams") {
-    val setClientOrderToUse = static("setClientOrderToUse")
-    val isSpoofingEnabled = static("isSpoofingEnabled", returns = Type.Boolean)
-    val rewriteClientContextOsName = static("rewriteClientContextOsName", Type.String, returns = Type.String)
-    val blockGetWatchRequest = static("blockGetWatchRequest", "android.net.Uri", returns = "android.net.Uri")
-    val blockGetAttRequest = static("blockGetAttRequest", Type.String, returns = Type.String)
-    val blockInitPlaybackRequest = static("blockInitPlaybackRequest", Type.String, returns = Type.String)
-    val fetchStreams = static("fetchStreams", Type.String, Type.Map)
-    val getStreamingData = static("getStreamingData", Type.String, returns = "[B")
-    val removeVideoPlaybackPostBody = static(
-        "removeVideoPlaybackPostBody", "android.net.Uri", Type.Int, "[B", returns = "[B",
+    val setClientOrderToUse by static()
+    val isSpoofingEnabled by static(returns = Type.Boolean)
+    val rewriteClientContextOsName by static(Type.String, returns = Type.String)
+    val blockGetWatchRequest by static("android.net.Uri", returns = "android.net.Uri")
+    val blockGetAttRequest by static(Type.String, returns = Type.String)
+    val blockInitPlaybackRequest by static(Type.String, returns = Type.String)
+    val fetchStreams by static(Type.String, Type.Map)
+    val getStreamingData by static(Type.String, returns = "[B")
+    val removeVideoPlaybackPostBody by static(
+        "android.net.Uri",
+        Type.Int,
+        "[B",
+        returns = "[B",
     )
-    val fixHlsCurrentTime = static("fixHLSCurrentTime", Type.Boolean, returns = Type.Boolean)
-    val disableSabr = static("disableSABR", returns = Type.Boolean)
-    val useMediaFetchHotConfigReplacement = static(
-        "useMediaFetchHotConfigReplacement", Type.Boolean, returns = Type.Boolean,
+    val fixHlsCurrentTime by static(Type.Boolean, returns = Type.Boolean, name = "fixHLSCurrentTime")
+    val disableSabr by static(returns = Type.Boolean, name = "disableSABR")
+    val useMediaFetchHotConfigReplacement by static(
+        Type.Boolean,
+        returns = Type.Boolean,
     )
-    val usePlaybackStartFeatureFlag = static(
-        "usePlaybackStartFeatureFlag", Type.Boolean, returns = Type.Boolean,
+    val usePlaybackStartFeatureFlag by static(
+        Type.Boolean,
+        returns = Type.Boolean,
     )
-    val appendSpoofedClient = static("appendSpoofedClient", Type.String, returns = Type.String)
+    val appendSpoofedClient by static(Type.String, returns = Type.String)
 }
 
 object UserAgentClientSpoof : ExtClass("app.reseam.youtube.spoof.UserAgentClientSpoof") {
-    val rewritePackageName = static("rewritePackageName", Type.String, returns = Type.String)
+    val rewritePackageName by static(Type.String, returns = Type.String)
 }
 
 object AccountCredentialsInvalidText : ExtClass("app.reseam.youtube.spoof.AccountCredentialsInvalidText") {
-    val getOfflineNetworkErrorString = static(
-        "getOfflineNetworkErrorString", Type.String, returns = Type.String,
+    val getOfflineNetworkErrorString by static(
+        Type.String,
+        returns = Type.String,
     )
 }
 

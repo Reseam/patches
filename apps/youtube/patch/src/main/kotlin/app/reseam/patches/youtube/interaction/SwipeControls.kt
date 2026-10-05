@@ -64,7 +64,7 @@ val swipeControls = patch("Swipe controls") {
 }
 
 private object SwipeControls : ExtClass("app.reseam.youtube.swipe.SwipeControls") {
-    val initialize = static("initialize", Type.Activity)
-    val touch = static("touch", Type.Activity, "android.view.MotionEvent", returns = Type.Boolean)
-    val key = static("key", Type.Activity, "android.view.KeyEvent", returns = Type.Boolean)
+    val initialize by static(Type.Activity)
+    val touch by static(Type.Activity, "android.view.MotionEvent", returns = Type.Boolean)
+    val key by static(Type.Activity, "android.view.KeyEvent", returns = Type.Boolean)
 }

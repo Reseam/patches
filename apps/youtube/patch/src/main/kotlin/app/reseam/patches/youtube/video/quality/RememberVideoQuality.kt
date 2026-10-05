@@ -24,9 +24,9 @@ import app.reseam.patches.youtube.internal.videoInformationHook
 import app.reseam.patches.youtube.internal.videoQualityClass
 
 object RememberVideoQuality : ExtClass("app.reseam.youtube.quality.RememberVideoQuality") {
-    val newVideoStarted = static("newVideoStarted", "app.reseam.youtube.video.VideoInformation\$PlaybackController")
-    val userChangedQuality = static("userChangedQuality", Type.Int)
-    val userChangedShortsQuality = static("userChangedShortsQuality", Type.Int)
+    val newVideoStarted by static("app.reseam.youtube.video.VideoInformation\$PlaybackController")
+    val userChangedQuality by static(Type.Int)
+    val userChangedShortsQuality by static(Type.Int)
 }
 
 private val qualityMenuParent = method("video quality menu parent") {

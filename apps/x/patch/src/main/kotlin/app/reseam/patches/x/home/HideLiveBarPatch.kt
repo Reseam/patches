@@ -6,8 +6,8 @@ package app.reseam.patches.x.home
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.skipWhen
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettings
 import app.reseam.patches.x.core.xSettings
@@ -27,7 +27,9 @@ val hideLiveBar = patch("Hide Live bar") {
         val liveBarContent = method("liveBarContent") { literals(barDescription) }
         val liveBar = method("liveBar") { calls(klass(liveBarContent.owner).method("<init>")) }
         // Skipped before the composable opens its restart group, so Compose groups stay balanced.
-        liveBar.skipWhen(XSettings.hideLiveBar)
+        gate(XSettings.hideLiveBar) {
+            liveBar.alwaysReturn()
+        }
         disableFeatureSwitches(XSettings.hideLiveBar, "x_lite_livestream_pill_enabled")
         disableFeatureSwitches(XSettings.hideLiveAvatarRings, "x_lite_live_avatar_ring_enabled", "x_lite_sports_live_profile_rings_enabled")
     }

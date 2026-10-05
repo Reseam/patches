@@ -17,7 +17,7 @@ import app.reseam.patches.youtube.internal.registerPlayerControlInitializer
 import app.reseam.patches.youtube.internal.registerPlayerControlLayout
 
 object VideoQualityDialogButton : ExtClass("app.reseam.youtube.quality.VideoQualityDialogButton") {
-    val initialize = static("initialize", Type.View)
+    val initialize by static(Type.View)
 }
 
 val videoQualityDialogButton = patch("Video quality player button") {

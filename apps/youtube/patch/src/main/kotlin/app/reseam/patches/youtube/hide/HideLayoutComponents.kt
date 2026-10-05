@@ -24,8 +24,7 @@ import app.reseam.patch.point
 import app.reseam.patch.points
 import app.reseam.patch.replace
 import app.reseam.patch.reserveLocal
-import app.reseam.patch.settings.after
-import app.reseam.patch.settings.before
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
@@ -204,13 +203,15 @@ val hideLayoutComponents = patch("Hide layout components") {
             params()
             returns(Type.View)
         }
-        showMoreMethod.after(YouTubeSettings.hideShowMoreButton) {
-            call(
-                LayoutComponentsFilter.hideShowMoreButton,
-                thisObject.call(parentViewMethod).cast(Type.View),
-                thisObject.field(buttonContainerField).cast(Type.View),
-                thisObject.field(textViewField).cast(TEXT_VIEW),
-            )
+        gate(YouTubeSettings.hideShowMoreButton) {
+            showMoreMethod.after {
+                call(
+                    LayoutComponentsFilter.hideShowMoreButton,
+                    thisObject.call(parentViewMethod).cast(Type.View),
+                    thisObject.field(buttonContainerField).cast(Type.View),
+                    thisObject.field(textViewField).cast(TEXT_VIEW),
+                )
+            }
         }
 
         val parentContainer = requireNotNull(resources.id("id", "parent_container")) {
@@ -221,14 +222,16 @@ val hideLayoutComponents = patch("Hide layout components") {
             literals(parentContainer)
             custom { classDef.instanceFields.any { it.fieldType == "Landroid/support/v7/widget/RecyclerView;" } }
         }
-        subscribedChannels.points("subscribedChannelsBar") {
-            invokeVirtual { name("findViewById"); params(Type.Int); returns(Type.View) }
-            argument(1) { literal(parentContainer) }
-        }.single().next { resultOf(Type.View) }
-            .captureAs("bar", Type.View)
-            .after(YouTubeSettings.hideSubscribedChannelsBar) {
-                call(LayoutComponentsFilter.hideSubscribedChannelsBar, capture("bar"))
-            }
+        gate(YouTubeSettings.hideSubscribedChannelsBar) {
+            subscribedChannels.points("subscribedChannelsBar") {
+                invokeVirtual { name("findViewById"); params(Type.Int); returns(Type.View) }
+                argument(1) { literal(parentContainer) }
+            }.single().next { resultOf(Type.View) }
+                .captureAs("bar", Type.View)
+                .after {
+                    call(LayoutComponentsFilter.hideSubscribedChannelsBar, capture("bar"))
+                }
+        }
 
         val parentViewWidth = requireNotNull(resources.id("dimen", "parent_view_width_in_wide_mode")) {
             "dimen/parent_view_width_in_wide_mode is missing"
@@ -240,19 +243,23 @@ val hideLayoutComponents = patch("Hide layout components") {
             returns(Type.Void)
             literals(parentViewWidth)
         }
-        subscribedChannelsLandscape.points("subscribedChannelsLandscapeHeight") {
-            invokeVirtual { name("getDimensionPixelSize"); params(Type.Int); returns(Type.Int) }
-            argument(1) { literal(parentViewWidth) }
-        }.single()
-            .next { resultOf(Type.Int) }
-            .captureAs("height", Type.Int)
-            .after(YouTubeSettings.hideSubscribedChannelsBar) {
-                capture("height").assign(int(0))
-            }
+        gate(YouTubeSettings.hideSubscribedChannelsBar) {
+            subscribedChannelsLandscape.points("subscribedChannelsLandscapeHeight") {
+                invokeVirtual { name("getDimensionPixelSize"); params(Type.Int); returns(Type.Int) }
+                argument(1) { literal(parentViewWidth) }
+            }.single()
+                .next { resultOf(Type.Int) }
+                .captureAs("height", Type.Int)
+                .after {
+                    capture("height").assign(int(0))
+                }
+        }
 
-        parseElementFromBuffer.after(YouTubeSettings.hideMixPlaylists) {
-            whenTrue(call(LayoutComponentsFilter.filterMixPlaylists, param(1), param(2))) {
-                returnValue(call(emptyComponentBuilder, param(0)).field(emptyComponentField))
+        gate(YouTubeSettings.hideMixPlaylists) {
+            parseElementFromBuffer.after {
+                whenTrue(call(LayoutComponentsFilter.filterMixPlaylists, param(1), param(2))) {
+                    returnValue(call(emptyComponentBuilder, param(0)).field(emptyComponentField))
+                }
             }
         }
 
@@ -266,10 +273,12 @@ val hideLayoutComponents = patch("Hide layout components") {
             returns(Type.Void)
             calls { name("setImageBitmap") }
         }
-        showWatermarkMethod.point("watermarkEnabled") {
-            opcode(Opcode.IGET_BOOLEAN)
-        }.captureAs("watermark", Type.Boolean).after(YouTubeSettings.hideChannelWatermark) {
-            capture("watermark").assign(bool(false))
+        gate(YouTubeSettings.hideChannelWatermark) {
+            showWatermarkMethod.point("watermarkEnabled") {
+                opcode(Opcode.IGET_BOOLEAN)
+            }.captureAs("watermark", Type.Boolean).after {
+                capture("watermark").assign(bool(false))
+            }
         }
 
         val crowdfundingBox = requireNotNull(resources.id("layout", "donation_companion")) {
@@ -279,14 +288,16 @@ val hideLayoutComponents = patch("Hide layout components") {
             flags(AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR)
             literals(crowdfundingBox)
         }
-        crowdfunding.points("crowdfundingView") {
-            invokeVirtual { name("inflate"); returns(Type.View) }
-        }.single()
-            .next { resultOf(Type.View) }
-            .captureAs("view", Type.View)
-            .after(YouTubeSettings.hideCrowdfundingBox) {
-                call(LayoutComponentsFilter.hideCrowdfundingBox, capture("view"))
-            }
+        gate(YouTubeSettings.hideCrowdfundingBox) {
+            crowdfunding.points("crowdfundingView") {
+                invokeVirtual { name("inflate"); returns(Type.View) }
+            }.single()
+                .next { resultOf(Type.View) }
+                .captureAs("view", Type.View)
+                .after {
+                    call(LayoutComponentsFilter.hideCrowdfundingBox, capture("view"))
+                }
+        }
 
         val albumCard = requireNotNull(resources.id("layout", "album_card")) {
             "layout/album_card is missing"
@@ -295,14 +306,16 @@ val hideLayoutComponents = patch("Hide layout components") {
             flags(AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR)
             literals(albumCard)
         }
-        albumCards.points("albumCardView") {
-            invokeVirtual { name("inflate"); returns(Type.View) }
-            argument(1) { literal(albumCard) }
-        }.single().next { resultOf(Type.View) }
-            .captureAs("view", Type.View)
-            .after(YouTubeSettings.hideAlbumCards) {
-                call(LayoutComponentsFilter.hideAlbumCard, capture("view"))
-            }
+        gate(YouTubeSettings.hideAlbumCards) {
+            albumCards.points("albumCardView") {
+                invokeVirtual { name("inflate"); returns(Type.View) }
+                argument(1) { literal(albumCard) }
+            }.single().next { resultOf(Type.View) }
+                .captureAs("view", Type.View)
+                .after {
+                    call(LayoutComponentsFilter.hideAlbumCard, capture("view"))
+                }
+        }
 
         val fab = requireNotNull(resources.id("id", "fab")) { "id/fab is missing" }.toLong()
         val floatingMicrophone = method("floatingMicrophone") {
@@ -311,15 +324,17 @@ val hideLayoutComponents = patch("Hide layout components") {
             returns(Type.Void)
             literals(fab)
         }
-        floatingMicrophone.point("floatingMicrophoneResource") { literal(fab) }
-            .next {
-                opcode(Opcode.CHECK_CAST)
-                where { typeRef?.endsWith("/FloatingActionButton;") == true }
+        gate(YouTubeSettings.hideFloatingMicrophoneButton) {
+            floatingMicrophone.point("floatingMicrophoneResource") { literal(fab) }
+                .next {
+                    opcode(Opcode.CHECK_CAST)
+                    where { typeRef?.endsWith("/FloatingActionButton;") == true }
+                }
+                .next { opcode(Opcode.IGET_BOOLEAN) }
+                .captureAs("visible", Type.Boolean)
+                .after {
+                capture("visible").assign(bool(true))
             }
-            .next { opcode(Opcode.IGET_BOOLEAN) }
-            .captureAs("visible", Type.Boolean)
-            .after(YouTubeSettings.hideFloatingMicrophoneButton) {
-            capture("visible").assign(bool(true))
         }
 
         val contentPill = requireNotNull(resources.id("layout", "content_pill")) {
@@ -342,18 +357,20 @@ val hideLayoutComponents = patch("Hide layout components") {
                 calls { name("inflate"); paramCount(3); returns(Type.View) }
             },
         ).forEach { target ->
-            target.point("latestVideosButton") {
-                invokeVirtual {
-                    name("inflate")
-                    paramCount(3)
-                    returns(Type.View)
+            gate(YouTubeSettings.hideLatestVideosButton) {
+                target.point("latestVideosButton") {
+                    invokeVirtual {
+                        name("inflate")
+                        paramCount(3)
+                        returns(Type.View)
+                    }
                 }
+                    .next { resultOf(Type.View) }
+                    .captureAs("view", Type.View)
+                    .after {
+                        call(LayoutComponentsFilter.hideLatestVideosButton, capture("view"))
+                    }
             }
-                .next { resultOf(Type.View) }
-                .captureAs("view", Type.View)
-                .after(YouTubeSettings.hideLatestVideosButton) {
-                    call(LayoutComponentsFilter.hideLatestVideosButton, capture("view"))
-                }
         }
 
         val youtubeLogo = requireNotNull(resources.id("id", "youtube_logo")) {
@@ -373,10 +390,12 @@ val hideLayoutComponents = patch("Hide layout components") {
                 returns(Type.Void)
             }
         }
-        yoodles.point("doodleDrawable", setImageDrawable)
-            .captureArgumentAs("image", 0, IMAGE_VIEW)
-            .captureArgumentAs("drawable", 1, "android.graphics.drawable.Drawable")
-            .before(YouTubeSettings.hideDoodles) { capture("drawable").assign(nullObject) }
+        gate(YouTubeSettings.hideDoodles) {
+            yoodles.point("doodleDrawable", setImageDrawable)
+                .captureArgumentAs("image", 0, IMAGE_VIEW)
+                .captureArgumentAs("drawable", 1, "android.graphics.drawable.Drawable")
+                .before { capture("drawable").assign(nullObject) }
+        }
 
         val subtitle = hideViewCountMethod
         val subtitleDimension = subtitle.reserveLocal("subtitleDimension", Type.Float)
@@ -397,15 +416,17 @@ val hideLayoutComponents = patch("Hide layout components") {
             literals(filterBarHeight)
             hasParam("android.widget.LinearLayout")
         }
-        filterBar.points("feedFilterBarHeight") {
-            invokeVirtual { name("getDimensionPixelSize"); params(Type.Int); returns(Type.Int) }
-            argument(1) { literal(filterBarHeight) }
-        }.single()
-            .next { resultOf(Type.Int) }
-            .captureAs("height", Type.Int)
-            .after(YouTubeSettings.hideFilterBarFeedInFeed) {
-                capture("height").assign(int(0))
-            }
+        gate(YouTubeSettings.hideFilterBarFeedInFeed) {
+            filterBar.points("feedFilterBarHeight") {
+                invokeVirtual { name("getDimensionPixelSize"); params(Type.Int); returns(Type.Int) }
+                argument(1) { literal(filterBarHeight) }
+            }.single()
+                .next { resultOf(Type.Int) }
+                .captureAs("height", Type.Int)
+                .after {
+                    capture("height").assign(int(0))
+                }
+        }
 
         val barContainerHeight = requireNotNull(resources.id("dimen", "bar_container_height")) {
             "dimen/bar_container_height is missing"
@@ -415,15 +436,17 @@ val hideLayoutComponents = patch("Hide layout components") {
             literals(barContainerHeight)
             hasParam("android.widget.LinearLayout")
         }
-        searchChipBar.points("searchFilterBarHeight") {
-            invokeVirtual { name("getDimensionPixelSize"); params(Type.Int); returns(Type.Int) }
-            argument(1) { literal(barContainerHeight) }
-        }.single()
-            .next { resultOf(Type.Int) }
-            .captureAs("height", Type.Int)
-            .after(YouTubeSettings.hideFilterBarFeedInSearch) {
-                capture("height").assign(int(0))
-            }
+        gate(YouTubeSettings.hideFilterBarFeedInSearch) {
+            searchChipBar.points("searchFilterBarHeight") {
+                invokeVirtual { name("getDimensionPixelSize"); params(Type.Int); returns(Type.Int) }
+                argument(1) { literal(barContainerHeight) }
+            }.single()
+                .next { resultOf(Type.Int) }
+                .captureAs("height", Type.Int)
+                .after {
+                    capture("height").assign(int(0))
+                }
+        }
 
         val relatedChipMargin = requireNotNull(resources.id("layout", "related_chip_cloud_reduced_margins")) {
             "layout/related_chip_cloud_reduced_margins is missing"
@@ -432,15 +455,17 @@ val hideLayoutComponents = patch("Hide layout components") {
             flags(AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR)
             literals(relatedChipMargin)
         }
-        relatedChipCloud.points("relatedFilterBar") {
-            invokeVirtual { name("inflate"); returns(Type.View) }
-            argument(1) { literal(relatedChipMargin) }
-        }.single()
-            .next { resultOf(Type.View) }
-            .captureAs("view", Type.View)
-            .after(YouTubeSettings.hideFilterBarFeedInRelatedVideos) {
-                call(LayoutComponentsFilter.hideInRelatedVideos, capture("view"))
-            }
+        gate(YouTubeSettings.hideFilterBarFeedInRelatedVideos) {
+            relatedChipCloud.points("relatedFilterBar") {
+                invokeVirtual { name("inflate"); returns(Type.View) }
+                argument(1) { literal(relatedChipMargin) }
+            }.single()
+                .next { resultOf(Type.View) }
+                .captureAs("view", Type.View)
+                .after {
+                    call(LayoutComponentsFilter.hideInRelatedVideos, capture("view"))
+                }
+        }
 
         val suggestionDivider = requireNotNull(resources.id("dimen", "suggestion_category_divider_height")) {
             "dimen/suggestion_category_divider_height is missing"
@@ -505,13 +530,15 @@ val hideLayoutComponents = patch("Hide layout components") {
             custom { returnType.startsWith("L") }
         }
         bottomSheetMenuItems.forEach {
-            point("bottomSheetMenuText") {
-                invokeStatic { returns(Type.CharSequence); paramCount(1) }
-            }.next { resultOf(Type.CharSequence) }
-                .captureAs("text", Type.CharSequence)
-                .after(YouTubeSettings.hideFeedFlyoutMenu) {
-                    capture("text").assign(call(LayoutComponentsFilter.hideFlyoutMenu, capture("text")))
-                }
+            gate(YouTubeSettings.hideFeedFlyoutMenu) {
+                point("bottomSheetMenuText") {
+                    invokeStatic { returns(Type.CharSequence); paramCount(1) }
+                }.next { resultOf(Type.CharSequence) }
+                    .captureAs("text", Type.CharSequence)
+                    .after {
+                        capture("text").assign(call(LayoutComponentsFilter.hideFlyoutMenu, capture("text")))
+                    }
+            }
         }
 
         val posterArtWidthDefault = requireNotNull(resources.id("dimen", "poster_art_width_default")) {
@@ -524,17 +551,19 @@ val hideLayoutComponents = patch("Hide layout components") {
             literals(posterArtWidthDefault)
             calls { owner("Landroid/widget/TextView;"); name("setText") }
         }
-        contextualMenuItem.point("contextualMenuText") {
-            checkCast("Landroid/widget/TextView;")
-            then(within = 5) {
-                invokeVirtual { owner("Landroid/widget/TextView;"); name("setText"); params(Type.CharSequence) }
+        gate(YouTubeSettings.hideFeedFlyoutMenu) {
+            contextualMenuItem.point("contextualMenuText") {
+                checkCast("Landroid/widget/TextView;")
+                then(within = 5) {
+                    invokeVirtual { owner("Landroid/widget/TextView;"); name("setText"); params(Type.CharSequence) }
+                }
             }
+                .captureArgumentAs("textView", 0, TEXT_VIEW)
+                .captureArgumentAs("text", 1, Type.CharSequence)
+                .after {
+                    call(LayoutComponentsFilter.hideFlyoutMenuForTablet, capture("textView"), capture("text"))
+                }
         }
-            .captureArgumentAs("textView", 0, TEXT_VIEW)
-            .captureArgumentAs("text", 1, Type.CharSequence)
-            .after(YouTubeSettings.hideFeedFlyoutMenu) {
-                call(LayoutComponentsFilter.hideFlyoutMenuForTablet, capture("textView"), capture("text"))
-            }
 
         val tabTitle = channelTabRenderer.point("channelTabTitle") {
             invokeVirtual { params(Type.String, Type.Boolean); returns(Type.CharSequence) }
@@ -546,29 +575,31 @@ val hideLayoutComponents = patch("Hide layout components") {
         channelTabRenderer.points("channelTabViews") {
             invoke { returns(Type.View); hasParam(Type.CharSequence) }
         }.forEach {
-            next { resultOf(Type.View) }.captureAs("tab", Type.View)
-                .after(YouTubeSettings.hideChannelTab) {
-                    call(LayoutComponentsFilter.hideChannelTabView, capture("tab"), param(0).field(tabModel).field(tabTitle))
-                }
+            gate(YouTubeSettings.hideChannelTab) {
+                next { resultOf(Type.View) }.captureAs("tab", Type.View)
+                    .after {
+                        call(LayoutComponentsFilter.hideChannelTabView, capture("tab"), param(0).field(tabModel).field(tabTitle))
+                    }
+            }
         }
     }
 }
 
 object LayoutComponentsFilter : ExtClass("app.reseam.youtube.hidelayout.LayoutComponentsFilter") {
-    val filterMixPlaylists = static("filterMixPlaylists", Type.Object, "[B", returns = Type.Boolean)
-    val hideShowMoreButton = static("hideShowMoreButton", Type.View, Type.View, TEXT_VIEW)
-    val hideSubscribedChannelsBar = static("hideSubscribedChannelsBar", Type.View)
-    val hideCrowdfundingBox = static("hideCrowdfundingBox", Type.View)
-    val hideAlbumCard = static("hideAlbumCard", Type.View)
-    val hideLatestVideosButton = static("hideLatestVideosButton", Type.View)
-    val modifyFeedSubtitleSpan = static("modifyFeedSubtitleSpan", Type.CharSequence, Type.Float, returns = Type.CharSequence)
-    val hideInRelatedVideos = static("hideInRelatedVideos", Type.View)
-    val hideFlyoutMenu = static("hideFlyoutMenu", Type.CharSequence, returns = Type.CharSequence)
-    val hideFlyoutMenuForTablet = static("hideFlyoutMenu", TEXT_VIEW, Type.CharSequence)
-    val hideChannelTabView = static("hideChannelTabView", Type.View, Type.String)
-    val hideYouMayLikeSection = static("hideYouMayLikeSection", Type.String, returns = Type.Boolean)
-    val isSearchHistory = static("isSearchHistory", Type.Object, Type.String, returns = Type.Boolean)
-    val filterSearchSuggestions = static("filterSearchSuggestions", COLLECTION)
+    val filterMixPlaylists by static(Type.Object, "[B", returns = Type.Boolean)
+    val hideShowMoreButton by static(Type.View, Type.View, TEXT_VIEW)
+    val hideSubscribedChannelsBar by static(Type.View)
+    val hideCrowdfundingBox by static(Type.View)
+    val hideAlbumCard by static(Type.View)
+    val hideLatestVideosButton by static(Type.View)
+    val modifyFeedSubtitleSpan by static(Type.CharSequence, Type.Float, returns = Type.CharSequence)
+    val hideInRelatedVideos by static(Type.View)
+    val hideFlyoutMenu by static(Type.CharSequence, returns = Type.CharSequence)
+    val hideFlyoutMenuForTablet by static(TEXT_VIEW, Type.CharSequence, name = "hideFlyoutMenu")
+    val hideChannelTabView by static(Type.View, Type.String)
+    val hideYouMayLikeSection by static(Type.String, returns = Type.Boolean)
+    val isSearchHistory by static(Type.Object, Type.String, returns = Type.Boolean)
+    val filterSearchSuggestions by static(COLLECTION)
 }
 
 object DescriptionComponentsFilter : ExtClass("app.reseam.youtube.hidelayout.DescriptionComponentsFilter")

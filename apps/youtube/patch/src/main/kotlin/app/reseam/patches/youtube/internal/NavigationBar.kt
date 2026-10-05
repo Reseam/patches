@@ -140,18 +140,17 @@ val navigationBarHook = patch {
 }
 
 object NavigationBar : ExtClass("app.reseam.youtube.navigation.NavigationBar") {
-    val searchBarResultsViewLoaded = static("searchBarResultsViewLoaded", Type.View)
-    val setToolbar = static("setToolbar", FRAME_LAYOUT)
-    val setLastAppNavigationEnum = static("setLastAppNavigationEnum", Type.Object)
-    val navigationTabLoaded = static("navigationTabLoaded", Type.View)
-    val navigationImageResourceTabLoaded = static("navigationImageResourceTabLoaded", Type.View)
-    val getNavigationButton = static(
-        "getNavigationButton",
+    val searchBarResultsViewLoaded by static(Type.View)
+    val setToolbar by static(FRAME_LAYOUT)
+    val setLastAppNavigationEnum by static(Type.Object)
+    val navigationTabLoaded by static(Type.View)
+    val navigationImageResourceTabLoaded by static(Type.View)
+    val getNavigationButton by static(
         Type.View,
         returns = "app.reseam.youtube.navigation.NavigationBar\$NavigationButton",
     )
-    val navigationTabSelected = static("navigationTabSelected", Type.View, Type.Boolean)
-    val onBackPressed = static("onBackPressed", Type.Activity)
+    val navigationTabSelected by static(Type.View, Type.Boolean)
+    val onBackPressed by static(Type.Activity)
 }
 
 private val pivotBarConstructor = method("pivotBarConstructor") {

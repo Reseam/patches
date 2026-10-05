@@ -50,10 +50,10 @@ fun registerPlayerControlInitializer(initializer: ExtMethod) {
 }
 
 object PlayerControls : ExtClass("app.reseam.youtube.controls.PlayerControls") {
-    val setVisibility = static("setVisibility", Type.Boolean, Type.Boolean)
-    val setVisibilityImmediate = static("setVisibilityImmediate", Type.Boolean)
-    val setFullscreenCloseButton = static("setFullscreenCloseButton", Type.View)
-    val setPlayerControlsVisibility = static("setPlayerControlsVisibility", "java.lang.Enum")
+    val setVisibility by static(Type.Boolean, Type.Boolean)
+    val setVisibilityImmediate by static(Type.Boolean)
+    val setFullscreenCloseButton by static(Type.View)
+    val setPlayerControlsVisibility by static("java.lang.Enum")
 }
 
 private val visibilityEntityMethod = method("player controls visibility entity") {

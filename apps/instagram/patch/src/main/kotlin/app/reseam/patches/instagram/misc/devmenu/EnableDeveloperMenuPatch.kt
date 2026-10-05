@@ -8,7 +8,7 @@ import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
-import app.reseam.patch.settings.returnTrueWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.instagram.core.DeveloperSettings
 import app.reseam.patches.instagram.core.INSTAGRAM
@@ -24,7 +24,9 @@ val enableDeveloperMenu = patch("Enable developer menu") {
     settings(instagramSettings, section("Developer", DeveloperSettings.unlockDeveloperOptions))
 
     execute {
-        developerMenuGate.returnTrueWhen(DeveloperSettings.unlockDeveloperOptions)
+        gate(DeveloperSettings.unlockDeveloperOptions) {
+            developerMenuGate.alwaysReturn(true)
+        }
     }
 }
 

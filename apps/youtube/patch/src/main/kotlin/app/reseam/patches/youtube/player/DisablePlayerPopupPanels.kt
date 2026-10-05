@@ -6,7 +6,7 @@ package app.reseam.patches.youtube.player
 
 import app.reseam.patch.Type
 import app.reseam.patch.patch
-import app.reseam.patch.settings.before
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
@@ -21,8 +21,10 @@ val disablePlayerPopupPanels = patch("Disable player popup panels") {
     settings(youTubeSettings, section(YouTubeSettingsPages.Overlay, "Player overlay", YouTubeSettings.disablePlayerPopupPanels))
 
     execute {
-        engagementPanelShow.before(YouTubeSettings.disablePlayerPopupPanels) {
-            whenFalse(param(3)) { returnNull() }
+        gate(YouTubeSettings.disablePlayerPopupPanels) {
+            engagementPanelShow.before {
+                whenFalse(param(3)) { returnNull() }
+            }
         }
     }
 }

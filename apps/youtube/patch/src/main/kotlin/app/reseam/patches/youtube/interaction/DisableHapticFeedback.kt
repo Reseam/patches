@@ -7,8 +7,8 @@ package app.reseam.patches.youtube.interaction
 import app.reseam.patch.Type
 import app.reseam.patch.method
 import app.reseam.patch.patch
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.skipWhen
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
@@ -37,10 +37,18 @@ val disableHapticFeedback = patch("Disable haptic feedback") {
     )
 
     execute {
-        chapterHaptics.skipWhen(YouTubeSettings.hapticsChapters)
-        preciseSeekingHaptics.skipWhen(YouTubeSettings.hapticsPreciseSeeking)
-        seekUndoHaptics.skipWhen(YouTubeSettings.hapticsSeekUndo)
-        zoomHaptics.skipWhen(YouTubeSettings.hapticsZoom)
+        gate(YouTubeSettings.hapticsChapters) {
+            chapterHaptics.alwaysReturn()
+        }
+        gate(YouTubeSettings.hapticsPreciseSeeking) {
+            preciseSeekingHaptics.alwaysReturn()
+        }
+        gate(YouTubeSettings.hapticsSeekUndo) {
+            seekUndoHaptics.alwaysReturn()
+        }
+        gate(YouTubeSettings.hapticsZoom) {
+            zoomHaptics.alwaysReturn()
+        }
     }
 }
 

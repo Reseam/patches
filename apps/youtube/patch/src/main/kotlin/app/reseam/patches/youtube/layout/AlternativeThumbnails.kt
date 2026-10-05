@@ -68,7 +68,7 @@ private val imageResponseStarted = methods("image response parsers") {
 }
 
 private object AlternativeThumbnails : ExtClass("app.reseam.youtube.thumbnails.AlternativeThumbnailsPatch") {
-    val override = static("overrideImageURL", Type.String, returns = Type.String)
-    val onResponse = static("onResponse", Type.String, Type.Int)
-    val onFailure = static("onFailure", Type.Object)
+    val override by static(Type.String, returns = Type.String, name = "overrideImageURL")
+    val onResponse by static(Type.String, Type.Int)
+    val onFailure by static(Type.Object)
 }

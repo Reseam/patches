@@ -21,9 +21,9 @@ import app.reseam.patches.youtube.internal.registerPlayerControlLayout
 import app.reseam.patches.youtube.internal.videoPlaybackStateHook
 
 object Downloads : ExtClass("app.reseam.youtube.buttons.Downloads") {
-    val setMainActivity = static("setMainActivity", Type.Activity)
-    val initialize = static("initialize", Type.View)
-    val inAppDownloadButtonOnClick = static("inAppDownloadButtonOnClick", Type.String, returns = Type.Boolean)
+    val setMainActivity by static(Type.Activity)
+    val initialize by static(Type.View)
+    val inAppDownloadButtonOnClick by static(Type.String, returns = Type.Boolean)
 }
 
 

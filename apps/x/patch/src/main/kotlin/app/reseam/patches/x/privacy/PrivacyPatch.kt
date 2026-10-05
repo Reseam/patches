@@ -8,7 +8,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.dex.methodRef
-import app.reseam.patch.settings.before
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettings
@@ -23,7 +23,9 @@ val privacy = patch("Privacy") {
     settings(xSettings, section("Privacy", XSettings.blockInstalledAppsScan, XSettings.disableAdTracking))
 
     execute {
-        installedAppsWork.before(XSettings.blockInstalledAppsScan) { returnValue(call(workerSuccess)) }
+        gate(XSettings.blockInstalledAppsScan) {
+            installedAppsWork.before { returnValue(call(workerSuccess)) }
+        }
 
         disableFeatureSwitches(
             XSettings.disableAdTracking,

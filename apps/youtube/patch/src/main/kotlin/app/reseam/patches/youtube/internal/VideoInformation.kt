@@ -42,31 +42,29 @@ private val videoSpeedChangedHooks = mutableListOf<ExtMethod>()
 private val userSelectedPlaybackSpeedHooks = mutableListOf<ExtMethod>()
 
 object VideoInformation : ExtClass(EXTENSION_CLASS) {
-    val initialize = static("initialize", PLAYBACK_CONTROLLER)
-    val initializeMdx = static("initializeMDX", PLAYBACK_CONTROLLER)
-    val setVideoId = static("setVideoId", Type.String)
-    val newPlayerResponseSignature = static(
-        "newPlayerResponseSignature",
+    val initialize by static(PLAYBACK_CONTROLLER)
+    val initializeMdx by static(PLAYBACK_CONTROLLER, name = "initializeMDX")
+    val setVideoId by static(Type.String)
+    val newPlayerResponseSignature by static(
         Type.String,
         Type.String,
         Type.Boolean,
         returns = Type.String,
     )
-    val setPlayerResponseVideoId = static("setPlayerResponseVideoId", Type.String, Type.Boolean)
-    val setVideoLength = static("setVideoLength", Type.Long)
-    val setVideoTime = static("setVideoTime", Type.Long)
-    val setVideoWindow = static("setVideoWindow", Type.Long, Type.Long)
-    val videoSpeedChanged = static("videoSpeedChanged", Type.Float)
-    val userSelectedPlaybackSpeed = static("userSelectedPlaybackSpeed", Type.Float)
-    val fixVideoQualityResolution = static("fixVideoQualityResolution", Type.String, Type.Int, returns = Type.Int)
-    val setVideoQuality = static(
-        "setVideoQuality",
+    val setPlayerResponseVideoId by static(Type.String, Type.Boolean)
+    val setVideoLength by static(Type.Long)
+    val setVideoTime by static(Type.Long)
+    val setVideoWindow by static(Type.Long, Type.Long)
+    val videoSpeedChanged by static(Type.Float)
+    val userSelectedPlaybackSpeed by static(Type.Float)
+    val fixVideoQualityResolution by static(Type.String, Type.Int, returns = Type.Int)
+    val setVideoQuality by static(
         VIDEO_QUALITY_ARRAY,
         VIDEO_QUALITY_MENU_INTERFACE,
         Type.Int,
         returns = Type.Int,
     )
-    val overridePlaybackSpeed = static("overridePlaybackSpeed", Type.Float)
+    val overridePlaybackSpeed by static(Type.Float)
 }
 
 /** Register a callback after the player controller has been initialized. */

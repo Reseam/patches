@@ -22,8 +22,8 @@ import app.reseam.patches.youtube.internal.registerPlayerControlLayout
 import app.reseam.patches.youtube.internal.videoInformationHook
 
 object LoopVideo : ExtClass("app.reseam.youtube.buttons.LoopVideo") {
-    val initialize = static("initialize", Type.View)
-    val shouldLoopVideo = static("shouldLoopVideo", "java.lang.Enum", returns = Type.Boolean)
+    val initialize by static(Type.View)
+    val shouldLoopVideo by static("java.lang.Enum", returns = Type.Boolean)
 }
 
 val loopVideo = patch("Loop video") {

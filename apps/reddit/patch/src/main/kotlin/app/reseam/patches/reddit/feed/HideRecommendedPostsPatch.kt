@@ -5,7 +5,7 @@ package app.reseam.patches.reddit.feed
 
 import app.reseam.patch.klass
 import app.reseam.patch.patch
-import app.reseam.patch.settings.after
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.reddit.core.FeedElements
 import app.reseam.patches.reddit.core.REDDIT
@@ -22,9 +22,11 @@ val hideRecommendedPosts = patch("Hide recommended posts") {
     execute {
         val postElement = feedElementClassNames(listOf("PostElement(linkId="))
         // A cell group carries a recommendation context only when Reddit picked it for you.
-        cellGroupMapper.after(RedditSettings.hideRecommendedPosts) {
-            whenNotNull(paramOfType(recommendationContext.descriptor)) {
-                whenTrue(call(FeedElements.isAny, capture("result"), string(postElement))) { returnNull() }
+        gate(RedditSettings.hideRecommendedPosts) {
+            cellGroupMapper.after {
+                whenNotNull(paramOfType(recommendationContext.descriptor)) {
+                    whenTrue(call(FeedElements.isAny, capture("result"), string(postElement))) { returnNull() }
+                }
             }
         }
     }

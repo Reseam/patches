@@ -4,9 +4,9 @@
 
 package app.reseam.patches.youtube.internal
 
+import app.reseam.patch.settings.gate
 import app.reseam.patch.Type
 import app.reseam.patch.after
-import app.reseam.patch.settings.after
 import app.reseam.patches.youtube.core.YouTubeSettings
 import app.reseam.patch.dex.Opcode
 import app.reseam.patch.dex.literal
@@ -35,12 +35,14 @@ val openVideosFullscreenHook = patch {
 
         // The feature literal identifies the existing conditional; the nearest preceding
         // move-result is the original decision value and is safe to rewrite after the read.
-        target.point("fullscreenConditional") { literal(45666112L) }
-            .previous { opcode(Opcode.MOVE_RESULT) }
-            .captureAs("fullscreenConditional", Type.Boolean)
-            .after(YouTubeSettings.openVideosFullscreen) {
-                capture("fullscreenConditional").assign(bool(false))
-            }
+        gate(YouTubeSettings.openVideosFullscreen) {
+            target.point("fullscreenConditional") { literal(45666112L) }
+                .previous { opcode(Opcode.MOVE_RESULT) }
+                .captureAs("fullscreenConditional", Type.Boolean)
+                .after {
+                    capture("fullscreenConditional").assign(bool(false))
+                }
+        }
         target.point("fullscreenFeatureFlag") { literal(45666112L) }
             .next { invokeVirtual { returns(Type.Boolean) } }
             .next { opcode(Opcode.MOVE_RESULT) }

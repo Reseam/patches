@@ -6,7 +6,7 @@ package app.reseam.patches.reddit.comments
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.returnTrueWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.reddit.core.REDDIT
 import app.reseam.patches.reddit.core.RedditSettings
@@ -18,6 +18,8 @@ val ignoreSuggestedSort = patch("Always use my default comment sort") {
     settings(redditSettings, section("Comments", RedditSettings.ignoreSuggestedSort))
 
     execute {
-        klass("com.reddit.domain.model.AccountPreferences").method("getIgnoreSuggestedSort").returnTrueWhen(RedditSettings.ignoreSuggestedSort)
+        gate(RedditSettings.ignoreSuggestedSort) {
+            klass("com.reddit.domain.model.AccountPreferences").method("getIgnoreSuggestedSort").alwaysReturn(true)
+        }
     }
 }

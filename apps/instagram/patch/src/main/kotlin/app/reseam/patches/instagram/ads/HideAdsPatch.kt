@@ -6,7 +6,7 @@ package app.reseam.patches.instagram.ads
 import app.reseam.patch.Type
 import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.returnFalseWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.instagram.core.FeedSettings
 import app.reseam.patches.instagram.core.INSTAGRAM
@@ -20,7 +20,9 @@ val hideAds = patch("Hide ads") {
     settings(instagramSettings, section("Feed", FeedSettings.hideAds))
 
     execute {
-        adInsertion.returnFalseWhen(FeedSettings.hideAds)
+        gate(FeedSettings.hideAds) {
+            adInsertion.alwaysReturn(false)
+        }
     }
 }
 

@@ -8,9 +8,8 @@ import app.reseam.patch.dex.Opcode
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
-import app.reseam.patch.settings.before
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.skipWhen
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.StorySettings
 import app.reseam.patches.instagram.core.StorySuggestions
@@ -24,9 +23,11 @@ val hideStorySuggestions = patch("Hide suggested accounts in stories") {
     settings(instagramSettings, section("Stories", StorySettings.hideSuggestedUsers))
 
     execute {
-        midcardFetch.skipWhen(StorySettings.hideSuggestedUsers)
-        trayEligibility.before(StorySettings.hideSuggestedUsers) {
-            whenTrue(call(StorySuggestions.isSuggested, param(0).field(reelType))) { returnFalse() }
+        gate(StorySettings.hideSuggestedUsers) {
+            midcardFetch.alwaysReturn()
+            trayEligibility.before {
+                whenTrue(call(StorySuggestions.isSuggested, param(0).field(reelType))) { returnFalse() }
+            }
         }
     }
 }

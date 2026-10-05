@@ -12,9 +12,8 @@ import app.reseam.patch.dex.opcode
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
-import app.reseam.patch.settings.after
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.skipWhen
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
@@ -48,15 +47,17 @@ val hideInfoCards = patch("Hide info cards") {
             returns("java.lang.Boolean")
             custom { parameterTypes[0].startsWith("L") }
         }
-        incognito.point("info-card visibility") {
-            invokeVirtual {
-                owner("android.view.View")
-                name("setVisibility")
-                params(Type.Int)
-                returns(Type.Void)
+        gate(YouTubeSettings.hideInfoCards) {
+            incognito.point("info-card visibility") {
+                invokeVirtual {
+                    owner("android.view.View")
+                    name("setVisibility")
+                    params(Type.Int)
+                    returns(Type.Void)
+                }
+            }.captureArgumentAs("view", 0, Type.View).after {
+                capture("view").callVirtual(Type.View, "setVisibility", "(I)V", int(8))
             }
-        }.captureArgumentAs("view", 0, Type.View).after(YouTubeSettings.hideInfoCards) {
-            capture("view").callVirtual(Type.View, "setVisibility", "(I)V", int(8))
         }
 
         val oldInfoCardsMethod = method("old info-card method call") {
@@ -64,15 +65,17 @@ val hideInfoCards = patch("Hide info cards") {
             literals(drawerId)
             opcode(Opcode.INVOKE_VIRTUAL, Opcode.IGET_OBJECT, Opcode.INVOKE_INTERFACE)
         }
-        oldInfoCardsMethod.point("old info-card interface call") {
-            opcode(Opcode.IGET_OBJECT)
-            then {
-                invokeInterface {
-                    params()
-                    returns(Type.Void)
+        gate(YouTubeSettings.hideInfoCards) {
+            oldInfoCardsMethod.point("old info-card interface call") {
+                opcode(Opcode.IGET_OBJECT)
+                then {
+                    invokeInterface {
+                        params()
+                        returns(Type.Void)
+                    }
                 }
-            }
-        }.skipWhen(YouTubeSettings.hideInfoCards)
+            }.skip()
+        }
 
         registerLithoFilter(HideInfoCardsFilter)
     }

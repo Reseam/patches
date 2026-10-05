@@ -8,7 +8,7 @@ import app.reseam.patch.Type
 import app.reseam.patch.dex.AccessFlags
 import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.before
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
@@ -33,7 +33,9 @@ val hideSeekbar = patch {
     )
 
     execute {
-        seekbarOnDraw.before(YouTubeSettings.hideSeekbar) { returnVoid() }
+        gate(YouTubeSettings.hideSeekbar) {
+            seekbarOnDraw.before { returnVoid() }
+        }
     }
 }
 

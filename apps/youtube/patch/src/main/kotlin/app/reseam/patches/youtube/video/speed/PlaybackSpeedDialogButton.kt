@@ -20,8 +20,8 @@ import app.reseam.patches.youtube.internal.videoInformationHook
 import app.reseam.patches.youtube.internal.videoSpeedChangedHook
 
 object PlaybackSpeedDialogButton : ExtClass("app.reseam.youtube.speed.PlaybackSpeedDialogButton") {
-    val initialize = static("initialize", Type.View)
-    val videoSpeedChanged = static("videoSpeedChanged", Type.Float)
+    val initialize by static(Type.View)
+    val videoSpeedChanged by static(Type.Float)
 }
 
 val playbackSpeedDialogButton = patch("Playback speed player button") {

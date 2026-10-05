@@ -5,7 +5,7 @@ package app.reseam.patches.instagram.interaction
 
 import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.after
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.instagram.core.AppearanceSettings
 import app.reseam.patches.instagram.core.INSTAGRAM
@@ -28,8 +28,10 @@ val hideEngagementCounts = patch("Hide engagement counts") {
     execute {
         val toString = feedUfiConfig.method("toString")
         val countFlags = COUNT_LABELS.map { labelledBoolean(toString, it) }
-        feedUfiConfig.method("<init>").after(AppearanceSettings.hideEngagementCounts) {
-            countFlags.forEach { thisObject.set(it, bool(false)) }
+        gate(AppearanceSettings.hideEngagementCounts) {
+            feedUfiConfig.method("<init>").after {
+                countFlags.forEach { thisObject.set(it, bool(false)) }
+            }
         }
     }
 }

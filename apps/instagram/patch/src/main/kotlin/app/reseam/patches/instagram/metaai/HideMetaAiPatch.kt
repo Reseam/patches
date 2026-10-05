@@ -13,9 +13,7 @@ import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.points
-import app.reseam.patch.settings.after
-import app.reseam.patch.settings.returnFalseWhen
-import app.reseam.patch.settings.returnNullWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.MetaAiSettings
@@ -33,11 +31,15 @@ val hideMetaAi = patch("Hide Meta AI") {
     )
 
     execute {
-        klass(exploreMetaAiEnabled.owner).method("<init>") { hasParam(Type.List) }.after(MetaAiSettings.hideInExploreSearch) {
-            thisObject.set(exploreMetaAiEnabled, bool(false))
+        gate(MetaAiSettings.hideInExploreSearch) {
+            klass(exploreMetaAiEnabled.owner).method("<init>") { hasParam(Type.List) }.after {
+                thisObject.set(exploreMetaAiEnabled, bool(false))
+            }
+            exploreMetaAiSearch.alwaysReturn(false)
         }
-        exploreMetaAiSearch.returnFalseWhen(MetaAiSettings.hideInExploreSearch)
-        directMetaAiGate.returnFalseWhen(MetaAiSettings.hideInDirect)
+        gate(MetaAiSettings.hideInDirect) {
+            directMetaAiGate.alwaysReturn(false)
+        }
         // Both DM search hints ("Search or ask Meta AI" and its reverse) follow the hint flag read; the
         // search screen and the inbox bar load them, so each load becomes the platform's "Search".
         val hintChoice = directSearchView.point { literal(DM_SEARCH_META_AI_HINT); then(within = 6) { resultOf(Type.Boolean) } }
@@ -47,8 +49,10 @@ val hideMetaAi = patch("Hide Meta AI") {
             methods("metaAiSearchHint$hint") { literals(*metaAiHints.toLongArray()) }
                 .points { literal(hint) }
                 .forEach {
-                    captureAs("metaAiHint", Type.Int)
-                        .after(MetaAiSettings.hideInDirect) { capture("metaAiHint").assign(int(PLATFORM_SEARCH_HINT)) }
+                    gate(MetaAiSettings.hideInDirect) {
+                        captureAs("metaAiHint", Type.Int)
+                            .after { capture("metaAiHint").assign(int(PLATFORM_SEARCH_HINT)) }
+                    }
                 }
         }
         val shareButtonId = resources.id("id", "meta_ai_share_button")?.toLong() ?: error("id/meta_ai_share_button missing")
@@ -58,18 +62,24 @@ val hideMetaAi = patch("Hide Meta AI") {
             literals(shareButtonId)
         }
         val shareButton = searchControllerSetup.point { literal(shareButtonId) }.next { opcode(Opcode.IPUT_OBJECT) }.field("metaAiShareButton")
-        searchControllerSetup.after(MetaAiSettings.hideInDirect) {
-            thisObject.field(searchViewHolder).field(shareButton).callVirtual("android.view.View", "setVisibility", "(I)V", int(VIEW_GONE))
+        gate(MetaAiSettings.hideInDirect) {
+            searchControllerSetup.after {
+                thisObject.field(searchViewHolder).field(shareButton).callVirtual("android.view.View", "setVisibility", "(I)V", int(VIEW_GONE))
+            }
         }
         for (flag in DM_SEARCH_META_AI_FLAGS) {
             methods("dmSearchFlag$flag") { literals(flag) }
                 .points { literal(flag); then(within = 6) { resultOf(Type.Boolean) } }
                 .forEach {
-                    captureAs("metaAiFlag", Type.Boolean)
-                        .after(MetaAiSettings.hideInDirect) { capture("metaAiFlag").assign(bool(false)) }
+                    gate(MetaAiSettings.hideInDirect) {
+                        captureAs("metaAiFlag", Type.Boolean)
+                            .after { capture("metaAiFlag").assign(bool(false)) }
+                    }
                 }
         }
-        postMenuMetaAi.returnNullWhen(MetaAiSettings.hideInPosts)
+        gate(MetaAiSettings.hideInPosts) {
+            postMenuMetaAi.alwaysReturnNull()
+        }
     }
 }
 

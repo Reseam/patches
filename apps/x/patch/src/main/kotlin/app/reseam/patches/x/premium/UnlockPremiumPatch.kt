@@ -7,7 +7,7 @@ import app.reseam.patch.Type
 import app.reseam.patch.klass
 import app.reseam.patch.methods
 import app.reseam.patch.patch
-import app.reseam.patch.settings.returnTrueWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettings
@@ -19,7 +19,7 @@ val unlockPremium = patch("Unlock Premium") {
     settings(xSettings, section("Premium", XSettings.unlockPremium))
 
     execute {
-        premiumTierChecks.forEach { returnTrueWhen(XSettings.unlockPremium) }
+        gate(XSettings.unlockPremium) { premiumTierChecks.forEach { alwaysReturn(true) } }
     }
 }
 

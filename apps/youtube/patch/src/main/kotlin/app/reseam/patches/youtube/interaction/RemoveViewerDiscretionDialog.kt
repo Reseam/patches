@@ -13,8 +13,7 @@ import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
-import app.reseam.patch.settings.after
-import app.reseam.patch.settings.before
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
@@ -37,20 +36,24 @@ val removeViewerDiscretionDialog = patch("Remove viewer discretion dialog") {
     execute {
         // Which dialog is on screen is not knowable from the dialog itself, so the extension keeps
         // the last playability status and only dismisses the dialogs that status can produce.
-        playabilityGuard.before(YouTubeSettings.removeViewerDiscretionDialog) {
-            call(ViewerDiscretionDialog.setPlayabilityStatus, param(0))
-        }
+        gate(YouTubeSettings.removeViewerDiscretionDialog) {
+            playabilityGuard.before {
+                call(ViewerDiscretionDialog.setPlayabilityStatus, param(0))
+            }
 
-        dialogShown.after(YouTubeSettings.removeViewerDiscretionDialog) {
-            call(ViewerDiscretionDialog.confirm, capture("dialog"))
+            dialogShown.after {
+                call(ViewerDiscretionDialog.confirm, capture("dialog"))
+            }
         }
 
         // Tracked points remain attached to their instructions as either hook is emitted.
-        modernDialogCreated.after(YouTubeSettings.removeViewerDiscretionDialog) {
-            call(ViewerDiscretionDialog.confirm, capture("dialog"))
-        }
-        modernDialogChosen.after(YouTubeSettings.removeViewerDiscretionDialog) {
-            capture("modern").assign(call(ViewerDiscretionDialog.useModernDialog, capture("modern")))
+        gate(YouTubeSettings.removeViewerDiscretionDialog) {
+            modernDialogCreated.after {
+                call(ViewerDiscretionDialog.confirm, capture("dialog"))
+            }
+            modernDialogChosen.after {
+                capture("modern").assign(call(ViewerDiscretionDialog.useModernDialog, capture("modern")))
+            }
         }
     }
 }
@@ -106,7 +109,7 @@ val modernDialogCreated = modernDialogBuilder
     .captureAs("dialog", ALERT_DIALOG)
 
 object ViewerDiscretionDialog : ExtClass("app.reseam.youtube.misc.ViewerDiscretionDialog") {
-    val setPlayabilityStatus = static("setPlayabilityStatus", "java.lang.Enum")
-    val confirm = static("confirm", ALERT_DIALOG)
-    val useModernDialog = static("useModernDialog", Type.Boolean, returns = Type.Boolean)
+    val setPlayabilityStatus by static("java.lang.Enum")
+    val confirm by static(ALERT_DIALOG)
+    val useModernDialog by static(Type.Boolean, returns = Type.Boolean)
 }

@@ -35,14 +35,14 @@ import app.reseam.patches.youtube.internal.registerLithoFilter
 import app.reseam.patches.youtube.internal.videoInformationHook
 
 object CustomPlaybackSpeed : ExtClass("app.reseam.youtube.speed.CustomPlaybackSpeed") {
-    val getTapAndHoldSpeed = static("getTapAndHoldSpeed", returns = Type.Float)
-    val onLithoTextLoaded = static("onLithoTextLoaded", "java.lang.StringBuilder", Type.CharSequence, returns = Type.CharSequence)
-    val customPlaybackSpeedCount = static("customPlaybackSpeedCount", returns = Type.Int)
-    val onFlyoutMenuCreate = static("onFlyoutMenuCreate", Type.View)
-    val openOldPlaybackSpeedMenu = static("openOldPlaybackSpeedMenu")
-    val customPlaybackSpeeds = field("customPlaybackSpeeds", "[F")
-    val maximumSpeed = field("PLAYBACK_SPEED_MAXIMUM", Type.Float)
-    val minimumSpeed = field("SPEED_LIMIT_MINIMUM", Type.Float)
+    val getTapAndHoldSpeed by static(returns = Type.Float)
+    val onLithoTextLoaded by static("java.lang.StringBuilder", Type.CharSequence, returns = Type.CharSequence)
+    val customPlaybackSpeedCount by static(returns = Type.Int)
+    val onFlyoutMenuCreate by static(Type.View)
+    val openOldPlaybackSpeedMenu by static()
+    val customPlaybackSpeeds by field("[F")
+    val maximumSpeed by field(Type.Float, name = "PLAYBACK_SPEED_MAXIMUM")
+    val minimumSpeed by field(Type.Float, name = "SPEED_LIMIT_MINIMUM")
 }
 
 /** YouTube's old speed menu, which builds its list from the speed values it is given. */

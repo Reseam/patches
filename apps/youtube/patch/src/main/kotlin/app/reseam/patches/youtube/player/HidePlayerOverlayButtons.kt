@@ -18,9 +18,9 @@ import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.points
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.ToggleSetting
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.skipWhen
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
@@ -44,14 +44,16 @@ fun app.reseam.patch.MethodTarget.skipInflationWhen(
     resourceId: Long,
     setting: ToggleSetting,
 ) {
-    point("ViewStub inflate for $resourceId") {
-        literal(resourceId)
-    }.next { checkCast("android.view.ViewStub") }.next {
-        invokeVirtual {
-            params("android.view.ViewStub", Type.Int)
-            returns(Type.Void)
-        }
-    }.skipWhen(setting)
+    gate(setting) {
+        point("ViewStub inflate for $resourceId") {
+            literal(resourceId)
+        }.next { checkCast("android.view.ViewStub") }.next {
+            invokeVirtual {
+                params("android.view.ViewStub", Type.Int)
+                returns(Type.Void)
+            }
+        }.skip()
+    }
 }
 
 internal val subtitleButtonController = methodTarget("subtitle button controller") {
@@ -176,15 +178,14 @@ val hidePlayerOverlayButtons = patch("Hide player overlay buttons") {
 }
 
 object HidePlayerOverlayButtons : ExtClass("app.reseam.youtube.playerui.HidePlayerOverlayButtons") {
-    val castVisibility = static("getCastButtonOverrideV2", Type.Int, returns = Type.Int)
-    val castEnabled = static("getCastButtonOverrideV2", Type.Boolean, returns = Type.Boolean)
-    val hideCaptionsButton = static("hideCaptionsButton", "android.widget.ImageView")
-    val hideCollapseButton = static("hideCollapseButton", "android.widget.ImageView")
-    val setTitleAnchorStartMargin = static("setTitleAnchorStartMargin", Type.View)
-    val hidePreviousNextButtons = static("hidePreviousNextButtons", Type.View)
-    val hideFullscreenButton = static("hideFullscreenButton", Type.View, returns = Type.View)
-    val hidePlayerControlButtonsBackground = static(
-        "hidePlayerControlButtonsBackground",
+    val castVisibility by static(Type.Int, returns = Type.Int, name = "getCastButtonOverrideV2")
+    val castEnabled by static(Type.Boolean, returns = Type.Boolean, name = "getCastButtonOverrideV2")
+    val hideCaptionsButton by static("android.widget.ImageView")
+    val hideCollapseButton by static("android.widget.ImageView")
+    val setTitleAnchorStartMargin by static(Type.View)
+    val hidePreviousNextButtons by static(Type.View)
+    val hideFullscreenButton by static(Type.View, returns = Type.View)
+    val hidePlayerControlButtonsBackground by static(
         Type.View,
     )
 }

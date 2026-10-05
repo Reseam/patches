@@ -71,12 +71,12 @@ val sponsorBlock = patch("SponsorBlock") {
 }
 
 private object SponsorBlock : ExtClass("app.reseam.youtube.sponsorblock.SponsorBlock") {
-    val attach = static("attach", Type.Activity)
-    val playerView = static("playerView", Type.View)
-    val initialize = static("initialize", "app.reseam.youtube.video.VideoInformation\$PlaybackController")
-    val newVideoLoaded = static("newVideoLoaded", Type.String)
-    val setVideoTime = static("setVideoTime", Type.Long)
-    val setAdVisibility = static("setAdVisibility", Type.Int)
-    val drawSegments = static("drawSegments", "android.graphics.Canvas", "android.graphics.Rect")
-    val appendTime = static("appendTime", Type.String, returns = Type.String)
+    val attach by static(Type.Activity)
+    val playerView by static(Type.View)
+    val initialize by static("app.reseam.youtube.video.VideoInformation\$PlaybackController")
+    val newVideoLoaded by static(Type.String)
+    val setVideoTime by static(Type.Long)
+    val setAdVisibility by static(Type.Int)
+    val drawSegments by static("android.graphics.Canvas", "android.graphics.Rect")
+    val appendTime by static(Type.String, returns = Type.String)
 }

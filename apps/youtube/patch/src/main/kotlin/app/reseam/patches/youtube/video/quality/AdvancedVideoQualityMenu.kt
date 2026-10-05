@@ -26,9 +26,9 @@ import app.reseam.patches.youtube.internal.registerLithoFilter
 import app.reseam.patches.youtube.internal.videoInformationHook
 
 object AdvancedVideoQualityMenu : ExtClass("app.reseam.youtube.quality.AdvancedVideoQualityMenu") {
-    val onFlyoutMenuCreate = static("onFlyoutMenuCreate", Type.View)
-    val addVideoQualityListMenuListener = static("addVideoQualityListMenuListener", Type.View)
-    val forceAdvancedVideoQualityMenuCreation = static("forceAdvancedVideoQualityMenuCreation", Type.Boolean, returns = Type.Boolean)
+    val onFlyoutMenuCreate by static(Type.View)
+    val addVideoQualityListMenuListener by static(Type.View)
+    val forceAdvancedVideoQualityMenuCreation by static(Type.Boolean, returns = Type.Boolean)
 }
 
 private object AdvancedVideoQualityFilter : ExtClass("app.reseam.youtube.quality.AdvancedVideoQualityFilter")

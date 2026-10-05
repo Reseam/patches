@@ -59,6 +59,6 @@ val dimShortsOverlay = patch("Dim Shorts overlay") {
 }
 
 object DimShortsOverlay : ExtClass("app.reseam.youtube.shorts.DimShortsOverlay") {
-    val dimShortsPlayerOverlay = static("dimShortsPlayerOverlay", Type.View)
-    val dimShortsToolbarButton = static("dimShortsToolbarButton", "java.lang.Enum", Type.View)
+    val dimShortsPlayerOverlay by static(Type.View)
+    val dimShortsToolbarButton by static("java.lang.Enum", Type.View)
 }

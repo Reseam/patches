@@ -25,8 +25,8 @@ import app.reseam.patches.youtube.core.youTubeSettings
 import app.reseam.patches.youtube.internal.videoInformationHook
 
 object ForceOriginalAudio : ExtClass("app.reseam.youtube.quality.ForceOriginalAudio") {
-    val setEnabled = static("setEnabled")
-    val isDefaultAudioStream = static("isDefaultAudioStream", Type.Boolean, Type.String, Type.String, returns = Type.Boolean)
+    val setEnabled by static()
+    val isDefaultAudioStream by static(Type.Boolean, Type.String, Type.String, returns = Type.Boolean)
 }
 
 private val formatStreamToString = method("format stream toString") {

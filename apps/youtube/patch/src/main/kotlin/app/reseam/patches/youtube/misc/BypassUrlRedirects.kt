@@ -10,7 +10,7 @@ import app.reseam.patch.dex.Opcode
 import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.points
-import app.reseam.patch.settings.after
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
@@ -28,10 +28,12 @@ val bypassUrlRedirects = patch("Bypass URL redirects") {
         val sites = parsedUris.all
         check(sites.isNotEmpty()) { "No URI conversion lambdas" }
         sites.forEach { site ->
-            site.previous { resultOf(URI) }.captureAs("uri", URI)
-                .after(YouTubeSettings.bypassUrlRedirects) {
-                    capture("uri").assign(call(UrlRedirects.bypass, capture("uri")))
-                }
+            gate(YouTubeSettings.bypassUrlRedirects) {
+                site.previous { resultOf(URI) }.captureAs("uri", URI)
+                    .after {
+                        capture("uri").assign(call(UrlRedirects.bypass, capture("uri")))
+                    }
+            }
         }
     }
 }
@@ -47,5 +49,5 @@ private val parsedUris = methods("URI conversion lambdas") {
 }
 
 object UrlRedirects : ExtClass("app.reseam.youtube.misc.UrlRedirects") {
-    val bypass = static("bypass", URI, returns = URI)
+    val bypass by static(URI, returns = URI)
 }

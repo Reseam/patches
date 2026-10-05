@@ -7,8 +7,8 @@ import app.reseam.patch.Type
 import app.reseam.patch.className
 import app.reseam.patch.klass
 import app.reseam.patch.method
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.ToggleSetting
-import app.reseam.patch.settings.after
 
 fun feedSectionContent(label: String) = method("$label content") {
     inClass(klass(label) { strings(label) })
@@ -24,7 +24,9 @@ fun feedElementClassNames(labels: List<String>) = labels.joinToString(",") { cla
 // The mapper already returns null for empty cell groups, so its callers skip null.
 fun hideFeedElements(setting: ToggleSetting, labels: List<String>) {
     val classNames = feedElementClassNames(labels)
-    cellGroupMapper.after(setting) {
-        whenTrue(call(FeedElements.isAny, capture("result"), string(classNames))) { returnNull() }
+    gate(setting) {
+        cellGroupMapper.after {
+            whenTrue(call(FeedElements.isAny, capture("result"), string(classNames))) { returnNull() }
+        }
     }
 }

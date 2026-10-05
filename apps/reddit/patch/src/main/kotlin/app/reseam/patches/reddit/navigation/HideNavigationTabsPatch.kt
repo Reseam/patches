@@ -7,7 +7,7 @@ import app.reseam.patch.dex.Opcode
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
-import app.reseam.patch.settings.after
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.reddit.core.REDDIT
 import app.reseam.patches.reddit.core.RedditSettings
@@ -27,7 +27,11 @@ val hideNavigationTabs = patch("Hide navigation tabs") {
         fun tab(label: Long) = tabSet.point { literal(label) }.next { opcode(Opcode.IPUT_OBJECT) }.field()
         val postTab = tab(post)
         val inboxTab = tab(inbox)
-        tabSet.after(RedditSettings.hideCreateTab) { thisObject.set(postTab, nullObject) }
-        tabSet.after(RedditSettings.hideInboxTab) { thisObject.set(inboxTab, nullObject) }
+        gate(RedditSettings.hideCreateTab) {
+            tabSet.after { thisObject.set(postTab, nullObject) }
+        }
+        gate(RedditSettings.hideInboxTab) {
+            tabSet.after { thisObject.set(inboxTab, nullObject) }
+        }
     }
 }

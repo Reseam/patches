@@ -39,5 +39,5 @@ val customPlayerOverlayOpacity = patch("Custom player overlay opacity") {
 }
 
 object CustomPlayerOverlayOpacity : ExtClass("app.reseam.youtube.playerui.CustomPlayerOverlayOpacity") {
-    val changeOpacity = static("changeOpacity", "android.widget.ImageView")
+    val changeOpacity by static("android.widget.ImageView")
 }

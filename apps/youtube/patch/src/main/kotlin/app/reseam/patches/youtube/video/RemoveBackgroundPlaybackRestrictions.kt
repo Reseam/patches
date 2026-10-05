@@ -12,10 +12,8 @@ import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
-import app.reseam.patch.settings.after
-import app.reseam.patch.settings.returnTrueWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.skipWhen
 import app.reseam.patch.settings.whenEnabled
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
@@ -64,21 +62,29 @@ val removeBackgroundPlaybackRestrictions = patch("Remove background playback res
             invokeVirtual { returns(Type.Boolean) }
         }.callee("background setting boolean method")
 
-        backgroundPlaybackManager.after(YouTubeSettings.removeBackgroundPlaybackRestrictions) {
-            capture("result").assign(bool(true))
+        gate(YouTubeSettings.removeBackgroundPlaybackRestrictions) {
+            backgroundPlaybackManager.after {
+                capture("result").assign(bool(true))
+            }
         }
         backgroundPlaybackManagerShorts.after {
             whenEnabled(YouTubeSettings.removeBackgroundPlaybackRestrictions) { capture("result").assign(bool(true)) }
             whenEnabled(YouTubeSettings.allowShortsBackgroundPlayback) { capture("result").assign(bool(true)) }
         }
-        settingsBoolean.returnTrueWhen(YouTubeSettings.removeBackgroundPlaybackRestrictions)
+        gate(YouTubeSettings.removeBackgroundPlaybackRestrictions) {
+            settingsBoolean.alwaysReturn(true)
+        }
         // ReVanced also forces feature 45698813 off here, for background playback of some video
         // types. On 21.37.42 that flag selects the player-type enum the control overlay is built
         // from, so forcing it off leaves the player with no controls and no seekbar at all.
         booleanFeatureReads(45415425L).forEach { site ->
-            site.next { resultOf(Type.Boolean) }.captureAs("enabled", Type.Boolean)
-                .after(YouTubeSettings.removeBackgroundPlaybackRestrictions) { capture("enabled").assign(bool(true)) }
+            gate(YouTubeSettings.removeBackgroundPlaybackRestrictions) {
+                site.next { resultOf(Type.Boolean) }.captureAs("enabled", Type.Boolean)
+                    .after { capture("enabled").assign(bool(true)) }
+            }
         }
-        kidsPlaybackPolicy.skipWhen(YouTubeSettings.removeBackgroundPlaybackRestrictions)
+        gate(YouTubeSettings.removeBackgroundPlaybackRestrictions) {
+            kidsPlaybackPolicy.alwaysReturn()
+        }
     }
 }

@@ -8,10 +8,8 @@ import app.reseam.patch.field
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.before
-import app.reseam.patch.settings.returnNullWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.skipWhen
 import app.reseam.patches.instagram.core.AppearanceSettings
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.instagramSettings
@@ -26,11 +24,13 @@ val hideThreadsBadge = patch("Hide Threads badge") {
     settings(instagramSettings, section("Appearance", AppearanceSettings.hideThreadsBadge))
 
     execute {
-        showThreadsBadge.before(AppearanceSettings.hideThreadsBadge) {
-            returnValue(staticField(field(BOXED_BOOLEAN, "FALSE", BOXED_BOOLEAN)))
+        gate(AppearanceSettings.hideThreadsBadge) {
+            showThreadsBadge.before {
+                returnValue(staticField(field(BOXED_BOOLEAN, "FALSE", BOXED_BOOLEAN)))
+            }
+            threadsBadgeLabel.alwaysReturnNull()
+            threadsProfileBanner.alwaysReturn()
         }
-        threadsBadgeLabel.returnNullWhen(AppearanceSettings.hideThreadsBadge)
-        threadsProfileBanner.skipWhen(AppearanceSettings.hideThreadsBadge)
     }
 }
 

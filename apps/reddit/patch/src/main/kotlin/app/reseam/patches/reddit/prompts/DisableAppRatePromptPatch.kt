@@ -7,7 +7,7 @@ import app.reseam.patch.Type
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.before
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.reddit.core.REDDIT
 import app.reseam.patches.reddit.core.RedditSettings
@@ -24,7 +24,9 @@ val disableAppRatePrompt = patch("Disable rate-the-app prompt") {
     settings(redditSettings, section("Prompts", RedditSettings.disableAppRatePrompt))
 
     execute {
-        showAppRatePrompt.before(RedditSettings.disableAppRatePrompt) { returnValue(staticField(unitInstance)) }
+        gate(RedditSettings.disableAppRatePrompt) {
+            showAppRatePrompt.before { returnValue(staticField(unitInstance)) }
+        }
         overrideIntConfigs(RedditSettings.disableAppRatePrompt, mapOf(
             "android_app_rater_open_thresh" to Int.MAX_VALUE,
             "android_app_rater_action_thresh" to Int.MAX_VALUE,

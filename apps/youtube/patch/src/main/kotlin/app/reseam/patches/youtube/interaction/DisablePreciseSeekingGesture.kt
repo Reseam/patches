@@ -11,8 +11,7 @@ import app.reseam.patch.dex.Opcode
 import app.reseam.patch.method
 import app.reseam.patch.methods
 import app.reseam.patch.patch
-import app.reseam.patch.settings.before
-import app.reseam.patch.settings.returnFalseWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
@@ -24,8 +23,10 @@ val disablePreciseSeekingGesture = patch {
     settings(youTubeSettings, section(YouTubeSettingsPages.Controls, "Seekbar", YouTubeSettings.disablePreciseSeekingGesture))
 
     execute {
-        allowSwipingUpGesture.before(YouTubeSettings.disablePreciseSeekingGesture) { returnVoid() }
-        showSwipingUpGuide.returnFalseWhen(YouTubeSettings.disablePreciseSeekingGesture)
+        gate(YouTubeSettings.disablePreciseSeekingGesture) {
+            allowSwipingUpGesture.before { returnVoid() }
+            showSwipingUpGuide.alwaysReturn(false)
+        }
     }
 }
 

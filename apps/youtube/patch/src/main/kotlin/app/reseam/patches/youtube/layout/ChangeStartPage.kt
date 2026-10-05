@@ -53,6 +53,6 @@ val launchIntent = method("launchIntent") {
 }
 
 object StartPage : ExtClass("app.reseam.youtube.misc.StartPage") {
-    val overrideBrowseId = static("overrideBrowseId", Type.String, returns = Type.String)
-    val overrideIntentAction = static("overrideIntentAction", "android.content.Intent")
+    val overrideBrowseId by static(Type.String, returns = Type.String)
+    val overrideIntentAction by static("android.content.Intent")
 }

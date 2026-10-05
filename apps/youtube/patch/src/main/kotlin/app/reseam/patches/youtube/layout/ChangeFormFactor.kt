@@ -49,5 +49,5 @@ val clientInfoBuilder = method("clientInfoBuilder") {
 }
 
 object FormFactor : ExtClass("app.reseam.youtube.misc.FormFactor") {
-    val formFactor = static("formFactor", Type.Int, returns = Type.Int)
+    val formFactor by static(Type.Int, returns = Type.Int)
 }

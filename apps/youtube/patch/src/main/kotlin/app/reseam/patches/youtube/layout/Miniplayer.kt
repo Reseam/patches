@@ -69,7 +69,7 @@ val miniplayer = patch("Miniplayer") {
 }
 
 object Miniplayer : ExtClass("app.reseam.youtube.miniplayer.Miniplayer") {
-    val width = static("width", Type.Int, returns = Type.Int)
-    val hideOverlayButton = static("hideOverlayButton", Type.View)
-    val hideSubtext = static("hideSubtext", Type.View)
+    val width by static(Type.Int, returns = Type.Int)
+    val hideOverlayButton by static(Type.View)
+    val hideSubtext by static(Type.View)
 }

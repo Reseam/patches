@@ -45,6 +45,6 @@ val disableAutoCaptions = patch("Disable auto captions") {
 }
 
 object DisableAutoCaptions : ExtClass("app.reseam.youtube.playerui.DisableAutoCaptions") {
-    val disableAutoCaptions = static("disableAutoCaptions", returns = Type.Boolean)
-    val setCaptionsButtonStatus = static("setCaptionsButtonStatus", Type.Boolean)
+    val disableAutoCaptions by static(returns = Type.Boolean)
+    val setCaptionsButtonStatus by static(Type.Boolean)
 }

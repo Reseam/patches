@@ -11,7 +11,7 @@ import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.points
-import app.reseam.patch.settings.returnFalseWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
@@ -41,5 +41,5 @@ val disableResumingShortsOnStartup = patch("Disable resuming Shorts on startup")
     dependsOn(youTubeSettings)
     settings(youTubeSettings, section(YouTubeSettingsPages.Shorts, "Shorts", YouTubeSettings.disableResumingShortsOnStartup))
 
-    execute { resumeAllowed.returnFalseWhen(YouTubeSettings.disableResumingShortsOnStartup) }
+    execute { gate(YouTubeSettings.disableResumingShortsOnStartup) { resumeAllowed.alwaysReturn(false) } }
 }

@@ -9,8 +9,8 @@ import app.reseam.patch.dex.AccessFlags
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.skipWhen
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
@@ -39,15 +39,17 @@ val disableRollingNumberAnimations = patch("Disable rolling number animations") 
                     "Lcom/google/android/libraries/youtube/rendering/ui/spec/typography/YouTubeAppCompatTextView;"
             }
         }
-        rollingNumber
-            .point("rolling number image span") {
-                invokeVirtual {
-                    owner("android.text.SpannableString")
-                    name("setSpan")
-                    params(Type.Object, Type.Int, Type.Int, Type.Int)
-                    returns(Type.Void)
+        gate(YouTubeSettings.disableRollingNumberAnimations) {
+            rollingNumber
+                .point("rolling number image span") {
+                    invokeVirtual {
+                        owner("android.text.SpannableString")
+                        name("setSpan")
+                        params(Type.Object, Type.Int, Type.Int, Type.Int)
+                        returns(Type.Void)
+                    }
                 }
-            }
-            .skipWhen(YouTubeSettings.disableRollingNumberAnimations)
+                .skip()
+        }
     }
 }

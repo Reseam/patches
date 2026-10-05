@@ -7,7 +7,7 @@ import app.reseam.patch.Type
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
-import app.reseam.patch.settings.before
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.instagram.core.ExternalLinks
 import app.reseam.patches.instagram.core.INSTAGRAM
@@ -22,9 +22,11 @@ val openLinksExternally = patch("Open links in external browser") {
     settings(instagramSettings, section("Links", LinkSettings.openExternally))
 
     execute {
-        browserLaunch.before(LinkSettings.openExternally) {
-            val launcher = paramOfType(browserLaunch.owner)
-            whenTrue(call(ExternalLinks.open, launcher.fieldOfType(Type.Context), launcher.field(launcherUrl))) { returnTrue() }
+        gate(LinkSettings.openExternally) {
+            browserLaunch.before {
+                val launcher = paramOfType(browserLaunch.owner)
+                whenTrue(call(ExternalLinks.open, launcher.fieldOfType(Type.Context), launcher.field(launcherUrl))) { returnTrue() }
+            }
         }
     }
 }

@@ -8,8 +8,8 @@ import app.reseam.patch.MethodTarget
 import app.reseam.patch.Type
 import app.reseam.patch.klass
 import app.reseam.patch.method
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.ToggleSetting
-import app.reseam.patch.settings.before
 
 // The startup store persists what these getters return, so an override also reaches it on the next launch.
 private val dynamicConfig = klass("dynamicConfig") { strings("Illegal DynamicVariableType (NONE) cannot be converted to a DynamicType") }
@@ -27,7 +27,9 @@ fun overrideIntConfigs(setting: ToggleSetting, values: Map<String, Int>) = intCo
 
 fun overrideStringConfigs(setting: ToggleSetting, values: Map<String, String>) = stringConfig.override(setting, DynamicConfigOverrides.stringValue, values)
 
-private fun MethodTarget.override(setting: ToggleSetting, lookup: ExtMethod, values: Map<String, Any>) = before(setting) {
-    val value = call(lookup, param(0), string(values.entries.joinToString(";") { (name, value) -> "$name=$value" }))
-    whenNotNull(value) { returnValue(value) }
+private fun MethodTarget.override(setting: ToggleSetting, lookup: ExtMethod, values: Map<String, Any>) = gate(setting) {
+    before {
+        val value = call(lookup, param(0), string(values.entries.joinToString(";") { (name, value) -> "$name=$value" }))
+        whenNotNull(value) { returnValue(value) }
+    }
 }

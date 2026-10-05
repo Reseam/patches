@@ -8,7 +8,7 @@ import app.reseam.patch.klass
 import app.reseam.patch.fieldOfType
 import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.after
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.reddit.core.FeedElements
 import app.reseam.patches.reddit.core.REDDIT
@@ -24,8 +24,10 @@ val hideTrendingSearches = patch("Hide trending searches") {
     execute {
         val trendingQuery = feedElementClassNames(listOf("SearchTrendingQuery(id="))
         // Reddit skips a search list with no children, header included.
-        searchList.method("<init>").after(RedditSettings.hideTrendingSearches) {
-            thisObject.set(searchListChildren, call(FeedElements.without, thisObject.field(searchListChildren), string(trendingQuery)))
+        gate(RedditSettings.hideTrendingSearches) {
+            searchList.method("<init>").after {
+                thisObject.set(searchListChildren, call(FeedElements.without, thisObject.field(searchListChildren), string(trendingQuery)))
+            }
         }
     }
 }

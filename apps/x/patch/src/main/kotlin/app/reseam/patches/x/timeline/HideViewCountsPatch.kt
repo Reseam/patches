@@ -8,7 +8,7 @@ import app.reseam.patch.method
 import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.point
-import app.reseam.patch.settings.before
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettings
@@ -21,14 +21,18 @@ val hideViewCounts = patch("Hide view counts") {
 
     execute {
         // The action type enum keeps its constant names for serialization.
-        inlineActionButton.before(XSettings.hideViewCounts) {
-            whenEqual(param(0), enumValue(inlineActionButton.parameterTypes[0], "ViewCount")) { returnVoid() }
+        gate(XSettings.hideViewCounts) {
+            inlineActionButton.before {
+                whenEqual(param(0), enumValue(inlineActionButton.parameterTypes[0], "ViewCount")) { returnVoid() }
+            }
         }
 
         // The detail line appends "N Views" only for a non-null count.
         val viewCount = resources.id("string", "view_count") ?: error("string/view_count missing")
-        methods("focalViewCount") { literals(viewCount.toLong()) }.forEach {
-            before(XSettings.hideViewCounts) { paramOfType("java.lang.Long").assign(nullObject) }
+        gate(XSettings.hideViewCounts) {
+            methods("focalViewCount") { literals(viewCount.toLong()) }.forEach {
+                before { paramOfType("java.lang.Long").assign(nullObject) }
+            }
         }
     }
 }

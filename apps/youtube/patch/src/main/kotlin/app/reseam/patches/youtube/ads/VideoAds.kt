@@ -7,8 +7,8 @@ package app.reseam.patches.youtube.ads
 import app.reseam.patch.Type
 import app.reseam.patch.method
 import app.reseam.patch.patch
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.skipWhen
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
@@ -25,7 +25,9 @@ val videoAds = patch("Video ads") {
 
     execute {
         overrideClientContextOsName(ClientContextEndpoint.REEL, YouTubeSettings.hideVideoAds, "Android Automotive")
-        loadVideoAds.skipWhen(YouTubeSettings.hideVideoAds)
+        gate(YouTubeSettings.hideVideoAds) {
+            loadVideoAds.alwaysReturn()
+        }
     }
 }
 

@@ -53,6 +53,6 @@ val protoFeatureFlagParser = method("protoFeatureFlagParser") {
 }
 
 object FeatureFlags : ExtClass("app.reseam.youtube.misc.FeatureFlags") {
-    val booleanOverride = static("booleanOverride", Type.Long, Type.Boolean, returns = Type.Boolean)
-    val stringOverride = static("stringOverride", Type.Long, Type.String, returns = Type.String)
+    val booleanOverride by static(Type.Long, Type.Boolean, returns = Type.Boolean)
+    val stringOverride by static(Type.Long, Type.String, returns = Type.String)
 }

@@ -8,7 +8,7 @@ import app.reseam.patch.ExtClass
 import app.reseam.patch.Type
 import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.returnFalseWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
@@ -26,7 +26,9 @@ val disableVideoCodecs = patch("Disable video codecs") {
     execute {
         // HDR is decided from the display's own capability list, wherever the app asks for it.
         bytecode.redirectCalls("android.view.Display\$HdrCapabilities", "getSupportedHdrTypes", VideoCodecs.supportedHdrTypes)
-        vp9Supported.returnFalseWhen(YouTubeSettings.forceAvcCodec)
+        gate(YouTubeSettings.forceAvcCodec) {
+            vp9Supported.alwaysReturn(false)
+        }
     }
 }
 
@@ -37,5 +39,5 @@ val vp9Supported = method("vp9Supported") {
 }
 
 object VideoCodecs : ExtClass("app.reseam.youtube.misc.VideoCodecs") {
-    val supportedHdrTypes = static("supportedHdrTypes", "android.view.Display\$HdrCapabilities", returns = "[I")
+    val supportedHdrTypes by static("android.view.Display\$HdrCapabilities", returns = "[I")
 }

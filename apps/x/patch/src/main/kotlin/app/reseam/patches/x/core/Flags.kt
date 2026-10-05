@@ -11,8 +11,8 @@ import app.reseam.patch.dex.opcode
 import app.reseam.patch.methodTarget
 import app.reseam.patch.methods
 import app.reseam.patch.point
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.ToggleSetting
-import app.reseam.patch.settings.before
 
 /**
  * Forces the boolean property printed as [label] in a data class's toString (e.g. ", isDownloadable=")
@@ -32,10 +32,12 @@ fun PatchRuntime.forceFlagWhen(label: String, toggle: ToggleSetting, value: Bool
             constructor.name == "<init>" && constructor.instructions.any { it.opcode == Opcode.IPUT_BOOLEAN && it.fieldRef == flag.ref }
         }
         for (constructor in constructors) {
-            methodTarget("${flag.name}:${owner.descriptor}") { constructor }
-                .point { opcode(Opcode.IPUT_BOOLEAN); field { owner(flag.owner); name(flag.name) } }
-                .captureAs("flag", Type.Boolean)
-                .before(toggle) { capture("flag").assign(bool(value)) }
+            gate(toggle) {
+                methodTarget("${flag.name}:${owner.descriptor}") { constructor }
+                    .point { opcode(Opcode.IPUT_BOOLEAN); field { owner(flag.owner); name(flag.name) } }
+                    .captureAs("flag", Type.Boolean)
+                    .before { capture("flag").assign(bool(value)) }
+            }
         }
         constructors.size
     }

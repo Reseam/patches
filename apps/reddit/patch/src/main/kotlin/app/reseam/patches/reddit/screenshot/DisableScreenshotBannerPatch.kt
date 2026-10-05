@@ -8,9 +8,8 @@ import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
-import app.reseam.patch.settings.before
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.skipWhen
 import app.reseam.patches.reddit.core.REDDIT
 import app.reseam.patches.reddit.core.RedditSettings
 import app.reseam.patches.reddit.core.redditSettings
@@ -23,13 +22,17 @@ val disableScreenshotBanner = patch("Disable screenshot banner") {
     settings(redditSettings, section("Sharing", RedditSettings.disableScreenshotBanner))
 
     execute {
-        screenCaptureRegistration.point { invokeVirtual { name("registerScreenCaptureCallback") } }
-            .skipWhen(RedditSettings.disableScreenshotBanner)
+        gate(RedditSettings.disableScreenshotBanner) {
+            screenCaptureRegistration.point { invokeVirtual { name("registerScreenCaptureCallback") } }
+                .skip()
+        }
         for (effect in bannerEffects) {
-            effect.method("invokeSuspend")
-                .point { invokeInterface { name("setValue") } }
-                .captureArgumentAs("visible", 1)
-                .before(RedditSettings.disableScreenshotBanner) { capture("visible").assign(staticField(booleanFalse)) }
+            gate(RedditSettings.disableScreenshotBanner) {
+                effect.method("invokeSuspend")
+                    .point { invokeInterface { name("setValue") } }
+                    .captureArgumentAs("visible", 1)
+                    .before { capture("visible").assign(staticField(booleanFalse)) }
+            }
         }
     }
 }

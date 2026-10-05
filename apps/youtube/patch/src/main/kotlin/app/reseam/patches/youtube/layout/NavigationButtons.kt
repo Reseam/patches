@@ -151,33 +151,28 @@ val navigationButtons = patch("Navigation bar") {
 }
 
 object NavigationButtons : ExtClass("app.reseam.youtube.navbuttons.NavigationButtons") {
-    val navigationTabCreated = static(
-        "navigationTabCreated",
+    val navigationTabCreated by static(
         NAVIGATION_BUTTON,
         Type.View,
     )
-    val hideNavigationButtonLabels = static("hideNavigationButtonLabels", TEXT_VIEW)
-    val useAnimatedNavigationButtons = static(
-        "useAnimatedNavigationButtons",
+    val hideNavigationButtonLabels by static(TEXT_VIEW)
+    val useAnimatedNavigationButtons by static(
         Type.Boolean,
         returns = Type.Boolean,
     )
-    val enableNarrowNavigationButton = static(
-        "enableNarrowNavigationButton",
+    val enableNarrowNavigationButton by static(
         Type.Boolean,
         returns = Type.Boolean,
     )
-    val useTranslucentNavigationStatusBar = static(
-        "useTranslucentNavigationStatusBar",
+    val useTranslucentNavigationStatusBar by static(
         Type.Boolean,
         returns = Type.Boolean,
     )
-    val useTranslucentNavigationButtons = static(
-        "useTranslucentNavigationButtons",
+    val useTranslucentNavigationButtons by static(
         Type.Boolean,
         returns = Type.Boolean,
     )
-    val hideCreateButton = static("hideCreateButton", "java.lang.Enum", Type.View)
-    val hideNotificationButton = static("hideNotificationButton", "java.lang.Enum", Type.View)
-    val hideSearchButton = static("hideSearchButton", "java.lang.Enum", Type.View)
+    val hideCreateButton by static("java.lang.Enum", Type.View)
+    val hideNotificationButton by static("java.lang.Enum", Type.View)
+    val hideSearchButton by static("java.lang.Enum", Type.View)
 }

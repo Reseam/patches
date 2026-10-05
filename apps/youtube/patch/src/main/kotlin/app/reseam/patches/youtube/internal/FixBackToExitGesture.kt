@@ -60,9 +60,9 @@ val fixBackToExitGesture = patch {
 }
 
 object FixBackToExitGesture : ExtClass("app.reseam.youtube.misc.FixBackToExitGesture") {
-    val onTopView = static("onTopView")
-    val onScrollPositionRestored = static("onScrollPositionRestored", Type.Int)
-    val onBackPressed = static("onBackPressed", Type.Activity)
+    val onTopView by static()
+    val onScrollPositionRestored by static(Type.Int)
+    val onBackPressed by static(Type.Activity)
 }
 
 // Restores the feed position from its state bundle, whether scrolling is inline or delegated.

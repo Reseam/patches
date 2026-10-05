@@ -22,68 +22,68 @@ const val FRIENDSHIP_STATUS = "com.instagram.user.model.FriendshipStatus"
 const val PANDO_FRIENDSHIP_STATUS = "com.instagram.user.model.ImmutablePandoFriendshipStatus"
 
 object InstagramSettingsEntry : ExtClass("app.reseam.instagram.settings.InstagramSettingsEntry") {
-    val init = static("init", Type.Context)
+    val init by static(Type.Context)
 }
 
 object FollowsYouIndicator : ExtClass("app.reseam.instagram.follows.FollowsYouIndicator") {
-    val appendFromSession = static("appendFromSession", Type.String, Type.Object, Type.Object, returns = Type.String)
-    val maybeAppend = static("maybeAppend", Type.String, "java.lang.Boolean", returns = Type.String)
+    val appendFromSession by static(Type.String, Type.Object, Type.Object, returns = Type.String)
+    val maybeAppend by static(Type.String, "java.lang.Boolean", returns = Type.String)
 }
 
 object UserRefs : ExtClass("app.reseam.instagram.refs.User") {
-    val fromMedia = static("fromMedia", Type.Object, returns = Type.Object)
-    val username = static("username", Type.Object, returns = Type.String)
+    val fromMedia by static(Type.Object, returns = Type.Object)
+    val username by static(Type.Object, returns = Type.String)
 }
 
 object MediaRefs : ExtClass("app.reseam.instagram.refs.Media") {
-    val photoUrl = static("photoUrl", Type.Object, returns = Type.String)
-    val imageCandidates = static("imageCandidates", Type.Object, returns = Type.List)
-    val imageCandidateUrl = static("imageCandidateUrl", Type.Object, returns = Type.String)
-    val videoUrl = static("videoUrl", Type.Object, returns = Type.String)
-    val children = static("children", Type.Object, returns = Type.List)
+    val photoUrl by static(Type.Object, returns = Type.String)
+    val imageCandidates by static(Type.Object, returns = Type.List)
+    val imageCandidateUrl by static(Type.Object, returns = Type.String)
+    val videoUrl by static(Type.Object, returns = Type.String)
+    val children by static(Type.Object, returns = Type.List)
 }
 
 object MediaDownloader : ExtClass("app.reseam.instagram.download.MediaDownloader") {
-    val isStoryDownload = static("isStoryDownload", Type.CharSequence, returns = Type.Boolean)
-    val appendStoryDownload = static("appendStoryDownload", "java.lang.CharSequence[]", returns = "java.lang.CharSequence[]")
-    val handleFeedMenuClick = static("handleFeedMenuClick", Type.Object, Type.Object, Type.Context, Type.Int, returns = Type.Boolean)
-    val downloadMedia = static("downloadMedia", Type.Object, Type.Context)
-    val downloadStory = static("downloadStory", Type.Object)
-    val claimReelsMenu = static("claimReelsMenu", Type.Object, returns = Type.Boolean)
-    val hasDownloadOption = static("hasDownloadOption", Type.List, Type.Object, returns = Type.Boolean)
-    val labelDownloadOption = static("labelDownloadOption", Type.List, Type.Object)
-    val withDownloadOption = static("withDownloadOption", Type.List, Type.Object, returns = Type.List)
+    val isStoryDownload by static(Type.CharSequence, returns = Type.Boolean)
+    val appendStoryDownload by static("java.lang.CharSequence[]", returns = "java.lang.CharSequence[]")
+    val handleFeedMenuClick by static(Type.Object, Type.Object, Type.Context, Type.Int, returns = Type.Boolean)
+    val downloadMedia by static(Type.Object, Type.Context)
+    val downloadStory by static(Type.Object)
+    val claimReelsMenu by static(Type.Object, returns = Type.Boolean)
+    val hasDownloadOption by static(Type.List, Type.Object, returns = Type.Boolean)
+    val labelDownloadOption by static(Type.List, Type.Object)
+    val withDownloadOption by static(Type.List, Type.Object, returns = Type.List)
 }
 
 object MediaMeta : ExtClass("app.reseam.instagram.download.MediaMeta") {
-    val username = static("username", Type.Object, returns = Type.String)
-    val reelItemMedia = static("reelItemMedia", Type.Object, returns = Type.Object)
-    val storyOwnerReelItem = static("storyOwnerReelItem", Type.Object, returns = Type.Object)
-    val storyOwnerContext = static("storyOwnerContext", Type.Object, returns = Type.Object)
+    val username by static(Type.Object, returns = Type.String)
+    val reelItemMedia by static(Type.Object, returns = Type.Object)
+    val storyOwnerReelItem by static(Type.Object, returns = Type.Object)
+    val storyOwnerContext by static(Type.Object, returns = Type.Object)
 }
 
 object FeedMenuOption : ExtClass("app.reseam.instagram.download.FeedMenuOption") {
-    val option = static("option", Type.Object, returns = Type.Object)
-    val setLabel = static("setLabel", Type.Object, Type.String)
+    val option by static(Type.Object, returns = Type.Object)
+    val setLabel by static(Type.Object, Type.String)
 }
 
 object FollowingFeed : ExtClass("app.reseam.instagram.feed.FollowingFeed") {
-    val following = static("following", Type.Map, returns = Type.Map)
+    val following by static(Type.Map, returns = Type.Map)
 }
 
 object NavigationTabs : ExtClass("app.reseam.instagram.navigation.NavigationTabs") {
-    val filter = static("filter", Type.List, Type.Boolean, Type.Boolean, returns = Type.List)
+    val filter by static(Type.List, Type.Boolean, Type.Boolean, returns = Type.List)
 }
 
 object ExternalLinks : ExtClass("app.reseam.instagram.links.ExternalLinks") {
-    val open = static("open", Type.Context, Type.String, returns = Type.Boolean)
+    val open by static(Type.Context, Type.String, returns = Type.Boolean)
 }
 
 object FeedUnits : ExtClass("app.reseam.instagram.feed.FeedUnits") {
-    val hide = static("hide", Type.String, Type.String, Type.Boolean)
-    val matches = static("matches", Type.String, Type.Object, returns = Type.Boolean)
+    val hide by static(Type.String, Type.String, Type.Boolean)
+    val matches by static(Type.String, Type.Object, returns = Type.Boolean)
 }
 
 object StorySuggestions : ExtClass("app.reseam.instagram.stories.StorySuggestions") {
-    val isSuggested = static("isSuggested", "java.lang.Enum", returns = Type.Boolean)
+    val isSuggested by static("java.lang.Enum", returns = Type.Boolean)
 }

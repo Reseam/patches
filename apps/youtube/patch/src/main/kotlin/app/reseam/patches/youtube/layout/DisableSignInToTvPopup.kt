@@ -7,7 +7,7 @@ package app.reseam.patches.youtube.layout
 import app.reseam.patch.Type
 import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.returnFalseWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
@@ -23,9 +23,11 @@ val disableSignInToTvPopup = patch("Disable sign in to TV popup") {
         // Resource ids only exist against a loaded app, so the target they seed is built here.
         val drawerTitle = resources.id("string", "mdx_seamless_tv_sign_in_drawer_fragment_title")?.toLong()
             ?: error("string/mdx_seamless_tv_sign_in_drawer_fragment_title is missing")
-        method("shouldShowSignInToTvPopup") {
-            literals(drawerTitle)
-            returns(Type.Boolean)
-        }.returnFalseWhen(YouTubeSettings.disableSignInToTvPopup)
+        gate(YouTubeSettings.disableSignInToTvPopup) {
+            method("shouldShowSignInToTvPopup") {
+                literals(drawerTitle)
+                returns(Type.Boolean)
+            }.alwaysReturn(false)
+        }
     }
 }

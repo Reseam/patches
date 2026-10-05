@@ -8,7 +8,7 @@ import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
-import app.reseam.patch.settings.after
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.instagram.core.FeedSettings
 import app.reseam.patches.instagram.core.FollowingFeed
@@ -23,8 +23,10 @@ val followingFeed = patch("Following-only feed") {
     settings(instagramSettings, section("Feed", FeedSettings.followingOnly))
 
     execute {
-        klass(feedRequestParams.owner).method("<init>").after(FeedSettings.followingOnly) {
-            thisObject.set(feedRequestParams, call(FollowingFeed.following, thisObject.field(feedRequestParams)))
+        gate(FeedSettings.followingOnly) {
+            klass(feedRequestParams.owner).method("<init>").after {
+                thisObject.set(feedRequestParams, call(FollowingFeed.following, thisObject.field(feedRequestParams)))
+            }
         }
     }
 }

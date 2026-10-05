@@ -6,7 +6,7 @@ package app.reseam.patches.instagram.media
 import app.reseam.patch.Type
 import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.returnTrueWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.PlaybackSettings
@@ -20,8 +20,10 @@ val disableAutoplay = patch("Disable video autoplay") {
     settings(instagramSettings, section("Playback", PlaybackSettings.disableVideoAutoplay))
 
     execute {
-        autoplayGuard.returnTrueWhen(PlaybackSettings.disableVideoAutoplay)
-        autoplayDefault.returnTrueWhen(PlaybackSettings.disableVideoAutoplay)
+        gate(PlaybackSettings.disableVideoAutoplay) {
+            autoplayGuard.alwaysReturn(true)
+            autoplayDefault.alwaysReturn(true)
+        }
     }
 }
 

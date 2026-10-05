@@ -26,7 +26,7 @@ import app.reseam.patches.instagram.refs.userRefs
 private const val MEDIA = "com.instagram.feed.media.Media"
 
 private object DownloadOption : ExtClass("app.reseam.instagram.download.DownloadOption") {
-    val isDownload = static("isDownload", Type.Object, returns = Type.Boolean)
+    val isDownload by static(Type.Object, returns = Type.Boolean)
 }
 
 val downloadMedia = patch("Download media") {

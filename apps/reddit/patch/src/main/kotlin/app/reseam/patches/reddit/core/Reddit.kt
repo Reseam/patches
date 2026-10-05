@@ -10,42 +10,42 @@ import app.reseam.patch.Type
 const val REDDIT = "com.reddit.frontpage"
 
 object RedditSettingsEntry : ExtClass("app.reseam.reddit.settings.RedditSettingsEntry") {
-    val init = static("init", Type.Context)
-    val open = static("open")
+    val init by static(Type.Context)
+    val open by static()
 }
 
 object OpenReseamSettings : ExtClass("app.reseam.reddit.settings.OpenReseamSettings") {
-    val invoke = method("invoke", returns = "kotlin.Unit")
+    val invoke by method(returns = "kotlin.Unit")
 }
 
 object ReseamSettingsItem : ExtClass("app.reseam.reddit.settings.ReseamSettingsItem") {
-    val sessions = static("sessions", returns = "java.util.Set")
-    val withItem = static("withItem", "java.util.Set", returns = "java.util.Set")
+    val sessions by static(returns = "java.util.Set")
+    val withItem by static("java.util.Set", returns = "java.util.Set")
 }
 
 object ReseamSettingsIcon : ExtClass("app.reseam.reddit.settings.ReseamSettingsIcon") {
-    val draw = static("draw", Type.Object)
-    val unit = static("unit", returns = "kotlin.Unit")
+    val draw by static(Type.Object)
+    val unit by static(returns = "kotlin.Unit")
 }
 
 object FeedElements : ExtClass("app.reseam.reddit.feed.FeedElements") {
-    val isAny = static("isAny", Type.Object, Type.String, returns = Type.Boolean)
-    val without = static("without", Type.List, Type.String, returns = Type.List)
+    val isAny by static(Type.Object, Type.String, returns = Type.Boolean)
+    val without by static(Type.List, Type.String, returns = Type.List)
 }
 
 object SettingsRows : ExtClass("app.reseam.reddit.settings.SettingsRows") {
-    val withoutUpsells = static("withoutUpsells", "java.util.Set", returns = "java.util.Set")
-    val section = static("section", Type.Object, returns = "com.reddit.settings.usersettings.UserSettingsSection")
-    val key = static("key", Type.Object, returns = Type.String)
+    val withoutUpsells by static("java.util.Set", returns = "java.util.Set")
+    val section by static(Type.Object, returns = "com.reddit.settings.usersettings.UserSettingsSection")
+    val key by static(Type.Object, returns = Type.String)
 }
 
 object FlagOverrides : ExtClass("app.reseam.reddit.flags.FlagOverrides") {
-    val isDisabled = static("isDisabled", Type.String, returns = Type.Boolean)
-    val isForced = static("isForced", Type.String, returns = Type.Boolean)
-    val spec = static("spec", returns = Type.String)
+    val isDisabled by static(Type.String, returns = Type.Boolean)
+    val isForced by static(Type.String, returns = Type.Boolean)
+    val spec by static(returns = Type.String)
 }
 
 object DynamicConfigOverrides : ExtClass("app.reseam.reddit.flags.DynamicConfigOverrides") {
-    val intValue = static("intValue", Type.String, Type.String, returns = "java.lang.Integer")
-    val stringValue = static("stringValue", Type.String, Type.String, returns = Type.String)
+    val intValue by static(Type.String, Type.String, returns = "java.lang.Integer")
+    val stringValue by static(Type.String, Type.String, returns = Type.String)
 }

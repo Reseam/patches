@@ -145,8 +145,7 @@ val componentContextParserClass = classTarget("componentContextParserClass") {
 }
 
 object ShortsFilter : ExtClass("app.reseam.youtube.shorts.ShortsFilter") {
-    val hideActionButtons = static(
-        "hideActionButtons",
+    val hideActionButtons by static(
         "java.lang.StringBuilder",
         Type.List,
     )

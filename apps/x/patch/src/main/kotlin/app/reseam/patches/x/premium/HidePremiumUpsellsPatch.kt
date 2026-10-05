@@ -6,7 +6,7 @@ package app.reseam.patches.x.premium
 import app.reseam.patch.Type
 import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.returnNullWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettings
@@ -51,8 +51,10 @@ val hidePremiumUpsells = patch("Hide Premium upsells") {
         )
         disableFeatureSwitches(XSettings.hideAppOpenPaywall, "premium_paywall_on_app_load_journey_enabled")
         // Both return a model or null; the UI already handles null as "nothing to show".
-        homeNavUpgrade.returnNullWhen(XSettings.hidePremiumUpsells)
-        premiumOffer.returnNullWhen(XSettings.hidePremiumUpsells)
+        gate(XSettings.hidePremiumUpsells) {
+            homeNavUpgrade.alwaysReturnNull()
+            premiumOffer.alwaysReturnNull()
+        }
     }
 }
 

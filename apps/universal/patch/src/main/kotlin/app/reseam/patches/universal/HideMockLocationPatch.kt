@@ -10,8 +10,8 @@ import app.reseam.patch.patch
 private const val LOCATION = "android.location.Location"
 
 private object MockLocation : ExtClass("app.reseam.universal.location.MockLocation") {
-    val isFromMockProvider = static("isFromMockProvider", LOCATION, returns = Type.Boolean)
-    val isMock = static("isMock", LOCATION, returns = Type.Boolean)
+    val isFromMockProvider by static(LOCATION, returns = Type.Boolean)
+    val isMock by static(LOCATION, returns = Type.Boolean)
 }
 
 val hideMockLocation = patch("Hide mock location") {

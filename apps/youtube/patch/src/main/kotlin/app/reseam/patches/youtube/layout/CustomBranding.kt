@@ -191,6 +191,6 @@ private val notificationMethod = method("notificationMethod") {
 }
 
 object CustomBranding : ExtClass("app.reseam.youtube.theme.CustomBranding") {
-    val setBranding = static("setBranding")
-    val setNotificationIcon = static("setNotificationIcon", "android.app.Notification\$Builder")
+    val setBranding by static()
+    val setNotificationIcon by static("android.app.Notification\$Builder")
 }

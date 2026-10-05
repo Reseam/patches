@@ -10,7 +10,7 @@ import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
-import app.reseam.patch.settings.after
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
@@ -27,8 +27,10 @@ val disableFullscreenAmbientMode = patch("Disable fullscreen ambient mode") {
     settings(youTubeSettings, section(YouTubeSettingsPages.Player, "Ambient mode", YouTubeSettings.disableFullscreenAmbientMode))
 
     execute {
-        ambientBackgroundColor.after(YouTubeSettings.disableFullscreenAmbientMode) {
-            capture("ambientColor").assign(int(OPAQUE_BLACK))
+        gate(YouTubeSettings.disableFullscreenAmbientMode) {
+            ambientBackgroundColor.after {
+                capture("ambientColor").assign(int(OPAQUE_BLACK))
+            }
         }
     }
 }

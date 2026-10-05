@@ -4,9 +4,9 @@
 package app.reseam.patches.reddit.feed
 
 import app.reseam.patch.patch
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.ToggleSetting
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.skipWhen
 import app.reseam.patches.reddit.core.REDDIT
 import app.reseam.patches.reddit.core.RedditSettings
 import app.reseam.patches.reddit.core.feedSectionContent
@@ -50,7 +50,7 @@ val hideFeedUnits = patch("Hide feed units") {
     execute {
         FEED_UNITS.forEach { (setting, units) ->
             if (units.elements.isNotEmpty()) hideFeedElements(setting, units.elements)
-            units.sections.forEach { feedSectionContent(it).skipWhen(setting) }
+            gate(setting) { units.sections.forEach { feedSectionContent(it).alwaysReturn() } }
         }
     }
 }

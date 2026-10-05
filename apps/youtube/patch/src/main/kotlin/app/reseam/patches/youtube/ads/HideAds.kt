@@ -13,9 +13,8 @@ import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.points
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.ToggleSetting
-import app.reseam.patch.settings.after
-import app.reseam.patch.settings.before
 import app.reseam.patch.settings.section
 import app.reseam.patch.settings.whenEnabled
 import app.reseam.patch.skipWhen
@@ -76,26 +75,32 @@ val hideAds = patch("Hide ads") {
             literals(dialogStyle)
             calls { owner("android.view.Window"); name("setWindowAnimations"); params(Type.Int); returns(Type.Void) }
         }
-        dialogBuilder.points("fullscreenDialogShown") {
-            invokeVirtual {
-                ownerAssignableTo("android.app.Dialog")
-                name("show")
-                params()
-                returns(Type.Void)
+        gate(YouTubeSettings.hideFullscreenAds) {
+            dialogBuilder.points("fullscreenDialogShown") {
+                invokeVirtual {
+                    ownerAssignableTo("android.app.Dialog")
+                    name("show")
+                    params()
+                    returns(Type.Void)
+                }
+            }.single().captureArgumentAs("dialog", 0).after {
+                call(Ads.closeFullscreenAd, capture("dialog"), param(0))
             }
-        }.single().captureArgumentAs("dialog", 0).after(YouTubeSettings.hideFullscreenAds) {
-            call(Ads.closeFullscreenAd, capture("dialog"), param(0))
         }
 
-        premiumViewMeasured.after(YouTubeSettings.hideYouTubePremiumPromotions) {
-            thisObject.callVirtual("android.view.View", "setMeasuredDimension", "(II)V", int(0), int(0))
+        gate(YouTubeSettings.hideYouTubePremiumPromotions) {
+            premiumViewMeasured.after {
+                thisObject.callVirtual("android.view.View", "setMeasuredDimension", "(II)V", int(0), int(0))
+            }
         }
 
         // Newer R8 builds merge this callback into a dispatcher for unrelated player events.
         // Return only from the shelf branch, never from the shared method's entry.
-        playerOverlayTimelyShelf
-            .point("timelyShelfBranch") { string("player_overlay_timely_shelf") }
-            .after(YouTubeSettings.hideGeneralAds) { returnVoid() }
+        gate(YouTubeSettings.hideGeneralAds) {
+            playerOverlayTimelyShelf
+                .point("timelyShelfBranch") { string("player_overlay_timely_shelf") }
+                .after { returnVoid() }
+        }
 
         val adContainerId = resources.id("id", "fullscreen_engagement_ad_container")?.toLong()
             ?: error("id/fullscreen_engagement_ad_container is missing")
@@ -129,9 +134,11 @@ val hideAds = patch("Hide ads") {
         hideResourceViews("ad_attribution", YouTubeSettings.hideGeneralAds)
         hideResourceViews("paid_promotion_label_text_view", YouTubeSettings.hidePaidPromotionLabel)
 
-        engagementPanelShown.before(YouTubeSettings.hidePlayerPopupAds) {
-            whenTrue(call(Ads.isPlayerPopupAd, capture("panel").field(engagementPanelId))) {
-                returnNull()
+        gate(YouTubeSettings.hidePlayerPopupAds) {
+            engagementPanelShown.before {
+                whenTrue(call(Ads.isPlayerPopupAd, capture("panel").field(engagementPanelId))) {
+                    returnNull()
+                }
             }
         }
     }
@@ -140,10 +147,10 @@ val hideAds = patch("Hide ads") {
 private object AdsFilter : ExtClass("app.reseam.youtube.ads.AdsFilter")
 
 private object Ads : ExtClass("app.reseam.youtube.ads.Ads") {
-    val closeFullscreenAd = static("closeFullscreenAd", "android.app.Dialog", "[B")
-    val isStoreBanner = static("isStoreBanner", "[B", returns = Type.Boolean)
-    val hideView = static("hideView", Type.View)
-    val isPlayerPopupAd = static("isPlayerPopupAd", Type.String, returns = Type.Boolean)
+    val closeFullscreenAd by static("android.app.Dialog", "[B")
+    val isStoreBanner by static("[B", returns = Type.Boolean)
+    val hideView by static(Type.View)
+    val isPlayerPopupAd by static(Type.String, returns = Type.Boolean)
 }
 
 /** Resource arguments identify the view; the same hook handles attribution and paid labels. */
@@ -155,8 +162,10 @@ private fun PatchRuntime.hideResourceViews(resourceName: String, setting: Toggle
     }
     check(lookups.all.isNotEmpty()) { "No $resourceName view lookups found" }
     lookups.forEach {
-        next { resultOf(Type.View) }.captureAs("view").after(setting) {
-            call(Ads.hideView, capture("view"))
+        gate(setting) {
+            next { resultOf(Type.View) }.captureAs("view").after {
+                call(Ads.hideView, capture("view"))
+            }
         }
     }
     log.debug("$resourceName: hooked ${lookups.all.size} resource-backed lookups")

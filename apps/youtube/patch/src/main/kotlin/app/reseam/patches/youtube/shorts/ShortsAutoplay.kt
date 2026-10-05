@@ -48,6 +48,6 @@ val shortsAutoplay = patch("Shorts autoplay") {
 }
 
 object ShortsAutoplay : ExtClass("app.reseam.youtube.shorts.ShortsAutoplay") {
-    val setMainActivity = static("setMainActivity", Type.Activity)
-    val changeRepeatBehavior = static("changeRepeatBehavior", "java.lang.Enum", returns = "java.lang.Enum")
+    val setMainActivity by static(Type.Activity)
+    val changeRepeatBehavior by static("java.lang.Enum", returns = "java.lang.Enum")
 }

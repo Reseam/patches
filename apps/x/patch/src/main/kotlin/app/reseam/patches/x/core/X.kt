@@ -15,27 +15,27 @@ const val X_PACKAGE = "com.twitter.android"
 val X: CompatiblePackage = X_PACKAGE("12.29.1-prod.01")
 
 object XSettingsEntry : ExtClass("app.reseam.x.settings.XSettingsEntry") {
-    val init = static("init", Type.Context)
-    val open = static("open")
+    val init by static(Type.Context)
+    val open by static()
 }
 
 object OpenReseamSettings : ExtClass("app.reseam.x.settings.OpenReseamSettings") {
-    val invoke = method("invoke", returns = "kotlin.Unit")
+    val invoke by method(returns = "kotlin.Unit")
 }
 
 object SettingsRows : ExtClass("app.reseam.x.settings.SettingsRows") {
-    val section = static("section", returns = Type.Object)
-    val single = static("single", Type.Object, returns = Type.List)
-    val withSection = static("withSection", Type.List, Type.Object, returns = Type.List)
+    val section by static(returns = Type.Object)
+    val single by static(Type.Object, returns = Type.List)
+    val withSection by static(Type.List, Type.Object, returns = Type.List)
 }
 
 object FeatureSwitchOverrides : ExtClass("app.reseam.x.featureswitches.FeatureSwitchOverrides") {
-    val lookup = static("lookup", Type.String, returns = Type.Object)
-    val disable = static("disable", Type.String, Type.String, Type.Boolean)
+    val lookup by static(Type.String, returns = Type.Object)
+    val disable by static(Type.String, Type.String, Type.Boolean)
 }
 
 object TimelineQueryFilter : ExtClass("app.reseam.x.timeline.TimelineQueryFilter") {
-    val hidePromoted = static("hidePromoted", Type.String, Type.Boolean)
-    val hideRecommendations = static("hideRecommendations", Type.String, Type.Boolean)
-    val rewrite = static("rewrite", Type.String, returns = Type.String)
+    val hidePromoted by static(Type.String, Type.Boolean)
+    val hideRecommendations by static(Type.String, Type.Boolean)
+    val rewrite by static(Type.String, returns = Type.String)
 }

@@ -144,9 +144,9 @@ private val splashStartupCheck = splashScreenStyle.point { literal(SPLASH_STYLE_
     .previous { invokeStatic { params(Type.Int); returns(Type.Boolean) } }
 
 object ThemePatch : ExtClass("app.reseam.youtube.theme.ThemePatch") {
-    val getValue = static("getValue", Type.Int, returns = Type.Int)
-    val gradientLoadingScreenEnabled = static("gradientLoadingScreenEnabled", Type.Boolean, returns = Type.Boolean)
-    val showSplashScreen = static("showSplashScreen", Type.Boolean, returns = Type.Boolean)
-    val splashStartupState = static("splashStartupState", Type.Int, returns = Type.Int)
-    val getLoadingScreenType = static("getLoadingScreenType", Type.Int, returns = Type.Int)
+    val getValue by static(Type.Int, returns = Type.Int)
+    val gradientLoadingScreenEnabled by static(Type.Boolean, returns = Type.Boolean)
+    val showSplashScreen by static(Type.Boolean, returns = Type.Boolean)
+    val splashStartupState by static(Type.Int, returns = Type.Int)
+    val getLoadingScreenType by static(Type.Int, returns = Type.Int)
 }

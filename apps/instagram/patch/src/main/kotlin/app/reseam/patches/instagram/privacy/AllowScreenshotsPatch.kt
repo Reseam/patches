@@ -6,8 +6,8 @@ package app.reseam.patches.instagram.privacy
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.skipWhen
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.PrivacySettings
 import app.reseam.patches.instagram.core.instagramSettings
@@ -20,7 +20,9 @@ val allowScreenshots = patch("Allow screenshots in DMs") {
     settings(instagramSettings, section("Privacy", PrivacySettings.allowScreenshots))
 
     execute {
-        secureFlagAcquire.skipWhen(PrivacySettings.allowScreenshots)
+        gate(PrivacySettings.allowScreenshots) {
+            secureFlagAcquire.alwaysReturn()
+        }
     }
 }
 

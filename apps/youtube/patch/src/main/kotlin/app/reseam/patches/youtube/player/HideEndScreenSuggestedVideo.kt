@@ -66,6 +66,6 @@ val hideEndScreenSuggestedVideo = patch("Hide end-screen suggested video") {
 }
 
 object HideEndScreenSuggestedVideo : ExtClass("app.reseam.youtube.playerui.HideEndScreenSuggestedVideo") {
-    val setAutoplayStatus = static("setAutoplayStatus", Type.Boolean)
-    val hideEndScreenSuggestedVideo = static("hideEndScreenSuggestedVideo", returns = Type.Boolean)
+    val setAutoplayStatus by static(Type.Boolean)
+    val hideEndScreenSuggestedVideo by static(returns = Type.Boolean)
 }

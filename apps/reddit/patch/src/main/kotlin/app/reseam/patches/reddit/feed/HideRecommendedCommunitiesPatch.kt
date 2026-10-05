@@ -4,8 +4,8 @@
 package app.reseam.patches.reddit.feed
 
 import app.reseam.patch.patch
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.skipWhen
 import app.reseam.patches.reddit.core.REDDIT
 import app.reseam.patches.reddit.core.RedditSettings
 import app.reseam.patches.reddit.core.feedSectionContent
@@ -17,7 +17,7 @@ val hideRecommendedCommunities = patch("Hide recommended communities") {
     settings(redditSettings, section("Feed", RedditSettings.hideRecommendedCommunities))
 
     execute {
-        recommendationSections.forEach { it.skipWhen(RedditSettings.hideRecommendedCommunities) }
+        gate(RedditSettings.hideRecommendedCommunities) { recommendationSections.forEach { it.alwaysReturn() } }
     }
 }
 

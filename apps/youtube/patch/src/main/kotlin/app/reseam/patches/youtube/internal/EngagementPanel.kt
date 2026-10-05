@@ -41,8 +41,8 @@ val engagementPanelHook = patch {
 }
 
 object EngagementPanel : ExtClass("app.reseam.youtube.player.EngagementPanel") {
-    val open = static("open", Type.String)
-    val close = static("close")
+    val open by static(Type.String)
+    val close by static()
 }
 
 // The controller refuses to show a panel before it is initialised, and says so.

@@ -29,5 +29,5 @@ val bypassImageRegionRestrictions = patch("Bypass image region restrictions") {
 }
 
 object ImageUrl : ExtClass("app.reseam.youtube.misc.ImageUrl") {
-    val override = static("override", Type.String, returns = Type.String)
+    val override by static(Type.String, returns = Type.String)
 }

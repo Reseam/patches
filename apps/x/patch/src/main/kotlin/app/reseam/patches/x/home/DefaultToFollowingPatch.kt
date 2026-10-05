@@ -8,7 +8,7 @@ import app.reseam.patch.fieldTarget
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.after
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettings
@@ -30,8 +30,10 @@ val defaultToFollowing = patch("Default to Following") {
         )
 
         // Every path through the lookup, including its fallbacks to For You, returns the starting tab.
-        initialHomeTab.after(XSettings.defaultToFollowing) {
-            returnValue(staticField(followingHomeTabInstance))
+        gate(XSettings.defaultToFollowing) {
+            initialHomeTab.after {
+                returnValue(staticField(followingHomeTabInstance))
+            }
         }
     }
 }

@@ -7,9 +7,8 @@ import app.reseam.patch.Type
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.returnNullWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.skipWhen
 import app.reseam.patches.instagram.core.GhostSettings
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.USER_SESSION
@@ -34,11 +33,21 @@ val ghostMode = patch("Ghost mode") {
     )
 
     execute {
-        typingIndicator.skipWhen(GhostSettings.hideTyping)
-        dmSeen.skipWhen(GhostSettings.hideDmSeen)
-        storySeen.skipWhen(GhostSettings.hideStorySeen)
-        liveSeen.returnNullWhen(GhostSettings.hideLiveSeen)
-        screenshotDetected.skipWhen(GhostSettings.hideScreenshotNotifications)
+        gate(GhostSettings.hideTyping) {
+            typingIndicator.alwaysReturn()
+        }
+        gate(GhostSettings.hideDmSeen) {
+            dmSeen.alwaysReturn()
+        }
+        gate(GhostSettings.hideStorySeen) {
+            storySeen.alwaysReturn()
+        }
+        gate(GhostSettings.hideLiveSeen) {
+            liveSeen.alwaysReturnNull()
+        }
+        gate(GhostSettings.hideScreenshotNotifications) {
+            screenshotDetected.alwaysReturn()
+        }
     }
 }
 

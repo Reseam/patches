@@ -18,9 +18,9 @@ import app.reseam.patches.youtube.internal.userSelectedPlaybackSpeedHook
 import app.reseam.patches.youtube.internal.videoInformationHook
 
 object RememberPlaybackSpeed : ExtClass("app.reseam.youtube.speed.RememberPlaybackSpeed") {
-    val newVideoStarted = static("newVideoStarted", "app.reseam.youtube.video.VideoInformation\$PlaybackController")
-    val applyDefaultPlaybackSpeed = static("applyDefaultPlaybackSpeed")
-    val userSelectedPlaybackSpeed = static("userSelectedPlaybackSpeed", Type.Float)
+    val newVideoStarted by static("app.reseam.youtube.video.VideoInformation\$PlaybackController")
+    val applyDefaultPlaybackSpeed by static()
+    val userSelectedPlaybackSpeed by static(Type.Float)
 }
 
 val rememberPlaybackSpeed = patch("Remember playback speed") {

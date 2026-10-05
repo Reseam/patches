@@ -173,11 +173,11 @@ val seekbarColor = patch {
 }
 
 object SeekbarColorExtension : ExtClass("app.reseam.youtube.theme.SeekbarColor") {
-    val setSplashAnimationLottie = static("setSplashAnimationLottie", LOTTIE, Type.Int)
-    val showWatchHistoryProgressDrawable = static("showWatchHistoryProgressDrawable", Type.Boolean, returns = Type.Boolean)
-    val getLithoColor = static("getLithoColor", Type.Int, returns = Type.Int)
-    val getPlayerLinearGradient = static("getPlayerLinearGradient", "[I", Type.Int, Type.Int, returns = "[I")
-    val getLithoLinearGradient = static("getLithoLinearGradient", "[I", "[F", returns = "[I")
-    val getVideoPlayerSeekbarClickedColor = static("getVideoPlayerSeekbarClickedColor", Type.Int, returns = Type.Int)
-    val getVideoPlayerSeekbarColor = static("getVideoPlayerSeekbarColor", Type.Int, returns = Type.Int)
+    val setSplashAnimationLottie by static(LOTTIE, Type.Int)
+    val showWatchHistoryProgressDrawable by static(Type.Boolean, returns = Type.Boolean)
+    val getLithoColor by static(Type.Int, returns = Type.Int)
+    val getPlayerLinearGradient by static("[I", Type.Int, Type.Int, returns = "[I")
+    val getLithoLinearGradient by static("[I", "[F", returns = "[I")
+    val getVideoPlayerSeekbarClickedColor by static(Type.Int, returns = Type.Int)
+    val getVideoPlayerSeekbarColor by static(Type.Int, returns = Type.Int)
 }
