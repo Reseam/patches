@@ -1,0 +1,16 @@
+// SPDX-FileCopyrightText: 2026 AunAli K. <hello@auna.li>
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+package app.reseam.patches.discord.core
+
+import app.reseam.patch.CompatiblePackage
+import app.reseam.patch.ExtClass
+import app.reseam.patch.Type
+import app.reseam.patch.invoke
+
+val DISCORD: CompatiblePackage = "com.discord"("347.12 - Stable")
+
+object DiscordSettingsEntry : ExtClass("app.reseam.discord.settings.DiscordSettingsEntry") {
+    val init = static("init", Type.Context)
+    val addReactPackage = static("addReactPackage", Type.List)
+}

@@ -1,0 +1,50 @@
+// SPDX-FileCopyrightText: 2026 AunAli K. <hello@auna.li>
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+package app.reseam.patches.discord.chat
+
+import app.reseam.patch.ExtJsModule
+import app.reseam.patch.function
+import app.reseam.patch.patch
+import app.reseam.patches.discord.core.DISCORD
+import app.reseam.patches.discord.core.createMessageContent
+
+/** Tracks the messages this phone shows, for the deleted message and edit history patches. */
+internal val messageHistory = patch {
+    compatibleWith(DISCORD)
+
+    execute {
+        getOrCreate.wrap(MessageHistory.getOrCreate)
+        commit.wrap(MessageHistory.commit)
+        createMessageContent.wrap(MessageHistory.createMessageContent)
+        dispatch.wrap(MessageHistory._dispatch)
+    }
+}
+
+internal object MessageHistory : ExtJsModule("discord-message-history") {
+    val getOrCreate = export("getOrCreate")
+    val commit = export("commit")
+    val createMessageContent = export("createMessageContent")
+    val _dispatch = export("_dispatch")
+    val handleMessageDelete = export("handleMessageDelete")
+    val handleMessageDeleteBulk = export("handleMessageDeleteBulk")
+    val updateMessageRecord = export("updateMessageRecord")
+}
+
+private val getOrCreate = function {
+    name("getOrCreate")
+    strings("_channelMessages", "JumpType")
+    paramCount(1)
+}
+
+private val commit = function {
+    name("commit")
+    strings("_channelMessages", "channelId")
+    paramCount(1)
+}
+
+private val dispatch = function {
+    name("_dispatch")
+    strings("_interceptors", "getOrderedActionHandlers", "__subscriptions")
+    paramCount(2)
+}
