@@ -6,7 +6,7 @@ package app.reseam.patches.telegram.privacy
 import app.reseam.patch.Type
 import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.returnFalseWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.telegram.core.TELEGRAM
 import app.reseam.patches.telegram.core.TL_CHAT
@@ -21,7 +21,9 @@ val bypassRestrictions = patch("Save from restricted chats") {
     settings(telegramSettings, section("Privacy", TelegramSettings.saveFromRestricted))
 
     execute {
-        noForwardGates.forEach { it.returnFalseWhen(TelegramSettings.saveFromRestricted) }
+        gate(TelegramSettings.saveFromRestricted) {
+            noForwardGates.forEach { it.alwaysReturn(false) }
+        }
     }
 }
 

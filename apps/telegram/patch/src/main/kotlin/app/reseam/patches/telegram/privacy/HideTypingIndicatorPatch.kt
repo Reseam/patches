@@ -6,7 +6,7 @@ package app.reseam.patches.telegram.privacy
 import app.reseam.patch.Type
 import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.returnFalseWhen
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.telegram.core.TELEGRAM
 import app.reseam.patches.telegram.core.TelegramSettings
@@ -19,7 +19,9 @@ val hideTypingIndicator = patch("Hide typing indicator") {
     settings(telegramSettings, section("Privacy", TelegramSettings.hideTyping))
 
     execute {
-        sendTyping.returnFalseWhen(TelegramSettings.hideTyping)
+        gate(TelegramSettings.hideTyping) {
+            sendTyping.alwaysReturn(false)
+        }
     }
 }
 

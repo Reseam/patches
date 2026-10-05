@@ -10,18 +10,13 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.util.Log;
+import android.view.View;
 
 import java.io.InputStream;
-import java.util.ArrayList;
 
 import app.reseam.runtime.settings.ReseamSettings;
-import org.telegram.ui.ActionBar.BaseFragment;
-import org.telegram.ui.Cells.TextCell;
-import org.telegram.ui.Components.UItem;
 
 public final class TelegramSettingsEntry {
-    private static final String TAG = "ReseamSettings";
     private static volatile Drawable cachedLogo;
 
     private TelegramSettingsEntry() {}
@@ -30,24 +25,16 @@ public final class TelegramSettingsEntry {
         ReseamSettings.init(ctx);
     }
 
-    /** Hook target: invoked at the tail of SettingsActivity.fillItems. */
-    public static void appendReseamItem(ArrayList<UItem> items, BaseFragment fragment) {
-        if (items == null || fragment == null) return;
-        try {
-            Activity a = fragment.getParentActivity();
-            if (a == null) return;
-            TextCell cell = new TextCell(a);
-            Drawable logo = getLogo(a);
-            if (logo != null) cell.setTextAndIcon("Reseam", logo, false);
-            else cell.setText("Reseam", false);
-            cell.setOnClickListener(v -> a.startActivity(new Intent(a, TelegramReseamSettingsActivity.class)));
-            items.add(UItem.asCustom(0, cell));
-        } catch (Throwable t) {
-            Log.w(TAG, "appendReseamItem failed", t);
-        }
+    // Built from Telegram's own cell and list item, so the body is emitted by the settings host.
+    public static Object reseamItem(Activity activity) {
+        throw new UnsupportedOperationException("implemented by the settings host patch");
     }
 
-    private static Drawable getLogo(Context ctx) {
+    public static View.OnClickListener opener(Activity activity) {
+        return v -> activity.startActivity(new Intent(activity, TelegramReseamSettingsActivity.class));
+    }
+
+    public static Drawable logo(Context ctx) {
         Drawable cached = cachedLogo;
         if (cached != null) return cached;
         try (InputStream in = ctx.getAssets().open("reseam/logo.png")) {

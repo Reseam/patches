@@ -16,7 +16,6 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
-import androidx.recyclerview.widget.RecyclerView;
 import org.telegram.SQLite.SQLiteCursor;
 import org.telegram.messenger.MessageObject;
 import org.telegram.messenger.MessagesStorage;
@@ -34,10 +33,9 @@ public final class DeletedArchive {
 
     private DeletedArchive() {}
 
-    public static void stripSecureFlag(android.view.WindowManager.LayoutParams params) {
-        try {
-            if (params != null) params.flags &= ~android.view.WindowManager.LayoutParams.FLAG_SECURE;
-        } catch (Throwable ignored) {}
+    // R8 renames RecyclerView, so the body is emitted by the anti-delete patch.
+    public static void notifyDataSetChanged(Object adapter) {
+        throw new UnsupportedOperationException("implemented by the anti-delete patch");
     }
 
     private static void backupTo(Context ctx) {
@@ -262,8 +260,7 @@ public final class DeletedArchive {
                 mo.generateLayout(null);
                 marked++;
             }
-            if (marked > 0 && adapter instanceof RecyclerView.Adapter)
-                ((RecyclerView.Adapter<?>) adapter).notifyDataSetChanged();
+            if (marked > 0 && adapter != null) notifyDataSetChanged(adapter);
         } catch (Throwable t) {
             Log.w(TAG, "applyMarkers failed", t);
         }

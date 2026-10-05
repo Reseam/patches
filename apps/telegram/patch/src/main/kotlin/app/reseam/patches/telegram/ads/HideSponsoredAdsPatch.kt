@@ -6,8 +6,8 @@ package app.reseam.patches.telegram.ads
 import app.reseam.patch.Type
 import app.reseam.patch.method
 import app.reseam.patch.patch
+import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.skipWhen
 import app.reseam.patches.telegram.core.TELEGRAM
 import app.reseam.patches.telegram.core.TelegramSettings
 import app.reseam.patches.telegram.core.telegramSettings
@@ -18,7 +18,9 @@ val hideSponsoredAds = patch("Hide sponsored messages") {
     settings(telegramSettings, section("Ads", TelegramSettings.hideSponsoredAds))
 
     execute {
-        addSponsoredMessages.skipWhen(TelegramSettings.hideSponsoredAds)
+        gate(TelegramSettings.hideSponsoredAds) {
+            addSponsoredMessages.alwaysReturn()
+        }
     }
 }
 
