@@ -5,17 +5,17 @@ package app.reseam.patches.telegram.integrity
 
 import app.reseam.patch.Type
 import app.reseam.patch.after
-import app.reseam.patch.alwaysReturn
 import app.reseam.patch.dex.Opcode
-import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patches.telegram.core.TELEGRAM
+import app.reseam.patches.universal.spoofSignature
 
 val bypassIntegrity = patch("Bypass integrity") {
     description("Allows login on rooted or non-Google devices.")
     compatibleWith(TELEGRAM)
+    dependsOn(spoofSignature)
 
     execute {
         // Each verdict is read from the SafetyNet JSON right after its key is loaded; force both true.
@@ -25,8 +25,6 @@ val bypassIntegrity = patch("Bypass integrity") {
                 .captureAs("verdict")
                 .after { capture("verdict").assign(bool(true)) }
         }
-
-        certificateSha256.alwaysReturn("49C1522548EBACD46CE322B6FD47F6092BB745D0F88082145CAF35E14DCC38E1")
     }
 }
 
@@ -34,5 +32,3 @@ val safetyNetHandler = method("safetyNetHandler") {
     strings("basicIntegrity", "ctsProfileMatch")
     returns(Type.Void)
 }
-
-val certificateSha256 = klass("org.telegram.messenger.AndroidUtilities").method("getCertificateSHA256Fingerprint") { params() }
