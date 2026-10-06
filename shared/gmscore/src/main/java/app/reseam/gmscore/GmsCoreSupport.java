@@ -38,7 +38,7 @@ public final class GmsCoreSupport {
         return "";
     }
 
-    private static String gmsCorePackageName() {
+    static String gmsCorePackageName() {
         return vendorGroupId() + ".android.gms";
     }
 
@@ -53,13 +53,7 @@ public final class GmsCoreSupport {
         }
 
         if (!isInstalled(activity, gmsCore)) {
-            prompt(
-                    activity,
-                    "GmsCore is not installed",
-                    "This app was patched to sign in through GmsCore (" + gmsCore + "), which is not "
-                            + "installed. Install it, open it once and grant the permissions it asks for.",
-                    "Get GmsCore",
-                    () -> open(activity, Uri.parse("https://github.com/revanced/gmscore/releases/latest")));
+            open(activity, new Intent(activity, GmsCoreMissingActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
             return;
         }
 
@@ -133,7 +127,7 @@ public final class GmsCoreSupport {
                 .show();
     }
 
-    private static void open(Activity activity, Uri uri) {
+    static void open(Activity activity, Uri uri) {
         open(activity, new Intent(Intent.ACTION_VIEW, uri));
     }
 

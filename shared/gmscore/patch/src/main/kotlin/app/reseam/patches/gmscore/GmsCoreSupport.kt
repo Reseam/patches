@@ -46,6 +46,8 @@ private val GMS_AUTHORITIES = listOf(
     "com.google.android.gsf.gservices",
 )
 
+private const val GMS_CORE_MISSING_ACTIVITY = "app.reseam.gmscore.GmsCoreMissingActivity"
+
 private val PERMISSION_DECLARATIONS = setOf("permission", "uses-permission", "uses-permission-sdk-23")
 private val PERMISSION_ATTRIBUTES = listOf("android:permission", "android:readPermission", "android:writePermission")
 
@@ -177,6 +179,12 @@ fun gmsCoreSupportFor(
 
         mainActivityOnCreate.after { call(GmsCoreSupport.check, thisObject) }
         // An empty affinity puts it in its own task, out of reach of the app closing its own.
+        manifest.addActivity(GMS_CORE_MISSING_ACTIVITY) {
+            this["android:theme"] = "@android:style/Theme.Translucent.NoTitleBar"
+            this["android:taskAffinity"] = ""
+            this["android:excludeFromRecents"] = "true"
+        }
+
         extra()
     }
 }
