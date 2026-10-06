@@ -7,6 +7,7 @@ import app.reseam.patch.Type
 import app.reseam.patch.after
 import app.reseam.patch.patch
 import app.reseam.patches.youtube.internal.booleanFeatureReads
+import app.reseam.patches.youtubecommon.SETTINGS_ACTIVITY
 
 private const val ROW_KEY = "reseam_settings"
 private const val ROW_TITLE = "Reseam Settings"

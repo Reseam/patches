@@ -6,10 +6,6 @@ package app.reseam.patches.youtube.core
 import app.reseam.patch.ExtClass
 import app.reseam.patch.Type
 
-object YouTubeContext : ExtClass("app.reseam.youtube.core.YouTubeContext") {
-    val init by static(Type.Context)
-}
-
 // The app's player type and video state are obfuscated enums, so both hooks take the erased type
 // and match on the constant name, which survives obfuscation.
 object PlayerType : ExtClass("app.reseam.youtube.player.PlayerType") {

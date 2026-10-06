@@ -14,6 +14,7 @@ import app.reseam.patch.dex.opcode
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.*
 import app.reseam.patches.youtube.internal.*
+import app.reseam.patches.youtubecommon.*
 
 private const val CHAR_SEQUENCE = "java.lang.CharSequence"
 

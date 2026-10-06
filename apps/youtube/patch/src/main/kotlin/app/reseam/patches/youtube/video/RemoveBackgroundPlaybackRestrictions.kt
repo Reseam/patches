@@ -20,12 +20,7 @@ import app.reseam.patches.youtube.core.YouTubeSettings
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
 import app.reseam.patches.youtube.internal.booleanFeatureReads
-
-private val backgroundPlaybackManager = method("background playback policy") {
-    literals(64657230L)
-    returns(Type.Boolean)
-    paramCount(1)
-}
+import app.reseam.patches.youtubecommon.playableInBackground
 
 private val backgroundPlaybackManagerShorts = method("Shorts background playback policy") {
     literals(151635310L)
@@ -63,7 +58,7 @@ val removeBackgroundPlaybackRestrictions = patch("Remove background playback res
         }.callee("background setting boolean method")
 
         gate(YouTubeSettings.removeBackgroundPlaybackRestrictions) {
-            backgroundPlaybackManager.after {
+            playableInBackground.after {
                 capture("result").assign(bool(true))
             }
         }

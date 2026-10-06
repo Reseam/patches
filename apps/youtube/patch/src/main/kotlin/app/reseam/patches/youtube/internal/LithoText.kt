@@ -18,6 +18,8 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.reserveLocal
 import app.reseam.patches.youtube.core.YOUTUBE
+import app.reseam.patches.youtubecommon.conversionContext
+import app.reseam.patches.youtubecommon.conversionContextPath
 
 private val lithoTextHooks = mutableListOf<ExtMethod>()
 

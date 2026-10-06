@@ -18,8 +18,8 @@ import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
-import app.reseam.patches.youtube.internal.lithoColorHook
-import app.reseam.patches.youtube.internal.registerLithoColorHook
+import app.reseam.patches.youtubecommon.lithoColorHook
+import app.reseam.patches.youtubecommon.registerLithoColorHook
 
 private const val DARK_DEFAULT = "#FF000000"
 private const val LIGHT_DEFAULT = "#FFFFFFFF"

@@ -28,10 +28,11 @@ import app.reseam.patches.youtube.core.YouTubeSettings
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
 import app.reseam.patches.youtube.internal.hookLithoText
-import app.reseam.patches.youtube.internal.lithoFilter
+import app.reseam.patches.youtubecommon.setPlaybackRate
+import app.reseam.patches.youtubecommon.lithoFilter
 import app.reseam.patches.youtube.internal.lithoTextHook
 import app.reseam.patches.youtube.internal.lithoRecyclerViewBinder
-import app.reseam.patches.youtube.internal.registerLithoFilter
+import app.reseam.patches.youtubecommon.registerLithoFilter
 import app.reseam.patches.youtube.internal.videoInformationHook
 
 object CustomPlaybackSpeed : ExtClass("app.reseam.youtube.speed.CustomPlaybackSpeed") {
@@ -58,15 +59,6 @@ private val oldPlaybackSpeedMenuClass = classTarget("old playback speed menu cla
 }
 
 private object PlaybackSpeedMenuFilter : ExtClass("app.reseam.youtube.speed.PlaybackSpeedMenuFilter")
-
-private val speedLimiterMethod = method("speed limiter") {
-    flags(AccessFlags.PUBLIC or AccessFlags.FINAL)
-    returns(Type.Void)
-    paramCount(2)
-    param(0, Type.Float)
-    custom { parameterTypes[1].startsWith("L") }
-    strings("setPlaybackRate")
-}
 
 private val serverSideMaxSpeedFlag = method("server side maximum speed flag") {
     flags(AccessFlags.PUBLIC or AccessFlags.FINAL)
@@ -135,13 +127,13 @@ val customPlaybackSpeed = patch("Custom playback speed") {
     )
 
     execute {
-        speedLimiterMethod.point("minimum playback speed") {
+        setPlaybackRate.point("minimum playback speed") {
             opcode(Opcode.CONST_HIGH16)
             literal((0.25f.toRawBits()).toLong())
         }.captureAs("minimum", Type.Float).after {
             capture("minimum").assign(staticField(CustomPlaybackSpeed.minimumSpeed))
         }
-        speedLimiterMethod.point("maximum playback speed") {
+        setPlaybackRate.point("maximum playback speed") {
             opcode(Opcode.CONST_HIGH16)
             literal((4.0f.toRawBits()).toLong())
         }.captureAs("maximum", Type.Float).after {

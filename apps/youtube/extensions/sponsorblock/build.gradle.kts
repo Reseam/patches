@@ -3,7 +3,7 @@
 
 dependencies {
     compileOnly(project(":shared:settings-runtime"))
-    compileOnly(project(":apps:youtube:extensions:core"))
+    compileOnly(project(":shared:youtube-common"))
     compileOnly(project(":apps:youtube:extensions:player"))
     compileOnly(project(":apps:youtube:extensions:video"))
     compileOnly(project(":apps:youtube:extensions:controls"))

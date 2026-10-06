@@ -11,8 +11,8 @@ import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
-import app.reseam.patches.youtube.internal.lithoFilter
-import app.reseam.patches.youtube.internal.registerLithoFilter
+import app.reseam.patches.youtubecommon.lithoFilter
+import app.reseam.patches.youtubecommon.registerLithoFilter
 
 val hideVideoActionButtons = patch("Hide video action buttons") {
     description("Hides selected action buttons below videos.")

@@ -18,11 +18,11 @@ import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
-import app.reseam.patches.youtube.internal.conversionContextPath
+import app.reseam.patches.youtubecommon.conversionContextPath
 import app.reseam.patches.youtube.internal.engagementPanelHook
-import app.reseam.patches.youtube.internal.lithoFilter
+import app.reseam.patches.youtubecommon.lithoFilter
 import app.reseam.patches.youtube.internal.playerTypeHook
-import app.reseam.patches.youtube.internal.registerLithoFilter
+import app.reseam.patches.youtubecommon.registerLithoFilter
 
 val hideShortsComponents = patch("Hide Shorts components") {
     description("Hides Shorts shelves and configurable components in the Shorts player.")

@@ -92,12 +92,6 @@ object YouTubeSettings {
     val altThumbnailStillsTime by choice("Video still position", default = "MIDDLE",
         choices = listOf(Choice("BEGINNING", "Beginning"), Choice("MIDDLE", "Middle"), Choice("END", "End")))
 
-    val debugLogging by toggle(
-        "Debug logging",
-        summary = "Writes what the Reseam patches are doing to the Android log.",
-        default = false,
-    )
-
     val featureFlagOverrides by text(
         "Feature flag overrides",
         summary = "Comma-separated flag=value pairs applied to YouTube's experiment flags, " +
@@ -120,12 +114,6 @@ object YouTubeSettings {
     val openLinksExternally by toggle(
         "Open links externally",
         summary = "Opens links in your browser instead of the in-app browser.",
-        default = true,
-    )
-
-    val sanitizeSharingLinks by toggle(
-        "Sanitize sharing links",
-        summary = "Strips the tracking parameters YouTube adds to a shared link.",
         default = true,
     )
 
@@ -1047,7 +1035,6 @@ object YouTubeSettings {
         default = false,
     )
 
-
     val slideToSeek by toggle(
         "Slide to seek",
         summary = "Slides to seek instead of playing at 2x speed when holding the player.",
@@ -1176,11 +1163,6 @@ object YouTubeSettings {
         "Playback speed player button",
         summary = "Adds a speed button to the bottom player controls.",
         default = false,
-    )
-    val forceOriginalAudio by toggle(
-        "Force original audio",
-        summary = "Prefers the original audio track over dubbed tracks.",
-        default = true,
     )
     val removeBackgroundPlaybackRestrictions by toggle(
         "Remove background playback restrictions",

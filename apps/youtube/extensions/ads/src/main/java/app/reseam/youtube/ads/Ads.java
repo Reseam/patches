@@ -5,8 +5,6 @@
 package app.reseam.youtube.ads;
 
 import android.app.Dialog;
-import android.view.View;
-import android.view.ViewGroup;
 
 import app.reseam.youtube.core.Logger;
 import app.reseam.youtube.litho.FilterGroup.ByteArrayFilterGroup;
@@ -26,18 +24,6 @@ public final class Ads {
             dialog.dismiss();
         } catch (RuntimeException ex) {
             Logger.error(() -> "Could not dismiss fullscreen ad: " + ex);
-        }
-    }
-
-    public static void hideView(View view) {
-        if (view == null) return;
-        view.setVisibility(View.GONE);
-        ViewGroup.LayoutParams params = view.getLayoutParams();
-        // Preserve the parent's LayoutParams subtype; a generic replacement can fail on attachment.
-        if (params != null && (params.width != 0 || params.height != 0)) {
-            params.width = 0;
-            params.height = 0;
-            view.setLayoutParams(params);
         }
     }
 

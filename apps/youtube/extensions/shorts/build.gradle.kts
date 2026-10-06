@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 dependencies {
-    compileOnly(project(":apps:youtube:extensions:core"))
-    compileOnly(project(":apps:youtube:extensions:litho"))
+    compileOnly(project(":shared:youtube-common"))
     compileOnly(project(":apps:youtube:extensions:player"))
 }

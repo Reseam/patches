@@ -15,6 +15,7 @@ import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
+import app.reseam.patches.youtubecommon.reseamMark
 
 private object ChangeHeaderResources
 private const val HEADER_ATTRIBUTE = "reseam_header"

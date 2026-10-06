@@ -5,16 +5,13 @@
 package app.reseam.patches.youtube.ads
 
 import app.reseam.patch.ExtClass
-import app.reseam.patch.PatchRuntime
 import app.reseam.patch.Type
 import app.reseam.patch.klass
 import app.reseam.patch.method
-import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.points
 import app.reseam.patch.settings.gate
-import app.reseam.patch.settings.ToggleSetting
 import app.reseam.patch.settings.section
 import app.reseam.patch.settings.whenEnabled
 import app.reseam.patch.skipWhen
@@ -28,9 +25,10 @@ import app.reseam.patches.youtube.internal.engagementPanelHook
 import app.reseam.patches.youtube.internal.engagementPanelId
 import app.reseam.patches.youtube.internal.engagementPanelShown
 import app.reseam.patches.youtube.internal.fixBackToExitGesture
-import app.reseam.patches.youtube.internal.lithoFilter
+import app.reseam.patches.youtubecommon.hideById
+import app.reseam.patches.youtubecommon.lithoFilter
 import app.reseam.patches.youtube.internal.overrideClientContextOsName
-import app.reseam.patches.youtube.internal.registerLithoFilter
+import app.reseam.patches.youtubecommon.registerLithoFilter
 import app.reseam.patches.youtube.internal.verticalScrollFix
 
 val hideAds = patch("Hide ads") {
@@ -131,8 +129,8 @@ val hideAds = patch("Hide ads") {
             hide
         }
 
-        hideResourceViews("ad_attribution", YouTubeSettings.hideGeneralAds)
-        hideResourceViews("paid_promotion_label_text_view", YouTubeSettings.hidePaidPromotionLabel)
+        hideById("ad_attribution", YouTubeSettings.hideGeneralAds)
+        hideById("paid_promotion_label_text_view", YouTubeSettings.hidePaidPromotionLabel)
 
         gate(YouTubeSettings.hidePlayerPopupAds) {
             engagementPanelShown.before {
@@ -149,26 +147,7 @@ private object AdsFilter : ExtClass("app.reseam.youtube.ads.AdsFilter")
 private object Ads : ExtClass("app.reseam.youtube.ads.Ads") {
     val closeFullscreenAd by static("android.app.Dialog", "[B")
     val isStoreBanner by static("[B", returns = Type.Boolean)
-    val hideView by static(Type.View)
     val isPlayerPopupAd by static(Type.String, returns = Type.Boolean)
-}
-
-/** Resource arguments identify the view; the same hook handles attribution and paid labels. */
-private fun PatchRuntime.hideResourceViews(resourceName: String, setting: ToggleSetting) {
-    val id = resources.id("id", resourceName)?.toLong() ?: error("id/$resourceName is missing")
-    val lookups = methods("$resourceName views") { literals(id) }.points("$resourceName lookup") {
-        invokeVirtual { name("findViewById"); params(Type.Int); returns(Type.View) }
-        argument(1) { literal(id) }
-    }
-    check(lookups.all.isNotEmpty()) { "No $resourceName view lookups found" }
-    lookups.forEach {
-        gate(setting) {
-            next { resultOf(Type.View) }.captureAs("view").after {
-                call(Ads.hideView, capture("view"))
-            }
-        }
-    }
-    log.debug("$resourceName: hooked ${lookups.all.size} resource-backed lookups")
 }
 
 private val premiumViewMeasured = method("premiumViewMeasured") {
