@@ -57,7 +57,7 @@ val enableTapToSeek = patch {
 }
 
 // Start from the resource-labelled seekbar, then use its inherited touch handler.
-private val seekbarClass = classTarget("tapSeekbar") {
+internal val seekbarClass = classTarget("seekbarClass") {
     bytecode.findClass(seekbarOnDraw.owner) ?: error("The seekbar class is missing")
 }
 private val baseSeekbarClass = classTarget("baseSeekbar") {

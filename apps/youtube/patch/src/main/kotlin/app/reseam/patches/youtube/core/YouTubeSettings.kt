@@ -739,7 +739,7 @@ object YouTubeSettings {
 
     val disablePlayerPopupPanels by toggle(
         "Disable player popup panels",
-        summary = "Stops popup panels from opening from the player.",
+        summary = "Stops panels such as live chat from opening by themselves. Panels you open still work.",
         default = false,
     )
 
@@ -747,6 +747,12 @@ object YouTubeSettings {
         "Disable rolling number animations",
         summary = "Stops animated number transitions in the player.",
         default = false,
+    )
+
+    val playPauseButtonSize by text(
+        "Play and pause button size",
+        summary = "The size of the button in the middle of the player in dp, from 40 to 160. YouTube's default is 56.",
+        default = "56",
     )
 
     val playerOverlayOpacity by text(
@@ -1047,6 +1053,12 @@ object YouTubeSettings {
         default = false,
     )
 
+    val scrubbingPreview by toggle(
+        "Small scrubbing preview",
+        summary = "Shows the frame you are scrubbing to in a small card above the seekbar, instead of across the whole player.",
+        default = false,
+    )
+
     val disablePreciseSeekingGesture by toggle(
         "Disable precise seeking gesture",
         summary = "Stops swiping up on the seekbar from entering precise seeking mode.",
@@ -1204,5 +1216,66 @@ object YouTubeSettings {
         "Explain invalid account credentials",
         summary = "Replaces a misleading offline error when the network is actually available.",
         default = true,
+    )
+
+    val hideSettingsAccountSwitcher by toggle(
+        "Hide Switch or manage account",
+        summary = "Removes the Switch or manage account row from YouTube's settings.",
+        default = false,
+    )
+    val hideSettingsFamilyCenter by toggle(
+        "Hide Family Center",
+        summary = "Removes the Family Center row from YouTube's settings.",
+        default = false,
+    )
+    val hideSettingsPremium by toggle(
+        "Hide YouTube Premium",
+        summary = "Removes the YouTube Premium offer or benefits row from YouTube's settings.",
+        default = false,
+    )
+    val hideSettingsPurchases by toggle(
+        "Hide Purchases and memberships",
+        summary = "Removes the Purchases and memberships row from YouTube's settings.",
+        default = false,
+    )
+    val hideSettingsBilling by toggle(
+        "Hide Billing & payments",
+        summary = "Removes the Billing & payments row from YouTube's settings.",
+        default = false,
+    )
+    val hideSettingsBadges by toggle(
+        "Hide Badges",
+        summary = "Removes the Badges row from YouTube's settings.",
+        default = false,
+    )
+    val hideSettingsYourData by toggle(
+        "Hide Your data in YouTube",
+        summary = "Removes the Your data in YouTube row from YouTube's settings.",
+        default = false,
+    )
+    val hideSettingsConnectedApps by toggle(
+        "Hide Connected apps",
+        summary = "Removes the Connected apps row from YouTube's settings.",
+        default = false,
+    )
+    val hideSettingsExperimentalFeatures by toggle(
+        "Hide Try experimental new features",
+        summary = "Removes the Try experimental new features row from YouTube's settings.",
+        default = false,
+    )
+    val hideSettingsWatchOnTv by toggle(
+        "Hide Watch on TV",
+        summary = "Removes the Watch on TV row from YouTube's settings.",
+        default = false,
+    )
+    val hideSettingsHelp by toggle(
+        "Hide Help",
+        summary = "Removes the Help row from YouTube's settings.",
+        default = false,
+    )
+    val hideSettingsSendFeedback by toggle(
+        "Hide Send feedback",
+        summary = "Removes the Send feedback row from YouTube's settings.",
+        default = false,
     )
 }

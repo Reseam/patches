@@ -8,8 +8,8 @@ import app.reseam.patches.youtube.core.YOUTUBE
 
 val seekbar = patch("Seekbar") {
     description(
-        "Adds options to hide the seekbar, use slide or tap to seek, and disable precise seeking.",
+        "Adds options to hide the seekbar, use slide or tap to seek, show a small scrubbing preview, and disable precise seeking.",
     )
     compatibleWith(YOUTUBE)
-    dependsOn(hideSeekbar, enableSlideToSeek, enableTapToSeek, disablePreciseSeekingGesture)
+    dependsOn(hideSeekbar, enableSlideToSeek, enableTapToSeek, scrubbingPreview, disablePreciseSeekingGesture)
 }

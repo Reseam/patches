@@ -15,15 +15,16 @@ import app.reseam.patches.youtube.core.youTubeSettings
 import app.reseam.patches.youtube.internal.engagementPanelShow
 
 val disablePlayerPopupPanels = patch("Disable player popup panels") {
-    description("Stops popup panels from opening from the player.")
+    description("Stops panels such as live chat from opening by themselves over the player.")
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings)
     settings(youTubeSettings, section(YouTubeSettingsPages.Overlay, "Player overlay", YouTubeSettings.disablePlayerPopupPanels))
 
     execute {
         gate(YouTubeSettings.disablePlayerPopupPanels) {
+            // The last flag is set only when the player opens a panel on its own; taps pass false.
             engagementPanelShow.before {
-                whenFalse(param(3)) { returnNull() }
+                whenTrue(param(3)) { returnNull() }
             }
         }
     }
