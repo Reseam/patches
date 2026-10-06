@@ -7,7 +7,6 @@ package app.reseam.instagram.settings;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +14,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 
 import app.reseam.runtime.settings.ReseamSettings;
+import app.reseam.runtime.settings.ReseamSettingsScreen;
 
 public final class InstagramSettingsEntry {
     private static final String TAG = "ReseamSettings";
@@ -34,6 +34,7 @@ public final class InstagramSettingsEntry {
     public static void init(Context ctx) {
         Log.i(TAG, "InstagramSettingsEntry.init() called");
         ReseamSettings.init(ctx);
+        IgdsToggleRows.install();
         Context app = ctx == null ? null : ctx.getApplicationContext();
         if (app instanceof Application) {
             repostViewIds = resolveRepostViewIds(app);
@@ -99,10 +100,7 @@ public final class InstagramSettingsEntry {
                     v.setLongClickable(true);
                     v.setOnLongClickListener(view -> {
                         Log.i(TAG, "Long-press detected, opening Reseam Settings");
-                        Context c = view.getContext();
-                        Intent i = new Intent(c, InstagramReseamSettingsActivity.class);
-                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        c.startActivity(i);
+                        ReseamSettingsScreen.open();
                         return true;
                     });
                     Log.i(TAG, "Attached long-press listener to: " + cd + " (class=" + v.getClass().getName() + ")");

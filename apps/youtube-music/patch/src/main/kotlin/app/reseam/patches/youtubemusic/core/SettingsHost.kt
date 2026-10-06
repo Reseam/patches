@@ -8,7 +8,6 @@ import app.reseam.patch.settings.section
 import app.reseam.patch.settings.settingsHost
 import app.reseam.patches.youtubecommon.YouTubeCommonSettings
 import app.reseam.patches.youtubecommon.YouTubeContext
-import app.reseam.patches.youtubecommon.SETTINGS_ACTIVITY
 
 val youTubeMusicSettings = settingsHost("youtube-music") {
     compatibleWith(YOUTUBE_MUSIC)
@@ -17,8 +16,5 @@ val youTubeMusicSettings = settingsHost("youtube-music") {
 
     install {
         appEntry { call(YouTubeContext.init, application) }
-        manifest.addActivity(SETTINGS_ACTIVITY) {
-            this["android:label"] = "Reseam Settings"
-        }
     }
 }

@@ -13,15 +13,9 @@ import java.util.Collections;
 
 /** Registers {@link ReseamSettingsModule}; a settings entry patch adds it to the app's package list. */
 public final class ReseamSettingsPackage extends BaseReactPackage {
-    private final Runnable openSettings;
-
-    public ReseamSettingsPackage(Runnable openSettings) {
-        this.openSettings = openSettings;
-    }
-
     @Override
     public NativeModule getModule(String name, ReactApplicationContext context) {
-        return ReseamSettingsModule.NAME.equals(name) ? new ReseamSettingsModule(context, openSettings) : null;
+        return ReseamSettingsModule.NAME.equals(name) ? new ReseamSettingsModule(context) : null;
     }
 
     @Override

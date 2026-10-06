@@ -7,8 +7,6 @@ import app.reseam.patch.ExtClass
 import app.reseam.patch.Type
 import app.reseam.patch.settings.toggle
 
-const val SETTINGS_ACTIVITY = "app.reseam.youtube.core.YouTubeReseamSettingsActivity"
-
 object YouTubeContext : ExtClass("app.reseam.youtube.core.YouTubeContext") {
     val init by static(Type.Context)
 }

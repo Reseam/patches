@@ -4,6 +4,7 @@
 
 package app.reseam.runtime.settings;
 
+import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -17,6 +18,7 @@ public final class ReseamSettings {
         if (ctx == null) return;
         Context app = ctx.getApplicationContext();
         appContext = app == null ? ctx : app;
+        if (appContext instanceof Application) SettingsPanel.track((Application) appContext);
     }
 
     public static boolean getBoolean(String key, boolean defaultValue) {

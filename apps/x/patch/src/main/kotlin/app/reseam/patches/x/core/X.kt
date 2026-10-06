@@ -16,7 +16,6 @@ val X: CompatiblePackage = X_PACKAGE("12.29.1-prod.01")
 
 object XSettingsEntry : ExtClass("app.reseam.x.settings.XSettingsEntry") {
     val init by static(Type.Context)
-    val open by static()
 }
 
 object OpenReseamSettings : ExtClass("app.reseam.x.settings.OpenReseamSettings") {

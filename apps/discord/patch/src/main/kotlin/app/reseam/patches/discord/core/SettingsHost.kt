@@ -13,7 +13,6 @@ import app.reseam.patch.method
 import app.reseam.patch.settings.settingsHost
 import app.reseam.patch.wrap
 
-private const val SETTINGS_ACTIVITY = "app.reseam.discord.settings.DiscordReseamSettingsActivity"
 
 val discordSettings = settingsHost("discord") {
     compatibleWith(DISCORD)
@@ -24,9 +23,6 @@ val discordSettings = settingsHost("discord") {
         }
         getPackages.after {
             call(DiscordSettingsEntry.addReactPackage, capture("result"))
-        }
-        manifest.addActivity(SETTINGS_ACTIVITY) {
-            this["android:label"] = "Reseam Settings"
         }
         settingRows.wrap(SettingsRow.settingRows)
         settingsList.wrap(SettingsRow.settingsList)

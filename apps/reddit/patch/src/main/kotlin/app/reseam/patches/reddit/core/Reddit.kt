@@ -11,7 +11,6 @@ const val REDDIT = "com.reddit.frontpage"
 
 object RedditSettingsEntry : ExtClass("app.reseam.reddit.settings.RedditSettingsEntry") {
     val init by static(Type.Context)
-    val open by static()
 }
 
 object OpenReseamSettings : ExtClass("app.reseam.reddit.settings.OpenReseamSettings") {

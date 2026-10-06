@@ -3,8 +3,11 @@
 
 package app.reseam.instagram.settings;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
@@ -64,7 +67,7 @@ public final class IgdsToggleRows implements ReseamSettingsScreen.ToggleRowFacto
     @Override
     public ReseamSettingsScreen.ToggleRow create(Context ctx, String title, String summary, boolean checked, CompoundButton.OnCheckedChangeListener listener) {
         try {
-            View cell = (View) cellClass.getConstructor(Context.class).newInstance(ctx);
+            View cell = (View) cellClass.getConstructor(Context.class).newInstance(instagramThemed(ctx));
             setTextCellType.invoke(cell, typeSwitch);
             ((TextView) getTitleView.invoke(cell)).setText(title);
             if (summary != null && !summary.isEmpty()) {
@@ -92,6 +95,16 @@ public final class IgdsToggleRows implements ReseamSettingsScreen.ToggleRowFacto
         } catch (ReflectiveOperationException e) {
             throw new IllegalStateException("IgdsListCell changed shape", e);
         }
+    }
+
+    /** IGDS cells read Instagram's theme attributes, which the settings dialog's platform theme lacks. */
+    private static Context instagramThemed(Context ctx) {
+        Context base = ctx;
+        while (!(base instanceof Activity) && base instanceof ContextWrapper) base = ((ContextWrapper) base).getBaseContext();
+        if (!(base instanceof Activity)) return ctx;
+        ContextThemeWrapper themed = new ContextThemeWrapper(ctx, 0);
+        themed.getTheme().setTo(base.getTheme());
+        return themed;
     }
 
     private static Object enumConstant(Class<?> enumClass, String name) throws NoSuchFieldException {

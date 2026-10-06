@@ -29,7 +29,7 @@ val telegramSettings = settingsHost("telegram") {
             val activity = param(0)
             val cell = newInstance(textCell.descriptor, "(Landroid/content/Context;)V", activity)
             cell.call(setTextAndIcon, string("Reseam"), call(TelegramSettingsEntry.logo, activity), bool(false))
-            cell.callVirtual("android.view.View", "setOnClickListener", "(Landroid/view/View\$OnClickListener;)V", call(TelegramSettingsEntry.opener, activity))
+            cell.callVirtual("android.view.View", "setOnClickListener", "(Landroid/view/View\$OnClickListener;)V", call(TelegramSettingsEntry.opener))
             returnValue(call(asCustomItem, int(0), cell))
         }
 
@@ -38,10 +38,6 @@ val telegramSettings = settingsHost("telegram") {
             whenNotNull(activity) {
                 paramOfType(Type.ArrayList).callVirtual("java.util.ArrayList", "add", ARRAY_LIST_ADD, call(TelegramSettingsEntry.reseamItem, activity))
             }
-        }
-
-        manifest.addActivity("app.reseam.telegram.settings.TelegramReseamSettingsActivity") {
-            this["android:label"] = "Reseam Settings"
         }
     }
 }

@@ -6,13 +6,11 @@ package app.reseam.runtime.settings;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
-import android.net.Uri;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -50,12 +48,12 @@ public final class ReseamSettingsScreen {
     }
 
     private static final String TAG = "ReseamSettings";
-    public static final int FOLDER_PICKER_REQUEST_CODE = 0x57C4;
-    private static final String PAGE_EXTRA = "app.reseam.settings.PAGE";
-    private static final String FOLDER_KEY_EXTRA = "app.reseam.settings.FOLDER_KEY";
     static final int SECONDARY_TEXT = Color.parseColor("#A8A8A8");
     static final int TERTIARY_TEXT = Color.parseColor("#666666");
     static final int FIELD_BACKGROUND = Color.parseColor("#1C1C1C");
+
+    /** The action of an intent that opens the settings through {@link #startActivity}. */
+    public static final String ACTION_OPEN = "app.reseam.settings.OPEN";
 
     private ReseamSettingsScreen() {}
 
@@ -63,9 +61,21 @@ public final class ReseamSettingsScreen {
         SettingRows.toggleRows = factory;
     }
 
-    public static View build(Context ctx) {
-        ReseamSettings.init(ctx);
+    /** Opens the settings over the app's current screen. Callable from any thread. */
+    public static void open() {
+        SettingsPanel.open();
+    }
 
+    /**
+     * Starts {@code intent}, or opens the settings when its action is {@link #ACTION_OPEN}. For
+     * settings rows the host builds from an intent, such as androidx preferences.
+     */
+    public static void startActivity(Context ctx, Intent intent) {
+        if (ACTION_OPEN.equals(intent.getAction())) open();
+        else ctx.startActivity(intent);
+    }
+
+    static View page(Context ctx, String pageId, SettingsPanel panel) {
         LinearLayout container = new LinearLayout(ctx);
         container.setOrientation(LinearLayout.VERTICAL);
         container.setBackgroundColor(Color.BLACK);
@@ -73,8 +83,6 @@ public final class ReseamSettingsScreen {
         container.setFitsSystemWindows(true);
 
         ScrollView scroll = new ScrollView(ctx);
-        // Stable across activity recreation so Android restores each page's scroll position.
-        scroll.setId(android.R.id.list);
         scroll.setBackgroundColor(Color.BLACK);
 
         LinearLayout body = new LinearLayout(ctx);
@@ -95,12 +103,9 @@ public final class ReseamSettingsScreen {
         String title = "Reseam Settings";
         try {
             SettingsSchema schema = SettingsSchema.load(ctx);
-            Activity activity = findActivity(ctx);
-            String pageId = activity == null ? null : activity.getIntent().getStringExtra(PAGE_EXTRA);
-            if (pageId == null) pageId = "";
             if (!pageId.isEmpty()) title = schema.page(pageId).title;
             for (SettingsSchema.Page page : schema.pages) {
-                if (pageId.equals(page.parent)) addPage(ctx, root, page);
+                if (pageId.equals(page.parent)) addPage(ctx, root, page, panel);
             }
             for (SettingsSchema.Section section : schema.sections) {
                 if (!pageId.equals(section.page) || section.settings.isEmpty()) continue;
@@ -112,8 +117,7 @@ public final class ReseamSettingsScreen {
             if (root.getChildCount() == 0) {
                 root.addView(description(ctx, "No settings are available for the selected patches."));
             }
-            if (activity != null && pageId.isEmpty()) {
-                RestartPrompt.watch(activity);
+            if (pageId.isEmpty()) {
                 SearchResults results = new SearchResults(ctx, schema, rows, root);
                 body.addView(results.view());
                 container.addView(buildSearchField(ctx, results, scroll), 0);
@@ -123,18 +127,13 @@ public final class ReseamSettingsScreen {
             body.removeAllViews();
             body.addView(description(ctx, "Could not load settings: " + e.getMessage()));
         }
-        container.addView(buildToolbar(ctx, title), 0,
+        container.addView(buildToolbar(ctx, title, panel), 0,
                 new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dpToPx(ctx, 56)));
 
         return container;
     }
 
-    private static void addPage(Context ctx, ViewGroup parent, SettingsSchema.Page page) {
-        Activity activity = findActivity(ctx);
-        if (activity == null) throw new IllegalArgumentException("Settings pages require an Activity context");
-        String id = page.id;
-        String title = page.title;
-
+    private static void addPage(Context ctx, ViewGroup parent, SettingsSchema.Page page, SettingsPanel panel) {
         LinearLayout row = new LinearLayout(ctx);
         row.setGravity(Gravity.CENTER_VERTICAL);
         row.setPadding(dpToPx(ctx, 16), dpToPx(ctx, 18), dpToPx(ctx, 16), dpToPx(ctx, 18));
@@ -145,7 +144,7 @@ public final class ReseamSettingsScreen {
         }
 
         TextView label = new TextView(ctx);
-        label.setText(title);
+        label.setText(page.title);
         label.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f);
         label.setTextColor(Color.WHITE);
         row.addView(label, new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
@@ -155,16 +154,11 @@ public final class ReseamSettingsScreen {
         arrow.setTextColor(Color.LTGRAY);
         arrow.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
         row.addView(arrow);
-        row.setOnClickListener(v -> {
-            // Reuse the host's activity and theme. Android owns the page stack and Back gestures.
-            Intent intent = new Intent(activity, activity.getClass());
-            intent.putExtra(PAGE_EXTRA, id);
-            activity.startActivity(intent);
-        });
+        row.setOnClickListener(v -> panel.push(page.id));
         parent.addView(row);
     }
 
-    private static View buildToolbar(Context ctx, String title) {
+    private static View buildToolbar(Context ctx, String title, SettingsPanel panel) {
         FrameLayout bar = new FrameLayout(ctx);
         bar.setBackgroundColor(Color.BLACK);
         bar.setPadding(dpToPx(ctx, 4), 0, dpToPx(ctx, 16), 0);
@@ -175,10 +169,7 @@ public final class ReseamSettingsScreen {
         back.setPadding(pad, pad, pad, pad);
         back.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         back.setContentDescription("Back");
-        back.setOnClickListener(v -> {
-            Activity activity = findActivity(ctx);
-            if (activity != null) activity.finish();
-        });
+        back.setOnClickListener(v -> panel.back());
         FrameLayout.LayoutParams backLp = new FrameLayout.LayoutParams(
                 dpToPx(ctx, 48), dpToPx(ctx, 48), Gravity.START | Gravity.CENTER_VERTICAL);
         bar.addView(back, backLp);
@@ -202,8 +193,6 @@ public final class ReseamSettingsScreen {
         bar.setPadding(dpToPx(ctx, 16), dpToPx(ctx, 4), dpToPx(ctx, 16), dpToPx(ctx, 8));
 
         EditText field = new EditText(ctx);
-        // Stable across activity recreation so Android restores the query, which re-runs the search.
-        field.setId(android.R.id.edit);
         field.setHint("Search settings");
         field.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
         field.setSingleLine(true);
@@ -249,30 +238,7 @@ public final class ReseamSettingsScreen {
             Log.e(TAG, "Cannot launch folder picker: no Activity context");
             return;
         }
-        activity.getIntent().putExtra(FOLDER_KEY_EXTRA, key);
-        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
-        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION
-                | Intent.FLAG_GRANT_WRITE_URI_PERMISSION
-                | Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
-        activity.startActivityForResult(intent, FOLDER_PICKER_REQUEST_CODE);
-    }
-
-    public static boolean onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
-        if (requestCode != FOLDER_PICKER_REQUEST_CODE) return false;
-        String key = activity.getIntent().getStringExtra(FOLDER_KEY_EXTRA);
-        activity.getIntent().removeExtra(FOLDER_KEY_EXTRA);
-        if (resultCode != Activity.RESULT_OK || data == null || key == null) return true;
-        Uri uri = data.getData();
-        if (uri == null) return true;
-        try {
-            int flags = Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION;
-            ContentResolver resolver = activity.getContentResolver();
-            resolver.takePersistableUriPermission(uri, flags);
-        } catch (SecurityException e) {
-            Log.w(TAG, "Could not persist permission for " + uri, e);
-        }
-        ReseamSettings.setString(key, uri.toString());
-        return true;
+        FolderPicker.pick(activity, key);
     }
 
     private static Activity findActivity(Context ctx) {

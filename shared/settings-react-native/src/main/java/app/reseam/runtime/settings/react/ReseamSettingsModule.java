@@ -4,6 +4,7 @@
 package app.reseam.runtime.settings.react;
 
 import app.reseam.runtime.settings.ReseamSettings;
+import app.reseam.runtime.settings.ReseamSettingsScreen;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -13,11 +14,8 @@ import com.facebook.react.bridge.ReactMethod;
 public final class ReseamSettingsModule extends ReactContextBaseJavaModule {
     static final String NAME = "ReseamSettings";
 
-    private final Runnable openSettings;
-
-    ReseamSettingsModule(ReactApplicationContext context, Runnable openSettings) {
+    ReseamSettingsModule(ReactApplicationContext context) {
         super(context);
-        this.openSettings = openSettings;
     }
 
     @Override
@@ -32,6 +30,6 @@ public final class ReseamSettingsModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void openSettings() {
-        openSettings.run();
+        ReseamSettingsScreen.open();
     }
 }

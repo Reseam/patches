@@ -32,7 +32,7 @@ object TelegramSettingsEntry : ExtClass("app.reseam.telegram.settings.TelegramSe
     val init by static(Type.Context)
     val reseamItem by static(ACTIVITY, returns = Type.Object)
     val logo by static(Type.Context, returns = DRAWABLE)
-    val opener by static(ACTIVITY, returns = CLICK_LISTENER)
+    val opener by static(returns = CLICK_LISTENER)
 }
 
 object DeletedArchive : ExtClass("app.reseam.telegram.antidelete.DeletedArchive") {

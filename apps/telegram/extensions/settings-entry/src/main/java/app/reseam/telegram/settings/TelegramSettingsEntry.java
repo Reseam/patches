@@ -5,7 +5,6 @@ package app.reseam.telegram.settings;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -15,6 +14,7 @@ import android.view.View;
 import java.io.InputStream;
 
 import app.reseam.runtime.settings.ReseamSettings;
+import app.reseam.runtime.settings.ReseamSettingsScreen;
 
 public final class TelegramSettingsEntry {
     private static volatile Drawable cachedLogo;
@@ -30,8 +30,8 @@ public final class TelegramSettingsEntry {
         throw new UnsupportedOperationException("implemented by the settings host patch");
     }
 
-    public static View.OnClickListener opener(Activity activity) {
-        return v -> activity.startActivity(new Intent(activity, TelegramReseamSettingsActivity.class));
+    public static View.OnClickListener opener() {
+        return v -> ReseamSettingsScreen.open();
     }
 
     public static Drawable logo(Context ctx) {
