@@ -1,0 +1,24 @@
+// SPDX-FileCopyrightText: 2026 AunAli K. <hello@auna.li>
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+package app.reseam.patches.youtubemusic.core
+
+import app.reseam.patch.appEntry
+import app.reseam.patch.settings.section
+import app.reseam.patch.settings.settingsHost
+import app.reseam.patches.youtubecommon.YouTubeCommonSettings
+import app.reseam.patches.youtubecommon.YouTubeContext
+import app.reseam.patches.youtubecommon.SETTINGS_ACTIVITY
+
+val youTubeMusicSettings = settingsHost("youtube-music") {
+    compatibleWith(YOUTUBE_MUSIC)
+
+    settings(section(YouTubeMusicSettingsPages.Advanced, "Diagnostics", YouTubeCommonSettings.debugLogging))
+
+    install {
+        appEntry { call(YouTubeContext.init, application) }
+        manifest.addActivity(SETTINGS_ACTIVITY) {
+            this["android:label"] = "Reseam Settings"
+        }
+    }
+}
