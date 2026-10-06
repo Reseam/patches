@@ -1,5 +1,5 @@
-// SPDX-FileCopyrightText: 2026 AunAli K. <hello@auna.li>
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-FileCopyrightText: 2026 Cossale <hello@auna.li>
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 // The profile's Nitro card puts each button in its own slot: Get Nitro, then Shop.
 function isShopSlot(slot) {

@@ -1,5 +1,5 @@
-// SPDX-FileCopyrightText: 2026 AunAli K. <hello@auna.li>
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-FileCopyrightText: 2026 Cossale <hello@auna.li>
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 // Bulk acks reach the server only from Discord's own context; any other context
 // updates read state on this phone alone.

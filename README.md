@@ -51,4 +51,4 @@ Push a `vX.Y.Z` tag. CI builds and signs the bundle with the official key, write
 
 ## License
 
-GPL-3.0-or-later. Some files carry other licenses; see `REUSE.toml` and `LICENSES/`.
+AGPL-3.0-or-later, with additional terms under section 7 in [NOTICE](NOTICE). Code ported from ReVanced stays GPL-3.0-or-later without those terms, and a few files carry other licenses; see `REUSE.toml` and `LICENSES/`.

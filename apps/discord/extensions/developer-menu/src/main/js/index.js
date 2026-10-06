@@ -1,5 +1,5 @@
-// SPDX-FileCopyrightText: 2026 AunAli K. <hello@auna.li>
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-FileCopyrightText: 2026 Cossale <hello@auna.li>
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 // Discord hides the Dev Tools row behind a staff check it passes as usePredicate.
 exports.createPressable = function (original, config) {

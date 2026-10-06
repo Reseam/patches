@@ -3,20 +3,11 @@ version = 1
 # ── Project source (default) ────────────────────────────────────────────────
 
 [[annotations]]
-path = [
-    "manifest.toml",
-    "build.gradle.kts",
-    "settings.gradle.kts",
-    "android-extension-module.gradle.kts",
-    "apps/**",
-    "shared/**",
-    ".gitignore",
-    "LICENSE",
-]
-SPDX-FileCopyrightText = "2026 AunAli K. <hello@auna.li>"
-SPDX-License-Identifier = "GPL-3.0-or-later"
+path = ["**"]
+SPDX-FileCopyrightText = "2026 Cossale <hello@auna.li>"
+SPDX-License-Identifier = "AGPL-3.0-or-later"
 
-# ── Ported from ReVanced (GPL-3.0-or-later, the same licence) ──────────────
+# ── Ported from ReVanced (stays GPL-3.0-or-later, no section 7 terms) ──────
 
 [[annotations]]
 path = [
@@ -79,8 +70,25 @@ path = [
     "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/PlayerControls.kt",
     "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/video/**",
     "apps/youtube/patch/src/main/resources/buttons/**",
+    "apps/universal/patch/src/main/kotlin/app/reseam/patches/universal/ChangePackageNamePatch.kt",
+    "apps/universal/patch/src/main/kotlin/app/reseam/patches/universal/OverrideCertificatePinningPatch.kt",
+    "apps/youtube/extensions/dislike/src/main/java/app/reseam/youtube/dislike/ReturnYouTubeDislike.java",
+    "apps/youtube/extensions/dislike/src/main/java/app/reseam/youtube/dislike/ReturnYouTubeDislikeFilter.java",
+    "apps/youtube/extensions/dislike/src/main/java/app/reseam/youtube/dislike/ReturnYouTubeDislikePatch.java",
+    "apps/youtube/extensions/dislike/src/main/java/app/reseam/youtube/dislike/requests/RYDVoteData.java",
+    "apps/youtube/extensions/dislike/src/main/java/app/reseam/youtube/dislike/requests/ReturnYouTubeDislikeAPI.java",
+    "apps/youtube/extensions/dislike/src/main/java/app/reseam/youtube/dislike/requests/ReturnYouTubeDislikeRoutes.java",
+    "apps/youtube/extensions/dislike/src/main/java/app/reseam/youtube/dislike/requests/Route.java",
+    "apps/youtube/extensions/sponsorblock/src/main/java/app/reseam/youtube/sponsorblock/Segment.java",
+    "apps/youtube/extensions/sponsorblock/src/main/java/app/reseam/youtube/sponsorblock/SponsorBlock.java",
+    "apps/youtube/extensions/sponsorblock/src/main/java/app/reseam/youtube/sponsorblock/SponsorBlockApi.java",
+    "apps/youtube/extensions/sponsorblock/src/main/java/app/reseam/youtube/sponsorblock/SponsorBlockOverlay.java",
+    "apps/youtube/extensions/swipe/src/main/java/app/reseam/youtube/swipe/SwipeControls.java",
+    "apps/youtube/extensions/thumbnails/src/main/java/app/reseam/youtube/thumbnails/AlternativeThumbnailsPatch.java",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/AppMethods.kt",
+    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/LithoText.kt",
 ]
-SPDX-FileCopyrightText = ["2026 AunAli K. <hello@auna.li>", "2026 ReVanced contributors"]
+SPDX-FileCopyrightText = ["2026 Cossale <hello@auna.li>", "2026 ReVanced contributors"]
 SPDX-License-Identifier = "GPL-3.0-or-later"
 
 # ── yt-dlp's ejs challenge solver 0.8.0, unmodified release files ──────────
