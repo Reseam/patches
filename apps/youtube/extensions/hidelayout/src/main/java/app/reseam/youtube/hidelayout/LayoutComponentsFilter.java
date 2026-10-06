@@ -15,7 +15,6 @@ import android.widget.TextView;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -382,16 +381,16 @@ public final class LayoutComponentsFilter extends Filter {
         return history;
     }
 
-    public static void filterSearchSuggestions(Collection<?> suggestions) {
-        if (suggestions == null) return;
-        Iterator<?> iterator = suggestions.iterator();
-        while (iterator.hasNext()) {
-            Object suggestion = iterator.next();
-            if (suggestion instanceof SearchSuggestionAccessor
-                    && !((SearchSuggestionAccessor) suggestion).patch_isSearchHistory()) {
-                iterator.remove();
+    /** YouTube sometimes passes an immutable list, so this returns the kept suggestions as a new one. */
+    public static Collection<Object> filterSearchSuggestions(Collection<?> suggestions) {
+        List<Object> kept = new ArrayList<>();
+        for (Object suggestion : suggestions) {
+            if (!(suggestion instanceof SearchSuggestionAccessor)
+                    || ((SearchSuggestionAccessor) suggestion).patch_isSearchHistory()) {
+                kept.add(suggestion);
             }
         }
+        return kept;
     }
 
     private static void hide(View view, String setting) {

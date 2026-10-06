@@ -517,7 +517,10 @@ val hideLayoutComponents = patch("Hide layout components") {
             AccessFlags.PRIVATE or AccessFlags.FINAL)
         helper.replace {
             whenTrue(call(LayoutComponentsFilter.hideYouMayLikeSection, param(0).field(suggestionFields.typedString))) {
-                call(LayoutComponentsFilter.filterSearchSuggestions, param(0).field(suggestionFields.collection))
+                param(0).set(
+                    suggestionFields.collection,
+                    call(LayoutComponentsFilter.filterSearchSuggestions, param(0).field(suggestionFields.collection)),
+                )
             }
             returnVoid()
         }
@@ -599,7 +602,7 @@ object LayoutComponentsFilter : ExtClass("app.reseam.youtube.hidelayout.LayoutCo
     val hideChannelTabView by static(Type.View, Type.String)
     val hideYouMayLikeSection by static(Type.String, returns = Type.Boolean)
     val isSearchHistory by static(Type.Object, Type.String, returns = Type.Boolean)
-    val filterSearchSuggestions by static(COLLECTION)
+    val filterSearchSuggestions by static(COLLECTION, returns = COLLECTION)
 }
 
 object DescriptionComponentsFilter : ExtClass("app.reseam.youtube.hidelayout.DescriptionComponentsFilter")
