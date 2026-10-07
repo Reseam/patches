@@ -7,16 +7,17 @@ package app.reseam.youtube.spoof;
 /** YouTube clients whose player responses can replace the app's own streams. */
 enum ClientType {
     // A web client: its stream URLs need the web player's solved challenges and a BotGuard PoToken.
-    TV_SIMPLY("tv_simply", "TVHTML5_SIMPLY", "1.0", null, null, null, null,
+    TV_SIMPLY("tv_simply", "TVHTML5_SIMPLY", 75, "1.0", null, null, null, null,
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
             "TV Simply", true),
     // Needs neither, but "made for kids" videos are unavailable.
-    VISIONOS("visionos", "VISIONOS", "0.1", "Apple", "RealityDevice14,1", "visionOS", "1.3.21O771",
-            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15",
+    VISIONOS("visionos", "VISIONOS", 101, "1.02", "Apple", "RealityDevice17,1", "visionOS", "26.5.23O471",
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 15_7_3) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15",
             "visionOS", false);
 
     final String settingValue;
     final String clientName;
+    final int clientId;
     final String clientVersion;
     final String deviceMake;
     final String deviceModel;
@@ -28,11 +29,12 @@ enum ClientType {
     /** Whether its stream URLs need {@link app.reseam.youtube.web.WebPlayer}. */
     final boolean usesWebPlayer;
 
-    ClientType(String settingValue, String clientName, String clientVersion, String deviceMake,
+    ClientType(String settingValue, String clientName, int clientId, String clientVersion, String deviceMake,
                String deviceModel, String osName, String osVersion, String userAgent,
                String friendlyName, boolean usesWebPlayer) {
         this.settingValue = settingValue;
         this.clientName = clientName;
+        this.clientId = clientId;
         this.clientVersion = clientVersion;
         this.deviceMake = deviceMake;
         this.deviceModel = deviceModel;

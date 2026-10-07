@@ -27,14 +27,18 @@ import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.mainActivityOnCreate
 import app.reseam.patches.youtube.core.youTubeSettings
 import app.reseam.patches.youtube.internal.ClientContextEndpoint
+import app.reseam.patches.youtube.internal.hookBackgroundPlayVideoId
 import app.reseam.patches.youtube.internal.hookClientContextOsName
+import app.reseam.patches.youtube.internal.hookVideoId
 import app.reseam.patches.youtube.internal.overrideBooleanFeature
 import app.reseam.patches.youtube.internal.playerResponseHook
 import app.reseam.patches.youtube.internal.videoIdGetter
+import app.reseam.patches.youtube.internal.videoIdHook
 
 private const val STREAMING_DATA =
     "Lcom/google/protos/youtube/api/innertube/StreamingDataOuterClass\$StreamingData;"
 private const val BYTE_BUFFER = "java.nio.ByteBuffer"
+private const val SPOOFED_STREAMS = "app.reseam.youtube.spoof.StreamingData"
 
 // Served to the extension's web runtime from assets/reseam/web.
 private val WEB_ASSETS = listOf(
@@ -52,7 +56,12 @@ object SpoofVideoStreams : ExtClass("app.reseam.youtube.spoof.SpoofVideoStreams"
     val blockGetAttRequest by static(Type.String, returns = Type.String)
     val blockInitPlaybackRequest by static(Type.String, returns = Type.String)
     val fetchStreams by static(Type.String, Type.Map)
-    val getStreamingData by static(Type.String, returns = "[B")
+    val getStreamingData by static(Type.String, returns = SPOOFED_STREAMS)
+    val getStreamingDataBytes by static(SPOOFED_STREAMS, returns = "[B")
+    val onStreamingDataInstalled by static(Type.String, SPOOFED_STREAMS)
+    val onNativeStreamingDataInstalled by static(Type.String)
+    val onVideoChanged by static(Type.String)
+    val rewriteVideoPlaybackMethod by static("android.net.Uri", Type.Int, returns = Type.Int)
     val removeVideoPlaybackPostBody by static(
         "android.net.Uri",
         Type.Int,
@@ -212,7 +221,7 @@ private val playerResponseDefaultInstance = playerResponseClass
 val spoofVideoStreams = patch("Spoof video streams") {
     description("Requests and installs playback streams from a compatible YouTube client.")
     compatibleWith(YOUTUBE)
-    dependsOn(youTubeSettings, playerResponseHook, app.reseam.patches.youtube.internal.clientContextHook)
+    dependsOn(youTubeSettings, playerResponseHook, videoIdHook, app.reseam.patches.youtube.internal.clientContextHook)
     settings(
         youTubeSettings,
         section(
@@ -232,6 +241,8 @@ val spoofVideoStreams = patch("Spoof video streams") {
         }
 
         mainActivityOnCreate.before { call(SpoofVideoStreams.setClientOrderToUse) }
+        hookVideoId(SpoofVideoStreams.onVideoChanged)
+        hookBackgroundPlayVideoId(SpoofVideoStreams.onVideoChanged)
 
         hookClientContextOsName(ClientContextEndpoint.BROWSE, SpoofVideoStreams.rewriteClientContextOsName)
         hookClientContextOsName(ClientContextEndpoint.SEARCH, SpoofVideoStreams.rewriteClientContextOsName)
@@ -264,8 +275,12 @@ val spoofVideoStreams = patch("Spoof video streams") {
             val videoId = videoDetails.field(videoIdField)
             whenNull(videoId) { returnVoid() }
 
-            val bytes = call(SpoofVideoStreams.getStreamingData, videoId)
-            whenNull(bytes) { returnVoid() }
+            val streams = call(SpoofVideoStreams.getStreamingData, videoId)
+            whenNull(streams) {
+                call(SpoofVideoStreams.onNativeStreamingDataInstalled, videoId)
+                returnVoid()
+            }
+            val bytes = call(SpoofVideoStreams.getStreamingDataBytes, streams)
 
             val parser = call(
                 protobufParseByteBuffer,
@@ -274,8 +289,12 @@ val spoofVideoStreams = patch("Spoof video streams") {
             )
             val playerResponse = parser.cast(playerResponseClass.descriptor)
             val replacement = playerResponse.field(streamInputField)
-            whenNull(replacement) { returnVoid() }
+            whenNull(replacement) {
+                call(SpoofVideoStreams.onNativeStreamingDataInstalled, videoId)
+                returnVoid()
+            }
             thisObject.set(streamResponseField, replacement)
+            call(SpoofVideoStreams.onStreamingDataInstalled, videoId, streams)
         }
 
         val mediaUriStore = buildMediaDataSource.point("media request URI store") {
@@ -301,6 +320,14 @@ val spoofVideoStreams = patch("Spoof video streams") {
                 thisObject.field(mediaPostDataField),
             )
             thisObject.set(mediaPostDataField, replacement)
+            thisObject.set(
+                mediaMethodField,
+                call(
+                    SpoofVideoStreams.rewriteVideoPlaybackMethod,
+                    thisObject.field(mediaUriField),
+                    thisObject.field(mediaMethodField),
+                ),
+            )
         }
 
         nerdsStatsVideoFormatBuilder.after {

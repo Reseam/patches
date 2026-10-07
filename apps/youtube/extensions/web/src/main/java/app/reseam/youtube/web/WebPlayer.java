@@ -4,6 +4,7 @@
 package app.reseam.youtube.web;
 
 import android.os.Looper;
+import android.os.SystemClock;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -15,83 +16,154 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 import app.reseam.youtube.core.Logger;
 import app.reseam.youtube.core.YouTubeContext;
 
-/**
- * What a web client's streams need: the web player's signature timestamp for the player request,
- * then a PoToken and the solved `n` and `sig` challenges for the stream URLs it returns.
- */
+/** Supplies a matching signature timestamp, URL solver and BotGuard minter for a player request. */
 public final class WebPlayer {
-    private static final long TIMEOUT_SECONDS = 20;
-    private static final WebRuntime RUNTIME = new WebRuntime();
-
-    private static CompletableFuture<Void> started;
-    private static CompletableFuture<Integer> prepared;
+    private static final long PLAYER_REFRESH_MILLISECONDS = TimeUnit.MINUTES.toMillis(30);
+    private static Generation current;
 
     /** Stream URL parameters for one player response: each challenge maps to its solution. */
     public record Unlocked(String poToken, Map<String, String> n, Map<String, String> sig) {}
 
     private WebPlayer() {}
 
-    /** Starts the runtime once the main thread is idle, so it is ready before the first video. */
+    /** Prepares the runtime asynchronously; requests can also start it without a warm-up. */
     public static synchronized void warmUp() {
-        if (started != null) return;
-        started = new CompletableFuture<>();
-        Looper.getMainLooper().getQueue().addIdleHandler(() -> {
-            RUNTIME.start(YouTubeContext.get());
-            started.complete(null);
-            prepare();
-            return false;
-        });
+        generation();
     }
 
-    /** Blocks until the runtime is prepared; must not run on the main thread. */
-    public static int signatureTimestamp() throws Exception {
-        return await(prepare());
+    /**
+     * Pins the player script until the returned session is closed. The deadline uses
+     * {@link SystemClock#elapsedRealtime()}; opening and unlocking must run off the main thread.
+     * A caller's deadline does not cancel shared preparation. Fatal runtime or preparation
+     * failures retire the generation so a subsequent request can recover without restarting.
+     */
+    public static Session open(long deadline) throws Exception {
+        if (Looper.myLooper() == Looper.getMainLooper()) {
+            throw new IllegalStateException("The web player cannot be awaited on the main thread");
+        }
+        Session session;
+        synchronized (WebPlayer.class) {
+            Generation generation = generation();
+            generation.users++;
+            session = new Session(generation, deadline);
+        }
+        try {
+            session.signatureTimestamp = session.await(session.generation.prepared);
+            return session;
+        } catch (Exception exception) {
+            session.close();
+            throw exception;
+        }
     }
 
-    /** A PoToken bound to `binding`, a visitor data string, and the solution of each challenge. */
-    public static Unlocked unlock(String binding, Collection<String> n, Collection<String> sig) throws Exception {
-        signatureTimestamp();
-        JSONObject challenges = new JSONObject().put("n", new JSONArray(n)).put("sig", new JSONArray(sig));
-        JSONObject result = new JSONObject(await(RUNTIME.call("web.unlock",
-                new JSONArray().put(binding).put(challenges))));
-        return new Unlocked(result.getString("poToken"), solutions(result.getJSONObject("n")),
-                solutions(result.getJSONObject("sig")));
+    private static Generation generation() {
+        if (current == null || current.runtime.isClosed()
+                || SystemClock.elapsedRealtime() - current.createdAt >= PLAYER_REFRESH_MILLISECONDS) {
+            if (current != null) {
+                current.retired = true;
+                current.closeIfUnused();
+            }
+            current = new Generation();
+        }
+        return current;
     }
 
-    private static Map<String, String> solutions(JSONObject solved) throws JSONException {
+    private static final class Generation {
+        final long createdAt = SystemClock.elapsedRealtime();
+        final WebRuntime runtime = new WebRuntime(YouTubeContext.get());
+        final CompletableFuture<Integer> prepared = runtime.call("web.prepare", new JSONArray()).thenApply(Integer::valueOf);
+        int users;
+        boolean retired;
+
+        Generation() {
+            prepared.whenComplete((timestamp, error) -> {
+                if (error != null) {
+                    runtime.close(error);
+                    Logger.error(() -> "Web player preparation failed", error);
+                } else Logger.debug(() -> "Web player prepared, signature timestamp " + timestamp);
+            });
+        }
+
+        void closeIfUnused() {
+            if (retired && users == 0) runtime.close(new IllegalStateException("Web player refreshed"));
+        }
+    }
+
+    /** One player request's lease on a runtime. Close after resolving its URLs, including on failure. */
+    public static final class Session implements AutoCloseable {
+        private final Generation generation;
+        private final long deadline;
+        private int signatureTimestamp;
+        private boolean closed;
+
+        private Session(Generation generation, long deadline) {
+            this.generation = generation;
+            this.deadline = deadline;
+        }
+
+        /** The timestamp of the exact script this session will use to solve stream challenges. */
+        public int signatureTimestamp() {
+            return signatureTimestamp;
+        }
+
+        /** Mints a token bound to the request's visitor data and solves that response's challenges. */
+        public Unlocked unlock(String binding, Collection<String> n, Collection<String> sig) throws Exception {
+            if (closed) throw new IllegalStateException("Web player session is closed");
+            if (Looper.myLooper() == Looper.getMainLooper()) {
+                throw new IllegalStateException("The web player cannot be awaited on the main thread");
+            }
+            CompletableFuture<String> call = null;
+            try {
+                JSONObject challenges = new JSONObject().put("n", new JSONArray(n)).put("sig", new JSONArray(sig));
+                call = generation.runtime.call("web.unlock", new JSONArray().put(binding).put(challenges));
+                JSONObject result = new JSONObject(await(call));
+                String token = result.getString("poToken");
+                if (token.isEmpty()) throw new IllegalStateException("Web player returned an empty PoToken");
+                return new Unlocked(token, solutions(result.getJSONObject("n"), n), solutions(result.getJSONObject("sig"), sig));
+            } finally {
+                // Detach this request on timeout/interruption without cancelling shared preparation.
+                // A late bridge reply to a cancelled call is ignored by the runtime.
+                if (call != null) call.cancel(false);
+            }
+        }
+
+        private <T> T await(CompletableFuture<T> future) throws Exception {
+            try {
+                long remaining = deadline - SystemClock.elapsedRealtime();
+                if (remaining <= 0) throw new TimeoutException("Web player request deadline exceeded");
+                return future.get(remaining, TimeUnit.MILLISECONDS);
+            } catch (InterruptedException exception) {
+                Thread.currentThread().interrupt();
+                throw exception;
+            }
+        }
+
+        @Override
+        public void close() {
+            synchronized (WebPlayer.class) {
+                if (closed) return;
+                closed = true;
+                generation.users--;
+                generation.closeIfUnused();
+            }
+        }
+    }
+
+    private static Map<String, String> solutions(JSONObject solved, Collection<String> expected) throws JSONException {
         Map<String, String> solutions = new HashMap<>();
         for (Iterator<String> keys = solved.keys(); keys.hasNext(); ) {
             String challenge = keys.next();
             solutions.put(challenge, solved.getString(challenge));
         }
+        for (String challenge : expected) {
+            String solution = solutions.get(challenge);
+            if (solution == null || solution.isEmpty()) throw new JSONException("Missing player challenge solution");
+        }
         return solutions;
-    }
-
-    /** The current preparation, restarted when the last one failed (for example while offline). */
-    private static synchronized CompletableFuture<Integer> prepare() {
-        if (started == null) throw new IllegalStateException("WebPlayer.warmUp has not run");
-        if (prepared == null || prepared.isCompletedExceptionally()) {
-            long start = System.currentTimeMillis();
-            prepared = started
-                    .thenCompose(unused -> RUNTIME.call("web.prepare", new JSONArray()))
-                    .thenApply(Integer::valueOf);
-            prepared.whenComplete((timestamp, error) -> {
-                if (error != null) Logger.error(() -> "Web player preparation failed", error);
-                else Logger.debug(() -> "Web player prepared in " + (System.currentTimeMillis() - start)
-                        + " ms, signature timestamp " + timestamp);
-            });
-        }
-        return prepared;
-    }
-
-    private static <T> T await(CompletableFuture<T> future) throws Exception {
-        if (Looper.myLooper() == Looper.getMainLooper()) {
-            throw new IllegalStateException("The web player cannot be awaited on the main thread");
-        }
-        return future.get(TIMEOUT_SECONDS, TimeUnit.SECONDS);
     }
 }

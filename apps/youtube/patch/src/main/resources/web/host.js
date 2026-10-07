@@ -1,3 +1,18 @@
+// Bound network operations, including response bodies, to the runtime's call lifetime.
+const network = {
+    async read(url, options = {}, json = false) {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), 10_000);
+        try {
+            const response = await fetch(url, { ...options, signal: controller.signal, cache: "no-store" });
+            if (!response.ok) throw new Error(`Web request returned HTTP ${response.status}`);
+            return await (json ? response.json() : response.text());
+        } finally {
+            clearTimeout(timer);
+        }
+    },
+};
+
 // Entry points for the app, which calls them through `host.call` and hears back on `reseamHost`.
 const web = {
     /** Loads the player and a BotGuard session; returns the player's signature timestamp. */
@@ -20,7 +35,9 @@ const host = {
 };
 
 (async () => {
-    const source = path => fetch(path).then(response => response.text());
-    player.start(await source("ejs/yt.solver.lib.min.js"), await source("ejs/yt.solver.core.min.js"));
+    const [lib, core] = await Promise.all([
+        network.read("ejs/yt.solver.lib.min.js"), network.read("ejs/yt.solver.core.min.js"),
+    ]);
+    player.start(lib, core);
     reseamHost.ready();
 })().catch(error => reseamHost.fail(String(error?.stack ?? error)));

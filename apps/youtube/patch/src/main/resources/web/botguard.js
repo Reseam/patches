@@ -5,9 +5,11 @@ const botguard = (() => {
     const API_KEY = "AIzaSyDyT5W0Jh49F30Pqqtyfdf7pDLFKLJoAnw";
     const REQUEST_KEY = "O43z0dpjhgX20SCx4KAo";
     const TIMEOUT_MS = 10_000;
+    // The server's lifetime keeps running while Android sleeps; performance.now() may not.
+    const now = () => reseamHost.elapsedRealtime();
 
     const post = async (endpoint, payload) => {
-        const response = await fetch(API + endpoint, {
+        return network.read(API + endpoint, {
             method: "POST",
             headers: {
                 "content-type": "application/json+protobuf",
@@ -15,9 +17,7 @@ const botguard = (() => {
                 "x-user-agent": "grpc-web-javascript/0.1",
             },
             body: JSON.stringify(payload),
-        });
-        if (!response.ok) throw new Error(`${endpoint} returned HTTP ${response.status}`);
-        return response.json();
+        }, true);
     };
 
     const base64 = {
@@ -25,10 +25,19 @@ const botguard = (() => {
         encodeWebSafe: bytes => btoa(String.fromCharCode(...bytes)).replace(/\+/g, "-").replace(/\//g, "_"),
     };
 
-    const withTimeout = (promise, what) => Promise.race([
-        promise,
-        new Promise((_, reject) => setTimeout(() => reject(new Error(`${what} timed out`)), TIMEOUT_MS)),
-    ]);
+    const withTimeout = async (promise, what) => {
+        let timer;
+        try {
+            return await Promise.race([
+                promise,
+                new Promise((_, reject) => {
+                    timer = setTimeout(() => reject(new Error(`${what} timed out`)), TIMEOUT_MS);
+                }),
+            ]);
+        } finally {
+            clearTimeout(timer);
+        }
+    };
 
     // The challenge is either inline or, for scrambled request keys, base64 with every byte shifted by 97.
     const parseChallenge = raw => {
@@ -42,15 +51,25 @@ const botguard = (() => {
 
     const loadInterpreter = challenge => new Promise((resolve, reject) => {
         const element = document.createElement("script");
+        const finish = error => {
+            clearTimeout(timer);
+            element.remove();
+            if (error) reject(error); else resolve();
+        };
+        const timer = setTimeout(() => finish(new Error("BotGuard interpreter timed out")), TIMEOUT_MS);
         if (challenge.script) {
             element.textContent = challenge.script;
             document.head.appendChild(element);
-            resolve();
+            finish();
+            return;
+        }
+        if (!challenge.url) {
+            finish(new Error("BotGuard returned no interpreter"));
             return;
         }
         element.src = new URL(challenge.url, location.href).href;
-        element.onload = resolve;
-        element.onerror = () => reject(new Error("BotGuard interpreter failed to load"));
+        element.onload = () => finish();
+        element.onerror = () => finish(new Error("BotGuard interpreter failed to load"));
         document.head.appendChild(element);
     });
 
@@ -68,29 +87,50 @@ const botguard = (() => {
         return { response, signalOutput };
     };
 
-    let minter = null;
-    let expiresAt = 0;
+    let current = null;
+    let preparing = null;
 
-    /** Starts a session and returns its lifetime in seconds. */
-    const init = async () => {
+    /** Creates a minter and its expiry on Android's monotonic, suspend-aware clock. */
+    const create = async () => {
+        const startedAt = now();
         const challenge = parseChallenge(await post("Create", [REQUEST_KEY]));
         await loadInterpreter(challenge);
         const { response, signalOutput } = await snapshot(challenge);
         const [integrityToken, ttlSeconds] = await post("GenerateIT", [REQUEST_KEY, response]);
         if (typeof integrityToken !== "string") throw new Error("GenerateIT returned no integrity token");
-        const mintCallback = await signalOutput[0](base64.decode(integrityToken));
+        if (!Number.isFinite(ttlSeconds) || ttlSeconds <= 0) throw new Error("GenerateIT returned no valid lifetime");
+        if (typeof signalOutput[0] !== "function") throw new Error("BotGuard returned no integrity callback");
+        const mintCallback = await withTimeout(signalOutput[0](base64.decode(integrityToken)), "BotGuard minter");
         if (typeof mintCallback !== "function") throw new Error("BotGuard returned no minter");
-        minter = mintCallback;
-        expiresAt = Date.now() + ttlSeconds * 1000;
-        return ttlSeconds;
+        // Start the lifetime before attestation and leave room to finish a media request.
+        const expiresAt = startedAt + ttlSeconds * 1000 - Math.min(30_000, ttlSeconds * 100);
+        if (!Number.isFinite(expiresAt) || expiresAt <= now()) throw new Error("BotGuard session expired during preparation");
+        return { minter: mintCallback, expiresAt };
+    };
+
+    /** Shares attestation across concurrent requests and never retains a failed preparation. */
+    const init = () => {
+        if (preparing) return preparing;
+        preparing = create()
+            .then(session => { current = session; return session; })
+            .finally(() => { preparing = null; });
+        return preparing;
     };
 
     /** A web-safe base64 token bound to `binding`: a visitor data string, data sync ID or video ID. */
     const mint = async binding => {
-        if (!minter || Date.now() >= expiresAt) await init();
-        const token = await minter(new TextEncoder().encode(binding));
-        if (!(token instanceof Uint8Array)) throw new Error("BotGuard minted no token");
-        return base64.encodeWebSafe(token);
+        if (typeof binding !== "string" || !binding) throw new Error("Missing PoToken binding");
+        const session = !current || now() >= current.expiresAt ? await init() : current;
+        try {
+            const token = await withTimeout(session.minter(new TextEncoder().encode(binding)), "BotGuard mint");
+            if (!(token instanceof Uint8Array) || !token.length) throw new Error("BotGuard minted no token");
+            if (now() >= session.expiresAt) throw new Error("BotGuard session expired while minting");
+            return base64.encodeWebSafe(token);
+        } catch (error) {
+            // Invalidate only the minter that failed. Other calls may have installed a fresh one.
+            if (current === session) current = null;
+            throw error;
+        }
     };
 
     return { init, mint };

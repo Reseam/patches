@@ -68,12 +68,19 @@ final class PlayerResponse {
         return new PlayerResponse(status, reason, streamingData);
     }
 
-    static int adaptiveFormatCount(byte[] streamingData) {
-        int count = 0;
+    /** Direct adaptive playback requires both an audio track and a video track with resolved URLs. */
+    static boolean hasAdaptiveStreams(byte[] streamingData) {
+        boolean audio = false;
+        boolean video = false;
         for (Field field : fields(streamingData)) {
-            if (field.number == ADAPTIVE_FORMATS && field.wireType == WIRE_LENGTH) count++;
+            if (field.number != ADAPTIVE_FORMATS || field.wireType != WIRE_LENGTH) continue;
+            StreamUrl url = streamUrl(field.bytes);
+            if (url == null || url.url == null || url.url.isEmpty()) continue;
+            String mime = Format.parse(field.bytes).mimeType;
+            audio |= mime.startsWith("audio/");
+            video |= mime.startsWith("video/");
         }
-        return count;
+        return audio && video;
     }
 
     /**
@@ -117,7 +124,7 @@ final class PlayerResponse {
 
     /**
      * `streamingData` with each format's stream location replaced by the plain URL `resolve` returns;
-     * formats without one are dropped.
+     * formats without one, including those for which the resolver returns null, are dropped.
      */
     static byte[] withResolvedUrls(byte[] streamingData, Function<StreamUrl, String> resolve) {
         ByteArrayOutputStream output = new ByteArrayOutputStream(streamingData.length);
@@ -128,24 +135,27 @@ final class PlayerResponse {
             }
             StreamUrl url = streamUrl(field.bytes);
             if (url == null) continue;
+            String resolved = resolve.apply(url);
+            if (resolved == null) continue;
             ByteArrayOutputStream format = new ByteArrayOutputStream(field.bytes.length);
             for (Field item : fields(field.bytes)) {
                 boolean location = item.wireType == WIRE_LENGTH && (item.number == URL || item.number == SIGNATURE_CIPHER);
                 if (!location) format.write(field.bytes, item.start, item.end - item.start);
             }
-            writeBytes(format, URL, resolve.apply(url).getBytes(StandardCharsets.UTF_8));
+            writeBytes(format, URL, resolved.getBytes(StandardCharsets.UTF_8));
             writeBytes(output, field.number, format.toByteArray());
         }
         return output.toByteArray();
     }
 
     private static StreamUrl streamUrl(byte[] format) {
+        String cipher = null;
         for (Field item : fields(format)) {
             if (item.wireType != WIRE_LENGTH) continue;
-            if (item.number == URL) return new StreamUrl(item.string(), null);
-            if (item.number == SIGNATURE_CIPHER) return new StreamUrl(null, item.string());
+            if (item.number == URL && !item.string().isEmpty()) return new StreamUrl(item.string(), null);
+            if (item.number == SIGNATURE_CIPHER && !item.string().isEmpty()) cipher = item.string();
         }
-        return null;
+        return cipher == null ? null : new StreamUrl(null, cipher);
     }
 
     private static boolean isFormat(Field field) {

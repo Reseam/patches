@@ -5,9 +5,8 @@
 package app.reseam.youtube.spoof;
 
 import android.net.Uri;
-import android.os.Handler;
 import android.os.Looper;
-import android.widget.Toast;
+import android.os.SystemClock;
 
 import org.json.JSONObject;
 
@@ -17,174 +16,305 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.TreeMap;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.FutureTask;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 import app.reseam.youtube.core.Logger;
-import app.reseam.youtube.core.YouTubeContext;
 import app.reseam.youtube.web.WebPlayer;
 
 /**
- * Fetches the player response of the first client in the configured order that returns playable
- * streams, while YouTube is building its own player request.
+ * Fetches direct adaptive streams alongside the native player request. Each request captures
+ * its configuration and request identity and shares in-flight work. One deadline covers queueing,
+ * web preparation, HTTP and URL resolution across all clients. Completed responses remain usable
+ * until their media URLs expire, even when a subsequent request starts a fresh fetch.
  */
 final class StreamingDataRequest {
-    private static final String PLAYER_URL = "https://youtubei.googleapis.com/youtubei/v1/player?fields=streamingData&alt=proto";
+    private static final String PLAYER_URL = "https://youtubei.googleapis.com/youtubei/v1/player?fields=playabilityStatus,streamingData&alt=proto";
     private static final String VISITOR_ID_HEADER = "X-Goog-Visitor-Id";
-    private static final String[] REQUEST_HEADER_KEYS = {"X-GOOG-API-FORMAT-VERSION", VISITOR_ID_HEADER};
     private static final int HTTP_TIMEOUT_MILLISECONDS = 10_000;
-    private static final int MAX_MILLISECONDS_TO_WAIT_FOR_FETCH = 20_000;
+    private static final int REQUEST_TIMEOUT_MILLISECONDS = 30_000;
     private static final int MAX_CACHED_REQUESTS = 50;
+    private static final int MAX_RESPONSE_BYTES = 8 * 1024 * 1024;
     /** Norwegian Bokmål: a language YouTube does not auto-dub into. */
-    private static final Locale ORIGINAL_AUDIO_LOCALE = new Locale("nb");
+    private static final Locale ORIGINAL_AUDIO_LOCALE = Locale.forLanguageTag("nb");
 
-    private static final ExecutorService EXECUTOR = Executors.newCachedThreadPool();
-    private static final Map<String, Future<byte[]>> CACHE = Collections.synchronizedMap(
-            new LinkedHashMap<String, Future<byte[]>>() {
-                @Override
-                protected boolean removeEldestEntry(Map.Entry<String, Future<byte[]>> eldest) {
-                    return size() > MAX_CACHED_REQUESTS;
-                }
-            });
+    private static final ThreadPoolExecutor EXECUTOR = new ThreadPoolExecutor(4, 4, 0, TimeUnit.MILLISECONDS,
+            new ArrayBlockingQueue<>(MAX_CACHED_REQUESTS));
+    private static final ScheduledThreadPoolExecutor DEADLINES = new ScheduledThreadPoolExecutor(1);
+    /** Accessed under StreamingDataRequest.class, including configuration changes. */
+    private static final Map<String, Request> REQUESTS = new LinkedHashMap<>();
+    private static Configuration configuration = new Configuration(Arrays.asList(ClientType.values()), false, null);
+    private static Map<String, String> requestHeaders = Collections.emptyMap();
+    private static long generation;
 
-    private static volatile ClientType[] clientOrder = {ClientType.TV_SIMPLY};
-    private static volatile boolean preferMultipleAvcQualities;
-    private static volatile Locale languageOverride;
-    private static volatile ClientType lastSpoofedClient;
+    static {
+        DEADLINES.setRemoveOnCancelPolicy(true);
+    }
+
+    private record Configuration(List<ClientType> clients, boolean preferAvc, Locale locale) {}
 
     private StreamingDataRequest() {}
 
-    /**
-     * With original audio forced, the client is asked for a language YouTube does not dub into, so
-     * it answers with the original audio.
-     */
-    static void setClientOrder(ClientType preferred, List<ClientType> available,
-                               boolean preferMultipleAvc, boolean forceOriginalAudio) {
+    /** Changes apply atomically; requests from an earlier configuration cannot be reused. */
+    static synchronized void setClientOrder(ClientType preferred, List<ClientType> available,
+                                            boolean preferMultipleAvc, boolean forceOriginalAudio) {
         List<ClientType> order = new ArrayList<>();
         order.add(preferred);
         for (ClientType client : available) {
-            if (client != preferred) order.add(client);
+            if (!order.contains(client)) order.add(client);
         }
-        clientOrder = order.toArray(new ClientType[0]);
-        preferMultipleAvcQualities = preferMultipleAvc;
-        languageOverride = forceOriginalAudio ? ORIGINAL_AUDIO_LOCALE : null;
+        Configuration updated = new Configuration(Collections.unmodifiableList(order), preferMultipleAvc,
+                forceOriginalAudio ? ORIGINAL_AUDIO_LOCALE : null);
+        if (updated.equals(configuration)) return;
+        clearRequests();
+        configuration = updated;
         Logger.debug(() -> "Available spoof clients: " + order);
     }
 
-    static boolean usesWebPlayer() {
-        return Arrays.stream(clientOrder).anyMatch(client -> client.usesWebPlayer);
+    static synchronized boolean usesWebPlayer() {
+        return configuration.clients.stream().anyMatch(client -> client.usesWebPlayer);
     }
 
-    static String getClientOsName() {
-        return clientOrder[0].osName;
+    static synchronized String getClientOsName() {
+        return configuration.clients.get(0).osName;
     }
 
-    static String getLastSpoofedClientName() {
-        ClientType client = lastSpoofedClient;
-        return client == null ? "Unknown" : client.friendlyName;
+    static synchronized void fetchRequest(String videoId, Map<String, String> playerHeaders) {
+        // HTTP field names are case-insensitive. Do not forward native authorization or cookies.
+        Map<String, String> headers = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+        if (playerHeaders != null) playerHeaders.forEach((key, value) -> {
+            if (key != null && value != null && (key.equalsIgnoreCase(VISITOR_ID_HEADER)
+                    || key.equalsIgnoreCase("X-GOOG-API-FORMAT-VERSION"))) headers.put(key, value);
+        });
+        String visitor = headers.get(VISITOR_ID_HEADER);
+        // Percent escapes occur in native requests; '+' is part of base64 and must stay intact.
+        if (visitor != null) headers.put(VISITOR_ID_HEADER, Uri.decode(visitor));
+        if (!requestHeaders.equals(headers)) {
+            clearRequests();
+            requestHeaders = headers;
+        }
+        Iterator<Request> iterator = REQUESTS.values().iterator();
+        while (iterator.hasNext()) {
+            Request request = iterator.next();
+            if (request.isExpired()) {
+                request.cancel();
+                iterator.remove();
+            }
+        }
+        Request previous = REQUESTS.get(videoId);
+        if (previous != null && !previous.task.isDone() && previous.headers.equals(headers)) return;
+        if (previous != null) {
+            REQUESTS.remove(videoId);
+            previous.cancel();
+        }
+        if (REQUESTS.size() >= MAX_CACHED_REQUESTS) {
+            Request oldest = REQUESTS.remove(REQUESTS.keySet().iterator().next());
+            oldest.cancel();
+        }
+        Request request = new Request(videoId, headers, configuration, generation);
+        REQUESTS.put(videoId, request);
+        request.timeout = DEADLINES.schedule(request::cancel, REQUEST_TIMEOUT_MILLISECONDS, TimeUnit.MILLISECONDS);
+        try {
+            EXECUTOR.execute(request.task);
+        } catch (RuntimeException exception) {
+            request.cancel();
+            REQUESTS.remove(videoId, request);
+            Logger.error(() -> "Could not schedule stream request", exception);
+        }
     }
 
-    static void fetchRequest(String videoId, Map<String, String> playerHeaders) {
-        Map<String, String> headers = playerHeaders == null ? Collections.emptyMap() : new HashMap<>(playerHeaders);
-        CACHE.put(videoId, EXECUTOR.submit(() -> fetch(videoId, headers)));
-    }
-
-    /** The replacement player response for `videoId`, or null when none was fetched. */
-    static byte[] get(String videoId) {
-        Future<byte[]> request = CACHE.get(videoId);
+    /** Returns the matching replacement, or null on failure; never blocks the UI thread. */
+    static StreamingData get(String videoId) {
+        if (Looper.myLooper() == Looper.getMainLooper()) {
+            Logger.error(() -> "Cannot await spoof streams on the main thread");
+            return null;
+        }
+        Request request;
+        synchronized (StreamingDataRequest.class) {
+            request = REQUESTS.get(videoId);
+        }
         if (request == null) return null;
         try {
-            return request.get(MAX_MILLISECONDS_TO_WAIT_FOR_FETCH, TimeUnit.MILLISECONDS);
+            // FutureTask returns an already completed result even with a zero wait budget.
+            // The fetch deadline bounds unfinished work, not the lifetime of its media URLs.
+            long wait = Math.max(0, request.deadline - SystemClock.elapsedRealtime());
+            StreamingData result = request.task.get(wait, TimeUnit.MILLISECONDS);
+            synchronized (StreamingDataRequest.class) {
+                if (request.generation != generation) return null;
+                if (result != null && result.isFresh()) return result;
+            }
         } catch (InterruptedException exception) {
             Thread.currentThread().interrupt();
-        } catch (Exception exception) {
-            Logger.error(() -> "Spoof stream response failure: " + exception);
-        }
-        return null;
-    }
-
-    private static byte[] fetch(String videoId, Map<String, String> playerHeaders) {
-        String encodedVisitorData = playerHeaders.get(VISITOR_ID_HEADER);
-        String visitorData = encodedVisitorData == null ? null : URLDecoder.decode(encodedVisitorData, StandardCharsets.UTF_8);
-        for (ClientType client : clientOrder) {
-            if (client.usesWebPlayer && visitorData == null) {
-                Logger.debug(() -> "Skipping " + client + " without visitor data to bind its PoToken to");
-                continue;
-            }
-            byte[] response = send(client, videoId, playerHeaders, visitorData);
-            byte[] replacement = response == null ? null : playableResponse(client, response, visitorData);
-            if (replacement != null) {
-                lastSpoofedClient = client;
-                Logger.debug(() -> "Spoofed player response built for " + videoId + " using " + client.friendlyName);
-                return replacement;
-            }
-        }
-        lastSpoofedClient = null;
-        Logger.error(() -> "Could not fetch any client streams for " + videoId);
-        showToast("Could not fetch any client streams");
-        return null;
-    }
-
-    private static byte[] send(ClientType client, String videoId, Map<String, String> playerHeaders,
-                               String visitorData) {
-        HttpURLConnection connection = null;
-        try {
-            connection = (HttpURLConnection) new URL(PLAYER_URL).openConnection();
-            for (String key : REQUEST_HEADER_KEYS) {
-                String value = playerHeaders.get(key);
-                if (value != null) connection.setRequestProperty(key, value);
-            }
-            connection.setConnectTimeout(HTTP_TIMEOUT_MILLISECONDS);
-            connection.setReadTimeout(HTTP_TIMEOUT_MILLISECONDS);
-            connection.setUseCaches(false);
-            connection.setDoOutput(true);
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Content-Type", "application/json");
-            connection.setRequestProperty("User-Agent", client.userAgent);
-            // The client name, not its numeric id, is what this header carries.
-            connection.setRequestProperty("X-YouTube-Client-Name", client.clientName);
-            connection.setRequestProperty("X-YouTube-Client-Version", client.clientVersion);
-
-            Logger.debug(() -> "Fetching video streams for: " + videoId + " using client: " + client.friendlyName);
-            byte[] body = innertubeBody(client, videoId, visitorData).getBytes(StandardCharsets.UTF_8);
-            connection.setFixedLengthStreamingMode(body.length);
-            try (OutputStream output = connection.getOutputStream()) {
-                output.write(body);
-            }
-
-            int responseCode = connection.getResponseCode();
-            if (responseCode != HttpURLConnection.HTTP_OK) {
-                String message = connection.getResponseMessage();
-                Logger.info(() -> "Spoof client " + client + " returned HTTP " + responseCode + " " + message);
-                return null;
-            }
-            if (connection.getContentLength() == 0) return null;
-            return readAll(connection.getInputStream());
-        } catch (Exception exception) {
-            Logger.info(() -> "Spoof client " + client + " request failed: " + exception);
             return null;
-        } finally {
-            if (connection != null) connection.disconnect();
+        } catch (Exception exception) {
+            Logger.error(() -> "Spoof stream response failed for " + videoId + ": " + exception);
+        }
+        synchronized (StreamingDataRequest.class) {
+            REQUESTS.remove(videoId, request);
+        }
+        request.cancel();
+        return null;
+    }
+
+    private static void clearRequests() {
+        // Also invalidates completed results held by waiters after their cache entry was replaced.
+        generation++;
+        REQUESTS.values().forEach(Request::cancel);
+        REQUESTS.clear();
+    }
+
+    private static int remaining(long deadline) throws InterruptedException, TimeoutException {
+        if (Thread.currentThread().isInterrupted()) throw new InterruptedException("Stream request cancelled");
+        long remaining = deadline - SystemClock.elapsedRealtime();
+        if (remaining <= 0) throw new TimeoutException("Stream request deadline exceeded");
+        return (int) Math.min(remaining, Integer.MAX_VALUE);
+    }
+
+    private static final class Request {
+        final String videoId;
+        final Map<String, String> headers;
+        final Configuration config;
+        final long generation;
+        final Locale locale;
+        final long deadline = SystemClock.elapsedRealtime() + REQUEST_TIMEOUT_MILLISECONDS;
+        final FutureTask<StreamingData> task;
+        /** Published before task completion; failed or cancelled tasks never expose it to callers. */
+        volatile StreamingData completed;
+        volatile HttpURLConnection connection;
+        volatile ScheduledFuture<?> timeout;
+
+        Request(String videoId, Map<String, String> headers, Configuration config, long generation) {
+            this.videoId = videoId;
+            this.headers = headers;
+            this.config = config;
+            this.generation = generation;
+            locale = config.locale == null ? Locale.getDefault() : config.locale;
+            task = new FutureTask<>(() -> {
+                completed = fetch();
+                return completed;
+            }) {
+                @Override
+                protected void done() {
+                    ScheduledFuture<?> scheduled = timeout;
+                    if (scheduled != null) scheduled.cancel(false);
+                }
+            };
+        }
+
+        /** Pending work uses its fetch deadline; successful work uses its media expiry. */
+        boolean isExpired() {
+            long now = SystemClock.elapsedRealtime();
+            if (!task.isDone()) return deadline <= now;
+            StreamingData data = completed;
+            return task.isCancelled() || data == null || !data.isFresh();
+        }
+
+        void cancel() {
+            task.cancel(true);
+            EXECUTOR.remove(task);
+            HttpURLConnection active = connection;
+            if (active != null) active.disconnect();
+        }
+
+        StreamingData fetch() throws Exception {
+            String visitor = headers.get(VISITOR_ID_HEADER);
+            for (int index = 0; index < config.clients.size(); index++) {
+                ClientType client = config.clients.get(index);
+                if (client.usesWebPlayer && (visitor == null || visitor.isEmpty())) continue;
+                // Reserve a share of the remaining budget for every fallback client.
+                long attemptDeadline = SystemClock.elapsedRealtime() + remaining(deadline) / (config.clients.size() - index);
+                try (WebPlayer.Session web = client.usesWebPlayer ? WebPlayer.open(attemptDeadline) : null) {
+                    byte[] response = send(client, visitor, web, attemptDeadline);
+                    remaining(attemptDeadline);
+                    PlayerResponse parsed = PlayerResponse.parse(response);
+                    if (parsed.status != PlayerResponse.STATUS_OK || parsed.streamingData == null) {
+                        Logger.info(() -> "Spoof client " + client + " has no playable response, status "
+                                + parsed.status + (parsed.reason == null ? "" : ": " + parsed.reason));
+                        continue;
+                    }
+                    byte[] streams = resolveStreams(parsed.streamingData, visitor, web);
+                    if (config.preferAvc) streams = PlayerResponse.preferMultipleAvcQualities(streams);
+                    remaining(attemptDeadline);
+                    if (!PlayerResponse.hasAdaptiveStreams(streams)) {
+                        Logger.info(() -> "Spoof client " + client + " has no resolved adaptive audio/video pair");
+                        continue;
+                    }
+                    Logger.debug(() -> "Built stream response for " + videoId + " using " + client.friendlyName);
+                    return new StreamingData(streams, client);
+                } catch (InterruptedException exception) {
+                    Thread.currentThread().interrupt();
+                    throw exception;
+                } catch (Exception exception) {
+                    Logger.info(() -> "Spoof client " + client + " failed for " + videoId + ": " + exception);
+                }
+            }
+            Logger.error(() -> "No compatible client streams for " + videoId);
+            return null;
+        }
+
+        private byte[] send(ClientType client, String visitor, WebPlayer.Session web, long attemptDeadline) throws Exception {
+            byte[] body = innertubeBody(client, videoId, visitor, locale, web).getBytes(StandardCharsets.UTF_8);
+            HttpURLConnection active = (HttpURLConnection) new URL(PLAYER_URL).openConnection();
+            connection = active;
+            ScheduledFuture<?> attemptTimeout = null;
+            try {
+                int budget = remaining(attemptDeadline);
+                attemptTimeout = DEADLINES.schedule(active::disconnect, budget, TimeUnit.MILLISECONDS);
+                active.setConnectTimeout(Math.min(HTTP_TIMEOUT_MILLISECONDS, budget));
+                active.setReadTimeout(Math.min(HTTP_TIMEOUT_MILLISECONDS, budget));
+                active.setUseCaches(false);
+                active.setDoOutput(true);
+                active.setRequestMethod("POST");
+                headers.forEach(active::setRequestProperty);
+                active.setRequestProperty("Content-Type", "application/json");
+                active.setRequestProperty("User-Agent", client.userAgent);
+                active.setRequestProperty("X-YouTube-Client-Name", Integer.toString(client.clientId));
+                active.setRequestProperty("X-YouTube-Client-Version", client.clientVersion);
+                active.setFixedLengthStreamingMode(body.length);
+                try (OutputStream output = active.getOutputStream()) {
+                    output.write(body);
+                }
+                remaining(attemptDeadline);
+                int status = active.getResponseCode();
+                if (status != HttpURLConnection.HTTP_OK) throw new IOException("Player HTTP " + status);
+                try (InputStream input = active.getInputStream()) {
+                    ByteArrayOutputStream output = new ByteArrayOutputStream();
+                    byte[] buffer = new byte[8192];
+                    int read;
+                    while ((read = input.read(buffer)) != -1) {
+                        remaining(attemptDeadline);
+                        if (output.size() + read > MAX_RESPONSE_BYTES) throw new IOException("Player response is too large");
+                        output.write(buffer, 0, read);
+                    }
+                    return output.toByteArray();
+                }
+            } finally {
+                if (attemptTimeout != null) attemptTimeout.cancel(false);
+                active.disconnect();
+                connection = null;
+            }
         }
     }
 
-    private static String innertubeBody(ClientType client, String videoId, String visitorData) throws Exception {
-        Locale locale = languageOverride == null ? Locale.getDefault() : languageOverride;
+    private static String innertubeBody(ClientType client, String videoId, String visitor, Locale locale,
+                                       WebPlayer.Session web) throws Exception {
         JSONObject clientJson = new JSONObject()
                 .put("deviceMake", client.deviceMake)
                 .put("deviceModel", client.deviceModel)
@@ -192,6 +322,8 @@ final class StreamingDataRequest {
                 .put("clientVersion", client.clientVersion)
                 .put("osName", client.osName)
                 .put("osVersion", client.osVersion)
+                .put("userAgent", client.userAgent)
+                .put("visitorData", visitor)
                 .put("hl", locale.getLanguage())
                 .put("gl", locale.getCountry());
         JSONObject body = new JSONObject()
@@ -199,105 +331,55 @@ final class StreamingDataRequest {
                 .put("contentCheckOk", true)
                 .put("racyCheckOk", true)
                 .put("videoId", videoId);
-        if (client.usesWebPlayer) {
-            clientJson.put("visitorData", visitorData);
+        if (web != null) {
             body.put("playbackContext", new JSONObject().put("contentPlaybackContext",
-                    new JSONObject().put("signatureTimestamp", WebPlayer.signatureTimestamp())));
+                    new JSONObject().put("signatureTimestamp", web.signatureTimestamp())));
         }
         return body.toString();
     }
 
-    private static byte[] playableResponse(ClientType client, byte[] response, String visitorData) {
-        try {
-            PlayerResponse parsed = PlayerResponse.parse(response);
-            if (parsed.streamingData == null) {
-                Logger.debug(() -> "Ignoring " + client + " without streaming data, status "
-                        + parsed.status + (parsed.reason == null ? "" : ": " + parsed.reason));
-                return null;
+    private static byte[] resolveStreams(byte[] streamingData, String visitor, WebPlayer.Session web) throws Exception {
+        Map<PlayerResponse.StreamUrl, StreamUrl> streams = new LinkedHashMap<>();
+        for (PlayerResponse.StreamUrl location : PlayerResponse.streamUrls(streamingData)) {
+            try {
+                StreamUrl stream = StreamUrl.parse(location);
+                if (StreamUrl.isUsable(stream.uri()) && (web != null || stream.signature() == null)) streams.put(location, stream);
+            } catch (IllegalArgumentException exception) {
+                Logger.debug(() -> "Ignoring malformed stream URL");
             }
-            if (PlayerResponse.adaptiveFormatCount(parsed.streamingData) == 0) {
-                Logger.debug(() -> "Ignoring " + client + " without adaptive formats");
-                return null;
-            }
-            byte[] streamingData = preferMultipleAvcQualities
-                    ? PlayerResponse.preferMultipleAvcQualities(parsed.streamingData)
-                    : parsed.streamingData;
-            if (client.usesWebPlayer) {
-                streamingData = unlockWebStreams(streamingData, visitorData);
-                if (PlayerResponse.adaptiveFormatCount(streamingData) == 0) {
-                    Logger.debug(() -> "Ignoring " + client + " without adaptive formats it can stream");
-                    return null;
-                }
-            }
-            return PlayerResponse.withStreamingData(streamingData);
-        } catch (IllegalArgumentException exception) {
-            Logger.error(() -> "Spoof client " + client + " returned an unreadable response: " + exception);
-            return null;
-        } catch (Exception exception) {
-            Logger.error(() -> "Could not unlock " + client + " streams: " + exception);
-            return null;
         }
-    }
-
-    /**
-     * Deciphers each stream's signature, solves its `n` challenge and adds a PoToken bound to the
-     * visitor data the request carried.
-     */
-    private static byte[] unlockWebStreams(byte[] streamingData, String visitorData) throws Exception {
+        if (streams.isEmpty()) throw new IOException("Player response has no usable stream URLs");
+        if (web == null) {
+            return PlayerResponse.withResolvedUrls(streamingData, location -> {
+                StreamUrl stream = streams.get(location);
+                return stream == null ? null : stream.uri().toString();
+            });
+        }
         Set<String> n = new HashSet<>();
         Set<String> sig = new HashSet<>();
-        for (PlayerResponse.StreamUrl location : PlayerResponse.streamUrls(streamingData)) {
-            Stream stream = Stream.of(location);
-            String challenge = Uri.parse(stream.url()).getQueryParameter("n");
+        for (StreamUrl stream : streams.values()) {
+            String challenge = stream.uri().getQueryParameter("n");
             if (challenge != null) n.add(challenge);
             if (stream.signature() != null) sig.add(stream.signature());
         }
-        long start = System.currentTimeMillis();
-        WebPlayer.Unlocked unlocked = WebPlayer.unlock(visitorData, n, sig);
-        Logger.debug(() -> "Unlocked " + n.size() + " n and " + sig.size() + " signature challenges in "
-                + (System.currentTimeMillis() - start) + " ms");
+        WebPlayer.Unlocked unlocked = web.unlock(visitor, n, sig);
         return PlayerResponse.withResolvedUrls(streamingData, location -> {
-            Stream stream = Stream.of(location);
-            Uri uri = Uri.parse(stream.url());
-            Uri.Builder builder = uri.buildUpon().clearQuery();
-            for (String name : uri.getQueryParameterNames()) {
-                String value = uri.getQueryParameter(name);
-                builder.appendQueryParameter(name, name.equals("n") ? Objects.requireNonNull(unlocked.n().get(value)) : value);
-            }
+            StreamUrl stream = streams.get(location);
+            if (stream == null) return null;
+            Map<String, String> replacements = new LinkedHashMap<>();
+            String challenge = stream.uri().getQueryParameter("n");
+            if (challenge != null) replacements.put("n", solution(unlocked.n(), challenge));
             if (stream.signature() != null) {
-                builder.appendQueryParameter(stream.signatureParameter(),
-                        Objects.requireNonNull(unlocked.sig().get(stream.signature())));
+                replacements.put(stream.signatureParameter(), solution(unlocked.sig(), stream.signature()));
             }
-            return builder.appendQueryParameter("pot", unlocked.poToken()).build().toString();
+            replacements.put("pot", unlocked.poToken());
+            return StreamUrl.replaceParameters(stream.uri(), replacements);
         });
     }
 
-    /** A stream's URL and, when ciphered, the signature to solve and the parameter its solution goes in. */
-    private record Stream(String url, String signature, String signatureParameter) {
-        static Stream of(PlayerResponse.StreamUrl location) {
-            if (location.url() != null) return new Stream(location.url(), null, null);
-            Map<String, String> cipher = new HashMap<>();
-            for (String pair : location.signatureCipher().split("&")) {
-                int split = pair.indexOf('=');
-                cipher.put(URLDecoder.decode(pair.substring(0, split), StandardCharsets.UTF_8),
-                        URLDecoder.decode(pair.substring(split + 1), StandardCharsets.UTF_8));
-            }
-            return new Stream(cipher.get("url"), cipher.get("s"), cipher.getOrDefault("sp", "signature"));
-        }
-    }
-
-    private static void showToast(String message) {
-        new Handler(Looper.getMainLooper()).post(() ->
-                Toast.makeText(YouTubeContext.get(), message, Toast.LENGTH_SHORT).show());
-    }
-
-    private static byte[] readAll(InputStream input) throws IOException {
-        try (InputStream stream = input) {
-            ByteArrayOutputStream output = new ByteArrayOutputStream();
-            byte[] buffer = new byte[8192];
-            int read;
-            while ((read = stream.read(buffer)) != -1) output.write(buffer, 0, read);
-            return output.toByteArray();
-        }
+    private static String solution(Map<String, String> solutions, String challenge) {
+        String solution = solutions.get(challenge);
+        if (solution == null || solution.isEmpty()) throw new IllegalArgumentException("Missing player challenge solution");
+        return solution;
     }
 }

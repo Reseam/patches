@@ -18,27 +18,54 @@ const player = (() => {
     let nextId = 0;
     const pending = new Map();
 
+    const fail = error => {
+        worker?.terminate();
+        worker = null;
+        for (const { reject, timer } of pending.values()) {
+            clearTimeout(timer);
+            reject(error);
+        }
+        pending.clear();
+        reseamHost.fail(String(error));
+    };
+
     const solve = input => new Promise((resolve, reject) => {
         const id = nextId++;
-        pending.set(id, { resolve, reject });
-        worker.postMessage({ id, input });
+        const timer = setTimeout(() => fail(new Error("Player solver timed out")), 10_000);
+        pending.set(id, { resolve, reject, timer });
+        try {
+            worker.postMessage({ id, input });
+        } catch (error) {
+            fail(error);
+        }
     });
 
     /** Starts the solver from ejs's lib and core scripts. */
     const start = (lib, core) => {
         const source = [lib, "\nObject.assign(globalThis, lib);\n", core, WORKER];
-        worker = new Worker(URL.createObjectURL(new Blob(source, { type: "text/javascript" })));
+        const url = URL.createObjectURL(new Blob(source, { type: "text/javascript" }));
+        try {
+            worker = new Worker(url);
+        } finally {
+            URL.revokeObjectURL(url);
+        }
         worker.onmessage = ({ data: { id, output, error } }) => {
-            const { resolve, reject } = pending.get(id);
+            const call = pending.get(id);
+            if (!call) return;
+            const { resolve, reject, timer } = call;
             pending.delete(id);
+            clearTimeout(timer);
             if (error) reject(new Error(error)); else resolve(output);
         };
+        worker.onerror = event => {
+            event.preventDefault();
+            fail(new Error("Player solver worker failed"));
+        };
+        worker.onmessageerror = () => fail(new Error("Player solver returned an unreadable message"));
     };
 
     const fetchText = async url => {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error(`${url} returned HTTP ${response.status}`);
-        return response.text();
+        return network.read(url);
     };
 
     /** Loads the player the web client currently serves; returns its signature timestamp. */
