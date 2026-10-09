@@ -12,6 +12,14 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.Function;
 
+import app.reseam.youtube.spoof.Proto.Field;
+
+import static app.reseam.youtube.spoof.Proto.WIRE_LENGTH;
+import static app.reseam.youtube.spoof.Proto.WIRE_VARINT;
+import static app.reseam.youtube.spoof.Proto.bytes;
+import static app.reseam.youtube.spoof.Proto.fields;
+import static app.reseam.youtube.spoof.Proto.writeBytes;
+
 /**
  * The parts of an InnerTube player response the spoof request reads, decoded from protobuf
  * wire format. Field numbers follow YouTube's messages:
@@ -21,13 +29,11 @@ import java.util.function.Function;
  * Format { string url = 2; string mimeType = 5; string qualityLabel = 26; string signatureCipher = 48; }.
  */
 final class PlayerResponse {
-    private static final int WIRE_VARINT = 0;
-    private static final int WIRE_FIXED64 = 1;
-    private static final int WIRE_LENGTH = 2;
-    private static final int WIRE_FIXED32 = 5;
-
     private static final int PLAYABILITY_STATUS = 2;
     private static final int STREAMING_DATA = 4;
+    private static final int PLAYER_CONFIG = 15;
+    /** MediaCommonConfig's extension number in PlayerConfig. */
+    private static final int MEDIA_COMMON_CONFIG = 215771584;
     private static final int STATUS = 1;
     private static final int REASON = 2;
     private static final int FORMATS = 2;
@@ -44,11 +50,14 @@ final class PlayerResponse {
     final String reason;
     /** The encoded StreamingData message, or null when the response has none. */
     final byte[] streamingData;
+    /** The encoded MediaCommonConfig extension, or null when the response has none. */
+    final byte[] mediaCommonConfig;
 
-    private PlayerResponse(int status, String reason, byte[] streamingData) {
+    private PlayerResponse(int status, String reason, byte[] streamingData, byte[] mediaCommonConfig) {
         this.status = status;
         this.reason = reason;
         this.streamingData = streamingData;
+        this.mediaCommonConfig = mediaCommonConfig;
     }
 
     static PlayerResponse parse(byte[] playerResponse) {
@@ -65,7 +74,9 @@ final class PlayerResponse {
                 streamingData = field.bytes;
             }
         }
-        return new PlayerResponse(status, reason, streamingData);
+        byte[] config = bytes(playerResponse, PLAYER_CONFIG);
+        byte[] common = config == null ? null : bytes(config, MEDIA_COMMON_CONFIG);
+        return new PlayerResponse(status, reason, streamingData, common);
     }
 
     /** Direct adaptive playback requires both an audio track and a video track with resolved URLs. */
@@ -187,96 +198,5 @@ final class PlayerResponse {
             }
             return new Format(mimeType, qualityLabel);
         }
-    }
-
-    private static final class Field {
-        final int number;
-        final int wireType;
-        final long varint;
-        final byte[] bytes;
-        /** The field's encoded span in its message, tag included. */
-        final int start;
-        final int end;
-
-        Field(int number, int wireType, long varint, byte[] bytes, int start, int end) {
-            this.number = number;
-            this.wireType = wireType;
-            this.varint = varint;
-            this.bytes = bytes;
-            this.start = start;
-            this.end = end;
-        }
-
-        String string() {
-            return new String(bytes, StandardCharsets.UTF_8);
-        }
-    }
-
-    private static List<Field> fields(byte[] message) {
-        List<Field> fields = new ArrayList<>();
-        int[] position = {0};
-        while (position[0] < message.length) {
-            int start = position[0];
-            long tag = readVarint(message, position);
-            if (tag <= 0 || (tag >>> 3) > 0x1FFFFFFFL || (tag >>> 3) == 0) {
-                throw new IllegalArgumentException("Invalid protobuf tag");
-            }
-            int number = (int) (tag >>> 3);
-            int wireType = (int) (tag & 7);
-            long varint = 0;
-            byte[] bytes = null;
-            switch (wireType) {
-                case WIRE_VARINT:
-                    varint = readVarint(message, position);
-                    break;
-                case WIRE_FIXED64:
-                    position[0] += 8;
-                    break;
-                case WIRE_LENGTH:
-                    long encodedLength = readVarint(message, position);
-                    if (encodedLength < 0 || encodedLength > message.length - position[0]) {
-                        throw new IllegalArgumentException("Truncated protobuf field " + number);
-                    }
-                    int length = (int) encodedLength;
-                    bytes = new byte[length];
-                    System.arraycopy(message, position[0], bytes, 0, length);
-                    position[0] += length;
-                    break;
-                case WIRE_FIXED32:
-                    position[0] += 4;
-                    break;
-                default:
-                    throw new IllegalArgumentException("Unsupported protobuf wire type " + wireType);
-            }
-            if (position[0] > message.length) throw new IllegalArgumentException("Truncated protobuf message");
-            fields.add(new Field(number, wireType, varint, bytes, start, position[0]));
-        }
-        return fields;
-    }
-
-    private static long readVarint(byte[] message, int[] position) {
-        long value = 0;
-        for (int shift = 0; shift < 64; shift += 7) {
-            if (position[0] >= message.length) throw new IllegalArgumentException("Truncated protobuf varint");
-            byte b = message[position[0]++];
-            if (shift == 63 && (b & 0xFE) != 0) throw new IllegalArgumentException("Malformed protobuf varint");
-            value |= (long) (b & 0x7F) << shift;
-            if (b >= 0) return value;
-        }
-        throw new IllegalArgumentException("Malformed protobuf varint");
-    }
-
-    private static void writeBytes(ByteArrayOutputStream output, int number, byte[] bytes) {
-        writeVarint(output, ((long) number << 3) | WIRE_LENGTH);
-        writeVarint(output, bytes.length);
-        output.write(bytes, 0, bytes.length);
-    }
-
-    private static void writeVarint(ByteArrayOutputStream output, long value) {
-        while ((value & ~0x7FL) != 0) {
-            output.write((int) ((value & 0x7F) | 0x80));
-            value >>>= 7;
-        }
-        output.write((int) value);
     }
 }

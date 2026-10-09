@@ -18,6 +18,10 @@ const web = {
     /** Loads the player and a BotGuard session; returns the player's signature timestamp. */
     prepare: async () => (await Promise.all([player.load(), botguard.init()]))[0],
 
+    attest: videoId => botguard.attest(videoId),
+    invalidateAttestation: sessionId => botguard.invalidate(sessionId),
+    solve: challenges => player.solveChallenges(challenges),
+
     /** A PoToken bound to `binding` and the solution of each stream URL challenge, by type. */
     unlock: async (binding, challenges) => {
         const [poToken, solved] = await Promise.all([botguard.mint(binding), player.solveChallenges(challenges)]);

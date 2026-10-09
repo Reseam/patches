@@ -26,6 +26,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -40,13 +41,14 @@ import app.reseam.youtube.core.Logger;
 import app.reseam.youtube.web.WebPlayer;
 
 /**
- * Fetches direct adaptive streams alongside the native player request. Each request captures
+ * Fetches validated direct or native SABR streams alongside the native player request. Each request captures
  * its configuration and request identity and shares in-flight work. One deadline covers queueing,
  * web preparation, HTTP and URL resolution across all clients. Completed responses remain usable
  * until their media URLs expire, even when a subsequent request starts a fresh fetch.
  */
 final class StreamingDataRequest {
     private static final String PLAYER_URL = "https://youtubei.googleapis.com/youtubei/v1/player?fields=playabilityStatus,streamingData&alt=proto";
+    private static final String SABR_PLAYER_URL = "https://youtubei.googleapis.com/youtubei/v1/player?alt=proto";
     private static final String VISITOR_ID_HEADER = "X-Goog-Visitor-Id";
     private static final int HTTP_TIMEOUT_MILLISECONDS = 10_000;
     private static final int REQUEST_TIMEOUT_MILLISECONDS = 30_000;
@@ -96,7 +98,7 @@ final class StreamingDataRequest {
         return configuration.clients.get(0).osName;
     }
 
-    static synchronized void fetchRequest(String videoId, Map<String, String> playerHeaders) {
+    static synchronized void fetchRequest(String videoId, Map<String, String> playerHeaders, byte[] playerBody) {
         // HTTP field names are case-insensitive. Do not forward native authorization or cookies.
         Map<String, String> headers = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
         if (playerHeaders != null) playerHeaders.forEach((key, value) -> {
@@ -118,8 +120,16 @@ final class StreamingDataRequest {
                 iterator.remove();
             }
         }
+        String reloadToken = reloadToken(playerBody);
+        if (reloadToken != null) Logger.debug(() -> "Forwarding native SABR reload context for " + videoId);
+        startRequest(videoId, headers, reloadToken);
+    }
+
+    /** Called under the class lock, including on-demand requests for native cached/get_watch responses. */
+    private static Request startRequest(String videoId, Map<String, String> headers, String reloadToken) {
         Request previous = REQUESTS.get(videoId);
-        if (previous != null && !previous.task.isDone() && previous.headers.equals(headers)) return;
+        if (previous != null && !previous.task.isDone() && previous.headers.equals(headers)
+                && Objects.equals(previous.reloadToken, reloadToken)) return previous;
         if (previous != null) {
             REQUESTS.remove(videoId);
             previous.cancel();
@@ -128,7 +138,7 @@ final class StreamingDataRequest {
             Request oldest = REQUESTS.remove(REQUESTS.keySet().iterator().next());
             oldest.cancel();
         }
-        Request request = new Request(videoId, headers, configuration, generation);
+        Request request = new Request(videoId, headers, configuration, generation, reloadToken);
         REQUESTS.put(videoId, request);
         request.timeout = DEADLINES.schedule(request::cancel, REQUEST_TIMEOUT_MILLISECONDS, TimeUnit.MILLISECONDS);
         try {
@@ -138,6 +148,7 @@ final class StreamingDataRequest {
             REQUESTS.remove(videoId, request);
             Logger.error(() -> "Could not schedule stream request", exception);
         }
+        return request;
     }
 
     /** Returns the matching replacement, or null on failure; never blocks the UI thread. */
@@ -149,8 +160,10 @@ final class StreamingDataRequest {
         Request request;
         synchronized (StreamingDataRequest.class) {
             request = REQUESTS.get(videoId);
+            if (request == null || request.isExpired()) {
+                request = startRequest(videoId, requestHeaders, request == null ? null : request.reloadToken);
+            }
         }
-        if (request == null) return null;
         try {
             // FutureTask returns an already completed result even with a zero wait budget.
             // The fetch deadline bounds unfinished work, not the lifetime of its media URLs.
@@ -173,6 +186,22 @@ final class StreamingDataRequest {
         return null;
     }
 
+    /** Native PlayerRequest.playbackContext(4).reloadPlaybackContext(7).reloadPlaybackParams(1).token(1). */
+    private static String reloadToken(byte[] request) {
+        if (request == null || request.length == 0) return null;
+        try {
+            byte[] value = request;
+            for (int field : new int[] {4, 7, 1, 1}) {
+                value = Proto.bytes(value, field);
+                if (value == null) return null;
+            }
+            return new String(value, StandardCharsets.UTF_8);
+        } catch (IllegalArgumentException exception) {
+            Logger.debug(() -> "Native player request is not a protobuf reload request");
+            return null;
+        }
+    }
+
     private static void clearRequests() {
         // Also invalidates completed results held by waiters after their cache entry was replaced.
         generation++;
@@ -193,6 +222,7 @@ final class StreamingDataRequest {
         final Configuration config;
         final long generation;
         final Locale locale;
+        final String reloadToken;
         final long deadline = SystemClock.elapsedRealtime() + REQUEST_TIMEOUT_MILLISECONDS;
         final FutureTask<StreamingData> task;
         /** Published before task completion; failed or cancelled tasks never expose it to callers. */
@@ -200,8 +230,9 @@ final class StreamingDataRequest {
         volatile HttpURLConnection connection;
         volatile ScheduledFuture<?> timeout;
 
-        Request(String videoId, Map<String, String> headers, Configuration config, long generation) {
+        Request(String videoId, Map<String, String> headers, Configuration config, long generation, String reloadToken) {
             this.videoId = videoId;
+            this.reloadToken = reloadToken;
             this.headers = headers;
             this.config = config;
             this.generation = generation;
@@ -237,17 +268,27 @@ final class StreamingDataRequest {
             String visitor = headers.get(VISITOR_ID_HEADER);
             for (int index = 0; index < config.clients.size(); index++) {
                 ClientType client = config.clients.get(index);
-                if (client.usesWebPlayer && (visitor == null || visitor.isEmpty())) continue;
+                if (client.usesWebPlayer && client != ClientType.WEB && (visitor == null || visitor.isEmpty())) continue;
                 // Reserve a share of the remaining budget for every fallback client.
                 long attemptDeadline = SystemClock.elapsedRealtime() + remaining(deadline) / (config.clients.size() - index);
                 try (WebPlayer.Session web = client.usesWebPlayer ? WebPlayer.open(attemptDeadline) : null) {
-                    byte[] response = send(client, visitor, web, attemptDeadline);
+                    WebPlayer.Attestation attestation = client == ClientType.WEB ? web.attest(videoId) : null;
+                    if (attestation != null) {
+                        attestation.client().put("hl", locale.getLanguage());
+                        if (!locale.getCountry().isEmpty()) attestation.client().put("gl", locale.getCountry());
+                    }
+                    byte[] response = send(client, visitor, web, attestation, attemptDeadline);
                     remaining(attemptDeadline);
                     PlayerResponse parsed = PlayerResponse.parse(response);
                     if (parsed.status != PlayerResponse.STATUS_OK || parsed.streamingData == null) {
                         Logger.info(() -> "Spoof client " + client + " has no playable response, status "
                                 + parsed.status + (parsed.reason == null ? "" : ": " + parsed.reason));
                         continue;
+                    }
+                    if (client == ClientType.WEB) {
+                        SabrData sabr = SabrData.resolve(videoId, parsed, web, attestation);
+                        remaining(attemptDeadline);
+                        return new StreamingData(sabr);
                     }
                     byte[] streams = resolveStreams(parsed.streamingData, visitor, web);
                     if (config.preferAvc) streams = PlayerResponse.preferMultipleAvcQualities(streams);
@@ -269,9 +310,11 @@ final class StreamingDataRequest {
             return null;
         }
 
-        private byte[] send(ClientType client, String visitor, WebPlayer.Session web, long attemptDeadline) throws Exception {
-            byte[] body = innertubeBody(client, videoId, visitor, locale, web).getBytes(StandardCharsets.UTF_8);
-            HttpURLConnection active = (HttpURLConnection) new URL(PLAYER_URL).openConnection();
+        private byte[] send(ClientType client, String visitor, WebPlayer.Session web,
+                            WebPlayer.Attestation attestation, long attemptDeadline) throws Exception {
+            byte[] body = innertubeBody(client, videoId, visitor, locale, web, attestation, reloadToken).getBytes(StandardCharsets.UTF_8);
+            HttpURLConnection active = (HttpURLConnection) new URL(client == ClientType.WEB
+                    ? SABR_PLAYER_URL : PLAYER_URL).openConnection();
             connection = active;
             ScheduledFuture<?> attemptTimeout = null;
             try {
@@ -286,7 +329,10 @@ final class StreamingDataRequest {
                 active.setRequestProperty("Content-Type", "application/json");
                 active.setRequestProperty("User-Agent", client.userAgent);
                 active.setRequestProperty("X-YouTube-Client-Name", Integer.toString(client.clientId));
-                active.setRequestProperty("X-YouTube-Client-Version", client.clientVersion);
+                active.setRequestProperty("X-YouTube-Client-Version", attestation == null
+                        ? client.clientVersion : attestation.client().getString("clientVersion"));
+                if (attestation != null) active.setRequestProperty(VISITOR_ID_HEADER,
+                        attestation.client().getString("visitorData"));
                 active.setFixedLengthStreamingMode(body.length);
                 try (OutputStream output = active.getOutputStream()) {
                     output.write(body);
@@ -314,7 +360,8 @@ final class StreamingDataRequest {
     }
 
     private static String innertubeBody(ClientType client, String videoId, String visitor, Locale locale,
-                                       WebPlayer.Session web) throws Exception {
+                                       WebPlayer.Session web, WebPlayer.Attestation attestation,
+                                       String reloadToken) throws Exception {
         JSONObject clientJson = new JSONObject()
                 .put("deviceMake", client.deviceMake)
                 .put("deviceModel", client.deviceModel)
@@ -326,6 +373,7 @@ final class StreamingDataRequest {
                 .put("visitorData", visitor)
                 .put("hl", locale.getLanguage())
                 .put("gl", locale.getCountry());
+        if (attestation != null) clientJson = new JSONObject(attestation.client().toString());
         JSONObject body = new JSONObject()
                 .put("context", new JSONObject().put("client", clientJson))
                 .put("contentCheckOk", true)
@@ -334,6 +382,13 @@ final class StreamingDataRequest {
         if (web != null) {
             body.put("playbackContext", new JSONObject().put("contentPlaybackContext",
                     new JSONObject().put("signatureTimestamp", web.signatureTimestamp())));
+        }
+        if (attestation != null && reloadToken != null) {
+            body.getJSONObject("playbackContext").put("reloadPlaybackContext", new JSONObject()
+                    .put("reloadPlaybackParams", new JSONObject().put("token", reloadToken)));
+        }
+        if (attestation != null && !attestation.poToken().isEmpty()) {
+            body.put("serviceIntegrityDimensions", new JSONObject().put("poToken", attestation.poToken()));
         }
         return body.toString();
     }

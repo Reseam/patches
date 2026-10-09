@@ -16,13 +16,10 @@ import app.reseam.youtube.web.WebPlayer;
 
 /** Runtime hooks for replacing the app's player response with a compatible client response. */
 public final class SpoofVideoStreams {
-    private static final String INTERNET_CONNECTION_CHECK_URI_STRING = "https://www.youtube.com/generate_204";
-    private static final Uri INTERNET_CONNECTION_CHECK_URI = Uri.parse(INTERNET_CONNECTION_CHECK_URI_STRING);
-
     private SpoofVideoStreams() {}
 
     public static void setClientOrderToUse() {
-        ClientType client = ClientType.fromSetting(Settings.getString("spoof_video_streams_client", "tv_simply"));
+        ClientType client = ClientType.fromSetting(Settings.getString("spoof_video_streams_client", "web"));
         StreamingDataRequest.setClientOrder(client, Arrays.asList(ClientType.values()),
                 true, Settings.getBoolean("force_original_audio", true));
         if (isSpoofingEnabled() && StreamingDataRequest.usesWebPlayer()) WebPlayer.warmUp();
@@ -42,34 +39,7 @@ public final class SpoofVideoStreams {
         return original;
     }
 
-    public static Uri blockGetWatchRequest(Uri original) {
-        if (isSpoofingEnabled() && original != null) {
-            String path = original.getPath();
-            if (path != null && path.contains("get_watch")) {
-                Logger.debug(() -> "Blocking 'get_watch' by returning YouTube connection-check URI");
-                return INTERNET_CONNECTION_CHECK_URI;
-            }
-        }
-        return original;
-    }
-
-    public static String blockGetAttRequest(String original) {
-        if (isSpoofingEnabled() && original != null && containsPath(original, "att/get")) {
-            Logger.debug(() -> "Blocking 'att/get' by returning YouTube connection-check URI");
-            return INTERNET_CONNECTION_CHECK_URI_STRING;
-        }
-        return original;
-    }
-
-    public static String blockInitPlaybackRequest(String original) {
-        if (isSpoofingEnabled() && original != null && containsPath(original, "initplayback")) {
-            Logger.debug(() -> "Blocking 'initplayback' by returning YouTube connection-check URI");
-            return INTERNET_CONNECTION_CHECK_URI_STRING;
-        }
-        return original;
-    }
-
-    public static void fetchStreams(String url, Map<String, String> requestHeaders) {
+    public static void fetchStreams(String url, Map<String, String> requestHeaders, byte[] requestBody) {
         if (!isSpoofingEnabled() || url == null) return;
         try {
             Uri uri = Uri.parse(url);
@@ -78,7 +48,7 @@ public final class SpoofVideoStreams {
             if (path.contains("get_drm_license") || path.contains("heartbeat") || path.contains("ad_break")) return;
             String videoId = uri.getQueryParameter("id");
             if (videoId == null || videoId.isEmpty()) return;
-            StreamingDataRequest.fetchRequest(videoId, requestHeaders);
+            StreamingDataRequest.fetchRequest(videoId, requestHeaders, requestBody);
         } catch (Exception exception) {
             Logger.error(() -> "Spoof stream URL failure: " + exception);
         }
@@ -126,38 +96,11 @@ public final class SpoofVideoStreams {
         return method == 2 && uri != null && InstalledStreams.owns(uri) ? 1 : method;
     }
 
-    public static boolean fixHLSCurrentTime(boolean original) {
-        return isSpoofingEnabled() ? false : original;
-    }
-
-    public static boolean disableSABR() {
-        return isSpoofingEnabled();
-    }
-
-    public static boolean useMediaFetchHotConfigReplacement(boolean original) {
-        if (original) Logger.debug(() -> "useMediaFetchHotConfigReplacement is set on");
-        return isSpoofingEnabled() ? false : original;
-    }
-
-    public static boolean usePlaybackStartFeatureFlag(boolean original) {
-        if (original) Logger.debug(() -> "usePlaybackStartFeatureFlag is set on");
-        return isSpoofingEnabled() ? false : original;
-    }
-
     public static String appendSpoofedClient(String original) {
         if (isSpoofingEnabled() && Settings.getBoolean("spoof_video_streams_stats_for_nerds", true)
                 && !TextUtils.isEmpty(original)) {
             return "\u202D" + original + "\u2009(" + InstalledStreams.clientName() + ")";
         }
         return original;
-    }
-
-    private static boolean containsPath(String value, String path) {
-        try {
-            String originalPath = Uri.parse(value).getPath();
-            return originalPath != null && originalPath.contains(path);
-        } catch (Exception exception) {
-            return false;
-        }
     }
 }

@@ -1,10 +1,12 @@
 // SPDX-FileCopyrightText: 2026 Cossale <hello@auna.li>
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 package app.reseam.youtube.spoof;
 
 import android.net.Uri;
+import android.os.SystemClock;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,16 +16,29 @@ public final class StreamingData {
     final ClientType client;
     final List<Uri> urls;
     final long expiresAt;
+    final SabrData sabr;
 
     StreamingData(byte[] streamingData, ClientType client) {
-        response = PlayerResponse.withStreamingData(streamingData);
+        // Direct responses must not advertise a competing SABR transport.
+        response = PlayerResponse.withStreamingData(Proto.replace(streamingData,
+                Collections.singletonMap(15, null)));
         this.client = client;
+        sabr = null;
         urls = PlayerResponse.streamUrls(streamingData).stream().map(url -> Uri.parse(url.url())).collect(Collectors.toList());
         expiresAt = urls.stream().mapToLong(StreamUrl::expiresAt).min().orElse(0);
     }
 
+    StreamingData(SabrData sabr) {
+        this.sabr = sabr;
+        response = PlayerResponse.withStreamingData(sabr.streams());
+        client = ClientType.WEB;
+        urls = List.of();
+        expiresAt = StreamUrl.expiresAt(sabr.uri());
+    }
+
     /** Leaves time to start playback before the earliest media URL expires. */
     boolean isFresh() {
-        return expiresAt > System.currentTimeMillis() + 60_000;
+        return expiresAt > System.currentTimeMillis() + 60_000
+                && (sabr == null || sabr.attestation().expiresAt() > SystemClock.elapsedRealtime() + 30_000);
     }
 }

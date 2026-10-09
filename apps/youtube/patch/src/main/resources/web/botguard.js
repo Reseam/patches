@@ -1,5 +1,5 @@
 // Web PoToken minter: runs YouTube's BotGuard challenge and mints tokens bound to a content ID.
-// Protocol per LuanRT/BgUtils: WAA Create -> BotGuard snapshot -> GenerateIT -> minter.
+// The page configuration (including EVENT_ID) and challenge must come from one response.
 const botguard = (() => {
     const API = "https://www.youtube.com/api/jnn/v1/";
     const API_KEY = "AIzaSyDyT5W0Jh49F30Pqqtyfdf7pDLFKLJoAnw";
@@ -37,16 +37,6 @@ const botguard = (() => {
         } finally {
             clearTimeout(timer);
         }
-    };
-
-    // The challenge is either inline or, for scrambled request keys, base64 with every byte shifted by 97.
-    const parseChallenge = raw => {
-        const fields = typeof raw[1] === "string"
-            ? JSON.parse(new TextDecoder().decode(base64.decode(raw[1]).map(b => b + 97)))
-            : raw[0];
-        const [, script, url, , program, globalName] = fields;
-        const firstString = values => Array.isArray(values) ? values.find(v => typeof v === "string" && v) : undefined;
-        return { script: firstString(script), url: firstString(url), program, globalName };
     };
 
     const loadInterpreter = challenge => new Promise((resolve, reject) => {
@@ -93,7 +83,9 @@ const botguard = (() => {
     /** Creates a minter and its expiry on Android's monotonic, suspend-aware clock. */
     const create = async () => {
         const startedAt = now();
-        const challenge = parseChallenge(await post("Create", [REQUEST_KEY]));
+        const bootstrap = await page.load();
+        globalThis.yt = { config_: bootstrap.config };
+        const challenge = bootstrap.challenge;
         await loadInterpreter(challenge);
         const { response, signalOutput } = await snapshot(challenge);
         const [integrityToken, ttlSeconds] = await post("GenerateIT", [REQUEST_KEY, response]);
@@ -105,7 +97,7 @@ const botguard = (() => {
         // Start the lifetime before attestation and leave room to finish a media request.
         const expiresAt = startedAt + ttlSeconds * 1000 - Math.min(30_000, ttlSeconds * 100);
         if (!Number.isFinite(expiresAt) || expiresAt <= now()) throw new Error("BotGuard session expired during preparation");
-        return { minter: mintCallback, expiresAt };
+        return { minter: mintCallback, expiresAt, bootstrap, id: crypto.randomUUID() };
     };
 
     /** Shares attestation across concurrent requests and never retains a failed preparation. */
@@ -121,6 +113,10 @@ const botguard = (() => {
     const mint = async binding => {
         if (typeof binding !== "string" || !binding) throw new Error("Missing PoToken binding");
         const session = !current || now() >= current.expiresAt ? await init() : current;
+        return mintFrom(session, binding);
+    };
+
+    const mintFrom = async (session, binding) => {
         try {
             const token = await withTimeout(session.minter(new TextEncoder().encode(binding)), "BotGuard mint");
             if (!(token instanceof Uint8Array) || !token.length) throw new Error("BotGuard minted no token");
@@ -133,5 +129,17 @@ const botguard = (() => {
         }
     };
 
-    return { init, mint };
+    /** Returns the profile and token from the same attestation session, including after refresh. */
+    const attest = async videoId => {
+        const session = !current || now() >= current.expiresAt ? await init() : current;
+        const { client, binding, sessionBinding } = session.bootstrap;
+        const value = binding === "content" ? videoId : sessionBinding;
+        const poToken = binding === "none" ? "" : await mintFrom(session, value);
+        return { client, poToken, expiresAt: session.expiresAt, sessionId: session.id };
+    };
+
+    const invalidate = sessionId => {
+        if (current?.id === sessionId) current = null;
+    };
+    return { init, mint, attest, invalidate };
 })();

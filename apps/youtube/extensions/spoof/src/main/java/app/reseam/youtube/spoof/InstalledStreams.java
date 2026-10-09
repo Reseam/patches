@@ -1,5 +1,5 @@
 // SPDX-FileCopyrightText: 2026 Cossale <hello@auna.li>
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 package app.reseam.youtube.spoof;
 
@@ -43,8 +43,10 @@ final class InstalledStreams {
         Entry entry = new Entry(videoId, data.client, data.expiresAt,
                 data.urls.stream().map(Key::of).filter(Objects::nonNull).collect(Collectors.toSet()));
         // Refreshes may overlap an older response's in-flight media requests.
-        RESPONSES.remove(entry.streams);
-        RESPONSES.put(entry.streams, entry);
+        if (!entry.streams.isEmpty()) {
+            RESPONSES.remove(entry.streams);
+            RESPONSES.put(entry.streams, entry);
+        }
         CLIENTS.remove(videoId);
         CLIENTS.put(videoId, entry);
         if (RESPONSES.size() > MAX_RESPONSES) {

@@ -35,6 +35,8 @@ import app.reseam.youtube.core.Logger;
  * so callbacks from a destroyed renderer cannot complete calls in its replacement.
  */
 final class WebRuntime {
+    static final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+            + "(KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36";
     private static final String HOST = "www.youtube.com";
     private static final String ROOT = "/reseam/web/";
     private static final String ASSETS = "reseam/web/";
@@ -61,6 +63,7 @@ final class WebRuntime {
         try {
             view = new WebView(context);
             view.getSettings().setJavaScriptEnabled(true);
+            view.getSettings().setUserAgentString(USER_AGENT);
             view.addJavascriptInterface(new Bridge(), "reseamHost");
             view.setWebViewClient(new WebViewClient() {
                 @Override

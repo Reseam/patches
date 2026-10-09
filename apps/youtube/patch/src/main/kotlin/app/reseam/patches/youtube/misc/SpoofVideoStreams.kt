@@ -16,10 +16,8 @@ import app.reseam.patch.dex.parameterTypes
 import app.reseam.patch.dex.returnType
 import app.reseam.patch.klass
 import app.reseam.patch.method
-import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.point
-import app.reseam.patch.points
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
@@ -27,10 +25,10 @@ import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.mainActivityOnCreate
 import app.reseam.patches.youtube.core.youTubeSettings
 import app.reseam.patches.youtube.internal.ClientContextEndpoint
+import app.reseam.patches.youtube.internal.clientContextHook
 import app.reseam.patches.youtube.internal.hookBackgroundPlayVideoId
 import app.reseam.patches.youtube.internal.hookClientContextOsName
 import app.reseam.patches.youtube.internal.hookVideoId
-import app.reseam.patches.youtube.internal.overrideBooleanFeature
 import app.reseam.patches.youtube.internal.playerResponseHook
 import app.reseam.patches.youtube.internal.videoIdGetter
 import app.reseam.patches.youtube.internal.videoIdHook
@@ -42,7 +40,7 @@ private const val SPOOFED_STREAMS = "app.reseam.youtube.spoof.StreamingData"
 
 // Served to the extension's web runtime from assets/reseam/web.
 private val WEB_ASSETS = listOf(
-    "index.html", "host.js", "botguard.js", "player.js",
+    "index.html", "host.js", "page.js", "botguard.js", "player.js",
     "ejs/yt.solver.lib.min.js", "ejs/yt.solver.core.min.js",
 )
 
@@ -52,10 +50,7 @@ object SpoofVideoStreams : ExtClass("app.reseam.youtube.spoof.SpoofVideoStreams"
     val setClientOrderToUse by static()
     val isSpoofingEnabled by static(returns = Type.Boolean)
     val rewriteClientContextOsName by static(Type.String, returns = Type.String)
-    val blockGetWatchRequest by static("android.net.Uri", returns = "android.net.Uri")
-    val blockGetAttRequest by static(Type.String, returns = Type.String)
-    val blockInitPlaybackRequest by static(Type.String, returns = Type.String)
-    val fetchStreams by static(Type.String, Type.Map)
+    val fetchStreams by static(Type.String, Type.Map, "[B")
     val getStreamingData by static(Type.String, returns = SPOOFED_STREAMS)
     val getStreamingDataBytes by static(SPOOFED_STREAMS, returns = "[B")
     val onStreamingDataInstalled by static(Type.String, SPOOFED_STREAMS)
@@ -67,16 +62,6 @@ object SpoofVideoStreams : ExtClass("app.reseam.youtube.spoof.SpoofVideoStreams"
         Type.Int,
         "[B",
         returns = "[B",
-    )
-    val fixHlsCurrentTime by static(Type.Boolean, returns = Type.Boolean, name = "fixHLSCurrentTime")
-    val disableSabr by static(returns = Type.Boolean, name = "disableSABR")
-    val useMediaFetchHotConfigReplacement by static(
-        Type.Boolean,
-        returns = Type.Boolean,
-    )
-    val usePlaybackStartFeatureFlag by static(
-        Type.Boolean,
-        returns = Type.Boolean,
     )
     val appendSpoofedClient by static(Type.String, returns = Type.String)
 }
@@ -90,16 +75,6 @@ object AccountCredentialsInvalidText : ExtClass("app.reseam.youtube.spoof.Accoun
         Type.String,
         returns = Type.String,
     )
-}
-
-private val buildInitPlaybackRequest = method("initplayback request builder") {
-    strings("Content-Type", "Range")
-    returns("org.chromium.net.UrlRequest\$Builder")
-}
-
-private val playerRequestUriBuilder = method("player request URI builder") {
-    strings("asig")
-    returns("android.net.Uri\$Builder")
 }
 
 private val buildRequest = method("Cronet request builder") {
@@ -122,11 +97,6 @@ private val buildMediaDataSource = method("video playback media data source") {
     hasParam("[B")
 }
 
-private val mediaFetchEnumConstructor = method("SABR media-fetch enum constructor") {
-    returns(Type.Void)
-    strings("DISABLED_BY_SABR_STREAMING_URI")
-}
-
 private val nerdsStatsVideoFormatBuilder = method("stats for nerds video format builder") {
     flags(AccessFlags.PUBLIC or AccessFlags.STATIC)
     paramCount(1)
@@ -143,24 +113,6 @@ private val protobufParseByteBuffer = method("protobuf byte-buffer parser") {
     custom {
         parameterTypes[0].startsWith("L") && returnType == parameterTypes[0]
     }
-}
-
-private val initPlaybackUri = buildInitPlaybackRequest
-    .point("initplayback URI toString call") {
-        invokeVirtual {
-            owner("android.net.Uri")
-            name("toString")
-            params()
-            returns(Type.String)
-        }
-    }
-    .next { resultOf(Type.String) }
-    .captureAs("initPlaybackUri", Type.String)
-
-private val playerRequestUris = methods("player request URIs") {
-    calls(playerRequestUriBuilder)
-}.points {
-    invokeVirtual { owner("android.net.Uri\$Builder"); name("build"); params() }
 }
 
 private val cronetUrl = buildRequest.point("Cronet request URL") {
@@ -221,7 +173,7 @@ private val playerResponseDefaultInstance = playerResponseClass
 val spoofVideoStreams = patch("Spoof video streams") {
     description("Requests and installs playback streams from a compatible YouTube client.")
     compatibleWith(YOUTUBE)
-    dependsOn(youTubeSettings, playerResponseHook, videoIdHook, app.reseam.patches.youtube.internal.clientContextHook)
+    dependsOn(playerResponseHook, videoIdHook, clientContextHook)
     settings(
         youTubeSettings,
         section(
@@ -240,6 +192,8 @@ val spoofVideoStreams = patch("Spoof video streams") {
             files.write("assets/reseam/web/$name", asset)
         }
 
+        hookSabrPlayback()
+
         mainActivityOnCreate.before { call(SpoofVideoStreams.setClientOrderToUse) }
         hookVideoId(SpoofVideoStreams.onVideoChanged)
         hookBackgroundPlayVideoId(SpoofVideoStreams.onVideoChanged)
@@ -248,23 +202,8 @@ val spoofVideoStreams = patch("Spoof video streams") {
         hookClientContextOsName(ClientContextEndpoint.SEARCH, SpoofVideoStreams.rewriteClientContextOsName)
         hookClientContextOsName(ClientContextEndpoint.REEL, SpoofVideoStreams.rewriteClientContextOsName)
 
-        initPlaybackUri.after {
-            capture("initPlaybackUri").assign(
-                call(SpoofVideoStreams.blockInitPlaybackRequest, capture("initPlaybackUri")),
-            )
-        }
-
-        playerRequestUris.forEach {
-            next { resultOf("android.net.Uri") }.captureAs("uri", "android.net.Uri").after {
-                capture("uri").assign(call(SpoofVideoStreams.blockGetWatchRequest, capture("uri")))
-            }
-        }
-
         cronetUrl.before {
-            call(SpoofVideoStreams.fetchStreams, capture("requestUrl"), param(1))
-            capture("requestUrl").assign(
-                call(SpoofVideoStreams.blockGetAttRequest, capture("requestUrl")),
-            )
+            call(SpoofVideoStreams.fetchStreams, capture("requestUrl"), param(1), paramOfType("[B"))
         }
 
         createStreamingData.after {
@@ -294,6 +233,7 @@ val spoofVideoStreams = patch("Spoof video streams") {
                 returnVoid()
             }
             thisObject.set(streamResponseField, replacement)
+            call(SabrPlayback.installed, replacement, streams)
             call(SpoofVideoStreams.onStreamingDataInstalled, videoId, streams)
         }
 
@@ -333,30 +273,5 @@ val spoofVideoStreams = patch("Spoof video streams") {
         nerdsStatsVideoFormatBuilder.after {
             capture("result").assign(call(SpoofVideoStreams.appendSpoofedClient, capture("result")))
         }
-
-        overrideBooleanFeature(45355374L, SpoofVideoStreams.fixHlsCurrentTime)
-
-        val mediaFetchClass = classTarget("SABR media-fetch enum class") {
-            bytecode.findClass(mediaFetchEnumConstructor.owner) ?: error("media-fetch enum class is missing")
-        }
-        val sabrField = mediaFetchEnumConstructor.point("disabled by SABR enum value") {
-            string("DISABLED_BY_SABR_STREAMING_URI")
-        }.next {
-            opcode(Opcode.SPUT_OBJECT)
-            field { type(mediaFetchClass.descriptor) }
-        }.field("disabled by SABR enum value")
-        val sabrMethod = method("SABR enum fallback") {
-            returns(mediaFetchClass.descriptor)
-            opcodeSequence(Opcode.SGET_OBJECT, Opcode.RETURN_OBJECT)
-            custom { parameterTypes.isNotEmpty() }
-        }
-        sabrMethod.before {
-            whenTrue(call(SpoofVideoStreams.disableSabr)) {
-                returnValue(staticField(sabrField))
-            }
-        }
-
-        overrideBooleanFeature(45645570L, SpoofVideoStreams.useMediaFetchHotConfigReplacement)
-        overrideBooleanFeature(45665455L, SpoofVideoStreams.usePlaybackStartFeatureFlag)
     }
 }

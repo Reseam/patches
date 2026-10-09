@@ -4,8 +4,12 @@
 
 package app.reseam.youtube.spoof;
 
+import app.reseam.youtube.web.WebPlayer;
+
 /** YouTube clients whose player responses can replace the app's own streams. */
 enum ClientType {
+    WEB("web", "WEB", 1, null, null, null, null, null,
+            WebPlayer.USER_AGENT, "Web (SABR)", true),
     // A web client: its stream URLs need the web player's solved challenges and a BotGuard PoToken.
     TV_SIMPLY("tv_simply", "TVHTML5_SIMPLY", 75, "1.0", null, null, null, null,
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
@@ -26,7 +30,7 @@ enum ClientType {
     final String userAgent;
     /** Shown in stats for nerds. */
     final String friendlyName;
-    /** Whether its stream URLs need {@link app.reseam.youtube.web.WebPlayer}. */
+    /** Whether its stream URLs or attestation need {@link WebPlayer}. */
     final boolean usesWebPlayer;
 
     ClientType(String settingValue, String clientName, int clientId, String clientVersion, String deviceMake,
@@ -49,6 +53,6 @@ enum ClientType {
         for (ClientType client : values()) {
             if (client.settingValue.equals(value)) return client;
         }
-        return TV_SIMPLY;
+        return WEB;
     }
 }

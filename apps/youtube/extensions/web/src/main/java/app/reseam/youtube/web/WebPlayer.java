@@ -23,11 +23,19 @@ import app.reseam.youtube.core.YouTubeContext;
 
 /** Supplies a matching signature timestamp, URL solver and BotGuard minter for a player request. */
 public final class WebPlayer {
+    public static final String USER_AGENT = WebRuntime.USER_AGENT;
     private static final long PLAYER_REFRESH_MILLISECONDS = TimeUnit.MINUTES.toMillis(30);
     private static Generation current;
 
     /** Stream URL parameters for one player response: each challenge maps to its solution. */
     public record Unlocked(String poToken, Map<String, String> n, Map<String, String> sig) {}
+
+    /**
+     * A WEB profile and its matching token. Expiry uses {@link SystemClock#elapsedRealtime()}.
+     * The session ID identifies the minter, so a late failure cannot invalidate its replacement.
+     * The token is empty only when the page's player configuration does not request attestation.
+     */
+    public record Attestation(JSONObject client, String poToken, long expiresAt, String sessionId) {}
 
     private WebPlayer() {}
 
@@ -111,6 +119,59 @@ public final class WebPlayer {
             return signatureTimestamp;
         }
 
+        /**
+         * Mints the page's configured token for the requested video without borrowing Android
+         * visitor data. Uses this session's deadline and fails on a closed session, a main-thread
+         * call, timeout, invalid page configuration or attestation failure.
+         */
+        public Attestation attest(String videoId) throws Exception {
+            if (closed) throw new IllegalStateException("Web player session is closed");
+            if (Looper.myLooper() == Looper.getMainLooper()) {
+                throw new IllegalStateException("The web player cannot be awaited on the main thread");
+            }
+            CompletableFuture<String> call = generation.runtime.call("web.attest", new JSONArray().put(videoId));
+            try {
+                JSONObject result = new JSONObject(await(call));
+                return new Attestation(result.getJSONObject("client"), result.getString("poToken"),
+                        result.getLong("expiresAt"), result.getString("sessionId"));
+            } finally {
+                call.cancel(false);
+            }
+        }
+
+        /**
+         * Retires the minter only if its ID still matches; a newer minter is left intact.
+         * Used before renewing expired or challenged attestation. Uses this session's deadline.
+         */
+        public void invalidateAttestation(String sessionId) throws Exception {
+            if (closed) throw new IllegalStateException("Web player session is closed");
+            if (Looper.myLooper() == Looper.getMainLooper()) {
+                throw new IllegalStateException("The web player cannot be awaited on the main thread");
+            }
+            CompletableFuture<String> call = generation.runtime.call("web.invalidateAttestation", new JSONArray().put(sessionId));
+            try {
+                await(call);
+            } finally {
+                call.cancel(false);
+            }
+        }
+
+        /** Solves only URL challenges, without minting an unrelated token or changing attestation. */
+        public Map<String, String> solveN(Collection<String> challenges) throws Exception {
+            if (closed) throw new IllegalStateException("Web player session is closed");
+            if (Looper.myLooper() == Looper.getMainLooper()) {
+                throw new IllegalStateException("The web player cannot be awaited on the main thread");
+            }
+            JSONObject input = new JSONObject().put("n", new JSONArray(challenges));
+            CompletableFuture<String> call = generation.runtime.call("web.solve", new JSONArray().put(input));
+            try {
+                JSONObject result = new JSONObject(await(call));
+                return solutions(result.getJSONObject("n"), challenges);
+            } finally {
+                call.cancel(false);
+            }
+        }
+
         /** Mints a token bound to the request's visitor data and solves that response's challenges. */
         public Unlocked unlock(String binding, Collection<String> n, Collection<String> sig) throws Exception {
             if (closed) throw new IllegalStateException("Web player session is closed");
@@ -133,6 +194,10 @@ public final class WebPlayer {
         }
 
         private <T> T await(CompletableFuture<T> future) throws Exception {
+            if (closed) throw new IllegalStateException("Web player session is closed");
+            if (Looper.myLooper() == Looper.getMainLooper()) {
+                throw new IllegalStateException("The web player cannot be awaited on the main thread");
+            }
             try {
                 long remaining = deadline - SystemClock.elapsedRealtime();
                 if (remaining <= 0) throw new TimeoutException("Web player request deadline exceeded");

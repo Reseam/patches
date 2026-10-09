@@ -1196,8 +1196,9 @@ object YouTubeSettings {
     val spoofVideoStreamsClient by choice(
         "Default client",
         summary = "The client asked first for playback streams; the others are tried when it returns none.",
-        default = "tv_simply",
+        default = "web",
         choices = listOf(
+            Choice("web", "Web (SABR)"),
             Choice("tv_simply", "TV Simply"),
             Choice("visionos", "visionOS"),
         ),
