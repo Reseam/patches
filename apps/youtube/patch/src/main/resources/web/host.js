@@ -15,10 +15,11 @@ const network = {
 
 // Entry points for the app, which calls them through `host.call` and hears back on `reseamHost`.
 const web = {
-    /** Loads the player and a BotGuard session; returns the player's signature timestamp. */
-    prepare: async () => (await Promise.all([player.load(), botguard.init()]))[0],
+    /** Loads the player and, when minting here, a BotGuard session; returns the player's signature timestamp. */
+    prepare: async mintHere => (await Promise.all([player.load(), mintHere && botguard.init()]))[0],
 
     attest: videoId => botguard.attest(videoId),
+    profile: () => page.profile(),
     invalidateAttestation: sessionId => botguard.invalidate(sessionId),
     solve: challenges => player.solveChallenges(challenges),
 

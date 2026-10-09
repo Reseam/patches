@@ -1203,6 +1203,16 @@ object YouTubeSettings {
             Choice("visionos", "visionOS"),
         ),
     )
+    val spoofVideoStreamsTokenSource by choice(
+        "Web token source",
+        summary = "Where the Web client gets its playback tokens. Use the Reseam server if Web playback fails " +
+            "on this device. The server is provided under the terms at https://mint.reseam.app.",
+        default = "device",
+        choices = listOf(
+            Choice("device", "This device"),
+            Choice("server", "Reseam server"),
+        ),
+    )
     val spoofVideoStreamsStatsForNerds by toggle(
         "Show spoofed client in stats",
         summary = "Adds the active stream client to the player statistics format line.",

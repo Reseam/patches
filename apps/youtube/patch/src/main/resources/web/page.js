@@ -96,5 +96,11 @@ const page = (() => {
         }
         throw new Error("YouTube page has no attestation challenge");
     };
-    return { load };
+
+    let profiled = null;
+    const profile = () => profiled ??= load().then(({ client, binding }) => ({ client, binding }), error => {
+        profiled = null;
+        throw error;
+    });
+    return { load, profile };
 })();

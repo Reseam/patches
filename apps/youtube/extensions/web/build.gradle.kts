@@ -3,4 +3,5 @@
 
 dependencies {
     compileOnly(project(":shared:youtube-common"))
+    compileOnly(project(":shared:settings-runtime"))
 }

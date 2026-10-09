@@ -181,6 +181,7 @@ val spoofVideoStreams = patch("Spoof video streams") {
             "Stream compatibility",
             YouTubeSettings.spoofVideoStreams,
             YouTubeSettings.spoofVideoStreamsClient,
+            YouTubeSettings.spoofVideoStreamsTokenSource,
             YouTubeSettings.spoofVideoStreamsStatsForNerds,
         ),
     )

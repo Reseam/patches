@@ -14,6 +14,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -84,7 +85,8 @@ public final class WebPlayer {
     private static final class Generation {
         final long createdAt = SystemClock.elapsedRealtime();
         final WebRuntime runtime = new WebRuntime(YouTubeContext.get());
-        final CompletableFuture<Integer> prepared = runtime.call("web.prepare", new JSONArray()).thenApply(Integer::valueOf);
+        final CompletableFuture<Integer> prepared = runtime.call("web.prepare", new JSONArray().put(!TokenServer.selected()))
+                .thenApply(Integer::valueOf);
         int users;
         boolean retired;
 
@@ -129,6 +131,7 @@ public final class WebPlayer {
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 throw new IllegalStateException("The web player cannot be awaited on the main thread");
             }
+            if (TokenServer.selected()) return attestOnServer(videoId);
             CompletableFuture<String> call = generation.runtime.call("web.attest", new JSONArray().put(videoId));
             try {
                 JSONObject result = new JSONObject(await(call));
@@ -136,6 +139,28 @@ public final class WebPlayer {
                         result.getLong("expiresAt"), result.getString("sessionId"));
             } finally {
                 call.cancel(false);
+            }
+        }
+
+        private Attestation attestOnServer(String videoId) throws Exception {
+            CompletableFuture<String> call = generation.runtime.call("web.profile", new JSONArray());
+            JSONObject profile;
+            try {
+                profile = new JSONObject(await(call));
+            } finally {
+                call.cancel(false);
+            }
+            JSONObject client = new JSONObject(profile.getJSONObject("client").toString());
+            String sessionId = UUID.randomUUID().toString();
+            switch (profile.getString("binding")) {
+                case "none" -> {
+                    return new Attestation(client, "", Long.MAX_VALUE, sessionId);
+                }
+                case "content" -> {
+                    TokenServer.Token token = TokenServer.mint(videoId, deadline);
+                    return new Attestation(client, token.poToken(), token.expiresAt(), sessionId);
+                }
+                default -> throw new IllegalStateException("The page requests a session-bound PoToken, which the token server cannot mint");
             }
         }
 
