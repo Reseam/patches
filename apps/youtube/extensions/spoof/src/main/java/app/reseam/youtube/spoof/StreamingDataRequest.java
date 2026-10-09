@@ -29,6 +29,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.UUID;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.ScheduledFuture;
@@ -48,6 +49,7 @@ import app.reseam.youtube.web.WebPlayer;
  */
 final class StreamingDataRequest {
     private static final String PLAYER_URL = "https://youtubei.googleapis.com/youtubei/v1/player?fields=playabilityStatus,streamingData&alt=proto";
+    private static final String SABR_PLAYER_URL = "https://youtubei.googleapis.com/youtubei/v1/player?alt=proto";
     private static final String VISITOR_ID_HEADER = "X-Goog-Visitor-Id";
     private static final int HTTP_TIMEOUT_MILLISECONDS = 10_000;
     private static final int REQUEST_TIMEOUT_MILLISECONDS = 30_000;
@@ -64,6 +66,8 @@ final class StreamingDataRequest {
     private static Configuration configuration = new Configuration(Arrays.asList(ClientType.values()), false, null);
     private static Map<String, String> requestHeaders = Collections.emptyMap();
     private static long generation;
+    /** The app account's current authorization, or null while signed out. */
+    static volatile String authorization;
 
     static {
         DEADLINES.setRemoveOnCancelPolicy(true);
@@ -267,11 +271,20 @@ final class StreamingDataRequest {
             String visitor = headers.get(VISITOR_ID_HEADER);
             for (int index = 0; index < config.clients.size(); index++) {
                 ClientType client = config.clients.get(index);
-                if (client.usesWebPlayer && client != ClientType.WEB && (visitor == null || visitor.isEmpty())) continue;
+                if (client == ClientType.TV_SIMPLY && (visitor == null || visitor.isEmpty())) continue;
+                if (client == ClientType.TV && authorization == null) {
+                    Logger.info(() -> "Skipping TV without a signed-in account");
+                    continue;
+                }
                 // Reserve a share of the remaining budget for every fallback client.
                 long attemptDeadline = SystemClock.elapsedRealtime() + remaining(deadline) / (config.clients.size() - index);
                 try (WebPlayer.Session web = client.usesWebPlayer ? WebPlayer.open(attemptDeadline) : null) {
-                    WebPlayer.Attestation attestation = client == ClientType.WEB ? web.attest(videoId) : null;
+                    WebPlayer.Attestation attestation = switch (client) {
+                        case WEB -> web.attest(videoId);
+                        case TV -> new WebPlayer.Attestation(TvProfile.get(remaining(attemptDeadline)), "", Long.MAX_VALUE,
+                                UUID.randomUUID().toString());
+                        default -> null;
+                    };
                     if (attestation != null) {
                         attestation.client().put("hl", locale.getLanguage());
                         if (!locale.getCountry().isEmpty()) attestation.client().put("gl", locale.getCountry());
@@ -284,8 +297,8 @@ final class StreamingDataRequest {
                                 + parsed.status + (parsed.reason == null ? "" : ": " + parsed.reason));
                         continue;
                     }
-                    if (client == ClientType.WEB) {
-                        SabrData sabr = SabrData.resolve(videoId, parsed, web, attestation);
+                    if (client == ClientType.WEB || client == ClientType.TV) {
+                        SabrData sabr = SabrData.resolve(videoId, client, parsed, web, attestation);
                         remaining(attemptDeadline);
                         return new StreamingData(sabr);
                     }
@@ -318,7 +331,8 @@ final class StreamingDataRequest {
                 return response;
             }
             byte[] body = json.getBytes(StandardCharsets.UTF_8);
-            HttpURLConnection active = (HttpURLConnection) new URL(PLAYER_URL).openConnection();
+            HttpURLConnection active = (HttpURLConnection) new URL(client == ClientType.TV ? SABR_PLAYER_URL : PLAYER_URL)
+                    .openConnection();
             connection = active;
             ScheduledFuture<?> attemptTimeout = null;
             try {
@@ -332,11 +346,13 @@ final class StreamingDataRequest {
                 headers.forEach(active::setRequestProperty);
                 active.setRequestProperty("Content-Type", "application/json");
                 active.setRequestProperty("User-Agent", client.userAgent);
+                if (client == ClientType.TV) active.setRequestProperty("Authorization",
+                        Objects.requireNonNull(authorization, "Account signed out"));
                 active.setRequestProperty("X-YouTube-Client-Name", Integer.toString(client.clientId));
                 active.setRequestProperty("X-YouTube-Client-Version", attestation == null
                         ? client.clientVersion : attestation.client().getString("clientVersion"));
-                if (attestation != null) active.setRequestProperty(VISITOR_ID_HEADER,
-                        attestation.client().getString("visitorData"));
+                String visitorData = attestation == null ? "" : attestation.client().optString("visitorData");
+                if (!visitorData.isEmpty()) active.setRequestProperty(VISITOR_ID_HEADER, visitorData);
                 active.setFixedLengthStreamingMode(body.length);
                 try (OutputStream output = active.getOutputStream()) {
                     output.write(body);

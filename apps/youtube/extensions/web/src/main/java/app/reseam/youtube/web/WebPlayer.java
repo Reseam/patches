@@ -33,9 +33,9 @@ public final class WebPlayer {
     public record Unlocked(String poToken, Map<String, String> n, Map<String, String> sig) {}
 
     /**
-     * A WEB profile and its matching token. Expiry uses {@link SystemClock#elapsedRealtime()}.
+     * A client profile and its matching token. Expiry uses {@link SystemClock#elapsedRealtime()}.
      * The session ID identifies the minter, so a late failure cannot invalidate its replacement.
-     * The token is empty only when the page's player configuration does not request attestation.
+     * The token is empty when the client's player configuration does not request attestation.
      */
     public record Attestation(JSONObject client, String poToken, long expiresAt, String sessionId) {}
 

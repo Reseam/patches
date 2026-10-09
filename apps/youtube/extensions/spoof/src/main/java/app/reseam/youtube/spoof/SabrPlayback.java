@@ -21,7 +21,7 @@ import app.reseam.youtube.core.Logger;
 import app.reseam.youtube.web.WebPlayer;
 
 /**
- * Bridges validated WEB responses into YouTube's native SABR player. Ownership follows the exact
+ * Bridges validated SABR responses into YouTube's native SABR player. Ownership follows the exact
  * installed protobuf and native transport/token-manager instances, including concurrent prefetch.
  * Weak identity associations release abandoned native owners; values never retain their map keys.
  */
@@ -62,7 +62,7 @@ public final class SabrPlayback {
             Session session = new Session(data);
             TRANSPORTS.put(transport, session);
             TOKENS.put(tokens, session);
-            Logger.debug(() -> "Native WEB SABR playback created for " + data.videoId());
+            Logger.debug(() -> "Native " + data.client() + " SABR playback created for " + data.videoId());
             return replacement;
         } catch (Exception exception) {
             TRANSPORTS.remove(transport);
@@ -120,7 +120,7 @@ public final class SabrPlayback {
             if (attestation.expiresAt() - SystemClock.elapsedRealtime() < REFRESH_MARGIN_MILLISECONDS) {
                 session.refresh(attestation.sessionId());
             }
-            byte[] rewritten = Proto.replace(context, Map.of(1, clientInfo(attestation.client()), 2, decodeToken(attestation)));
+            byte[] rewritten = Proto.replace(context, Map.of(1, clientInfo(session.data.client(), attestation.client()), 2, decodeToken(attestation)));
             byte[] body = Proto.replace(original, Map.of(19, session.contexts.append(rewritten)));
             RESPONSES.put(callback, new SabrResponse((type, message) -> session.control(type, message, attestation.sessionId())));
             return body;
@@ -151,10 +151,10 @@ public final class SabrPlayback {
         return Base64.decode(attestation.poToken(), Base64.URL_SAFE);
     }
 
-    private static byte[] clientInfo(JSONObject client) throws Exception {
+    private static byte[] clientInfo(ClientType type, JSONObject client) throws Exception {
         // ClientInfo: clientName (16), clientVersion (17), hl (21), gl (22).
         ByteArrayOutputStream output = new ByteArrayOutputStream();
-        Proto.writeNumber(output, 16, 1); // WEB client ID.
+        Proto.writeNumber(output, 16, type.clientId);
         Proto.writeBytes(output, 17, client.getString("clientVersion").getBytes(StandardCharsets.UTF_8));
         Proto.writeBytes(output, 21, client.optString("hl", "en").getBytes(StandardCharsets.UTF_8));
         Proto.writeBytes(output, 22, client.optString("gl", "US").getBytes(StandardCharsets.UTF_8));
@@ -174,6 +174,8 @@ public final class SabrPlayback {
         }
 
         synchronized CompletableFuture<WebPlayer.Attestation> refresh(String expectedSessionId) {
+            // Only WEB streams carry a PoToken; other clients have nothing to renew.
+            if (data.client() != ClientType.WEB) return CompletableFuture.completedFuture(attestation);
             // A late rejection or expiry check must not retire an already renewed minter.
             String currentSessionId = attestation.sessionId();
             if (expectedSessionId != null && !expectedSessionId.equals(currentSessionId)) {

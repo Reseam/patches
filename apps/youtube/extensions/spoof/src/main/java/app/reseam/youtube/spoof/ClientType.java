@@ -8,6 +8,9 @@ import app.reseam.youtube.web.WebPlayer;
 
 /** YouTube clients whose player responses can replace the app's own streams. */
 enum ClientType {
+    // Signed in with the app's account; its SABR URL needs the web player's solved challenges, but no PoToken.
+    // Its version and device fields come from TvProfile.
+    TV("tv", "TVHTML5", 7, null, null, null, null, null, TvProfile.USER_AGENT, "TV (SABR)", true),
     WEB("web", "WEB", 1, null, null, null, null, null,
             WebPlayer.USER_AGENT, "Web (SABR)", true),
     // A web client: its stream URLs need the web player's solved challenges and a BotGuard PoToken.

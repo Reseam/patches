@@ -19,7 +19,7 @@ public final class SpoofVideoStreams {
     private SpoofVideoStreams() {}
 
     public static void setClientOrderToUse() {
-        ClientType client = ClientType.fromSetting(Settings.getString("spoof_video_streams_client", "web"));
+        ClientType client = ClientType.fromSetting(Settings.getString("spoof_video_streams_client", "tv"));
         StreamingDataRequest.setClientOrder(client, Arrays.asList(ClientType.values()),
                 true, Settings.getBoolean("force_original_audio", true));
         if (isSpoofingEnabled() && StreamingDataRequest.usesWebPlayer()) WebPlayer.warmUp();
@@ -43,6 +43,10 @@ public final class SpoofVideoStreams {
         if (!isSpoofingEnabled() || url == null) return;
         try {
             Uri uri = Uri.parse(url);
+            // Every signed-in youtubei request carries the account; signed out or incognito carries none.
+            if ("youtubei.googleapis.com".equals(uri.getHost())) {
+                StreamingDataRequest.authorization = requestHeaders == null ? null : requestHeaders.get("Authorization");
+            }
             String path = uri.getPath();
             if (path == null || !path.contains("player")) return;
             if (path.contains("get_drm_license") || path.contains("heartbeat") || path.contains("ad_break")) return;

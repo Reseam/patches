@@ -31,7 +31,7 @@ public final class StreamingData {
     StreamingData(SabrData sabr) {
         this.sabr = sabr;
         response = PlayerResponse.withStreamingData(sabr.streams());
-        client = ClientType.WEB;
+        client = sabr.client();
         urls = List.of();
         expiresAt = StreamUrl.expiresAt(sabr.uri());
     }

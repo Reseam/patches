@@ -1196,8 +1196,9 @@ object YouTubeSettings {
     val spoofVideoStreamsClient by choice(
         "Default client",
         summary = "The client asked first for playback streams; the others are tried when it returns none.",
-        default = "web",
+        default = "tv",
         choices = listOf(
+            Choice("tv", "TV (SABR)"),
             Choice("web", "Web (SABR)"),
             Choice("tv_simply", "TV Simply"),
             Choice("visionos", "visionOS"),
@@ -1205,8 +1206,9 @@ object YouTubeSettings {
     )
     val spoofVideoStreamsTokenSource by choice(
         "Web token source",
-        summary = "Where the Web client gets its playback tokens. Use the Reseam server if Web playback fails " +
-            "on this device. The server is provided under the terms at https://mint.reseam.app.",
+        summary = "Where the Web client gets its playback tokens. Web is used when selected, and as a fallback " +
+            "when signed out or when another client fails. The Reseam server is provided under the terms at " +
+            "https://mint.reseam.app.",
         default = "device",
         choices = listOf(
             Choice("device", "This device"),

@@ -12,11 +12,11 @@ import java.util.Set;
 
 import app.reseam.youtube.web.WebPlayer;
 
-/** One validated WEB response: native formats, solved SABR URL, decoder configuration and attestation. */
-record SabrData(String videoId, byte[] streams, Object nativeCommonConfig, Uri uri,
+/** One validated SABR response: native formats, solved SABR URL, decoder configuration and attestation. */
+record SabrData(String videoId, ClientType client, byte[] streams, Object nativeCommonConfig, Uri uri,
                WebPlayer.Attestation attestation) {
     /** Validates the format pair and native config, then solves the SABR URL or throws on failure. */
-    static SabrData resolve(String videoId, PlayerResponse response, WebPlayer.Session web,
+    static SabrData resolve(String videoId, ClientType client, PlayerResponse response, WebPlayer.Session web,
                             WebPlayer.Attestation attestation) throws Exception {
         // StreamingData.serverAbrStreamingUrl (15); MediaCommonConfig.mediaUstreamerRequestConfig
         // (2) contains videoPlaybackUstreamerConfig (4).
@@ -25,7 +25,7 @@ record SabrData(String videoId, byte[] streams, Object nativeCommonConfig, Uri u
         byte[] requestConfig = common == null ? null : Proto.bytes(common, 2);
         byte[] ustreamer = requestConfig == null ? null : Proto.bytes(requestConfig, 4);
         if (encodedUrl == null || ustreamer == null || ustreamer.length == 0) {
-            throw new IOException("WEB response has no complete SABR configuration");
+            throw new IOException(client + " response has no complete SABR configuration");
         }
         Uri uri = Uri.parse(new String(encodedUrl, StandardCharsets.UTF_8));
         if (!StreamUrl.isUsable(uri)) throw new IOException("Invalid SABR streaming URL");
@@ -48,6 +48,6 @@ record SabrData(String videoId, byte[] streams, Object nativeCommonConfig, Uri u
         }
         byte[] streams = Proto.replace(response.streamingData,
                 Map.of(15, uri.toString().getBytes(StandardCharsets.UTF_8)));
-        return new SabrData(videoId, streams, SabrPlayback.parseCommonConfig(common), uri, attestation);
+        return new SabrData(videoId, client, streams, SabrPlayback.parseCommonConfig(common), uri, attestation);
     }
 }
