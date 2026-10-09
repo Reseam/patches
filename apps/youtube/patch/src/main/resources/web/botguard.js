@@ -17,7 +17,7 @@ const botguard = (() => {
                 "x-user-agent": "grpc-web-javascript/0.1",
             },
             body: JSON.stringify(payload),
-        }, true);
+        }, "json");
     };
 
     const base64 = {

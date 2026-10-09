@@ -48,7 +48,6 @@ import app.reseam.youtube.web.WebPlayer;
  */
 final class StreamingDataRequest {
     private static final String PLAYER_URL = "https://youtubei.googleapis.com/youtubei/v1/player?fields=playabilityStatus,streamingData&alt=proto";
-    private static final String SABR_PLAYER_URL = "https://youtubei.googleapis.com/youtubei/v1/player?alt=proto";
     private static final String VISITOR_ID_HEADER = "X-Goog-Visitor-Id";
     private static final int HTTP_TIMEOUT_MILLISECONDS = 10_000;
     private static final int REQUEST_TIMEOUT_MILLISECONDS = 30_000;
@@ -312,9 +311,14 @@ final class StreamingDataRequest {
 
         private byte[] send(ClientType client, String visitor, WebPlayer.Session web,
                             WebPlayer.Attestation attestation, long attemptDeadline) throws Exception {
-            byte[] body = innertubeBody(client, videoId, visitor, locale, web, attestation, reloadToken).getBytes(StandardCharsets.UTF_8);
-            HttpURLConnection active = (HttpURLConnection) new URL(client == ClientType.WEB
-                    ? SABR_PLAYER_URL : PLAYER_URL).openConnection();
+            String json = innertubeBody(client, videoId, visitor, locale, web, attestation, reloadToken);
+            if (client == ClientType.WEB) {
+                byte[] response = web.player(json, attestation.client());
+                if (response.length > MAX_RESPONSE_BYTES) throw new IOException("Player response is too large");
+                return response;
+            }
+            byte[] body = json.getBytes(StandardCharsets.UTF_8);
+            HttpURLConnection active = (HttpURLConnection) new URL(PLAYER_URL).openConnection();
             connection = active;
             ScheduledFuture<?> attemptTimeout = null;
             try {

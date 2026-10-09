@@ -5,6 +5,7 @@ package app.reseam.youtube.web;
 
 import android.os.Looper;
 import android.os.SystemClock;
+import android.util.Base64;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -176,6 +177,20 @@ public final class WebPlayer {
             CompletableFuture<String> call = generation.runtime.call("web.invalidateAttestation", new JSONArray().put(sessionId));
             try {
                 await(call);
+            } finally {
+                call.cancel(false);
+            }
+        }
+
+        /** The WEB player response, requested by the page with the browser's network stack and origin. */
+        public byte[] player(String body, JSONObject client) throws Exception {
+            if (closed) throw new IllegalStateException("Web player session is closed");
+            if (Looper.myLooper() == Looper.getMainLooper()) {
+                throw new IllegalStateException("The web player cannot be awaited on the main thread");
+            }
+            CompletableFuture<String> call = generation.runtime.call("web.player", new JSONArray().put(body).put(client));
+            try {
+                return Base64.decode(new JSONObject(await(call)).getString("response"), Base64.DEFAULT);
             } finally {
                 call.cancel(false);
             }

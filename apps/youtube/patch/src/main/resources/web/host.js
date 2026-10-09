@@ -1,16 +1,24 @@
 // Bound network operations, including response bodies, to the runtime's call lifetime.
 const network = {
-    async read(url, options = {}, json = false) {
+    async read(url, options = {}, as = "text") {
         const controller = new AbortController();
         const timer = setTimeout(() => controller.abort(), 10_000);
         try {
             const response = await fetch(url, { ...options, signal: controller.signal, cache: "no-store" });
             if (!response.ok) throw new Error(`Web request returned HTTP ${response.status}`);
-            return await (json ? response.json() : response.text());
+            return await response[as]();
         } finally {
             clearTimeout(timer);
         }
     },
+};
+
+const base64 = bytes => {
+    let text = "";
+    for (let index = 0; index < bytes.length; index += 0x8000) {
+        text += String.fromCharCode(...bytes.subarray(index, index + 0x8000));
+    }
+    return btoa(text);
 };
 
 // Entry points for the app, which calls them through `host.call` and hears back on `reseamHost`.
@@ -20,6 +28,22 @@ const web = {
 
     attest: videoId => botguard.attest(videoId),
     profile: () => page.profile(),
+
+    /** Sent by this page, so the request uses the browser's network stack and youtube.com origin. */
+    player: async (body, client) => {
+        const response = await network.read("https://youtubei.googleapis.com/youtubei/v1/player?alt=proto", {
+            method: "POST",
+            credentials: "include",
+            headers: {
+                "content-type": "application/json",
+                "x-goog-visitor-id": client.visitorData,
+                "x-youtube-client-name": "1",
+                "x-youtube-client-version": client.clientVersion,
+            },
+            body,
+        }, "arrayBuffer");
+        return { response: base64(new Uint8Array(response)) };
+    },
     invalidateAttestation: sessionId => botguard.invalidate(sessionId),
     solve: challenges => player.solveChallenges(challenges),
 
