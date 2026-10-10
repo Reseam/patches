@@ -4,6 +4,7 @@
 
 package app.reseam.patches.youtube.misc
 
+import app.reseam.patch.ExtClass
 import app.reseam.patch.Type
 import app.reseam.patch.fieldOfType
 import app.reseam.patch.klass
@@ -15,9 +16,6 @@ import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
-
-private const val AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK = -3
-private const val AUDIOFOCUS_LOSS_TRANSIENT = -2
 
 val pauseOnAudioInterrupt = patch("Pause on audio interrupt") {
     description("Pauses playback instead of lowering the volume when another app plays audio.")
@@ -33,15 +31,18 @@ val pauseOnAudioInterrupt = patch("Pause on audio interrupt") {
                 thisObject.set(builder.fieldOfType(Type.Boolean), bool(true))
             }
         }
-        // Not every audio source honours that, so a duck that arrives anyway is retold as a loss.
+        // Not every audio source honours that, so a duck that arrives anyway is retold as a loss,
+        // once per interruption.
         gate(YouTubeSettings.pauseOnAudioInterrupt) {
             audioFocusChangeListener.before {
-                whenEqual(param(0), int(AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK)) {
-                    param(0).assign(int(AUDIOFOCUS_LOSS_TRANSIENT))
-                }
+                param(0).assign(call(PauseOnAudioInterrupt.onAudioFocusChange, param(0)))
             }
         }
     }
+}
+
+object PauseOnAudioInterrupt : ExtClass("app.reseam.youtube.misc.PauseOnAudioInterrupt") {
+    val onAudioFocusChange by static(Type.Int, returns = Type.Int)
 }
 
 // The builder throws when it has no listener, which is the one thing it says out loud.
