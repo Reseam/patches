@@ -30,12 +30,12 @@ import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
-import app.reseam.patches.youtube.internal.appHelper
 import app.reseam.patches.youtubecommon.emptyComponentBuilder
 import app.reseam.patches.youtubecommon.emptyComponentField
 import app.reseam.patches.youtube.internal.engagementPanelHook
 import app.reseam.patches.youtubecommon.lithoFilter
 import app.reseam.patches.youtubecommon.registerLithoFilter
+import app.reseam.patches.youtubecommon.appHelper
 
 private const val VIEW_DESCRIPTOR = "Landroid/view/View;"
 private const val TEXT_VIEW = "android.widget.TextView"

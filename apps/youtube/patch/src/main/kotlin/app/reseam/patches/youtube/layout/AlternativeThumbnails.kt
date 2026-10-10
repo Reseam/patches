@@ -10,6 +10,7 @@ import app.reseam.patch.dex.Opcode
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.*
 import app.reseam.patches.youtube.internal.*
+import app.reseam.patches.youtubecommon.appHelper
 
 val alternativeThumbnails = patch("Alternative thumbnails") {
     description("Replaces thumbnails with DeArrow images or still captures, with separate choices for each feed.")

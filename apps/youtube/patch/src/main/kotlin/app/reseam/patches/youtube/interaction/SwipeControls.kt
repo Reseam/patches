@@ -9,10 +9,10 @@ import app.reseam.patch.dex.AccessFlags
 import app.reseam.patch.dex.buildInstructions
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.*
-import app.reseam.patches.youtube.internal.appHelper
 import app.reseam.patches.youtube.internal.engagementPanelHook
 import app.reseam.patches.youtube.internal.playerControls
 import app.reseam.patches.youtube.internal.playerTypeHook
+import app.reseam.patches.youtubecommon.appHelper
 
 val swipeControls = patch("Swipe controls") {
     description("Adds fullscreen volume and brightness gestures, configurable feedback, and brightness restoration.")

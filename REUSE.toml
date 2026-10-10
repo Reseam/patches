@@ -31,7 +31,6 @@ path = [
     "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/VerticalScrollFix.kt",
     "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/FixBackToExitGesture.kt",
     "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/ads/**",
-    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/misc/AccountCredentialsInvalidText.kt",
     "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/misc/BypassUrlRedirects.kt",
     "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/misc/CheckWatchHistoryDns.kt",
     "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/misc/DisableVideoCodecs.kt",
@@ -41,13 +40,10 @@ path = [
     "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/misc/PauseOnAudioInterrupt.kt",
     "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/misc/SanitizeSharingLinks.kt",
     "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/misc/SpoofDeviceDimensions.kt",
-    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/misc/SpoofVideoStreams.kt",
-    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/misc/UserAgentClientSpoof.kt",
     "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/layout/**",
     "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/interaction/**",
     "apps/youtube/extensions/video/src/main/java/app/reseam/youtube/video/**",
     "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/PlayerResponse.kt",
-    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/VideoId.kt",
     "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/VideoInformation.kt",
     "apps/youtube/extensions/playerui/src/main/java/app/reseam/youtube/playerui/**",
     "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/player/**",
@@ -77,12 +73,6 @@ path = [
     "apps/youtube/extensions/buttons/src/main/java/app/reseam/youtube/buttons/**",
     "apps/youtube/extensions/quality/src/main/java/app/reseam/youtube/quality/**",
     "apps/youtube/extensions/speed/src/main/java/app/reseam/youtube/speed/**",
-    "apps/youtube/extensions/spoof/src/main/java/app/reseam/youtube/spoof/AccountCredentialsInvalidText.java",
-    "apps/youtube/extensions/spoof/src/main/java/app/reseam/youtube/spoof/ClientType.java",
-    "apps/youtube/extensions/spoof/src/main/java/app/reseam/youtube/spoof/PlayerResponse.java",
-    "apps/youtube/extensions/spoof/src/main/java/app/reseam/youtube/spoof/SpoofVideoStreams.java",
-    "apps/youtube/extensions/spoof/src/main/java/app/reseam/youtube/spoof/StreamingDataRequest.java",
-    "apps/youtube/extensions/spoof/src/main/java/app/reseam/youtube/spoof/UserAgentClientSpoof.java",
     "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/PlayerControls.kt",
     "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/video/**",
     "apps/youtube/patch/src/main/resources/buttons/**",
@@ -101,7 +91,6 @@ path = [
     "apps/youtube/extensions/sponsorblock/src/main/java/app/reseam/youtube/sponsorblock/SponsorBlockOverlay.java",
     "apps/youtube/extensions/swipe/src/main/java/app/reseam/youtube/swipe/SwipeControls.java",
     "apps/youtube/extensions/thumbnails/src/main/java/app/reseam/youtube/thumbnails/AlternativeThumbnailsPatch.java",
-    "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/AppMethods.kt",
     "apps/youtube/patch/src/main/kotlin/app/reseam/patches/youtube/internal/LithoText.kt",
 ]
 SPDX-FileCopyrightText = ["2026 Cossale <hello@auna.li>", "2026 ReVanced contributors"]
@@ -110,7 +99,7 @@ SPDX-License-Identifier = "GPL-3.0-or-later"
 # ── yt-dlp's ejs challenge solver 0.8.0, unmodified release files ──────────
 
 [[annotations]]
-path = "apps/youtube/patch/src/main/resources/web/ejs/**"
+path = "shared/youtube-spoof/patch/src/main/resources/web/ejs/**"
 SPDX-FileCopyrightText = "yt-dlp ejs contributors <https://github.com/yt-dlp/ejs>"
 SPDX-License-Identifier = "Unlicense"
 

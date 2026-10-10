@@ -1,9 +1,9 @@
 // SPDX-FileCopyrightText: 2026 Cossale <hello@auna.li>
-// SPDX-FileCopyrightText: 2026 ReVanced contributors
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
 package app.reseam.patches.youtube.misc
 
+import app.reseam.patch.ExtClass
 import app.reseam.patch.Type
 import app.reseam.patch.after
 import app.reseam.patch.methods
@@ -14,6 +14,10 @@ import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettings
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
+
+private object AccountCredentialsInvalidText : ExtClass("app.reseam.youtube.misc.AccountCredentialsInvalidText") {
+    val getOfflineNetworkErrorString by static(Type.String, returns = Type.String)
+}
 
 val accountCredentialsInvalidText = patch("Account credentials invalid text") {
     description("Explains the misleading offline account error when the network is available.")

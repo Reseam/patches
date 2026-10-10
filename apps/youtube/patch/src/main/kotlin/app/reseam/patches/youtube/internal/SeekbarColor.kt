@@ -22,6 +22,7 @@ import app.reseam.patch.replace
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtubecommon.lithoColorHook
 import app.reseam.patches.youtubecommon.registerLithoColorHook
+import app.reseam.patches.youtubecommon.appHelper
 
 private const val LOTTIE = "com.airbnb.lottie.LottieAnimationView"
 private const val LOTTIE_FACTORY_ZIP_INPUT = "java.util.zip.ZipInputStream"

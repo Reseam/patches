@@ -1,8 +1,7 @@
 // SPDX-FileCopyrightText: 2026 Cossale <hello@auna.li>
-// SPDX-FileCopyrightText: 2026 ReVanced contributors
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: AGPL-3.0-or-later
 
-package app.reseam.patches.youtube.internal
+package app.reseam.patches.youtubecommon
 
 import app.reseam.patch.MethodTarget
 import app.reseam.patch.dex.AccessFlags
@@ -14,7 +13,7 @@ import app.reseam.patch.methodTarget
 import app.reseam.patch.native.NewMethod
 
 /** Creates an app-side bridge for a subsequent DSL replacement, reusing an existing bridge. */
-internal fun appHelper(
+fun appHelper(
     clazz: DexClass,
     name: String,
     proto: String,

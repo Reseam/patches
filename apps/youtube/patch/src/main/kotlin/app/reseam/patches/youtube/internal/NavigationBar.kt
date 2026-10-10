@@ -23,6 +23,7 @@ import app.reseam.patch.replace
 import app.reseam.patches.youtube.core.MAIN_ACTIVITY
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.youTubeSettings
+import app.reseam.patches.youtubecommon.appHelper
 
 private const val DRAWABLE = "android.graphics.drawable.Drawable"
 private const val DRAWABLE_DESCRIPTOR = "Landroid/graphics/drawable/Drawable;"

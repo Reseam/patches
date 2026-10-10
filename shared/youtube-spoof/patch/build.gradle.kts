@@ -2,7 +2,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 dependencies {
-    compileOnly(project(":shared:gmscore:patch"))
     compileOnly(project(":shared:youtube-common:patch"))
-    compileOnly(project(":shared:youtube-spoof:patch"))
 }

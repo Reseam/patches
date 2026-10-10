@@ -1,22 +1,22 @@
 // SPDX-FileCopyrightText: 2026 Cossale <hello@auna.li>
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-package app.reseam.patches.youtube.misc
+package app.reseam.patches.youtubespoof
 
 import app.reseam.patch.ExtClass
+import app.reseam.patch.MethodTarget
 import app.reseam.patch.PatchRuntime
 import app.reseam.patch.Type
 import app.reseam.patch.before
 import app.reseam.patch.dex.AccessFlags
-import app.reseam.patch.dex.Opcode
 import app.reseam.patch.fieldOfType
 import app.reseam.patch.klass
 import app.reseam.patch.method
+import app.reseam.patch.methods
 import app.reseam.patch.replace
-import app.reseam.patches.youtube.internal.appHelper
+import app.reseam.patches.youtubecommon.appHelper
 
 private const val MEDIA = "com.google.android.libraries.youtube.media.interfaces."
-private const val STREAMS = "com.google.protos.youtube.api.innertube.StreamingDataOuterClass\$StreamingData"
 private const val COMMON = "com.google.protos.youtube.api.innertube.MediaCommonConfigOuterClass\$MediaCommonConfig"
 private const val LIVE = "com.google.protos.youtube.api.innertube.LivePlayerConfigOuterClass\$LivePlayerConfig"
 private const val MANIFESTLESS = "com.google.protos.youtube.api.innertube.ManifestlessWindowedLiveConfigOuterClass\$ManifestlessWindowedLiveConfig"
@@ -26,7 +26,6 @@ private const val CALLBACKS = MEDIA + "NetFetchCallbacks"
 private const val REQUEST = MEDIA + "HttpRequest"
 private const val TOKEN_MANAGER = MEDIA + "ProofOfOriginTokenManager"
 private const val TOKEN_CALLBACK = MEDIA + "OnPoTokenMintedCallback"
-private const val BUFFER = "java.nio.ByteBuffer"
 private const val REGISTRY = "com.google.protobuf.ExtensionRegistryLite"
 private const val ARRAY_LIST = "java.util.ArrayList"
 
@@ -36,7 +35,7 @@ internal object SabrPlayback : ExtClass("app.reseam.youtube.spoof.SabrPlayback")
     val token by static(Type.Object, "[B", returns = "[B")
     val refresh by static(Type.Object, Type.Object, returns = Type.Boolean)
     val request by static(Type.Object, Type.Object, "[B", returns = "[B")
-    val response by static(Type.Object, BUFFER)
+    val response by static(Type.Object, BYTE_BUFFER)
     val completed by static(Type.Object)
     val replaceConfig by static(Type.Object, Type.Object, returns = Type.Object)
     val parseCommonConfig by static("[B", returns = Type.Object)
@@ -63,7 +62,7 @@ internal fun PatchRuntime.hookSabrPlayback() {
     }
     SabrPlayback.parseCommonConfig.implement {
         val registry = callStatic(REGISTRY, "getGeneratedRegistry", "()Lcom/google/protobuf/ExtensionRegistryLite;")
-        val buffer = callStatic(BUFFER, "wrap", "([B)Ljava/nio/ByteBuffer;", param(0))
+        val buffer = callStatic(BYTE_BUFFER, "wrap", "([B)Ljava/nio/ByteBuffer;", param(0))
         val common = callStatic(
             COMMON,
             "parseFrom",
@@ -87,34 +86,43 @@ internal fun PatchRuntime.hookSabrPlayback() {
         param(9).assign(call(SabrPlayback.token, param(7), param(9)))
     }
 
+    // Helpers inside the request class read its fields, which are package-private in some apps.
     val http = klass(REQUEST)
     val url = http.fieldOfType(Type.String)
     val headers = http.fieldOfType(ARRAY_LIST)
     val body = http.fieldOfType("[B")
     val httpMethod = http.fieldOfType(MEDIA + "HttpMethod")
     val flag = http.fieldOfType(Type.Boolean)
-    dispatchRequest.before {
-        val original = param(0)
-        val bytes = original.field(body)
-        val replacement = call(SabrPlayback.request, thisObject, param(1), bytes)
-        whenNotEqual(bytes, replacement) {
-            param(0).assign(
-                newInstance(
-                    REQUEST,
-                    "(Ljava/lang/String;Ljava/util/ArrayList;[BLcom/google/android/libraries/youtube/media/interfaces/HttpMethod;Z)V",
-                    original.field(url), original.field(headers), replacement, original.field(httpMethod), original.field(flag),
-                ),
-            )
+    val requestBody = appHelper(http.classDef, "reseamBody", "()[B")
+    requestBody.replace { returnValue(thisObject.field(body)) }
+    val withBody = appHelper(http.classDef, "reseamWithBody", "([B)L$REQUEST;".replace('.', '/'))
+    withBody.replace {
+        returnValue(
+            newInstance(
+                REQUEST,
+                "(Ljava/lang/String;Ljava/util/ArrayList;[BL${MEDIA}HttpMethod;Z)V".replace('.', '/'),
+                thisObject.field(url), thisObject.field(headers), param(0),
+                thisObject.field(httpMethod), thisObject.field(flag),
+            ),
+        )
+    }
+    nativeEntries("dispatchRequest", FETCH, MEDIA + "NetFetchTask", REQUEST, CALLBACKS).forEach {
+        it.before {
+            val bytes = param(0).call(requestBody)
+            val replacement = call(SabrPlayback.request, thisObject, param(1), bytes)
+            whenNotEqual(bytes, replacement) { param(0).assign(param(0).call(withBody, replacement)) }
         }
     }
     responseChunk.before { call(SabrPlayback.response, thisObject, param(0)) }
     responseComplete.before { call(SabrPlayback.completed, thisObject) }
-    refreshToken.before {
-        whenTrue(call(SabrPlayback.refresh, thisObject, param(0))) { returnVoid() }
+    nativeEntries("refreshToken", TOKEN_MANAGER, Type.Void, TOKEN_CALLBACK).forEach {
+        it.before { whenTrue(call(SabrPlayback.refresh, thisObject, param(0))) { returnVoid() } }
     }
-    currentToken.before {
-        val token = call(SabrPlayback.token, thisObject, nullObject)
-        whenNotNull(token) { returnValue(token) }
+    nativeEntries("currentToken", TOKEN_MANAGER, "[B").forEach {
+        it.before {
+            val token = call(SabrPlayback.token, thisObject, nullObject)
+            whenNotNull(token) { returnValue(token) }
+        }
     }
 }
 
@@ -122,49 +130,52 @@ private val tokenMintedCallback = method("tokenMintedCallback") {
     inClass(klass(TOKEN_CALLBACK))
     flags(AccessFlags.ABSTRACT)
     params("[B")
-    returns(Type.Void)
 }
 
+// The parameters the hook reads; the native twin of each proxy method takes its handle first.
 private val createNativePlayback = method("createNativePlayback") {
     inClass(klass(MEDIA + "MediaFetchController\$CppProxy"))
-    flags(AccessFlags.PUBLIC or AccessFlags.FINAL)
     param(1, CONFIG)
-    param(2, STREAMS)
+    param(2, STREAMING_DATA)
     param(7, FETCH)
     param(10, TOKEN_MANAGER)
-    paramCount(20)
-    returns(MEDIA + "PlaybackControllerOrError")
-}
-
-// JNI calls these concrete forwarding methods on the retained abstract interface. Hooking here
-// reaches every implementation without depending on the obfuscated transport class or method name.
-private val dispatchRequest = method("dispatchRequest") {
-    inClass(klass(FETCH))
-    params(REQUEST, CALLBACKS)
-    returns(MEDIA + "NetFetchTask")
-    opcode(Opcode.INVOKE_VIRTUAL)
 }
 private val responseChunk = method("responseChunk") {
     inClass(klass(CALLBACKS + "\$CppProxy"))
-    params(BUFFER)
-    returns(Type.Void)
-    flags(AccessFlags.PUBLIC or AccessFlags.FINAL)
+    params(BYTE_BUFFER)
 }
 private val responseComplete = method("responseComplete") {
     inClass(klass(CALLBACKS + "\$CppProxy"))
     params(MEDIA + "QoeError", Type.Boolean)
-    returns(Type.Void)
-    flags(AccessFlags.PUBLIC or AccessFlags.FINAL)
 }
-private val refreshToken = method("refreshToken") {
-    inClass(klass(TOKEN_MANAGER))
-    params(TOKEN_CALLBACK)
-    returns(Type.Void)
-    opcode(Opcode.INVOKE_VIRTUAL)
-}
-private val currentToken = method("currentToken") {
-    inClass(klass(TOKEN_MANAGER))
-    params()
-    returns("[B")
-    opcode(Opcode.INVOKE_VIRTUAL)
+
+/**
+ * The methods JNI calls on the app's implementation of a retained abstract interface method. An app
+ * that obfuscates the interface keeps a concrete forwarding method next to the abstract one, which
+ * reaches every implementation. Otherwise JNI calls the abstract method by its retained name, so its
+ * overrides share that name; the interface's own `CppProxy` is the opposite direction, Java into native.
+ */
+private fun nativeEntries(label: String, declaringClass: String, returns: String, vararg params: String): List<MethodTarget> {
+    val forwarders = methods("$label forwarder") {
+        inClass(klass(declaringClass))
+        params(*params)
+        returns(returns)
+        custom { instructionCount > 0 }
+    }.all
+    if (forwarders.isNotEmpty()) return forwarders
+
+    val declaration = method("$label declaration") {
+        inClass(klass(declaringClass))
+        flags(AccessFlags.ABSTRACT)
+        params(*params)
+        returns(returns)
+    }
+    val overrides = methods(label) {
+        name(declaration.name)
+        params(*params)
+        returns(returns)
+        custom { instructionCount > 0 && !owner.endsWith("\$CppProxy;") }
+    }.all
+    check(overrides.isNotEmpty()) { "No implementation of $declaringClass.${declaration.name}" }
+    return overrides
 }

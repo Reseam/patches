@@ -25,6 +25,7 @@ import app.reseam.patch.replace
 import app.reseam.patch.settings.ToggleSetting
 import app.reseam.patch.settings.whenEnabled
 import app.reseam.patches.youtube.core.YOUTUBE
+import app.reseam.patches.youtubecommon.appHelper
 
 private const val CLIENT_INFO = "com.google.protos.youtube.api.innertube.InnertubeContext\$ClientInfo"
 private const val BUILD_VERSION = "android.os.Build\$VERSION"

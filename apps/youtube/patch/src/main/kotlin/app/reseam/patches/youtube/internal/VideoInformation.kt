@@ -27,6 +27,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.replace
 import app.reseam.patches.youtube.core.YOUTUBE
+import app.reseam.patches.youtubecommon.appHelper
 
 private const val EXTENSION_CLASS = "app.reseam.youtube.video.VideoInformation"
 private const val PLAYBACK_CONTROLLER = "Lapp/reseam/youtube/video/VideoInformation\$PlaybackController;"
