@@ -14,8 +14,9 @@ import app.reseam.youtube.core.Logger;
 
 /** Removes the parameters YouTube adds to a shared link to attribute the click back to the sharer. */
 public final class SharingLinks {
+    // "is" is reported on some accounts' links next to or instead of "si".
     // "feature" is the older name and may be obsolete, but costs nothing to keep stripping.
-    private static final List<String> TRACKING_PARAMETERS = Arrays.asList("si", "feature");
+    private static final List<String> TRACKING_PARAMETERS = Arrays.asList("si", "is", "feature");
 
     private SharingLinks() {}
 
