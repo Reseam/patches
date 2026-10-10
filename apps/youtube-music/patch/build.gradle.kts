@@ -4,4 +4,5 @@
 dependencies {
     compileOnly(project(":shared:gmscore:patch"))
     compileOnly(project(":shared:youtube-common:patch"))
+    compileOnly(project(":shared:youtube-spoof:patch"))
 }

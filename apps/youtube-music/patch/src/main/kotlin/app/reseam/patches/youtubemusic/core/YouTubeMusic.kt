@@ -9,8 +9,10 @@ import app.reseam.patch.invoke
 import app.reseam.patch.klass
 import app.reseam.patch.method
 
+const val YOUTUBE_MUSIC_PACKAGE = "com.google.android.apps.youtube.music"
+
 // Pinned: some targets replace method bodies, which fails silently on a version they were not read against.
-val YOUTUBE_MUSIC: CompatiblePackage = "com.google.android.apps.youtube.music"("9.40.51")
+val YOUTUBE_MUSIC: CompatiblePackage = YOUTUBE_MUSIC_PACKAGE("9.40.51")
 
 const val MUSIC_ACTIVITY = "com.google.android.apps.youtube.music.activities.MusicActivity"
 
