@@ -9,15 +9,19 @@ import app.reseam.patch.PatchRuntime
 import app.reseam.patch.Type
 import app.reseam.patch.method
 import app.reseam.patch.methods
-import app.reseam.patch.point
 import app.reseam.patch.points
 import app.reseam.patch.settings.ToggleSetting
 import app.reseam.patch.settings.gate
 
 fun PatchRuntime.sanitizeSharedLinks(setting: ToggleSetting) {
-    gate(setting) {
-        shareSheetUrl.before {
-            capture("shareUrl").assign(call(SharingLinks.sanitize, capture("shareUrl").cast(Type.String)))
+    val copies = shareSheetCopies.all
+    check(copies.isNotEmpty()) { "No share copy text" }
+    copies.forEach {
+        gate(setting) {
+            it.captureArgumentAs("shareUrl", 1, Type.CharSequence)
+                .before {
+                    capture("shareUrl").assign(call(SharingLinks.sanitize, capture("shareUrl").cast(Type.String)))
+                }
         }
     }
     val extras = shareToAppExtras.all + shareChooserExtras.all
@@ -32,17 +36,18 @@ fun PatchRuntime.sanitizeSharedLinks(setting: ToggleSetting) {
     }
 }
 
-// The copy-link action is the one place the share URL exists as a plain String register.
+// The command dispatcher that copies text, including the share link, to the clipboard.
 private val shareSheetCopyLink = method("shareSheetCopyLink") {
     strings("text/plain")
     returns(Type.Void)
     calls { name("newPlainText") }
 }
 
-// ClipData's second argument is the shared URL; the label is independent of it.
-private val shareSheetUrl = shareSheetCopyLink.point {
+// Two copy commands write the clipboard here, and share surfaces use either. ClipData's second
+// argument is the copied text; non-YouTube text passes through the sanitizer unchanged.
+private val shareSheetCopies = shareSheetCopyLink.points("share copy text") {
     invokeStatic { owner("android.content.ClipData"); name("newPlainText") }
-}.captureArgumentAs("shareUrl", 1, Type.CharSequence)
+}
 
 private const val INTENT = "android.content.Intent"
 
