@@ -47,7 +47,7 @@ When changing the engine at the same time, set `RESEAM_WORKSPACE=/path/to/reseam
 
 ## Release
 
-Push a `vX.Y.Z` tag. CI builds and signs the bundle with the official key, writes `patches.json`, and uploads both. Reseam Manager picks up the new release on its next bundle check.
+Push a `vX.Y.Z` tag. CI builds and signs the bundle with the official key, adds the release to the latest `patches.json` with the commit subjects since the previous tag as its notes, and uploads both. Reseam Manager picks up the new release on its next bundle check.
 
 ## License
 
