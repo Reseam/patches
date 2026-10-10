@@ -3,6 +3,7 @@
 
 package app.reseam.patches.x.notifications
 
+import app.reseam.patch.Type
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
@@ -29,10 +30,13 @@ val hideNotificationPrompts = patch("Hide notification prompts") {
             "x_lite_notifications_permission_fullscreen_prompt_enabled",
             "x_lite_notifications_permission_banner_enabled",
         )
-        // With its own prompt switched off, X asks Android for the permission at startup instead.
+        // With its own prompt switched off, X asks Android for the permission at startup instead,
+        // so this one read keeps reporting the switch as on.
         gate(XSettings.hideNotificationPrompts) {
-            startupTasks.point { string(PROMPT_SWITCH); then(within = 8) { invokeStatic { hasParam("kotlin.coroutines.CoroutineContext") } } }
-                .skip()
+            startupTasks.point { string(PROMPT_SWITCH) }
+                .next { resultOf(Type.Boolean) }
+                .captureAs("promptEnabled", Type.Boolean)
+                .after { capture("promptEnabled").assign(bool(true)) }
         }
     }
 }
