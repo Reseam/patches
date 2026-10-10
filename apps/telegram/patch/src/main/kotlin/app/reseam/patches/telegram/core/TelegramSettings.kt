@@ -20,6 +20,11 @@ object TelegramSettings {
         summary = "Re-enables copy, save, and forward in chats with content protection on.",
         default = true,
     )
+    val removePlayStoreRestrictions by toggle(
+        "Remove Play Store restrictions",
+        summary = "Opens chats and media Telegram hides only in its Play Store app.",
+        default = true,
+    )
     val recoverDeleted by toggle(
         "Recover deleted messages",
         summary = "Keep messages others delete; they stay in the chat with a 🗑️ marker.",
