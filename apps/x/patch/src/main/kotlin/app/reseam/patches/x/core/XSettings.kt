@@ -3,6 +3,8 @@
 
 package app.reseam.patches.x.core
 
+import app.reseam.patch.settings.Choice
+import app.reseam.patch.settings.choice
 import app.reseam.patch.settings.toggle
 
 object XSettings {
@@ -29,4 +31,8 @@ object XSettings {
     val hideNotificationPrompts by toggle("Hide notification prompts", summary = "Stops the prompts and banner asking to turn on notifications.", default = true)
     val blockInstalledAppsScan by toggle("Block installed-apps scan", summary = "Stops X from reporting your installed apps for ad targeting.", default = true)
     val disableAdTracking by toggle("Disable ad tracking", summary = "Turns off the advertising-id and automatic analytics reporting switches.", default = true)
+
+    val shareLinkProvider by choice("Share link provider", summary = "Host used for shared post links.", default = "fixvx.com",
+        choices = listOf(Choice("fixvx.com", "FixVX"), Choice("fxtwitter.com", "FxTwitter"), Choice("vxtwitter.com", "vxTwitter"),
+            Choice("fixupx.com", "FixupX"), Choice("off", "Off (x.com)")))
 }

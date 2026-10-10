@@ -38,3 +38,8 @@ object TimelineQueryFilter : ExtClass("app.reseam.x.timeline.TimelineQueryFilter
     val hideRecommendations by static(Type.String, Type.Boolean)
     val rewrite by static(Type.String, returns = Type.String)
 }
+
+object ShareLinks : ExtClass("app.reseam.x.share.ShareLinks") {
+    val configure by static(Type.String)
+    val rewrite by static(Type.String, returns = Type.String)
+}
