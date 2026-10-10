@@ -3,11 +3,15 @@
 
 package app.reseam.patches.reddit.core
 
+import app.reseam.patch.CompatiblePackage
 import app.reseam.patch.ExtClass
 import app.reseam.patch.Type
+import app.reseam.patch.invoke
 
-// Unpinned: a target that stops matching fails loudly, so a pin would only hide breakage.
-const val REDDIT = "com.reddit.frontpage"
+const val REDDIT_PACKAGE = "com.reddit.frontpage"
+
+// Pinned: newer versions change code the targets were not read against.
+val REDDIT: CompatiblePackage = REDDIT_PACKAGE("2026.39.0")
 
 object RedditSettingsEntry : ExtClass("app.reseam.reddit.settings.RedditSettingsEntry") {
     val init by static(Type.Context)
