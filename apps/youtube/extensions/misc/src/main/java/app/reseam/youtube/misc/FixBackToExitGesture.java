@@ -9,22 +9,22 @@ import android.app.Activity;
 import app.reseam.youtube.core.Logger;
 
 public final class FixBackToExitGesture {
+    // Set only when the back press being handled scrolled a feed to the top. A scroll to the top
+    // from anything else, such as reselecting a tab, must not close the app on a later back press.
     private static boolean isTopView;
 
     private FixBackToExitGesture() {}
 
+    public static void onBackPressStarted() {
+        isTopView = false;
+    }
+
     public static void onBackPressed(Activity activity) {
         if (!isTopView) return;
+        isTopView = false;
 
         Logger.debug(() -> "Activity is closed");
         activity.finish();
-    }
-
-    public static void onScrollPositionRestored(int position) {
-        // Zero/negative positions take the normal scroll-to-top path.
-        if (position <= 0) return;
-        Logger.debug(() -> "Views are scrolling");
-        isTopView = false;
     }
 
     public static void onTopView() {

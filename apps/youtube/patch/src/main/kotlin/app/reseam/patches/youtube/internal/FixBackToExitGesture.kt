@@ -15,7 +15,6 @@ import app.reseam.patch.method
 import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.point
-import app.reseam.patch.points
 import app.reseam.patches.youtube.core.MAIN_ACTIVITY
 import app.reseam.patches.youtube.core.YOUTUBE
 
@@ -24,26 +23,13 @@ private const val ITERATOR = "java.util.Iterator"
 
 /**
  * Hiding the first feed component leaves the feed thinking it is not at the top, which breaks the
- * back gesture that should exit the app. Tracks whether the feed is scrolled to the top so the
- * back press can finish the activity itself.
+ * back gesture that should exit the app. A back press that scrolls a feed to the top finishes the
+ * activity itself.
  */
 val fixBackToExitGesture = patch {
     compatibleWith(YOUTUBE)
 
     execute {
-        restoreScrollPosition
-            .points("savedScrollPosition") {
-                invokeVirtual {
-                    owner("android.os.Bundle")
-                    name("getInt")
-                    params(Type.String, Type.Int)
-                    returns(Type.Int)
-                }
-                argument(1) { string("scroll_position") }
-            }.single()
-            .next { resultOf(Type.Int) }.captureAs("position")
-            .after { call(FixBackToExitGesture.onScrollPositionRestored, capture("position")) }
-
         // The join after the scroll-to-top loop is a branch target, so the hook goes after the
         // instruction there rather than before it, where the branch would skip it.
         scrollFeedsToTop.forEach {
@@ -53,6 +39,7 @@ val fixBackToExitGesture = patch {
                 .after { call(FixBackToExitGesture.onTopView) }
         }
 
+        mainActivityOnBackPressed.before { call(FixBackToExitGesture.onBackPressStarted) }
         mainActivityOnBackPressed
             .point("mainActivityOnBackPressedReturn") { opcode(Opcode.RETURN_VOID) }
             .before { call(FixBackToExitGesture.onBackPressed, thisObject.cast(Type.Activity)) }
@@ -60,16 +47,9 @@ val fixBackToExitGesture = patch {
 }
 
 object FixBackToExitGesture : ExtClass("app.reseam.youtube.misc.FixBackToExitGesture") {
+    val onBackPressStarted by static()
     val onTopView by static()
-    val onScrollPositionRestored by static(Type.Int)
     val onBackPressed by static(Type.Activity)
-}
-
-// Restores the feed position from its state bundle, whether scrolling is inline or delegated.
-val restoreScrollPosition = method("restoreScrollPosition") {
-    strings("scroll_position")
-    params("android.os.Bundle")
-    returns(Type.Void)
 }
 
 // Methods that scroll registered feed RecyclerViews to position 0, including instant
