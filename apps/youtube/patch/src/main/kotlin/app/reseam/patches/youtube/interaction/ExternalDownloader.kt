@@ -24,7 +24,9 @@ import app.reseam.youtube.settings.YouTubeStrings
 private val offlineVideoEndpoint = method("offline video endpoint") {
     returns(Type.Void)
     paramCount(4)
-    strings("Object is not an offlineable video: %s")
+    param(2, Type.String)
+    // Older releases concatenate the object instead of formatting the diagnostic.
+    stringsStartingWith("Object is not an offlineable video: ")
 }
 
 val externalDownloader = patch("External downloader") {

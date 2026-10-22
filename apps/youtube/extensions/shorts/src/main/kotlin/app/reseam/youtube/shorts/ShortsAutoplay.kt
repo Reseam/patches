@@ -21,6 +21,11 @@ fun setMainActivity(activity: Activity) {
 }
 
 @Export
+fun shouldAutoplay(): Boolean =
+    if (mainActivity.get()?.isInPictureInPictureMode == true) ShortsSettings.shortsAutoplayBackground.value
+    else ShortsSettings.shortsAutoplay.value
+
+@Export
 fun changeRepeatBehavior(original: Enum<*>?): Enum<*>? {
     if (original == null) return null
     if (advance == null || repeat == null) {
@@ -28,9 +33,5 @@ fun changeRepeatBehavior(original: Enum<*>?): Enum<*>? {
         advance = behaviors["REEL_LOOP_BEHAVIOR_AUTO_ADVANCE"] ?: advance
         repeat = behaviors["REEL_LOOP_BEHAVIOR_REPEAT"] ?: repeat
     }
-    val pip = mainActivity.get()?.isInPictureInPictureMode == true
-    val autoplay =
-        if (pip) ShortsSettings.shortsAutoplayBackground.value
-        else ShortsSettings.shortsAutoplay.value
-    return (if (autoplay) advance else repeat) ?: original
+    return (if (shouldAutoplay()) advance else repeat) ?: original
 }

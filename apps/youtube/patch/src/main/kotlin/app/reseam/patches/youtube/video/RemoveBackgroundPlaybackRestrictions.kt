@@ -8,7 +8,6 @@ import app.reseam.patch.Type
 import app.reseam.patch.after
 import app.reseam.patch.dex.AccessFlags
 import app.reseam.patch.dex.Opcode
-import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
@@ -29,11 +28,22 @@ private val backgroundPlaybackManagerShorts = method("Shorts background playback
     opcode(Opcode.IGET_BOOLEAN)
 }
 
+// The miniplayer renderer extension carries the kids playback policy and its command.
+private val miniplayerRenderer = method("miniplayer renderer extension") {
+    name("<clinit>")
+    literals(207720144L)
+}.point {
+    invokeStatic { name("newSingularGeneratedExtension") }
+}.writer(1).field()
+
+// Older releases enforce the same renderer policy without logging the controller's name.
 private val kidsPlaybackPolicy = method("kids background playback policy") {
-    inClass(klass("kids playback policy controller") { strings("MPPC") })
+    flags(AccessFlags.PUBLIC or AccessFlags.FINAL)
     returns(Type.Void)
     paramCount(3)
     param(0, Type.Int)
+    param(2, miniplayerRenderer.type)
+    literals(5)
 }
 
 val removeBackgroundPlaybackRestrictions = patch("Remove background playback restrictions") {

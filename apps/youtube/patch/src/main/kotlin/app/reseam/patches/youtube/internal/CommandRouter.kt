@@ -31,8 +31,9 @@ val commandRouter = patch {
     }
 }
 
+// The one class that opens Digital Wellbeing's app usage page.
 private val intentResolver = klass("intentResolver") {
-    strings("com/google/android/apps/youtube/app/watchwhile/DefaultIntentResolver")
+    strings("com.google.android.apps.wellbeing.VIEW_APP_USAGE")
 }
 
 private val intentResolverConstructor = intentResolver.methods("intentResolverConstructor") {

@@ -33,7 +33,8 @@ fun dimShortsPlayerOverlay(shortsOverlay: View?) {
         DrawSession(
             target,
             {
-                target.alpha = opacity()
+                // Before Android 10 a translucent parent turns the video surface black, so the player stays opaque.
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) target.alpha = opacity()
                 if (window != null && !timeBarHooked && reelTimeBarId != 0) {
                     window.decorView.findViewById<View>(reelTimeBarId)?.let {
                         addShortsAwareDimListener(it)

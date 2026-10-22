@@ -21,9 +21,6 @@ private const val CONTROLLER_UNINITIALISED =
 
 private const val OPTIONAL = "j\$.util.Optional"
 
-// The flag the controller reads while deciding how to present the panel it just resolved.
-private const val PANEL_PRESENTATION_FLAG = 45615449L
-
 /**
  * Tracks which engagement panel, the sheets that slide up under the player for the description,
  * comments and chapters, is open. Patches that hide something only inside one of them ask the
@@ -63,8 +60,7 @@ val engagementPanelShown = engagementPanelShow
 
 // The same method later reads the panel's identifier to queue it; that read names the field.
 val engagementPanelId = engagementPanelShow
-    .point("engagementPanelId") { literal(PANEL_PRESENTATION_FLAG) }
-    .next { invokeVirtual { owner("java.util.ArrayDeque"); name("iterator") } }
+    .point("engagementPanelId") { invokeVirtual { owner("java.util.ArrayDeque"); name("iterator") } }
     .next { opcode(Opcode.IGET_OBJECT); field { type(Type.String) } }
     .field()
 

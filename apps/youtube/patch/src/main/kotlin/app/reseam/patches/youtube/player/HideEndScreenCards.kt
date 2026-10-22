@@ -24,7 +24,8 @@ val hideEndScreenCards = patch("Hide end screen cards") {
     execute {
         gate(PlayerOverlaySettings.hideEndScreenCards) {
             method("creator end-screen initialization") {
-                strings("Error creating creator EndscreenElement, ignoring it. Style: %s")
+                // Older releases concatenate the style instead of formatting it.
+                stringsStartingWith("Error creating creator EndscreenElement, ignoring it. Style: ")
             }.before { returnVoid() }
         }
 

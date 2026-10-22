@@ -5,7 +5,9 @@ package app.reseam.patches.youtube.layout
 
 import app.reseam.patch.Type
 import app.reseam.patch.after
+import app.reseam.patch.before
 import app.reseam.patch.dex.AccessFlags
+import app.reseam.patch.dex.Opcode
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.methods
@@ -61,9 +63,11 @@ val miniplayer = patch("Miniplayer") {
         }
         // The first 192dp conversion initializes the current width. The later conversion
         // initializes the resize minimum; leave that native constraint intact.
-        sizing.point("initialMiniplayerWidth") { literal(192) }
-            .next { invokeStatic { params("android.util.DisplayMetrics", Type.Int); returns(Type.Int) } }
-            .next { resultOf(Type.Int) }.captureAs("width", Type.Int).after {
+        // Some releases inline the dp conversion; its first field write is unchanged.
+        sizing.point("initialMiniplayerWidth") {
+            invokeVirtual { owner("android.content.res.Resources"); name("getDisplayMetrics") }
+        }.next { opcode(Opcode.IPUT); field { owner(sizing.owner); type(Type.Int) } }
+            .captureAs("width", Type.Int).before {
                 capture("width").assign(Miniplayer.width(capture("width")))
             }
     }

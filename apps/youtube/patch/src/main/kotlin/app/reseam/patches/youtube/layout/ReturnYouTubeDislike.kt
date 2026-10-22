@@ -109,7 +109,8 @@ val returnYouTubeDislike = patch("Return YouTube Dislike") {
 
 private val rollingSetter = method("rolling number model builder") {
     stringsStartingWith("RollingNumberType required properties missing!")
-    paramCount(7)
+    // Older releases pass fewer context parameters to the builder.
+    hasParam("com.google.protobuf.MessageLite")
 }
 
 private val rollingFontProperties = method("rolling number font properties") {

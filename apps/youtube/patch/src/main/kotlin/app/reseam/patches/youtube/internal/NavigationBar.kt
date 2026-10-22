@@ -15,6 +15,7 @@ import app.reseam.patch.dex.opcode
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.methodTarget
+import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.points
@@ -109,10 +110,17 @@ val navigationBarHook = patch {
                 NavigationBar.setLastAppNavigationEnum(capture("enum"))
             }
         }
-        listOf(
+        // Some releases also build tabs from icon resource ids.
+        val resourceCreators = methods("pivotBarResourceCreator") {
+            inClass(pivotBarButtonsClass)
+            flags(AccessFlags.PUBLIC or AccessFlags.FINAL)
+            returns(Type.View)
+            param(0, Type.Int)
+        }.all
+        (listOf(
             drawableCreator to NavigationBar.navigationTabLoaded,
             styledCreator to NavigationBar.navigationImageResourceTabLoaded,
-        ).forEach { (creator, hook) ->
+        ) + resourceCreators.map { it to NavigationBar.navigationTabLoaded }).forEach { (creator, hook) ->
             pivotBarInitialized.points("navigation tabs") { calls(creator) }.forEach {
                 next { resultOf(Type.View) }.captureAs("tab").after { call(hook, capture("tab")) }
             }

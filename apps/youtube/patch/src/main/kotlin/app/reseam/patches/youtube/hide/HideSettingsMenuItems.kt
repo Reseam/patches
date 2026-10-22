@@ -5,6 +5,7 @@ package app.reseam.patches.youtube.hide
 
 import app.reseam.patch.Type
 import app.reseam.patch.after
+import app.reseam.patch.dex.AccessFlags
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
@@ -18,6 +19,8 @@ import app.reseam.youtube.settings.AppearanceSettings
 import app.reseam.youtube.settings.YouTubeStrings
 
 private const val PREFERENCE_SCREEN = "androidx.preference.PreferenceScreen"
+private const val PREFERENCE_GROUP = "androidx.preference.PreferenceGroup"
+private const val PREFERENCE = "androidx.preference.Preference"
 
 // Preference keys from YouTube's settings XML. Premium has one row for members and one for offers.
 private val ROWS = mapOf(
@@ -42,28 +45,52 @@ val hideSettingsMenuItems = patch("Hide settings menu items") {
     settings(youTubeSettings, section(YouTubeSettingsPages.Appearance, YouTubeStrings.sectionSettingsMenu, *ROWS.values.distinct().toTypedArray()))
 
     execute {
-        val screen = removeServerHiddenRows
+        val screenRead = rebuildSettings
             .point("settingsScreen") { invokeVirtual { returns(PREFERENCE_SCREEN); params() } }
-            .callee()
+        val screen = screenRead.callee()
+        val fragment = screenRead.writer(0).field()
         // Runs after every rebuild of the screen, once YouTube has dropped the rows it hides itself.
-        removeServerHiddenRows.after {
-            val rows = thisObject.call(screen)
-            ROWS.forEach { (key, toggle) ->
-                whenEnabled(toggle) { rows.call(removeRowByKey, string(key)) }
+        rebuildSettings.after {
+            val rows = thisObject.field(fragment).call(screen)
+            whenNotNull(rows) {
+                ROWS.forEach { (key, toggle) ->
+                    whenEnabled(toggle) {
+                        val row = rows.call(findRowByKey, string(key))
+                        whenNotNull(row) { row.fieldOfType(PREFERENCE_GROUP).call(removeRow, row) }
+                    }
+                }
             }
         }
     }
 }
 
-// Finds the row anywhere under the group by its key and removes it from its own parent.
-private val removeRowByKey = method("removeRowByKey") {
-    inClass(klass("androidx.preference.PreferenceGroup"))
+// Older releases inline removal by key, but keep the recursive lookup and parent removal methods.
+private val findRowByKey = method("findRowByKey") {
+    inClass(klass(PREFERENCE_GROUP))
     params(Type.CharSequence)
-    returns(Type.Void)
+    returns(PREFERENCE)
 }
 
-private val removeServerHiddenRows = method("removeServerHiddenRows") {
-    calls(removeRowByKey)
-    params(Type.List)
+private val removeRow = method("removeRow") {
+    inClass(klass(PREFERENCE_GROUP))
+    flags(AccessFlags.PUBLIC)
+    params(PREFERENCE)
     returns(Type.Void)
+    calls(removeRowInternal)
+}
+
+private val removeRowInternal = method("removeRowInternal") {
+    inClass(klass(PREFERENCE_GROUP))
+    params(PREFERENCE)
+    returns(Type.Void)
+    calls { owner("java.util.List"); name("remove"); params(Type.Object) }
+}
+
+// The settings rebuild restores the requested fragment after applying the server's hidden rows.
+private val rebuildSettings = method("rebuildSettings") {
+    strings(":android:show_fragment")
+    name("run")
+    params()
+    returns(Type.Void)
+    calls { returns(PREFERENCE_SCREEN); params() }
 }

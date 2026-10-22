@@ -18,6 +18,7 @@ import app.reseam.patch.dex.parameterTypes
 import app.reseam.patch.dex.returnType
 import app.reseam.patch.field
 import app.reseam.patch.method
+import app.reseam.patch.methods
 import app.reseam.patch.native.NewField
 import app.reseam.patch.patch
 import app.reseam.patch.point
@@ -31,7 +32,6 @@ import app.reseam.patches.youtube.internal.lithoTextHook
 import app.reseam.patches.youtube.internal.videoInformationHook
 import app.reseam.patches.youtubecommon.lithoFilter
 import app.reseam.patches.youtubecommon.registerLithoFilter
-import app.reseam.patches.youtubecommon.setPlaybackRate
 import app.reseam.youtube.settings.VideoSettings
 import app.reseam.youtube.settings.YouTubeStrings
 import app.reseam.youtube.speed.bindings.CustomPlaybackSpeed
@@ -49,7 +49,17 @@ private val oldPlaybackSpeedMenuClass = classTarget("old playback speed menu cla
     bytecode.findClass(oldPlaybackSpeedMenu.owner) ?: error("The old playback speed menu class is missing")
 }
 
-private val serverSideMaxSpeedFlag = method("server side maximum speed flag") {
+// Older releases clamp the rate without logging the setter's name or taking server limits.
+private val playbackRateBounds = method("playback rate bounds") {
+    flags(AccessFlags.PUBLIC or AccessFlags.FINAL)
+    returns(Type.Void)
+    param(0, Type.Float)
+    literals(0.25f.toRawBits().toLong(), 4.0f.toRawBits().toLong())
+    calls { owner("java.lang.Float"); name("isNaN"); params(Type.Float); returns(Type.Boolean) }
+}
+
+// Older releases predate server-provided playback speed limits.
+private val serverSideMaxSpeedFlag = methods("server side maximum speed flag") {
     flags(AccessFlags.PUBLIC or AccessFlags.FINAL)
     returns(Type.Boolean)
     params()
@@ -116,19 +126,19 @@ val customPlaybackSpeed = patch("Custom playback speed") {
     )
 
     execute {
-        setPlaybackRate.point("minimum playback speed") {
+        playbackRateBounds.point("minimum playback speed") {
             opcode(Opcode.CONST_HIGH16)
             literal((0.25f.toRawBits()).toLong())
         }.captureAs("minimum", Type.Float).after {
             capture("minimum").assign(staticField(CustomPlaybackSpeed.minimumSpeed))
         }
-        setPlaybackRate.point("maximum playback speed") {
+        playbackRateBounds.point("maximum playback speed") {
             opcode(Opcode.CONST_HIGH16)
             literal((4.0f.toRawBits()).toLong())
         }.captureAs("maximum", Type.Float).after {
             capture("maximum").assign(staticField(CustomPlaybackSpeed.maximumSpeed))
         }
-        serverSideMaxSpeedFlag.alwaysReturn(false)
+        serverSideMaxSpeedFlag.forEach { alwaysReturn(false) }
 
         // The old speed menu lists the custom speeds: an empty server list makes YouTube generate
         // its own, which then takes its length and values from the custom array.

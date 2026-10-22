@@ -37,13 +37,13 @@ internal val gnpPackageName = method("gnpRegistration") { strings("Exception rea
     .next { resultOf(Type.String) }
     .captureAs("packageName", Type.String)
 
-// The Gservices prefix query, which copies the rows it read into the app's cache.
-internal val gservicesCacheFill = method("gservicesPrefixQuery") {
+// The Gservices prefix query, which copies the rows it read into the app's cache. Older releases
+// cache them in a HashMap, which takes nulls.
+internal val gservicesCacheFills = method("gservicesPrefixQuery") {
     strings("ContentProvider query returned null cursor")
     returns(Type.Void)
     params("android.content.ContentResolver", "java.lang.String[]")
-}.point("gservicesCacheFill") { invokeInterface { name("putAll"); params(Type.Map) } }
-    .captureArgumentAs("rows", 1, Type.Map)
+}.points("gservicesCacheFill") { invokeInterface { name("putAll"); params(Type.Map) } }
 
 internal val castProviderQueries = methods("castProviderDiscovery") {
     strings("android.media.MediaRouteProviderService")

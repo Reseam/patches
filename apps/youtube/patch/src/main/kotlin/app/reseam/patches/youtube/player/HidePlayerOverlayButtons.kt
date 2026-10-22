@@ -9,7 +9,6 @@ import app.reseam.patch.after
 import app.reseam.patch.before
 import app.reseam.patch.dex.AccessFlags
 import app.reseam.patch.dex.Opcode
-import app.reseam.patch.dex.literal
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.methodTarget
@@ -17,6 +16,7 @@ import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.points
+import app.reseam.patch.redirectTo
 import app.reseam.patch.settings.ToggleSetting
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
@@ -119,6 +119,7 @@ val hidePlayerOverlayButtons = patch("Hide player overlay buttons") {
 
         val controlsGroup = resources.id("id", "youtube_controls_button_group_layout_stub")?.toLong()
             ?: error("id/youtube_controls_button_group_layout_stub is missing")
+        // Older releases discard the inflated view; wrap the call to keep its result.
         playerLayoutInitializer
             .point("player controls group") { literal(controlsGroup) }
             .next { checkCast("android.view.ViewStub") }
@@ -130,9 +131,7 @@ val hidePlayerOverlayButtons = patch("Hide player overlay buttons") {
                     returns(Type.View)
                 }
             }
-            .next { resultOf(Type.View) }.captureAs("controls", Type.View).after {
-                HidePlayerOverlayButtons.hidePlayerControlButtonsBackground(capture("controls"))
-            }
+            .redirectTo(HidePlayerOverlayButtons.inflatePlayerControlButtons)
 
         val collapse = resources.id("id", "player_collapse_button")?.toLong()
             ?: error("id/player_collapse_button is missing")

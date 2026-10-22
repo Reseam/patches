@@ -6,7 +6,6 @@ package app.reseam.patches.youtube.misc
 import app.reseam.patch.Type
 import app.reseam.patch.after
 import app.reseam.patch.klass
-import app.reseam.patch.method
 import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
@@ -28,26 +27,32 @@ val featureFlagOverrides = patch("Feature flag overrides") {
     settings(youTubeSettings, section(YouTubeSettingsPages.Advanced, YouTubeStrings.sectionExperiments, AdvancedSettings.featureFlagOverrides))
 
     execute {
-        val accessors = klass(protoFeatureFlagParser.owner)
+        val accessors = klass(protoFeatureFlagParsers.all.map { it.owner }.distinct().single())
         methods("booleanFeatureFlag") {
             inClass(accessors)
-            param(0, Type.Long)
+            hasParam(Type.Long)
+            custom { parameterTypes.first() == Type.Long || parameterTypes.drop(1) == listOf(Type.Long, Type.Boolean) }
             returns(Type.Boolean)
         }.forEach {
-            after { returnValue(FeatureFlags.booleanOverride(param(0), result)) }
+            // Older releases pass the flag store before the id to static accessors.
+            val id = parameterTypes.indexOf(Type.Long)
+            after { returnValue(FeatureFlags.booleanOverride(param(id), result)) }
         }
         methods("stringFeatureFlag") {
             inClass(accessors)
-            param(0, Type.Long)
+            hasParam(Type.Long)
+            custom { parameterTypes.first() == Type.Long || parameterTypes.drop(1) == listOf(Type.Long, Type.String) }
             returns(Type.String)
         }.forEach {
-            after { returnValue(FeatureFlags.stringOverride(param(0), result)) }
+            val id = parameterTypes.indexOf(Type.Long)
+            after { returnValue(FeatureFlags.stringOverride(param(id), result)) }
         }
     }
 }
 
-// The proto reader identifies the shared accessor class through its parse diagnostic.
-val protoFeatureFlagParser = method("protoFeatureFlagParser") {
+// The proto readers identify one shared accessor class; older releases have several specialisations.
+private val protoFeatureFlagParsers = methods("protoFeatureFlagParsers") {
     strings("Unable to parse proto typed experiment flag: ")
-    params(Type.Long, "[B")
+    hasParam(Type.Long)
+    hasParam("[B")
 }

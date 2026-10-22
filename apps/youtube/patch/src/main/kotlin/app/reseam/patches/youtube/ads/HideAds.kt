@@ -136,7 +136,10 @@ val hideAds = patch("Hide ads") {
         }
 
         hideById("ad_attribution", AdsSettings.hideGeneralAds)
-        hideById("paid_promotion_label_text_view", AdsSettings.hidePaidPromotionLabel)
+        // Older releases predate the paid promotion label beside the player timestamps.
+        if (resources.id("id", "paid_promotion_label_text_view") != null) {
+            hideById("paid_promotion_label_text_view", AdsSettings.hidePaidPromotionLabel)
+        }
 
         gate(AdsSettings.hidePlayerPopupAds) {
             engagementPanelShown.before {

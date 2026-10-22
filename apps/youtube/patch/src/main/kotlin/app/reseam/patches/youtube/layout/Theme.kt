@@ -7,10 +7,13 @@ package app.reseam.patches.youtube.layout
 import app.reseam.patch.Type
 import app.reseam.patch.after
 import app.reseam.patch.dex.AccessFlags
+import app.reseam.patch.dex.literal
 import app.reseam.patch.klass
 import app.reseam.patch.method
+import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.point
+import app.reseam.patch.points
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.MAIN_ACTIVITY
 import app.reseam.patches.youtube.core.YOUTUBE
@@ -60,18 +63,22 @@ val theme = patch("Theme") {
             .forEach { (background, color) ->
                 resources.addColor(background.color, color)
                 if (materialYouColors) resources.addColor(background.color, "@android:color/${background.systemColor}", DYNAMIC_COLORS)
-                background.paletteStyles.forEach { style ->
+                // Older releases predate some palette styles, and the oldest predate the palette.
+                val paletteStyles = background.paletteStyles.filter { resources.exists("style", it) }
+                paletteStyles.forEach { style ->
                     resources.style(style) { PALETTE_BACKGROUNDS.forEach { this[it] = "@color/${background.color}" } }
                 }
+                if (paletteStyles.isEmpty()) background.legacyColors.forEach { resources.addColor(it, "@color/${background.color}") }
             }
 
         // File-backed color selectors let Android select the night variant before app startup.
         // A default-only splash color produces a white flash even when the app uses a dark theme.
         listOf("" to LIGHT.color, "night" to DARK.color).forEach { (qualifier, color) ->
-            val directory = if (qualifier.isEmpty()) "color" else "color-$qualifier"
-            resources.addFile("color", SPLASH_COLOR, "res/$directory/$SPLASH_COLOR.xml",
+            resources.addColor(SPLASH_COLOR, "@color/$color", qualifier)
+            val selector = if (qualifier.isEmpty()) SELECTOR_DRAWABLES else "$qualifier-$SELECTOR_DRAWABLES"
+            resources.addFile("color", SPLASH_COLOR, "res/color-$selector/$SPLASH_COLOR.xml",
                 """<selector xmlns:android="http://schemas.android.com/apk/res/android"><item android:color="@color/$color" /></selector>""".toByteArray(),
-                qualifier)
+                selector)
         }
 
         // Both launchscreen configurations are file-backed even though the release APK has no
@@ -105,7 +112,7 @@ val theme = patch("Theme") {
 
         splashScreenStyle
             .point {
-                literal(SPLASH_STYLE_RESOURCE)
+                where { this.literal in SPLASH_STYLE_RESOURCES }
                 then(within = 6) { resultOf(Type.Int) }
             }
             .captureAs("style", Type.Int)
@@ -118,6 +125,12 @@ val theme = patch("Theme") {
         splashStartupCheck.writer(0, "splashStartupState")
             .captureAs("startupState", Type.Int)
             .after { capture("startupState").assign(ThemePatch.splashStartupState(capture("startupState"))) }
+
+        // On Android 9 and older a server experiment makes the app read a stale copy of the Dark theme
+        // switch. Reading the copy as unset makes the app read the switch again and refresh the copy.
+        darkThemeCopyReads.forEach {
+            next { resultOf(Type.Int) }.captureAs("darkThemeCopy", Type.Int).after { capture("darkThemeCopy").assign(int(0)) }
+        }
     }
 }
 
@@ -125,18 +138,22 @@ private class Background(
     val color: String,
     val systemColor: String,
     val paletteStyles: List<String>,
+    val legacyColors: List<String>,
 )
 
+// Releases without the palette use the legacy colors, whose values the extension also replaces.
 private val DARK = Background(
     color = "reseam_theme_dark_background",
     systemColor = "system_neutral1_900",
     paletteStyles = listOf("yt.sys.color.baseline.dark", "yt.sys.color.baseline.dark.cooler"),
+    legacyColors = listOf("yt_black0", "yt_black1", "yt_black2", "yt_black3", "yt_black1_opacity98"),
 )
 
 private val LIGHT = Background(
     color = "reseam_theme_light_background",
     systemColor = "system_neutral1_50",
     paletteStyles = listOf("yt.sys.color.baseline"),
+    legacyColors = listOf("yt_white1", "yt_white2", "yt_white1_opacity98"),
 )
 
 // The palette styles feed the theme's surface attributes.
@@ -150,8 +167,12 @@ private val PALETTE_BACKGROUNDS = listOf(
 // views that read the theme attribute's raw color.
 private const val DYNAMIC_COLORS = "v31"
 
+// A selector stands in for a drawable from Android 10; earlier versions take the plain color.
+private const val SELECTOR_DRAWABLES = "v29"
+
 private const val GRADIENT_LOADING_SCREEN = 45412406L
-private const val SPLASH_STYLE_RESOURCE = 1074339245L
+// Older releases read the splash style under the second id.
+private val SPLASH_STYLE_RESOURCES = listOf(1074339245L, 269032877L)
 
 private val useGradientLoadingScreen = method("useGradientLoadingScreen") {
     literals(GRADIENT_LOADING_SCREEN)
@@ -163,10 +184,21 @@ private val splashScreenStyle = method("splashScreenStyle") {
     flags(AccessFlags.PROTECTED or AccessFlags.FINAL)
     params("android.os.Bundle")
     returns(Type.Void)
-    literals(SPLASH_STYLE_RESOURCE)
+}
+
+// The flag holding the app's copy of the Dark theme switch.
+private const val DARK_THEME_COPY = 269735L
+
+// The setter that writes the copy takes the new theme; only the reader takes no arguments.
+private val darkThemeCopyReads = methods("darkThemeReader") {
+    params()
+    literals(DARK_THEME_COPY)
+}.points("darkThemeCopyRead") {
+    invoke { params(Type.Int); returns(Type.Int) }
+    argument(1) { literal(DARK_THEME_COPY) }
 }
 
 // The startup-state predicate gates the splash initialization block. Follow it backward
 // from the splash style rather than matching an unrelated earlier boolean in onCreate.
-private val splashStartupCheck = splashScreenStyle.point { literal(SPLASH_STYLE_RESOURCE) }
+private val splashStartupCheck = splashScreenStyle.point { where { this.literal in SPLASH_STYLE_RESOURCES } }
     .previous { invokeStatic { params(Type.Int); returns(Type.Boolean) } }

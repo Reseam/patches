@@ -9,6 +9,7 @@ package app.reseam.youtube.playerui
 import android.graphics.Color
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewStub
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import app.reseam.bundle.Logger
@@ -89,6 +90,10 @@ fun hideFullscreenButton(view: View?): View? {
     }
     return view
 }
+
+@Export
+fun inflatePlayerControlButtons(stub: ViewStub): View =
+    stub.inflate().also { hidePlayerControlButtonsBackground(it) }
 
 @Export
 fun hidePlayerControlButtonsBackground(root: View?) {
