@@ -24,7 +24,9 @@ private const val OPUS_AUDIO = "audio/webm"
 private const val STATE_TOKEN = 1
 private const val STATE_VALIDITY = 3
 private const val STATE_ACTION = 5
+private const val ACTION_UNKNOWN = 0L
 private const val ACTION_OK = 1L
+private const val ACTION_DISABLE = 3L
 private val validitySeconds = 30.days.inWholeSeconds
 private val retryMilliseconds = 30.seconds.inWholeMilliseconds
 private val expiryMarginMilliseconds = 30.minutes.inWholeMilliseconds
@@ -47,6 +49,17 @@ fun replaceRefused(playerResponse: ByteArray): ByteArray? {
             }
     return answer.response
 }
+
+/**
+ * The offline state allowed again when the server disables a download or withholds its action, as it
+ * does for free accounts; null for allowed states and the server's other actions, such as delete.
+ */
+@Export
+fun allowRefusedState(state: ByteArray): ByteArray? =
+    when (Proto.number(state, STATE_ACTION, ACTION_UNKNOWN)) {
+        ACTION_UNKNOWN, ACTION_DISABLE -> allowed(state)
+        else -> null
+    }
 
 private fun answer(videoId: String, refusal: ByteArray): Answer {
     val streams = fetchOfflineStreams(videoId)

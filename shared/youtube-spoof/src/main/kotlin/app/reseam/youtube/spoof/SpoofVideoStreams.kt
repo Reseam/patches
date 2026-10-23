@@ -51,11 +51,12 @@ fun fetchStreams(url: String?, requestHeaders: Map<String?, String?>?, requestBo
         val path = uri.path ?: return
         if (!path.contains("player")) return
         if (listOf("get_drm_license", "heartbeat", "ad_break").any { it in path }) return
+        // Some apps send their offline requests through a path this hook does not see, so downloads use the
+        // identity of the latest player request of any kind.
+        StreamingDataRequest.setOfflineHeaders(requestHeaders)
+        if (isOfflinePlayerRequest(requestBody)) return
         val videoId = uri.getQueryParameter("id")?.takeIf { it.isNotEmpty() } ?: return
-        if (isOfflinePlayerRequest(requestBody))
-            StreamingDataRequest.setOfflineHeaders(requestHeaders)
-        else if (isSpoofingEnabled())
-            StreamingDataRequest.fetchRequest(videoId, requestHeaders, requestBody)
+        if (isSpoofingEnabled()) StreamingDataRequest.fetchRequest(videoId, requestHeaders, requestBody)
     } catch (exception: Exception) {
         Logger.error(exception) { "Spoof stream URL failure" }
     }

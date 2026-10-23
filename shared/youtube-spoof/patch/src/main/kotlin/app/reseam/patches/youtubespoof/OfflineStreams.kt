@@ -8,6 +8,7 @@ import app.reseam.patch.PatchRuntime
 import app.reseam.patch.Type
 import app.reseam.patch.ValueRef
 import app.reseam.patch.before
+import app.reseam.patch.classTarget
 import app.reseam.patch.dex.AccessFlags
 import app.reseam.patch.dex.Opcode
 import app.reseam.patch.klass
@@ -16,6 +17,7 @@ import app.reseam.patch.methods
 import app.reseam.patch.point
 import app.reseam.patch.settings.ToggleSetting
 import app.reseam.patch.settings.whenEnabled
+import app.reseam.patches.youtubecommon.parseProtobuf
 import app.reseam.patches.youtubecommon.protobufBytes
 import app.reseam.patches.youtubecommon.videoIdGetter
 import app.reseam.youtube.spoof.bindings.OfflineStreams
@@ -39,6 +41,24 @@ fun PatchRuntime.answerRefusedDownloads(setting: ToggleSetting) {
         param(0, playerResponseClass.descriptor)
     }.forEach { before { answer(param(0), param(0)) } }
 }
+
+/** Keeps downloads playable when the server refuses their offline state as it renews it. */
+fun PatchRuntime.answerRefusedOfflineStates(setting: ToggleSetting) {
+    val stateClass = classTarget("offline state") {
+        bytecode.findClass(offlineStateField.type) ?: error("The offline state class is missing")
+    }
+    offlinePolicyUpdates.forEach {
+        before {
+            whenEnabled(setting) {
+                val state = paramOfType(stateClass.descriptor)
+                val allowed = OfflineStreams.allowRefusedState(protobufBytes(state))
+                whenNotNull(allowed) { state.assign(parseProtobuf(stateClass, "offline state", allowed)) }
+            }
+        }
+    }
+}
+
+private val offlinePolicyUpdates = methods("offline video policy updates") { strings("updateVideoPolicy") }
 
 private val playerResponseReceiver = method("player response receiver") {
     calls(createStreamingData)

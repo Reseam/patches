@@ -16,6 +16,8 @@ object YouTubeMusicSettings : SettingsGroup(YouTubeMusicStrings) {
 
     val audioOnlyPlayback by toggle(default = true)
 
+    val unlockDownloads by toggle(default = true)
+
     val hideVideoAds by toggle(default = true)
 
     val hideHomeTab by toggle(default = false)

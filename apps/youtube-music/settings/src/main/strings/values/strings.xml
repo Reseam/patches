@@ -85,6 +85,8 @@
     <string name="start_minimized">Start in miniplayer</string>
     <string name="start_minimized_summary">Keeps the player minimized when a new song starts.</string>
     <string name="playback_speed">Playback speed</string>
+    <string name="unlock_downloads">Unlock downloads</string>
+    <string name="unlock_downloads_summary">Downloads songs, albums and playlists without Premium.</string>
     <string name="section_premium">Premium</string>
     <string name="section_ads">Ads</string>
     <string name="section_diagnostics">Diagnostics</string>
@@ -114,6 +116,7 @@
     <string name="section_stream_compatibility">Stream compatibility</string>
     <string name="section_audio">Audio</string>
     <string name="section_background">Background</string>
+    <string name="section_downloads">Downloads</string>
     <string name="section_speed">Speed</string>
     <string name="section_branding">Branding</string>
 </resources>
