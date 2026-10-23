@@ -3,11 +3,13 @@
 
 package app.reseam.youtube.savetodevice
 
-import android.media.MediaDataSource
 import java.io.BufferedInputStream
+import java.io.Closeable
 import java.io.DataInputStream
+import java.io.EOFException
 import java.io.File
 import java.io.IOException
+import java.io.OutputStream
 import java.io.RandomAccessFile
 import java.nio.ByteBuffer
 import javax.crypto.Cipher
@@ -21,12 +23,12 @@ private const val INDEX = "cached_content_index.exi"
 private const val INDEX_VERSION = 2
 private const val INDEX_FLAG_ENCRYPTED = 1
 private const val BLOCK = 16
+internal const val COPY_BUFFER = 1 shl 20
 
 internal class StreamCacheException(val reason: Reason) : IOException(reason.name) {
     enum class Reason { MISSING, INCOMPLETE }
 }
 
-/** Finds the stream's cache folder and content id, and opens its bytes as the app wrote them. */
 internal fun openStream(stream: SavedStream, key: SecretKey): CachedStream {
     for (folder in stream.folders) {
         val id = readIndex(folder, key)?.get(stream.cacheKey) ?: continue
@@ -91,23 +93,42 @@ private fun spans(folder: File, id: Int, length: Long): List<Span> {
 /**
  * Random access to a cached stream. The downloader encrypts content with AES-CTR keyed by the downloads key, the
  * nonce being the FNV-1a hash of the cache key and the counter the block at the byte's position in the content.
+ * Reads are fastest in order, which avoids re-initialising the cipher.
  */
 internal class CachedStream(
     private val spans: List<Span>,
     cacheKey: String,
     private val key: SecretKey,
-    private val length: Long,
-) : MediaDataSource() {
+    val length: Long,
+) : Closeable {
     private val nonce = cacheKey.fold(0L) { hash, char -> (hash xor char.code.toLong()) * 0x100000001b3L }
     private var file: RandomAccessFile? = null
     private var span: Span? = null
     private var cipher: Cipher? = null
     private var next = -1L
 
-    override fun getSize(): Long = length
+    fun read(position: Long, size: Int): ByteArray = ByteArray(size).also { readFully(position, it, 0, size) }
 
-    @Synchronized
-    override fun readAt(position: Long, buffer: ByteArray, offset: Int, size: Int): Int {
+    fun readFully(position: Long, buffer: ByteArray, offset: Int, size: Int) {
+        var done = 0
+        while (done < size) {
+            val count = readAt(position + done, buffer, offset + done, size - done)
+            if (count <= 0) throw EOFException("Read past the end of the cached stream")
+            done += count
+        }
+    }
+
+    fun copyTo(output: OutputStream, position: Long, size: Long, buffer: ByteArray) {
+        var done = 0L
+        while (done < size) {
+            val count = minOf(buffer.size.toLong(), size - done).toInt()
+            readFully(position + done, buffer, 0, count)
+            output.write(buffer, 0, count)
+            done += count
+        }
+    }
+
+    private fun readAt(position: Long, buffer: ByteArray, offset: Int, size: Int): Int {
         if (position >= length) return -1
         if (position != next) seek(position)
         val span = checkNotNull(span)
@@ -136,7 +157,6 @@ internal class CachedStream(
         next = position
     }
 
-    @Synchronized
     override fun close() {
         file?.close()
         file = null

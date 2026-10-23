@@ -15,7 +15,6 @@ import app.reseam.youtubesavetodevice.settings.SaveToDeviceSettings
 // The offline store's media status once every stream of a download is stored.
 private const val COMPLETE = "COMPLETE"
 
-/** Saves a download as it completes, when the user asked for every download to be saved. */
 @Export
 fun onDownloadStatus(videoId: String?, status: String?) {
     if (videoId == null || status != COMPLETE || !SaveToDeviceSettings.saveNewDownloads.value) return
@@ -24,7 +23,6 @@ fun onDownloadStatus(videoId: String?, status: String?) {
     enqueue(context, tree, SaveTarget.Video(videoId))
 }
 
-/** Saves [target], asking for the save folder first when none is set. */
 internal fun request(activity: Activity, target: SaveTarget) {
     val context = activity.applicationContext
     saveFolder(context)?.let { return enqueue(context, it, target) }

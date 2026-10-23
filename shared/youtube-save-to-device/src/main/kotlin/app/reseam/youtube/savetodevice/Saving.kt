@@ -17,7 +17,6 @@ import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.IOException
-import java.io.RandomAccessFile
 import java.util.concurrent.Executors
 
 internal sealed class SaveTarget(val label: String) {
@@ -103,35 +102,30 @@ private fun save(
     track: Pair<Int, Int>?,
 ): Uri? {
     val resolver = context.contentResolver
-    val temporary = File.createTempFile("save-${video.videoId}", null, context.cacheDir)
     var document: Uri? = null
+    var streams = emptyList<CachedStream>()
     try {
         if (track == null) notifications.progress(id, video.title, SaveToDeviceStrings.saving(video.title), 0f)
+        val container = Container.of(video.streams)
         val key = store.key
-        val streams = video.streams.map { openStream(it, key) }
-        val container =
-            remux(streams, temporary) { fraction ->
-                if (track == null) notifications.progress(id, video.title, SaveToDeviceStrings.saving(video.title), fraction)
-            }
+        streams = video.streams.map { openStream(it, key) }
         val audioOnly = video.streams.all { it.mimeType.startsWith("audio/") }
-        val (mimeType, extension) =
-            when (container) {
-                Container.MP4 -> if (audioOnly) "audio/mp4" to "m4a" else "video/mp4" to "mp4"
-                Container.WEBM -> if (audioOnly) "audio/webm" to "webm" else "video/webm" to "webm"
-            }
         val name = fileName(if (audioOnly && video.artist != null) "${video.artist} - ${video.title}" else video.title)
         val created =
-            DocumentsContract.createDocument(resolver, parent, mimeType, "$name.$extension")
+            DocumentsContract.createDocument(resolver, parent, container.mimeType(audioOnly), "$name.${container.extension(audioOnly)}")
                 ?: throw FileNotFoundException("The save folder refused a new file")
         document = created
+        val onProgress: (Float) -> Unit = { fraction ->
+            if (track == null) notifications.progress(id, video.title, SaveToDeviceStrings.saving(video.title), fraction)
+        }
         val output = resolver.openOutputStream(created, "w") ?: throw FileNotFoundException("No output stream")
-        output.use { stream ->
+        output.buffered(COPY_BUFFER).use { stream ->
             when (container) {
-                Container.MP4 ->
-                    RandomAccessFile(temporary, "r").use { source ->
-                        writeTagged(source.channel, stream, Tags(video.title, video.artist, video.album, track, cover(video.cover)))
-                    }
-                Container.WEBM -> temporary.inputStream().use { it.copyTo(stream) }
+                Container.MP4 -> {
+                    val tags = Tags(video.title, video.artist, video.album, track, cover(video.cover))
+                    writeMp4(streams, stream, tags, audioOnly, onProgress)
+                }
+                Container.WEBM -> writeWebm(streams, stream, onProgress)
             }
         }
         return created
@@ -141,7 +135,7 @@ private fun save(
         notifications.failed(id, video.title, reason(exception))
         return null
     } finally {
-        temporary.delete()
+        streams.forEach(CachedStream::close)
     }
 }
 

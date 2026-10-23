@@ -24,7 +24,6 @@ private const val OFFLINE_VIDEO_ENDPOINT = 73080600
 private const val OFFLINE_PLAYLIST_ENDPOINT = 73082583
 private const val ENDPOINT_ID = 1
 
-/** A Save to device menu item, as the app's menu item message bytes, for one download. */
 class SaveMenuItem internal constructor(val bytes: ByteArray, internal val target: SaveTarget)
 
 private val items = WeakHashMap<Any, SaveTarget>()
@@ -55,7 +54,6 @@ fun saveMenuItem(context: Context, downloadItem: ByteArray, iconType: Long): Sav
     return SaveMenuItem(Proto.Writer().bytes(SERVICE_ITEM, item).toByteArray(), target)
 }
 
-/** Remembers the app's message built from [item], so a tap on it can be recognized. */
 fun register(message: Any, item: SaveMenuItem) {
     items[message] = item.target
 }

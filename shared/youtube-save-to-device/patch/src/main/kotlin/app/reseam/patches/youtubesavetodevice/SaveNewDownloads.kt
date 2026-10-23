@@ -12,7 +12,6 @@ import app.reseam.patch.point
 import app.reseam.patch.reserveLocal
 import app.reseam.youtube.savetodevice.bindings.SaveToDevice
 
-/** Tells Save to device about each download the offline store records as complete. */
 fun PatchRuntime.saveNewDownloads() {
     val statusType = mediaStatusUpdate.parameterTypes[1]
     val videoId = mediaStatusUpdate.reserveLocal("savedVideoId", Type.String)
