@@ -60,7 +60,7 @@ private val menuIcon = klass("menuIcon") {
 }
 
 // Binds one menu row. Toggle rows read their state from these context keys.
-private val bindMenuRow = method("bindMenuRow") {
+internal val bindMenuRow = method("bindMenuRow") {
     strings("toggleMenuItemMutations", "sharedToggleMenuItemMutations")
     params()
     returns(Type.Void)

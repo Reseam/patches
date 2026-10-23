@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="save_folder">Save folder</string>
+    <string name="save_folder_summary">Where Save to device puts downloads. You choose it the first time you save.</string>
+    <string name="save_new_downloads">Save new downloads to device</string>
+    <string name="save_new_downloads_summary">Also saves every download to the save folder when it finishes.</string>
+    <string name="save_to_device">Save to device</string>
+    <string name="notification_channel">Saved downloads</string>
+    <string name="saving">Saving <xliff:g id="title">%1$s</xliff:g></string>
+    <string name="saving_progress">Saving <xliff:g id="done">%1$d</xliff:g> of <xliff:g id="total">%2$d</xliff:g></string>
+    <string name="saved">Saved <xliff:g id="title">%1$s</xliff:g></string>
+    <string name="saved_count">Saved <xliff:g id="count">%1$d</xliff:g> downloads</string>
+    <string name="save_failed">Couldn\'t save <xliff:g id="title">%1$s</xliff:g></string>
+    <string name="save_failed_unsupported">The download\'s format can\'t be saved as a file.</string>
+    <string name="save_failed_incomplete">The download hasn\'t finished.</string>
+    <string name="save_failed_folder">The save folder is no longer available. Choose it again in Reseam Settings.</string>
+    <string name="save_failed_space">There isn\'t enough space in the save folder.</string>
+    <string name="open">Open</string>
+</resources>
