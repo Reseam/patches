@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_save_to_device">Save to device</string>
     <string name="save_folder">Save folder</string>
     <string name="save_folder_summary">Where Save to device puts downloads. You choose it the first time you save.</string>
     <string name="save_new_downloads">Save new downloads to device</string>

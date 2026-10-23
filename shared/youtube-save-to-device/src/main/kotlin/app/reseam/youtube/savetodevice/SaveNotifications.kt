@@ -10,17 +10,21 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.SystemClock
 import android.provider.DocumentsContract
 import app.reseam.youtubesavetodevice.settings.SaveToDeviceStrings
 import java.util.concurrent.atomic.AtomicInteger
 
 private const val CHANNEL = "reseam_save_to_device"
 private const val PROGRESS_MAX = 1000
+// The system drops an app's notifications above about five a second, which would lose the final one.
+private const val PROGRESS_INTERVAL_MS = 1000L
 // Shares the app's notification id space; a high base keeps clear of its own ids.
 private val nextId = AtomicInteger(0x5A7E0000)
 
 internal class SaveNotifications(private val context: Context) {
     private val manager = context.getSystemService(NotificationManager::class.java)
+    private val progressPosted = HashMap<Int, Long>()
 
     init {
         manager.createNotificationChannel(
@@ -30,7 +34,11 @@ internal class SaveNotifications(private val context: Context) {
 
     fun newId(): Int = nextId.incrementAndGet()
 
-    fun progress(id: Int, title: String, text: String, fraction: Float) =
+    fun progress(id: Int, title: String, text: String, fraction: Float) {
+        val now = SystemClock.elapsedRealtime()
+        val last = progressPosted[id]
+        if (last != null && now - last < PROGRESS_INTERVAL_MS) return
+        progressPosted[id] = now
         post(
             id,
             builder(android.R.drawable.stat_sys_download, title)
@@ -39,6 +47,7 @@ internal class SaveNotifications(private val context: Context) {
                 .setOnlyAlertOnce(true)
                 .setProgress(PROGRESS_MAX, (fraction * PROGRESS_MAX).toInt(), false),
         )
+    }
 
     fun saved(id: Int, title: String, document: Uri, mimeType: String?) =
         finished(id, SaveToDeviceStrings.saved(title), Intent(Intent.ACTION_VIEW).setDataAndType(document, mimeType))

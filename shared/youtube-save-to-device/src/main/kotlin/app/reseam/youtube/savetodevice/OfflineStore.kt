@@ -38,6 +38,7 @@ private const val MUSIC_ALBUM = 9
 private const val FORMAT_ITAG = 1
 private const val FORMAT_MIME_TYPE = 5
 private const val FORMAT_LAST_MODIFIED = 11
+private const val FORMAT_XTAGS = 23
 
 private const val PLAYLIST_TITLE = 5
 
@@ -168,8 +169,10 @@ internal class OfflineStore(private val context: Context) {
         val fields = Proto.fields(format)
         val itag = checkNotNull(fields.number(FORMAT_ITAG))
         val lastModified = checkNotNull(fields.number(FORMAT_LAST_MODIFIED))
+        // A format with extra tags, such as one audio track of several, is keyed by both.
+        val format = fields.string(FORMAT_XTAGS)?.let { "$itag:$it" } ?: "$itag"
         return SavedStream(
-            cacheKey = "$videoId.$itag.$lastModified",
+            cacheKey = "$videoId.$format.$lastModified",
             mimeType = checkNotNull(fields.string(FORMAT_MIME_TYPE)).substringBefore(';').trim(),
             length = length,
             folders = folders,

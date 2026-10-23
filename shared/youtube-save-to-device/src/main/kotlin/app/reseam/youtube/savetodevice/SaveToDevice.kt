@@ -15,18 +15,6 @@ import app.reseam.youtubesavetodevice.settings.SaveToDeviceSettings
 // The offline store's media status once every stream of a download is stored.
 private const val COMPLETE = "COMPLETE"
 
-/** Whether the video is fully downloaded, so it can be saved. */
-fun isVideoSaved(context: Context, videoId: String): Boolean = OfflineStore(context).isSaved(videoId)
-
-/** Whether any of the playlist's videos is fully downloaded. */
-fun isPlaylistSaved(context: Context, playlistId: String): Boolean = OfflineStore(context).isPlaylistSaved(playlistId)
-
-/** Saves a downloaded video, asking for the save folder first when none is set. */
-fun saveVideo(activity: Activity, videoId: String) = request(activity, SaveTarget.Video(videoId))
-
-/** Saves a playlist's downloaded videos into a folder named after it. */
-fun savePlaylist(activity: Activity, playlistId: String) = request(activity, SaveTarget.Playlist(playlistId))
-
 /** Saves a download as it completes, when the user asked for every download to be saved. */
 @Export
 fun onDownloadStatus(videoId: String?, status: String?) {
@@ -36,7 +24,8 @@ fun onDownloadStatus(videoId: String?, status: String?) {
     enqueue(context, tree, SaveTarget.Video(videoId))
 }
 
-private fun request(activity: Activity, target: SaveTarget) {
+/** Saves [target], asking for the save folder first when none is set. */
+internal fun request(activity: Activity, target: SaveTarget) {
     val context = activity.applicationContext
     saveFolder(context)?.let { return enqueue(context, it, target) }
     SaveToDeviceSettings.saveFolder.pick(activity) { saveFolder(context)?.let { enqueue(context, it, target) } }

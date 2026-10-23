@@ -5,5 +5,6 @@ dependencies {
     compileOnly(project(":shared:bundle:patch"))
     compileOnly(project(":shared:gmscore:patch"))
     compileOnly(project(":shared:youtube-common:patch"))
+    compileOnly(project(":shared:youtube-save-to-device:patch"))
     compileOnly(project(":shared:youtube-spoof:patch"))
 }
