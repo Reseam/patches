@@ -21,7 +21,6 @@ private const val ICON_OPEN_IN_PHONE = 987L
 
 @Export fun parseItem(bytes: ByteArray): Any = error("Replaced by the Save to device patch")
 
-/** Puts Save to device after the download item of a song or playlist that is downloaded. */
 @Export
 fun addItems(context: Context, items: MutableList<Any?>?) {
     if (items == null) return
@@ -34,5 +33,4 @@ fun addItems(context: Context, items: MutableList<Any?>?) {
     }
 }
 
-/** Runs after the menu closed for a tapped item. */
 @Export fun onClick(item: Any?, view: View?) = onMenuItemClick(item, view?.context?.findActivity())

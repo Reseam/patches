@@ -44,7 +44,6 @@ private val responses = ArrayDeque<Response>()
 
 @Export fun parseMenu(bytes: ByteArray): Any = error("Replaced by the Download Shorts patch")
 
-/** Keeps the latest player responses, which carry each video's offlineability. */
 @Export
 fun onPlayerResponse(videoId: String?, response: Any?) {
     if (videoId == null || response == null) return
