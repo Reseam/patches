@@ -5,4 +5,5 @@ dependencies {
     compileOnly(project(":shared:bundle"))
     compileOnly(project(":shared:youtube-common"))
     compileOnly(project(":shared:youtube-save-to-device"))
+    compileOnly(project(":apps:youtube:extensions:video"))
 }

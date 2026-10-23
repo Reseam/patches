@@ -7,6 +7,7 @@ import app.reseam.patch.CodeScope
 import app.reseam.patch.PatchRuntime
 import app.reseam.patch.Type
 import app.reseam.patch.ValueRef
+import app.reseam.patch.after
 import app.reseam.patch.before
 import app.reseam.patch.classTarget
 import app.reseam.patch.dex.AccessFlags
@@ -40,6 +41,14 @@ fun PatchRuntime.answerRefusedDownloads(setting: ToggleSetting) {
         name("<init>")
         param(0, playerResponseClass.descriptor)
     }.forEach { before { answer(param(0), param(0)) } }
+}
+
+/** Runs [code] after the app wraps each player response in its model, with the video ID and the response. */
+fun PatchRuntime.afterPlayerResponse(code: CodeScope.(videoId: ValueRef, response: ValueRef) -> Unit) {
+    playerResponseModel.methods("player response models") {
+        name("<init>")
+        param(0, playerResponseClass.descriptor)
+    }.forEach { after { code(thisObject.call(responseVideoId), param(0)) } }
 }
 
 /** Keeps downloads playable when the server refuses their offline state as it renews it. */

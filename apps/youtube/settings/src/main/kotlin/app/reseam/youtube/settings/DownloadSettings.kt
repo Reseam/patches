@@ -11,5 +11,6 @@ object DownloadSettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
     val externalDownloader by toggle(default = false)
     val externalDownloaderActionButton by toggle(default = false)
     val unlockDownloads by toggle(default = true)
+    val downloadShorts by toggle(default = true)
     val externalDownloaderPackageName by text(default = "com.deniscerri.ytdl")
 }

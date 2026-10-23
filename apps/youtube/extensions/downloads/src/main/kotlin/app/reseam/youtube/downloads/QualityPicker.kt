@@ -40,7 +40,16 @@ internal fun replaceUpsell(response: ByteArray): ByteArray? {
     return Proto.replace(response, mapOf(RESPONSE_COMMAND to addCommand(videoId)))
 }
 
-private fun addCommand(videoId: String): ByteArray {
+private fun addCommand(videoId: String): ByteArray =
+    Proto.Writer()
+        .message(
+            OFFLINE_VIDEO_ENDPOINT,
+            Proto.Writer().string(1, videoId).number(2, ACTION_ADD).bytes(4, unlockedOfflineability()),
+        )
+        .toByteArray()
+
+/** Offlineability offering every download quality to any account, as a renderer the endpoint carries. */
+internal fun unlockedOfflineability(): ByteArray {
     val offlineability = Proto.Writer().number(1, 1)
     val context = YouTubeContext.applicationContext
     Quality.entries.forEach { quality ->
@@ -53,15 +62,7 @@ private fun addCommand(videoId: String): ByteArray {
                 .number(4, AVAILABILITY_FREE),
         )
     }
-    return Proto.Writer()
-        .message(
-            OFFLINE_VIDEO_ENDPOINT,
-            Proto.Writer()
-                .string(1, videoId)
-                .number(2, ACTION_ADD)
-                .message(4, Proto.Writer().message(OFFLINEABILITY, offlineability)),
-        )
-        .toByteArray()
+    return Proto.Writer().message(OFFLINEABILITY, offlineability).toByteArray()
 }
 
 private fun containsUpsell(message: ByteArray): Boolean =

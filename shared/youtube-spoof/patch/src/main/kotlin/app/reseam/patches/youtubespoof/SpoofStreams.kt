@@ -196,7 +196,7 @@ internal val playerResponseModel = klass("player response model") {
     implements(videoIdGetter.owner)
 }
 
-private val responseVideoId = method("player response video ID") {
+internal val responseVideoId = method("player response video ID") {
     inClass(playerResponseModel)
     name(videoIdGetter.name)
     params()
