@@ -9,7 +9,7 @@ import app.reseam.patch.after
 import app.reseam.patch.function
 import app.reseam.patch.klass
 import app.reseam.patch.method
-import app.reseam.patch.settings.ReseamReactPackage
+import app.reseam.patch.settings.addReactPackage
 import app.reseam.patch.settings.settingsHost
 import app.reseam.patches.bundle.reseamBrand
 
@@ -19,7 +19,7 @@ val discordSettings = settingsHost("discord") {
     brand(reseamBrand)
 
     install {
-        getPackages.after { ReseamReactPackage.addTo(result) }
+        getPackages.after { addReactPackage(result) }
         settingRows.after { SettingsRow.addReseamRow(moduleExports) }
         settingsList.after { returnValue(SettingsRow.withReseamSection(result)) }
     }
