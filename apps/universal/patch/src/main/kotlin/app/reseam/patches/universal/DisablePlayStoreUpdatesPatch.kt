@@ -10,7 +10,7 @@ val disablePlayStoreUpdates = patch("Disable Play Store updates") {
 
     execute {
         // Google Play accepts version codes up to 2100000000, below Android's signed Int maximum.
-        val versionCode = Int.MAX_VALUE.toUInt()
+        val versionCode = Int.MAX_VALUE
 
         for (name in manifest.components()) {
             val component = manifest.component(name)
