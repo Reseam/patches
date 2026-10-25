@@ -11,8 +11,8 @@ import app.reseam.patch.patch
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
-import app.reseam.patches.youtube.core.mainActivityOnCreate
 import app.reseam.patches.youtube.core.youTubeSettings
+import app.reseam.patches.youtube.internal.mainActivityHook
 import app.reseam.patches.youtube.internal.playerControls
 import app.reseam.patches.youtube.internal.registerPlayerControlInitializer
 import app.reseam.patches.youtube.internal.registerPlayerControlLayout
@@ -32,7 +32,7 @@ private val offlineVideoEndpoint = method("offline video endpoint") {
 val externalDownloader = patch("External downloader") {
     description("Sends videos to an external downloader app from a player button or YouTube's Download action.")
     compatibleWith(YOUTUBE)
-    dependsOn(youTubeSettings, videoPlaybackStateHook, playerControls)
+    dependsOn(youTubeSettings, videoPlaybackStateHook, playerControls, mainActivityHook)
     settings(
         youTubeSettings,
         section(YouTubeSettingsPages.Downloads, YouTubeStrings.sectionExternalDownloader, DownloadSettings.externalDownloader,
@@ -44,8 +44,6 @@ val externalDownloader = patch("External downloader") {
             ExternalDownloader::class.java.getResourceAsStream("/buttons/reseam_download.xml")!!.readBytes())
         registerPlayerControlLayout("/buttons/download.xml", "reseam_external_download_button", position = 2)
         registerPlayerControlInitializer(ExternalDownloader.initialize)
-
-        mainActivityOnCreate.before { ExternalDownloader.setMainActivity(thisObject) }
 
         // This target is the four-parameter offline endpoint; parameter 2 is the video id
         // (the app's p3 register because p0 is `this`).

@@ -6,7 +6,6 @@ package app.reseam.patches.youtube.video.speed
 
 import app.reseam.patch.Type
 import app.reseam.patch.after
-import app.reseam.patch.alwaysReturn
 import app.reseam.patch.before
 import app.reseam.patch.classTarget
 import app.reseam.patch.dex.AccessFlags
@@ -18,7 +17,6 @@ import app.reseam.patch.dex.parameterTypes
 import app.reseam.patch.dex.returnType
 import app.reseam.patch.field
 import app.reseam.patch.method
-import app.reseam.patch.methods
 import app.reseam.patch.native.NewField
 import app.reseam.patch.patch
 import app.reseam.patch.point
@@ -26,6 +24,7 @@ import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
+import app.reseam.patches.youtube.internal.disableBooleanFeature
 import app.reseam.patches.youtube.internal.hookLithoText
 import app.reseam.patches.youtube.internal.lithoRecyclerViewBinder
 import app.reseam.patches.youtube.internal.lithoTextHook
@@ -59,12 +58,7 @@ private val playbackRateBounds = method("playback rate bounds") {
 }
 
 // Older releases predate server-provided playback speed limits.
-private val serverSideMaxSpeedFlag = methods("server side maximum speed flag") {
-    flags(AccessFlags.PUBLIC or AccessFlags.FINAL)
-    returns(Type.Boolean)
-    params()
-    literals(45719140L)
-}
+private const val SERVER_SIDE_MAX_SPEED = 45719140L
 
 private val speedArrayGenerator = method("playback speed array generator") {
     flags(AccessFlags.PUBLIC or AccessFlags.STATIC)
@@ -138,7 +132,7 @@ val customPlaybackSpeed = patch("Custom playback speed") {
         }.captureAs("maximum", Type.Float).after {
             capture("maximum").assign(staticField(CustomPlaybackSpeed.maximumSpeed))
         }
-        serverSideMaxSpeedFlag.forEach { alwaysReturn(false) }
+        disableBooleanFeature(SERVER_SIDE_MAX_SPEED)
 
         // The old speed menu lists the custom speeds: an empty server list makes YouTube generate
         // its own, which then takes its length and values from the custom array.

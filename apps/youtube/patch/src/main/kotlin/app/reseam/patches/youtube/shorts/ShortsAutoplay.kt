@@ -16,8 +16,8 @@ import app.reseam.patch.points
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
-import app.reseam.patches.youtube.core.mainActivityOnCreate
 import app.reseam.patches.youtube.core.youTubeSettings
+import app.reseam.patches.youtube.internal.mainActivityHook
 import app.reseam.youtube.settings.ShortsSettings
 import app.reseam.youtube.settings.YouTubeStrings
 import app.reseam.youtube.shorts.bindings.ShortsAutoplay
@@ -71,11 +71,10 @@ private val legacyController = legacyPlaybackEnd.point("Shorts sequence controll
 val shortsAutoplay = patch("Shorts autoplay") {
     description("Automatically plays the next Short when Shorts autoplay is enabled.")
     compatibleWith(YOUTUBE)
-    dependsOn(youTubeSettings)
+    dependsOn(youTubeSettings, mainActivityHook)
     settings(youTubeSettings, section(YouTubeSettingsPages.Shorts, YouTubeStrings.sectionShorts, ShortsSettings.shortsAutoplay, ShortsSettings.shortsAutoplayBackground))
 
     execute {
-        mainActivityOnCreate.before { ShortsAutoplay.setMainActivity(thisObject) }
         if (nativeAutoAdvance.all.isNotEmpty()) {
             shortsRepeatPolicy.after {
                 result.assign(
@@ -88,9 +87,10 @@ val shortsAutoplay = patch("Shorts autoplay") {
             }.forEach {
                 next { resultOf(repeatBehavior.descriptor) }.captureAs("behavior", repeatBehavior.descriptor).after {
                     whenTrue(ShortsAutoplay.shouldAutoplay()) {
+                        // 2 is the action the app sends itself to advance, here and in newer releases' auto advance.
                         thisObject.field(legacyController).call(
                             nextShort,
-                            newInstance(nextShortAction.owner, nextShortAction.proto, int(3), nullObject, nullObject),
+                            newInstance(nextShortAction.owner, nextShortAction.proto, int(2), nullObject, nullObject),
                         )
                         returnVoid()
                     }

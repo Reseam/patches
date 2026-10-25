@@ -36,14 +36,11 @@ private val miniplayerRenderer = method("miniplayer renderer extension") {
     invokeStatic { name("newSingularGeneratedExtension") }
 }.writer(1).field()
 
-// Older releases enforce the same renderer policy without logging the controller's name.
+// The policy is the one method that takes the renderer.
 private val kidsPlaybackPolicy = method("kids background playback policy") {
-    flags(AccessFlags.PUBLIC or AccessFlags.FINAL)
-    returns(Type.Void)
-    paramCount(3)
+    hasParam(miniplayerRenderer.type)
     param(0, Type.Int)
-    param(2, miniplayerRenderer.type)
-    literals(5)
+    returns(Type.Void)
 }
 
 val removeBackgroundPlaybackRestrictions = patch("Remove background playback restrictions") {

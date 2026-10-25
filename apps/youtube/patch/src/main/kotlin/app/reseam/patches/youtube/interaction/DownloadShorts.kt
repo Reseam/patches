@@ -4,17 +4,15 @@
 package app.reseam.patches.youtube.interaction
 
 import app.reseam.patch.before
-import app.reseam.patch.classTarget
-import app.reseam.patch.dex.Opcode
-import app.reseam.patch.klass
-import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.point
 import app.reseam.patch.settings.section
 import app.reseam.patch.settings.whenEnabled
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
+import app.reseam.patches.youtube.internal.menuSheetMenu
+import app.reseam.patches.youtube.internal.menuSheetRenderer
+import app.reseam.patches.youtube.internal.menuSheetRows
 import app.reseam.patches.youtube.internal.videoInformationHook
 import app.reseam.patches.youtubecommon.parseProtobuf
 import app.reseam.patches.youtubecommon.protobufBytes
@@ -37,35 +35,17 @@ val downloadShorts = patch("Download Shorts") {
 
     execute {
         ShortsDownloads.messageBytes.implement { returnValue(protobufBytes(param(0).cast(MESSAGE_LITE))) }
-        ShortsDownloads.parseMenu.implement { returnValue(parseProtobuf(menuRenderer, "menu", param(0))) }
+        ShortsDownloads.parseMenu.implement { returnValue(parseProtobuf(menuSheetRenderer, "menu", param(0))) }
 
         // The Short's offlineability comes in its player response, which the menu does not carry.
         afterPlayerResponse { videoId, response ->
             whenEnabled(DownloadSettings.downloadShorts) { ShortsDownloads.onPlayerResponse(videoId, response) }
         }
-        sheetItems.before {
+        menuSheetRows.before {
             whenEnabled(DownloadSettings.downloadShorts) {
-                val menu = ShortsDownloads.withDownloadItem(thisObject.field(sheetMenu))
-                thisObject.set(sheetMenu, menu.cast(menuRenderer.descriptor))
+                val menu = ShortsDownloads.withDownloadItem(thisObject.field(menuSheetMenu))
+                thisObject.set(menuSheetMenu, menu.cast(menuSheetRenderer.descriptor))
             }
         }
     }
-}
-
-private val menuSheet = klass("menu bottom sheet") { strings("MENU_BOTTOM_SHEET_FRAGMENT_KEY", "VIDEO_QUALITY_DETAIL_TEXT") }
-
-// Builds the sheet's rows from its menu renderer's items.
-private val sheetItems = method("menu bottom sheet items") {
-    inClass(menuSheet)
-    strings("VIDEO_QUALITY_DETAIL_TEXT")
-    params()
-}
-
-private val sheetMenu = sheetItems.point("menu renderer read") {
-    opcode(Opcode.IGET_OBJECT)
-    field { owner(menuSheet.descriptor) }
-}.field("menu renderer")
-
-private val menuRenderer = classTarget("menu renderer") {
-    bytecode.findClass(sheetMenu.type) ?: error("The menu renderer class is missing")
 }

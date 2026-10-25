@@ -47,7 +47,7 @@ private val resolveIntent = method("resolveIntent") {
 }
 
 // Pages an intent names are routed as commands, the same way taps inside the app are.
-private val routeEndpoint = resolveIntent.point("routeEndpoint") {
+internal val routeEndpoint = resolveIntent.point("routeEndpoint") {
     invokeInterface { paramCount(2); hasParam(Type.Map); returns(Type.Void) }
 }.callee("routeEndpoint")
 

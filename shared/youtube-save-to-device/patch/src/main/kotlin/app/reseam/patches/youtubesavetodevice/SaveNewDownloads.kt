@@ -7,13 +7,14 @@ import app.reseam.patch.PatchRuntime
 import app.reseam.patch.Type
 import app.reseam.patch.after
 import app.reseam.patch.before
+import app.reseam.patch.dex.AccessFlags
+import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.point
 import app.reseam.patch.reserveLocal
 import app.reseam.youtube.savetodevice.bindings.SaveToDevice
 
 fun PatchRuntime.saveNewDownloads() {
-    val statusType = mediaStatusUpdate.parameterTypes[1]
     val videoId = mediaStatusUpdate.reserveLocal("savedVideoId", Type.String)
     val status = mediaStatusUpdate.reserveLocal("savedStatus", Type.Object)
     mediaStatusUpdate.before {
@@ -21,7 +22,7 @@ fun PatchRuntime.saveNewDownloads() {
         local(status).assign(param(1))
     }
     // The store returns early when the status is unchanged, so this write is a real transition.
-    mediaStatusUpdate.point { invokeVirtual { params(Type.String, statusType); returns(Type.Void) } }.after {
+    mediaStatusUpdate.point { invokeVirtual { params(Type.String, mediaStatus.descriptor); returns(Type.Void) } }.after {
         SaveToDevice.onDownloadStatus(
             local(videoId),
             local(status).cast("java.lang.Enum").callVirtual("java.lang.Enum", "name", "()Ljava/lang/String;"),
@@ -29,9 +30,14 @@ fun PatchRuntime.saveNewDownloads() {
     }
 }
 
+private val mediaStatus = klass("offline media status") {
+    strings("STREAM_DOWNLOAD_PENDING", "REQUIRES_CONTENT_VERIFICATION")
+}
+
+// The offline store's locked setter, which hands a changed status on to the stream store's writer.
 private val mediaStatusUpdate = method("offline media status update") {
-    strings("updateMediaStatus")
-    paramCount(2)
-    param(0, Type.String)
+    params(Type.String, mediaStatus.descriptor)
+    flags(AccessFlags.DECLARED_SYNCHRONIZED)
     returns(Type.Void)
+    calls { params(Type.String, mediaStatus.descriptor); returns(Type.Void) }
 }

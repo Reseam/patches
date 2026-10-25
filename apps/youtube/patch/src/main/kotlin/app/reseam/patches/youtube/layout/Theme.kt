@@ -28,6 +28,7 @@ import app.reseam.youtube.theme.bindings.ThemePatch
 private const val DARK_DEFAULT = "#FF000000"
 private const val LIGHT_DEFAULT = "#FFFFFFFF"
 private const val SPLASH_COLOR = "reseam_splash_background_color"
+private const val NAVIGATION_BAR_COLOR = "reseam_navigation_bar_color"
 
 val theme = patch("Theme") {
     description("Changes YouTube's light and dark background colors and loading screen.")
@@ -93,8 +94,10 @@ val theme = patch("Theme") {
             }
         }
 
-        resources.style("Theme.YouTube.Home", parent = "@style/Base.V27.Theme.YouTube.Home") {
-            this["android:navigationBarColor"] = "@color/$SPLASH_COLOR"
+        resources.addColor(NAVIGATION_BAR_COLOR, "@android:color/black")
+        resources.addColor(NAVIGATION_BAR_COLOR, "@color/$SPLASH_COLOR", LIGHT_NAVIGATION_BAR)
+        resources.style("Theme.YouTube.Home") {
+            this["android:navigationBarColor"] = "@color/$NAVIGATION_BAR_COLOR"
             this["android:windowBackground"] = "@color/$SPLASH_COLOR"
             this["android:colorBackground"] = "@color/$SPLASH_COLOR"
             this["colorPrimaryDark"] = "@color/$SPLASH_COLOR"
@@ -169,6 +172,9 @@ private const val DYNAMIC_COLORS = "v31"
 
 // A selector stands in for a drawable from Android 10; earlier versions take the plain color.
 private const val SELECTOR_DRAWABLES = "v29"
+
+// Dark navigation bar icons exist from Android 8.1; before that a light bar hides the white icons.
+private const val LIGHT_NAVIGATION_BAR = "v27"
 
 private const val GRADIENT_LOADING_SCREEN = 45412406L
 // Older releases read the splash style under the second id.

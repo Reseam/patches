@@ -6,23 +6,16 @@
 
 package app.reseam.youtube.shorts
 
-import android.app.Activity
 import app.reseam.runtime.Export
+import app.reseam.youtube.core.YouTubeContext
 import app.reseam.youtube.settings.ShortsSettings
-import java.lang.ref.WeakReference
 
-private var mainActivity = WeakReference<Activity>(null)
 private var advance: Enum<*>? = null
 private var repeat: Enum<*>? = null
 
 @Export
-fun setMainActivity(activity: Activity) {
-    mainActivity = WeakReference(activity)
-}
-
-@Export
 fun shouldAutoplay(): Boolean =
-    if (mainActivity.get()?.isInPictureInPictureMode == true) ShortsSettings.shortsAutoplayBackground.value
+    if (YouTubeContext.mainActivity?.isInPictureInPictureMode == true) ShortsSettings.shortsAutoplayBackground.value
     else ShortsSettings.shortsAutoplay.value
 
 @Export
