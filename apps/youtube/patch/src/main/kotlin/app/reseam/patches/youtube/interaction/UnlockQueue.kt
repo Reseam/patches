@@ -9,9 +9,7 @@ import app.reseam.patch.ValueRef
 import app.reseam.patch.after
 import app.reseam.patch.before
 import app.reseam.patch.classTarget
-import app.reseam.patch.dex.AccessFlags
 import app.reseam.patch.dex.Opcode
-import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
@@ -21,6 +19,8 @@ import app.reseam.patch.settings.whenEnabled
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
+import app.reseam.patches.youtube.internal.commandClass
+import app.reseam.patches.youtube.internal.menuCommandResolver
 import app.reseam.patches.youtube.internal.videoInformationHook
 import app.reseam.patches.youtubecommon.parseProtobuf
 import app.reseam.patches.youtubecommon.protobufByteString
@@ -34,14 +34,13 @@ import app.reseam.youtube.settings.YouTubeStrings
 
 private const val LISTENABLE_FUTURE = "com.google.common.util.concurrent.ListenableFuture"
 private const val OPTIONAL = "j\$.util.Optional"
-private const val MESSAGE_LITE = "com.google.protobuf.MessageLite"
 private val activeDevicesRequest = method("active devices request") {
     strings("mdx/get_active_devices")
 }
 
 private val activeDevicesSender = method("active devices sender") {
     calls(activeDevicesRequest)
-    params(Type.String, Type.String)
+    hasParam(Type.String)
     returns(LISTENABLE_FUTURE)
 }
 
@@ -58,17 +57,9 @@ private val activeDevicesResponseClass = classTarget("active devices response") 
     bytecode.findClass(defaultResponse.type) ?: error("The active devices response class is missing")
 }
 
-private val menuCommandResolver = method("menu command resolver") {
-    strings("VIDEO_QUALITY_DETAIL_TEXT", "menu_as_bottom_sheet")
-    hasParam("java.util.Map")
-    returns(Type.Void)
+private val queueState = classTarget("queue state") {
+    bytecode.findClass(queueContext.owner) ?: error("The queue state class is missing")
 }
-
-private val commandClass = classTarget("command") {
-    bytecode.findClass(menuCommandResolver.parameterTypes.first()) ?: error("The command class is missing")
-}
-
-private val queueState = klass("queue state") { strings("QP") }
 
 private val queueStateUpdate = method("queue state update") {
     inClass(queueState)
@@ -83,29 +74,26 @@ private val watchNextModel = classTarget("watch next model") {
 
 private val watchNextModelInit = watchNextModel.method("<init>") { paramCount(1) }
 
-private val watchNextRequest = klass("watch next request") { strings("watchNextType") }
-
-private val watchNextRequestFactory = method("watch next request factory") {
-    flags(AccessFlags.STATIC)
-    returns(watchNextRequest.descriptor)
-}
-
-private val queueWatchNextRequest = method("queue watch next request") {
-    calls(watchNextRequestFactory)
+// The queue-add resolver switches request paths with this experiment.
+private val queueInsertResolver = method("queue insert resolver") {
+    literals(45388674L)
+    params(commandClass.descriptor, "java.util.Map")
     returns(Type.Void)
 }
 
-private val queueInsertResolver = method("queue insert resolver") {
-    calls(queueWatchNextRequest)
-    hasParam("java.util.Map")
-}
-
-private val queueContext = queueInsertResolver
+private val queueContextRead = queueInsertResolver
     .point("queue context read") {
         opcode(Opcode.IGET_OBJECT)
-        field { owner(queueState.descriptor); type(OPTIONAL) }
+        field { type(OPTIONAL) }
     }
-    .field("queue context")
+
+private val queueContext = queueContextRead.field("queue context")
+
+// Older releases merge resolvers and keep the queue state in an Object field.
+private val queueStateField = queueContextRead.previous {
+    opcode(Opcode.IGET_OBJECT)
+    field { owner(queueInsertResolver.owner) }
+}.field("queue state field")
 
 val unlockQueue = patch("Unlock queue") {
     description("Unlocks the video queue.")
@@ -117,14 +105,17 @@ val unlockQueue = patch("Unlock queue") {
     )
 
     execute {
-        QueueReply.parse.implement {
-            returnValue(parseProtobuf(activeDevicesResponseClass, "active devices response", param(0)))
-        }
-        val params = activeDevicesSender.reserveLocal("params", Type.String)
-        activeDevicesSender.before { local(params).assign(param(1)) }
-        activeDevicesResponse.after {
-            whenEnabled(VideoSettings.unlockQueue) {
-                capture("response").assign(QueueReply.wrap(capture("response"), local(params)))
+        // Older releases send only the device ID.
+        if (activeDevicesSender.parameterTypes.size > 1) {
+            QueueReply.parse.implement {
+                returnValue(parseProtobuf(activeDevicesResponseClass, "active devices response", param(0)))
+            }
+            val params = activeDevicesSender.reserveLocal("params", Type.String)
+            activeDevicesSender.before { local(params).assign(param(1)) }
+            activeDevicesResponse.after {
+                whenEnabled(VideoSettings.unlockQueue) {
+                    capture("response").assign(QueueReply.wrap(capture("response"), local(params)))
+                }
             }
         }
 
@@ -143,14 +134,17 @@ val unlockQueue = patch("Unlock queue") {
         val current = queueInsertResolver.reserveLocal("queue context", "[B")
         queueInsertResolver.before {
             whenEnabled(VideoSettings.unlockQueue) {
-                val state = thisObject.fieldOfType(queueState.descriptor)
-                val stored = state.field(queueContext)
-                local(current).assign(nullObject)
-                whenTrue(stored.callVirtual(OPTIONAL, "isPresent", "()Z")) {
-                    local(current).assign(protobufByteStringBytes(stored.callVirtual(OPTIONAL, "get", "()Ljava/lang/Object;")))
+                val receiver = thisObject.field(queueStateField)
+                whenInstanceOf(receiver, queueState.descriptor) {
+                    val state = receiver.cast(queueState.descriptor)
+                    val stored = state.field(queueContext)
+                    local(current).assign(nullObject)
+                    whenTrue(stored.callVirtual(OPTIONAL, "isPresent", "()Z")) {
+                        local(current).assign(protobufByteStringBytes(stored.callVirtual(OPTIONAL, "get", "()Ljava/lang/Object;")))
+                    }
+                    val completed = QueueContext.complete(local(current))
+                    whenNotNull(completed) { state.set(queueContext, optionalOf(protobufByteString(completed))) }
                 }
-                val completed = QueueContext.complete(local(current))
-                whenNotNull(completed) { state.set(queueContext, optionalOf(protobufByteString(completed))) }
             }
         }
     }

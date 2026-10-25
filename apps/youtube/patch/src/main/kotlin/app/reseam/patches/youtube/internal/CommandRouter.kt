@@ -31,8 +31,9 @@ val commandRouter = patch {
     }
 }
 
+// The one class that opens Digital Wellbeing's app usage page.
 private val intentResolver = klass("intentResolver") {
-    strings("com/google/android/apps/youtube/app/watchwhile/DefaultIntentResolver")
+    strings("com.google.android.apps.wellbeing.VIEW_APP_USAGE")
 }
 
 private val intentResolverConstructor = intentResolver.methods("intentResolverConstructor") {
@@ -46,7 +47,7 @@ private val resolveIntent = method("resolveIntent") {
 }
 
 // Pages an intent names are routed as commands, the same way taps inside the app are.
-private val routeEndpoint = resolveIntent.point("routeEndpoint") {
+internal val routeEndpoint = resolveIntent.point("routeEndpoint") {
     invokeInterface { paramCount(2); hasParam(Type.Map); returns(Type.Void) }
 }.callee("routeEndpoint")
 

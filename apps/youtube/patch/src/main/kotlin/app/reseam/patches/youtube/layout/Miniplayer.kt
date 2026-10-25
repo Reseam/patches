@@ -5,7 +5,10 @@ package app.reseam.patches.youtube.layout
 
 import app.reseam.patch.Type
 import app.reseam.patch.after
+import app.reseam.patch.before
 import app.reseam.patch.dex.AccessFlags
+import app.reseam.patch.dex.Opcode
+import app.reseam.patch.dex.literal
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.methods
@@ -60,11 +63,14 @@ val miniplayer = patch("Miniplayer") {
             literals(maxSize)
         }
         // The first 192dp conversion initializes the current width. The later conversion
-        // initializes the resize minimum; leave that native constraint intact.
-        sizing.point("initialMiniplayerWidth") { literal(192) }
-            .next { invokeStatic { params("android.util.DisplayMetrics", Type.Int); returns(Type.Int) } }
-            .next { resultOf(Type.Int) }.captureAs("width", Type.Int).after {
+        // initializes the resize minimum; leave that native constraint intact. Some releases
+        // inline the conversion as 192f times the density, so the width is taken where it is stored.
+        sizing.point("initialMiniplayerWidth") { where { literal in INITIAL_WIDTH_DIP } }
+            .next { opcode(Opcode.IPUT); field { owner(sizing.owner); type(Type.Int) } }
+            .captureAs("width", Type.Int).before {
                 capture("width").assign(Miniplayer.width(capture("width")))
             }
     }
 }
+
+private val INITIAL_WIDTH_DIP = listOf(192L, 192f.toRawBits().toLong())

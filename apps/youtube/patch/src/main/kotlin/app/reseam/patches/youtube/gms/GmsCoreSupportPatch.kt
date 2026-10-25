@@ -18,7 +18,7 @@ import app.reseam.youtube.misc.bindings.OwnLinks
 // GmsCore has no Phenotype service, so until the app's own config sync takes effect (its third
 // launch) every experiment reads its compiled-in default. These flags are on for every client, and
 // the release breaks with their default: 45698813 off registers the watch-page timebar under no
-// player state, so the player finds no active timebar, draws no seekbar and shows 0:00.
+// player state, so the player finds no active timebar, draws no seekbar and shows 0:00. 20.26 predates it.
 private val PHENOTYPE_DELIVERED_FLAGS = listOf(45698813L)
 
 val gmsCoreSupport = gmsCoreSupportFor(

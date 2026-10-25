@@ -8,6 +8,7 @@ import app.reseam.patch.RunList
 import app.reseam.patch.Type
 import app.reseam.patch.after
 import app.reseam.patch.dex.AccessFlags
+import app.reseam.patch.dex.Opcode
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
@@ -63,10 +64,12 @@ val videoIdHook = patch {
     }
 }
 
-// The background path calls the same video-ID getter as the foreground callback.
+// The background path calls the same video-ID getter as the foreground callback, and storing the ID
+// is the last thing it does.
 val backgroundPlayVideoIdMethod = method("backgroundPlayVideoIdMethod") {
     calls(videoIdGetter)
     flags(AccessFlags.DECLARED_SYNCHRONIZED)
     returns(Type.Void)
     paramCount(1)
+    opcodeSequence(Opcode.MOVE_RESULT_OBJECT, Opcode.IPUT_OBJECT, Opcode.MONITOR_EXIT, Opcode.RETURN_VOID)
 }

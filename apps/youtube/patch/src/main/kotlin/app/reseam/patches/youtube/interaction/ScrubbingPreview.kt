@@ -47,14 +47,9 @@ val scrubbingPreview = patch {
     }
 }
 
-private val fullPreviewTag = method("fullPreviewTag") {
-    strings("player_overlay_big_boards")
-    returns(Type.String)
-    params()
-}
-
+// Older releases do not name the overlay; its storyboard callback checks the ImageView attachment.
 private val fullPreview = classTarget("fullPreview") {
-    bytecode.findClass(fullPreviewTag.owner) ?: error("The full-size scrubbing preview class is missing")
+    bytecode.findClass(fullPreviewFrame.owner) ?: error("The full-size scrubbing preview class is missing")
 }
 
 private val fullPreviewAvailable = method("fullPreviewAvailable") {
@@ -72,7 +67,6 @@ private val fullPreviewScrub = method("fullPreviewScrub") {
 }
 
 private val fullPreviewFrame = method("fullPreviewFrame") {
-    inClass(fullPreview)
     paramCount(1)
     returns(Type.Void)
     calls { owner("android.widget.ImageView"); name("isAttachedToWindow") }

@@ -13,7 +13,7 @@ const val YOUTUBE_PACKAGE = "com.google.android.youtube"
 
 // Pinned: YouTube rewrites its player and layout code every release, and several targets here
 // replace method bodies, which goes wrong silently on a version the targets were not read against.
-val YOUTUBE: CompatiblePackage = YOUTUBE_PACKAGE("21.37.42", "21.40.166")
+val YOUTUBE: CompatiblePackage = YOUTUBE_PACKAGE("20.26.46", "21.23.492", "21.37.42", "21.40.166")
 
 const val MAIN_ACTIVITY = "com.google.android.apps.youtube.app.watchwhile.MainActivity"
 

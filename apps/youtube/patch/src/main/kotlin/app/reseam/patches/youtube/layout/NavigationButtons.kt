@@ -44,6 +44,7 @@ private const val TRANSLUCENT_STATUS_BAR = 45400535L
 private const val TRANSLUCENT_NAVIGATION_BUTTONS = 45630927L
 private const val TRANSLUCENT_SYSTEM_BUTTONS = 45632194L
 private const val SCROLL_HIDES_HEADER = 45649805L
+private const val SCROLL_HIDES_PIVOT_BAR = 45677535L
 private const val RECYCLER_VIEW = "android.support.v7.widget.RecyclerView"
 
 val navigationButtons = patch("Navigation bar") {
@@ -115,14 +116,27 @@ val navigationButtons = patch("Navigation bar") {
         overrideBooleanFeature(TRANSLUCENT_SYSTEM_BUTTONS, NavigationButtons.useTranslucentNavigationButtons)
 
         // The feed scroll listeners hide the bar through (show, animate) calls: the pivot bar controller's,
-        // and with experiment 45649805 on, the bottom bar container's as well.
-        methods("feedScrolled") {
-            params(RECYCLER_VIEW, Type.Int, Type.Int)
-            returns(Type.Void)
+        // and with experiment 45649805 on, the bottom bar container's as well. Older releases read that
+        // experiment through a getter or use 45677535, and the oldest also hide the bar when scrolling stops.
+        val scrollHidesHeaderGetters = methods("scrollHidesHeaderGetter") {
+            params()
+            returns(Type.Boolean)
             literals(SCROLL_HIDES_HEADER)
-        }.points("navigationBarScrollVisibility") {
-            invoke { params(Type.Boolean, Type.Boolean); returns(Type.Void) }
-        }.all.also { check(it.isNotEmpty()) { "No feed scroll listener toggles the navigation bar" } }
+        }.all
+        val feedScrolled = listOf(SCROLL_HIDES_HEADER, SCROLL_HIDES_PIVOT_BAR).map { flag ->
+            methods("feedScrolled") { params(RECYCLER_VIEW, Type.Int, Type.Int); returns(Type.Void); literals(flag) }
+        } + scrollHidesHeaderGetters.map { getter ->
+            methods("feedScrolled") { params(RECYCLER_VIEW, Type.Int, Type.Int); returns(Type.Void); calls(getter) }
+        }
+        val listeners = feedScrolled.flatMap { it.all }.distinctBy { it.descriptor }
+        val scrollStopped = listeners.map { it.owner }.distinct().flatMap { owner ->
+            methods("feedScrollStopped") { inClass(klass(owner)); params(RECYCLER_VIEW, Type.Int); returns(Type.Void) }.all
+        }
+        (listeners + scrollStopped).flatMap { listener ->
+            listener.points("navigationBarScrollVisibility") {
+                invoke { params(Type.Boolean, Type.Boolean); returns(Type.Void) }
+            }.all
+        }.also { check(it.isNotEmpty()) { "No feed scroll listener toggles the navigation bar" } }
             .forEach { it.skipWhen { valueOf(AppearanceSettings.keepNavigationBarVisible) } }
 
         val pivotBarChanged = method("navigationPivotBarConfigurationChanged") {

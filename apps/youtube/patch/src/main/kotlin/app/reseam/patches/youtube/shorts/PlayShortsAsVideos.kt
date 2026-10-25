@@ -39,8 +39,10 @@ val playShortsAsVideos = patch("Play Shorts as regular videos") {
 }
 
 // Every Short opened from outside the Shorts player is placed in its fragment here.
+// Some releases build the fragment descriptor in a separate, non-void factory.
 private val openShort = method("openShort") {
-    strings("ReelWatchFragmentArgs", "reels_fragment_descriptor")
+    strings("PLAYBACK_START_DESCRIPTOR_MUTATOR", "com.google.android.apps.youtube.app.endpoint.flags")
+    params(playbackStartDescriptor.descriptor, Type.Map, Type.Long, Type.String)
     returns(Type.Void)
 }
 

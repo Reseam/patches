@@ -182,9 +182,16 @@ internal class ShortsFilterGroups {
                 "reel_dislike_button.e",
                 "reel_dislike_toggled_button.e",
             ),
-            // Save replaced Dislike on this release; accessibility identifies Comments.
+            // The action bar's buttons share one component and keep their positions only while every button
+            // shows; accessibility names each one.
             FilterRule(ShortsSettings.hideShortsCommentsButton, "reel_action_button.e") {
                 it.accessibility.contains("id.reel_comment_button")
+            },
+            FilterRule(ShortsSettings.hideShortsShareButton, "reel_action_button.e") {
+                it.accessibility.contains("id.reel_share_button")
+            },
+            FilterRule(ShortsSettings.hideShortsRemixButton, "reel_action_button.e") {
+                it.accessibility.contains("id.reel_remix_button")
             },
         )
 }

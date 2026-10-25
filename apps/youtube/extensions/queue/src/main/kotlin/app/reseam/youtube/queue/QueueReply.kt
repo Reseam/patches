@@ -68,6 +68,14 @@ internal fun playerStateCommand(videoId: String, position: Long): ByteArray {
         .toByteArray()
 }
 
+/** The video a player state command shaped like [playerStateCommand]'s plays minimized. */
+internal fun playerStateVideoId(command: ByteArray): String? =
+    Proto.bytes(command, 2)
+        ?.let { Proto.bytes(it, WATCH_MINIMIZED) }
+        ?.let { Proto.bytes(it, 2) }
+        ?.let { Proto.bytes(it, Endpoints.WATCH) }
+        ?.let { Proto.string(it, Endpoints.WATCH_VIDEO_ID) }
+
 private fun token(videoId: String, position: Long): String {
     val token =
         Proto.Writer()

@@ -6,7 +6,6 @@ package app.reseam.patches.youtube.video.speed
 
 import app.reseam.patch.Type
 import app.reseam.patch.after
-import app.reseam.patch.alwaysReturn
 import app.reseam.patch.before
 import app.reseam.patch.classTarget
 import app.reseam.patch.dex.AccessFlags
@@ -25,13 +24,13 @@ import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
+import app.reseam.patches.youtube.internal.disableBooleanFeature
 import app.reseam.patches.youtube.internal.hookLithoText
 import app.reseam.patches.youtube.internal.lithoRecyclerViewBinder
 import app.reseam.patches.youtube.internal.lithoTextHook
 import app.reseam.patches.youtube.internal.videoInformationHook
 import app.reseam.patches.youtubecommon.lithoFilter
 import app.reseam.patches.youtubecommon.registerLithoFilter
-import app.reseam.patches.youtubecommon.setPlaybackRate
 import app.reseam.youtube.settings.VideoSettings
 import app.reseam.youtube.settings.YouTubeStrings
 import app.reseam.youtube.speed.bindings.CustomPlaybackSpeed
@@ -49,12 +48,17 @@ private val oldPlaybackSpeedMenuClass = classTarget("old playback speed menu cla
     bytecode.findClass(oldPlaybackSpeedMenu.owner) ?: error("The old playback speed menu class is missing")
 }
 
-private val serverSideMaxSpeedFlag = method("server side maximum speed flag") {
+// Older releases clamp the rate without logging the setter's name or taking server limits.
+private val playbackRateBounds = method("playback rate bounds") {
     flags(AccessFlags.PUBLIC or AccessFlags.FINAL)
-    returns(Type.Boolean)
-    params()
-    literals(45719140L)
+    returns(Type.Void)
+    param(0, Type.Float)
+    literals(0.25f.toRawBits().toLong(), 4.0f.toRawBits().toLong())
+    calls { owner("java.lang.Float"); name("isNaN"); params(Type.Float); returns(Type.Boolean) }
 }
+
+// Older releases predate server-provided playback speed limits.
+private const val SERVER_SIDE_MAX_SPEED = 45719140L
 
 private val speedArrayGenerator = method("playback speed array generator") {
     flags(AccessFlags.PUBLIC or AccessFlags.STATIC)
@@ -116,19 +120,19 @@ val customPlaybackSpeed = patch("Custom playback speed") {
     )
 
     execute {
-        setPlaybackRate.point("minimum playback speed") {
+        playbackRateBounds.point("minimum playback speed") {
             opcode(Opcode.CONST_HIGH16)
             literal((0.25f.toRawBits()).toLong())
         }.captureAs("minimum", Type.Float).after {
             capture("minimum").assign(staticField(CustomPlaybackSpeed.minimumSpeed))
         }
-        setPlaybackRate.point("maximum playback speed") {
+        playbackRateBounds.point("maximum playback speed") {
             opcode(Opcode.CONST_HIGH16)
             literal((4.0f.toRawBits()).toLong())
         }.captureAs("maximum", Type.Float).after {
             capture("maximum").assign(staticField(CustomPlaybackSpeed.maximumSpeed))
         }
-        serverSideMaxSpeedFlag.alwaysReturn(false)
+        disableBooleanFeature(SERVER_SIDE_MAX_SPEED)
 
         // The old speed menu lists the custom speeds: an empty server list makes YouTube generate
         // its own, which then takes its length and values from the custom array.

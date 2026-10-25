@@ -22,7 +22,7 @@ private const val CAST_PLAY_NEXT = 122330696
 @Export
 fun unlock(command: ByteArray): ByteArray? {
     try {
-        val videoId = castVideoId(command) ?: return null
+        val videoId = menuVideoId(command) ?: return null
         val unlocked = rewrite(command, 0) { if (isUpsell(it)) queueItem(it, videoId) else it }
         return unlocked.takeUnless { it === command }
     } catch (exception: IllegalArgumentException) {
@@ -31,14 +31,13 @@ fun unlock(command: ByteArray): ByteArray? {
     }
 }
 
-private fun castVideoId(command: ByteArray): String? {
-    val items = menuEntries(command)
+// Newer menus name their video in the cast item; older ones in the queue items that already hold the
+// queue command, beside the upsell shown while nothing plays.
+private fun menuVideoId(command: ByteArray): String? {
+    val commands = menuEntries(command).mapNotNull { Proto.bytes(it, ITEM_COMMAND) }
     // Stop at the first cast command even when it has no video ID.
-    return items
-        .firstNotNullOfOrNull { item ->
-            Proto.bytes(item, ITEM_COMMAND)?.let { Proto.bytes(it, CAST_PLAY_NEXT) }
-        }
-        ?.let { Proto.string(it, 1) }
+    commands.firstNotNullOfOrNull { Proto.bytes(it, CAST_PLAY_NEXT) }?.let { return Proto.string(it, 1) }
+    return commands.firstNotNullOfOrNull { Proto.bytes(it, PLAYER_STATE_COMMAND)?.let(::playerStateVideoId) }
 }
 
 private fun isUpsell(item: ByteArray): Boolean {

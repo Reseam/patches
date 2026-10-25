@@ -5,6 +5,7 @@ package app.reseam.youtube.savetodevice
 
 import android.app.Activity
 import android.content.Context
+import android.util.Base64
 import app.reseam.youtube.core.Proto
 import app.reseam.youtubesavetodevice.settings.SaveToDeviceStrings
 import java.util.WeakHashMap
@@ -19,10 +20,13 @@ private const val TEXT_RUNS = 1
 private const val RUN_TEXT = 1
 private const val ICON_TYPE = 1
 
-// The download item's command for a video and for a playlist.
+// The download item's command for a video and for a playlist. It names the video or playlist by its ID or, in
+// older releases' Downloads list, by its entity key: a base64 message whose field 2 is the ID.
 private const val OFFLINE_VIDEO_ENDPOINT = 73080600
 private const val OFFLINE_PLAYLIST_ENDPOINT = 73082583
 private const val ENDPOINT_ID = 1
+private const val ENDPOINT_ENTITY_KEY = 7
+private const val ENTITY_KEY_ID = 2
 
 class SaveMenuItem internal constructor(val bytes: ByteArray, internal val target: SaveTarget)
 
@@ -37,10 +41,10 @@ fun saveMenuItem(context: Context, downloadItem: ByteArray, iconType: Long): Sav
     val command = Proto.bytes(renderer, ITEM_COMMAND) ?: return null
     val store = OfflineStore(context)
     val target =
-        Proto.bytes(command, OFFLINE_VIDEO_ENDPOINT)?.let { Proto.string(it, ENDPOINT_ID) }
+        Proto.bytes(command, OFFLINE_VIDEO_ENDPOINT)?.let(::endpointId)
             ?.takeIf(store::isSaved)
             ?.let(SaveTarget::Video)
-            ?: Proto.bytes(command, OFFLINE_PLAYLIST_ENDPOINT)?.let { Proto.string(it, ENDPOINT_ID) }
+            ?: Proto.bytes(command, OFFLINE_PLAYLIST_ENDPOINT)?.let(::endpointId)
                 ?.takeIf(store::isPlaylistSaved)
                 ?.let(SaveTarget::Playlist)
             ?: return null
@@ -53,6 +57,16 @@ fun saveMenuItem(context: Context, downloadItem: ByteArray, iconType: Long): Sav
         Proto.replace(renderer, mapOf(ITEM_TEXT to text, ITEM_ICON to icon, ITEM_COMMAND to null, ITEM_DISABLED to null))
     return SaveMenuItem(Proto.Writer().bytes(SERVICE_ITEM, item).toByteArray(), target)
 }
+
+private fun endpointId(endpoint: ByteArray): String? =
+    Proto.string(endpoint, ENDPOINT_ID)
+        ?: Proto.string(endpoint, ENDPOINT_ENTITY_KEY)?.let { key ->
+            try {
+                Proto.string(Base64.decode(key, Base64.URL_SAFE), ENTITY_KEY_ID)
+            } catch (exception: IllegalArgumentException) {
+                null
+            }
+        }
 
 fun register(message: Any, item: SaveMenuItem) {
     items[message] = item.target

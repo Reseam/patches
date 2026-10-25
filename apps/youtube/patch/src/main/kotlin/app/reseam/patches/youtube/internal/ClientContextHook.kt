@@ -30,7 +30,6 @@ import app.reseam.patches.youtubecommon.appHelper
 
 private const val CLIENT_INFO = "com.google.protos.youtube.api.innertube.InnertubeContext\$ClientInfo"
 private const val BUILD_VERSION = "android.os.Build\$VERSION"
-private const val INNER_CONTEXT = "com.google.protos.youtube.api.innertube.InnertubeContext\$InnerTubeContext"
 private const val HELPER = "patch_setClientContext"
 
 /** The request families whose client context a patch can rewrite. */
@@ -138,13 +137,12 @@ val builderField = fieldTarget("clientInfoBuilderStorage") {
     klass(clientInfoBuilder.returnType).field("instance").ref
 }
 
-// The placeholder context writes the primary ClientInfo, distinguishing it from
+// The placeholder context's first ClientInfo write is the primary one, distinguishing it from
 // the second ClientInfo field used by newer context messages.
 val dummyClientContext = method("dummyClientContext") { strings("10.29") }
-val clientInfoField = dummyClientContext.point("primaryClientInfo") {
-    opcode(Opcode.IPUT_OBJECT)
-    field { owner(INNER_CONTEXT); type(CLIENT_INFO) }
-}.field()
+val clientInfoField = dummyClientContext.point("primaryClientInfo") { string("10.29") }
+    .next { opcode(Opcode.IPUT_OBJECT); field { type(CLIENT_INFO) } }
+    .field()
 
 val browseEndpointParent = method("browseEndpointParent") {
     strings("browseId")

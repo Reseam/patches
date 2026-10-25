@@ -5,10 +5,8 @@
 
 package app.reseam.youtube.downloads
 
-import android.content.Context
-import android.view.View
 import app.reseam.runtime.Export
-import app.reseam.youtube.core.findActivity
+import app.reseam.youtube.core.YouTubeContext
 import app.reseam.youtube.savetodevice.onMenuItemClick
 import app.reseam.youtube.savetodevice.register
 import app.reseam.youtube.savetodevice.saveMenuItem
@@ -21,12 +19,12 @@ private const val ICON_OUTLINE_MOBILE_DOWNLOAD = 760L
 
 @Export fun parseItem(bytes: ByteArray): Any = error("Replaced by the Save to device patch")
 
-/** Save to device for the downloaded video a Downloads menu is built for, or null when it is not complete. */
+/** Save to device for the downloaded video a menu's Delete from downloads is for, or null when it is not complete. */
 @Export
-fun saveItem(context: Context, downloadItem: Any): Any? {
-    val save = saveMenuItem(context, itemBytes(downloadItem), ICON_OUTLINE_MOBILE_DOWNLOAD) ?: return null
+fun saveItem(deleteItem: Any): Any? {
+    val save = saveMenuItem(YouTubeContext.applicationContext, itemBytes(deleteItem), ICON_OUTLINE_MOBILE_DOWNLOAD) ?: return null
     return parseItem(save.bytes).also { register(it, save) }
 }
 
-/** Runs after the menu closed for a tapped item; [anchor] is the view the menu opened from. */
-@Export fun onClick(item: Any?, anchor: View?) = onMenuItemClick(item, anchor?.context?.findActivity())
+/** Runs after a menu closed for a tapped item. */
+@Export fun onClick(item: Any?) = onMenuItemClick(item, YouTubeContext.mainActivity)

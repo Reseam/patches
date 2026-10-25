@@ -24,7 +24,6 @@ import app.reseam.youtube.core.findActivity
 import app.reseam.youtube.settings.DownloadSettings
 import app.reseam.youtube.settings.YouTubeStrings
 import app.reseam.youtube.video.VideoInformation
-import java.lang.ref.WeakReference
 
 private enum class Downloader(
     val appName: () -> String,
@@ -80,13 +79,6 @@ private enum class Downloader(
     }
 }
 
-private var activity = WeakReference<Activity>(null)
-
-@Export
-fun setMainActivity(mainActivity: Activity) {
-    activity = WeakReference(mainActivity)
-}
-
 @Export
 @JvmName("initialize")
 fun initializeExternalDownloader(root: View) {
@@ -102,7 +94,7 @@ fun initializeExternalDownloader(root: View) {
 @Export
 fun inAppDownloadButtonOnClick(videoId: String?): Boolean {
     if (!DownloadSettings.externalDownloaderActionButton.value) return false
-    return launchExternalDownloader(videoId, activity.get() ?: YouTubeContext.applicationContext)
+    return launchExternalDownloader(videoId, YouTubeContext.mainActivity ?: YouTubeContext.applicationContext)
 }
 
 private fun launchExternalDownloader(videoId: String?, context: Context): Boolean {

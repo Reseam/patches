@@ -25,7 +25,11 @@ import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.youtube.controls.bindings.PlayerControls
 
 private const val AUTO_NS = "http://schemas.android.com/apk/res-auto"
-private const val CONSTRAINT_LAYOUT = "androidx.constraintlayout.widget.ConstraintLayout"
+// Older releases inflate the support library's ConstraintLayout.
+private val CONSTRAINT_LAYOUTS = listOf(
+    "androidx.constraintlayout.widget.ConstraintLayout",
+    "android.support.constraint.ConstraintLayout",
+)
 
 private fun ResourceScope.id(name: String): Long = id("id", name)?.toLong()
     ?: error("id/$name is missing")
@@ -124,12 +128,12 @@ val playerControls = patch {
                 PlayerControls.setPlayerControlsVisibility(call(visibilityFactory, capture("visibilityContainer").field(visibilityStateField)))
             }
 
+        // Older releases predate the last two experiments.
         listOf(
-            45643739L,
-            45709810L,
-            45713296L,
-        ).forEach { flag ->
-            val reads = booleanFeatureReads(flag)
+            booleanFeatureReads(45643739L),
+            optionalBooleanFeatureReads(45709810L),
+            optionalBooleanFeatureReads(45713296L),
+        ).forEach { reads ->
             reads.forEach { site ->
                 site.next { resultOf(Type.Boolean) }.captureAs("flag").after {
                     capture("flag").assign(bool(false))
@@ -159,7 +163,7 @@ val playerControls = patch {
         val followingIds = setOf(resources.id("bottom_end_container"), resources.id("multiview_button"))
         resources.editXml("layout", "youtube_controls_bottom_ui_container") {
             declareNamespace("yt", AUTO_NS)
-            val parent = findByTag(CONSTRAINT_LAYOUT).singleOrNull()
+            val parent = CONSTRAINT_LAYOUTS.flatMap { findByTag(it) }.singleOrNull()
                 ?: error("youtube_controls_bottom_ui_container has no constraint parent")
             fun idOf(element: XmlElement, attr: String) = resourceRef(element[attr].orEmpty())?.toLong()
             val anchor = parent.children.firstOrNull { idOf(it, "android:inflatedId") == fullscreenId }

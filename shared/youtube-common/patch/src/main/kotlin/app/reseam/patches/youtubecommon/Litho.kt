@@ -49,10 +49,10 @@ val componentCreate = method("componentCreate") {
 
 val componentCreateReturn = componentCreate.point { opcode(Opcode.RETURN_OBJECT) }
 
-// Builds the whole tree under a root element into components, synchronously. Its trace section is
-// labelled with the root's identifier.
+// Builds the whole tree under a root element into components, synchronously. It alone rejects a
+// tree without an id in debug mode.
 val elementTreeBuild = method("elementTreeBuild") {
-    strings("Elements.toComponent:eml=")
+    strings("Element tree missing id in debug mode.")
     returns(componentCreate.returnType)
 }
 

@@ -74,86 +74,138 @@ private class Chunk(val track: Track, val position: Long, val size: Long, val sa
         get() = decodeTime.toDouble() / track.timescale
 }
 
-private class Track(val stream: CachedStream) {
-    val movieHeader: ByteArray
-    val trak: Node
-    val timescale: Long
+private class Track(val stream: CachedStream, val trak: Node, val movieHeader: ByteArray) {
+    val id = ByteBuffer.wrap(trak.require("tkhd").payload).let { it.getInt(if (it.get(0).toInt() == 1) 20 else 12) }
+    val timescale = timescale(trak.require("mdia").require("mdhd").payload)
     val samples = mutableListOf<Sample>()
     val chunks = mutableListOf<Chunk>()
 
     init {
-        var moov: Node? = null
-        var trex: ByteBuffer? = null
-        var position = 0L
-        while (position < stream.length) {
-            val header = ByteBuffer.wrap(stream.read(position, minOf(LARGE_BOX_HEADER.toLong(), stream.length - position).toInt()))
-            val size32 = header.getInt(0).toLong() and UINT32_MAX
-            val type = String(header.array(), 4, 4, Charsets.ISO_8859_1)
-            val (size, headerSize) =
-                when (size32) {
-                    0L -> stream.length - position to BOX_HEADER
-                    1L -> header.getLong(BOX_HEADER) to LARGE_BOX_HEADER
-                    else -> size32 to BOX_HEADER
-                }
-            if (size < headerSize || position + size > stream.length) throw IOException("Malformed $type box")
-            if (type == "moov" || type == "moof") {
-                val node = parse(type, stream.read(position + headerSize, (size - headerSize).toInt()))
-                if (type == "moov") {
-                    moov = node
-                    trex = node.child("mvex")?.child("trex")?.let { ByteBuffer.wrap(it.payload) }
-                } else readFragment(node, position, trex)
-            }
-            position += size
-        }
-        val movie = moov ?: throw IOException("No moov box")
-        val traks = movie.children.orEmpty().filter { it.type == "trak" }
-        trak = traks.singleOrNull() ?: throw IOException("A stream has ${traks.size} tracks")
-        movieHeader = movie.require("mvhd").payload
-        timescale = timescale(trak.require("mdia").require("mdhd").payload)
+        // A fragmented file's tables are empty; its samples come with its fragments.
+        readSampleTables(trak.require("mdia").require("minf").require("stbl"))
     }
 
     val duration
         get() = samples.sumOf { it.duration }
 
-    private fun readFragment(moof: Node, moofStart: Long, trex: ByteBuffer?) {
-        for (traf in moof.children.orEmpty().filter { it.type == "traf" }) {
-            val tfhd = ByteBuffer.wrap(traf.require("tfhd").payload)
-            val tfhdFlags = tfhd.int and 0xFFFFFF
-            tfhd.int
-            val base = if (tfhdFlags and BASE_DATA_OFFSET != 0) tfhd.long else moofStart
-            if (tfhdFlags and SAMPLE_DESCRIPTION_INDEX != 0) tfhd.int
-            val defaultDuration = if (tfhdFlags and DEFAULT_DURATION != 0) tfhd.int else trex?.getInt(12) ?: 0
-            val defaultSize = if (tfhdFlags and DEFAULT_SIZE != 0) tfhd.int else trex?.getInt(16) ?: 0
-            val defaultFlags = if (tfhdFlags and DEFAULT_FLAGS != 0) tfhd.int else trex?.getInt(20) ?: 0
-            var decodeTime =
-                traf.child("tfdt")?.let { ByteBuffer.wrap(it.payload) }?.let { tfdt ->
-                    if (tfdt.get(0).toInt() == 1) tfdt.getLong(4) else tfdt.getInt(4).toLong() and UINT32_MAX
-                } ?: duration
-            var dataPosition = base
-            for (trun in traf.children.orEmpty().filter { it.type == "trun" }) {
-                val run = ByteBuffer.wrap(trun.payload)
-                val flags = run.int and 0xFFFFFF
-                val count = run.int
-                if (flags and DATA_OFFSET != 0) dataPosition = base + run.int
-                val firstFlags = if (flags and FIRST_SAMPLE_FLAGS != 0) run.int else defaultFlags
-                val start = dataPosition
-                val startTime = decodeTime
-                repeat(count) { index ->
-                    val sampleDuration =
-                        (if (flags and SAMPLE_DURATION != 0) run.int else defaultDuration).toLong() and UINT32_MAX
-                    val size = if (flags and SAMPLE_SIZE != 0) run.int else defaultSize
-                    val sampleFlags =
-                        if (flags and SAMPLE_FLAGS != 0) run.int else if (index == 0) firstFlags else defaultFlags
-                    val compositionOffset = if (flags and SAMPLE_COMPOSITION_OFFSET != 0) run.int else 0
-                    samples += Sample(size, sampleDuration, sampleFlags and NON_SYNC_SAMPLE == 0, compositionOffset)
-                    dataPosition += size
-                    decodeTime += sampleDuration
-                }
-                chunks += Chunk(this, start, dataPosition - start, count, startTime)
+    private fun readSampleTables(stbl: Node) {
+        val sizes = ByteBuffer.wrap(stbl.require("stsz").payload)
+        val fixedSize = sizes.getInt(4)
+        val count = sizes.getInt(8)
+        val durations = expandRuns(stbl.require("stts").payload).map { it and UINT32_MAX }
+        val compositionOffsets = stbl.child("ctts")?.let { expandRuns(it.payload) }
+        val syncSamples = stbl.child("stss")?.let { entries(it.payload, 4) { buffer -> buffer.int } }?.toSet()
+        val chunkOffsets =
+            stbl.child("co64")?.let { entries(it.payload, 8) { buffer -> buffer.long } }
+                ?: entries(stbl.require("stco").payload, 4) { buffer -> buffer.int.toLong() and UINT32_MAX }
+        // stsc: first chunk (from 1), samples per chunk, description index.
+        val sampleRuns = entries(stbl.require("stsc").payload, 12) { buffer -> (buffer.int to buffer.int).also { buffer.int } }
+        var sample = 0
+        var decodeTime = 0L
+        chunkOffsets.forEachIndexed { index, position ->
+            val perChunk = sampleRuns.last { (firstChunk, _) -> firstChunk <= index + 1 }.second
+            val startTime = decodeTime
+            var size = 0L
+            repeat(perChunk) {
+                if (sample >= count) throw IOException("The sample tables disagree")
+                val sampleSize = if (fixedSize != 0) fixedSize else sizes.getInt(12 + sample * 4)
+                val duration = durations[sample]
+                samples += Sample(sampleSize, duration, syncSamples?.contains(sample + 1) ?: true, compositionOffsets?.get(sample)?.toInt() ?: 0)
+                size += sampleSize
+                decodeTime += duration
+                sample++
             }
+            chunks += Chunk(this, position, size, perChunk, startTime)
+        }
+    }
+
+    fun readFragment(traf: Node, moofStart: Long, trex: ByteBuffer?) {
+        val tfhd = ByteBuffer.wrap(traf.require("tfhd").payload)
+        val tfhdFlags = tfhd.int and 0xFFFFFF
+        tfhd.int
+        val base = if (tfhdFlags and BASE_DATA_OFFSET != 0) tfhd.long else moofStart
+        if (tfhdFlags and SAMPLE_DESCRIPTION_INDEX != 0) tfhd.int
+        val defaultDuration = if (tfhdFlags and DEFAULT_DURATION != 0) tfhd.int else trex?.getInt(12) ?: 0
+        val defaultSize = if (tfhdFlags and DEFAULT_SIZE != 0) tfhd.int else trex?.getInt(16) ?: 0
+        val defaultFlags = if (tfhdFlags and DEFAULT_FLAGS != 0) tfhd.int else trex?.getInt(20) ?: 0
+        var decodeTime =
+            traf.child("tfdt")?.let { ByteBuffer.wrap(it.payload) }?.let { tfdt ->
+                if (tfdt.get(0).toInt() == 1) tfdt.getLong(4) else tfdt.getInt(4).toLong() and UINT32_MAX
+            } ?: duration
+        var dataPosition = base
+        for (trun in traf.children.orEmpty().filter { it.type == "trun" }) {
+            val run = ByteBuffer.wrap(trun.payload)
+            val flags = run.int and 0xFFFFFF
+            val count = run.int
+            if (flags and DATA_OFFSET != 0) dataPosition = base + run.int
+            val firstFlags = if (flags and FIRST_SAMPLE_FLAGS != 0) run.int else defaultFlags
+            val start = dataPosition
+            val startTime = decodeTime
+            repeat(count) { index ->
+                val sampleDuration =
+                    (if (flags and SAMPLE_DURATION != 0) run.int else defaultDuration).toLong() and UINT32_MAX
+                val size = if (flags and SAMPLE_SIZE != 0) run.int else defaultSize
+                val sampleFlags =
+                    if (flags and SAMPLE_FLAGS != 0) run.int else if (index == 0) firstFlags else defaultFlags
+                val compositionOffset = if (flags and SAMPLE_COMPOSITION_OFFSET != 0) run.int else 0
+                samples += Sample(size, sampleDuration, sampleFlags and NON_SYNC_SAMPLE == 0, compositionOffset)
+                dataPosition += size
+                decodeTime += sampleDuration
+            }
+            chunks += Chunk(this, start, dataPosition - start, count, startTime)
         }
     }
 }
+
+// A stream's tracks: a DASH stream carries one, a progressive file its video and audio together.
+private fun tracks(stream: CachedStream): List<Track> {
+    var tracks: List<Track>? = null
+    var defaults = emptyMap<Int, ByteBuffer>()
+    var position = 0L
+    while (position < stream.length) {
+        val header = ByteBuffer.wrap(stream.read(position, minOf(LARGE_BOX_HEADER.toLong(), stream.length - position).toInt()))
+        val size32 = header.getInt(0).toLong() and UINT32_MAX
+        val type = String(header.array(), 4, 4, Charsets.ISO_8859_1)
+        val (size, headerSize) =
+            when (size32) {
+                0L -> stream.length - position to BOX_HEADER
+                1L -> header.getLong(BOX_HEADER) to LARGE_BOX_HEADER
+                else -> size32 to BOX_HEADER
+            }
+        if (size < headerSize || position + size > stream.length) throw IOException("Malformed $type box")
+        if (type == "moov" || type == "moof") {
+            val node = parse(type, stream.read(position + headerSize, (size - headerSize).toInt()))
+            if (type == "moov") {
+                val movieHeader = node.require("mvhd").payload
+                tracks = node.children.orEmpty().filter { it.type == "trak" }.map { Track(stream, it, movieHeader) }
+                defaults =
+                    node.child("mvex")?.children.orEmpty().filter { it.type == "trex" }
+                        .associate { ByteBuffer.wrap(it.payload).let { trex -> trex.getInt(4) to trex } }
+            } else {
+                val known = tracks ?: throw IOException("A fragment precedes the moov box")
+                for (traf in node.children.orEmpty().filter { it.type == "traf" }) {
+                    val id = ByteBuffer.wrap(traf.require("tfhd").payload).getInt(4)
+                    val track = known.firstOrNull { it.id == id } ?: throw IOException("A fragment names no track $id")
+                    track.readFragment(traf, position, defaults[id])
+                }
+            }
+        }
+        position += size
+    }
+    return tracks?.takeIf { it.isNotEmpty() } ?: throw IOException("A stream has no tracks")
+}
+
+// A full box's entries after its version, flags and entry count.
+private fun <T> entries(payload: ByteArray, entrySize: Int, read: (ByteBuffer) -> T): List<T> {
+    val buffer = ByteBuffer.wrap(payload, 8, payload.size - 8)
+    val count = ByteBuffer.wrap(payload).getInt(4)
+    if (count.toLong() * entrySize > payload.size - 8) throw IOException("Malformed table")
+    return List(count) { read(buffer) }
+}
+
+// stts and ctts runs of (count, value), one value per sample; ctts values may be negative.
+private fun expandRuns(payload: ByteArray): List<Long> =
+    entries(payload, 8) { it.int to it.int.toLong() }.flatMap { (count, value) -> List(count) { value } }
 
 internal fun writeMp4(
     streams: List<CachedStream>,
@@ -162,7 +214,7 @@ internal fun writeMp4(
     audioOnly: Boolean,
     onProgress: (Float) -> Unit,
 ) {
-    val tracks = streams.map(::Track)
+    val tracks = streams.flatMap(::tracks)
     val chunks = tracks.flatMap { it.chunks }.sortedBy { it.seconds }
     val dataSize = chunks.sumOf { it.size }
     val ftyp = serialize(Node("ftyp", fileType(audioOnly)))

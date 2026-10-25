@@ -4,6 +4,7 @@
 package app.reseam.patches.youtube.shorts
 
 import app.reseam.patch.Type
+import app.reseam.patch.after
 import app.reseam.patch.dex.Opcode
 import app.reseam.patch.method
 import app.reseam.patch.methods
@@ -26,7 +27,14 @@ private val resumeEligibility = eligibilityDescription.point {
     opcode(Opcode.IGET_OBJECT)
     field { owner(eligibilityDescription.owner) }
 }.field()
-private val startupResolver = method("Shorts startup resolver") { strings("resolveShortsStartup") }
+// Older releases log the eligibility store failure without the resolver's method name.
+private val startupResolver = method("Shorts startup resolver") {
+    strings("StartupEarlyTypeResolver.getShortsFirstEligibilityStore")
+}
+private val inlinedResumeEligibility = startupResolver.points("inlined resume eligibility read") {
+    opcode(Opcode.IGET_OBJECT)
+    field { owner(resumeEligibility.owner); name(resumeEligibility.name) }
+}
 private val resumeAllowed = methods("Shorts startup eligibility checks") {
     calledBy(startupResolver)
     params(eligibilityDescription.owner)
@@ -45,5 +53,16 @@ val disableResumingShortsOnStartup = patch("Disable resuming Shorts on startup")
         section(YouTubeSettingsPages.Shorts, YouTubeStrings.sectionShorts, ShortsSettings.turnOffShorts, ShortsSettings.disableResumingShortsOnStartup),
     )
 
-    execute { gate(ShortsSettings.disableResumingShortsOnStartup) { resumeAllowed.alwaysReturn(false) } }
+    execute {
+        gate(ShortsSettings.disableResumingShortsOnStartup) {
+            // Older releases inline the resume check in the startup resolver.
+            if (inlinedResumeEligibility.all.isEmpty()) {
+                resumeAllowed.alwaysReturn(false)
+            } else {
+                inlinedResumeEligibility.single().captureAs("eligibility", resumeEligibility.type).after {
+                    capture("eligibility").assign(nullObject)
+                }
+            }
+        }
+    }
 }

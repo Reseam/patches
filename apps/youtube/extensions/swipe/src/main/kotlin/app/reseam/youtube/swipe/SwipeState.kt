@@ -6,6 +6,7 @@ package app.reseam.youtube.swipe
 import android.app.Activity
 import android.content.Context
 import android.media.AudioManager
+import android.os.Build
 import android.view.MotionEvent
 import android.view.View
 import app.reseam.youtube.player.PlayerType
@@ -74,7 +75,10 @@ internal class SwipeState(val activity: Activity) {
 
     fun setVolume(volume: Int) {
         val max = audio.getStreamMaxVolume(AudioManager.STREAM_MUSIC)
-        val min = audio.getStreamMinVolume(AudioManager.STREAM_MUSIC)
+        val min =
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
+                audio.getStreamMinVolume(AudioManager.STREAM_MUSIC)
+            else 0
         val adjusted = volume.coerceIn(min, max)
         audio.setStreamVolume(AudioManager.STREAM_MUSIC, adjusted, 0)
         show(

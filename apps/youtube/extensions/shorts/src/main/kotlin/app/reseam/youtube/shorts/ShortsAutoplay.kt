@@ -6,19 +6,17 @@
 
 package app.reseam.youtube.shorts
 
-import android.app.Activity
 import app.reseam.runtime.Export
+import app.reseam.youtube.core.YouTubeContext
 import app.reseam.youtube.settings.ShortsSettings
-import java.lang.ref.WeakReference
 
-private var mainActivity = WeakReference<Activity>(null)
 private var advance: Enum<*>? = null
 private var repeat: Enum<*>? = null
 
 @Export
-fun setMainActivity(activity: Activity) {
-    mainActivity = WeakReference(activity)
-}
+fun shouldAutoplay(): Boolean =
+    if (YouTubeContext.mainActivity?.isInPictureInPictureMode == true) ShortsSettings.shortsAutoplayBackground.value
+    else ShortsSettings.shortsAutoplay.value
 
 @Export
 fun changeRepeatBehavior(original: Enum<*>?): Enum<*>? {
@@ -28,9 +26,5 @@ fun changeRepeatBehavior(original: Enum<*>?): Enum<*>? {
         advance = behaviors["REEL_LOOP_BEHAVIOR_AUTO_ADVANCE"] ?: advance
         repeat = behaviors["REEL_LOOP_BEHAVIOR_REPEAT"] ?: repeat
     }
-    val pip = mainActivity.get()?.isInPictureInPictureMode == true
-    val autoplay =
-        if (pip) ShortsSettings.shortsAutoplayBackground.value
-        else ShortsSettings.shortsAutoplay.value
-    return (if (autoplay) advance else repeat) ?: original
+    return (if (shouldAutoplay()) advance else repeat) ?: original
 }

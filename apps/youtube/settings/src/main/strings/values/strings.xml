@@ -596,7 +596,7 @@
     <string name="unlock_downloads">Unlock downloads</string>
     <string name="unlock_downloads_summary">Unlocks downloads in every quality.</string>
     <string name="download_shorts">Download Shorts</string>
-    <string name="download_shorts_summary">Adds Download to the Shorts player\'s menu.</string>
+    <string name="download_shorts_summary">Adds Download to the Shorts player\'s menu and to the menus of Shorts in feeds, search and channels.</string>
     <string name="download_shorts_checking">Checking download…</string>
     <string name="external_downloader_package_name">External downloader package</string>
     <string name="external_downloader_package_name_summary">Android package name of the external downloader app.</string>

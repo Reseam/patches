@@ -6,6 +6,8 @@
 
 package app.reseam.youtube.shorts
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.view.View
 import android.view.ViewTreeObserver
@@ -18,6 +20,7 @@ import app.reseam.youtube.core.findActivity
 import app.reseam.youtube.player.ShortsPlayer
 import app.reseam.youtube.settings.ShortsSettings
 import java.util.WeakHashMap
+import kotlin.math.roundToInt
 
 private var reelTimeBarId = 0
 private val dimmedViews = WeakHashMap<View, Unit>()
@@ -33,7 +36,7 @@ fun dimShortsPlayerOverlay(shortsOverlay: View?) {
         DrawSession(
             target,
             {
-                target.alpha = opacity()
+                target.dim(opacity())
                 if (window != null && !timeBarHooked && reelTimeBarId != 0) {
                     window.decorView.findViewById<View>(reelTimeBarId)?.let {
                         addShortsAwareDimListener(it)
@@ -54,6 +57,14 @@ fun dimShortsPlayerOverlay(shortsOverlay: View?) {
 @Export
 fun dimShortsToolbarButton(button: Enum<*>?, view: View?) {
     view?.let(::addShortsAwareDimListener)
+}
+
+// A black scrim dims the player as its alpha would over the black Shorts background, and unlike alpha it does
+// not turn the video surface black before Android 10.
+private fun View.dim(opacity: Float) {
+    val alpha = ((1 - opacity) * 255).roundToInt()
+    if ((foreground as? ColorDrawable)?.alpha == alpha) return
+    foreground = ColorDrawable(Color.BLACK).also { it.alpha = alpha }
 }
 
 private fun opacity(): Float =

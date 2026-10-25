@@ -14,7 +14,8 @@ import app.reseam.patch.method
  * names the set of characters the URL is escaped against.
  */
 val imageUrlEscapeCharacters = method("imageUrlEscapeCharacters") {
-    strings("@#&=*+-_.,:!?()/~'%;\$[]")
+    // Older releases do not escape square brackets.
+    stringsStartingWith("@#&=*+-_.,:!?()/~'%;\$")
     returns(Type.String)
     params()
 }

@@ -7,6 +7,7 @@ import app.reseam.patch.MethodTarget
 import app.reseam.patch.PatchRuntime
 import app.reseam.patch.Type
 import app.reseam.patch.before
+import app.reseam.patch.descriptor
 import app.reseam.patch.dex.AccessFlags
 import app.reseam.patch.fieldOfType
 import app.reseam.patch.klass
@@ -18,8 +19,6 @@ import app.reseam.youtube.spoof.bindings.SabrPlayback
 
 private const val MEDIA = "com.google.android.libraries.youtube.media.interfaces."
 private const val COMMON = "com.google.protos.youtube.api.innertube.MediaCommonConfigOuterClass\$MediaCommonConfig"
-private const val LIVE = "com.google.protos.youtube.api.innertube.LivePlayerConfigOuterClass\$LivePlayerConfig"
-private const val MANIFESTLESS = "com.google.protos.youtube.api.innertube.ManifestlessWindowedLiveConfigOuterClass\$ManifestlessWindowedLiveConfig"
 private const val CONFIG = MEDIA + "MediaFetchPlayerConfig"
 private const val FETCH = MEDIA + "NetFetch"
 private const val CALLBACKS = MEDIA + "NetFetchCallbacks"
@@ -27,24 +26,18 @@ private const val REQUEST = MEDIA + "HttpRequest"
 private const val TOKEN_MANAGER = MEDIA + "ProofOfOriginTokenManager"
 private const val TOKEN_CALLBACK = MEDIA + "OnPoTokenMintedCallback"
 private const val REGISTRY = "com.google.protobuf.ExtensionRegistryLite"
-private const val ARRAY_LIST = "java.util.ArrayList"
 /** Uses retained JNI boundaries; all obfuscated members are resolved by their unique type shapes. */
 internal fun PatchRuntime.hookSabrPlayback() {
     val configClass = klass(CONFIG)
     val withCommon = appHelper(configClass.classDef, "reseamWithMediaCommonConfig", "(L$COMMON;)L$CONFIG;".replace('.', '/'))
-    val live = configClass.fieldOfType(LIVE)
-    val manifestless = configClass.fieldOfType(MANIFESTLESS)
-    val mode = configClass.fieldOfType(Type.Int)
-    val formats = configClass.fieldOfType(ARRAY_LIST)
+    // Releases append fields to the config; each constructor argument is the one field of its type.
+    val configConstructor = configClass.method("<init>")
+    val configFields = configConstructor.parameterTypes.map { type ->
+        type.takeUnless { it == descriptor(COMMON) }?.let(configClass::fieldOfType)
+    }
     withCommon.replace {
-        returnValue(
-            newInstance(
-                CONFIG,
-                "(L$LIVE;L$COMMON;L$MANIFESTLESS;ILjava/util/ArrayList;)V".replace('.', '/'),
-                thisObject.field(live), param(0), thisObject.field(manifestless),
-                thisObject.field(mode), thisObject.field(formats),
-            ),
-        )
+        val arguments = configFields.map { field -> field?.let(thisObject::field) ?: param(0) }
+        returnValue(newInstance(CONFIG, configConstructor.proto, *arguments.toTypedArray()))
     }
     SabrPlayback.parseCommonConfig.implement {
         val registry = callStatic(REGISTRY, "getGeneratedRegistry", "()Lcom/google/protobuf/ExtensionRegistryLite;")
@@ -74,23 +67,17 @@ internal fun PatchRuntime.hookSabrPlayback() {
 
     // Helpers inside the request class read its fields, which are package-private in some apps.
     val http = klass(REQUEST)
-    val url = http.fieldOfType(Type.String)
-    val headers = http.fieldOfType(ARRAY_LIST)
     val body = http.fieldOfType("[B")
-    val httpMethod = http.fieldOfType(MEDIA + "HttpMethod")
-    val flag = http.fieldOfType(Type.Boolean)
     val requestBody = appHelper(http.classDef, "reseamBody", "()[B")
     requestBody.replace { returnValue(thisObject.field(body)) }
+    val requestConstructor = http.method("<init>")
+    val requestFields = requestConstructor.parameterTypes.map { type ->
+        type.takeUnless { it == "[B" }?.let(http::fieldOfType)
+    }
     val withBody = appHelper(http.classDef, "reseamWithBody", "([B)L$REQUEST;".replace('.', '/'))
     withBody.replace {
-        returnValue(
-            newInstance(
-                REQUEST,
-                "(Ljava/lang/String;Ljava/util/ArrayList;[BL${MEDIA}HttpMethod;Z)V".replace('.', '/'),
-                thisObject.field(url), thisObject.field(headers), param(0),
-                thisObject.field(httpMethod), thisObject.field(flag),
-            ),
-        )
+        val arguments = requestFields.map { field -> field?.let(thisObject::field) ?: param(0) }
+        returnValue(newInstance(REQUEST, requestConstructor.proto, *arguments.toTypedArray()))
     }
     nativeEntries("dispatchRequest", FETCH, MEDIA + "NetFetchTask", REQUEST, CALLBACKS).forEach {
         it.before {
