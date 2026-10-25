@@ -6,7 +6,6 @@ package app.reseam.patches.youtube.hide
 
 import app.reseam.patch.Type
 import app.reseam.patch.after
-import app.reseam.patch.alwaysReturn
 import app.reseam.patch.classTarget
 import app.reseam.patch.dex.AccessFlags
 import app.reseam.patch.method
@@ -124,12 +123,6 @@ val hideShortsComponents = patch("Hide Shorts components") {
                 ShortsFilter.hideActionButtons(param(1).cast(conversionContextPath.owner).field(conversionContextPath), result)
             }
         }
-
-        // The current player combines both experimental controls in one predicate.
-        method("shortsNativeControls") {
-            literals(45677719L, 45649743L)
-            returns(Type.Boolean)
-        }.alwaysReturn(false)
     }
 }
 
