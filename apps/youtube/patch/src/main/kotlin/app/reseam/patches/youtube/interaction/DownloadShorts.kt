@@ -10,6 +10,8 @@ import app.reseam.patch.settings.whenEnabled
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
+import app.reseam.patches.youtube.internal.commandClass
+import app.reseam.patches.youtube.internal.menuCommandResolver
 import app.reseam.patches.youtube.internal.menuSheetMenu
 import app.reseam.patches.youtube.internal.menuSheetRenderer
 import app.reseam.patches.youtube.internal.menuSheetRows
@@ -24,7 +26,7 @@ import app.reseam.youtube.settings.YouTubeStrings
 private const val MESSAGE_LITE = "com.google.protobuf.MessageLite"
 
 val downloadShorts = patch("Download Shorts") {
-    description("Adds Download to the Shorts player's menu, using the app's own download flow.")
+    description("Adds Download to the menus of the Shorts player and of Shorts' cards, using the app's own download flow.")
     compatibleWith(YOUTUBE)
     // Shorts are offered the qualities Unlock downloads offers, and download through its answers.
     dependsOn(youTubeSettings, videoInformationHook, unlockDownloads)
@@ -45,6 +47,12 @@ val downloadShorts = patch("Download Shorts") {
             whenEnabled(DownloadSettings.downloadShorts) {
                 val menu = ShortsDownloads.withDownloadItem(thisObject.field(menuSheetMenu))
                 thisObject.set(menuSheetMenu, menu.cast(menuSheetRenderer.descriptor))
+            }
+        }
+        menuCommandResolver.before {
+            whenEnabled(DownloadSettings.downloadShorts) {
+                val withDownload = ShortsDownloads.withCardDownloadItem(protobufBytes(param(0)))
+                whenNotNull(withDownload) { param(0).assign(parseProtobuf(commandClass, "command", withDownload)) }
             }
         }
     }

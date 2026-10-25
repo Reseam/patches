@@ -19,6 +19,8 @@ import app.reseam.patch.settings.whenEnabled
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
+import app.reseam.patches.youtube.internal.commandClass
+import app.reseam.patches.youtube.internal.menuCommandResolver
 import app.reseam.patches.youtube.internal.videoInformationHook
 import app.reseam.patches.youtubecommon.parseProtobuf
 import app.reseam.patches.youtubecommon.protobufByteString
@@ -53,17 +55,6 @@ private val activeDevicesResponseClass = classTarget("active devices response") 
         .previous { opcode(Opcode.SGET_OBJECT) }
         .field("active devices default response")
     bytecode.findClass(defaultResponse.type) ?: error("The active devices response class is missing")
-}
-
-private val menuCommandResolver = method("menu command resolver") {
-    strings("com.google.android.libraries.youtube.rendering.elements.sender_view", "com.google.android.libraries.youtube.innertube.endpoint.tag")
-    calls { owner("android.view.Window"); name("getNavigationBarColor") }
-    hasParam("java.util.Map")
-    returns(Type.Void)
-}
-
-private val commandClass = classTarget("command") {
-    bytecode.findClass(menuCommandResolver.parameterTypes.first()) ?: error("The command class is missing")
 }
 
 private val queueState = classTarget("queue state") {
