@@ -27,7 +27,10 @@ import app.reseam.youtube.litho.bindings.LithoFilter
 // Not pinned to an app: YouTube Music builds its UI with the same library. It runs only as a
 // dependency, so the dependent's own settings host is already in place.
 val lithoFilter = patch {
-    execute { installLithoHooks() }
+    execute {
+        installLithoHooks()
+        keepElementsOnLitho()
+    }
 }
 
 /**
