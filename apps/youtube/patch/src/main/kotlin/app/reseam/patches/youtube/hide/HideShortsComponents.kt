@@ -5,9 +5,6 @@
 package app.reseam.patches.youtube.hide
 
 import app.reseam.patch.Type
-import app.reseam.patch.after
-import app.reseam.patch.classTarget
-import app.reseam.patch.dex.AccessFlags
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.resourceRef
@@ -17,7 +14,6 @@ import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
 import app.reseam.patches.youtube.internal.engagementPanelHook
 import app.reseam.patches.youtube.internal.playerTypeHook
-import app.reseam.patches.youtubecommon.conversionContextPath
 import app.reseam.patches.youtubecommon.lithoFilter
 import app.reseam.patches.youtubecommon.registerLithoFilter
 import app.reseam.youtube.settings.ShortsSettings
@@ -109,28 +105,6 @@ val hideShortsComponents = patch("Hide Shorts components") {
         }
 
         // Sound controls in this release are Litho components, filtered by ShortsFilter.
-
-        // In 20.22+ the action-bar children are returned together, so filtering the list by its
-        // stable indices avoids confusing a comment/share/remix button with another component.
-        run {
-            val resultListMethod = method("shortsActionButtonResultList") {
-                inClass(componentContextParserClass)
-                flags(AccessFlags.PRIVATE or AccessFlags.FINAL)
-                returns(Type.List)
-                calls { owner("Ljava/util/Collections;"); name("nCopies"); returns(Type.List) }
-            }
-            resultListMethod.after {
-                ShortsFilter.hideActionButtons(param(1).cast(conversionContextPath.owner).field(conversionContextPath), result)
-            }
-        }
     }
 }
 
-val componentContextParser = method("componentContextParser") {
-    strings("Cannot read theme key from model.")
-}
-
-val componentContextParserClass = classTarget("componentContextParserClass") {
-    bytecode.findClass(componentContextParser.owner)
-        ?: error("The component context parser class is missing")
-}
