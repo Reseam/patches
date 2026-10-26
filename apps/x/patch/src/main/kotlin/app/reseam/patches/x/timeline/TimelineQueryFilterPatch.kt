@@ -21,8 +21,7 @@ val timelineQueryFilter = patch {
 
     execute {
         val prepare = connectionPrepare
-        val implementations = bytecode.classes
-            .filter { prepare.owner in it.interfaces }
+        val implementations = bytecode.classesImplementing(prepare.owner)
             .mapNotNull { it.method(prepare.name, prepare.proto) }
             .filter { it.instructionCount > 0 }
         require(implementations.isNotEmpty()) { "no implementation of ${prepare.descriptor} found" }
