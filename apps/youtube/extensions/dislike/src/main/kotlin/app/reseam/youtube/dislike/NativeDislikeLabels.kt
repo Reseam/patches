@@ -53,7 +53,7 @@ internal class NativeDislikeLabels {
 internal fun observeNativeLikes(path: String, accessibility: String) {
     if (!VideoSettings.rydEnabled.value) return
     if (!path.startsWith("compactify_video_action_bar.e")) return
-    if (!listOf("|like_button.e", "|fullscreen_video_action_button.e").all { it in path }) return
+    if (nativeVoteButton(path) != NativeVoteButton.LIKE) return
     // The shared hook prefixes the optional accessibility identifier with a pipe.
     val description = accessibility.substringAfterLast('|')
     if (description.isBlank() || description.startsWith("id.")) return

@@ -12,21 +12,22 @@ import app.reseam.youtube.settings.VideoSettings
 import app.reseam.youtube.settings.YouTubeStrings
 
 internal enum class NativeVoteButton(
-    val anchor: String,
+    /** The first anchor in the path marks the button's label slot. */
+    val anchors: List<String>,
     val text: () -> String,
     val unavailable: () -> String,
     val description: (String) -> String,
     val count: (ReturnYouTubeDislike) -> String?,
 ) {
     LIKE(
-        "|fullscreen_video_action_button.e",
+        listOf("|fullscreen_video_action_button.e", "|button_inner.e"),
         { YouTubeStrings.rydLikes },
         { YouTubeStrings.rydLikesUnavailable },
         { YouTubeStrings.rydLikesCount(it) },
         { it.nativeLikeCountText },
     ),
     DISLIKE(
-        "|button_inner.e",
+        listOf("|button_inner.e"),
         { YouTubeStrings.rydDislikes },
         { YouTubeStrings.rydDislikesUnavailable },
         { YouTubeStrings.rydDislikesCount(it) },
@@ -34,10 +35,9 @@ internal enum class NativeVoteButton(
     ),
 }
 
-internal fun nativeVoteButton(path: StringBuilder): NativeVoteButton? {
+internal fun nativeVoteButton(path: CharSequence): NativeVoteButton? {
     val button = if ("|like_button.e" in path) NativeVoteButton.LIKE else NativeVoteButton.DISLIKE
-    val index = path.indexOf(button.anchor)
-    if (index < 0) return null
+    val index = button.anchors.firstNotNullOfOrNull { anchor -> path.indexOf(anchor).takeIf { it >= 0 } } ?: return null
     if (button == NativeVoteButton.DISLIKE && "|dislike_button_vm.e" !in path) return null
     val containerMarker = "|ContainerType|"
     return button.takeIf {
