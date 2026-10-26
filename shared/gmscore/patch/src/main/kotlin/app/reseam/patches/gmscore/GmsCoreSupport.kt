@@ -98,7 +98,7 @@ fun gmsCoreSupportFor(
 
         // An authority also appears inside the content:// URI built around it, which a whole-string
         // replace cannot reach.
-        val uris = bytecode.replaceStringsContaining("content://") { names.renameUri(it) }
+        val uris = bytecode.replaceStringsStartingWith("content://") { names.renameUri(it) }
         log.info("Rewrote $uris content:// URIs")
 
         // Play Services is not installed, so every check for it has to stop reporting that.
