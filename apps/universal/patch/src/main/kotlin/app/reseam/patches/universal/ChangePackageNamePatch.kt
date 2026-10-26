@@ -4,7 +4,9 @@
 package app.reseam.patches.universal
 
 import app.reseam.patch.XmlElement
+import app.reseam.patch.methods
 import app.reseam.patch.patch
+import app.reseam.patch.resourceRef
 
 private val PACKAGE_NAME = Regex("^[a-z]\\w*(\\.[a-z]\\w*)+$")
 
@@ -39,11 +41,19 @@ val changePackageName = patch("Change package name") {
         // Code refers to permissions and authorities by literal, so whatever the manifest renames
         // has to be renamed in the bytecode too.
         val literals = mutableSetOf<String>()
-        fun rewrite(element: XmlElement, attribute: String) {
+        fun renameName(value: String) = rename(value)?.also { literals += value } ?: value
+
+        // A renamed value still starts with the original package, so a shared resource is renamed once.
+        val renamedResources = mutableSetOf<UInt>()
+        fun renameResource(id: UInt, transform: (String) -> String) {
+            if (renamedResources.add(id)) resources.getString(id)?.let { resources.setString(id, transform(it)) }
+        }
+        fun rewrite(element: XmlElement, attribute: String, transform: (String) -> String = ::renameName) {
             val value = element[attribute] ?: return
-            val new = rename(value) ?: return
-            element[attribute] = new
-            literals += value
+            when (val id = resourceRef(value)) {
+                null -> transform(value).takeIf { it != value }?.let { element[attribute] = it }
+                else -> renameResource(id, transform)
+            }
         }
 
         // The platform refuses a split set whose APKs disagree on the package name, so this lands
@@ -54,10 +64,7 @@ val changePackageName = patch("Change package name") {
                 for (element in root.descendants()) {
                     if (element.tag in PERMISSION_DECLARATIONS) rewrite(element, "android:name")
                     PERMISSION_ATTRIBUTES.forEach { rewrite(element, it) }
-                    val authorities = element["android:authorities"] ?: continue
-                    element["android:authorities"] = authorities.split(";").joinToString(";") { authority ->
-                        rename(authority)?.also { literals += authority } ?: authority
-                    }
+                    rewrite(element, "android:authorities") { it.split(";").joinToString(";", transform = ::renameName) }
                 }
             }
         }
@@ -66,17 +73,28 @@ val changePackageName = patch("Change package name") {
         // resource table is renamed with the manifest; otherwise its resources resolve to nothing.
         resources.components().forEach { resources.component(it).setPackageName(renamed) }
 
+        // Only the first app installed with an account type can use it, so the clone needs its own.
+        val accountTypes = mutableMapOf<String, String>()
+        fun accountType(type: String) = accountTypes.getOrPut(type) { rename(type) ?: "$renamed.$type" }
+
         // An explicit intent in compiled XML, such as a preference's <intent>, names the package
         // to launch. Android 14 refuses implicit intents to unexported activities, so apps bake it.
         var intents = 0
         for (component in files.components()) {
             val apk = files.component(component)
-            for (path in apk.list()) {
-                if (!path.startsWith("res/") || !path.endsWith(".xml") || apk.read(path)?.isBinaryXml() != true) continue
+            for (path in apk.xmlFilesWith(TARGET_PACKAGE, ACCOUNT_TYPE)) {
+                if (!path.startsWith("res/")) continue
                 apk.editXml(path) {
                     findByAttribute(TARGET_PACKAGE, original).forEach {
                         it[TARGET_PACKAGE] = renamed
                         intents++
+                    }
+                    for (element in ACCOUNT_TYPE_DECLARATIONS.flatMap(::findByTag)) {
+                        val type = element[ACCOUNT_TYPE] ?: continue
+                        when (val id = resourceRef(type)) {
+                            null -> if (rename(type) != null) element[ACCOUNT_TYPE] = accountType(type)
+                            else -> renameResource(id, ::accountType)
+                        }
                     }
                 }
             }
@@ -84,10 +102,17 @@ val changePackageName = patch("Change package name") {
 
         val count = literals.sumOf { old -> rename(old)?.let { bytecode.replaceAllStrings(old, it) } ?: 0 }
 
+        // The package name has other uses, so only account API callers get the new type.
+        val typeLiterals = accountTypes.entries.sumOf { (old, new) ->
+            if (old != original) return@sumOf bytecode.replaceAllStrings(old, new)
+            ACCOUNT_APIS.flatMap { api -> methods { strings(old); calls { owner(api) } }.all }
+                .distinctBy { it.descriptor }
+                .sumOf { it.method.replaceAllStrings(old, new) }
+        }
+
         // An authority also appears inside the content:// URI built around it, which a whole-string
         // replace cannot reach.
-        val uris = bytecode.replaceStringsContaining("content://") { uri ->
-            if (!uri.startsWith("content://")) return@replaceStringsContaining null
+        val uris = bytecode.replaceStringsStartingWith("content://") { uri ->
             val rest = uri.removePrefix("content://")
             val authority = rest.takeWhile { it != '/' && it != '?' && it != '#' }
             rename(authority)?.let { "content://$it${rest.removePrefix(authority)}" }
@@ -95,15 +120,17 @@ val changePackageName = patch("Change package name") {
 
         log.info(
             "Renamed $original to $renamed across ${literals.size} names, $count literals, " +
-                "$uris content:// URIs and $intents intents",
+                "$uris content:// URIs, $intents intents and ${accountTypes.size} account types " +
+                "($typeLiterals literals)",
         )
     }
 }
 
 private const val TARGET_PACKAGE = "android:targetPackage"
 
-// res/raw can hold text XML, which is not a compiled document; binary XML opens with RES_XML_TYPE.
-private fun ByteArray.isBinaryXml(): Boolean = size >= 2 && this[0] == 0x03.toByte() && this[1] == 0x00.toByte()
+private const val ACCOUNT_TYPE = "android:accountType"
+private val ACCOUNT_TYPE_DECLARATIONS = listOf("account-authenticator", "sync-adapter")
+private val ACCOUNT_APIS = listOf("android.accounts.AccountManager", "android.accounts.Account")
 
 private fun XmlElement.descendants(): Sequence<XmlElement> =
     sequenceOf(this) + children.asSequence().flatMap { it.descendants() }
