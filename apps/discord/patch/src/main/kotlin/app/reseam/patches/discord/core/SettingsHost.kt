@@ -11,12 +11,14 @@ import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.settings.addReactPackage
 import app.reseam.patch.settings.settingsHost
+import app.reseam.patches.bundle.reseamAbout
 import app.reseam.patches.bundle.reseamBrand
 
 val discordSettings = settingsHost("discord") {
     compatibleWith(DISCORD)
     dependsOn(discordModules)
     brand(reseamBrand)
+    about(reseamAbout)
 
     install {
         getPackages.after { addReactPackage(result) }

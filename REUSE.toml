@@ -206,6 +206,13 @@ path = "shared/bundle/patch/src/main/resources/icons/**"
 SPDX-FileCopyrightText = "2026 Lucide Icons and Contributors"
 SPDX-License-Identifier = "ISC"
 
+# ── Simple Icons brand marks, unmodified ────────────────────────────────────
+
+[[annotations]]
+path = "shared/bundle/patch/src/main/resources/socials/**"
+SPDX-FileCopyrightText = "Simple Icons Collaborators <https://simpleicons.org>"
+SPDX-License-Identifier = "CC0-1.0"
+
 # ── Gradle wrapper (Apache-2.0, from the Gradle project) ────────────────────
 
 [[annotations]]

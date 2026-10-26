@@ -4,10 +4,12 @@
 package app.reseam.patches.tiktok.core
 
 import app.reseam.patch.settings.settingsHost
+import app.reseam.patches.bundle.reseamAbout
 import app.reseam.patches.bundle.reseamBrand
 
 val tiktokSettings =
     settingsHost("tiktok") {
         compatibleWith(TIKTOK)
         brand(reseamBrand)
+        about(reseamAbout)
     }

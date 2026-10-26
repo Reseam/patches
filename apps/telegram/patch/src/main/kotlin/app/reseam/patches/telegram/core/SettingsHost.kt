@@ -10,6 +10,7 @@ import app.reseam.patch.method
 import app.reseam.patch.point
 import app.reseam.patch.reserveLocal
 import app.reseam.patch.settings.settingsHost
+import app.reseam.patches.bundle.reseamAbout
 import app.reseam.patches.bundle.reseamBrand
 import app.reseam.telegram.settings.bindings.TelegramSettingsEntry
 
@@ -19,6 +20,7 @@ private const val R_STRING = "org.telegram.messenger.R\$string"
 val telegramSettings = settingsHost("telegram") {
     compatibleWith(TELEGRAM)
     brand(reseamBrand)
+    about(reseamAbout)
 
     install {
         val logo = Resources::class.java.getResourceAsStream("/reseam-logo.png")?.use { it.readBytes() }

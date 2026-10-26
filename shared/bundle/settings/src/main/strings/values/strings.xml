@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bundle_donate">Donate</string>
+    <string name="bundle_request_patch">Request a patch</string>
+</resources>

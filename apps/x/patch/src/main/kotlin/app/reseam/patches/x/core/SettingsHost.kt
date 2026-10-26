@@ -4,9 +4,11 @@
 package app.reseam.patches.x.core
 
 import app.reseam.patch.settings.settingsHost
+import app.reseam.patches.bundle.reseamAbout
 import app.reseam.patches.bundle.reseamBrand
 
 val xSettings = settingsHost("x") {
     compatibleWith(X)
     brand(reseamBrand)
+    about(reseamAbout)
 }
