@@ -67,6 +67,7 @@ fun isFiltered(
     accessibilityId: String?,
     accessibilityText: String?,
     pathBuilder: StringBuilder?,
+    element: Any?,
 ): Boolean {
     if (identifier.isNullOrEmpty() || pathBuilder == null || pathBuilder.isEmpty()) return false
     return try {
@@ -75,7 +76,7 @@ fun isFiltered(
             listOfNotNull(accessibilityId, accessibilityText)
                 .filterNot { it.isBlank() }
                 .joinToString("|")
-        val parameters = Parameters(identifier, pathBuilder.toString(), accessibility)
+        val parameters = Parameters(identifier, pathBuilder.toString(), accessibility, element)
         identifiers.matches(identifier, parameters) ||
             pathSearch.matches(parameters.path, parameters)
     } catch (ex: Exception) {
@@ -93,8 +94,18 @@ fun layoutThreadCount(original: Int): Int {
     return LAYOUT_THREAD_POOL_SIZE
 }
 
-private class Parameters(val identifier: String, val path: String, val accessibility: String) {
-    private val buffer = lazy(LazyThreadSafetyMode.NONE) { bufferFor(identifier) }
+private class Parameters(
+    val identifier: String,
+    val path: String,
+    val accessibility: String,
+    element: Any?,
+) {
+    private val buffer =
+        lazy(LazyThreadSafetyMode.NONE) { withoutThemeResources(bufferFor(identifier)) }
+    private val elementBuffer =
+        lazy(LazyThreadSafetyMode.NONE) {
+            encodeElement(element)?.let(::withoutThemeResources) ?: ByteArray(0)
+        }
 
     fun isFiltered(
         filter: Filter,
@@ -103,7 +114,10 @@ private class Parameters(val identifier: String, val path: String, val accessibi
         start: Int,
     ): Boolean =
         filter
-            .isFiltered(LithoComponent(identifier, path, accessibility, buffer, type, start), group)
+            .isFiltered(
+                LithoComponent(identifier, path, accessibility, buffer, elementBuffer, type, start),
+                group,
+            )
             .also {
                 if (it)
                     Logger.debug {

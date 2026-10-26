@@ -42,8 +42,9 @@ open class FilterRule(
 ) : StringFilterGroup(setting, *patterns)
 
 /**
- * The matched component; [buffer] is looked up on first use and can be empty, as can
- * [accessibility].
+ * The matched component. [buffer] is its tree root's proto, shared by every component in the tree;
+ * [elementBuffer] is the component's own element. Both are encoded on first use, without theme
+ * resources, and can be empty, as can [accessibility].
  */
 class LithoComponent
 internal constructor(
@@ -51,9 +52,13 @@ internal constructor(
     val path: String,
     val accessibility: String,
     private val lookup: Lazy<ByteArray>,
+    private val element: Lazy<ByteArray>,
     val type: Filter.FilterContentType,
     val index: Int,
 ) {
     val buffer: ByteArray
         get() = lookup.value
+
+    val elementBuffer: ByteArray
+        get() = element.value
 }

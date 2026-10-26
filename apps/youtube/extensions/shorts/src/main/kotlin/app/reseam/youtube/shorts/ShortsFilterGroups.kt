@@ -16,6 +16,10 @@ import app.reseam.youtube.settings.ShortsSettings
 private val LithoComponent.isPlayerOverlay: Boolean
     get() = playerOverlayPrefixes.any(path::startsWith)
 
+// A carousel's labels are separate pills; each path ends at its button: "…|button.eml-fe|<hash>|".
+private val LithoComponent.isCarouselPill: Boolean
+    get() = path.removeSuffix("|").substringBeforeLast('|').substringAfterLast('|').startsWith("button.e")
+
 private val playerOverlayPrefixes =
     listOf("reel_channel_bar.e", "reel_metapanel.e", "reel_player_overlay.e")
 
@@ -24,7 +28,6 @@ internal class ShortsFilterGroups {
         ByteArrayFilterGroup(ShortsSettings.hideShortsChannel, "Shorts")
     private val compactVideoBuffer = ByteArrayFilterGroup(null, "/frame0.jpg")
     private val useSoundBuffer = ByteArrayFilterGroup(null, "yt_outline_camera_")
-    private val useTemplateBuffer = ByteArrayFilterGroup(null, "yt_outline_template_add_")
     private val reelCarouselBuffer =
         ByteArrayFilterGroupList().apply {
             addAll(
@@ -145,7 +148,7 @@ internal class ShortsFilterGroups {
             FilterRule(ShortsSettings.hideShortsLivePreview, "live_preview_page_vm.e"),
             FilterRule(null, "suggested_action.e") {
                 suggestedActionsBuffer.all { group -> group.isEnabled } ||
-                    suggestedActionsBuffer.check(it.buffer).isFiltered
+                    suggestedActionsBuffer.check(it.elementBuffer).isFiltered
             },
             FilterRule(ShortsSettings.hideShortsPausedOverlayButtons, "shorts_paused_state"),
             FilterRule(ShortsSettings.hideShortsChannelBar, "reel_channel_bar.e"),
@@ -154,20 +157,15 @@ internal class ShortsFilterGroups {
             FilterRule(ShortsSettings.hideShortsAutoDubbedLabel, "badge.e") { it.isPlayerOverlay },
             FilterRule(ShortsSettings.hideShortsFullVideoLinkLabel, "reel_multi_format_link"),
             FilterRule(ShortsSettings.hideShortsVideoTitle, "shorts_video_title_item"),
-            FilterRule(
-                ShortsSettings.hideShortsUseSoundButton,
-                "floating_action_button.e",
-                "reel_metapanel.e",
-            ) {
-                useSoundBuffer.check(it.buffer).isFiltered
-            },
-            FilterRule(ShortsSettings.hideShortsUseTemplateButton, "reel_metapanel.e") {
-                useTemplateBuffer.check(it.buffer).isFiltered
+            FilterRule(ShortsSettings.hideShortsUseSoundButton, "floating_action_button.e") {
+                useSoundBuffer.check(it.elementBuffer).isFiltered
             },
             FilterRule(ShortsSettings.hideShortsSoundButton, "reel_pivot_button"),
             FilterRule(ShortsSettings.hideShortsStickers, "stickers_layer.e"),
             FilterRule(ShortsSettings.hideShortsTaggedProducts, "product_sticker.e"),
-            FilterRule(null, "reel_carousel.e") { reelCarouselBuffer.check(it.buffer).isFiltered },
+            FilterRule(null, "reel_carousel.e") {
+                it.isCarouselPill && reelCarouselBuffer.check(it.elementBuffer).isFiltered
+            },
             FilterRule(ShortsSettings.hideShortsSoundMetadataLabel, "reel_sound_metadata"),
             FilterRule(ShortsSettings.hideShortsLikeFountain, "like_fountain.e"),
             FilterRule(

@@ -55,7 +55,7 @@ internal fun PatchRuntime.installLithoHooks() {
     // Filtering happens at the return, after the component is fully built. Returning earlier
     // leaves the litho tree half-constructed, which costs memory and stalls layout.
     componentCreateReturn.before {
-        val filtered = LithoFilter.isFiltered(param(1).field(conversionContextIdentifier), local(accessibilityId), local(accessibilityText), param(1).field(conversionContextPath))
+        val filtered = LithoFilter.isFiltered(param(1).field(conversionContextIdentifier), local(accessibilityId), local(accessibilityText), param(1).field(conversionContextPath), param(2))
         whenTrue(filtered) {
             returnValue(call(emptyComponentBuilder, param(0)).field(emptyComponentField))
         }
