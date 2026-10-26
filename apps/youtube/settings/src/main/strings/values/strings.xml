@@ -51,6 +51,8 @@
     <string name="change_header_logo_premium">Premium</string>
     <string name="change_header_logo_reseam">Reseam</string>
     <string name="video_quality_default_2">Auto</string>
+    <string name="video_quality_default_144">144p</string>
+    <string name="video_quality_default_240">240p</string>
     <string name="video_quality_default_360">360p</string>
     <string name="video_quality_default_480">480p</string>
     <string name="video_quality_default_720">720p</string>

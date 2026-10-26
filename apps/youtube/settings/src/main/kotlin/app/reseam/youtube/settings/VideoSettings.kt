@@ -55,6 +55,8 @@ object VideoSettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
             choices =
                 listOf(
                     Choice("-2", YouTubeStrings.videoQualityDefault2),
+                    Choice("144", YouTubeStrings.videoQualityDefault144),
+                    Choice("240", YouTubeStrings.videoQualityDefault240),
                     Choice("360", YouTubeStrings.videoQualityDefault360),
                     Choice("480", YouTubeStrings.videoQualityDefault480),
                     Choice("720", YouTubeStrings.videoQualityDefault720),
