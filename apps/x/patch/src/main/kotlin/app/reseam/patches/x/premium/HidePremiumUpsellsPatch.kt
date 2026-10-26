@@ -4,8 +4,11 @@
 package app.reseam.patches.x.premium
 
 import app.reseam.patch.Type
+import app.reseam.patch.enumConstant
+import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
+import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.X
@@ -16,7 +19,7 @@ import app.reseam.patches.x.featureswitches.featureSwitchOverrides
 import app.reseam.x.settings.XStrings
 
 val hidePremiumUpsells = patch("Hide Premium upsells") {
-    description("Removes the Upgrade button and discount pills, the Get Verified prompts, the Premium upsells on profiles, posts, and in the composer, and the paywall at launch.")
+    description("Removes the Upgrade button and discount pills, the Get Verified prompts, the Premium upsells on profiles, posts, and in the composer, the Premium edit entry in the post menu, and the paywall at launch.")
     compatibleWith(X)
     dependsOn(featureSwitchOverrides)
     settings(xSettings, section(XStrings.sectionPremium, XSettings.hidePremiumUpsells, XSettings.hideAppOpenPaywall))
@@ -43,6 +46,7 @@ val hidePremiumUpsells = patch("Hide Premium upsells") {
             "subscriptions_upsells_analytics_profile_enabled",
             "subscriptions_upsells_full_hd_video_upload_composer_enabled",
             "subscriptions_upsells_full_hd_video_upload_discount_enabled",
+            "subscriptions_upsells_4k_video_upload_composer_enabled",
             "subscriptions_upsells_articles_post_composer_promo_variant_enabled",
             // Subscribers with the feature skip these reads; only the upsell path consults them.
             "subscriptions_upsells_highlights_enabled",
@@ -55,6 +59,10 @@ val hidePremiumUpsells = patch("Hide Premium upsells") {
         gate(XSettings.hidePremiumUpsells) {
             homeNavUpgrade.alwaysReturnNull()
             premiumOffer.alwaysReturnNull()
+            // The menu wraps the entry in listOfNotNull, so a null leaves it out.
+            postMenu.point { field { owner(editUpsell.owner); name(editUpsell.name) } }
+                .captureAs("editUpsell")
+                .after { capture("editUpsell").assign(nullObject) }
         }
     }
 }
@@ -69,4 +77,13 @@ val homeNavUpgrade = method("homeNavUpgrade") {
 val premiumOffer = method("premiumOffer") {
     strings("Failed to load catalog for drawer discount pill: ")
     returns(Type.Object)
+}
+
+private val postMenuOption = klass("postMenuOption") { enumConstants("Edit", "EditWithTwitterBlue") }
+private val editUpsell = postMenuOption.enumConstant("EditWithTwitterBlue")
+
+// Builds a post's menu, with the Premium edit entry when editing is locked.
+val postMenu = method("postMenu") {
+    strings("subscriptions_feature_labs_1004")
+    accesses { owner(editUpsell.owner); name(editUpsell.name) }
 }
