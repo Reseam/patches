@@ -135,7 +135,7 @@ object InstagramMediaGraph {
 
     val media = bind("media") {
         fromClass(klass("com.instagram.feed.media.Media"))
-        string("videoUrl") {
+        member("videoUrl") {
             listGetter("video_versions") {
                 rankBy("callers followed by cast to VideoVersionIntf") { callSitesFollowedByCast(VIDEO_VERSION_INTF) }
             }
@@ -143,7 +143,7 @@ object InstagramMediaGraph {
             cast(VIDEO_VERSION_INTF)
             callInterface(VIDEO_VERSION_INTF, "getUrl", "()Ljava/lang/String;")
         }
-        objectValue("carouselChildren") {
+        member("carouselChildren") {
             listGetter("carousel_media") {
                 rankBy("callers followed by cast to media type") { callSitesFollowedByCast(sourceType) }
             }
@@ -159,7 +159,7 @@ object InstagramMediaGraph {
 
     val imageInfo = bind("imageInfo") {
         fromClass(klass("com.instagram.model.mediasize.ImageInfo"))
-        objectValue("candidates") {
+        member("candidates") {
             listGetter("image_versions2 candidates") {
                 rankBy("extended image URLs") { callSitesFollowedByCast(EXTENDED_IMAGE_URL) }
             }

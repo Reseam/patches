@@ -17,10 +17,10 @@ import app.reseam.patch.dex.parameterTypes
 import app.reseam.patch.dex.returnType
 import app.reseam.patch.field
 import app.reseam.patch.method
-import app.reseam.patch.native.NewField
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.section
+import app.reseam.patch.types.NewField
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings

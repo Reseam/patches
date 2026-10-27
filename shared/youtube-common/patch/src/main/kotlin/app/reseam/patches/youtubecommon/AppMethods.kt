@@ -10,7 +10,7 @@ import app.reseam.patch.dex.buildInstructions
 import app.reseam.patch.dex.parseParameterTypes
 import app.reseam.patch.dex.registerWordCount
 import app.reseam.patch.methodTarget
-import app.reseam.patch.native.NewMethod
+import app.reseam.patch.types.NewMethod
 
 /** Creates an app-side bridge for a subsequent DSL replacement, reusing an existing bridge. */
 fun appHelper(

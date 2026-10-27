@@ -19,11 +19,11 @@ import app.reseam.patch.fieldTarget
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.methodTarget
-import app.reseam.patch.native.NewMethod
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.replace
 import app.reseam.patch.settings.openSettings
+import app.reseam.patch.types.NewMethod
 import app.reseam.reddit.settings.bindings.OpenReseamSettings
 import app.reseam.reddit.settings.bindings.ReseamSettingsIcon
 import app.reseam.reddit.settings.bindings.ReseamSettingsItem

@@ -13,9 +13,9 @@ import app.reseam.patch.dex.AccessFlags
 import app.reseam.patch.field
 import app.reseam.patch.method
 import app.reseam.patch.methodTarget
-import app.reseam.patch.native.NewField
 import app.reseam.patch.point
 import app.reseam.patch.replace
+import app.reseam.patch.types.NewField
 import app.reseam.youtube.audio.bindings.ForceOriginalAudio
 
 /** Prefers the original audio track; [activityOnCreate] is where the setting is read. */

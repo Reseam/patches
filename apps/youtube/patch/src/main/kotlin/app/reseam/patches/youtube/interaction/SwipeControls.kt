@@ -4,6 +4,7 @@
 package app.reseam.patches.youtube.interaction
 
 import app.reseam.patch.*
+import app.reseam.patch.Type
 import app.reseam.patch.dex.AccessFlags
 import app.reseam.patch.dex.buildInstructions
 import app.reseam.patch.settings.section
@@ -55,7 +56,7 @@ val swipeControls = patch("Swipe controls") {
                 appHelper(activity.classDef, name, proto).also {
                     it.method.replaceBody(3, 2, buildInstructions {
                         invokeSuper(activity.classDef.info.superclass!!, name, proto, 1, 2)
-                        moveResult(0)
+                        moveResult(0, Type.Boolean)
                         returnValue(0)
                     })
                 }

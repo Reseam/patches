@@ -11,7 +11,7 @@ import app.reseam.patch.dex.AccessFlags
 import app.reseam.patch.dex.returnType
 import app.reseam.patch.fieldTarget
 import app.reseam.patch.klass
-import app.reseam.patch.native.NewField
+import app.reseam.patch.types.NewField
 import app.reseam.patch.patch
 import app.reseam.patch.replace
 import app.reseam.patches.youtube.core.YOUTUBE

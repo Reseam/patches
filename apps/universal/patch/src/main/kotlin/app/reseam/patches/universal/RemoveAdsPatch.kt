@@ -5,11 +5,15 @@ package app.reseam.patches.universal
 
 import app.reseam.patch.BytecodeScope
 import app.reseam.patch.Type
+import app.reseam.patch.alwaysReturn
+import app.reseam.patch.alwaysReturnNull
 import app.reseam.patch.descriptor
 import app.reseam.patch.dex.parameterTypes
-import app.reseam.patch.native.MethodRef
+import app.reseam.patch.klass
+import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.proto
+import app.reseam.patch.types.MethodRef
 import app.reseam.universal.googleads.bindings.AdMobLoader
 
 private const val GMA = "com.google.android.gms.ads"
@@ -111,8 +115,8 @@ private val LOADERS = listOf(
 )
 
 private fun BytecodeScope.neuter(className: String, methodName: String): Int {
-    val klass = findClass(className) ?: return 0
-    val methods = klass.methods.filter { it.name == methodName }
+    if (findClass(className) == null) return 0
+    val methods = methods { inClass(klass(className)); name(methodName) }.all
     for (m in methods) when (m.returnType) {
         Type.Void -> m.alwaysReturn()
         Type.Boolean -> m.alwaysReturn(false)
