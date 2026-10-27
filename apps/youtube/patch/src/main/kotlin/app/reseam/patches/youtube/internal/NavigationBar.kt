@@ -6,6 +6,7 @@ package app.reseam.patches.youtube.internal
 
 import app.reseam.patch.ExtMethod
 import app.reseam.patch.Type
+import app.reseam.patch.addMethod
 import app.reseam.patch.after
 import app.reseam.patch.before
 import app.reseam.patch.classTarget
@@ -23,7 +24,6 @@ import app.reseam.patch.replace
 import app.reseam.patches.youtube.core.MAIN_ACTIVITY
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.youTubeSettings
-import app.reseam.patches.youtubecommon.appHelper
 import app.reseam.youtube.navigation.bindings.NavigationBar
 
 private const val DRAWABLE = "android.graphics.drawable.Drawable"
@@ -143,8 +143,9 @@ val navigationBarHook = patch {
         val actualToolbarMethod = toolbarBackButton.method
         val actualToolbarTarget = methodTarget("resolvedToolbarBackButton") { actualToolbarMethod }
         toolbarClass.classDef.addInterface(TOOLBAR_INTERFACE)
-        val helper = appHelper(toolbarClass.classDef, "patch_getNavigationIcon", "()$DRAWABLE_DESCRIPTOR")
-        helper.replace { returnValue(thisObject.call(actualToolbarTarget)) }
+        toolbarClass.addMethod("patch_getNavigationIcon", "()$DRAWABLE_DESCRIPTOR") {
+            returnValue(thisObject.call(actualToolbarTarget))
+        }
     }
 }
 

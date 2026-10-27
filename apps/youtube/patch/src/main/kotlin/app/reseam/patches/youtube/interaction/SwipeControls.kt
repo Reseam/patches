@@ -4,15 +4,12 @@
 package app.reseam.patches.youtube.interaction
 
 import app.reseam.patch.*
-import app.reseam.patch.Type
 import app.reseam.patch.dex.AccessFlags
-import app.reseam.patch.dex.buildInstructions
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.*
 import app.reseam.patches.youtube.internal.engagementPanelHook
 import app.reseam.patches.youtube.internal.playerControls
 import app.reseam.patches.youtube.internal.playerTypeHook
-import app.reseam.patches.youtubecommon.appHelper
 import app.reseam.youtube.settings.PlayerControlsSettings
 import app.reseam.youtube.settings.YouTubeStrings
 import app.reseam.youtube.swipe.bindings.SwipeControls
@@ -53,12 +50,9 @@ val swipeControls = patch("Swipe controls") {
                     }
                     ancestor = ancestor.info.superclass?.let(bytecode::findClass)
                 }
-                appHelper(activity.classDef, name, proto).also {
-                    it.method.replaceBody(3, 2, buildInstructions {
-                        invokeSuper(activity.classDef.info.superclass!!, name, proto, 1, 2)
-                        moveResult(0, Type.Boolean)
-                        returnValue(0)
-                    })
+                val superclass = activity.classDef.info.superclass!!
+                activity.addMethod(name, proto) {
+                    returnValue(thisObject.callSuper(superclass, name, proto, param(0)))
                 }
             }
             target.before { whenTrue(call(hook, thisObject, param(0))) { returnTrue() } }

@@ -6,6 +6,7 @@ package app.reseam.patches.youtubespoof
 import app.reseam.patch.MethodTarget
 import app.reseam.patch.PatchRuntime
 import app.reseam.patch.Type
+import app.reseam.patch.addMethod
 import app.reseam.patch.before
 import app.reseam.patch.descriptor
 import app.reseam.patch.dex.AccessFlags
@@ -14,7 +15,6 @@ import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.methods
 import app.reseam.patch.replace
-import app.reseam.patches.youtubecommon.appHelper
 import app.reseam.youtube.spoof.bindings.SabrPlayback
 
 private const val MEDIA = "com.google.android.libraries.youtube.media.interfaces."
@@ -29,13 +29,12 @@ private const val REGISTRY = "com.google.protobuf.ExtensionRegistryLite"
 /** Uses retained JNI boundaries; all obfuscated members are resolved by their unique type shapes. */
 internal fun PatchRuntime.hookSabrPlayback() {
     val configClass = klass(CONFIG)
-    val withCommon = appHelper(configClass.classDef, "reseamWithMediaCommonConfig", "(L$COMMON;)L$CONFIG;".replace('.', '/'))
     // Releases append fields to the config; each constructor argument is the one field of its type.
     val configConstructor = configClass.method("<init>")
     val configFields = configConstructor.parameterTypes.map { type ->
         type.takeUnless { it == descriptor(COMMON) }?.let(configClass::fieldOfType)
     }
-    withCommon.replace {
+    val withCommon = configClass.addMethod("reseamWithMediaCommonConfig", "(L$COMMON;)L$CONFIG;".replace('.', '/')) {
         val arguments = configFields.map { field -> field?.let(thisObject::field) ?: param(0) }
         returnValue(newInstance(CONFIG, configConstructor.proto, *arguments.toTypedArray()))
     }
@@ -68,14 +67,12 @@ internal fun PatchRuntime.hookSabrPlayback() {
     // Helpers inside the request class read its fields, which are package-private in some apps.
     val http = klass(REQUEST)
     val body = http.fieldOfType("[B")
-    val requestBody = appHelper(http.classDef, "reseamBody", "()[B")
-    requestBody.replace { returnValue(thisObject.field(body)) }
+    val requestBody = http.addMethod("reseamBody", "()[B") { returnValue(thisObject.field(body)) }
     val requestConstructor = http.method("<init>")
     val requestFields = requestConstructor.parameterTypes.map { type ->
         type.takeUnless { it == "[B" }?.let(http::fieldOfType)
     }
-    val withBody = appHelper(http.classDef, "reseamWithBody", "([B)L$REQUEST;".replace('.', '/'))
-    withBody.replace {
+    val withBody = http.addMethod("reseamWithBody", "([B)L$REQUEST;".replace('.', '/')) {
         val arguments = requestFields.map { field -> field?.let(thisObject::field) ?: param(0) }
         returnValue(newInstance(REQUEST, requestConstructor.proto, *arguments.toTypedArray()))
     }

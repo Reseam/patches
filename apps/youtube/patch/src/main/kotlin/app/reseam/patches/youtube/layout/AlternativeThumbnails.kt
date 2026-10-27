@@ -5,12 +5,12 @@
 package app.reseam.patches.youtube.layout
 
 import app.reseam.patch.*
+import app.reseam.patch.addMethod
 import app.reseam.patch.dex.AccessFlags
 import app.reseam.patch.dex.Opcode
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.*
 import app.reseam.patches.youtube.internal.*
-import app.reseam.patches.youtubecommon.appHelper
 import app.reseam.youtube.settings.AppearanceSettings
 import app.reseam.youtube.settings.YouTubeStrings
 import app.reseam.youtube.thumbnails.bindings.AlternativeThumbnailsPatch
@@ -58,7 +58,7 @@ val alternativeThumbnails = patch("Alternative thumbnails") {
             .point("Cronet original URL") { opcode(Opcode.IPUT_OBJECT); field { type(Type.String) } }
             .field()
         request.classDef.addInterface("Lapp/reseam/youtube/thumbnails/AlternativeThumbnailsPatch\$ImageRequest;")
-        appHelper(request.classDef, "reseam_imageUrl", "()Ljava/lang/String;").replace {
+        request.addMethod("reseam_imageUrl", "()Ljava/lang/String;") {
             returnValue(thisObject.field(url))
         }
     }

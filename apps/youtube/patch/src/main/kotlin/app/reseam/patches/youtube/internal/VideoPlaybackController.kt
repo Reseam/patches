@@ -4,7 +4,9 @@
 
 package app.reseam.patches.youtube.internal
 
+import app.reseam.patch.ClassTarget
 import app.reseam.patch.Type
+import app.reseam.patch.addMethod
 import app.reseam.patch.classTarget
 import app.reseam.patch.dex.AccessFlags
 import app.reseam.patch.dex.DexClass
@@ -14,8 +16,6 @@ import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.methods
 import app.reseam.patch.point
-import app.reseam.patch.replace
-import app.reseam.patches.youtubecommon.appHelper
 
 internal val playerParameterBuilderVideoClass = classTarget("playerParameterBuilderVideoClass") {
     bytecode.findClass(playVideoCheckVideoStreamingDataResponseMethod.owner)
@@ -83,18 +83,16 @@ internal fun DexClass.addInterfaceIfMissing(descriptor: String) {
 }
 
 internal fun addPlaybackController(
-    clazz: DexClass,
+    clazz: ClassTarget,
     seek: app.reseam.patch.MethodTarget,
     seekRelative: app.reseam.patch.MethodTarget,
     seekSource: app.reseam.patch.FieldTarget,
 ) {
-    clazz.addInterfaceIfMissing(PLAYBACK_CONTROLLER)
-    val seekHelper = appHelper(clazz, "patch_seekTo", "(J)Z")
-    seekHelper.replace {
+    clazz.classDef.addInterfaceIfMissing(PLAYBACK_CONTROLLER)
+    clazz.addMethod("patch_seekTo", "(J)Z") {
         returnValue(thisObject.call(seek, param(0), staticField(seekSource)))
     }
-    val relativeHelper = appHelper(clazz, "patch_seekToRelative", "(J)V")
-    relativeHelper.replace {
+    clazz.addMethod("patch_seekToRelative", "(J)V") {
         thisObject.call(seekRelative, param(0), staticField(seekSource))
         returnVoid()
     }

@@ -4,8 +4,8 @@
 
 package app.reseam.patches.youtube.internal
 
-import app.reseam.youtube.video.bindings.VideoQuality
 import app.reseam.patch.Type
+import app.reseam.patch.addMethod
 import app.reseam.patch.before
 import app.reseam.patch.classTarget
 import app.reseam.patch.dex.AccessFlags
@@ -17,8 +17,7 @@ import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.methods
 import app.reseam.patch.point
-import app.reseam.patch.replace
-import app.reseam.patches.youtubecommon.appHelper
+import app.reseam.youtube.video.bindings.VideoQuality
 
 internal val videoQualityClass = classTarget("videoQuality") {
     bytecode.findClass(videoQualitySetterMethod.parameterTypes[0].removePrefix("["))
@@ -78,10 +77,10 @@ private val videoQualityMethod = videoQualityConstructor
 internal fun installVideoQualityHooks() {
         videoQualityClass.classDef.addInterfaceIfMissing(EXTENSION_VIDEO_QUALITY_INTERFACE)
         // These are app-side interface implementations; the extension only declares the interface.
-        appHelper(videoQualityClass.classDef, "patch_getQualityName", "()Ljava/lang/String;").replace {
+        videoQualityClass.addMethod("patch_getQualityName", "()Ljava/lang/String;") {
             returnValue(thisObject.field(qualityNameField))
         }
-        appHelper(videoQualityClass.classDef, "patch_getResolution", "()I").replace {
+        videoQualityClass.addMethod("patch_getResolution", "()I") {
             returnValue(thisObject.field(qualityResolutionField))
         }
 
@@ -91,14 +90,8 @@ internal fun installVideoQualityHooks() {
             param(0, videoQualityClass.descriptor)
             returns(Type.Void)
         }.single { true }
-        val qualityMenu = qualityMenuClass.classDef
-        qualityMenu.addInterfaceIfMissing(VIDEO_QUALITY_MENU_INTERFACE)
-        val qualityHelper = appHelper(
-            qualityMenu,
-            "patch_setQuality",
-            "($EXTENSION_VIDEO_QUALITY_INTERFACE)V",
-        )
-        qualityHelper.replace {
+        qualityMenuClass.classDef.addInterfaceIfMissing(VIDEO_QUALITY_MENU_INTERFACE)
+        qualityMenuClass.addMethod("patch_setQuality", "($EXTENSION_VIDEO_QUALITY_INTERFACE)V") {
             thisObject.call(qualityMenuSetterMethod, param(0).cast(videoQualityClass.descriptor))
             returnVoid()
         }

@@ -7,18 +7,18 @@ package app.reseam.patches.youtube.hide
 import app.reseam.patch.FieldTarget
 import app.reseam.patch.PatchRuntime
 import app.reseam.patch.Type
+import app.reseam.patch.addMethod
 import app.reseam.patch.before
 import app.reseam.patch.classTarget
 import app.reseam.patch.dex.AccessFlags
 import app.reseam.patch.dex.Opcode
 import app.reseam.patch.dex.opcode
 import app.reseam.patch.dex.parameterTypes
+import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.point
-import app.reseam.patch.replace
-import app.reseam.patches.youtubecommon.appHelper
-import app.reseam.youtube.hidelayout.bindings.SearchSuggestionAccessor
 import app.reseam.youtube.hidelayout.bindings.LayoutViews
+import app.reseam.youtube.hidelayout.bindings.SearchSuggestionAccessor
 
 private const val COLLECTION = "java.util.Collection"
 private val SEARCH_SUGGESTION_ACCESSOR = SearchSuggestionAccessor.descriptor
@@ -59,16 +59,14 @@ internal fun PatchRuntime.hideSearchSuggestions() {
         .field()
     val suggestionFields = searchSuggestionFields(searchSuggestions)
     suggestionClass.classDef.addInterface(SEARCH_SUGGESTION_ACCESSOR)
-    val searchHistoryAccessor = appHelper(suggestionClass.classDef, "patch_isSearchHistory", "()Z")
-    searchHistoryAccessor.replace {
+    suggestionClass.addMethod("patch_isSearchHistory", "()Z") {
         returnValue(
             LayoutViews.isSearchHistory(thisObject, thisObject.field(suggestionEndpointField)),
         )
     }
     val stateType = searchSuggestions.parameterTypes.single()
-    val helper = appHelper(searchSuggestions.method.classDef, "patch_setSearchSuggestions", "($stateType)V",
-        AccessFlags.PRIVATE or AccessFlags.FINAL)
-    helper.replace {
+    val helper = klass(searchSuggestions.owner).addMethod("patch_setSearchSuggestions", "($stateType)V",
+        AccessFlags.PRIVATE or AccessFlags.FINAL) {
         whenTrue(LayoutViews.hideYouMayLikeSection(param(0).field(suggestionFields.typedString))) {
             param(0).set(
                 suggestionFields.collection,

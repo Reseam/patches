@@ -5,11 +5,12 @@
 package app.reseam.patches.youtube.internal
 
 import app.reseam.patch.CodeScope
-import app.reseam.patch.ValueRef
 import app.reseam.patch.ExtMethod
 import app.reseam.patch.MethodTarget
 import app.reseam.patch.RunList
 import app.reseam.patch.Type
+import app.reseam.patch.ValueRef
+import app.reseam.patch.addMethod
 import app.reseam.patch.after
 import app.reseam.patch.classTarget
 import app.reseam.patch.dex.AccessFlags
@@ -22,11 +23,9 @@ import app.reseam.patch.method
 import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.point
-import app.reseam.patch.replace
 import app.reseam.patch.settings.ToggleSetting
 import app.reseam.patch.settings.whenEnabled
 import app.reseam.patches.youtube.core.YOUTUBE
-import app.reseam.patches.youtubecommon.appHelper
 
 private const val CLIENT_INFO = "com.google.protos.youtube.api.innertube.InnertubeContext\$ClientInfo"
 private const val BUILD_VERSION = "android.os.Build\$VERSION"
@@ -87,9 +86,7 @@ val clientContextHook = patch {
                     params()
                     returns(builderField.owner)
                 }
-                val helper = appHelper(endpointClass.classDef, HELPER, "()V",
-                    AccessFlags.PRIVATE or AccessFlags.FINAL)
-                helper.replace {
+                val helper = endpointClass.addMethod(HELPER, "()V", AccessFlags.PRIVATE or AccessFlags.FINAL) {
                     val clientInfo = thisObject
                         .call(contextBuilder)
                         .field(builderField)

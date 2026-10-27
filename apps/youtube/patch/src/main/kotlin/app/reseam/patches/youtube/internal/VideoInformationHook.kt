@@ -4,18 +4,18 @@
 
 package app.reseam.patches.youtube.internal
 
-import app.reseam.youtube.video.bindings.VideoInformation
+import app.reseam.patch.addMethod
 import app.reseam.patch.after
 import app.reseam.patch.before
 import app.reseam.patch.dex.AccessFlags
 import app.reseam.patch.dex.returnType
 import app.reseam.patch.fieldTarget
 import app.reseam.patch.klass
-import app.reseam.patch.types.NewField
 import app.reseam.patch.patch
 import app.reseam.patch.replace
+import app.reseam.patch.types.NewField
 import app.reseam.patches.youtube.core.YOUTUBE
-import app.reseam.patches.youtubecommon.appHelper
+import app.reseam.youtube.video.bindings.VideoInformation
 
 val videoInformationHook = patch {
     compatibleWith(YOUTUBE)
@@ -26,20 +26,13 @@ val videoInformationHook = patch {
         // sees the same order: VideoInformation first, then its consumers.
         hookBeforeVideoId(VideoInformation.newPlayerResponseSignature)
 
-        val playerClass = playerParameterBuilderVideoClass.classDef
-        val mdxClass = mdxPlayerDirectorClass.classDef
-        addPlaybackController(playerClass, playerSeekMethod, playerSeekRelativeMethod, playerSeekSource)
-        addPlaybackController(mdxClass, mdxSeekMethod, mdxSeekRelativeMethod, playerSeekSource)
+        addPlaybackController(playerParameterBuilderVideoClass, playerSeekMethod, playerSeekRelativeMethod, playerSeekSource)
+        addPlaybackController(mdxPlayerDirectorClass, mdxSeekMethod, mdxSeekRelativeMethod, playerSeekSource)
 
         installVideoQualityHooks()
 
         val playbackSpeedClass = klass(playbackSpeedFactory.returnType)
-        val playbackSpeedOverride = appHelper(
-            playbackSpeedClass.classDef,
-            "overridePlaybackSpeed",
-            "(F)V",
-        )
-        playbackSpeedOverride.replace {
+        playbackSpeedClass.addMethod("overridePlaybackSpeed", "(F)V") {
             val container = thisObject.field(setPlaybackSpeedContainerClassField)
             whenNotNull(container) {
                 val speedSetter = container.cast(setPlaybackSpeedClassField.owner).field(setPlaybackSpeedClassField)

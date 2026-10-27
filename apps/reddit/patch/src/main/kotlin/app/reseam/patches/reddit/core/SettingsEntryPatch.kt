@@ -3,27 +3,19 @@
 
 package app.reseam.patches.reddit.core
 
-import app.reseam.patch.MethodTarget
 import app.reseam.patch.Type
+import app.reseam.patch.addMethod
 import app.reseam.patch.before
 import app.reseam.patch.descriptor
 import app.reseam.patch.dex.AccessFlags
-import app.reseam.patch.dex.DexClass
-import app.reseam.patch.dex.Method
-import app.reseam.patch.dex.buildInstructions
 import app.reseam.patch.dex.isSet
-import app.reseam.patch.dex.parseParameterTypes
 import app.reseam.patch.dex.ref
-import app.reseam.patch.dex.registerWordCount
 import app.reseam.patch.fieldTarget
 import app.reseam.patch.klass
 import app.reseam.patch.method
-import app.reseam.patch.methodTarget
 import app.reseam.patch.patch
 import app.reseam.patch.point
-import app.reseam.patch.replace
 import app.reseam.patch.settings.openSettings
-import app.reseam.patch.types.NewMethod
 import app.reseam.reddit.settings.bindings.OpenReseamSettings
 import app.reseam.reddit.settings.bindings.ReseamSettingsIcon
 import app.reseam.reddit.settings.bindings.ReseamSettingsItem
@@ -72,26 +64,27 @@ val settingsEntry = patch("Reseam entry in Reddit settings") {
             )
         }
 
-        val item = ReseamSettingsItem.target.classDef
+        val item = ReseamSettingsItem.target
         val itemInterface = bytecode.findClass(settingsItemKey.owner) ?: error("settings item interface missing")
-        item.addInterface(itemInterface.descriptor)
+        item.classDef.addInterface(itemInterface.descriptor)
         itemInterface.virtualMethods.filter { AccessFlags.ABSTRACT.isSet(it.info.accessFlags) }.forEach { member ->
-            val bridge = item.addBridge(member)
-            when (member.returnType) {
-                descriptor("java.util.Set") -> bridge.replace { returnValue(ReseamSettingsItem.sessions()) }
-                descriptor(SETTINGS_SECTION) -> bridge.replace { returnValue(enumValue(SETTINGS_SECTION, "General")) }
-                Type.String -> bridge.replace { returnValue(string("key_pref_reseam")) }
-                Type.Int -> bridge.replace { returnValue(int(GENERAL_ORDER)) }
-                // A replaced body is capped at 16 locals, too few for this call.
-                Type.Void -> bridge.before {
-                    call(
-                        settingsRow,
-                        string("Reseam Settings"), newInstance(OpenReseamSettings.descriptor),
-                        nullObject, bool(false), nullObject, newInstance(ReseamSettingsIcon.descriptor), nullObject, nullObject, bool(false),
-                        param(1), int(0), int(ROW_DEFAULTS),
-                    )
+            item.addMethod(member.name, member.proto) {
+                when (member.returnType) {
+                    descriptor("java.util.Set") -> returnValue(ReseamSettingsItem.sessions())
+                    descriptor(SETTINGS_SECTION) -> returnValue(enumValue(SETTINGS_SECTION, "General"))
+                    Type.String -> returnValue(string("key_pref_reseam"))
+                    Type.Int -> returnValue(int(GENERAL_ORDER))
+                    Type.Void -> {
+                        call(
+                            settingsRow,
+                            string("Reseam Settings"), newInstance(OpenReseamSettings.descriptor),
+                            nullObject, bool(false), nullObject, newInstance(ReseamSettingsIcon.descriptor), nullObject, nullObject, bool(false),
+                            param(1), int(0), int(ROW_DEFAULTS),
+                        )
+                        returnVoid()
+                    }
+                    else -> error("unknown settings item member ${member.name}${member.proto}")
                 }
-                else -> error("unknown settings item member ${member.name}${member.proto}")
             }
         }
 
@@ -120,22 +113,6 @@ val settingsRow = privacyPolicyItemContent.point { invokeStatic { hasParam(FUNCT
 val unitInstance = fieldTarget("unitInstance") {
     val unit = bytecode.findClass("kotlin.Unit") ?: error("kotlin.Unit missing")
     unit.staticFields.single { it.fieldType == descriptor("kotlin.Unit") }.ref
-}
-
-private fun DexClass.addBridge(member: Method): MethodTarget {
-    val ins = 1 + parseParameterTypes(member.proto).sumOf(::registerWordCount)
-    addMethod(NewMethod(
-        name = member.name,
-        proto = member.proto,
-        accessFlags = (AccessFlags.PUBLIC or AccessFlags.FINAL).toUInt(),
-        registersSize = ins.toUShort(),
-        insSize = ins.toUShort(),
-        outsSize = 0u,
-        instructions = buildInstructions { returnVoid() },
-        tries = emptyList(),
-        catchHandlers = emptyList(),
-    ))
-    return methodTarget("${member.name}${member.proto} of $descriptor") { this@addBridge.method(member.name, member.proto) ?: error("added method missing") }
 }
 
 val icon = method("postOverflowItem") { strings("post_overflow_item_icon", "post_overflow_item_label") }

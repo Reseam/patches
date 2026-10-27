@@ -5,6 +5,7 @@
 package app.reseam.patches.youtube.internal
 
 import app.reseam.patch.Type
+import app.reseam.patch.addMethod
 import app.reseam.patch.after
 import app.reseam.patch.before
 import app.reseam.patch.classTarget
@@ -19,7 +20,6 @@ import app.reseam.patch.point
 import app.reseam.patch.points
 import app.reseam.patch.replace
 import app.reseam.patches.youtube.core.YOUTUBE
-import app.reseam.patches.youtubecommon.appHelper
 import app.reseam.patches.youtubecommon.lithoColorHook
 import app.reseam.patches.youtubecommon.registerLithoColorHook
 import app.reseam.youtube.theme.bindings.SeekbarColor
@@ -161,13 +161,11 @@ val seekbarColor = patch {
             custom { name != lottieSetAnimationInt.name }
         }
 
-        val intAlias = appHelper(lottieClass.classDef, "patch_setAnimation", "(I)V")
-        intAlias.replace {
+        lottieClass.addMethod("patch_setAnimation", "(I)V") {
             thisObject.call(lottieSetAnimationInt, param(0))
             returnVoid()
         }
-        val streamAlias = appHelper(lottieClass.classDef, "patch_setAnimation", "(Ljava/io/InputStream;Ljava/lang/String;)V")
-        streamAlias.replace {
+        lottieClass.addMethod("patch_setAnimation", "(Ljava/io/InputStream;Ljava/lang/String;)V") {
             val composition = call(lottieFactoryFromJson, param(0), param(1))
             thisObject.call(lottieSetAnimationStream, composition)
             returnVoid()
