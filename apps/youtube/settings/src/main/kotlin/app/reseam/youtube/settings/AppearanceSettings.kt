@@ -101,6 +101,7 @@ object AppearanceSettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
     val hideToolbarNotificationButton by toggle(default = false)
     val hideToolbarSearchButton by toggle(default = false)
     val hideToolbarMessagesButton by toggle(default = true)
+    val wideSearchBar by toggle(default = false)
     val gradientLoadingScreen by toggle(default = false)
     val splashScreenAnimationStyle by
         choice(

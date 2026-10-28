@@ -549,6 +549,8 @@
     <string name="hide_toolbar_search_button_summary">Hides the Search button in the top toolbar.</string>
     <string name="hide_toolbar_messages_button">Hide toolbar messages button</string>
     <string name="hide_toolbar_messages_button_summary">Hides the Messages inbox button in the top toolbar.</string>
+    <string name="wide_search_bar">Wide search bar</string>
+    <string name="wide_search_bar_summary">Replaces the search button in the top bar with a search bar next to the logo.</string>
     <string name="hide_miniplayer_overlay_buttons">Hide miniplayer overlay buttons</string>
     <string name="hide_miniplayer_overlay_buttons_summary">Hides the miniplayer expand, close and action buttons.</string>
     <string name="hide_miniplayer_subtext">Hide miniplayer subtext</string>
