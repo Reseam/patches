@@ -23,6 +23,7 @@ object DiscordSettings : SettingsGroup(DiscordStrings) {
     val draftPreview by toggle(default = true, icon = lucide("message-square"))
     val freemoji by toggle(default = true, icon = lucide("smile"))
     val hideActivityInvites by toggle(default = true, icon = lucide("gamepad-2"))
+    val hideBlockedMessages by toggle(default = true, icon = lucide("ban"))
     val hideContactSyncPrompt by toggle(default = true, icon = lucide("contact"))
     val hideGiftButton by toggle(default = true, icon = lucide("gift"))
     val hideGiftCards by toggle(default = true, icon = lucide("ticket"))

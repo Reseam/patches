@@ -30,6 +30,8 @@
     <string name="freemoji_summary">Send locked custom emoji as image links.</string>
     <string name="hide_activity_invites">Hide activity invites</string>
     <string name="hide_activity_invites_summary">Hide activity invite cards in messages.</string>
+    <string name="hide_blocked_messages">Hide blocked messages</string>
+    <string name="hide_blocked_messages_summary">Remove messages from blocked and ignored users from chat entirely.</string>
     <string name="hide_contact_sync_prompt">Hide contact sync prompt</string>
     <string name="hide_contact_sync_prompt_summary">Remove the contact sync promotion from the friends screen.</string>
     <string name="hide_gift_button">Hide gift button</string>
