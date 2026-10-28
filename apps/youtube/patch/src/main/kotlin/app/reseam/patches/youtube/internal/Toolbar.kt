@@ -33,13 +33,13 @@ val toolbarButtonClass = classTarget("toolbarButtonClass") {
 val toolbarButtonIcon = toolbarButtonClass.fieldOfType("android.widget.ImageView")
 
 /**
- * Which button this is, as the enum the icon is looked up from. The enum has a null default the
- * app substitutes right after producing it, so the capture is taken at the value and the point is
- * stepped past the branch the substitution ends on: patches emit with `after { }`, and read the
- * button as `capture("toolbarButton")` and its view as `thisObject.field(toolbarButtonIcon)`.
+ * Which button this is, as the enum the icon is looked up from, taken where the app produces it.
+ * Everything after it branches by icon (20.26 draws one icon from a resource and skips the lookup),
+ * so this is the last point every button passes. The enum is null for an icon the app does not
+ * know, before it substitutes its default. Patches emit with `after { }`, and read the button as
+ * `capture("toolbarButton")` and its view as `thisObject.field(toolbarButtonIcon)`.
  */
 val toolbarButtonIdentified = toolbarButtonCreate
     .point("toolbarButtonIdentified") { invokeVirtual { owner(RESOURCES); name("getDrawable") } }
     .previous { opcode(Opcode.MOVE_RESULT_OBJECT) }
     .captureAs("toolbarButton")
-    .next { opcode(Opcode.IGET_OBJECT) }

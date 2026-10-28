@@ -27,7 +27,6 @@ import app.reseam.patches.youtube.internal.hookNavigationTabCreated
 import app.reseam.patches.youtube.internal.navigationBarHook
 import app.reseam.patches.youtube.internal.overrideBooleanFeature
 import app.reseam.patches.youtube.internal.overrideClientContextOsName
-import app.reseam.patches.youtube.internal.toolbarButtonIcon
 import app.reseam.patches.youtube.internal.toolbarButtonIdentified
 import app.reseam.youtube.navbuttons.bindings.NavigationButtons
 import app.reseam.youtube.navigation.bindings.NavigationBar
@@ -104,10 +103,10 @@ val navigationButtons = patch("Navigation bar") {
         }
 
         toolbarButtonIdentified.after {
-            NavigationButtons.hideCreateButton(capture("toolbarButton"), thisObject.field(toolbarButtonIcon))
-            NavigationButtons.hideNotificationButton(capture("toolbarButton"), thisObject.field(toolbarButtonIcon))
-            NavigationButtons.hideSearchButton(capture("toolbarButton"), thisObject.field(toolbarButtonIcon))
-            NavigationButtons.hideMessagesButton(capture("toolbarButton"), thisObject.field(toolbarButtonIcon))
+            NavigationButtons.hideCreateButton(capture("toolbarButton"), paramOfType("android.view.MenuItem"))
+            NavigationButtons.hideNotificationButton(capture("toolbarButton"), paramOfType("android.view.MenuItem"))
+            NavigationButtons.hideSearchButton(capture("toolbarButton"), paramOfType("android.view.MenuItem"))
+            NavigationButtons.hideMessagesButton(capture("toolbarButton"), paramOfType("android.view.MenuItem"))
         }
 
         overrideBooleanFeature(ANIMATED_NAVIGATION_TABS, NavigationButtons.useAnimatedNavigationButtons)

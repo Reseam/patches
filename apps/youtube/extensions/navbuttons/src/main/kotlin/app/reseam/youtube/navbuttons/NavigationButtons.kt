@@ -7,6 +7,7 @@
 package app.reseam.youtube.navbuttons
 
 import android.os.Build
+import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import app.reseam.bundle.Logger
@@ -68,17 +69,17 @@ fun useTranslucentNavigationButtons(original: Boolean): Boolean {
 }
 
 @Export
-fun hideCreateButton(button: Enum<*>?, view: View?) = ToolbarButton.CREATE.hide(button, view)
+fun hideCreateButton(button: Enum<*>?, menuItem: MenuItem?) = ToolbarButton.CREATE.hide(button, menuItem)
 
 @Export
-fun hideNotificationButton(button: Enum<*>?, view: View?) =
-    ToolbarButton.NOTIFICATION.hide(button, view)
+fun hideNotificationButton(button: Enum<*>?, menuItem: MenuItem?) =
+    ToolbarButton.NOTIFICATION.hide(button, menuItem)
 
 @Export
-fun hideSearchButton(button: Enum<*>?, view: View?) = ToolbarButton.SEARCH.hide(button, view)
+fun hideSearchButton(button: Enum<*>?, menuItem: MenuItem?) = ToolbarButton.SEARCH.hide(button, menuItem)
 
 @Export
-fun hideMessagesButton(button: Enum<*>?, view: View?) = ToolbarButton.MESSAGES.hide(button, view)
+fun hideMessagesButton(button: Enum<*>?, menuItem: MenuItem?) = ToolbarButton.MESSAGES.hide(button, menuItem)
 
 private enum class ToolbarButton(
     val kind: String,
@@ -110,11 +111,12 @@ private enum class ToolbarButton(
         "MESSAGE_BUBBLE_OVERLAP",
     );
 
-    fun hide(button: Enum<*>?, view: View?) {
+    // Hiding the menu item drops its slot; the menu presenter makes the action view visible again.
+    fun hide(button: Enum<*>?, menuItem: MenuItem?) {
         val enabled = enabled()
         val hidden = enabled && button?.name in names
         Logger.debug { "Navigation toolbar $kind: ${button?.name ?: "null"} hidden=$hidden" }
-        if (hidden) view?.visibility = View.GONE
+        if (hidden) menuItem?.setVisible(false)
     }
 }
 
