@@ -20,6 +20,8 @@
     <string name="custom_themes_summary">Create, edit, share and use full themes, the Reseam theme included.</string>
     <string name="developer_menu">Developer menu</string>
     <string name="developer_menu_summary">Show Discord\'s existing developer tools in Settings.</string>
+    <string name="disable_call_idle">Disable call idle</string>
+    <string name="disable_call_idle_summary">Stop getting kicked from empty DM calls after 3 minutes.</string>
     <string name="disable_message_swipes">Disable message swipes</string>
     <string name="disable_message_swipes_summary">Stop swipes from starting replies or edits.</string>
     <string name="draft_preview">Draft preview</string>

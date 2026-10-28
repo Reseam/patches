@@ -18,6 +18,7 @@ object DiscordSettings : SettingsGroup(DiscordStrings) {
     val coloredNames by toggle(default = true, icon = lucide("at-sign"))
     val customThemes by toggle(default = true, icon = lucide("swatch-book"))
     val developerMenu by toggle(default = true, icon = lucide("square-terminal"))
+    val disableCallIdle by toggle(default = true, icon = lucide("timer-off"))
     val disableMessageSwipes by toggle(default = true, icon = lucide("move-horizontal"))
     val draftPreview by toggle(default = true, icon = lucide("message-square"))
     val freemoji by toggle(default = true, icon = lucide("smile"))
