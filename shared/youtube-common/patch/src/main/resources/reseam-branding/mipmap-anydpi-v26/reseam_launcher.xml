@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
     <background android:drawable="@drawable/reseam_adaptive_background" />
-    <foreground android:drawable="@drawable/reseam_adaptive_foreground" />
-    <monochrome android:drawable="@drawable/reseam_adaptive_monochrome" />
+    <foreground>
+        <inset android:drawable="@drawable/reseam_adaptive_foreground" android:inset="10.857%" />
+    </foreground>
+    <monochrome>
+        <inset android:drawable="@drawable/reseam_adaptive_monochrome" android:inset="10.857%" />
+    </monochrome>
 </adaptive-icon>
