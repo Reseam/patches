@@ -3,4 +3,5 @@
 
 dependencies {
     compileOnly(project(":shared:bundle:patch"))
+    compileOnly(project(":shared:meta:patch"))
 }

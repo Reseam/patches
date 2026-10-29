@@ -4,8 +4,7 @@
 package app.reseam.patches.instagram.ads
 
 import app.reseam.instagram.settings.InstagramStrings
-import app.reseam.patch.Type
-import app.reseam.patch.method
+import app.reseam.patch.alwaysReturn
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
@@ -13,6 +12,7 @@ import app.reseam.instagram.settings.FeedSettings
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.instagramSettings
 import app.reseam.patches.instagram.core.signatureCheck
+import app.reseam.patches.meta.sponsoredContentInjection
 
 val hideAds = patch("Hide ads") {
     description("Stops Instagram from inserting sponsored posts into feed, stories, explore, reels and search.")
@@ -22,12 +22,8 @@ val hideAds = patch("Hide ads") {
 
     execute {
         gate(FeedSettings.hideAds) {
-            adInsertion.alwaysReturn(false)
+            sponsoredContentInjection.alwaysReturn(false)
         }
     }
 }
 
-private val adInsertion = method("adInsertion") {
-    strings("Is ad pod", "cross_surface_duplicate_ad")
-    returns(Type.Boolean)
-}
