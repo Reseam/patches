@@ -3,6 +3,7 @@
 
 package app.reseam.patches.youtubemusic.gms
 
+import app.reseam.patches.gmscore.adaptGoogleLibraries
 import app.reseam.patches.gmscore.gmsCoreSupportFor
 import app.reseam.patches.youtubemusic.core.YOUTUBE_MUSIC
 import app.reseam.patches.youtubemusic.core.musicActivityOnCreate
@@ -15,4 +16,6 @@ val gmsCoreSupport = gmsCoreSupportFor(
     signature = "afb0fed5eeaebdd86f56a97742f4b6b33ef59875",
     defaultPackageName = "app.reseam.android.apps.youtube.music",
     musicActivityOnCreate,
-)
+) {
+    adaptGoogleLibraries(YOUTUBE_MUSIC.name)
+}

@@ -8,10 +8,8 @@ import app.reseam.patch.CompatiblePackage
 import app.reseam.patch.MethodTarget
 import app.reseam.patch.PatchRuntime
 import app.reseam.patch.ReseamPatch
-import app.reseam.patch.Type
 import app.reseam.patch.after
 import app.reseam.patch.alwaysReturn
-import app.reseam.patch.before
 import app.reseam.patch.patch
 import app.reseam.patch.settings.SettingsHost
 
@@ -105,28 +103,8 @@ fun gmsCoreSupportFor(
         playServicesCheck.alwaysReturn()
         playServicesAvailability.alwaysReturn(0)
 
-        // Primes only initializes in an app it recognizes as Google's, judged by the installed
-        // package, which neither this rename nor a later Change package name keeps on its list.
-        primePackages.alwaysReturn(true)
-
-        // Notification registration is keyed on the package Google's servers know.
-        gnpPackageName.after { capture("packageName").assign(string(originalPackage)) }
-
         GmsCoreSupport.vendorGroupId.implement { returnValue(string(vendor)) }
         GmsCoreSupport.originalPackageName.implement { returnValue(string(originalPackage)) }
-
-        castProviderQueries.all.also { check(it.isNotEmpty()) { "No Cast provider discovery queries" } }
-            .forEach { query ->
-                query.captureArgumentAs("intent", 1, "android.content.Intent").before {
-                    GmsCoreSupport.restrictCastDiscovery(capture("intent"))
-                }
-            }
-
-        // GmsCore can serve a Gservices key with no value, and the cache the rows land in rejects
-        // nulls, which crashes the app at launch and on every background refresh.
-        gservicesCacheFills.forEach {
-            captureArgumentAs("rows", 1, Type.Map).before { GmsCoreSupport.dropNullValues(capture("rows")) }
-        }
 
         mainActivityOnCreate.after { GmsCoreSupport.check(thisObject) }
         // An empty affinity puts it in its own task, out of reach of the app closing its own.

@@ -8,6 +8,7 @@ import app.reseam.patch.after
 import app.reseam.patch.before
 import app.reseam.patch.method
 import app.reseam.patch.point
+import app.reseam.patches.gmscore.adaptGoogleLibraries
 import app.reseam.patches.gmscore.gmsCoreSupportFor
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.mainActivityOnCreate
@@ -28,6 +29,7 @@ val gmsCoreSupport = gmsCoreSupportFor(
     defaultPackageName = "app.reseam.android.youtube",
     mainActivityOnCreate,
 ) {
+    adaptGoogleLibraries(YOUTUBE.name)
     // GmsCore reports the device as not Play Protect certified, and the app answers by hiding
     // behind UncertifiedDeviceActivity. With the check's Gservices switch read as off, the app
     // takes its own path that skips the check.
