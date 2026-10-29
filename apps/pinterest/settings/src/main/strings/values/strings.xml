@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="hide_ads">Hide ads</string>
+    <string name="hide_shopping">Hide shopping pins</string>
+    <string name="disable_update_prompts">Disable update prompts</string>
+    <string name="hide_screenshot_share">Hide screenshot share menu</string>
+    <string name="original_quality">Original-quality images</string>
+    <string name="original_quality_summary">Uses more data.</string>
+    <string name="show_posted_date">Show posted date</string>
+    <string name="posted_on">Posted <xliff:g id="date">%1$s</xliff:g></string>
+    <string name="hide_surveys">Hide survey prompts</string>
+    <string name="download_started">Downloading</string>
+    <string name="download_unavailable">Nothing to download</string>
+    <string name="download_board_started">Downloading <xliff:g id="count">%1$d</xliff:g> pins</string>
+    <string name="download_board_empty">Scroll the board first to load its pins</string>
+    <string name="section_feed">Feed</string>
+    <string name="section_closeup">Closeup</string>
+    <string name="section_images">Images</string>
+    <string name="section_sharing">Sharing</string>
+    <string name="section_prompts">Prompts</string>
+    <string name="section_updates">Updates</string>
+</resources>
