@@ -58,6 +58,8 @@
     <string name="feature_switch_overrides_summary">One key=value per line, for example x_lite_spaces_enabled=true. A value is true, false, a number, [a, b] for a list, or text. Restart X to apply.</string>
     <string name="canonical_links">Open full links</string>
     <string name="canonical_links_summary">Opens a link\'s real destination instead of routing it through t.co.</string>
+    <string name="custom_url_handling">Custom URL handling</string>
+    <string name="custom_url_handling_summary">Opens fixvx.com, vxtwitter.com and similar mirror links in the app, like x.com links.</string>
     <string name="share_link_provider">Share link provider</string>
     <string name="share_link_provider_summary">Host used for shared post links.</string>
     <string name="default_media_tab">Default media tab</string>

@@ -39,6 +39,7 @@ object XSettings : SettingsGroup(XStrings) {
     val disableAdTracking by toggle(default = true, icon = lucide("eye-off"))
     val featureSwitchOverrides by text(default = "", multiline = true, icon = lucide("flask-conical"))
     val canonicalLinks by toggle(default = true, icon = lucide("link"))
+    val customUrlHandling by toggle(default = true, icon = lucide("external-link"))
 
     val shareLinkProvider by
         choice(
