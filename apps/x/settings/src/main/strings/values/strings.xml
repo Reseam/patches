@@ -42,6 +42,8 @@
     <string name="hide_recommendations">Hide recommendations</string>
     <string name="hide_recommendations_summary">Removes Who to follow, Subscribe to, and Communities to join modules.</string>
     <string name="hide_view_counts">Hide view counts</string>
+    <string name="hide_new_posts_banner">Hide new posts banner</string>
+    <string name="hide_new_posts_banner_summary">No banner pointing to new posts at the top of timelines.</string>
     <string name="hide_view_counts_summary">Removes Views from the post action bar and the post detail line.</string>
     <string name="hide_notification_prompts">Hide notification prompts</string>
     <string name="hide_notification_prompts_summary">Stops the prompts and banner asking to turn on notifications.</string>
