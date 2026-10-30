@@ -8,11 +8,10 @@ package app.reseam.x.navigation
 import app.reseam.runtime.Export
 import app.reseam.x.settings.XSettings
 
-// X leaves these out of the bar but still has their icons and screens. Other tabs missing from
-// the bar were turned off by X or by another patch, such as the Grok tab.
+// Dropped from the bar by X but still have a screen, so a blank tab entry brings them back.
 private val restorable = setOf("COMMUNITIES", "SPACES")
 
-// X always opens on Home, so without its tab there is no way back to it.
+// X always opens on Home, so a bar without it has no way back.
 private const val HOME = "HOME"
 
 private val slots = listOf(XSettings.firstTab, XSettings.secondTab, XSettings.thirdTab, XSettings.fourthTab, XSettings.fifthTab)
@@ -21,12 +20,9 @@ private val slots = listOf(XSettings.firstTab, XSettings.secondTab, XSettings.th
 @Export
 fun arrange(tabs: LinkedHashMap<Enum<*>, Any>, blank: Any): LinkedHashMap<Enum<*>, Any> {
     val all = tabs.keys.firstOrNull()?.declaringJavaClass?.enumConstants ?: return tabs
-    val chosen = slots.map { it.value.uppercase() }
-    val arranged = LinkedHashMap<Enum<*>, Any>()
-    for (name in if (HOME in chosen) chosen else listOf(HOME) + chosen) {
-        val tab = all.firstOrNull { it.name == name } ?: continue
-        val data = tabs[tab] ?: blank.takeIf { name in restorable } ?: continue
-        arranged.putIfAbsent(tab, data)
-    }
-    return arranged
+    val order = slots.map { it.value.uppercase() }.let { if (HOME in it) it else listOf(HOME) + it }
+    return order.distinct()
+        .mapNotNull { name -> all.firstOrNull { it.name == name } }
+        .mapNotNull { tab -> (tabs[tab] ?: blank.takeIf { tab.name in restorable })?.let { tab to it } }
+        .toMap(LinkedHashMap())
 }

@@ -26,7 +26,6 @@ val customizeNavigationBar = patch("Customize navigation bar") {
     )
 
     execute {
-        // The bar draws one tab per entry of this map, in its order, and badge updates copy it.
         landingState.before {
             val tabs = paramOfType(LINKED_HASH_MAP)
             val blank = newInstance(tabData.owner, tabData.proto, nullObject, int(0), bool(false))

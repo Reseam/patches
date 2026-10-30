@@ -30,7 +30,6 @@ val defaultMediaTab = patch("Default media tab") {
 
 private val profileSubTab = klass("profileSubTab") { enumConstants("Posts", "Media", "Photos", "Videos") }
 
-// A profile tab that groups sub-tabs, such as Media with Photos and Videos, opens on its initial sub-tab.
 private val combinedTimeline = klass("combinedProfileTimeline") {
     strings("Combined timeline requires at least two sub-tabs")
 }.method("<init>") { hasParam(Type.List); hasParam(profileSubTab.descriptor) }

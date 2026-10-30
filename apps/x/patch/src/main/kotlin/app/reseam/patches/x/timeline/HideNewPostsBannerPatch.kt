@@ -17,7 +17,6 @@ val hideNewPostsBanner = patch("Hide new posts banner") {
     settings(xSettings, section(XStrings.sectionTimeline, XSettings.hideNewPostsBanner))
 
     execute {
-        // The banner shows only while the timeline's instruction state allows it.
         forceFlagWhen(", isEligibleToShowPill=", XSettings.hideNewPostsBanner, false)
     }
 }

@@ -29,12 +29,12 @@ fun applyUserOverrides() {
 @Export
 fun lookup(key: String): Any? = userOverrides[key] ?: false.takeIf { overrides[key]?.value == true }
 
-// The app's typed getters check the value's class and fall back to their default on a mismatch.
+// A wrong type is harmless: the app's typed getters fall back to their default on a class mismatch.
 private fun typed(value: String): Any = when {
     value.equals("true", ignoreCase = true) -> true
     value.equals("false", ignoreCase = true) -> false
     value.startsWith('[') && value.endsWith(']') ->
-        value.substring(1, value.length - 1).split(',').map { it.trim() }.filter { it.isNotEmpty() }
-    value.length >= 2 && value.startsWith('"') && value.endsWith('"') -> value.substring(1, value.length - 1)
+        value.removeSurrounding("[", "]").split(',').map(String::trim).filter(String::isNotEmpty)
+    value.length >= 2 && value.startsWith('"') && value.endsWith('"') -> value.removeSurrounding("\"")
     else -> value.toLongOrNull() ?: value.toDoubleOrNull() ?: value
 }

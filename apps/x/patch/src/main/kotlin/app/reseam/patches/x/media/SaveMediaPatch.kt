@@ -3,6 +3,7 @@
 
 package app.reseam.patches.x.media
 
+import app.reseam.patch.MethodTarget
 import app.reseam.patch.Type
 import app.reseam.patch.before
 import app.reseam.patch.descriptor
@@ -26,33 +27,34 @@ val saveMedia = patch("Save media") {
     settings(xSettings, section(XStrings.sectionMedia, XSettings.downloadFolder))
 
     execute {
-        // The one method every "Save" goes through, before it splits into the image and video
-        // paths. Its last argument is true for X's own internal saves, which we leave alone.
-        saveFile.before {
-            val handled = XDownloads.save(thisObject.field(downloaderContext), param(0), param(3), param(1), param(2), param(6))
-            whenTrue(handled) { returnVoid() }
-        }
-        // The video path also reaches the DownloadManager enqueue directly; cover it too.
-        downloadEnqueue.before {
-            val handled = XDownloads.save(thisObject.field(downloaderContext), param(0), param(4), param(2), param(3), param(6))
-            whenTrue(handled) { returnVoid() }
+        // Both the save entry and the enqueue carry the user-vs-internal flag as their last argument.
+        for (save in listOf(imageAndVideoArgs, enqueueArgs)) {
+            save.method.before {
+                val handled = XDownloads.save(thisObject.field(downloaderContext), param(save.url), param(save.name), param(save.mime), param(save.headers), param(6))
+                whenTrue(handled) { returnVoid() }
+            }
         }
     }
 }
 
-// The file-saving service: holds both the "Save" entry point and the DownloadManager enqueue.
+private class SaveArgs(val method: MethodTarget, val url: Int, val mime: Int, val headers: Int, val name: Int)
+
 private val downloader = klass("downloader") { strings("Starting download: ", "DownloadedFile") }
 
-// (String url, String mime, Map headers, String name, String subdir, Companion o, boolean internal)
-private val saveFile = method("saveFile") {
-    inClass(downloader)
-    strings("DownloadedFile")
-    returns(Type.Void)
-    custom { parameterTypes.size == 7 && parameterTypes[0] == Type.String && parameterTypes[2] == descriptor("java.util.Map") }
-}
+private val imageAndVideoArgs = SaveArgs(
+    method("saveFile") {
+        inClass(downloader)
+        strings("DownloadedFile")
+        returns(Type.Void)
+        custom { parameterTypes.size == 7 && parameterTypes[0] == Type.String && parameterTypes[2] == descriptor("java.util.Map") }
+    },
+    url = 0, mime = 1, headers = 2, name = 3,
+)
 
-// (Uri url, String title, String mime, Map headers, String name, Companion o, boolean internal)
-private val downloadEnqueue = method("downloadEnqueue") { inClass(downloader); strings("Starting download: ", ", private=") }
+private val enqueueArgs = SaveArgs(
+    method("downloadEnqueue") { inClass(downloader); strings("Starting download: ", ", private=") },
+    url = 0, mime = 2, headers = 3, name = 4,
+)
 
 private val downloaderContext = fieldTarget("downloaderContext") {
     downloader.classDef.instanceFields.single { it.fieldType == CONTEXT }.ref
