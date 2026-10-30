@@ -25,6 +25,9 @@
     <string name="download_folder_summary">Where saved photos, videos and GIFs go. Pick a folder, such as one on your SD card, or keep the gallery default.</string>
     <string name="save_all_media">Offer to save all media</string>
     <string name="save_all_media_summary">When you save from a post with several photos, GIFs or videos, choose this one or all of them.</string>
+    <string name="download_button">Download button on posts</string>
+    <string name="download_button_summary">Adds a download button next to the post menu on posts with photos, GIFs or videos.</string>
+    <string name="download_post">Download</string>
     <string name="save_media_title">Save all <xliff:g id="count">%1$d</xliff:g> items?</string>
     <string name="save_media_current">Only this one</string>
     <string name="save_media_all">Save all</string>

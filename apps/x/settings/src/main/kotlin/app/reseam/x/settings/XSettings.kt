@@ -22,6 +22,7 @@ object XSettings : SettingsGroup(XStrings) {
     val downloadWithoutWatermark by toggle(default = true, icon = lucide("droplet-off"))
     val downloadFolder by folder(default = "X", icon = lucide("folder-open"))
     val saveAllMedia by toggle(default = true, icon = lucide("images"))
+    val downloadButton by toggle(default = true, icon = lucide("download"))
 
     val hideGrokTab by toggle(default = true, icon = lucide("bot-off"))
     val hideGrokPostButton by toggle(default = true, icon = lucide("sparkles"))
