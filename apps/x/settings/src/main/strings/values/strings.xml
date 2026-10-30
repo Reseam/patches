@@ -21,6 +21,9 @@
     <string name="download_any_video_summary">Offers Download Video even when the author turned downloads off.</string>
     <string name="download_without_watermark">Download without watermark</string>
     <string name="download_without_watermark_summary">Saves the original file instead of the watermarked copy.</string>
+    <string name="download_folder">Download folder</string>
+    <string name="download_folder_summary">Where saved photos, videos and GIFs go. Pick a folder, such as one on your SD card, or keep the gallery default.</string>
+    <string name="download_started">Download started</string>
     <string name="hide_grok_tab">Hide Grok tab</string>
     <string name="hide_grok_tab_summary">Removes Grok from the bottom bar.</string>
     <string name="hide_grok_post_button">Hide Grok on posts and profiles</string>

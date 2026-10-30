@@ -6,6 +6,7 @@ package app.reseam.x.settings
 import app.reseam.patch.settings.Choice
 import app.reseam.patch.settings.SettingsGroup
 import app.reseam.patch.settings.choice
+import app.reseam.patch.settings.folder
 import app.reseam.patch.settings.text
 import app.reseam.patch.settings.toggle
 import app.reseam.patches.bundle.lucide
@@ -19,6 +20,7 @@ object XSettings : SettingsGroup(XStrings) {
     val unlockPremium by toggle(default = true, icon = lucide("badge-check"))
     val downloadAnyVideo by toggle(default = true, icon = lucide("download"))
     val downloadWithoutWatermark by toggle(default = true, icon = lucide("droplet-off"))
+    val downloadFolder by folder(default = "X", icon = lucide("folder-open"))
 
     val hideGrokTab by toggle(default = true, icon = lucide("bot-off"))
     val hideGrokPostButton by toggle(default = true, icon = lucide("sparkles"))
