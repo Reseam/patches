@@ -24,6 +24,12 @@
     <string name="download_folder">Download folder</string>
     <string name="download_folder_summary">Where saved photos, videos and GIFs go. Pick a folder, such as one on your SD card, or keep the gallery default.</string>
     <string name="download_started">Download started</string>
+    <string name="login_exported">Login copied to clipboard</string>
+    <string name="login_export_empty">No account to export</string>
+    <string name="login_import">Import login</string>
+    <string name="login_import_title">Import login?</string>
+    <string name="login_import_prompt">Sign in with the login on your clipboard?</string>
+    <string name="login_import_failed">Clipboard has no valid login</string>
     <string name="hide_grok_tab">Hide Grok tab</string>
     <string name="hide_grok_tab_summary">Removes Grok from the bottom bar.</string>
     <string name="hide_grok_post_button">Hide Grok on posts and profiles</string>
