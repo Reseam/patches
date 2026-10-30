@@ -23,6 +23,11 @@
     <string name="download_without_watermark_summary">Saves the original file instead of the watermarked copy.</string>
     <string name="download_folder">Download folder</string>
     <string name="download_folder_summary">Where saved photos, videos and GIFs go. Pick a folder, such as one on your SD card, or keep the gallery default.</string>
+    <string name="save_all_media">Offer to save all media</string>
+    <string name="save_all_media_summary">When you save from a post with several photos, GIFs or videos, choose this one or all of them.</string>
+    <string name="save_media_title">Save all <xliff:g id="count">%1$d</xliff:g> items?</string>
+    <string name="save_media_current">Only this one</string>
+    <string name="save_media_all">Save all</string>
     <string name="download_started">Download started</string>
     <string name="login_exported">Login copied to clipboard</string>
     <string name="login_export_empty">No account to export</string>
