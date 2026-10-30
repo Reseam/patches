@@ -58,6 +58,31 @@ object XSettings : SettingsGroup(XStrings) {
             icon = lucide("share-2"),
         )
 
+    val darkTheme by
+        choice(
+            default = "lights_out",
+            choices =
+                listOf(
+                    Choice("lights_out", XStrings.darkThemeLightsOut),
+                    Choice("dim", XStrings.darkThemeDim),
+                ),
+            icon = lucide("moon"),
+        )
+
+    val accentColor by
+        choice(
+            default = "x",
+            choices =
+                listOf(
+                    Choice("x", XStrings.accentColorX),
+                    Choice("material_you", XStrings.accentColorMaterialYou),
+                    Choice("custom", XStrings.accentColorCustom),
+                ),
+            icon = lucide("palette"),
+        )
+
+    val customAccentColor by text(default = "#1D9BF0", icon = lucide("pipette"))
+
     val defaultMediaTab by
         choice(
             default = "off",

@@ -79,6 +79,17 @@
     <string name="custom_url_handling_summary">Opens fixvx.com, vxtwitter.com and similar mirror links in the app, like x.com links.</string>
     <string name="share_link_provider">Share link provider</string>
     <string name="share_link_provider_summary">Host used for shared post links.</string>
+    <string name="dark_theme">Dark theme</string>
+    <string name="dark_theme_summary">Background X uses at night.</string>
+    <string name="dark_theme_lights_out">Lights out (black)</string>
+    <string name="dark_theme_dim">Dim (dark blue)</string>
+    <string name="accent_color">Accent color</string>
+    <string name="accent_color_summary">Color of buttons, links and highlights.</string>
+    <string name="accent_color_x">X\'s color setting</string>
+    <string name="accent_color_material_you">Material You (Android 12+)</string>
+    <string name="accent_color_custom">Custom</string>
+    <string name="custom_accent_color">Custom accent color</string>
+    <string name="custom_accent_color_summary">Hex color such as #1D9BF0, used when Accent color is Custom.</string>
     <string name="default_media_tab">Default media tab</string>
     <string name="default_media_tab_summary">Sub-tab a profile\'s Media tab opens on.</string>
     <string name="default_media_tab_photos">Photos</string>
@@ -111,4 +122,5 @@
     <string name="section_advanced">Advanced</string>
     <string name="section_links">Links</string>
     <string name="section_login">Login</string>
+    <string name="section_theme">Theme</string>
 </resources>

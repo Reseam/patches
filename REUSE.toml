@@ -224,3 +224,10 @@ path = [
 ]
 SPDX-FileCopyrightText = "2015-2024 the original authors"
 SPDX-License-Identifier = "Apache-2.0"
+
+# ── Twitter bird from Simple Icons 9.21.0, as a Lottie ──────────────────────
+
+[[annotations]]
+path = "apps/x/patch/src/main/resources/reseam-x/twitter_refresh_logo.json"
+SPDX-FileCopyrightText = "Simple Icons Collaborators <https://simpleicons.org>"
+SPDX-License-Identifier = "CC0-1.0"
