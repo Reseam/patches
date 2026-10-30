@@ -54,7 +54,6 @@ fun offerSaveAll(gallery: Any, item: Any, media: List<*>?): Boolean {
     val activity = resumed.get() ?: return false
     ReseamPatches.bundle().ui(activity).dialog()
         .title(XStrings.saveMediaTitle(items.size))
-        .dismissAction(activity.getString(android.R.string.cancel))
         .action(XStrings.saveMediaCurrent) { save(gallery, listOf(item)) }
         .action(XStrings.saveMediaAll) { save(gallery, items) }
         .show()
