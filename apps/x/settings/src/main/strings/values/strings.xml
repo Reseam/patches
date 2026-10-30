@@ -53,6 +53,11 @@
     <string name="disable_ad_tracking_summary">Turns off the advertising-id and automatic analytics reporting switches.</string>
     <string name="share_link_provider">Share link provider</string>
     <string name="share_link_provider_summary">Host used for shared post links.</string>
+    <string name="default_media_tab">Default media tab</string>
+    <string name="default_media_tab_summary">Sub-tab a profile\'s Media tab opens on.</string>
+    <string name="default_media_tab_photos">Photos</string>
+    <string name="default_media_tab_videos">Videos</string>
+    <string name="default_media_tab_off">Off (X decides)</string>
     <string name="section_premium">Premium</string>
     <string name="section_ads">Ads</string>
     <string name="section_media">Media</string>
@@ -62,4 +67,5 @@
     <string name="section_timeline">Timeline</string>
     <string name="section_notifications">Notifications</string>
     <string name="section_sharing">Sharing</string>
+    <string name="section_profile">Profile</string>
 </resources>

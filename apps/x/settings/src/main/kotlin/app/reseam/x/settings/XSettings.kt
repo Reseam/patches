@@ -48,4 +48,16 @@ object XSettings : SettingsGroup(XStrings) {
                 ),
             icon = lucide("share-2"),
         )
+
+    val defaultMediaTab by
+        choice(
+            default = "off",
+            choices =
+                listOf(
+                    Choice("photos", XStrings.defaultMediaTabPhotos),
+                    Choice("videos", XStrings.defaultMediaTabVideos),
+                    Choice("off", XStrings.defaultMediaTabOff),
+                ),
+            icon = lucide("images"),
+        )
 }
