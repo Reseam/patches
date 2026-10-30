@@ -9,10 +9,16 @@ import app.reseam.runtime.Export
 
 @Export fun single(item: Any): List<Any> = listOf(item)
 
-@Export
-fun withSection(sections: List<Any>, section: Any): MutableList<Any> =
-    // A data-class copy passes the list back in, and it already has the section.
-    if (sections is WithReseamSection) sections
-    else WithReseamSection(sections).apply { add(0, section) }
+@Export fun pair(first: Any, second: Any): List<Any> = listOf(first, second)
 
-private class WithReseamSection(sections: List<Any>) : ArrayList<Any>(sections)
+/** Prepends [section] to the settings list once per [tag], surviving the screen's state copies. */
+@Export
+fun withSection(sections: List<Any>, tag: String, section: Any): MutableList<Any> {
+    val list = sections as? ReseamSections ?: ReseamSections(sections)
+    if (list.tags.add(tag)) list.add(0, section)
+    return list
+}
+
+private class ReseamSections(sections: List<Any>) : ArrayList<Any>(sections) {
+    val tags = HashSet<String>()
+}
