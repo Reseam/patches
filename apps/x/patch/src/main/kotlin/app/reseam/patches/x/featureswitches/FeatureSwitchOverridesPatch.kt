@@ -11,8 +11,12 @@ import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.ToggleSetting
+import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.X
+import app.reseam.patches.x.core.xSettings
 import app.reseam.x.featureswitches.bindings.FeatureSwitchOverrides
+import app.reseam.x.settings.XSettings
+import app.reseam.x.settings.XStrings
 
 val featureSwitchOverrides = patch {
     compatibleWith(X)
@@ -23,6 +27,17 @@ val featureSwitchOverrides = patch {
             val override = FeatureSwitchOverrides.lookup(param(0))
             whenNotNull(override) { returnValue(override) }
         }
+    }
+}
+
+val userFeatureSwitches = patch("Feature switch overrides") {
+    description("Sets X's feature switches to values you choose.")
+    compatibleWith(X)
+    dependsOn(featureSwitchOverrides)
+    settings(xSettings, section(XStrings.sectionAdvanced, XSettings.featureSwitchOverrides))
+
+    execute {
+        appEntry { FeatureSwitchOverrides.applyUserOverrides() }
     }
 }
 

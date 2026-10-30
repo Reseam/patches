@@ -6,6 +6,7 @@ package app.reseam.x.settings
 import app.reseam.patch.settings.Choice
 import app.reseam.patch.settings.SettingsGroup
 import app.reseam.patch.settings.choice
+import app.reseam.patch.settings.text
 import app.reseam.patch.settings.toggle
 import app.reseam.patches.bundle.lucide
 
@@ -34,6 +35,7 @@ object XSettings : SettingsGroup(XStrings) {
     val hideNotificationPrompts by toggle(default = true, icon = lucide("bell-off"))
     val blockInstalledAppsScan by toggle(default = true, icon = lucide("scan-search"))
     val disableAdTracking by toggle(default = true, icon = lucide("eye-off"))
+    val featureSwitchOverrides by text(default = "", multiline = true, icon = lucide("flask-conical"))
 
     val shareLinkProvider by
         choice(
