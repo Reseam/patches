@@ -6,6 +6,7 @@
 package app.reseam.youtube.misc
 
 import app.reseam.bundle.Logger
+import app.reseam.bundle.parseOverrides
 import app.reseam.runtime.Export
 import app.reseam.youtube.core.debug
 import app.reseam.youtube.settings.AdvancedSettings
@@ -30,17 +31,13 @@ fun stringOverride(id: Long, original: String): String {
     return value
 }
 
-private val overrides by lazy { parse(AdvancedSettings.featureFlagOverrides.value) }
-
-private fun parse(setting: String): Map<Long, String> = buildMap {
-    setting
-        .split(',')
-        .filter { '=' in it }
-        .forEach { entry ->
-            val id = entry.substringBefore('=').trim()
+private val overrides by lazy {
+    buildMap {
+        for ((id, value) in parseOverrides(AdvancedSettings.featureFlagOverrides.value)) {
             when (val number = id.toLongOrNull()) {
                 null -> Logger.error { "Ignoring feature flag override with a non-numeric id: $id" }
-                else -> put(number, entry.substringAfter('=').trim())
+                else -> put(number, value)
             }
         }
+    }
 }
