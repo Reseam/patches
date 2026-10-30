@@ -18,6 +18,7 @@ import android.widget.Toast
 import app.reseam.bundle.Logger
 import app.reseam.bundle.showToast
 import app.reseam.runtime.Export
+import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
 import org.json.JSONObject
 
@@ -55,27 +56,29 @@ fun copyLogin() {
 }
 
 /**
- * When signed out and the clipboard holds an exported login, offers to import it. Called from
- * MainActivity so it reaches the user on the welcome screen, where settings are not available.
+ * When signed out, offers to import a login from the clipboard. Called from MainActivity so it
+ * reaches the user on the welcome screen, where settings are not available.
  */
 @Export
 fun offerImport(activity: Activity?) {
     activity ?: return
+    if (!XSettings.showImportOnLaunch.value) return
     if (AccountManager.get(activity).getAccountsByType(activity.accountType()).isNotEmpty()) return
-    // Reading the clipboard needs window focus, so wait for the first frame.
     activity.window?.decorView?.post {
-        val blob = activity.clipboard()?.primaryClip?.takeIf { it.itemCount > 0 }?.getItemAt(0)?.text?.toString()
-        if (blob?.trim()?.startsWith(PREFIX) != true) return@post
         AlertDialog.Builder(activity)
             .setTitle(XStrings.loginImportTitle)
             .setMessage(XStrings.loginImportPrompt)
-            .setPositiveButton(XStrings.loginImport) { _, _ ->
-                if (import(activity, blob)) restart(activity)
-                else activity.showToast(XStrings.loginImportFailed, Toast.LENGTH_SHORT)
-            }
+            .setPositiveButton(XStrings.loginImport) { _, _ -> importFromClipboard(activity) }
             .setNegativeButton(android.R.string.cancel, null)
             .show()
     }
+}
+
+// Read on tap, not to gate the prompt, so the app never touches the clipboard on its own.
+private fun importFromClipboard(activity: Activity) {
+    val blob = activity.clipboard()?.primaryClip?.takeIf { it.itemCount > 0 }?.getItemAt(0)?.text?.toString()
+    if (import(activity, blob)) restart(activity)
+    else activity.showToast(XStrings.loginImportFailed, Toast.LENGTH_SHORT)
 }
 
 private fun restart(context: Context) {

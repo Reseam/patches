@@ -26,6 +26,8 @@
     <string name="download_started">Download started</string>
     <string name="login_exported">Login copied to clipboard</string>
     <string name="login_export_empty">No account to export</string>
+    <string name="show_import_on_launch">Import login on the welcome screen</string>
+    <string name="show_import_on_launch_summary">When signed out, offer to sign in with a login copied from another device.</string>
     <string name="login_import">Import login</string>
     <string name="login_import_title">Import login?</string>
     <string name="login_import_prompt">Sign in with the login on your clipboard?</string>
@@ -99,4 +101,5 @@
     <string name="section_navigation">Navigation bar</string>
     <string name="section_advanced">Advanced</string>
     <string name="section_links">Links</string>
+    <string name="section_login">Login</string>
 </resources>

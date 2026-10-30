@@ -40,6 +40,7 @@ object XSettings : SettingsGroup(XStrings) {
     val featureSwitchOverrides by text(default = "", multiline = true, icon = lucide("flask-conical"))
     val canonicalLinks by toggle(default = true, icon = lucide("link"))
     val customUrlHandling by toggle(default = true, icon = lucide("external-link"))
+    val showImportOnLaunch by toggle(default = true, icon = lucide("download"))
 
     val shareLinkProvider by
         choice(
