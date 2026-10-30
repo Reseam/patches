@@ -38,6 +38,7 @@ object XSettings : SettingsGroup(XStrings) {
     val blockInstalledAppsScan by toggle(default = true, icon = lucide("scan-search"))
     val disableAdTracking by toggle(default = true, icon = lucide("eye-off"))
     val featureSwitchOverrides by text(default = "", multiline = true, icon = lucide("flask-conical"))
+    val canonicalLinks by toggle(default = true, icon = lucide("link"))
 
     val shareLinkProvider by
         choice(
