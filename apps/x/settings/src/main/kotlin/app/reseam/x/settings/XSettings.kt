@@ -60,4 +60,22 @@ object XSettings : SettingsGroup(XStrings) {
                 ),
             icon = lucide("images"),
         )
+
+    val firstTab by choice(default = "home", choices = navigationTabs, icon = lucide("panel-bottom"))
+    val secondTab by choice(default = "explore", choices = navigationTabs, icon = lucide("panel-bottom"))
+    val thirdTab by choice(default = "grok", choices = navigationTabs, icon = lucide("panel-bottom"))
+    val fourthTab by choice(default = "notifications", choices = navigationTabs, icon = lucide("panel-bottom"))
+    val fifthTab by choice(default = "dm", choices = navigationTabs, icon = lucide("panel-bottom"))
 }
+
+private val navigationTabs =
+    listOf(
+        Choice("home", XStrings.navigationTabHome),
+        Choice("explore", XStrings.navigationTabExplore),
+        Choice("grok", XStrings.navigationTabGrok),
+        Choice("notifications", XStrings.navigationTabNotifications),
+        Choice("dm", XStrings.navigationTabMessages),
+        Choice("communities", XStrings.navigationTabCommunities),
+        Choice("spaces", XStrings.navigationTabSpaces),
+        Choice("none", XStrings.navigationTabNone),
+    )

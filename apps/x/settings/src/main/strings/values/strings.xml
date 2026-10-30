@@ -58,6 +58,19 @@
     <string name="default_media_tab_photos">Photos</string>
     <string name="default_media_tab_videos">Videos</string>
     <string name="default_media_tab_off">Off (X decides)</string>
+    <string name="first_tab">First tab</string>
+    <string name="second_tab">Second tab</string>
+    <string name="third_tab">Third tab</string>
+    <string name="fourth_tab">Fourth tab</string>
+    <string name="fifth_tab">Fifth tab</string>
+    <string name="navigation_tab_home">Home</string>
+    <string name="navigation_tab_explore">Explore</string>
+    <string name="navigation_tab_grok">Grok</string>
+    <string name="navigation_tab_notifications">Notifications</string>
+    <string name="navigation_tab_messages">Messages</string>
+    <string name="navigation_tab_communities">Communities</string>
+    <string name="navigation_tab_spaces">Spaces</string>
+    <string name="navigation_tab_none">None</string>
     <string name="section_premium">Premium</string>
     <string name="section_ads">Ads</string>
     <string name="section_media">Media</string>
@@ -68,4 +81,5 @@
     <string name="section_notifications">Notifications</string>
     <string name="section_sharing">Sharing</string>
     <string name="section_profile">Profile</string>
+    <string name="section_navigation">Navigation bar</string>
 </resources>
