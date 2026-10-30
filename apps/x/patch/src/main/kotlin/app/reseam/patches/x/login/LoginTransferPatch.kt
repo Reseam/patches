@@ -23,7 +23,7 @@ import app.reseam.x.settings.bindings.SettingsRows
 private const val MAIN_ACTIVITY = "com.x.android.main.MainActivity"
 
 val loginTransfer = patch("Import and export login") {
-    description("Copies this account's login to the clipboard, and offers to import one on the welcome screen, for signing in without the browser.")
+    description("Copies this account's login to the clipboard, and offers a field on the welcome screen to paste one into, for signing in without the browser.")
     compatibleWith(X)
     enabledByDefault(false)
     settings(xSettings, section(XStrings.sectionLogin, XSettings.showImportOnLaunch))
