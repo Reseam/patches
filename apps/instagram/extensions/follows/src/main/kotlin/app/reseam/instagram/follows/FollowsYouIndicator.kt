@@ -10,8 +10,7 @@ import app.reseam.instagram.settings.InstagramStrings
 import app.reseam.runtime.Export
 
 @Export
-fun appendFromSession(subtitle: String?, userSession: Any, userViewModel: Any): String? =
-    error("Replaced by the follows-you indicator patch")
+external fun appendFromSession(subtitle: String?, userSession: Any, userViewModel: Any): String?
 
 @Export
 fun maybeAppend(subtitle: String?, followedBy: Boolean?): String? {

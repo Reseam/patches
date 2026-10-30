@@ -20,6 +20,6 @@ class ReseamSettingsIcon : (Any, Any) -> Unit? {
         // Nullable Unit keeps the JVM return type kotlin.Unit instead of void.
         @Export
         @JvmStatic
-        protected fun unit(): Unit? = error("Replaced by the settings entry patch")
+        protected external fun unit(): Unit?
     }
 }

@@ -139,10 +139,10 @@ private fun clientInfo(type: ClientType, client: JSONObject): ByteArray =
         .toByteArray()
 
 // The SABR patch supplies the app's retained configuration and protobuf types.
-@Export fun replaceConfig(original: Any?, common: Any?): Any = error("Replaced by the SABR patch")
+@Export external fun replaceConfig(original: Any?, common: Any?): Any
 
 // Parse using the native extension registry before publishing the replacement.
-@Export fun parseCommonConfig(common: ByteArray): Any = error("Replaced by the SABR patch")
+@Export external fun parseCommonConfig(common: ByteArray): Any
 
 // The SABR patch invokes the app's native PoToken callback interface.
 @Export fun tokenMinted(callback: Any, token: ByteArray) {}

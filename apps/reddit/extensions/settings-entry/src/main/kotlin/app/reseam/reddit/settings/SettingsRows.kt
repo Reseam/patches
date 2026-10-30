@@ -20,6 +20,6 @@ fun withoutUpsells(items: Set<Any>): MutableSet<Any> =
 
 // Reddit's settings item interface is R8-named, so the patch emits these calls.
 @Export
-fun section(item: Any): UserSettingsSection = error("Replaced by the hide premium settings patch")
+external fun section(item: Any): UserSettingsSection
 
-@Export fun key(item: Any): String = error("Replaced by the hide premium settings patch")
+@Export external fun key(item: Any): String

@@ -13,10 +13,10 @@ fun photoUrl(media: Any): String? =
         imageCandidateUrl(candidate)?.takeIf { it.isNotEmpty() }
     }
 
-@Export fun imageCandidates(media: Any): List<Any>? = error("Replaced by the media refs patch")
+@Export external fun imageCandidates(media: Any): List<Any>?
 
-@Export fun imageCandidateUrl(candidate: Any): String? = error("Replaced by the media refs patch")
+@Export external fun imageCandidateUrl(candidate: Any): String?
 
-@Export fun videoUrl(media: Any): String? = error("Replaced by the media refs patch")
+@Export external fun videoUrl(media: Any): String?
 
-@Export fun children(media: Any): List<*>? = error("Replaced by the media refs patch")
+@Export external fun children(media: Any): List<*>?

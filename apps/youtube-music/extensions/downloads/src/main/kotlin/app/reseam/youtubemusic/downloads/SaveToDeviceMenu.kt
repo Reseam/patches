@@ -17,9 +17,9 @@ import app.reseam.youtube.savetodevice.saveMenuItem
 private const val ICON_OPEN_IN_PHONE = 987L
 
 // R8 renames the menu item message, so the Save to device patch emits these bodies.
-@Export fun itemBytes(item: Any): ByteArray = error("Replaced by the Save to device patch")
+@Export external fun itemBytes(item: Any): ByteArray
 
-@Export fun parseItem(bytes: ByteArray): Any = error("Replaced by the Save to device patch")
+@Export external fun parseItem(bytes: ByteArray): Any
 
 @Export
 fun addItems(context: Context, items: MutableList<Any?>?) {

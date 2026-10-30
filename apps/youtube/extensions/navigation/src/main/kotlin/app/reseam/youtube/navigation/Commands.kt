@@ -47,5 +47,5 @@ object Commands {
     // The router and the endpoint message are obfuscated, so the command router patch writes the body.
     @Export
     @JvmStatic
-    fun dispatch(router: Any, endpoint: ByteArray): Unit = error("Replaced by the command router patch")
+    external fun dispatch(router: Any, endpoint: ByteArray): Unit
 }

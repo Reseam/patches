@@ -7,6 +7,6 @@ package app.reseam.instagram.refs
 
 import app.reseam.runtime.Export
 
-@Export fun fromMedia(media: Any?): Any? = error("Replaced by the user refs patch")
+@Export external fun fromMedia(media: Any?): Any?
 
-@Export fun username(user: Any?): String? = error("Replaced by the user refs patch")
+@Export external fun username(user: Any?): String?

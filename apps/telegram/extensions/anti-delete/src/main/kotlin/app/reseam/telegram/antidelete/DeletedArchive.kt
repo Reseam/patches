@@ -13,7 +13,7 @@ import java.util.concurrent.ConcurrentHashMap
 internal val localDeleteMids = ConcurrentHashMap.newKeySet<Int>()
 
 // R8 renames RecyclerView, so the anti-delete patch emits this body.
-@Export fun notifyDataSetChanged(adapter: Any): Unit = error("Replaced by the anti-delete patch")
+@Export external fun notifyDataSetChanged(adapter: Any): Unit
 
 @Export
 fun markLocalDelete(dialogId: Long, messages: ArrayList<*>?) {

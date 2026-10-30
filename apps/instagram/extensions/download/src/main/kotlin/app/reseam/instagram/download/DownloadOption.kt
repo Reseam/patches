@@ -7,4 +7,4 @@ package app.reseam.instagram.download
 
 import app.reseam.runtime.Export
 
-@Export fun isDownload(option: Any?): Boolean = error("Replaced by the download patch")
+@Export external fun isDownload(option: Any?): Boolean

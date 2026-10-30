@@ -9,5 +9,5 @@ import app.reseam.runtime.Export
 class OpenReseamSettings : () -> Unit? {
     // R8 renames the Unit singleton, so the patch resolves it and returns it.
     // Nullable Unit keeps the JVM return type kotlin.Unit instead of void.
-    @Export override fun invoke(): Unit? = error("Replaced by the settings entry patch")
+    @Export override external fun invoke(): Unit?
 }

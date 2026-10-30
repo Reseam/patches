@@ -9,7 +9,7 @@ import app.reseam.reddit.settings.RedditSettings
 import app.reseam.runtime.Export
 
 // R8 renames the row models, so the body is emitted by the drawer patch. Null is any other row.
-@Export fun row(item: Any?): DrawerRow? = error("Replaced by the drawer patch")
+@Export external fun row(item: Any?): DrawerRow?
 
 /**
  * The drawer is one flat list: a divider, a section header, then that section's rows. A hidden

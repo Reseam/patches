@@ -17,7 +17,7 @@ import app.reseam.runtime.Export
 @Volatile private var cachedLogo: Drawable? = null
 
 // Built from Telegram's own cell and list item by the settings host.
-@Export fun reseamItem(activity: Activity): Any? = error("Replaced by the settings host patch")
+@Export external fun reseamItem(activity: Activity): Any?
 
 @Export
 fun opener(): View.OnClickListener = View.OnClickListener { ReseamPatches.bundle().openSettings() }

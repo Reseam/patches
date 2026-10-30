@@ -18,7 +18,7 @@ fun following(params: Map<*, *>?): MutableMap<Any?, Any?> =
         if (source == null || SUGGESTED_POSTS == source) this[PAGINATION_SOURCE] = "following"
     }
 
-@Export fun groupId(group: Any): String? = error("Replaced by the following feed patch")
+@Export external fun groupId(group: Any): String?
 
 /** The groups of the end-of-feed group set, without the suggested posts. */
 @Export

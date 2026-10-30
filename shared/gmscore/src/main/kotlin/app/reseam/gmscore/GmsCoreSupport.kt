@@ -20,10 +20,10 @@ import app.reseam.gmscore.settings.GmsCoreStrings
 import app.reseam.runtime.Export
 
 // Replaced at patch time with the vendor group the bundle was built for.
-@Export private fun vendorGroupId(): String = error("Replaced by the GmsCore support patch")
+@Export private external fun vendorGroupId(): String
 
 // Replaced at patch time with the package name the app had before patching.
-@Export private fun originalPackageName(): String = error("Replaced by the GmsCore support patch")
+@Export private external fun originalPackageName(): String
 
 internal fun gmsCorePackageName(): String = "${vendorGroupId()}.android.gms"
 

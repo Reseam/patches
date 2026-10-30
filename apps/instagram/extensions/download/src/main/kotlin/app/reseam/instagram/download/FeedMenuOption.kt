@@ -7,6 +7,6 @@ package app.reseam.instagram.download
 
 import app.reseam.runtime.Export
 
-@Export fun option(row: Any): Any? = error("Replaced by the download patch")
+@Export external fun option(row: Any): Any?
 
 @Export fun setLabel(row: Any, label: String) {}

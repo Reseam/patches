@@ -51,9 +51,9 @@ private class Response(val videoId: String, val message: WeakReference<Any>)
 private val responses = ArrayDeque<Response>()
 
 // R8 renames the protobuf messages, so the Download Shorts patch emits these bodies.
-@Export fun messageBytes(message: Any): ByteArray = error("Replaced by the Download Shorts patch")
+@Export external fun messageBytes(message: Any): ByteArray
 
-@Export fun parseMenu(bytes: ByteArray): Any = error("Replaced by the Download Shorts patch")
+@Export external fun parseMenu(bytes: ByteArray): Any
 
 @Export
 fun onPlayerResponse(videoId: String?, response: Any?) {

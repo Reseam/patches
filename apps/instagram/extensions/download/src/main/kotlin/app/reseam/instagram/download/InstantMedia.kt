@@ -7,4 +7,4 @@ package app.reseam.instagram.download
 
 import app.reseam.runtime.Export
 
-@Export fun media(item: Any?): Any? = error("Replaced by the download Instants patch")
+@Export external fun media(item: Any?): Any?

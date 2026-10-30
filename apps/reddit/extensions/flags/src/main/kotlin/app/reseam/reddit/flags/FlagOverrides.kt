@@ -44,6 +44,6 @@ private fun flags(csv: String): Set<String> =
 
 // Groups as "settingKey|default|disabled,flags|forced,flags;...", written in by the patch that owns
 // the toggles.
-@Export fun spec(): String = error("Replaced by the disable features patch")
+@Export external fun spec(): String
 
 private data class Overrides(val disabled: Set<String>, val forced: Set<String>)
