@@ -66,7 +66,7 @@ private val renderInstant = method("renderInstant447") {
 val downloadInstants = patch("Download Instants") {
     description("Adds a download button to the Instants viewer.")
     compatibleWith(INSTAGRAM)
-    dependsOn(mediaRefs)
+    dependsOn(mediaRefs, downloadMedia)
 
     execute {
         viewerCreated.after {
