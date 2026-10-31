@@ -4,7 +4,7 @@ version = 1
 
 [[annotations]]
 path = ["**"]
-SPDX-FileCopyrightText = "2026 Cossale <hello@auna.li>"
+SPDX-FileCopyrightText = "2026 Reseam contributors <https://reseam.app>"
 SPDX-License-Identifier = "AGPL-3.0-or-later"
 
 # ── Ported from ReVanced (stays GPL-3.0-or-later, no section 7 terms) ──────
@@ -182,7 +182,7 @@ path = [
     "shared/youtube-common/src/main/kotlin/app/reseam/youtube/litho/TrieSearch.kt",
     "apps/youtube/patch/src/main/resources/buttons/**",
 ]
-SPDX-FileCopyrightText = ["2026 Cossale <hello@auna.li>", "2026 ReVanced contributors"]
+SPDX-FileCopyrightText = ["2026 Reseam contributors <https://reseam.app>", "2026 ReVanced contributors"]
 SPDX-License-Identifier = "GPL-3.0-or-later"
 
 # ── yt-dlp's ejs challenge solver 0.8.0, unmodified release files ──────────

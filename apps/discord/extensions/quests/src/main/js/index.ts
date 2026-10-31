@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2026 Cossale <hello@auna.li>
+// SPDX-FileCopyrightText: 2026 Reseam contributors <https://reseam.app>
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 // The profile action bar shows Quests to eligible users. Settings sits in the same bar and stays.
