@@ -36,6 +36,7 @@ object XSettings : SettingsGroup(XStrings) {
     val hideRecommendations by toggle(default = false, icon = lucide("user-plus"))
     val hideViewCounts by toggle(default = false, icon = lucide("chart-no-axes-column"))
     val hideNewPostsBanner by toggle(default = false, icon = lucide("arrow-up-to-line"))
+    val hideComposeButton by toggle(default = false, icon = lucide("square-plus"))
     val hideNotificationPrompts by toggle(default = true, icon = lucide("bell-off"))
     val blockInstalledAppsScan by toggle(default = true, icon = lucide("scan-search"))
     val disableAdTracking by toggle(default = true, icon = lucide("eye-off"))
