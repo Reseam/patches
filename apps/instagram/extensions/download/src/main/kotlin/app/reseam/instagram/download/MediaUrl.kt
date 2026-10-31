@@ -3,12 +3,13 @@
 
 package app.reseam.instagram.download
 
+import app.reseam.bundle.MediaKind
 import app.reseam.instagram.refs.photoUrl
 import app.reseam.instagram.refs.videoUrl
 
-internal enum class MediaType(val extension: String, val mimeType: String) {
-    VIDEO(".mp4", "video/mp4"),
-    PHOTO(".jpg", "image/jpeg"),
+internal enum class MediaType(val extension: String, val mimeType: String, val kind: MediaKind) {
+    VIDEO(".mp4", "video/mp4", MediaKind.VIDEO),
+    PHOTO(".jpg", "image/jpeg", MediaKind.IMAGE),
 }
 
 internal data class MediaUrl(val url: String, val type: MediaType)

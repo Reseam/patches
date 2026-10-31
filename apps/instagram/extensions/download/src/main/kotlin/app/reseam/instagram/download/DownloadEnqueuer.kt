@@ -3,11 +3,9 @@
 
 package app.reseam.instagram.download
 
-import android.app.DownloadManager
 import android.content.Context
-import android.net.Uri
-import android.os.Environment
 import app.reseam.bundle.Logger
+import app.reseam.bundle.saveMedia
 import app.reseam.instagram.refs.children
 import app.reseam.instagram.settings.DownloadSettings
 import app.reseam.instagram.settings.InstagramStrings
@@ -100,8 +98,7 @@ private fun downloadSingle(metaMedia: Any, media: Any?, context: Context, index:
         Logger.warn { "Could not extract URL from ${media.javaClass.name}" }
         return false
     }
-    enqueue(context, metaMedia, mediaUrl, index)
-    return true
+    return enqueue(context, metaMedia, mediaUrl, index)
 }
 
 private fun buildFilename(media: Any, type: MediaType, index: Int): String {
@@ -112,27 +109,14 @@ private fun buildFilename(media: Any, type: MediaType, index: Int): String {
     return "${user}_${timestamp}_$uuid$suffix${type.extension}"
 }
 
-private fun enqueue(context: Context, media: Any, source: MediaUrl, index: Int) {
-    val filename = buildFilename(media, source.type, index)
-    val directory = DownloadSettings.folder.value.trim().ifEmpty { DownloadSettings.folder.default }
-    if (directory.startsWith("content://")) {
-        downloadToSafTree(context, Uri.parse(directory), filename, source)
-    } else {
-        enqueueToPublicDir(context, directory, filename, source.url)
-    }
-}
-
-private fun enqueueToPublicDir(context: Context, directory: String, filename: String, url: String) {
-    val request =
-        DownloadManager.Request(Uri.parse(url)).apply {
-            setTitle(filename)
-            setDescription(InstagramStrings.downloadNotificationDescription)
-            setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-            setDestinationInExternalPublicDir(
-                Environment.DIRECTORY_PICTURES,
-                "$directory/$filename",
-            )
-        }
-    val manager = context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager? ?: return
-    manager.enqueue(request)
+private fun enqueue(context: Context, media: Any, source: MediaUrl, index: Int): Boolean {
+    val folder = DownloadSettings.folder.value.trim().ifEmpty { DownloadSettings.folder.default }
+    return context.saveMedia(
+        folder,
+        source.url,
+        buildFilename(media, source.type, index),
+        source.type.mimeType,
+        source.type.kind,
+        notificationDescription = InstagramStrings.downloadNotificationDescription,
+    )
 }
