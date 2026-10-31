@@ -82,6 +82,7 @@ object XSettings : SettingsGroup(XStrings) {
         )
 
     val customAccentColor by text(default = "#1D9BF0", icon = lucide("pipette"))
+    val twitterBranding by toggle(default = false, icon = lucide("bird"))
 
     val defaultMediaTab by
         choice(

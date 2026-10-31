@@ -4,11 +4,11 @@
 package app.reseam.patches.x.login
 
 import app.reseam.patch.after
-import app.reseam.patch.methodTarget
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.addSettingsSection
+import app.reseam.patches.x.core.mainActivityOnCreate
 import app.reseam.patches.x.core.reseamLogoId
 import app.reseam.patches.x.core.settingsItem
 import app.reseam.patches.x.core.settingsSection
@@ -19,8 +19,6 @@ import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
 import app.reseam.x.settings.bindings.ExportLogin
 import app.reseam.x.settings.bindings.SettingsRows
-
-private const val MAIN_ACTIVITY = "com.x.android.main.MainActivity"
 
 val loginTransfer = patch("Import and export login") {
     description("Copies this account's login to the clipboard, and offers a field on the welcome screen to paste one into, for signing in without the browser.")
@@ -45,9 +43,4 @@ val loginTransfer = patch("Import and export login") {
         // Import belongs where you land when signed out; settings need a login.
         mainActivityOnCreate.after { LoginTransfer.offerImport(thisObject) }
     }
-}
-
-private val mainActivityOnCreate = methodTarget("mainActivityOnCreate") {
-    val activity = bytecode.findClass(MAIN_ACTIVITY) ?: error("$MAIN_ACTIVITY missing")
-    activity.virtualMethods.single { it.name == "onCreate" && it.parameterTypes == listOf("Landroid/os/Bundle;") }
 }

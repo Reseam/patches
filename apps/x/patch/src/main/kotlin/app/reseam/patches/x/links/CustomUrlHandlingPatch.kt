@@ -7,13 +7,13 @@ import app.reseam.patch.before
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.x.core.MAIN_ACTIVITY
 import app.reseam.patches.x.core.X
 import app.reseam.x.links.bindings.UrlHandling
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
 import app.reseam.patches.x.core.xSettings
 
-private const val MAIN_ACTIVITY = "com.x.android.main.MainActivity"
 // Keep in sync with UrlHandling.mirrorHosts in the extension.
 private val mirrorHosts = listOf("vxtwitter.com", "fixvx.com", "fxtwitter.com", "fixupx.com", "twittpr.com", "fixtweet.com", "girlcockx.com")
 

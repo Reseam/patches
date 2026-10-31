@@ -10,8 +10,14 @@ import app.reseam.patch.before
 import app.reseam.patch.field
 import app.reseam.patch.klass
 import app.reseam.patch.method
+import app.reseam.patch.methods
 import app.reseam.patch.point
+import app.reseam.patch.points
+import app.reseam.patches.bundle.LauncherAlias
+import app.reseam.patches.bundle.addLauncherAliases
 import app.reseam.patches.x.core.COMPOSER
+import app.reseam.patches.x.core.MAIN_ACTIVITY
+import app.reseam.patches.x.core.mainActivityOnCreate
 import app.reseam.patches.x.core.composerAtEntry
 import app.reseam.patches.x.core.xIcon
 import app.reseam.x.theme.bindings.XTheme
@@ -24,42 +30,80 @@ private const val BIRD =
         "9.868 0 0 0 3.128-1.196 4.941 4.941 0 0 1-2.165 2.724A9.828 9.828 0 0 0 24 4.555a10.019 10.019 0 0 1-2.457 2.549z"
 private const val BIRD_GRID = 24f
 private const val TWITTER_BLUE = "#FF1D9BF0"
+private const val TWITTER_NAME = "reseam_twitter_name"
 private const val LAUNCHER_BACKGROUND = "reseam_twitter_blue"
+private const val LAUNCHER_FOREGROUND = "reseam_twitter_launcher_foreground"
+private const val LAUNCHER_ICON = "reseam_twitter_launcher"
 private const val SPLASH_ICON = "reseam_twitter_splash"
+private const val SPLASH_THEME = "Theme.Reseam.TwitterSplash"
+private const val REFRESH_LOGO = "reseam_twitter_refresh_logo"
 
-/** The Twitter name, the bird for X's logos, and Twitter blue on the launcher icon and splash screen. */
-internal fun PatchRuntime.applyTwitterBranding() {
-    resources.setString("APP_NAME", "Twitter")
-
-    // X's logos, drawn as the bird at the share of the canvas the X took. Their fill stays, so
-    // the app keeps tinting them as before.
-    drawBird("ic_vector_twitter", coverage = 1f)
-    drawBird("ic_vector_x", coverage = 1f)
-    drawBird("ic_logo_x", coverage = 0.84f)
-    drawBird("ic_stat_x", coverage = 0.9f)
-    drawBird("ic_launcher_foreground", coverage = 0.38f)
-
-    // Since 12.34 Home's top-bar logo is a Lottie that animates on pull to refresh; the bird keeps its markers.
-    if (resources.exists("raw", "x_refresh_logo")) {
-        files.write(resources.path("raw", "x_refresh_logo"), resource("twitter_refresh_logo.json"))
+/**
+ * The Twitter branding, switched by a setting: the Twitter name and blue launcher icon through a
+ * launcher alias, the bird in place of each X logo, a bird splash screen on Android 13+, and the
+ * brand color on the home top-bar bird and the selected tab's underline.
+ */
+internal fun PatchRuntime.addTwitterBranding() {
+    // Each X logo gets a bird twin drawn at the share of the canvas the X takes, in the same fill so
+    // the app tints it the same way; code that loads the logo loads the twin while the setting is on.
+    val twins = mutableMapOf<UInt, UInt>()
+    fun twin(drawable: String, coverage: Float) {
+        val id = resources.id("drawable", drawable) ?: error("drawable/$drawable missing")
+        twins[id] = addBirdTwin(drawable, coverage)
     }
-
-    resources.addColor(LAUNCHER_BACKGROUND, TWITTER_BLUE)
-    for (icon in listOf("ic_launcher", "ic_launcher_round")) {
-        resources.editXml("mipmap", icon) {
-            root.children.single { it.tag == "background" }["android:drawable"] = "@color/$LAUNCHER_BACKGROUND"
+    twin("ic_vector_twitter", 1f)
+    twin("ic_vector_x", 1f)
+    twin("ic_logo_x", 0.84f)
+    twin("ic_stat_x", 0.9f)
+    // Since 12.34 Home's top-bar logo is a Lottie that animates on pull to refresh; the bird keeps its markers.
+    resources.id("raw", "x_refresh_logo")?.let { logo ->
+        twins[logo] = resources.addFile("raw", REFRESH_LOGO, "res/raw/$REFRESH_LOGO.json", resource("twitter_refresh_logo.json"))
+    }
+    XTheme.twitterResource.implement {
+        twins.forEach { (x, bird) -> whenEqual(param(0), int(x.toInt())) { returnValue(int(bird.toInt())) } }
+        returnValue(param(0))
+    }
+    for (x in twins.keys) {
+        methods("loads:$x") { literals(x.toLong()) }.points { literal(x.toLong()) }.forEach {
+            captureAs("resource", Type.Int).after { capture("resource").assign(XTheme.branded(capture("resource"))) }
         }
     }
 
+    resources.addString(TWITTER_NAME, "Twitter")
+    resources.addColor(LAUNCHER_BACKGROUND, TWITTER_BLUE)
+    resources.addFile("drawable", LAUNCHER_FOREGROUND, "res/drawable/$LAUNCHER_FOREGROUND.xml", birdVector(108f, 0.38f, "#FFFFFFFF").toByteArray())
+    resources.addFile(
+        "mipmap", LAUNCHER_ICON, "res/mipmap-anydpi-v26/$LAUNCHER_ICON.xml",
+        ("""<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">""" +
+            """<background android:drawable="@color/$LAUNCHER_BACKGROUND"/><foreground android:drawable="@drawable/$LAUNCHER_FOREGROUND"/>""" +
+            """<monochrome android:drawable="@drawable/$LAUNCHER_FOREGROUND"/></adaptive-icon>""").toByteArray(),
+        "anydpi-v26",
+    )
+    // Only the launcher filter moves: the deep-link filters stay on the activity alone.
+    addLauncherAliases(
+        MAIN_ACTIVITY,
+        MAIN_ACTIVITY,
+        listOf(
+            LauncherAlias(".reseam_x", label = "@string/APP_NAME", icon = "@mipmap/ic_launcher", enabled = true),
+            LauncherAlias(".reseam_twitter", label = "@string/$TWITTER_NAME", icon = "@mipmap/$LAUNCHER_ICON", enabled = false),
+        ),
+    ) { filter -> filter.children.any { it.tag == "category" && it["android:name"] == "android.intent.category.LAUNCHER" } }
+
     resources.addFile("drawable", SPLASH_ICON, "res/drawable/$SPLASH_ICON.xml", birdVector(108f, 0.45f, TWITTER_BLUE).toByteArray())
-    resources.style("Theme.X.SplashScreen") { this["windowSplashScreenAnimatedIcon"] = "@drawable/$SPLASH_ICON" }
+    val splashTheme = resources.style(SPLASH_THEME, parent = "@style/Theme.X.SplashScreen") {
+        this["windowSplashScreenAnimatedIcon"] = "@drawable/$SPLASH_ICON"
+    }
+    XTheme.twitterSplashTheme.implement { returnValue(int(splashTheme.toInt())) }
+    mainActivityOnCreate.after { XTheme.applyLauncherBranding(thisObject) }
+
+    addTwitterColors()
 }
 
 /**
  * Twitter's use of its brand color: the home top-bar bird and the selected tab's underline take the
  * theme's primary color, where X draws them in the text color.
  */
-internal fun PatchRuntime.applyTwitterColors() {
+private fun PatchRuntime.addTwitterColors() {
     XTheme.brandColor.implement {
         returnValue(call(currentThemeColors, param(0).cast(COMPOSER), int(0)).field(themePrimary))
     }
@@ -68,7 +112,7 @@ internal fun PatchRuntime.applyTwitterColors() {
         val composer = homeTopBarLogo.composerAtEntry()
         homeTopBarLogo.point { field { owner(componentColors.descriptor); type(Type.Long) } }
             .captureAs("tint")
-            .after { capture("tint").assign(XTheme.brandColor(local(composer))) }
+            .after { whenTrue(XTheme.twitter()) { capture("tint").assign(XTheme.brandColor(local(composer))) } }
     }
     // Without a refresh state, or before 12.34, the logo is a plain icon in the content color.
     resources.id("string", "home_logo_scroll_to_top")?.let { label ->
@@ -80,14 +124,16 @@ internal fun PatchRuntime.applyTwitterColors() {
         val tint = types.indexOf(Type.Long)
         val defaults = types.lastIndex
         logo.captureArgumentAs("tint", tint).captureArgumentAs("defaults", defaults).before {
-            capture("tint").assign(XTheme.brandColor(local(composer)))
-            capture("defaults").assign(XTheme.withoutDefault(capture("defaults"), int(1 shl tint)))
+            whenTrue(XTheme.twitter()) {
+                capture("tint").assign(XTheme.brandColor(local(composer)))
+                capture("defaults").assign(XTheme.withoutDefault(capture("defaults"), int(1 shl tint)))
+            }
         }
     }
     val composer = scrollingTabs.composerAtEntry()
     scrollingTabs.point { invokeDirect { name("<init>"); paramCount(3); hasParam(Type.Long) } }
         .captureArgumentAs("color", 3)
-        .before { capture("color").assign(XTheme.brandColor(local(composer))) }
+        .before { whenTrue(XTheme.twitter()) { capture("color").assign(XTheme.brandColor(local(composer))) } }
 }
 
 // The tab row, and X's default indicator for it, drawn in the theme's primary color.
@@ -114,24 +160,14 @@ private fun resource(name: String): ByteArray =
     TwitterBrandingResources::class.java.getResourceAsStream("/reseam-x/$name")?.use { it.readBytes() }
         ?: error("reseam-x/$name missing from patch jar resources")
 
-private fun PatchRuntime.drawBird(drawable: String, coverage: Float) {
-    resources.editXml("drawable", drawable) {
-        val viewport = root["android:viewportWidth"]?.toFloat() ?: error("drawable/$drawable has no viewport")
-        val fill = findByTag("path").firstNotNullOfOrNull { it["android:fillColor"] } ?: error("drawable/$drawable has no fill")
-        root.children.forEach { it.remove() }
-        val (scale, offset) = placement(viewport, coverage)
-        val group = createElement("group").apply {
-            this["android:scaleX"] = "$scale"
-            this["android:scaleY"] = "$scale"
-            this["android:translateX"] = "$offset"
-            this["android:translateY"] = "$offset"
-        }
-        group.appendChild(createElement("path").apply {
-            this["android:fillColor"] = fill
-            this["android:pathData"] = BIRD
-        })
-        root.appendChild(group)
+/** Adds a bird drawn like [drawable]: same size and fill, the bird spanning [coverage] of the canvas. */
+private fun PatchRuntime.addBirdTwin(drawable: String, coverage: Float): UInt {
+    val (viewport, fill) = resources.xml("drawable", drawable).use { xml ->
+        val viewport = xml.root["android:viewportWidth"]?.toFloat() ?: error("drawable/$drawable has no viewport")
+        viewport to (xml.findByTag("path").firstNotNullOfOrNull { it["android:fillColor"] } ?: error("drawable/$drawable has no fill"))
     }
+    val name = "reseam_twitter_$drawable"
+    return resources.addFile("drawable", name, "res/drawable/$name.xml", birdVector(viewport, coverage, fill).toByteArray())
 }
 
 private fun birdVector(viewport: Float, coverage: Float, fill: String): String {

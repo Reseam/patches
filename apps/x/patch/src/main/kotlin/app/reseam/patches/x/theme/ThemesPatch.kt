@@ -22,20 +22,13 @@ import app.reseam.x.theme.bindings.XTheme
 val themes = patch("Themes") {
     description("Brings back the Dim dark theme and the Twitter branding, and adds a Material You or custom accent color.")
     compatibleWith(X)
-    settings(xSettings, section(XStrings.sectionTheme, XSettings.darkTheme, XSettings.accentColor, XSettings.customAccentColor))
-
-    val twitterBranding = boolOption(
-        "twitterBranding",
-        title = "Twitter branding",
-        description = "Names the app Twitter, draws the bird in place of the X logo, makes the launcher icon and splash screen Twitter blue, and colors the top-bar bird and the selected tab's underline with the accent.",
-        default = false,
+    settings(
+        xSettings,
+        section(XStrings.sectionTheme, XSettings.darkTheme, XSettings.accentColor, XSettings.customAccentColor, XSettings.twitterBranding),
     )
 
     execute {
-        if (options[twitterBranding] == true) {
-            applyTwitterBranding()
-            applyTwitterColors()
-        }
+        addTwitterBranding()
         // X keeps the Dim palette but resolves every dark appearance to Lights out.
         themeResolver.after {
             whenEqual(result, staticField(lightsOut)) {

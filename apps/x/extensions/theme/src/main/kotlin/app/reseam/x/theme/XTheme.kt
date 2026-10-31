@@ -5,11 +5,35 @@
 
 package app.reseam.x.theme
 
+import android.app.Activity
 import android.content.res.Resources
 import android.graphics.Color
 import android.os.Build
+import app.reseam.bundle.selectLauncherAlias
 import app.reseam.runtime.Export
 import app.reseam.x.settings.XSettings
+
+/** The bird twin of an X logo resource. */
+@Export external fun twitterResource(id: Int): Int
+
+@Export external fun twitterSplashTheme(): Int
+
+/** Whether the Twitter branding is on. */
+@Export fun twitter(): Boolean = XSettings.twitterBranding.value
+
+/** [id], or its Twitter twin while the branding is on. */
+@Export fun branded(id: Int): Int = if (twitter()) twitterResource(id) else id
+
+/** Shows the launcher entry, and on Android 13+ the next launch's splash screen, for the branding. */
+@Export
+fun applyLauncherBranding(activity: Activity?) {
+    activity ?: return
+    val prefix = "${activity.packageName}.reseam_"
+    activity.selectLauncherAlias(prefix, prefix + if (twitter()) "twitter" else "x")
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        activity.splashScreen.setSplashScreenTheme(if (twitter()) twitterSplashTheme() else Resources.ID_NULL)
+    }
+}
 
 /** The current theme's primary color, the accent; Twitter's brand color with X's blue accent. */
 @Export external fun brandColor(composer: Any?): Long

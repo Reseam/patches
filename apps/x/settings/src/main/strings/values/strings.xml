@@ -90,6 +90,8 @@
     <string name="accent_color_custom">Custom</string>
     <string name="custom_accent_color">Custom accent color</string>
     <string name="custom_accent_color_summary">Hex color such as #1D9BF0, used when Accent color is Custom.</string>
+    <string name="twitter_branding">Twitter branding</string>
+    <string name="twitter_branding_summary">The Twitter name and bird, a blue launcher icon and splash screen, and the bird and tab underline in the accent color. Restart X to apply.</string>
     <string name="default_media_tab">Default media tab</string>
     <string name="default_media_tab_summary">Sub-tab a profile\'s Media tab opens on.</string>
     <string name="default_media_tab_photos">Photos</string>
