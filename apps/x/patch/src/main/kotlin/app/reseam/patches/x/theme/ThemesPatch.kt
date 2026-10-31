@@ -12,13 +12,12 @@ import app.reseam.patch.method
 import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.x.core.COMPOSER
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.xSettings
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
 import app.reseam.x.theme.bindings.XTheme
-
-private const val COMPOSER = "Landroidx/compose/runtime/Composer;"
 
 val themes = patch("Themes") {
     description("Brings back the Dim dark theme and the Twitter branding, and adds a Material You or custom accent color.")
@@ -28,12 +27,15 @@ val themes = patch("Themes") {
     val twitterBranding = boolOption(
         "twitterBranding",
         title = "Twitter branding",
-        description = "Names the app Twitter, draws the bird in place of the X logo, and makes the launcher icon and splash screen Twitter blue.",
+        description = "Names the app Twitter, draws the bird in place of the X logo, makes the launcher icon and splash screen Twitter blue, and colors the top-bar bird and the selected tab's underline with the accent.",
         default = false,
     )
 
     execute {
-        if (options[twitterBranding] == true) applyTwitterBranding()
+        if (options[twitterBranding] == true) {
+            applyTwitterBranding()
+            applyTwitterColors()
+        }
         // X keeps the Dim palette but resolves every dark appearance to Lights out.
         themeResolver.after {
             whenEqual(result, staticField(lightsOut)) {
@@ -71,14 +73,14 @@ private val themeResolver = method("themeResolver") {
     accesses { owner(themeKind.descriptor); name("LIGHTS_OUT") }
 }
 
-private val componentColors = klass("componentColors") { strings("XColors(backgroundPrimary=") }
+internal val componentColors = klass("componentColors") { strings("XColors(backgroundPrimary=") }
 // The palette constructor that takes every color and isLight; the defaults constructor calls it.
 private val componentColorsInit = componentColors.methods("componentColorsInit") {
     name("<init>")
     hasParam(Type.Boolean)
 }
 
-private val themeColors = klass("themeColors") { strings("HorizonThemeColors(isLight=") }
+internal val themeColors = klass("themeColors") { strings("HorizonThemeColors(isLight=") }
 
 // Applies an accent, a holder of one color, to the theme colors around the content it composes.
 private val accentTheme = method("accentTheme") {

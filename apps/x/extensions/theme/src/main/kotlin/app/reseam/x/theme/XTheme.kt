@@ -11,6 +11,12 @@ import android.os.Build
 import app.reseam.runtime.Export
 import app.reseam.x.settings.XSettings
 
+/** The current theme's primary color, the accent; Twitter's brand color with X's blue accent. */
+@Export external fun brandColor(composer: Any?): Long
+
+/** A Compose defaults mask with [parameter]'s bit cleared, so the value passed for it is used. */
+@Export fun withoutDefault(mask: Int, parameter: Int): Int = mask and parameter.inv()
+
 /** Whether night mode uses Dim instead of Lights out. */
 @Export fun dim(): Boolean = XSettings.darkTheme.value == "dim"
 

@@ -20,7 +20,10 @@ import app.reseam.patch.point
 import app.reseam.patch.points
 import app.reseam.patch.reserveLocal
 import app.reseam.patch.settings.section
+import app.reseam.patches.x.core.COMPOSER
+import app.reseam.patches.x.core.MODIFIER
 import app.reseam.patches.x.core.X
+import app.reseam.patches.x.core.xIcon
 import app.reseam.patches.x.core.unitInstance
 import app.reseam.patches.x.core.xSettings
 import app.reseam.x.download.bindings.DownloadButton
@@ -28,10 +31,9 @@ import app.reseam.x.postheader.bindings.DownloadClick
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
 
-private const val COMPOSER = "Landroidx/compose/runtime/Composer;"
-private const val MODIFIER = "Landroidx/compose/ui/Modifier;"
 private const val FUNCTION0 = "Lkotlin/jvm/functions/Function0;"
 private const val FUNCTION1 = "Lkotlin/jvm/functions/Function1;"
+
 // Compose's defaults mask for padding(start, top, end, bottom): top and bottom left at 0.
 private const val PADDING_TOP_BOTTOM_DEFAULT = 0b1010
 
@@ -55,7 +57,7 @@ val downloadButton = patch("Download button") {
             calls(optionsButton)
         }
         val clickable = optionsButton.point { invokeStatic { hasParam(FUNCTION0); returns(MODIFIER) } }.callee("clickable")
-        val drawIcon = optionsButton.point { invokeStatic { hasParam(icon.descriptor); hasParam(COMPOSER) } }.callee("drawIcon")
+        val drawIcon = optionsButton.point { invokeStatic { hasParam(xIcon.descriptor); hasParam(COMPOSER) } }.callee("drawIcon")
         implementMediaAccess()
         DownloadClick.invoke.implement {
             DownloadButton.saveAll(thisObject.fieldOfType(Type.Object))
@@ -104,7 +106,7 @@ val downloadButton = patch("Download button") {
             whenNotNull(local(downloadModifier)) {
                 val types = drawIcon.parameterTypes
                 val args = arguments(drawIcon)
-                    .withType(drawIcon, icon.descriptor, newInstance(icon.descriptor, "(IZ)V", int(downloadIcon), bool(false)))
+                    .withType(drawIcon, xIcon.descriptor, newInstance(xIcon.descriptor, "(IZ)V", int(downloadIcon), bool(false)))
                     .withType(drawIcon, Type.String, DownloadButton.downloadLabel())
                     .withType(drawIcon, MODIFIER, local(downloadModifier))
                     .withType(drawIcon, Type.Long, local(downloadTint))
@@ -157,7 +159,6 @@ private val postMediaState = fieldTarget("postMediaState") {
 }
 // X's immutable list, the type of every media list.
 private val immutableList get() = bestVariantOf.parameterTypes.single()
-private val icon = klass("xIcon") { strings("Icon(drawableRes=") }
 
 private val photo = klass("mediaPhoto") { strings("MediaContentImage(mediaId=") }
 private val gif = klass("mediaGif") { strings("MediaContentGif(mediaId=") }

@@ -4,6 +4,17 @@
 package app.reseam.patches.x.theme
 
 import app.reseam.patch.PatchRuntime
+import app.reseam.patch.Type
+import app.reseam.patch.after
+import app.reseam.patch.before
+import app.reseam.patch.field
+import app.reseam.patch.klass
+import app.reseam.patch.method
+import app.reseam.patch.point
+import app.reseam.patches.x.core.COMPOSER
+import app.reseam.patches.x.core.composerAtEntry
+import app.reseam.patches.x.core.xIcon
+import app.reseam.x.theme.bindings.XTheme
 
 // The Twitter bird on a 24-unit grid, from Simple Icons 9.21.0 (CC0-1.0).
 private const val BIRD =
@@ -42,6 +53,59 @@ internal fun PatchRuntime.applyTwitterBranding() {
 
     resources.addFile("drawable", SPLASH_ICON, "res/drawable/$SPLASH_ICON.xml", birdVector(108f, 0.45f, TWITTER_BLUE).toByteArray())
     resources.style("Theme.X.SplashScreen") { this["windowSplashScreenAnimatedIcon"] = "@drawable/$SPLASH_ICON" }
+}
+
+/**
+ * Twitter's use of its brand color: the home top-bar bird and the selected tab's underline take the
+ * theme's primary color, where X draws them in the text color.
+ */
+internal fun PatchRuntime.applyTwitterColors() {
+    XTheme.brandColor.implement {
+        returnValue(call(currentThemeColors, param(0).cast(COMPOSER), int(0)).field(themePrimary))
+    }
+    resources.id("raw", "x_refresh_logo")?.let { logo ->
+        val homeTopBarLogo = method("homeTopBarLogo") { literals(logo.toLong()) }
+        val composer = homeTopBarLogo.composerAtEntry()
+        homeTopBarLogo.point { field { owner(componentColors.descriptor); type(Type.Long) } }
+            .captureAs("tint")
+            .after { capture("tint").assign(XTheme.brandColor(local(composer))) }
+    }
+    // Without a refresh state, or before 12.34, the logo is a plain icon in the content color.
+    resources.id("string", "home_logo_scroll_to_top")?.let { label ->
+        val homeTopBar = method("homeTopBar") { literals(label.toLong()) }
+        val composer = homeTopBar.composerAtEntry()
+        val logo = homeTopBar.point { invokeStatic { hasParam(xIcon.descriptor); hasParam(COMPOSER) } }
+        val drawIcon = logo.callee("drawIcon")
+        val types = drawIcon.parameterTypes
+        val tint = types.indexOf(Type.Long)
+        val defaults = types.lastIndex
+        logo.captureArgumentAs("tint", tint).captureArgumentAs("defaults", defaults).before {
+            capture("tint").assign(XTheme.brandColor(local(composer)))
+            capture("defaults").assign(XTheme.withoutDefault(capture("defaults"), int(1 shl tint)))
+        }
+    }
+    val composer = scrollingTabs.composerAtEntry()
+    scrollingTabs.point { invokeDirect { name("<init>"); paramCount(3); hasParam(Type.Long) } }
+        .captureArgumentAs("color", 3)
+        .before { capture("color").assign(XTheme.brandColor(local(composer))) }
+}
+
+// The tab row, and X's default indicator for it, drawn in the theme's primary color.
+private val tabRow = klass("tabRow") { strings("currentTabWidth", "indicatorOffset") }
+private val themePrimary = method("defaultTabIndicator") {
+    inClass(tabRow)
+    accesses { owner(themeColors.descriptor) }
+}.field("themePrimary") { owner(themeColors.descriptor); type(Type.Long) }
+
+// The scrolling tabs used on Home and Explore construct their own indicator with the content color.
+private val scrollingTabs = method("scrollingTabs") {
+    calls { owner(tabRow.descriptor) }
+    accesses { owner(componentColors.descriptor) }
+}
+
+private val currentThemeColors = method("currentThemeColors") {
+    returns(themeColors.descriptor)
+    params(COMPOSER, Type.Int)
 }
 
 private object TwitterBrandingResources
