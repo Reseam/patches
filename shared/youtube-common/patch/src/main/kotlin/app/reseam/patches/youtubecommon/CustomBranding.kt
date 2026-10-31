@@ -18,6 +18,8 @@ import app.reseam.patch.settings.SettingsPage
 import app.reseam.patch.settings.StringRef
 import app.reseam.patch.settings.Verbatim
 import app.reseam.patch.settings.section
+import app.reseam.patches.bundle.LauncherAlias
+import app.reseam.patches.bundle.addLauncherAliases
 import app.reseam.youtube.branding.bindings.CustomBranding
 import app.reseam.youtubecommon.settings.YouTubeCommonStrings
 
@@ -88,45 +90,19 @@ fun customBrandingFor(
         val nameValues = nameSetting.choices.map { it.value } + CUSTOM
         val iconValues = iconSetting.choices.map { it.value } + CUSTOM
         val aliases = iconValues.flatMap { style -> nameValues.map { name -> style to name } }
-        manifest.edit {
-            val original = findByAttribute("android:name", launcher.entry).singleOrNull()
-                ?: error("the launcher entry ${launcher.entry} is missing")
-            val shortcutResource = original.children
-                .firstOrNull { it.tag == "meta-data" && it["android:name"] == "android.app.shortcuts" }
-                ?.get("android:resource")
-
-            for ((style, name) in aliases) {
-                val aliasName = ".reseam_${style}_$name"
-                manifest.addActivityAlias(
-                    launcher.activity,
-                    aliasName,
-                    enabled = style == icons.default && name == names.default,
+        addLauncherAliases(
+            launcher.activity,
+            launcher.entry,
+            aliases.map { (style, name) ->
+                LauncherAlias(
+                    ".reseam_${style}_$name",
                     label = "@string/reseam_branding_name_${names.offered(name)}",
+                    icon = iconResource(icons.offered(style)),
+                    enabled = style == icons.default && name == names.default,
                 )
-            }
-
-            for ((style, name) in aliases) {
-                val alias = findByAttribute("android:name", ".reseam_${style}_$name").single()
-                alias["android:icon"] = iconResource(icons.offered(style))
-                alias["android:exported"] = "true"
-                original.children.filter { it.tag == "intent-filter" && launcher.movesFilter(it) }
-                    .forEach { alias.appendChild(it.clone()) }
-                shortcutResource?.let { resource ->
-                    alias.appendChild(createElement("meta-data").apply {
-                        this["android:name"] = "android.app.shortcuts"
-                        this["android:resource"] = resource
-                    })
-                }
-            }
-
-            // Remove MAIN from the original entry so Android exposes one launcher entry.
-            original.children
-                .firstOrNull { filter ->
-                    filter.tag == "intent-filter" &&
-                        filter.children.any { it.tag == "action" && it["android:name"] == "android.intent.action.MAIN" }
-                }
-                ?.remove()
-        }
+            },
+            launcher.movesFilter,
+        )
 
         activityOnCreate.before { CustomBranding.setBranding(string(nameSetting.key), string(iconSetting.key)) }
         extra()
