@@ -13,6 +13,9 @@
     <string name="download_unavailable">Nothing to download</string>
     <string name="download_board_started">Downloading <xliff:g id="count">%1$d</xliff:g> pins</string>
     <string name="download_board_empty">Scroll the board first to load its pins</string>
+    <string name="download_folder">Download folder</string>
+    <string name="download_folder_summary">Where saved pins go. Pick a folder, such as one on your SD card, or keep the gallery default.</string>
+    <string name="section_downloads">Downloads</string>
     <string name="section_feed">Feed</string>
     <string name="section_closeup">Closeup</string>
     <string name="section_images">Images</string>

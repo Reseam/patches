@@ -16,13 +16,17 @@ import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.points
+import app.reseam.patch.settings.section
 import app.reseam.patches.pinterest.core.PINTEREST
+import app.reseam.patches.pinterest.core.pinterestSettings
 import app.reseam.patches.pinterest.refs.holdsField
 import app.reseam.patches.pinterest.refs.pinRefs
 import app.reseam.patches.pinterest.refs.pinValue
 import app.reseam.patches.pinterest.refs.requestOriginalSize
 import app.reseam.patches.pinterest.refs.requestedImageSizes
 import app.reseam.pinterest.download.bindings.PinDownloads
+import app.reseam.pinterest.settings.DownloadSettings
+import app.reseam.pinterest.settings.PinterestStrings
 
 private const val FUNCTION0 = "kotlin.jvm.functions.Function0"
 private const val FUNCTION1 = "kotlin.jvm.functions.Function1"
@@ -31,6 +35,7 @@ val downloadPins = patch("Download pins") {
     description("Downloads pins as original images and videos.")
     compatibleWith(PINTEREST)
     dependsOn(pinRefs)
+    settings(pinterestSettings, section(PinterestStrings.sectionDownloads, DownloadSettings.downloadFolder))
 
     execute {
         val pin = pinValue("id").parameterTypes.single()

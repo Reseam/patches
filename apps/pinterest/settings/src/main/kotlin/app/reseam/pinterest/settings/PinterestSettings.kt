@@ -4,6 +4,7 @@
 package app.reseam.pinterest.settings
 
 import app.reseam.patch.settings.SettingsGroup
+import app.reseam.patch.settings.folder
 import app.reseam.patch.settings.toggle
 import app.reseam.patches.bundle.lucide
 
@@ -22,6 +23,10 @@ object ShareSettings : SettingsGroup(PinterestStrings) {
 
 object ImageSettings : SettingsGroup(PinterestStrings) {
     val originalQuality by toggle(default = true, icon = lucide("image"))
+}
+
+object DownloadSettings : SettingsGroup(PinterestStrings) {
+    val downloadFolder by folder(default = "Pinterest", icon = lucide("folder-open"))
 }
 
 object CloseupSettings : SettingsGroup(PinterestStrings) {

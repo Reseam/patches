@@ -5,10 +5,11 @@
 
 package app.reseam.pinterest.download
 
-import android.app.DownloadManager
 import android.content.Context
 import android.net.Uri
-import android.os.Environment
+import android.webkit.MimeTypeMap
+import app.reseam.bundle.MediaKind
+import app.reseam.bundle.saveMedia
 import app.reseam.bundle.showToast
 import app.reseam.pinterest.refs.id
 import app.reseam.pinterest.refs.imageUrl
@@ -24,10 +25,10 @@ import app.reseam.pinterest.refs.videoBitrate
 import app.reseam.pinterest.refs.videoList
 import app.reseam.pinterest.refs.videoUrl
 import app.reseam.pinterest.refs.videos
+import app.reseam.pinterest.settings.DownloadSettings
 import app.reseam.pinterest.settings.PinterestStrings
 import app.reseam.runtime.Export
 
-private const val FOLDER = "Pinterest"
 private const val ORIGINAL_SIZE = "orig"
 
 internal lateinit var app: Context
@@ -47,23 +48,20 @@ fun save(pin: Any) = app.showToast(if (enqueue(pin)) PinterestStrings.downloadSt
 
 internal fun enqueue(pin: Any): Boolean {
     val urls = mediaUrls(pin)
-    urls.forEachIndexed { page, url -> app.download(url, fileName(pin, url, page.takeIf { urls.size > 1 })) }
-    return urls.isNotEmpty()
+    return urls.withIndex().count { (page, url) -> app.save(url, fileName(pin, extension(url), page.takeIf { urls.size > 1 })) } > 0
 }
 
-private fun Context.download(url: String, name: String) {
-    getSystemService(DownloadManager::class.java).enqueue(
-        DownloadManager.Request(Uri.parse(url))
-            .setTitle(name)
-            .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-            .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "$FOLDER/$name"),
-    )
+private fun Context.save(url: String, name: String): Boolean {
+    val extension = extension(url)
+    val kind = if (extension == "mp4") MediaKind.VIDEO else MediaKind.IMAGE
+    val mimeType = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension) ?: "image/jpeg"
+    return saveMedia(DownloadSettings.downloadFolder.value, url, name, mimeType, kind)
 }
 
-private fun fileName(pin: Any, url: String, page: Int?): String {
-    val extension = Uri.parse(url).lastPathSegment?.substringAfterLast('.', "jpg")
-    return "pinterest_${id(pin)}${page?.let { "_${it + 1}" }.orEmpty()}.$extension"
-}
+private fun extension(url: String): String = Uri.parse(url).lastPathSegment?.substringAfterLast('.', "jpg") ?: "jpg"
+
+private fun fileName(pin: Any, extension: String, page: Int?): String =
+    "pinterest_${id(pin)}${page?.let { "_${it + 1}" }.orEmpty()}.$extension"
 
 private fun mediaUrls(pin: Any): List<String> = videoUrls(pin).ifEmpty { listOfNotNull(originalImageUrl(pin)) }
 
