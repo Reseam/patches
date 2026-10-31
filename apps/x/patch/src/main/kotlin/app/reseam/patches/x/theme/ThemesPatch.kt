@@ -35,8 +35,7 @@ val themes = patch("Themes") {
                 whenTrue(XTheme.dim()) { returnValue(staticField(dimTheme)) }
             }
         }
-        // Newer components use a second palette that only has light and dark; Dim recolors its dark
-        // grays. Before 12.34 that palette has no isLight to tell them apart, and stays as it is.
+        // Newer components have their own light/dark palette; before 12.34 it cannot tell them apart and stays as is.
         componentColorsInit.all.forEach { init ->
             init.before {
                 whenFalse(paramOfType(Type.Boolean)) {
@@ -46,7 +45,6 @@ val themes = patch("Themes") {
                 }
             }
         }
-        // The accent the app wraps its content in becomes the theme's primary color.
         accentTheme.before {
             whenTrue(XTheme.overridesAccent()) {
                 param(0).assign(newInstance(accentTheme.parameterTypes[0], "(J)V", XTheme.accent()))
@@ -59,7 +57,6 @@ private val themeKind = klass("themeKind") { enumConstants("STANDARD", "DIM", "L
 private val lightsOut = themeKind.enumConstant("LIGHTS_OUT")
 private val dimTheme = themeKind.enumConstant("DIM")
 
-// Combines dark mode on/off/auto, the stored appearance and whether night applies into a theme.
 private val themeResolver = method("themeResolver") {
     returns(themeKind.descriptor)
     param(2, Type.Boolean)
@@ -67,7 +64,6 @@ private val themeResolver = method("themeResolver") {
 }
 
 internal val componentColors = klass("componentColors") { strings("XColors(backgroundPrimary=") }
-// The palette constructor that takes every color and isLight; the defaults constructor calls it.
 private val componentColorsInit = componentColors.methods("componentColorsInit") {
     name("<init>")
     hasParam(Type.Boolean)
@@ -75,7 +71,6 @@ private val componentColorsInit = componentColors.methods("componentColorsInit")
 
 internal val themeColors = klass("themeColors") { strings("HorizonThemeColors(isLight=") }
 
-// Applies an accent, a holder of one color, to the theme colors around the content it composes.
 private val accentTheme = method("accentTheme") {
     calls { owner(themeColors.descriptor); name("<init>") }
     paramCount(4)

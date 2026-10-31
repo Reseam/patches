@@ -9,7 +9,6 @@ import android.content.Intent
 import app.reseam.runtime.Export
 import app.reseam.x.settings.XSettings
 
-// Mirror sites that serve x.com's paths, so their links can open in the app.
 val mirrorHosts = setOf("vxtwitter.com", "fixvx.com", "fxtwitter.com", "fixupx.com", "twittpr.com", "fixtweet.com", "girlcockx.com")
 
 @Export

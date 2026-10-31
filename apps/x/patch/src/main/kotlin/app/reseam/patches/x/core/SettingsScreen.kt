@@ -24,7 +24,6 @@ const val FUNCTION0 = "kotlin.jvm.functions.Function0"
 private const val LOGO_PATH = "res/drawable/reseam_logo.png"
 private const val SECTION_DEFAULTS_HEADER_AND_SUBTITLE = 0b11
 
-/** The bundled Reseam logo as a drawable id, added once however many patches ask for it. */
 fun PatchRuntime.reseamLogoId(): Int {
     resources.id("drawable", "reseam_logo")?.let { return it.toInt() }
     val logo = Resources::class.java.getResourceAsStream("/reseam-logo.png")?.use { it.readBytes() }
@@ -32,11 +31,7 @@ fun PatchRuntime.reseamLogoId(): Int {
     return resources.addFile("drawable", "reseam_logo", LOGO_PATH, logo).toInt()
 }
 
-/**
- * Adds a [section] (built per design) to X's Settings and privacy screen. 12.34 ships a redesign
- * beside the legacy screen, picked per account by android_settings_redesign_enabled, so every
- * design gets it; [tag] keeps the section from being added again when the screen copies its state.
- */
+/** [section] is built per settings design; [tag] keeps it from being added again when the screen copies its state. */
 fun PatchRuntime.addSettingsSection(tag: String, section: CodeScope.(SettingsDesign) -> ValueRef) {
     val settingsTitle = resources.id("string", "settings") ?: error("string/settings missing")
     for (design in settingsDesigns()) {
@@ -57,7 +52,6 @@ fun PatchRuntime.addSettingsSection(tag: String, section: CodeScope.(SettingsDes
     }
 }
 
-/** A row with [title]/[subtitle], the [iconId] drawable, and a [onClick] Function0 class. */
 fun CodeScope.settingsItem(design: SettingsDesign, title: String, subtitle: String, iconId: Int, onClick: String): ValueRef {
     val text = design.literalTextCtor
     val item = design.itemCtor
@@ -85,14 +79,11 @@ fun CodeScope.settingsSection(design: SettingsDesign, items: ValueRef): ValueRef
     )
 }
 
-/** One settings design: X keeps each design's state, section and row models together in a package. */
 class SettingsDesign(val packageName: String) {
     val stateCtor = model(settingsListStates).method("<init>")
-    // Kotlin's defaults constructors, the ones R8 keeps in every design.
     val sectionCtor = model(settingsListSections).method("<init>") { hasParam(Type.List); defaultsMask() }
     val itemCtor = model(settingsListItems).method("<init>") { hasParam(FUNCTION0); defaultsMask() }
 
-    // The literal variant of the text type the rows take.
     val literalTextCtor = klass("literalText:$packageName") {
         strings("Literal(text=")
         extends(itemCtor.parameterTypes[0])

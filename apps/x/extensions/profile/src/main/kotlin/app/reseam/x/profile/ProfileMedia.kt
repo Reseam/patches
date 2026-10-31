@@ -8,7 +8,6 @@ package app.reseam.x.profile
 import app.reseam.runtime.Export
 import app.reseam.x.settings.XSettings
 
-/** The chosen sub-tab when this tab groups it, else X's own. */
 @Export
 fun initialSubTab(subTabs: List<Enum<*>>, initial: Enum<*>): Enum<*> {
     val chosen = XSettings.defaultMediaTab.value

@@ -22,7 +22,7 @@ import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
 import org.json.JSONObject
 
-// AccountManager keys X stores a session under; the literal prefix is fixed across package renames.
+// The literal prefix stays com.twitter.android across package renames, unlike the account type.
 private const val USER_ID = "account_user_id"
 private const val USERNAME = "com.twitter.android.username"
 private const val NAME = "com.twitter.android.name"
@@ -42,7 +42,6 @@ private fun appContext(): Context? =
 
 private fun Context.clipboard() = getSystemService(Context.CLIPBOARD_SERVICE) as? ClipboardManager
 
-/** Copies the current session to the clipboard for another device to import. */
 @Export
 fun copyLogin() {
     val context = appContext() ?: return
@@ -55,10 +54,6 @@ fun copyLogin() {
     context.showToast(XStrings.loginExported, Toast.LENGTH_SHORT)
 }
 
-/**
- * When signed out, offers to sign in with a login pasted from another device. Called from
- * MainActivity so it reaches the user on the welcome screen, where settings are not available.
- */
 @Export
 fun offerImport(activity: Activity?) {
     activity ?: return
@@ -85,7 +80,6 @@ private fun restart(context: Context) {
     Runtime.getRuntime().exit(0)
 }
 
-/** The signed-in session as a portable blob, or null when no account is present. */
 private fun export(context: Context): String? {
     val manager = AccountManager.get(context)
     val accounts = manager.getAccountsByType(context.accountType())
@@ -106,7 +100,6 @@ private fun export(context: Context): String? {
     return PREFIX + Base64.encodeToString(payload.toString().toByteArray(), Base64.NO_WRAP or Base64.URL_SAFE)
 }
 
-/** Restores a session from [blob] into AccountManager. Caller restarts the app afterwards. */
 private fun import(context: Context, blob: String?): Boolean {
     val encoded = blob?.trim()?.takeIf { it.startsWith(PREFIX) }?.removePrefix(PREFIX) ?: return false
     val payload =

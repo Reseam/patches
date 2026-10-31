@@ -35,7 +35,6 @@ val openLinks = patch("Open full links") {
     }
 }
 
-// Adds X's click-measurement query params to a link before it opens; param 0 is the url.
 private val urlOpener = method("urlFinalizer") {
     strings("DCM")
     returns(Type.String)
@@ -44,8 +43,7 @@ private val urlOpener = method("urlFinalizer") {
 
 private val urlEntity = klass("urlEntity") { strings("UrlEntity(displayUrl=") }
 
-// The link handler reads the two UrlEntity url fields in order: expandedUrl for the host check,
-// then url (t.co). UrlEntity's own toString reorders them, so take them from the handler.
+// UrlEntity's toString reorders its fields; the link handler reads expandedUrl, then url (t.co).
 private val linkHandler = method("linkHandler") { strings("MediaEntity should have been removed") }
 private val expandedUrl = fieldTarget("expandedUrl") { urlFields()[0] }
 private val tcoUrl = fieldTarget("tcoUrl") { urlFields()[1] }

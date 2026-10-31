@@ -38,7 +38,6 @@ val customUrlHandling = patch("Custom URL handling") {
     }
 }
 
-// The incoming VIEW-intent handler, before it matches the link's path to a screen; param 0 is the intent.
 private val intentHandler = method("intentHandler") {
     strings("DefaultIntentHandler", "No matching route found for URI: ")
 }

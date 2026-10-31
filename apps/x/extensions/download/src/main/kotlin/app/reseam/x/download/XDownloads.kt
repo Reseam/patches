@@ -15,17 +15,13 @@ import app.reseam.runtime.Export
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
 
-/**
- * Saves a user-initiated media download through the shared saver, so it lands in the chosen folder
- * and the gallery indexes it. Returns true when it took over, so X skips its own download.
- */
+/** Returns true when it took over, so X skips its own download. */
 @Export
 fun save(context: Context?, uri: Any?, name: String?, mimeType: String?, headers: Map<*, *>?, internal: Boolean): Boolean {
     if (internal) return false
     context ?: return false
     val url = uri?.toString()?.takeIf { it.isNotEmpty() } ?: return false
     val mime = mimeType.orEmpty()
-    // X passes no name for videos; the media URL ends in the real filename.
     val filename = name?.takeIf { it.isNotEmpty() } ?: filenameFrom(url, mime)
     val kind = if (mime.startsWith("video") || filename.endsWith(".mp4")) MediaKind.VIDEO else MediaKind.IMAGE
     val headerMap = headers.orEmpty().entries.mapNotNull { (k, v) -> (k as? String)?.let { it to v.toString() } }.toMap()

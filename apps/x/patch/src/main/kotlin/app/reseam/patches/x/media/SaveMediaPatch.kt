@@ -27,7 +27,6 @@ val saveMedia = patch("Save media") {
     settings(xSettings, section(XStrings.sectionMedia, XSettings.downloadFolder))
 
     execute {
-        // Both the save entry and the enqueue carry the user-vs-internal flag as their last argument.
         for (save in listOf(imageAndVideoArgs, enqueueArgs)) {
             save.method.before {
                 val handled = XDownloads.save(thisObject.field(downloaderContext), param(save.url), param(save.name), param(save.mime), param(save.headers), param(6))

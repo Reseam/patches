@@ -12,9 +12,8 @@ import app.reseam.patch.reserveLocal
 const val COMPOSER = "Landroidx/compose/runtime/Composer;"
 const val MODIFIER = "Landroidx/compose/ui/Modifier;"
 
-/** X's icon model, a drawable resource that its icon composable draws. */
 val xIcon = klass("xIcon") { strings("Icon(drawableRes=") }
 
-/** The composer this composable was called with; big composables reuse that parameter's register. */
+// Big composables reuse their Composer parameter's register, so it is kept from entry.
 fun MethodTarget.composerAtEntry(): MethodLocal =
     reserveLocal("composer", COMPOSER).also { local -> before { local(local).assign(paramOfType(COMPOSER)) } }

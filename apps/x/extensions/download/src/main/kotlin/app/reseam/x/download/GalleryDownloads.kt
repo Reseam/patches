@@ -46,7 +46,7 @@ fun init(app: Application) {
     )
 }
 
-/** For a post with several items, asks whether to save the tapped one or all. Returns true when it took over the save. */
+/** Returns true when it took over the save. */
 @Export
 fun offerSaveAll(gallery: Any, item: Any, media: List<*>?): Boolean {
     if (saving || !XSettings.saveAllMedia.value) return false

@@ -9,7 +9,6 @@ import app.reseam.runtime.Export
 import app.reseam.x.settings.XSettings
 import java.util.concurrent.ConcurrentHashMap
 
-// Each shortened link carries its real destination, so the opener can use that instead.
 private val expansions = ConcurrentHashMap<String, String>()
 
 @Export

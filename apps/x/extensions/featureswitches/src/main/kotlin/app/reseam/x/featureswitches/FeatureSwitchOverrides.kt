@@ -29,7 +29,6 @@ fun applyUserOverrides() {
 @Export
 fun lookup(key: String): Any? = userOverrides[key] ?: false.takeIf { overrides[key]?.value == true }
 
-// A wrong type is harmless: the app's typed getters fall back to their default on a class mismatch.
 private fun typed(value: String): Any = when {
     value.equals("true", ignoreCase = true) -> true
     value.equals("false", ignoreCase = true) -> false

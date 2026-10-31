@@ -13,18 +13,15 @@ import app.reseam.bundle.selectLauncherAlias
 import app.reseam.runtime.Export
 import app.reseam.x.settings.XSettings
 
-/** The bird twin of an X logo resource. */
 @Export external fun twitterResource(id: Int): Int
 
 @Export external fun twitterSplashTheme(): Int
 
-/** Whether the Twitter branding is on. */
 @Export fun twitter(): Boolean = XSettings.twitterBranding.value
 
-/** [id], or its Twitter twin while the branding is on. */
 @Export fun branded(id: Int): Int = if (twitter()) twitterResource(id) else id
 
-/** Shows the launcher entry, and on Android 13+ the next launch's splash screen, for the branding. */
+// The splash screen theme applies from the next launch.
 @Export
 fun applyLauncherBranding(activity: Activity?) {
     activity ?: return
@@ -35,17 +32,14 @@ fun applyLauncherBranding(activity: Activity?) {
     }
 }
 
-/** The current theme's primary color, the accent; Twitter's brand color with X's blue accent. */
 @Export external fun brandColor(composer: Any?): Long
 
 /** A Compose defaults mask with [parameter]'s bit cleared, so the value passed for it is used. */
 @Export fun withoutDefault(mask: Int, parameter: Int): Int = mask and parameter.inv()
 
-/** Whether night mode uses Dim instead of Lights out. */
 @Export fun dim(): Boolean = XSettings.darkTheme.value == "dim"
 
-// The grays of X's newer palette in Lights out, and the Dim shades that take their place; most are
-// the ones X's own Dim palette uses.
+// Lights out grays of the newer palette and their Dim shades, mostly from X's own Dim palette.
 private val dimShades =
     mapOf(
         0xff030303 to 0xff15202b,
@@ -55,7 +49,6 @@ private val dimShades =
         0xff37434d to 0xff38444d,
     ).entries.associate { (dark, dim) -> dark.toInt() to dim.toInt() }
 
-/** [color], a Compose sRGB color value, as its Dim shade when Dim is on and it is a Lights out gray. */
 @Export
 fun dimmed(color: Long): Long {
     if (!dim()) return color
@@ -63,10 +56,8 @@ fun dimmed(color: Long): Long {
     return composeColor(shade)
 }
 
-/** Whether [accent] replaces the color picked in X's display settings. */
 @Export fun overridesAccent(): Boolean = accentArgb() != null
 
-/** The accent as a Compose sRGB color value. Only meaningful when [overridesAccent]. */
 @Export fun accent(): Long = composeColor(accentArgb() ?: 0)
 
 private fun composeColor(argb: Int): Long = argb.toLong().and(0xffffffffL) shl 32

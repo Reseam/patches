@@ -38,11 +38,6 @@ private const val SPLASH_ICON = "reseam_twitter_splash"
 private const val SPLASH_THEME = "Theme.Reseam.TwitterSplash"
 private const val REFRESH_LOGO = "reseam_twitter_refresh_logo"
 
-/**
- * The Twitter branding, switched by a setting: the Twitter name and blue launcher icon through a
- * launcher alias, the bird in place of each X logo, a bird splash screen on Android 13+, and the
- * brand color on the home top-bar bird and the selected tab's underline.
- */
 internal fun PatchRuntime.addTwitterBranding() {
     // Each X logo gets a bird twin drawn at the share of the canvas the X takes, in the same fill so
     // the app tints it the same way; code that loads the logo loads the twin while the setting is on.
@@ -55,7 +50,6 @@ internal fun PatchRuntime.addTwitterBranding() {
     twin("ic_vector_x", 1f)
     twin("ic_logo_x", 0.84f)
     twin("ic_stat_x", 0.9f)
-    // Since 12.34 Home's top-bar logo is a Lottie that animates on pull to refresh; the bird keeps its markers.
     resources.id("raw", "x_refresh_logo")?.let { logo ->
         twins[logo] = resources.addFile("raw", REFRESH_LOGO, "res/raw/$REFRESH_LOGO.json", resource("twitter_refresh_logo.json"))
     }
@@ -99,10 +93,6 @@ internal fun PatchRuntime.addTwitterBranding() {
     addTwitterColors()
 }
 
-/**
- * Twitter's use of its brand color: the home top-bar bird and the selected tab's underline take the
- * theme's primary color, where X draws them in the text color.
- */
 private fun PatchRuntime.addTwitterColors() {
     XTheme.brandColor.implement {
         returnValue(call(currentThemeColors, param(0).cast(COMPOSER), int(0)).field(themePrimary))
@@ -114,7 +104,6 @@ private fun PatchRuntime.addTwitterColors() {
             .captureAs("tint")
             .after { whenTrue(XTheme.twitter()) { capture("tint").assign(XTheme.brandColor(local(composer))) } }
     }
-    // Without a refresh state, or before 12.34, the logo is a plain icon in the content color.
     resources.id("string", "home_logo_scroll_to_top")?.let { label ->
         val homeTopBar = method("homeTopBar") { literals(label.toLong()) }
         val composer = homeTopBar.composerAtEntry()
@@ -136,14 +125,12 @@ private fun PatchRuntime.addTwitterColors() {
         .before { whenTrue(XTheme.twitter()) { capture("color").assign(XTheme.brandColor(local(composer))) } }
 }
 
-// The tab row, and X's default indicator for it, drawn in the theme's primary color.
 private val tabRow = klass("tabRow") { strings("currentTabWidth", "indicatorOffset") }
 private val themePrimary = method("defaultTabIndicator") {
     inClass(tabRow)
     accesses { owner(themeColors.descriptor) }
 }.field("themePrimary") { owner(themeColors.descriptor); type(Type.Long) }
 
-// The scrolling tabs used on Home and Explore construct their own indicator with the content color.
 private val scrollingTabs = method("scrollingTabs") {
     calls { owner(tabRow.descriptor) }
     accesses { owner(componentColors.descriptor) }
@@ -160,7 +147,6 @@ private fun resource(name: String): ByteArray =
     TwitterBrandingResources::class.java.getResourceAsStream("/reseam-x/$name")?.use { it.readBytes() }
         ?: error("reseam-x/$name missing from patch jar resources")
 
-/** Adds a bird drawn like [drawable]: same size and fill, the bird spanning [coverage] of the canvas. */
 private fun PatchRuntime.addBirdTwin(drawable: String, coverage: Float): UInt {
     val (viewport, fill) = resources.xml("drawable", drawable).use { xml ->
         val viewport = xml.root["android:viewportWidth"]?.toFloat() ?: error("drawable/$drawable has no viewport")
@@ -177,7 +163,6 @@ private fun birdVector(viewport: Float, coverage: Float, fill: String): String {
         """<path android:fillColor="$fill" android:pathData="$BIRD"/></group></vector>"""
 }
 
-/** The scale and centering offset that make the bird span [coverage] of a square [viewport]. */
 private fun placement(viewport: Float, coverage: Float): Pair<Float, Float> {
     val scale = viewport * coverage / BIRD_GRID
     return scale to (viewport - BIRD_GRID * scale) / 2

@@ -7,10 +7,7 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.pm.PackageManager
 
-/**
- * Makes [selected] the app's launcher entry: enables it, then disables the other aliases whose class
- * names start with [prefix]. Enabling first means switching always leaves a launcher entry.
- */
+// Enabling first means switching always leaves a launcher entry.
 fun Context.selectLauncherAlias(prefix: String, selected: String) {
     val manager = packageManager
     manager.setComponentState(ComponentName(packageName, selected), PackageManager.COMPONENT_ENABLED_STATE_ENABLED)

@@ -46,12 +46,10 @@ val downloadButton = patch("Download button") {
     execute {
         val optionsLabel = resources.id("string", "button_action_options_tweet") ?: error("string/button_action_options_tweet missing")
         val downloadIcon = resources.id("drawable", "ic_vector_arrow_inbox")?.toInt() ?: error("drawable/ic_vector_arrow_inbox missing")
-        // X's post menu button, the three dots in a post's header.
         val optionsButton = method("postOptionsButton") {
             literals(optionsLabel.toLong())
             param(0, optionsState.descriptor)
         }
-        // Each post layout's header passes its post's options state to the menu button.
         val postHeaders = methods("postHeaders") {
             param(0, timelinePost.descriptor)
             calls(optionsButton)
@@ -75,7 +73,6 @@ val downloadButton = patch("Download button") {
         val downloadMedia = optionsButton.reserveLocal("downloadMedia", Type.Object)
         val downloadModifier = optionsButton.reserveLocal("downloadModifier", MODIFIER)
         val downloadTint = optionsButton.reserveLocal("downloadTint", Type.Long)
-        // The headers pad the menu button with Modifier.padding(start, top, end, bottom) before passing it in.
         val padding = postHeaders.points { calls(optionsButton) }.all.first()
             .previous { invokeStatic { params(MODIFIER, Type.Float, Type.Float, Type.Float, Type.Float, Type.Int); returns(MODIFIER) } }
             .callee("padding")
@@ -153,11 +150,9 @@ private fun implementMediaAccess() {
 private val optionsState = klass("postOptionsState") { strings("PostOptionsState(showOptionsDialog=") }
 private val timelinePost = klass("availablePost") { strings("AvailablePost(entryId=") }
 private val regularMedia = klass("regularPostMedia") { strings("RegularMedia(media=") }
-// The post's media state: regular, sensitive or unavailable media.
 private val postMediaState = fieldTarget("postMediaState") {
     timelinePost.classDef.instanceFields.single { it.fieldType == regularMedia.classDef.interfaces.single() }.ref
 }
-// X's immutable list, the type of every media list.
 private val immutableList get() = bestVariantOf.parameterTypes.single()
 
 private val photo = klass("mediaPhoto") { strings("MediaContentImage(mediaId=") }
@@ -170,7 +165,6 @@ private val photo4kUrl = method("photo4kUrl") {
     param(0, photo.descriptor)
 }
 
-// Highest-bitrate MP4, skipping HLS playlists.
 private val bestVariantOf = method("bestMediaVariant") {
     strings("x-mpegURL")
     returns(variant.descriptor)
