@@ -47,16 +47,21 @@ fun fetchStreams(url: String?, requestHeaders: Map<String?, String?>?, requestBo
         val uri = Uri.parse(url)
         if (uri.host == "youtubei.googleapis.com") {
             StreamingDataRequest.authorization = requestHeaders?.get("Authorization")
+            StreamingDataRequest.setIdentityHeaders(requestHeaders)
         }
         val path = uri.path ?: return
-        if (!path.contains("player")) return
+        if (!path.contains("player") && !path.endsWith("/get_watch")) return
         if (listOf("get_drm_license", "heartbeat", "ad_break").any { it in path }) return
         // Some apps send their offline requests through a path this hook does not see, so downloads use the
         // identity of the latest player request of any kind.
         StreamingDataRequest.setOfflineHeaders(requestHeaders)
-        if (isOfflinePlayerRequest(requestBody)) return
-        val videoId = uri.getQueryParameter("id")?.takeIf { it.isNotEmpty() } ?: return
-        if (isSpoofingEnabled()) StreamingDataRequest.fetchRequest(videoId, requestHeaders, requestBody)
+        val playerRequest = playerRequest(path, requestBody)
+        if (isOfflinePlayerRequest(playerRequest)) return
+        val videoId =
+            uri.getQueryParameter("id")?.takeIf { it.isNotEmpty() }
+                ?: playerRequestVideoId(playerRequest)
+                ?: return
+        if (isSpoofingEnabled()) StreamingDataRequest.fetchRequest(videoId, requestHeaders, playerRequest)
     } catch (exception: Exception) {
         Logger.error(exception) { "Spoof stream URL failure" }
     }

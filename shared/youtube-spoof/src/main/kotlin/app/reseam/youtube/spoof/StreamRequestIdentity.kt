@@ -32,6 +32,25 @@ internal fun forwardedHeaders(playerHeaders: Map<String?, String?>?): Map<String
 private val forwardedHeaderNames =
     listOf(StreamingDataRequest.VISITOR_ID_HEADER, "X-GOOG-API-FORMAT-VERSION")
 
+// YouTube 21.40 loads a video through get_watch, which bundles the player request (field 2) with the next request.
+internal fun playerRequest(path: String, body: ByteArray?): ByteArray? =
+    if (path.endsWith("/get_watch")) {
+        try {
+            body?.let { Proto.bytes(it, 2) }
+        } catch (_: IllegalArgumentException) {
+            null
+        }
+    } else body
+
+internal fun playerRequestVideoId(request: ByteArray?): String? {
+    if (request == null || request.isEmpty()) return null
+    return try {
+        Proto.string(request, 2)?.takeIf { it.isNotEmpty() }
+    } catch (_: IllegalArgumentException) {
+        null
+    }
+}
+
 internal fun isOfflinePlayerRequest(request: ByteArray?): Boolean {
     if (request == null || request.isEmpty()) return false
     return try {

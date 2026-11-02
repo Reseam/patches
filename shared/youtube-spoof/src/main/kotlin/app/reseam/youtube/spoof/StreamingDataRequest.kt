@@ -66,6 +66,17 @@ internal object StreamingDataRequest {
     val clientOsName: String?
         @Synchronized get() = configuration.clients[0].osName
 
+    // Player requests can bypass the hooked HTTP stack, so the visitor identity comes from any InnerTube request.
+    @Synchronized
+    fun setIdentityHeaders(innertubeHeaders: Map<String?, String?>?) {
+        val headers = forwardedHeaders(innertubeHeaders)
+        val visitor = headers[VISITOR_ID_HEADER] ?: return
+        val previous = requestHeaders[VISITOR_ID_HEADER]
+        if (visitor == previous) return
+        if (previous != null) clearRequests()
+        requestHeaders = headers
+    }
+
     @Synchronized
     fun setOfflineHeaders(playerHeaders: Map<String?, String?>?) {
         offlineHeaders = forwardedHeaders(playerHeaders)
