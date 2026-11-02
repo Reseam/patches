@@ -17,6 +17,7 @@ internal class SwipeGesture(private val owner: SwipeState) {
         IDLE,
         PENDING,
         CAPTURED,
+        ADJUSTING,
         DRAINING,
     }
 
@@ -27,10 +28,10 @@ internal class SwipeGesture(private val owner: SwipeState) {
         private set
 
     private val captured
-        get() = phase == Phase.CAPTURED || phase == Phase.DRAINING
+        get() = phase == Phase.CAPTURED || phase == Phase.ADJUSTING || phase == Phase.DRAINING
 
     private val eligible
-        get() = phase == Phase.PENDING || phase == Phase.CAPTURED
+        get() = phase == Phase.PENDING || phase == Phase.CAPTURED || phase == Phase.ADJUSTING
 
     private val panelOpen
         get() = EngagementPanel.openPanelId.isNotEmpty()
@@ -82,9 +83,14 @@ internal class SwipeGesture(private val owner: SwipeState) {
         val dx = event.x - origin.x
         val dy = origin.y - event.y
         if (!captured && !claimMovement(event, dx, dy)) return false
-        if (abs(dy) < swipeNumber(PlayerControlsSettings.swipeThreshold, 30f, 5f, 200f) * density)
-            return true
-        owner.adjustGesture(dy, origin.adjustment)
+        if (phase != Phase.ADJUSTING) {
+            if (abs(dy) < swipeNumber(PlayerControlsSettings.swipeThreshold, 30f, 5f, 200f) * density)
+                return true
+            // Measure from where the threshold was crossed so the dead zone is not applied as a jump.
+            phase = Phase.ADJUSTING
+            origin = origin.copy(y = event.y)
+        }
+        owner.adjustGesture(origin.y - event.y, origin.adjustment)
         return true
     }
 
