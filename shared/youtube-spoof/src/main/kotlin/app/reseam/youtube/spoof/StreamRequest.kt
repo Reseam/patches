@@ -60,8 +60,10 @@ internal class StreamRequest(
                 Logger.debug { "Native playback with a server integrity token for $videoId" }
                 return StreamingData(client)
             }
-            val attemptDeadline =
-                SystemClock.elapsedRealtime() + remaining(deadline) / (config.clients.size - index)
+            // The preferred client is also the slowest to start (web runtime, TV profile), so each attempt gets half
+            // of the remaining time and the last gets all of it.
+            val share = if (index == config.clients.lastIndex) 1 else 2
+            val attemptDeadline = SystemClock.elapsedRealtime() + remaining(deadline) / share
             try {
                 attempt(client, visitor, attemptDeadline)?.let {
                     return it
