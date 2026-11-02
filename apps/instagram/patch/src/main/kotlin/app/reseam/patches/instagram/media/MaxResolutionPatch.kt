@@ -23,9 +23,7 @@ val maxResolution = patch("Max resolution") {
     execute {
         gate(MediaSettings.maxResolution) {
             imageUrlSelector.before {
-                val candidates = paramOfType(Type.List)
-                val largest = candidates[candidates.size() - int(1)].cast(EXTENDED_IMAGE_URL)
-                returnValue(largest)
+                returnValue(paramOfType(Type.List)[int(0)].cast(EXTENDED_IMAGE_URL))
             }
         }
     }
