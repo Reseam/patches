@@ -44,6 +44,7 @@ val unlockDownloads = patch("Unlock downloads") {
         answerRefusedDownloads(YouTubeMusicSettings.unlockDownloads)
         answerRefusedOfflineStates(YouTubeMusicSettings.unlockDownloads)
         val upsellVideoId = offlineUpsellCommand.reserveLocal("upsellVideoId", Type.String)
+        val upsellPlaylistId = offlineUpsellCommand.reserveLocal("upsellPlaylistId", Type.String)
         gate(YouTubeMusicSettings.unlockDownloads) {
             // Without a player config the downloader's data source falls back to the playing video's, which can
             // make it post ustreamer requests that the server refuses for another video's streams.
@@ -55,7 +56,10 @@ val unlockDownloads = patch("Unlock downloads") {
             // the item's tag names. A song menu's tag names no video, so a song's upsell supplies it.
             offlineUpsellCommand.point { opcode(Opcode.IGET_OBJECT); field { type(Type.String) } }
                 .captureAs("params", Type.String)
-                .after { local(upsellVideoId).assign(OfflineUpsell.videoId(capture("params"))) }
+                .after {
+                    local(upsellVideoId).assign(OfflineUpsell.videoId(capture("params")))
+                    local(upsellPlaylistId).assign(OfflineUpsell.playlistId(capture("params")))
+                }
             offlineUpsellCommand.point { string(INTERACTION_LOGGER) }
                 .next { invokeVirtual { returns(Type.Boolean); params() } }
                 .next { resultOf(Type.Boolean) }
@@ -65,6 +69,13 @@ val unlockDownloads = patch("Unlock downloads") {
                 .next { resultOf(Type.Object) }
                 .captureAs("tag", Type.Object)
                 .after { whenNotNull(local(upsellVideoId)) { capture("tag").assign(local(upsellVideoId)) } }
+            // A playlist's or album's tag names no playlist either; its upsell does.
+            offlineUpsellCommand.point { string(ENDPOINT_TAG) }
+                .next { invokeStatic { params(Type.Object); returns(Type.String) } }
+                .next { invokeStatic { params(Type.Object); returns(Type.String) } }
+                .next { resultOf(Type.String) }
+                .captureAs("playlistId", Type.String)
+                .after { whenNull(capture("playlistId")) { capture("playlistId").assign(local(upsellPlaylistId)) } }
         }
     }
 }
