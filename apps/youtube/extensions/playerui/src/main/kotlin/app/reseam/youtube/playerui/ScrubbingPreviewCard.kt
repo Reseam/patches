@@ -8,6 +8,7 @@ import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.Outline
 import android.graphics.drawable.GradientDrawable
+import android.text.TextUtils
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
@@ -33,16 +34,13 @@ internal class ScrubbingPreviewCard(val context: Context) {
                     }
                 }
         }
-    private val time =
-        TextView(context).apply {
-            setTextColor(Color.WHITE)
-            setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f)
-            setPadding(dp(8f), dp(2f), dp(8f), dp(2f))
-            background =
-                GradientDrawable().apply {
-                    setColor(0xB3000000.toInt())
-                    cornerRadius = dp(12f).toFloat()
-                }
+    private val time = label(context)
+    private val chapter =
+        label(context).apply {
+            maxLines = 1
+            ellipsize = TextUtils.TruncateAt.END
+            maxWidth = previewLongSide
+            visibility = View.GONE
         }
     val root =
         LinearLayout(context).apply {
@@ -56,6 +54,14 @@ internal class ScrubbingPreviewCard(val context: Context) {
                         ViewGroup.LayoutParams.WRAP_CONTENT,
                     )
                     .apply { topMargin = dp(4f) },
+            )
+            addView(
+                chapter,
+                LinearLayout.LayoutParams(
+                        ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT,
+                    )
+                    .apply { topMargin = dp(2f) },
             )
         }
     private var host: ViewGroup? = null
@@ -95,6 +101,11 @@ internal class ScrubbingPreviewCard(val context: Context) {
             }
     }
 
+    fun setChapter(title: CharSequence) {
+        chapter.text = title
+        chapter.visibility = if (title.isEmpty()) View.GONE else View.VISIBLE
+    }
+
     fun attach(target: ViewGroup) {
         if (host !== target) {
             detach()
@@ -112,6 +123,18 @@ internal class ScrubbingPreviewCard(val context: Context) {
         frame.setImageBitmap(null)
     }
 }
+
+private fun label(context: Context) =
+    TextView(context).apply {
+        setTextColor(Color.WHITE)
+        setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f)
+        setPadding(dp(8f), dp(2f), dp(8f), dp(2f))
+        background =
+            GradientDrawable().apply {
+                setColor(0xB3000000.toInt())
+                cornerRadius = dp(12f).toFloat()
+            }
+    }
 
 // Clears the most-replayed graph drawn over the seekbar while scrubbing.
 internal val previewGap = dp(28f)

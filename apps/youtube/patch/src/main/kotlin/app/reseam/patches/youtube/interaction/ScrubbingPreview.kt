@@ -21,6 +21,7 @@ import app.reseam.youtube.settings.PlayerControlsSettings
 import app.reseam.youtube.settings.YouTubeStrings
 
 private const val POINT = "android.graphics.Point"
+private const val OPTIONAL = "j\$.util.Optional"
 
 val scrubbingPreview = patch {
     compatibleWith(YOUTUBE)
@@ -41,6 +42,10 @@ val scrubbingPreview = patch {
                 whenNotNull(param(0)) { ScrubbingPreview.onFrame(param(0).fieldOfType("android.graphics.Bitmap")) }
             }
             seekbarOnDraw.before { ScrubbingPreview.setSeekbar(thisObject) }
+            scrubChapterTitle.point { invokeVirtual { owner(OPTIONAL); name("orElse") } }
+                .next { resultOf(Type.Object) }
+                .captureAs("chapter", Type.Object)
+                .after { ScrubbingPreview.setChapter(capture("chapter")) }
             filmStripStateChange.point { opcode(Opcode.IPUT_OBJECT) }
                 .before { ScrubbingPreview.setFilmStripState(param(0)) }
         }
@@ -70,6 +75,19 @@ private val fullPreviewFrame = method("fullPreviewFrame") {
     paramCount(1)
     returns(Type.Void)
     calls { owner("android.widget.ImageView"); name("isAttachedToWindow") }
+}
+
+// The overlay above the scrubber applies the chapter under the scrub position here; it keeps doing so while
+// the small preview replaces the full-size one.
+private val scrubChapterTitle = method("scrubChapterTitle") {
+    flags(AccessFlags.PUBLIC or AccessFlags.FINAL)
+    params()
+    returns(Type.Void)
+    strings("")
+    calls { owner(OPTIONAL); name("isEmpty") }
+    calls { owner(OPTIONAL); name("orElse") }
+    calls { owner("android.widget.TextView"); name("setText") }
+    calls { owner("android.text.TextUtils"); name("isEmpty") }
 }
 
 private val seekbarScrubberPosition = method("seekbarScrubberPosition") {

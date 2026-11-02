@@ -23,6 +23,7 @@ private var card: ScrubbingPreviewCard? = null
 private var filmStripOpen = false
 private var scrubbing = false
 private var scrubTime = 0L
+private var chapter: CharSequence = ""
 
 @Export
 fun setSeekbar(view: View) {
@@ -71,6 +72,12 @@ private fun updateFrame(frame: Bitmap) {
 }
 
 @Export
+fun setChapter(title: Any?) {
+    chapter = title as? CharSequence ?: ""
+    if (scrubbing) card?.takeIf { it.hasFrame }?.let(::show)
+}
+
+@Export
 fun setFilmStripState(state: Enum<*>) {
     filmStripOpen = state.name != "CLOSED"
     if (filmStripOpen) card?.detach()
@@ -86,6 +93,7 @@ private fun show(preview: ScrubbingPreviewCard) {
         return
     }
     preview.setTime(scrubTime)
+    preview.setChapter(chapter)
     scrubberPosition(view, scrubber)
     val host = view.rootView as ViewGroup
     view.getLocationInWindow(seekbarOrigin)
