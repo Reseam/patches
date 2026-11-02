@@ -70,7 +70,7 @@
     <string name="following_only">Following-only feed</string>
     <string name="following_only_summary">Home shows posts from accounts you follow, in time order, then older posts instead of suggestions.</string>
     <string name="hide_suggested_accounts">Hide suggested accounts</string>
-    <string name="hide_suggested_accounts_summary">Removes suggested-account carousels from Home.</string>
+    <string name="hide_suggested_accounts_summary">Removes suggested-account carousels from Home. Suggested posts still show; Following-only feed removes them.</string>
     <string name="hide_threads_units">Hide Threads units</string>
     <string name="hide_threads_units_summary">Removes Threads units from Home. May leave an empty gap.</string>
     <string name="hide_shopping_units">Hide shopping units</string>

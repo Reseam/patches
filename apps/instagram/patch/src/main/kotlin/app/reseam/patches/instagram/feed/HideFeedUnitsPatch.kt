@@ -48,8 +48,8 @@ private val UNIT_KEYS: Map<ToggleSetting, List<String>> = mapOf(
     FeedSettings.hideSuggestedReels to listOf("clips_netego"),
 )
 
-val hideFeedUnits = patch("Hide suggested feed units") {
-    description("Drops suggested-account, Threads, shopping and suggested Reels units from the feed as it is parsed.")
+val hideFeedUnits = patch("Hide suggested carousels") {
+    description("Removes suggested-account, Threads, shopping and Reels carousels from Home. Suggested posts still show; Following-only feed removes them.")
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
     settings(
