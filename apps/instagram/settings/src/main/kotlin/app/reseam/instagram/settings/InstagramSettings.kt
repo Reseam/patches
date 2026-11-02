@@ -3,7 +3,9 @@
 
 package app.reseam.instagram.settings
 
+import app.reseam.patch.settings.Choice
 import app.reseam.patch.settings.SettingsGroup
+import app.reseam.patch.settings.choice
 import app.reseam.patch.settings.folder
 import app.reseam.patch.settings.toggle
 import app.reseam.patches.bundle.lucide
@@ -22,11 +24,26 @@ object MediaSettings : SettingsGroup(InstagramStrings) {
 
 object PlaybackSettings : SettingsGroup(InstagramStrings) {
     val disableVideoAutoplay by toggle(default = false, icon = lucide("circle-pause"))
+    val disableReelsSwiping by toggle(default = false, icon = lucide("gallery-vertical-end"))
 }
 
 object StorySettings : SettingsGroup(InstagramStrings) {
     val disableAutoAdvance by toggle(default = false, icon = lucide("skip-forward"))
     val hideSuggestedUsers by toggle(default = true, icon = lucide("user-x"))
+    val hideStoryTray by toggle(default = false, icon = lucide("circle-off"))
+
+    val ringSize by
+        choice(
+            default = "100",
+            choices =
+                listOf(
+                    Choice("80", InstagramStrings.ringSizeSmall),
+                    Choice("100", InstagramStrings.ringSizeDefault),
+                    Choice("120", InstagramStrings.ringSizeLarge),
+                    Choice("140", InstagramStrings.ringSizeExtraLarge),
+                ),
+            icon = lucide("circle-dashed"),
+        )
 }
 
 object MetaAiSettings : SettingsGroup(InstagramStrings) {
@@ -54,8 +71,11 @@ object FollowSettings : SettingsGroup(InstagramStrings) {
 object AppearanceSettings : SettingsGroup(InstagramStrings) {
     val hideRepostButtons by toggle(default = false, icon = lucide("repeat-2"))
     val hideEngagementCounts by toggle(default = false, icon = lucide("heart-off"))
+    val hideHomeTab by toggle(default = false, icon = lucide("house"))
     val hideReelsTab by toggle(default = false, icon = lucide("clapperboard"))
     val hideCreateTab by toggle(default = false, icon = lucide("square-plus"))
+    val hideExploreGrid by toggle(default = false, icon = lucide("compass"))
+    val hideInstants by toggle(default = false, icon = lucide("layers"))
     val hideThreadsBadge by toggle(default = true, icon = lucide("at-sign"))
 }
 

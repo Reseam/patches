@@ -19,14 +19,17 @@ import app.reseam.patches.instagram.core.instagramSettings
 import app.reseam.patches.instagram.core.signatureCheck
 
 val hideNavigationTabs = patch("Hide navigation tabs") {
-    description("Removes the Reels or Create tab from the bottom bar.")
+    description("Removes the Home, Reels or Create tab from the bottom bar.")
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
-    settings(instagramSettings, section(InstagramStrings.sectionAppearance, AppearanceSettings.hideReelsTab, AppearanceSettings.hideCreateTab))
+    settings(instagramSettings, section(InstagramStrings.sectionAppearance, AppearanceSettings.hideHomeTab, AppearanceSettings.hideReelsTab, AppearanceSettings.hideCreateTab))
 
     execute {
         tabListBuilder.after {
-            returnValue(NavigationTabs.filter(result, valueOf(AppearanceSettings.hideReelsTab), valueOf(AppearanceSettings.hideCreateTab)))
+            returnValue(NavigationTabs.filter(result, valueOf(AppearanceSettings.hideHomeTab), valueOf(AppearanceSettings.hideReelsTab), valueOf(AppearanceSettings.hideCreateTab)))
+        }
+        landingTab.after {
+            returnValue(NavigationTabs.landingTab(result).cast(tabEnum.descriptor))
         }
     }
 }
@@ -40,4 +43,10 @@ private val tabListBuilder = method("tabListBuilder") {
     returns(Type.List)
     params(USER_SESSION, Type.Boolean)
     calls { owner(tabEnum.descriptor); params(Type.String); returns(tabEnum.descriptor) }
+}
+
+private val landingTab = method("landingTab") {
+    returns(tabEnum.descriptor)
+    params(USER_SESSION)
+    calls { params(USER_SESSION); returns(tabEnum.descriptor) }
 }

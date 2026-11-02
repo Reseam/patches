@@ -7,8 +7,13 @@ package app.reseam.instagram.navigation
 
 import app.reseam.runtime.Export
 
+private var visibleTabs: List<Any> = emptyList()
+
 @Export
-fun filter(tabs: List<Any>, hideReels: Boolean, hideCreate: Boolean): List<Any> {
-    val hiddenTabs = mapOf("CLIPS" to hideReels, "CREATION" to hideCreate, "SHARE" to hideCreate)
-    return tabs.filterNot { hiddenTabs[(it as Enum<*>).name] == true }
+fun filter(tabs: List<Any>, hideHome: Boolean, hideReels: Boolean, hideCreate: Boolean): List<Any> {
+    val hiddenTabs = mapOf("FEED" to hideHome, "CLIPS" to hideReels, "CREATION" to hideCreate, "SHARE" to hideCreate)
+    return tabs.filterNot { hiddenTabs[(it as Enum<*>).name] == true }.also { visibleTabs = it }
 }
+
+@Export
+fun landingTab(tab: Any): Any = if (visibleTabs.isEmpty() || tab in visibleTabs) tab else visibleTabs.first()
