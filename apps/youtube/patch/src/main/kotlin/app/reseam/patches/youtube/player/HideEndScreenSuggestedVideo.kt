@@ -9,7 +9,6 @@ import app.reseam.patch.before
 import app.reseam.patch.dex.AccessFlags
 import app.reseam.patch.dex.Opcode
 import app.reseam.patch.dex.opcode
-import app.reseam.patch.dex.returnType
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
@@ -47,20 +46,23 @@ val hideEndScreenSuggestedVideo = patch("Hide end-screen suggested video") {
             HideEndScreenSuggestedVideo.setAutoplayStatus(result)
         }
 
-        val removeListener = method("remove end-screen layout listener") {
+        val endScreenName = method("autonav end-screen overlay name") {
+            params()
+            returns(Type.String)
+            strings("player_overlay_player_autonav_endscreen")
+            opcode(Opcode.CONST_STRING, Opcode.RETURN_OBJECT)
+        }
+        val endScreenClass = app.reseam.patch.classTarget("autonav end-screen overlay") {
+            bytecode.findClass(endScreenName.owner)
+                ?: error("The autonav end-screen overlay is missing")
+        }
+        method("autonav end-screen overlay visible") {
+            inClass(endScreenClass)
             flags(AccessFlags.PUBLIC or AccessFlags.FINAL)
             params()
-            returns(Type.Void)
-            opcode(Opcode.IPUT, Opcode.INVOKE_VIRTUAL)
-            calls { name("removeOnLayoutChangeListener"); returns(Type.Void) }
-            callsMethod {
-                name == "removeOnLayoutChangeListener" &&
-                    definingClass.endsWith("/YouTubePlayerOverlaysLayout;") &&
-                    returnType == Type.Void
-            }
-        }
-        removeListener.before {
-            whenTrue(HideEndScreenSuggestedVideo.shouldHide()) { returnVoid() }
+            returns(Type.Boolean)
+        }.before {
+            whenTrue(HideEndScreenSuggestedVideo.shouldHide()) { returnFalse() }
         }
     }
 }
