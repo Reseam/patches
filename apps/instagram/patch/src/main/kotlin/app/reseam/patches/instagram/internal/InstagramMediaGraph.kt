@@ -118,6 +118,7 @@ object InstagramMediaGraph {
 
     val storyActionSheet = klass("storyActionSheet") {
         strings("archive_highlight_option", "copy_link_url", "delete_photo_title")
+        hasInstanceField(REEL_ITEM)
     }
 
     val storyLabelArrays = methods("storyLabelArrays") {

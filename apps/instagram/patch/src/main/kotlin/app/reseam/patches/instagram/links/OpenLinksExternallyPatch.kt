@@ -7,6 +7,8 @@ import app.reseam.instagram.links.bindings.ExternalLinks
 import app.reseam.instagram.settings.InstagramStrings
 import app.reseam.instagram.settings.LinkSettings
 import app.reseam.patch.Type
+import app.reseam.patch.dex.Opcode
+import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
@@ -23,10 +25,17 @@ val openLinksExternally = patch("Open links in external browser") {
     settings(instagramSettings, section(InstagramStrings.sectionLinks, LinkSettings.openExternally))
 
     execute {
+        // The launcher reports where the link opened.
+        val launchedInExternalBrowser = klass(browserLaunch.returnType).method("<clinit>")
+            .point { string("EXTERNAL_BROWSER") }
+            .next { opcode(Opcode.SPUT_OBJECT) }
+            .field("launchedInExternalBrowser")
         gate(LinkSettings.openExternally) {
             browserLaunch.before {
                 val launcher = paramOfType(browserLaunch.owner)
-                whenTrue(ExternalLinks.open(launcher.fieldOfType(Type.Context), launcher.field(launcherUrl))) { returnTrue() }
+                whenTrue(ExternalLinks.open(launcher.fieldOfType(Type.Context), launcher.field(launcherUrl))) {
+                    returnValue(staticField(launchedInExternalBrowser))
+                }
             }
         }
     }
@@ -34,7 +43,6 @@ val openLinksExternally = patch("Open links in external browser") {
 
 private val browserLaunch = method("browserLaunch") {
     strings("Tracking.ARG_CLICK_SOURCE", "BrowserLauncher")
-    returns(Type.Boolean)
 }
 
 private val launcherUrl = browserLaunch

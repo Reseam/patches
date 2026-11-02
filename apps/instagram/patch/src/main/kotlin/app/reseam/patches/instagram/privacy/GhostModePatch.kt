@@ -7,6 +7,7 @@ import app.reseam.instagram.settings.InstagramStrings
 import app.reseam.patch.Type
 import app.reseam.patch.klass
 import app.reseam.patch.method
+import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
@@ -40,7 +41,7 @@ val ghostMode = patch("Ghost mode") {
             dmSeen.alwaysReturn()
         }
         gate(GhostSettings.hideStorySeen) {
-            storySeen.alwaysReturn()
+            storySeen.forEach { alwaysReturn() }
         }
         gate(GhostSettings.hideLiveSeen) {
             liveSeen.alwaysReturnNull()
@@ -66,7 +67,8 @@ val storySeenRequest = method("storySeenRequest") {
     strings("media/seen/?reel=%s&live_vod=0")
 }
 
-val storySeen = method("storySeen") {
+// Each marks a different item type seen; both report through the same request.
+val storySeen = methods("storySeen") {
     inClass(klass(storySeenRequest.owner))
     returns(Type.Void)
     hasParam(USER_SESSION)

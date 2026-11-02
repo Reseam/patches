@@ -28,11 +28,9 @@ val disableStoryAutoAdvance = patch("Disable story auto-advance") {
     }
 }
 
-// The photo timer and video completion both report a finished item here. The other (Object)V
-// viewer callback loads "sponsored" and not "userSession".
+// The photo timer and video completion both report a finished item through this method.
 private val storyItemFinished = method("storyItemFinished") {
     inClass(klass("instagram.features.stories.fragment.ReelViewerFragment"))
-    strings("userSession")
-    params(Type.Object)
+    strings("end_scene")
     returns(Type.Void)
 }

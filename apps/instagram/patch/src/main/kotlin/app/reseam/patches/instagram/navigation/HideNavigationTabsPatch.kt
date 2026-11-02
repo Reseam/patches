@@ -31,7 +31,10 @@ val hideNavigationTabs = patch("Hide navigation tabs") {
     }
 }
 
-private val tabEnum = klass("tabEnum") { strings("fragment_clips", "clips_viewer_clips_tab", "fragment_direct_tab") }
+private val tabEnum = klass("tabEnum") {
+    extends("java.lang.Enum")
+    strings("fragment_clips", "clips_viewer_clips_tab", "fragment_direct_tab")
+}
 
 private val tabListBuilder = method("tabListBuilder") {
     returns(Type.List)

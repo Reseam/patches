@@ -7,109 +7,70 @@ import app.reseam.instagram.follows.bindings.FollowsYouIndicator
 import app.reseam.instagram.settings.FollowSettings
 import app.reseam.instagram.settings.InstagramStrings
 import app.reseam.patch.Type
-import app.reseam.patch.after
-import app.reseam.patch.classTarget
+import app.reseam.patch.before
 import app.reseam.patch.descriptor
 import app.reseam.patch.klass
 import app.reseam.patch.method
-import app.reseam.patch.methodTarget
-import app.reseam.patch.methods
 import app.reseam.patch.patch
+import app.reseam.patch.point
 import app.reseam.patch.settings.section
 import app.reseam.patches.instagram.core.INSTAGRAM
-import app.reseam.patches.instagram.core.USER_SESSION
 import app.reseam.patches.instagram.core.instagramSettings
 import app.reseam.patches.instagram.core.signatureCheck
 
 private const val USER = "com.instagram.user.model.User"
 private const val RELATIONSHIP = "com.instagram.api.schemas.RelationshipInfoDict"
 private const val PANDO_RELATIONSHIP = "com.instagram.api.schemas.ImmutablePandoRelationshipInfoDict"
+private const val USER_DETAIL_VIEW_MODEL = "com.instagram.profile.fragment.UserDetailViewModel"
 
 val followsYou = patch("Follows you indicator") {
-    description("Shows a 'Follows you' badge next to usernames in search results.")
+    description("Shows 'Follows you' next to the name on profiles of accounts that follow you.")
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
     settings(instagramSettings, section(InstagramStrings.sectionSocial, FollowSettings.followsYouIndicator))
 
     execute {
-        searchSubtitleBuilder.after {
-            val updated = FollowsYouIndicator.appendFromSession(result, param(1), param(3))
-            returnValue(updated)
+        FollowsYouIndicator.followedBy.implement {
+            val relation = param(0).cast(USER).call(userRelationship)
+            whenNotNull(relation) {
+                returnValue(relation.callInterface(RELATIONSHIP, pandoFollowedBy.name, "()Ljava/lang/Boolean;"))
+            }
+            returnNull()
         }
 
-        FollowsYouIndicator.appendFromSession.implement {
-            val subtitle = param(0)
-            val userSession = param(1).cast(USER_SESSION)
-            val userViewModel = param(2).cast(userViewModelClass.descriptor)
-            val cache = call(userCacheProviderGetter, userSession)
-            val user = userViewModel.call(userFromSearchModel, cache)
-            whenNotNull(user) {
-                val relation = user.call(userRelationship)
-                whenNotNull(relation) {
-                    val followedBy = relation.callInterface(RELATIONSHIP, pandoFollowedBy.name, "()Ljava/lang/Boolean;")
-                    returnValue(FollowsYouIndicator.maybeAppend(subtitle, followedBy))
-                }
-            }
-            returnValue(subtitle)
+        profileUserChanged.before { FollowsYouIndicator.rememberProfileUser(param(0), param(1)) }
+        // The header binder gets the profile's view model through one of its parameters.
+        val headerContext = profileHeaderBinder.parameterTypes.single { type ->
+            bytecode.findClass(type)?.instanceFields?.any { it.fieldType == descriptor(USER_DETAIL_VIEW_MODEL) } == true
+        }
+        profileFullName.before {
+            val viewModel = paramOfType(headerContext).fieldOfType(USER_DETAIL_VIEW_MODEL)
+            capture("fullName").assign(FollowsYouIndicator.profileName(capture("fullName"), viewModel))
         }
     }
 }
 
-val searchRowBinder = method("searchRowBinder") {
-    strings("new_post_count", " • ")
+// The profile view model receives each new copy of the user it shows.
+private val profileUserChanged = method("profileUserChanged") {
+    inClass(klass(USER_DETAIL_VIEW_MODEL))
+    params(USER_DETAIL_VIEW_MODEL, USER)
     returns(Type.Void)
 }
 
-// Several String builders called by the row binder take Context + UserSession. The canonical
-// one has five parameters whose tail is obfuscated app types (the user view model and relation
-// helpers); the `LX/` prefix catches them without naming any.
-val searchSubtitleBuilders = methods("searchSubtitleBuilders") {
-    calledBy(searchRowBinder)
-    returns(Type.String)
-    hasParam(Type.Context)
-    hasParam(USER_SESSION)
-}
+private val profileHeaderBinder = method("profileHeaderBinder") { strings("bindFullName") }
 
-val searchSubtitleBuilder = methodTarget("searchSubtitleBuilder") {
-    searchSubtitleBuilders.single {
-        val params = parameterTypes
-        params.size == 5 &&
-            params[0] == Type.Context &&
-            params[1] == descriptor(USER_SESSION) &&
-            params.drop(2).all { it.startsWith("LX/") }
-    }.method
-}
+private val profileFullName = profileHeaderBinder
+    .point { string("bindFullName") }
+    .next { invokeVirtual { owner("android.widget.TextView"); name("setText") } }
+    .captureArgumentAs("fullName", 1, Type.String)
 
-val userViewModelClass = classTarget("userViewModelClass") {
-    bytecode.findClass(searchSubtitleBuilder.parameterTypes[3]) ?: error("user view model class missing")
-}
-
-val userCacheProvider = klass("userCacheProvider") {
-    hasInstanceField(USER_SESSION)
-    hasInstanceField("com.instagram.feed.media.MediaCache")
-    hasInstanceField("com.instagram.user.model.UserCache")
-    implements(userFromSearchModel.parameterTypes.single())
-}
-
-val userCacheProviderGetter = method("userCacheProviderGetter") {
-    inClass(userCacheProvider)
-    returns(userCacheProvider.descriptor)
-    params(USER_SESSION)
-}
-
-val userFromSearchModel = method("userFromSearchModel") {
-    inClass(userViewModelClass)
-    returns(USER)
-    custom { parameterTypes.size == 1 }
-}
-
-val userRelationship = method("userRelationship") {
+private val userRelationship = method("userRelationship") {
     inClass(klass(USER))
     returns(RELATIONSHIP)
     params()
 }
 
-val pandoFollowedBy = method("pandoFollowedBy") {
+private val pandoFollowedBy = method("pandoFollowedBy") {
     inClass(klass(PANDO_RELATIONSHIP))
     returns("java.lang.Boolean")
     params()

@@ -31,7 +31,7 @@
     <string name="unlock_developer_options">Unlock developer options</string>
     <string name="unlock_developer_options_summary">Shows Instagram\'s internal developer menu.</string>
     <string name="follows_you_indicator">Follows-you indicator</string>
-    <string name="follows_you_indicator_summary">Marks accounts that follow you in search results.</string>
+    <string name="follows_you_indicator_summary">Marks accounts that follow you on their profile.</string>
     <string name="hide_repost_buttons">Hide repost buttons</string>
     <string name="hide_repost_buttons_summary">Removes the repost button from the feed and Reels.</string>
     <string name="hide_engagement_counts">Hide engagement counts</string>

@@ -8,7 +8,7 @@ import app.reseam.patch.invoke
 
 const val INSTAGRAM_PACKAGE = "com.instagram.android"
 
-val INSTAGRAM: CompatiblePackage = INSTAGRAM_PACKAGE("447.0.0.55.81", "451.0.0.53.80")
+val INSTAGRAM: CompatiblePackage = INSTAGRAM_PACKAGE("453.0.0.57.79")
 
 const val USER_SESSION = "com.instagram.common.session.UserSession"
 const val MEDIA_OPTION = "com.instagram.feed.media.mediaoption.MediaOption\$Option"

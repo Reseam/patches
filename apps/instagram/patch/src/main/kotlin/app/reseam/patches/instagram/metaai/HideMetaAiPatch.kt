@@ -32,8 +32,7 @@ val hideMetaAi = patch("Hide Meta AI") {
     )
 
     execute {
-        val flags = metaAiFlags(directSearchView)
-        val exploreMetaAiSearch = method("exploreMetaAiSearch") { literals(flags.exploreSearch) }
+        val exploreMetaAiSearch = method("exploreMetaAiSearch") { literals(EXPLORE_SEARCH_FLAG) }
         gate(MetaAiSettings.hideInExploreSearch) {
             klass(exploreMetaAiEnabled.owner).method("<init>") { hasParam(Type.List) }.after {
                 thisObject.set(exploreMetaAiEnabled, bool(false))
@@ -45,7 +44,7 @@ val hideMetaAi = patch("Hide Meta AI") {
         }
         // Both DM search hints ("Search or ask Meta AI" and its reverse) follow the hint flag read; the
         // search screen and the inbox bar load them, so each load becomes the platform's "Search".
-        val hintChoice = directSearchView.point { literal(flags.searchHint); then(within = 6) { resultOf(Type.Boolean) } }
+        val hintChoice = directSearchView.point { literal(SEARCH_HINT_FLAG); then(within = 6) { resultOf(Type.Boolean) } }
         val firstHint = hintChoice.next { opcode(Opcode.CONST) }
         val metaAiHints = listOf(firstHint, firstHint.next { opcode(Opcode.CONST) }).map { it.instruction.literal!! }
         for (hint in metaAiHints) {
@@ -71,7 +70,7 @@ val hideMetaAi = patch("Hide Meta AI") {
                 thisObject.field(searchViewHolder).field(shareButton).callVirtual("android.view.View", "setVisibility", "(I)V", int(VIEW_GONE))
             }
         }
-        for (flag in flags.directSearch) {
+        for (flag in DIRECT_SEARCH_FLAGS) {
             methods("dmSearchFlag$flag") { literals(flag) }
                 .points { literal(flag); then(within = 6) { resultOf(Type.Boolean) } }
                 .all.also { check(it.isNotEmpty()) { "No DM Meta AI flag reads for $flag" } }
@@ -87,6 +86,15 @@ val hideMetaAi = patch("Hide Meta AI") {
         }
     }
 }
+
+// MobileConfig ids of 453.0.0.57.79.
+private const val EXPLORE_SEARCH_FLAG = 0x0081066200111e66L
+private const val SEARCH_HINT_FLAG = 0x00810bd5000a41b7L
+private val DIRECT_SEARCH_FLAGS = listOf(
+    0x00810400000b1069L, // send-to-AI arrow
+    0x0081040000041066L, // suggestions while typing
+    0x0081040000001065L, // prompts on an empty query
+)
 
 private const val PLATFORM_SEARCH_HINT = 0x0104000c // android.R.string.search_go
 private const val VIEW_GONE = 8

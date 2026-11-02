@@ -21,42 +21,43 @@ private const val INSTANTS_VIEWER_PLUGIN = "com.instagram.quicksnap.unified.Quic
 private const val INSTANTS_CAMERA_MODEL = "com.instagram.quicksnap.camera.domain.QuickSnapCameraViewModel"
 private const val MEDIA = "com.instagram.feed.media.Media"
 private const val USER = "com.instagram.user.model.User"
-private val instantViewer = klass("instantViewer447") {
+private val instantViewer = klass("instantViewer") {
     hasInstanceField(INSTANTS_VIEWER_PLUGIN)
     hasInstanceField(INSTANTS_CAMERA_MODEL)
 }
 
-private val instantItem = klass("instantItem447") {
+private val instantItem = klass("instantItem") {
     hasInstanceField(MEDIA)
     hasInstanceField(USER)
     hasInstanceField(Type.List)
+    // Items number themselves from a shared counter; Reels and live models with the same fields don't.
     custom {
-        instanceFields.size < 20 &&
+        staticFields.any { it.fieldType == "Ljava/util/concurrent/atomic/AtomicLong;" } &&
             methods.any { it.returnType == "Lcom/instagram/common/typedurl/ImageUrl;" && it.parameterTypes.isEmpty() }
     }
 }
 
-private val instantScreen = klass("instantScreen447") {
+private val instantScreen = klass("instantScreen") {
     hasInstanceField(instantItem.descriptor)
     hasInstanceField(USER_SESSION)
     hasInstanceField("androidx.compose.runtime.MutableState")
     hasInstanceField("kotlin.jvm.functions.Function0")
 }
 
-private val viewerCreated = method("instantViewerCreated447") {
+private val viewerCreated = method("instantViewerCreated") {
     inClass(instantViewer)
     name("onViewCreated")
     returns(Type.Void)
     params(Type.View, "android.os.Bundle")
 }
 
-private val viewerDestroyed = method("instantViewerDestroyed447") {
+private val viewerDestroyed = method("instantViewerDestroyed") {
     inClass(instantViewer)
     name("onDestroyView")
     returns(Type.Void)
 }
 
-private val renderInstant = method("renderInstant447") {
+private val renderInstant = method("renderInstant") {
     inClass(instantScreen)
     name("invoke")
     returns(Type.Object)
