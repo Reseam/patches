@@ -5,6 +5,7 @@ package app.reseam.patches.youtube.layout
 
 import app.reseam.patch.Type
 import app.reseam.patch.method
+import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
@@ -20,14 +21,21 @@ val disableSignInToTvPopup = patch("Disable sign in to TV popup") {
     settings(youTubeSettings, section(YouTubeSettingsPages.Player, YouTubeStrings.sectionCasting, PlayerSettings.disableSignInToTvPopup))
 
     execute {
-        // Resource ids only exist against a loaded app, so the target they seed is built here.
-        val drawerTitle = resources.id("string", "mdx_seamless_tv_sign_in_drawer_fragment_title")?.toLong()
-            ?: error("string/mdx_seamless_tv_sign_in_drawer_fragment_title is missing")
         gate(PlayerSettings.disableSignInToTvPopup) {
-            method("shouldShowSignInToTvPopup") {
-                literals(drawerTitle)
-                returns(Type.Boolean)
-            }.alwaysReturn(false)
+            tvSignInDrawer.alwaysReturn(false)
+            // Server-sent; releases before 21.23 have no such command.
+            tvSignInIdentityChooser.forEach { alwaysReturn() }
         }
     }
+}
+
+// Both the app's own discovery and the server's TV sign-in command open the drawer through here.
+private val tvSignInDrawer = method("show TV sign-in drawer") {
+    strings("MDX.tvsignin.ExpressTvSignInDrawerController")
+    returns(Type.Boolean)
+}
+
+private val tvSignInIdentityChooser = methods("resolve TV sign-in account chooser command") {
+    strings("SignInIdentityChooserPromptCommandResolver")
+    returns(Type.Void)
 }
