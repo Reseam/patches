@@ -20,6 +20,7 @@ object GhostSettings : SettingsGroup(InstagramStrings) {
 
 object MediaSettings : SettingsGroup(InstagramStrings) {
     val maxResolution by toggle(default = true, icon = lucide("image"))
+    val originalQuality by toggle(default = false, icon = lucide("image-up"))
 }
 
 object PlaybackSettings : SettingsGroup(InstagramStrings) {
@@ -54,6 +55,7 @@ object MetaAiSettings : SettingsGroup(InstagramStrings) {
 
 object LinkSettings : SettingsGroup(InstagramStrings) {
     val openExternally by toggle(default = false, icon = lucide("external-link"))
+    val cleanShareLinks by toggle(default = true, icon = lucide("link-2-off"))
 }
 
 object PrivacySettings : SettingsGroup(InstagramStrings) {
@@ -62,6 +64,10 @@ object PrivacySettings : SettingsGroup(InstagramStrings) {
 
 object DeveloperSettings : SettingsGroup(InstagramStrings) {
     val unlockDeveloperOptions by toggle(default = true, icon = lucide("square-terminal"))
+}
+
+object CommentSettings : SettingsGroup(InstagramStrings) {
+    val copyComment by toggle(default = true, icon = lucide("copy"))
 }
 
 object FollowSettings : SettingsGroup(InstagramStrings) {

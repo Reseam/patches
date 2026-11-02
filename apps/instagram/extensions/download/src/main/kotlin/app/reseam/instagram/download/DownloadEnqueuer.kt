@@ -109,7 +109,7 @@ private fun buildFilename(media: Any, type: MediaType, index: Int): String {
     return "${user}_${timestamp}_$uuid$suffix${type.extension}"
 }
 
-private fun enqueue(context: Context, media: Any, source: MediaUrl, index: Int): Boolean {
+internal fun enqueue(context: Context, media: Any, source: MediaUrl, index: Int): Boolean {
     val folder = DownloadSettings.folder.value.trim().ifEmpty { DownloadSettings.folder.default }
     return context.saveMedia(
         folder,

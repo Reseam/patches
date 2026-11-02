@@ -10,6 +10,7 @@ import app.reseam.instagram.refs.videoUrl
 internal enum class MediaType(val extension: String, val mimeType: String, val kind: MediaKind) {
     VIDEO(".mp4", "video/mp4", MediaKind.VIDEO),
     PHOTO(".jpg", "image/jpeg", MediaKind.IMAGE),
+    AUDIO(".m4a", "audio/mp4", MediaKind.AUDIO),
 }
 
 internal data class MediaUrl(val url: String, val type: MediaType)

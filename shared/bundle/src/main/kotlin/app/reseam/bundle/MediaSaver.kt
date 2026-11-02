@@ -11,10 +11,11 @@ import android.os.Environment
 import android.provider.DocumentsContract
 import kotlin.concurrent.thread
 
-/** Where the gallery looks for each kind of media. */
+/** Where media apps look for each kind of media. */
 enum class MediaKind(val publicDir: String) {
     IMAGE(Environment.DIRECTORY_PICTURES),
     VIDEO(Environment.DIRECTORY_MOVIES),
+    AUDIO(Environment.DIRECTORY_MUSIC),
 }
 
 /**

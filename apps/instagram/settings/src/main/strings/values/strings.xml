@@ -12,6 +12,8 @@
     <string name="hide_screenshot_notifications_summary">Others aren\'t told when you take a screenshot. Risk of account ban.</string>
     <string name="max_resolution">Max photo resolution</string>
     <string name="max_resolution_summary">Loads photos at their full resolution.</string>
+    <string name="original_quality">Original photo quality</string>
+    <string name="original_quality_summary">Asks for photos as uploaded, larger than 1080p, by reporting a larger screen to Instagram. Risk of account ban.</string>
     <string name="disable_video_autoplay">Disable video autoplay</string>
     <string name="disable_video_autoplay_summary">Feed videos play only when you tap them.</string>
     <string name="disable_reels_swiping">Disable Reels swiping</string>
@@ -36,10 +38,15 @@
     <string name="hide_in_posts_summary">Removes the post summary and Ask Meta AI box from post menus.</string>
     <string name="open_externally">Open links in external browser</string>
     <string name="open_externally_summary">Opens web links in your default browser.</string>
+    <string name="clean_share_links">Clean share links</string>
+    <string name="clean_share_links_summary">Copies and shares links without the part that identifies you.</string>
     <string name="allow_screenshots">Allow screenshots</string>
     <string name="allow_screenshots_summary">Lifts the screenshot block in chats, view-once media and vanish mode.</string>
     <string name="unlock_developer_options">Unlock developer options</string>
     <string name="unlock_developer_options_summary">Shows Instagram\'s internal developer menu.</string>
+    <string name="copy_comment">Copy comment</string>
+    <string name="copy_comment_summary">Adds Copy to the menu that opens when you press and hold a comment.</string>
+    <string name="comment_copied">Comment copied</string>
     <string name="follows_you_indicator">Follows-you indicator</string>
     <string name="follows_you_indicator_summary">Marks accounts that follow you on their profile.</string>
     <string name="hide_repost_buttons">Hide repost buttons</string>
@@ -74,6 +81,7 @@
     <string name="show_toast">Show download toast</string>
     <string name="show_toast_summary">Shows a message when a download starts.</string>
     <string name="section_social">Social</string>
+    <string name="section_comments">Comments</string>
     <string name="section_appearance">Appearance</string>
     <string name="section_playback">Playback</string>
     <string name="section_media">Media</string>
