@@ -156,6 +156,8 @@
     <string name="spoof_app_version_target_summary">The version reported when app version spoofing is on.</string>
     <string name="disable_sign_in_to_tv_popup">Disable sign in to TV popup</string>
     <string name="disable_sign_in_to_tv_popup_summary">Hides the prompt to sign in to a TV on the same network.</string>
+    <string name="disable_ambient_mode">Disable ambient mode</string>
+    <string name="disable_ambient_mode_summary">Turns off the glow behind the player everywhere, whatever the player menu toggle says.</string>
     <string name="disable_fullscreen_ambient_mode">Disable fullscreen ambient mode</string>
     <string name="disable_fullscreen_ambient_mode_summary">Stops the fullscreen background from glowing with the video\'s colours.</string>
     <string name="bypass_image_region_restrictions">Bypass image region restrictions</string>

@@ -9,6 +9,7 @@ import app.reseam.patch.settings.toggle
 
 object PlayerSettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
     val disableSignInToTvPopup by toggle(default = false)
+    val disableAmbientMode by toggle(default = false)
     val disableFullscreenAmbientMode by toggle(default = true)
     val hideChannelBar by toggle(default = false)
     val hideChannelWatermark by toggle(default = true)
