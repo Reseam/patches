@@ -39,3 +39,9 @@ val videoIdMethod = method("videoIdMethod") {
 val videoIdGetter = videoIdMethod.point {
     invokeInterface { params(); returns(Type.String) }
 }.callee()
+
+/** The ID of a newly opened regular or Shorts video, as the child method reads it. */
+val newVideoId = videoIdMethod.point {
+    calls(videoIdGetter)
+}.next { resultOf(Type.String) }
+    .captureAs("videoId", Type.String)

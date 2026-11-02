@@ -13,8 +13,8 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patches.youtube.core.YOUTUBE
+import app.reseam.patches.youtubecommon.newVideoId
 import app.reseam.patches.youtubecommon.videoIdGetter
-import app.reseam.patches.youtubecommon.videoIdMethod
 
 private val videoIdHooks = RunList<ExtMethod>()
 private val backgroundPlayVideoIdHooks = RunList<ExtMethod>()
@@ -46,13 +46,7 @@ val videoIdHook = patch {
     dependsOn(playerResponseHook)
 
     afterDependents {
-        videoIdMethod.point {
-            calls(videoIdGetter)
-        }.next { resultOf(Type.String) }
-            .captureAs("videoId", Type.String)
-            .after {
-                videoIdHooks.values.forEach { call(it, capture("videoId")) }
-            }
+        newVideoId.after { videoIdHooks.values.forEach { call(it, capture("videoId")) } }
 
         backgroundPlayVideoIdMethod.point {
             calls(videoIdGetter)
