@@ -36,8 +36,9 @@ private data class Answer(val response: ByteArray?, val validUntil: Long)
 
 private val answers = LruCache<String, Answer>(REMEMBERED_VIDEOS)
 
+/** The offline response answered from a client with direct streams, null when none answers. */
 @Export
-fun replaceRefused(playerResponse: ByteArray): ByteArray? {
+fun replaceOfflineStreams(playerResponse: ByteArray): ByteArray? {
     val details = Proto.bytes(playerResponse, VIDEO_DETAILS)
     val videoId = details?.let { Proto.string(it, VIDEO_ID) }
     val refusal = Proto.bytes(playerResponse, OFFLINE_STATE)

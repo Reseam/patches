@@ -20,6 +20,7 @@ import app.reseam.patches.youtubemusic.core.YOUTUBE_MUSIC
 import app.reseam.patches.youtubemusic.core.YouTubeMusicSettingsPages
 import app.reseam.patches.youtubemusic.core.youTubeMusicSettings
 import app.reseam.patches.youtubemusic.misc.spoofVideoStreams
+import app.reseam.patches.youtubespoof.answerAllowedDownloads
 import app.reseam.patches.youtubespoof.answerRefusedDownloads
 import app.reseam.patches.youtubespoof.answerRefusedOfflineStates
 import app.reseam.youtubemusic.downloads.bindings.OfflineUpsell
@@ -42,6 +43,8 @@ val unlockDownloads = patch("Unlock downloads") {
 
     execute {
         answerRefusedDownloads(YouTubeMusicSettings.unlockDownloads)
+        // YouTube Music's own offline URLs answer a plain download with 403.
+        answerAllowedDownloads(YouTubeMusicSettings.unlockDownloads)
         answerRefusedOfflineStates(YouTubeMusicSettings.unlockDownloads)
         val upsellVideoId = offlineUpsellCommand.reserveLocal("upsellVideoId", Type.String)
         val upsellPlaylistId = offlineUpsellCommand.reserveLocal("upsellPlaylistId", Type.String)

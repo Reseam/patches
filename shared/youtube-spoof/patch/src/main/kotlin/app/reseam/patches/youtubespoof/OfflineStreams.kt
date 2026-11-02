@@ -27,7 +27,7 @@ fun PatchRuntime.answerRefusedDownloads(setting: ToggleSetting) {
     fun CodeScope.answer(response: ValueRef, target: ValueRef) = whenEnabled(setting) {
         whenNotNull(response.field(offlineStateField)) {
             whenNull(response.field(streamInputField)) {
-                val replaced = OfflineStreams.replaceRefused(protobufBytes(response))
+                val replaced = OfflineStreams.replaceOfflineStreams(protobufBytes(response))
                 whenNotNull(replaced) {
                     target.assign(parsePlayerResponse(replaced))
                 }
@@ -41,6 +41,26 @@ fun PatchRuntime.answerRefusedDownloads(setting: ToggleSetting) {
         name("<init>")
         param(0, playerResponseClass.descriptor)
     }.forEach { before { answer(param(0), param(0)) } }
+}
+
+/**
+ * Answers downloads the server allows as well, for an app whose own offline streams a download cannot
+ * fetch. Only fresh responses: stored ones are rebuilt for the whole library at startup.
+ */
+fun PatchRuntime.answerAllowedDownloads(setting: ToggleSetting) {
+    playerResponseReceiver.before {
+        whenEnabled(setting) {
+            whenInstanceOf(param(0), playerResponseClass.descriptor) {
+                val response = param(0).cast(playerResponseClass.descriptor)
+                whenNotNull(response.field(offlineStateField)) {
+                    whenNotNull(response.field(streamInputField)) {
+                        val replaced = OfflineStreams.replaceOfflineStreams(protobufBytes(response))
+                        whenNotNull(replaced) { param(0).assign(parsePlayerResponse(replaced)) }
+                    }
+                }
+            }
+        }
+    }
 }
 
 /** Runs [code] after the app wraps each player response in its model, with the video ID and the response. */
