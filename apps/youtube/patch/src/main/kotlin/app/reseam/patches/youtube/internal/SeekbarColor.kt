@@ -82,14 +82,20 @@ val seekbarColor = patch {
             .captureAs("color", Type.Int)
             .after { capture("color").assign(SeekbarColor.getVideoPlayerSeekbarClickedColor(capture("color"))) }
 
-        hookResourceColor(
-            method("seekbarHandleColor") {
-                flags(AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR)
-                literals(liveRange)
-                custom { containsLiteral(resources.id("attr", "ytStaticBrandRed")?.toLong() ?: -1L) }
-            },
-            liveRange,
-        )
+        val brandRed = resources.id("attr", "ytStaticBrandRed")
+            ?.toLong() ?: error("attr/ytStaticBrandRed is missing")
+        val seekbarPaints = method("seekbarHandleColor") {
+            flags(AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR)
+            literals(liveRange, brandRed)
+        }
+        hookResourceColor(seekbarPaints, liveRange)
+        // The scrubber head paints with the theme's brand red when the time bar uses its accent style.
+        seekbarPaints.point("scrubber brand color") {
+            invokeStatic { params(Type.Context, Type.Int); returns(Type.Int) }
+            argument(1) { literal(brandRed) }
+        }.next { resultOf(Type.Int) }
+            .captureAs("color", Type.Int)
+            .after { capture("color").assign(SeekbarColor.getVideoPlayerSeekbarColor(capture("color"))) }
 
         val watchHistory = method("watchHistoryProgress") {
             flags(AccessFlags.PUBLIC or AccessFlags.FINAL)
