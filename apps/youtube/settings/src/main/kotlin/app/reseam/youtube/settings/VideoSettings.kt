@@ -67,7 +67,7 @@ object VideoSettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
         )
     val rememberVideoQuality by toggle(default = false)
     val advancedVideoQualityMenu by toggle(default = true)
-    val hidePremiumVideoQuality by toggle(default = true)
+    val hidePremiumVideoQuality by toggle(default = false)
     val customPlaybackSpeedMenu by toggle(default = true)
     val restoreOldPlaybackSpeedMenu by toggle(default = false)
     val customPlaybackSpeeds by
