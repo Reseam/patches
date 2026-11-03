@@ -41,7 +41,7 @@ val downloadButton = patch("Download button") {
     description("Adds a download button next to the post menu on posts with photos, GIFs or videos.")
     compatibleWith(X)
     dependsOn(saveMedia)
-    settings(xSettings, section(XStrings.sectionMedia, XSettings.downloadButton))
+    settings(xSettings, section(XStrings.sectionMedia, XSettings.downloadButton, XSettings.saveAllMedia))
 
     execute {
         val optionsLabel = resources.id("string", "button_action_options_tweet") ?: error("string/button_action_options_tweet missing")
@@ -134,6 +134,10 @@ private fun implementMediaAccess() {
     DownloadButton.photoUrl.implement {
         whenInstanceOf(param(0), photo.descriptor) { returnValue(call(photo4kUrl, param(0).cast(photo.descriptor))) }
         returnNull()
+    }
+    DownloadButton.isGif.implement {
+        whenInstanceOf(param(0), gif.descriptor) { returnValue(bool(true)) }
+        returnValue(bool(false))
     }
     DownloadButton.bestVariant.implement {
         for (animated in listOf(gif, video)) {
