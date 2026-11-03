@@ -10,4 +10,4 @@ const val X_PACKAGE = "com.twitter.android"
 
 // Pinned: X changes what R8 keeps between releases (12.29 dropped the parameter-name strings older
 // targets were anchored on), so only releases whose targets were read are listed.
-val X: CompatiblePackage = X_PACKAGE("12.29.1-prod.01", "12.34.0-prod.01")
+val X: CompatiblePackage = X_PACKAGE("12.34.0-prod.01")

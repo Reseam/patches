@@ -35,7 +35,7 @@ val themes = patch("Themes") {
                 whenTrue(XTheme.dim()) { returnValue(staticField(dimTheme)) }
             }
         }
-        // Newer components have their own light/dark palette; before 12.34 it cannot tell them apart and stays as is.
+        // Newer components have their own light/dark palette.
         componentColorsInit.all.forEach { init ->
             init.before {
                 whenFalse(paramOfType(Type.Boolean)) {
