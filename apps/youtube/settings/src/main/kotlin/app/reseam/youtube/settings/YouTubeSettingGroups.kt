@@ -8,15 +8,6 @@ import app.reseam.patch.settings.Choice
 // YouTube kept every setting in one object, whose name its stored keys carry.
 internal const val YOUTUBE_KEYS = "you_tube_settings"
 
-internal val segmentBehaviors =
-    listOf(
-        Choice("skip", YouTubeStrings.segmentBehaviorsSkip),
-        Choice("skip-once", YouTubeStrings.segmentBehaviorsSkipOnce),
-        Choice("manual-skip", YouTubeStrings.segmentBehaviorsManualSkip),
-        Choice("seekbar-only", YouTubeStrings.segmentBehaviorsSeekbarOnly),
-        Choice("ignore", YouTubeStrings.segmentBehaviorsIgnore),
-    )
-
 internal val thumbnailChoices =
     listOf(
         Choice("ORIGINAL", YouTubeStrings.thumbnailChoicesOriginal),

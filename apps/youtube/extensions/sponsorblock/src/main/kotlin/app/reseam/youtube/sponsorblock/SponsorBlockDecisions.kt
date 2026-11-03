@@ -4,6 +4,8 @@
 package app.reseam.youtube.sponsorblock
 
 import android.os.SystemClock
+import app.reseam.youtube.sponsorblock.common.Segment
+import app.reseam.youtube.sponsorblock.common.isTooShort
 
 internal sealed interface PlaybackDecision {
     data object None : PlaybackDecision
@@ -19,9 +21,7 @@ internal val Segment.alreadySkippedOnce: Boolean
     get() = category.mode == "skip-once" && uuid in SponsorBlockSkips.skipped
 
 internal fun Segment.playbackDecision(now: Long): PlaybackDecision {
-    if (isIgnored) return PlaybackDecision.None
-    val belowMinimumDuration = end - start < SponsorBlockPlayback.minimumDuration && !isHighlight
-    if (belowMinimumDuration) return PlaybackDecision.None
+    if (isIgnored || isTooShort) return PlaybackDecision.None
     val undo = SponsorBlockSkips.reverted
     if (isHighlight) {
         return when {

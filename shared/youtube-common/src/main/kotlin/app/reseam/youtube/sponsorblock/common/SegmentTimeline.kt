@@ -1,15 +1,15 @@
 // SPDX-FileCopyrightText: 2026 Reseam contributors <https://reseam.app>
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-package app.reseam.youtube.sponsorblock
+package app.reseam.youtube.sponsorblock.common
 
-internal interface SegmentRange {
+interface SegmentRange {
     val start: Long
     val end: Long
 }
 
 // Touching intervals and transitive overlaps count, regardless of input order.
-internal fun <T : SegmentRange> segmentSkipEnd(
+fun <T : SegmentRange> segmentSkipEnd(
     segments: List<T>,
     end: Long,
     eligible: (T) -> Boolean,
@@ -27,7 +27,7 @@ internal fun <T : SegmentRange> segmentSkipEnd(
 }
 
 // Input is ordered by start; overlapping time is counted once and clipped to the video.
-internal fun <T : SegmentRange> removedSegmentDuration(
+fun <T : SegmentRange> removedSegmentDuration(
     segments: List<T>,
     duration: Long,
     included: (T) -> Boolean,

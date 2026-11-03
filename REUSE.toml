@@ -90,7 +90,7 @@ path = [
     "apps/youtube/extensions/speed/src/main/kotlin/app/reseam/youtube/speed/PlaybackSpeedWidgets.kt",
     "apps/youtube/extensions/speed/src/main/kotlin/app/reseam/youtube/speed/PlaybackSpeeds.kt",
     "apps/youtube/extensions/speed/src/main/kotlin/app/reseam/youtube/speed/RememberPlaybackSpeed.kt",
-    "apps/youtube/extensions/sponsorblock/src/main/kotlin/app/reseam/youtube/sponsorblock/Segment.kt",
+    "apps/youtube/extensions/sponsorblock/src/main/kotlin/app/reseam/youtube/sponsorblock/SegmentColors.kt",
     "apps/youtube/extensions/sponsorblock/src/main/kotlin/app/reseam/youtube/sponsorblock/SponsorBlockApi.kt",
     "apps/youtube/extensions/sponsorblock/src/main/kotlin/app/reseam/youtube/sponsorblock/SponsorBlockSkips.kt",
     "apps/youtube/extensions/theme/src/main/kotlin/app/reseam/youtube/theme/SeekbarColor.kt",
@@ -165,6 +165,7 @@ path = [
     "shared/youtube-common/patch/src/main/kotlin/app/reseam/patches/youtubecommon/ForceOriginalAudio.kt",
     "shared/youtube-common/patch/src/main/kotlin/app/reseam/patches/youtubecommon/Litho.kt",
     "shared/youtube-common/patch/src/main/kotlin/app/reseam/patches/youtubecommon/LithoHooks.kt",
+    "shared/youtube-common/patch/src/main/kotlin/app/reseam/patches/youtubecommon/Player.kt",
     "shared/youtube-common/patch/src/main/kotlin/app/reseam/patches/youtubecommon/SharingLinks.kt",
     "shared/youtube-common/src/main/kotlin/app/reseam/youtube/audio/ForceOriginalAudio.kt",
     "shared/youtube-common/src/main/kotlin/app/reseam/youtube/branding/CustomBranding.kt",
@@ -180,6 +181,8 @@ path = [
     "shared/youtube-common/src/main/kotlin/app/reseam/youtube/litho/StringTrieSearch.kt",
     "shared/youtube-common/src/main/kotlin/app/reseam/youtube/litho/TrieNode.kt",
     "shared/youtube-common/src/main/kotlin/app/reseam/youtube/litho/TrieSearch.kt",
+    "shared/youtube-common/src/main/kotlin/app/reseam/youtube/sponsorblock/common/Segment.kt",
+    "shared/youtube-common/src/main/kotlin/app/reseam/youtube/sponsorblock/common/SponsorBlockRequests.kt",
     "apps/youtube/patch/src/main/resources/buttons/**",
 ]
 SPDX-FileCopyrightText = ["2026 Reseam contributors <https://reseam.app>", "2026 ReVanced contributors"]

@@ -11,13 +11,14 @@ import android.graphics.Paint
 import android.graphics.Rect
 import android.view.View
 import android.view.ViewGroup
-import app.reseam.bundle.ReseamPatches
 import app.reseam.bundle.mainThreadHandler
 import app.reseam.runtime.Export
 import app.reseam.youtube.controls.PlayerControls
 import app.reseam.youtube.player.PlayerType
 import app.reseam.youtube.settings.VideoSettings
 import app.reseam.youtube.settings.YouTubeStrings
+import app.reseam.youtube.sponsorblock.common.Segment
+import app.reseam.youtube.sponsorblock.common.removedSegmentDuration
 import app.reseam.youtube.video.VideoInformation
 import java.lang.ref.WeakReference
 import java.util.Locale
@@ -105,9 +106,6 @@ fun appendTime(original: String): String {
         formatSponsorBlockDuration((length - removed).coerceAtLeast(0) / 1000),
     )
 }
-
-internal fun storedSponsorBlockLong(key: String): Long =
-    ReseamPatches.bundle().settings.getString(key, "0").toLongOrNull() ?: 0
 
 internal fun formatSponsorBlockDuration(seconds: Long): String {
     val hours = seconds / 3600

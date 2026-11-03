@@ -3,18 +3,17 @@
 
 package app.reseam.youtube.sponsorblock
 
-import android.os.SystemClock
 import android.view.View
 import app.reseam.runtime.Export
 import app.reseam.youtube.player.ShortsPlayer
 import app.reseam.youtube.player.VideoState
-import app.reseam.youtube.settings.VideoSettings
+import app.reseam.youtube.sponsorblock.common.PlaybackPosition
+import app.reseam.youtube.sponsorblock.common.playbackDelay
 import app.reseam.youtube.video.VideoInformation
+import app.reseam.youtubecommon.settings.SponsorBlockSettings
 
 internal object SponsorBlockPlayback {
-    private data class Sample(val time: Long = 0, val clock: Long = 0)
-
-    private var sample = Sample()
+    val position = PlaybackPosition()
     var lastSeekClock = 0L
     private var adPlaying = false
     val tickTask = Runnable(::tick)
@@ -39,7 +38,7 @@ internal object SponsorBlockPlayback {
     @JvmStatic
     fun setVideoTime(time: Long) {
         sponsorBlockMain.post {
-            sampleAt(time)
+            position.sample(time)
             sponsorBlockMain.removeCallbacks(tickTask)
             tick()
         }
@@ -56,23 +55,21 @@ internal object SponsorBlockPlayback {
 
     internal val isActive: Boolean
         get() =
-            VideoSettings.sbEnabled.value &&
+            SponsorBlockSettings.sbEnabled.value &&
                 !adPlaying &&
                 !VideoInformation.lastVideoIdIsShort &&
                 !ShortsPlayer.isOpen &&
                 SponsorBlockSession.videoId == VideoInformation.videoId
 
     val estimatedTime: Long
-        get() {
-            val elapsed =
-                if (VideoState.current == VideoState.PLAYING) {
-                    minOf(1500L, SystemClock.elapsedRealtime() - sample.clock)
-                } else 0L
-            return sample.time + (elapsed * VideoInformation.playbackSpeed).toLong()
-        }
+        get() =
+            position.estimate(
+                VideoState.current == VideoState.PLAYING,
+                VideoInformation.playbackSpeed,
+            )
 
     private fun tick() {
-        if (!isActive || sample.time < 0) {
+        if (!isActive || position.time < 0) {
             updateOverlay(null)
             return
         }
@@ -93,17 +90,8 @@ internal object SponsorBlockPlayback {
             decisions.filterIsInstance<PlaybackDecision.WakeAt>().minOfOrNull { it.time }
                 ?: Long.MAX_VALUE
         if (VideoState.current == VideoState.PLAYING && next != Long.MAX_VALUE) {
-            val delay = ((next - now) / maxOf(.1f, VideoInformation.playbackSpeed)).toLong()
+            val delay = playbackDelay(now, next, VideoInformation.playbackSpeed)
             sponsorBlockMain.postDelayed(tickTask, delay.coerceIn(20L, 1000L))
         }
     }
-
-    fun sampleAt(time: Long, clock: Long = SystemClock.elapsedRealtime()) {
-        sample = Sample(time, clock)
-    }
-
-    val minimumDuration: Long
-        get() =
-            (maxOf(0.0, VideoSettings.sbMinSegmentDuration.value.toDoubleOrNull() ?: 0.0) * 1000)
-                .toLong()
 }

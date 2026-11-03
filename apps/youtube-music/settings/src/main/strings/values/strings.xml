@@ -91,7 +91,7 @@
     <string name="section_ads">Ads</string>
     <string name="section_diagnostics">Diagnostics</string>
     <string name="page_playback">Playback</string>
-    <string name="page_playback_summary">Audio, background play and speed</string>
+    <string name="page_playback_summary">Audio, background play, speed and SponsorBlock</string>
     <string name="page_player">Player</string>
     <string name="page_player_summary">The player and miniplayer</string>
     <string name="page_ads">Ads</string>

@@ -15,22 +15,25 @@ import app.reseam.youtube.settings.YouTubeStrings
 import app.reseam.youtube.sponsorblock.bindings.SponsorBlock
 import app.reseam.youtube.sponsorblock.bindings.SponsorBlockPlayback
 import app.reseam.youtube.sponsorblock.bindings.SponsorBlockSession
+import app.reseam.youtubecommon.settings.SponsorBlockSettings
+import app.reseam.youtubecommon.settings.YouTubeCommonStrings
 
 val sponsorBlock = patch("SponsorBlock") {
     description("Skips crowdsourced segments, marks the seekbar, and supports segment voting and submissions.")
     compatibleWith(YOUTUBE)
     dependsOn(videoInformationHook, playerTypeHook, playerControls)
     settings(youTubeSettings,
-        section(YouTubeSettingsPages.Video, YouTubeStrings.sectionSponsorblock, VideoSettings.sbEnabled,
-            VideoSettings.sbSponsor, VideoSettings.sbSelfpromo, VideoSettings.sbInteraction,
-            VideoSettings.sbPoiHighlight, VideoSettings.sbIntro, VideoSettings.sbOutro,
-            VideoSettings.sbPreview, VideoSettings.sbHook, VideoSettings.sbFiller, VideoSettings.sbMusicOfftopic,
+        section(YouTubeSettingsPages.Video, YouTubeCommonStrings.sectionSponsorblock, SponsorBlockSettings.sbEnabled,
+            SponsorBlockSettings.sbSponsor, SponsorBlockSettings.sbSelfpromo, SponsorBlockSettings.sbInteraction,
+            SponsorBlockSettings.sbPoiHighlight, SponsorBlockSettings.sbIntro, SponsorBlockSettings.sbOutro,
+            SponsorBlockSettings.sbPreview, SponsorBlockSettings.sbHook, SponsorBlockSettings.sbFiller,
+            SponsorBlockSettings.sbMusicOfftopic,
             VideoSettings.sbVotingButton, VideoSettings.sbCreateNewSegment,
             VideoSettings.sbCompactSkipButton, VideoSettings.sbSquareLayout,
             VideoSettings.sbAutoHideSkipButton, VideoSettings.sbAutoHideSkipButtonDuration,
-            VideoSettings.sbToastOnSkip, VideoSettings.sbToastOnConnectionError,
-            VideoSettings.sbTrackSkipCount, VideoSettings.sbMinSegmentDuration,
-            VideoSettings.sbVideoLengthWithoutSegments, VideoSettings.sbApiUrl),
+            SponsorBlockSettings.sbToastOnSkip, SponsorBlockSettings.sbToastOnConnectionError,
+            SponsorBlockSettings.sbTrackSkipCount, SponsorBlockSettings.sbMinSegmentDuration,
+            VideoSettings.sbVideoLengthWithoutSegments, SponsorBlockSettings.sbApiUrl),
         section(YouTubeSettingsPages.Appearance, YouTubeStrings.sectionSponsorblockColors, AppearanceSettings.sbSponsorColor,
             AppearanceSettings.sbSelfpromoColor, AppearanceSettings.sbInteractionColor, AppearanceSettings.sbPoiHighlightColor,
             AppearanceSettings.sbIntroColor, AppearanceSettings.sbOutroColor, AppearanceSettings.sbPreviewColor,

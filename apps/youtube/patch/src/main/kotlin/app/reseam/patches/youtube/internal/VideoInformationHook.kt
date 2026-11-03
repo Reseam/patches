@@ -15,6 +15,12 @@ import app.reseam.patch.patch
 import app.reseam.patch.replace
 import app.reseam.patch.types.NewField
 import app.reseam.patches.youtube.core.YOUTUBE
+import app.reseam.patches.youtubecommon.playerConstructor
+import app.reseam.patches.youtubecommon.playerParameterBuilderVideoClass
+import app.reseam.patches.youtubecommon.playerSeekMethod
+import app.reseam.patches.youtubecommon.playerSeekRelativeMethod
+import app.reseam.patches.youtubecommon.playerSeekSource
+import app.reseam.patches.youtubecommon.playerTimeMethod
 import app.reseam.youtube.video.bindings.VideoInformation
 
 val videoInformationHook = patch {

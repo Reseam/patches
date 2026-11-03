@@ -7,6 +7,9 @@ import android.app.AlertDialog
 import android.content.Context
 import app.reseam.youtube.core.showToast
 import app.reseam.youtube.settings.YouTubeStrings
+import app.reseam.youtube.sponsorblock.common.Segment
+import app.reseam.youtube.sponsorblock.common.executeSponsorBlockRequest
+import app.reseam.youtube.sponsorblock.common.requestSponsorBlock
 
 internal fun showSponsorBlockSegments(context: Context) {
     val segments = SponsorBlockSession.segments

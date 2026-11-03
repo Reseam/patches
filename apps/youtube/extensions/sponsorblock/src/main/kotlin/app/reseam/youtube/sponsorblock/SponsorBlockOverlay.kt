@@ -16,6 +16,7 @@ import app.reseam.youtube.controls.PlayerControls
 import app.reseam.youtube.player.PlayerType
 import app.reseam.youtube.settings.VideoSettings
 import app.reseam.youtube.settings.YouTubeStrings
+import app.reseam.youtube.sponsorblock.common.Segment
 import java.util.Locale
 
 internal class SponsorBlockOverlay(activity: Activity) : FrameLayout(activity) {

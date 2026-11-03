@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="segment_behaviors_skip">Skip automatically</string>
-    <string name="segment_behaviors_skip_once">Skip once</string>
-    <string name="segment_behaviors_manual_skip">Show skip button</string>
-    <string name="segment_behaviors_seekbar_only">Show in seekbar</string>
-    <string name="segment_behaviors_ignore">Ignore</string>
     <string name="swipe_overlay_style_circular">Circular</string>
     <string name="swipe_overlay_style_progress">Progress bar</string>
     <string name="swipe_overlay_style_text">Text</string>
@@ -59,18 +54,6 @@
     <string name="video_quality_default_1080">1080p</string>
     <string name="video_quality_default_1440">1440p</string>
     <string name="video_quality_default_2160">2160p</string>
-    <string name="sb_enabled">SponsorBlock</string>
-    <string name="sb_enabled_summary">Crowdsourced segments provided by sponsor.ajay.app.</string>
-    <string name="sb_sponsor">Sponsor segments</string>
-    <string name="sb_selfpromo">Self promotion</string>
-    <string name="sb_interaction">Interaction reminders</string>
-    <string name="sb_poi_highlight">Highlights</string>
-    <string name="sb_intro">Intros</string>
-    <string name="sb_outro">Outros</string>
-    <string name="sb_preview">Previews</string>
-    <string name="sb_hook">Hooks</string>
-    <string name="sb_filler">Filler</string>
-    <string name="sb_music_offtopic">Non-music sections</string>
     <string name="sb_sponsor_color">Sponsor color</string>
     <string name="sb_selfpromo_color">Self promotion color</string>
     <string name="sb_interaction_color">Interaction color</string>
@@ -87,13 +70,7 @@
     <string name="sb_square_layout">Square skip button</string>
     <string name="sb_auto_hide_skip_button">Auto-hide skip button</string>
     <string name="sb_auto_hide_skip_button_duration">Skip button timeout (ms)</string>
-    <string name="sb_toast_on_skip">Show a message after skipping</string>
-    <string name="sb_toast_on_connection_error">Show SponsorBlock connection errors</string>
-    <string name="sb_track_skip_count">Track SponsorBlock skips</string>
-    <string name="sb_track_skip_count_summary">Saves local statistics and reports segment skips to SponsorBlock.</string>
-    <string name="sb_min_segment_duration">Minimum segment duration (seconds)</string>
     <string name="sb_video_length_without_segments">Show duration without segments</string>
-    <string name="sb_api_url">SponsorBlock API URL</string>
     <string name="ryd_enabled">Return YouTube Dislike</string>
     <string name="ryd_enabled_summary">Dislike estimates and voting provided by returnyoutubedislike.com.</string>
     <string name="ryd_shorts">Show dislikes on Shorts</string>
@@ -722,7 +699,6 @@
     <string name="section_miniplayer">Miniplayer</string>
     <string name="section_navigation_bar">Navigation bar</string>
     <string name="section_return_youtube_dislike">Return YouTube Dislike</string>
-    <string name="section_sponsorblock">SponsorBlock</string>
     <string name="section_sponsorblock_colors">SponsorBlock colors</string>
     <string name="section_alternative_thumbnails">Alternative thumbnails</string>
     <string name="section_app_version">App version</string>
@@ -792,16 +768,6 @@
     <string name="video_quality_label_unknown">?</string>
     <string name="playback_speed_invalid_speeds">Use unique playback speeds greater than 0 and at most <xliff:g id="maximum">%1$s</xliff:g></string>
     <string name="playback_speed_multiplier"><xliff:g id="speed">%1$s</xliff:g>x</string>
-    <string name="sponsorblock_category_sponsor">Sponsor</string>
-    <string name="sponsorblock_category_selfpromo">Self promotion</string>
-    <string name="sponsorblock_category_interaction">Interaction reminder</string>
-    <string name="sponsorblock_category_highlight">Highlight</string>
-    <string name="sponsorblock_category_intro">Intro</string>
-    <string name="sponsorblock_category_outro">Outro</string>
-    <string name="sponsorblock_category_preview">Preview</string>
-    <string name="sponsorblock_category_hook">Hook</string>
-    <string name="sponsorblock_category_filler">Filler</string>
-    <string name="sponsorblock_category_music">Non-music section</string>
     <string name="sponsorblock_menu_label">SB</string>
     <string name="sponsorblock_menu_description">SponsorBlock segments, voting and submissions</string>
     <string name="sponsorblock_skip">Skip</string>
@@ -841,8 +807,6 @@
     <string name="sponsorblock_statistics_title">SponsorBlock statistics</string>
     <string name="sponsorblock_my_contributions">My contributions</string>
     <string name="sponsorblock_contribution_statistics_failed">Could not load contribution statistics</string>
-    <string name="sponsorblock_load_failed">Could not load SponsorBlock segments</string>
-    <string name="sponsorblock_skipped">Skipped <xliff:g id="segment">%1$s</xliff:g></string>
     <string name="sponsorblock_skip_category">Skip <xliff:g id="segment">%1$s</xliff:g></string>
     <string name="sponsorblock_segment_label"><xliff:g id="category">%1$s</xliff:g>: <xliff:g id="start">%2$s</xliff:g>–<xliff:g id="end">%3$s</xliff:g></string>
     <string name="sponsorblock_vote_failed">Vote failed: <xliff:g id="error">%1$s</xliff:g></string>

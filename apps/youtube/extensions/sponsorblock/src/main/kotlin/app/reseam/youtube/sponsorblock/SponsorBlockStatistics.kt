@@ -9,6 +9,9 @@ import android.content.Context
 import android.view.View
 import app.reseam.youtube.core.showToast
 import app.reseam.youtube.settings.YouTubeStrings
+import app.reseam.youtube.sponsorblock.common.executeSponsorBlockRequest
+import app.reseam.youtube.sponsorblock.common.requestSponsorBlock
+import app.reseam.youtube.sponsorblock.common.storedSponsorBlockLong
 import org.json.JSONObject
 
 internal fun showSponsorBlockStats(context: Context, overlay: View) {

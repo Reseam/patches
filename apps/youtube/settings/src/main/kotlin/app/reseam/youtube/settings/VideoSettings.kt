@@ -10,33 +10,13 @@ import app.reseam.patch.settings.text
 import app.reseam.patch.settings.toggle
 
 object VideoSettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
-    val sbEnabled by toggle(default = true)
-    val sbSponsor by choice(default = "skip-once", choices = segmentBehaviors)
-    val sbSelfpromo by choice(default = "manual-skip", choices = segmentBehaviors)
-    val sbInteraction by choice(default = "manual-skip", choices = segmentBehaviors)
-    val sbPoiHighlight by
-        choice(
-            default = "manual-skip",
-            choices = segmentBehaviors.filter { it.value != "skip-once" },
-        )
-    val sbIntro by choice(default = "manual-skip", choices = segmentBehaviors)
-    val sbOutro by choice(default = "manual-skip", choices = segmentBehaviors)
-    val sbPreview by choice(default = "manual-skip", choices = segmentBehaviors)
-    val sbHook by choice(default = "ignore", choices = segmentBehaviors)
-    val sbFiller by choice(default = "ignore", choices = segmentBehaviors)
-    val sbMusicOfftopic by choice(default = "skip", choices = segmentBehaviors)
     val sbVotingButton by toggle(default = false)
     val sbCreateNewSegment by toggle(default = false)
     val sbCompactSkipButton by toggle(default = false)
     val sbSquareLayout by toggle(default = false)
     val sbAutoHideSkipButton by toggle(default = true)
     val sbAutoHideSkipButtonDuration by text(default = "4000")
-    val sbToastOnSkip by toggle(default = true)
-    val sbToastOnConnectionError by toggle(default = true)
-    val sbTrackSkipCount by toggle(default = true)
-    val sbMinSegmentDuration by text(default = "0")
     val sbVideoLengthWithoutSegments by toggle(default = false)
-    val sbApiUrl by text(default = "https://sponsor.ajay.app")
     val rydEnabled by toggle(default = true)
     val rydShorts by toggle(default = true)
     val rydDislikePercentage by toggle(default = false)

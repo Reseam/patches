@@ -11,48 +11,22 @@ import app.reseam.patch.classTarget
 import app.reseam.patch.dex.AccessFlags
 import app.reseam.patch.dex.DexClass
 import app.reseam.patch.dex.Opcode
-import app.reseam.patch.enumConstant
-import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.methods
-import app.reseam.patch.point
-
-internal val playerParameterBuilderVideoClass = classTarget("playerParameterBuilderVideoClass") {
-    bytecode.findClass(playVideoCheckVideoStreamingDataResponseMethod.owner)
-        ?: error("The player class is missing")
-}
+import app.reseam.patches.youtubecommon.playerSeekMethod
+import app.reseam.patches.youtubecommon.seekSourceEnum
 
 internal val mdxPlayerDirectorClass = classTarget("mdxPlayerDirectorClass") {
     bytecode.findClass(mdxPlayerDirectorSetVideoStageMethod.owner)
         ?: error("The MDX director class is missing")
 }
 
-// Each pinned player class declares one constructor; the singleton check makes that assumption
-// explicit while allowing any constructor signature to survive a harmless signature change.
-internal val playerConstructor = playerParameterBuilderVideoClass.methods("playerConstructor") {
-    flags(AccessFlags.CONSTRUCTOR)
-    returns(Type.Void)
-    custom { !isStatic }
-}.single { true }
-
+// Like the local player, the director declares one constructor.
 internal val mdxPlayerConstructor = mdxPlayerDirectorClass.methods("mdxPlayerConstructor") {
     flags(AccessFlags.CONSTRUCTOR)
     returns(Type.Void)
     custom { !isStatic }
 }.single { true }
-
-private val seekSourceEnum = klass("seekSource") { enumConstants("SEEK_SOURCE_UNKNOWN") }
-
-// The return type differs between releases.
-internal val playerSeekRelativeMethod = method("playerRelativeSeek") {
-    inClass(playerParameterBuilderVideoClass)
-    params(Type.Long, seekSourceEnum.descriptor)
-    opcode(Opcode.ADD_LONG_2ADDR)
-}
-
-internal val playerSeekMethod = playerSeekRelativeMethod.point("absoluteSeek") {
-    invokeVirtual { owner(playerParameterBuilderVideoClass.descriptor); params(Type.Long, seekSourceEnum.descriptor) }
-}.callee()
 
 internal val mdxSeekRelativeMethod = method("mdxRelativeSeek") {
     inClass(mdxPlayerDirectorClass)
@@ -66,12 +40,6 @@ internal val mdxSeekMethod = method("mdxSeek") {
     name(playerSeekMethod.name)
     params(Type.Long, seekSourceEnum.descriptor)
     returns(Type.Boolean)
-}
-
-internal val playerSeekSource = seekSourceEnum.enumConstant("SEEK_SOURCE_UNKNOWN")
-
-private val playVideoCheckVideoStreamingDataResponseMethod = method("playVideoCheckVideoStreamingDataResponseMethod") {
-    strings("playVideo called on player response with no videoStreamingData.")
 }
 
 private val mdxPlayerDirectorSetVideoStageMethod = method("mdxPlayerDirectorSetVideoStageMethod") {
