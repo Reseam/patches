@@ -86,7 +86,6 @@ private fun PatchRuntime.ultralightChecks(): List<MethodTarget> {
 val enableDebugMode = patch("Enable debug mode") {
     description("Shows Twitch's staff tools, such as the debug menu, the video debug panel, the Ultralight setting and the debug options of its web pages.")
     compatibleWith(TWITCH_PACKAGE)
-    enabledByDefault(false)
     settings(twitchSettings, section(TwitchStrings.sectionDeveloper, DeveloperSettings.debugMode))
 
     execute {

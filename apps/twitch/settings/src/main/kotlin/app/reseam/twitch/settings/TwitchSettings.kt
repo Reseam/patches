@@ -10,7 +10,7 @@ import app.reseam.patches.bundle.lucide
 
 object AdsSettings : SettingsGroup(TwitchStrings) {
     val blockVideoAds by toggle(default = true, icon = lucide("megaphone-off"))
-    val blockEmbeddedAds by toggle(default = true, icon = lucide("monitor-off"))
+    val blockEmbeddedAds by toggle(default = false, icon = lucide("monitor-off"))
     val embeddedAdsProxy by text(default = "https://eu.luminous.dev", icon = lucide("server"))
     val ignoreAdEvents by toggle(default = true, icon = lucide("bell-off"))
 }
@@ -24,5 +24,5 @@ object UpdateSettings : SettingsGroup(TwitchStrings) {
 }
 
 object DeveloperSettings : SettingsGroup(TwitchStrings) {
-    val debugMode by toggle(default = true, icon = lucide("bug"))
+    val debugMode by toggle(default = false, icon = lucide("bug"))
 }
