@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="block_video_ads">Block video ads</string>
+    <string name="block_video_ads_summary">Blocks the ads the app requests itself. Ads stitched into the stream need Block embedded ads.</string>
+    <string name="block_embedded_ads">Block embedded ads</string>
+    <string name="block_embedded_ads_summary">Loads live streams through a third-party proxy, which sees your IP address and the channels you watch.</string>
+    <string name="embedded_ads_proxy">Ad-free proxy</string>
+    <string name="embedded_ads_proxy_summary">Base URL of a Luminous or TTV LOL compatible playlist proxy.</string>
+    <string name="ignore_ad_events">Ignore ad events</string>
+    <string name="ignore_ad_events_summary">Takes effect after restarting Twitch.</string>
+    <string name="block_analytics">Block analytics</string>
+    <string name="disable_update_prompts">Disable update prompts</string>
+    <string name="debug_mode">Debug mode</string>
     <string name="section_ads">Ads</string>
     <string name="section_privacy">Privacy</string>
     <string name="section_updates">Updates</string>
     <string name="section_developer">Developer</string>
-
-    <string name="block_video_ads">Block video ads</string>
-    <string name="block_video_ads_summary">Blocks the video, audio and display ads the app requests itself and their verification pings, while ads stitched into the stream need Block embedded ads.</string>
-    <string name="block_embedded_ads">Block embedded ads</string>
-    <string name="block_embedded_ads_summary">Loads live streams through a third-party proxy in a region without ads, which sees your IP address and the channels you watch, and switches to Twitch for a few minutes when the proxy fails.</string>
-    <string name="embedded_ads_proxy">Ad-free proxy</string>
-    <string name="embedded_ads_proxy_summary">Base URL of a Luminous or TTV LOL compatible playlist proxy.</string>
-    <string name="ignore_ad_events">Ignore ad events</string>
-    <string name="ignore_ad_events_summary">Ignores the ad breaks, picture-by-picture ads and ad tracking that Twitch announces to the app during a stream.</string>
-
-    <string name="block_trackers">Block trackers</string>
-    <string name="block_trackers_summary">Turns off comScore, Nielsen, Sentry, Crashlytics, Sprig and Branch.</string>
-    <string name="disable_update_prompt">Disable update prompt</string>
-    <string name="disable_update_prompt_summary">Stops the prompt that offers a newer version from Google Play.</string>
-    <string name="debug_mode">Debug mode</string>
-    <string name="debug_mode_summary">Shows Twitch\'s staff tools, such as the debug menu, the video debug panel and the debug options of its web pages.</string>
 </resources>

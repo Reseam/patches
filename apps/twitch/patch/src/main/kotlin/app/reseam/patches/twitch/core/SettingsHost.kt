@@ -8,7 +8,7 @@ import app.reseam.patches.bundle.reseamAbout
 import app.reseam.patches.bundle.reseamBrand
 
 val twitchSettings = settingsHost("twitch") {
-    compatibleWith(TWITCH_PACKAGE)
+    compatibleWith(TWITCH)
     brand(reseamBrand)
     about(reseamAbout)
 }

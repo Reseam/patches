@@ -18,25 +18,12 @@ private const val TITLE = "Reseam Settings"
 private const val ICON = "reseam_settings_icon"
 private const val ICON_PATH = "res/drawable/$ICON.xml"
 
-// Compose defaults mask: the subtitle and the badge
+// Compose defaults mask: the subtitle and the badge.
 private const val ROW_DEFAULTS = 0b10010
 
-// The id literals exist only once resources.id resolves them, so this target is built at patch time
-private fun PatchRuntime.accountRow(): PointTarget {
-    val accountDescriptionId = resources.id("string", "account_description")?.toLong() ?: error("The app has no string/account_description")
-    val accountIconId = resources.id("drawable", "account")?.toLong() ?: error("The app has no drawable/account")
-
-    // The older settings list for signed out users shows the same description without the icon
-    val accountSection = method("accountSection") { literals(accountDescriptionId, accountIconId) }
-    return accountSection.point("accountIcon") { literal(accountIconId) }.next {
-        invokeStatic { returns(Type.Void); paramCount(8); hasParam(Type.String); hasParam(Type.Int) }
-    }
-}
-
-@Suppress("unused")
 val settingsEntry = patch("Reseam entry in Twitch settings") {
-    description("Adds a Reseam Settings row above Account in Twitch's Settings when you are signed in.")
-    compatibleWith(TWITCH_PACKAGE)
+    description("Adds a Reseam Settings row above Account in Twitch's settings when you are signed in.")
+    compatibleWith(TWITCH)
     dependsOn(twitchSettings)
 
     execute {
@@ -47,15 +34,14 @@ val settingsEntry = patch("Reseam entry in Twitch settings") {
         val accountRow = accountRow()
         val settingsRow = accountRow.callee("settingsRow")
 
-        // R8 renames Function0 in Twitch, so the click class gets the row's own click type and that type's one method
-        val clickCallback = bytecode.findClass(settingsRow.parameterTypes[2]) ?: error("Twitch's settings row has no click type")
-        val clickMethod = clickCallback.virtualMethods.singleOrNull()
-        check(clickMethod != null && clickMethod.returnType == Type.Object) { "Twitch's settings row no longer takes a Function0 click callback" }
-        val clickClass = OpenReseamSettings.target
-        clickClass.classDef.addInterface(clickCallback.descriptor)
-        clickClass.addMethod(clickMethod.name, clickMethod.proto) {
+        // R8 renamed Function0, so the click class implements the row's own click type.
+        val clickType = bytecode.findClass(settingsRow.parameterTypes[2]) ?: error("Twitch's settings row has no click type")
+        val invoke = clickType.virtualMethods.singleOrNull()
+        check(invoke != null && invoke.returnType == Type.Object) { "Twitch's settings row no longer takes a Function0 click" }
+        OpenReseamSettings.target.classDef.addInterface(clickType.descriptor)
+        OpenReseamSettings.target.addMethod(invoke.name, invoke.proto) {
             openSettings()
-            // Compose ignores what an onClick returns
+            // Compose ignores what an onClick returns.
             returnNull()
         }
 
@@ -67,6 +53,15 @@ val settingsEntry = patch("Reseam entry in Twitch settings") {
             )
         }
     }
+}
+
+// Resource ids are known only at patch time. Signed out, the older settings list shows the description without the icon.
+private fun PatchRuntime.accountRow(): PointTarget {
+    val accountDescription = resources.id("string", "account_description")?.toLong() ?: error("The app has no string/account_description")
+    val accountIcon = resources.id("drawable", "account")?.toLong() ?: error("The app has no drawable/account")
+    return method("accountSection") { literals(accountDescription, accountIcon) }
+        .point("accountIcon") { literal(accountIcon) }
+        .next { invokeStatic { returns(Type.Void); paramCount(8); hasParam(Type.String); hasParam(Type.Int) } }
 }
 
 private object Resources
