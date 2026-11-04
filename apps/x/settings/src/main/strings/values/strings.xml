@@ -34,6 +34,8 @@
     <string name="download_started">Download started</string>
     <string name="login_exported">Login copied to clipboard</string>
     <string name="login_export_empty">No account to export</string>
+    <string name="export_login">Export login</string>
+    <string name="export_login_summary">Copies this account\'s login to the clipboard.</string>
     <string name="show_import_on_launch">Import login on the welcome screen</string>
     <string name="show_import_on_launch_summary">When signed out, offer to sign in with a login exported from another device.</string>
     <string name="login_import">Import login</string>

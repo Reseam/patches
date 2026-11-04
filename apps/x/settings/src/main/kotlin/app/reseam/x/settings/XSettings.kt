@@ -5,6 +5,7 @@ package app.reseam.x.settings
 
 import app.reseam.patch.settings.Choice
 import app.reseam.patch.settings.SettingsGroup
+import app.reseam.patch.settings.action
 import app.reseam.patch.settings.choice
 import app.reseam.patch.settings.folder
 import app.reseam.patch.settings.text
@@ -44,6 +45,7 @@ object XSettings : SettingsGroup(XStrings) {
     val canonicalLinks by toggle(default = true, icon = lucide("link"))
     val customUrlHandling by toggle(default = true, icon = lucide("external-link"))
     val showImportOnLaunch by toggle(default = true, icon = lucide("download"))
+    val exportLogin by action(icon = lucide("copy"))
 
     val shareLinkProvider by
         choice(

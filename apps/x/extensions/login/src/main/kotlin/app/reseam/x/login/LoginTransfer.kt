@@ -36,15 +36,10 @@ private fun Context.accountType() = "$packageName.auth.login"
 
 private fun Context.appPrefs() = getSharedPreferences("${packageName}_preferences", Context.MODE_PRIVATE)
 
-private fun appContext(): Context? =
-    runCatching { Class.forName("android.app.ActivityThread").getMethod("currentApplication").invoke(null) as? Context }
-        .getOrNull()
-
 private fun Context.clipboard() = getSystemService(Context.CLIPBOARD_SERVICE) as? ClipboardManager
 
 @Export
-fun copyLogin() {
-    val context = appContext() ?: return
+fun copyLogin(context: Context) {
     val blob = export(context)
     if (blob == null) {
         context.showToast(XStrings.loginExportEmpty, Toast.LENGTH_SHORT)
