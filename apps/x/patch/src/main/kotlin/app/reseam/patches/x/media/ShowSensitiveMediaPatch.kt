@@ -15,18 +15,29 @@ import app.reseam.patches.x.core.xSettings
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
 
-private val contextualPost = klass("contextualPost") {
-    strings("ContextualPost(canonicalPost=", ", quotedPost=")
+val showSensitiveMedia = patch("Show sensitive media") {
+    description("Shows sensitive media in timelines, quotes, notifications and the media viewer without the blur or confirmation prompt.")
+    compatibleWith(X)
+    settings(xSettings, section(XStrings.sectionMedia, XSettings.showSensitiveMedia))
+
+    execute {
+        gate(XSettings.showSensitiveMedia) {
+            val writes = mediaVisibilityWrites.all
+            require(writes.isNotEmpty()) { "no ContextualPost constructor stores its media visibility" }
+            // A post without media visibility results shows its media as is.
+            writes.forEach { write ->
+                write.captureAs("visibility", mediaVisibilityResults.descriptor).before { capture("visibility").assign(nullObject) }
+            }
+        }
+    }
 }
 
-private val mediaVisibilityResults = klass("mediaVisibilityResults") {
-    strings("MediaVisibilityResults(blurImageInterstitial=")
-}
+private val contextualPost = klass("contextualPost") { strings("ContextualPost(canonicalPost=", ", quotedPost=") }
 
-// The two constructors that take the visibility wrapper: the wire deserializer's default-args
-// constructor and the one the database, detail and copy paths call.
+private val mediaVisibilityResults = klass("mediaVisibilityResults") { strings("MediaVisibilityResults(blurImageInterstitial=") }
+
 private val mediaVisibilityWrites = contextualPost
-    .methods("mediaVisibilityWriters") {
+    .methods("contextualPostConstructors") {
         name("<init>")
         hasParam(mediaVisibilityResults.descriptor)
     }
@@ -37,19 +48,3 @@ private val mediaVisibilityWrites = contextualPost
             type(mediaVisibilityResults.descriptor)
         }
     }
-
-val showSensitiveMedia = patch("Show sensitive media") {
-    description("Shows sensitive media in timelines, quotes, notifications and the media viewer without the blur or confirmation prompt.")
-    compatibleWith(X)
-    settings(xSettings, section(XStrings.sectionMedia, XSettings.showSensitiveMedia))
-
-    execute {
-        gate(XSettings.showSensitiveMedia) {
-            mediaVisibilityWrites.forEach {
-                captureAs("mediaVisibilityResults", mediaVisibilityResults.descriptor).before {
-                    capture("mediaVisibilityResults").assign(nullObject)
-                }
-            }
-        }
-    }
-}

@@ -11,10 +11,9 @@ import java.lang.ref.WeakReference
 private var resumed = WeakReference<Activity>(null)
 private var tracking = false
 
-/** The activity in front, or null. Dialogs need it: the application context cannot show one. */
+/** Dialogs need an activity: the application context cannot show one. */
 internal fun resumedActivity(): Activity? = resumed.get()
 
-/** Starts tracking the resumed activity. Safe to call from several patches. */
 internal fun trackResumedActivity(app: Application) {
     if (tracking) return
     tracking = true

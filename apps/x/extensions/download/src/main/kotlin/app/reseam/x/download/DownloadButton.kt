@@ -73,25 +73,23 @@ fun saveAll(media: Any?) {
     val list = ui.itemGroup()
     var dialog: Dialog? = null
     items.forEachIndexed { index, item ->
-        val number = index + 1
-        val title =
-            when {
-                photoUrl(item) != null -> XStrings.downloadItemPhoto(number)
-                isGif(item) -> XStrings.downloadItemGif(number)
-                else -> XStrings.downloadItemVideo(number)
-            }
+        val title = when {
+            photoUrl(item) != null -> XStrings.saveMediaPhoto(index + 1)
+            isGif(item) -> XStrings.saveMediaGif(index + 1)
+            else -> XStrings.saveMediaVideo(index + 1)
+        }
         list.add(
             ui.listItem(title).onClick {
                 dialog?.dismiss()
                 saveMediaItem(item)
-            }
+            },
         )
     }
     dialog = ui.dialog()
-        .title(XStrings.downloadChooseTitle)
+        .title(XStrings.saveMediaChoose)
         .view(list)
-        .dismissAction(XStrings.downloadCancel)
-        .action(XStrings.downloadAll) { items.forEach(::saveMediaItem) }
+        .dismissAction(activity.getString(android.R.string.cancel))
+        .action(XStrings.saveMediaAll) { items.forEach(::saveMediaItem) }
         .show()
 }
 
