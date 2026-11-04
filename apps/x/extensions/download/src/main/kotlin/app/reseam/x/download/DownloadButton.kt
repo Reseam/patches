@@ -6,9 +6,11 @@
 package app.reseam.x.download
 
 import android.app.Application
+import android.app.Dialog
 import android.content.Context
 import android.net.Uri
 import android.webkit.MimeTypeMap
+import app.reseam.bundle.ReseamPatches
 import app.reseam.runtime.Export
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
@@ -19,6 +21,8 @@ import java.util.WeakHashMap
 @Export external fun optionsKey(options: Any?): Any?
 
 @Export external fun photoUrl(media: Any): String?
+
+@Export external fun isGif(media: Any): Boolean
 
 @Export external fun bestVariant(media: Any): Any?
 
@@ -34,6 +38,7 @@ private val posts = WeakHashMap<Any, Any>()
 @Export
 fun initButton(application: Application) {
     app = application
+    trackResumedActivity(application)
 }
 
 @Export
@@ -58,13 +63,42 @@ fun downloadTarget(options: Any?): Any? {
 
 @Export
 fun saveAll(media: Any?) {
-    (media as? List<*>).orEmpty().filterNotNull().forEach { item ->
-        val photo = photoUrl(item)
-        if (photo != null) {
-            val format = Uri.parse(photo).getQueryParameter("format").orEmpty()
-            save(app, photo, null, MimeTypeMap.getSingleton().getMimeTypeFromExtension(format), null, false)
-        } else {
-            bestVariant(item)?.let { save(app, variantUrl(it), null, variantType(it), null, false) }
+    val items = (media as? List<*>).orEmpty().filterNotNull()
+    val activity = resumedActivity()
+    if (items.size < 2 || activity == null || !XSettings.saveAllMedia.value) {
+        items.forEach(::saveMediaItem)
+        return
+    }
+    val ui = ReseamPatches.bundle().ui(activity)
+    val list = ui.itemGroup()
+    var dialog: Dialog? = null
+    items.forEachIndexed { index, item ->
+        val title = when {
+            photoUrl(item) != null -> XStrings.saveMediaPhoto(index + 1)
+            isGif(item) -> XStrings.saveMediaGif(index + 1)
+            else -> XStrings.saveMediaVideo(index + 1)
         }
+        list.add(
+            ui.listItem(title).onClick {
+                dialog?.dismiss()
+                saveMediaItem(item)
+            },
+        )
+    }
+    dialog = ui.dialog()
+        .title(XStrings.saveMediaChoose)
+        .view(list)
+        .dismissAction(activity.getString(android.R.string.cancel))
+        .action(XStrings.saveMediaAll) { items.forEach(::saveMediaItem) }
+        .show()
+}
+
+private fun saveMediaItem(item: Any) {
+    val photo = photoUrl(item)
+    if (photo != null) {
+        val format = Uri.parse(photo).getQueryParameter("format").orEmpty()
+        save(app, photo, null, MimeTypeMap.getSingleton().getMimeTypeFromExtension(format), null, false)
+    } else {
+        bestVariant(item)?.let { save(app, variantUrl(it), null, variantType(it), null, false) }
     }
 }
