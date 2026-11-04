@@ -3,25 +3,21 @@
 
 package app.reseam.patches.youtubemusic.core
 
-import app.reseam.patch.appEntry
 import app.reseam.patch.settings.section
 import app.reseam.patch.settings.settingsHost
 import app.reseam.gmscore.settings.GmsCoreStrings
 import app.reseam.patches.bundle.reseamAbout
 import app.reseam.patches.bundle.reseamBrand
-import app.reseam.youtube.core.bindings.YouTubeContext
+import app.reseam.patches.youtubecommon.youTubeContext
 import app.reseam.youtubecommon.settings.YouTubeCommonSettings
 import app.reseam.youtubemusic.settings.YouTubeMusicStrings
 
 val youTubeMusicSettings = settingsHost("youtube-music") {
     compatibleWith(YOUTUBE_MUSIC)
+    dependsOn(youTubeContext)
     brand(reseamBrand)
     about(reseamAbout)
     strings(GmsCoreStrings)
 
     settings(section(YouTubeMusicSettingsPages.Advanced, YouTubeMusicStrings.sectionDiagnostics, YouTubeCommonSettings.debugLogging))
-
-    install {
-        appEntry { YouTubeContext.init(application) }
-    }
 }
