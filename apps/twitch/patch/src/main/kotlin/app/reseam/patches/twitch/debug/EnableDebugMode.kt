@@ -8,7 +8,6 @@ import app.reseam.patch.MethodsTarget
 import app.reseam.patch.PatchRuntime
 import app.reseam.patch.methods
 import app.reseam.patch.patch
-import app.reseam.patch.point
 import app.reseam.patch.points
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
@@ -63,28 +62,9 @@ private fun PatchRuntime.staffChecksUsing(type: String, name: String): List<Meth
     }, "The code that uses $type/$name")
 }
 
-// The Ultralight row in app settings reads the same staff override as the player flag it sets
-private fun PatchRuntime.ultralightChecks(): List<MethodTarget> {
-    val settingRows = staffChecksUsing("string", "ultralight_enabled_setting_title")
-    if (settingRows.isEmpty()) return emptyList()
-
-    val settingRow = settingRows.singleOrNull()
-    if (settingRow == null) {
-        log.warn("${settingRows.size} methods build the Ultralight row, so its staff override is ambiguous")
-        return emptyList()
-    }
-
-    val ultralightStaffCheck = settingRow.point("ultralightStaffCheck") { calls(isStaff) }
-    val ultralightOverride = ultralightStaffCheck.next { invokeVirtual { returns("Ljava/lang/Boolean;") } }.callee()
-    return staffChecksIn(methods("ultralightChecks") {
-        calls(isStaff)
-        calls(ultralightOverride)
-    }, "The Ultralight setting")
-}
-
 @Suppress("unused")
 val enableDebugMode = patch("Enable debug mode") {
-    description("Shows Twitch's staff tools, such as the debug menu, the video debug panel, the Ultralight setting and the debug options of its web pages.")
+    description("Shows Twitch's staff tools, such as the debug menu, the video debug panel and the debug options of its web pages.")
     compatibleWith(TWITCH_PACKAGE)
     settings(twitchSettings, section(TwitchStrings.sectionDeveloper, DeveloperSettings.debugMode))
 
@@ -98,7 +78,6 @@ val enableDebugMode = patch("Enable debug mode") {
             staffChecksIn(videoDebugPanelChecks, "The video player"),
             staffChecksIn(portalDebugChecks, "The web portal plugin"),
             staffChecksIn(portalConfigChecks, "The web portal config"),
-            ultralightChecks(),
         ).flatten().distinctBy { check -> check.descriptor }
 
         gate(DeveloperSettings.debugMode) {
