@@ -3,4 +3,9 @@
 
 package app.reseam.patches.soundconnect.core
 
-const val SOUND_CONNECT = "com.sony.songpal.mdr"
+import app.reseam.patch.CompatiblePackage
+import app.reseam.patch.invoke
+
+const val SOUND_CONNECT_PACKAGE = "com.sony.songpal.mdr"
+
+val SOUND_CONNECT: CompatiblePackage = SOUND_CONNECT_PACKAGE("13.3.0")

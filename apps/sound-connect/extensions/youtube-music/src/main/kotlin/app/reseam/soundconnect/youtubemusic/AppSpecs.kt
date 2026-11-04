@@ -12,7 +12,6 @@ import org.json.JSONObject
 // Sony's YouTube Music entry opens its Play Store page as a "deeplink"; this launch type starts the app by package.
 private const val LAUNCH_BY_PACKAGE = "pkg_name"
 
-/** Sony's linked services list, with YouTube Music's entry pointed at Reseam's YouTube Music while it is installed. */
 @Export
 fun rewrite(appSpecs: String?): String? {
     if (appSpecs == null || PLAY_STORE_YOUTUBE_MUSIC !in appSpecs) return appSpecs

@@ -32,11 +32,12 @@ val reseamYouTubeMusic = patch("Reseam YouTube Music") {
         YouTubeMusicPackage.reseamPackage.implement { returnValue(string(options[packageName])) }
         appEntry { YouTubeMusicPackage.init(application) }
 
-        // The linked services list comes from Sony's server, and is cached as JSON that this parses again on every read.
+        // Sony's server sends the linked services, and the app parses its cached copy on every read.
         appSpecListParser.before { param(0).assign(AppSpecs.rewrite(param(0))) }
 
-        // Auto Play's music apps are built in, with the package written into the code.
+        // Auto Play's music apps are written into the code.
         val builtIn = builtInPackageNames.points { string(PLAY_STORE_YOUTUBE_MUSIC) }.all
+        require(builtIn.isNotEmpty()) { "Auto Play no longer names YouTube Music's package" }
         builtIn.forEach {
             it.captureAs("packageName", Type.String)
                 .after { capture("packageName").assign(YouTubeMusicPackage.resolve(capture("packageName"))) }

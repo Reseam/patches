@@ -20,7 +20,6 @@ fun init(application: Application) {
     packageManager = application.packageManager
 }
 
-/** The package to use for [packageName]: Reseam's YouTube Music in place of Google's, while it is installed. */
 @Export
 fun resolve(packageName: String): String {
     if (packageName != PLAY_STORE_YOUTUBE_MUSIC) return packageName
