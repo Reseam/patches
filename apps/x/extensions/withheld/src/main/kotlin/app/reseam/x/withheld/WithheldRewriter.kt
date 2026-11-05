@@ -3,32 +3,40 @@
 
 package app.reseam.x.withheld
 
+import app.reseam.x.api.GraphqlResponse
+import app.reseam.x.api.GraphqlRewriter
+import app.reseam.x.api.RemoteLookup
+import app.reseam.x.api.descendants
+import app.reseam.x.api.objects
+import app.reseam.x.settings.XSettings
 import org.json.JSONObject
 
-internal object WithheldRewriter {
+internal object WithheldRewriter : GraphqlRewriter {
     private const val WITHHELD_LINK = "withheld-by-country"
     private const val USER_UNAVAILABLE = "UserUnavailable"
     private const val CURSOR_PREFIX = "reseam-withheld:"
 
-    /** The response with its withheld posts and profiles filled in, or null when it has none to fill. */
-    fun rewrite(text: String, operation: String, variables: String?): String? {
-        val tab = ProfileTab.of(operation)
-        val root =
-            when {
-                tab != null && USER_UNAVAILABLE in text ->
-                    JSONObject(text).takeIf { fillProfileTimeline(it, tab, variables) }
-                WITHHELD_LINK in text -> JSONObject(text).takeIf(::fillWithheld)
-                else -> null
-            }
-        return root?.toString()
+    private val statusLookup = RemoteLookup("FxTwitter status", ::eachAlone) { fetchEach(it, FxTwitter::status) }
+    private val profileLookup = RemoteLookup("FxTwitter profile", ::eachAlone) { fetchEach(it, FxTwitter::profile) }
+
+    override val isEnabled: Boolean
+        get() = XSettings.showWithheldPosts.value
+
+    override fun rewrite(response: GraphqlResponse): Boolean {
+        val tab = ProfileTab.of(response.operation)
+        return when {
+            tab != null && USER_UNAVAILABLE in response.body -> fillProfileTimeline(response, tab)
+            WITHHELD_LINK in response.body -> fillWithheld(response.json)
+            else -> false
+        }
     }
 
     private fun fillWithheld(root: JSONObject): Boolean {
         val nodes = root.descendants().toList()
         val posts = nodes.filter(::isWithheldPost)
         val profiles = nodes.filter(::isWithheldProfile)
-        val statuses = WithheldCache.statuses.get(posts.map { it.restId }.toSet())
-        val authors = WithheldCache.profiles.get(profiles.map { it.restId }.toSet())
+        val statuses = statusLookup.get(posts.map { it.restId }.toSet())
+        val authors = profileLookup.get(profiles.map { it.restId }.toSet())
         val postFills = posts.mapNotNull { slot -> statuses[slot.restId]?.let { slot to it } }
         val profileFills = profiles.mapNotNull { user -> authors[user.restId]?.let { user to it } }
         postFills.forEach { (slot, status) -> slot.put("result", GraphqlShapes.tweet(status)) }
@@ -52,21 +60,24 @@ internal object WithheldRewriter {
 
     // X answers a withheld account's timelines with UserUnavailable, the same as for a suspended
     // one; a source that still returns the account's posts tells them apart.
-    private fun fillProfileTimeline(root: JSONObject, tab: ProfileTab, variables: String?): Boolean {
-        val userResult = root.optJSONObject("data")?.optJSONObject("user_result") ?: return false
+    private fun fillProfileTimeline(response: GraphqlResponse, tab: ProfileTab): Boolean {
+        val userResult = response.json.optJSONObject("data")?.optJSONObject("user_result") ?: return false
         if (userResult.optJSONObject("result")?.optString("__typename") != USER_UNAVAILABLE) return false
         val userId = userResult.restId
-        val page = FxTwitter.statuses(userId, fxCursor(variables), tab.withReplies) ?: return false
+        val page = FxTwitter.statuses(userId, fxCursor(response.variables), tab.withReplies) ?: return false
         val statuses = page.statuses.filter(tab::includes)
         val nextCursor = page.nextCursor?.let(CURSOR_PREFIX::plus)
         userResult.put("result", GraphqlShapes.profileTimeline(userId, statuses, nextCursor))
         return true
     }
 
-    private fun fxCursor(variables: String?): String? {
-        val cursor = variables?.let { JSONObject(it).optString("cursor") }
-        return cursor?.takeIf { it.startsWith(CURSOR_PREFIX) }?.removePrefix(CURSOR_PREFIX)
-    }
+    private fun fxCursor(variables: JSONObject?): String? =
+        variables?.optString("cursor")?.takeIf { it.startsWith(CURSOR_PREFIX) }?.removePrefix(CURSOR_PREFIX)
+
+    private fun eachAlone(ids: List<String>): List<List<String>> = ids.map(::listOf)
+
+    private fun <V : Any> fetchEach(ids: List<String>, fetch: (String) -> V?): Map<String, V> =
+        ids.mapNotNull { id -> fetch(id)?.let { id to it } }.toMap()
 
     private val JSONObject.restId: String
         get() = getString("rest_id")

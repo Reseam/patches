@@ -3,5 +3,5 @@
 
 dependencies {
     compileOnly(project(":shared:bundle"))
-    compileOnly("com.squareup.okhttp3:okhttp:5.1.0")
+    compileOnly(project(":apps:x:extensions:api"))
 }
