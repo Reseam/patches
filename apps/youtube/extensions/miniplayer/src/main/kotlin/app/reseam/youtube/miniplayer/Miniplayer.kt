@@ -28,9 +28,10 @@ fun width(original: Int): Int {
     return resources.dpToPx(requested.coerceIn(DEFAULT_WIDTH_DIP, maximum))
 }
 
+// The compact miniplayer hides the whole overlay itself and acts through these buttons, so they stay.
 @Export
 fun hideOverlayButton(view: View?) {
-    if (PlayerSettings.hideMiniplayerOverlayButtons.value) view?.hide()
+    if (PlayerSettings.hideMiniplayerOverlayButtons.value && !PlayerSettings.compactMiniplayer.value) view?.hide()
 }
 
 @Export

@@ -25,6 +25,7 @@ object PlayerSettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
     val hideMiniplayerOverlayButtons by toggle(default = false)
     val hideMiniplayerSubtext by toggle(default = false)
     val miniplayerWidthDip by text(default = "192")
+    val compactMiniplayer by toggle(default = false)
     val loopVideo by toggle(default = false)
     val loopVideoButton by toggle(default = false)
 }

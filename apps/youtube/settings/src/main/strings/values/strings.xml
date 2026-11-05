@@ -536,6 +536,8 @@
     <string name="hide_miniplayer_subtext_summary">Hides the miniplayer subtitle.</string>
     <string name="miniplayer_width_dip">Miniplayer width</string>
     <string name="miniplayer_width_dip_summary">The miniplayer width in dp; values are clamped to the phone\'s usable range.</string>
+    <string name="compact_miniplayer">Compact miniplayer</string>
+    <string name="compact_miniplayer_summary">Shows the minimized video as a bar above the navigation bar. Tap or swipe up to open it, swipe down to close it.</string>
     <string name="gradient_loading_screen">Gradient loading screen</string>
     <string name="gradient_loading_screen_summary">Uses YouTube\'s gradient while the app is loading.</string>
     <string name="splash_screen_animation_style">Splash screen animation</string>
