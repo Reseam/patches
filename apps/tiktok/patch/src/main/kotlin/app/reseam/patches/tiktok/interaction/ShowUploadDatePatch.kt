@@ -3,6 +3,8 @@
 
 package app.reseam.patches.tiktok.interaction
 
+import app.reseam.patch.Type
+import app.reseam.patch.after
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
@@ -38,6 +40,21 @@ val showUploadDate =
                     .parameterTypes
                     .lastIndexOf("Ljava/lang/String;") + 1
             gate(InterfaceSettings.showUploadDate) {
+                // TikTok's own time, where it shows one, would repeat the date.
+                authorInfo
+                    .points {
+                        invokeStatic {
+                            owner(VIDEO_AUTHOR_INFO_VM)
+                            params(Type.String)
+                            returns(Type.String)
+                        }
+                    }
+                    .also { check(it.all.isNotEmpty()) { "No author info times" } }
+                    .forEach {
+                        next { resultOf(Type.String) }.captureAs("time", Type.String).after {
+                            capture("time").assign(string(""))
+                        }
+                    }
                 authorInfo
                     .points {
                         invokeDirect {
@@ -63,8 +80,9 @@ val showUploadDate =
 private val authorInfoState =
     klass("authorInfoState") { strings("VideoAuthorInfoState(titleViewText=") }
 
-private val authorInfo =
-    klass("com.ss.android.ugc.aweme.feed.assem.videoauthorinfo.VideoAuthorInfoVM")
-        .method("paramSync2StateAccept")
+private const val VIDEO_AUTHOR_INFO_VM =
+    "com.ss.android.ugc.aweme.feed.assem.videoauthorinfo.VideoAuthorInfoVM"
+
+private val authorInfo = klass(VIDEO_AUTHOR_INFO_VM).method("paramSync2StateAccept")
 
 private val videoItemAweme = klass(VIDEO_ITEM_PARAMS).method("getAweme")

@@ -11,7 +11,7 @@ import java.text.DateFormat
 import java.util.Date
 import java.util.concurrent.TimeUnit
 
-/** TikTok's own time text, when it shows one, followed by the post's date and region. */
+/** TikTok's own text, a play count when it shows one, followed by the post's date and region. */
 @Export
 fun postTime(text: String?, aweme: Aweme?): String? {
     val created = aweme?.createTime?.takeIf { it > 0 } ?: return text
