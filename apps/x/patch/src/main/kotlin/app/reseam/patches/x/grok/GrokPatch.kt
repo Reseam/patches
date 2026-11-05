@@ -19,7 +19,7 @@ import app.reseam.patches.x.featureswitches.featureSwitchOverrides
 import app.reseam.x.settings.XStrings
 
 val grok = patch("Grok") {
-    description("Hides the Grok tab, the Grok buttons on posts and profiles, Imagine prompts, Grok in the composer and the drawer, and can turn off Grok translations.")
+    description("Hides the Grok tab, the Grok buttons on posts and profiles, Imagine prompts, and Grok in the composer and the drawer.")
     compatibleWith(X)
     dependsOn(featureSwitchOverrides)
     settings(
@@ -32,7 +32,6 @@ val grok = patch("Grok") {
             XSettings.hideGrokImageTools,
             XSettings.hideGrokComposer,
             XSettings.hideGrokDrawerEntry,
-            XSettings.disableGrokTranslations,
         ),
     )
 
@@ -66,16 +65,6 @@ val grok = patch("Grok") {
         )
         disableFeatureSwitches(XSettings.hideGrokImageTools, "grok_android_imagine_make_video", "grok_android_imagine_edit_image")
         disableFeatureSwitches(XSettings.hideGrokComposer, "grok_mobile_post_composer_is_enabled")
-
-        disableFeatureSwitches(
-            XSettings.disableGrokTranslations,
-            "grok_translations_post_auto_translation_is_enabled",
-            "grok_translations_community_note_translation_is_enabled",
-            "grok_translations_community_note_auto_translation_is_enabled",
-            "grok_translations_bio_translation_is_enabled",
-            "grok_translations_notification_auto_translation_is_enabled",
-            "grok_translations_poll_translation_is_enabled",
-        )
     }
 }
 

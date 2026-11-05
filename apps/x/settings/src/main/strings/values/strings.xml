@@ -61,8 +61,6 @@
     <string name="hide_grok_image_tools_summary">Removes the Grok Imagine items from the post menu and the composer.</string>
     <string name="hide_grok_composer">Hide Grok in composer</string>
     <string name="hide_grok_composer_summary">Removes the Grok button from the composer.</string>
-    <string name="disable_grok_translations">Disable Grok translations</string>
-    <string name="disable_grok_translations_summary">No automatic Grok translation of posts, bios and Community Notes.</string>
     <string name="hide_live_bar">Hide Live bar</string>
     <string name="hide_live_bar_summary">Removes the row of live Spaces and broadcasts above Home.</string>
     <string name="hide_live_avatar_rings">Hide live avatar rings</string>
@@ -93,7 +91,8 @@
     <string name="share_link_provider">Share link provider</string>
     <string name="share_link_provider_summary">Host used for shared post links.</string>
     <string name="post_translator">Translator</string>
-    <string name="post_translator_summary">Translates posts in other languages as you scroll. Reseam Translate receives the text of those posts.</string>
+    <string name="post_translator_summary">Who translates posts in other languages. None turns off translations of posts, bios and Community Notes. Reseam Translate receives the text of the posts it translates.</string>
+    <string name="post_translator_none">None</string>
     <string name="post_translator_grok">Grok (X)</string>
     <string name="post_translator_reseam">Reseam Translate</string>
     <string name="dark_theme">Dark theme</string>

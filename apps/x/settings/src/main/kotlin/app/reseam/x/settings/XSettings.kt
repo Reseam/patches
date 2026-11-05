@@ -32,7 +32,6 @@ object XSettings : SettingsGroup(XStrings) {
     val hideGrokPrompts by toggle(default = true, icon = lucide("message-square-dashed"))
     val hideGrokImageTools by toggle(default = true, icon = lucide("image-off"))
     val hideGrokComposer by toggle(default = true, icon = lucide("pen-off"))
-    val disableGrokTranslations by toggle(default = false, icon = lucide("languages"))
     val hideLiveBar by toggle(default = true, icon = lucide("radio"))
     val hideLiveAvatarRings by toggle(default = false, icon = lucide("circle-dot"))
     val hideRecommendations by toggle(default = false, icon = lucide("user-plus"))
@@ -68,6 +67,7 @@ object XSettings : SettingsGroup(XStrings) {
             default = "grok",
             choices =
                 listOf(
+                    Choice("none", XStrings.postTranslatorNone),
                     Choice("grok", XStrings.postTranslatorGrok),
                     Choice("reseam", XStrings.postTranslatorReseam),
                 ),

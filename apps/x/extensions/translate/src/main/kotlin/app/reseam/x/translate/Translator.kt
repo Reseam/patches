@@ -7,6 +7,7 @@ import app.reseam.x.settings.XSettings
 
 /** Who translates posts, as chosen in settings. */
 internal enum class Translator(val key: String) {
+    None("none"),
     Grok("grok"),
     Reseam("reseam"),
     ;
