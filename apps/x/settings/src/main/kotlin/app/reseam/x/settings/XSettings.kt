@@ -36,6 +36,7 @@ object XSettings : SettingsGroup(XStrings) {
     val hideLiveBar by toggle(default = true, icon = lucide("radio"))
     val hideLiveAvatarRings by toggle(default = false, icon = lucide("circle-dot"))
     val hideRecommendations by toggle(default = false, icon = lucide("user-plus"))
+    val showWithheldPosts by toggle(default = false, icon = lucide("eye"))
     val hideViewCounts by toggle(default = false, icon = lucide("chart-no-axes-column"))
     val hideNewPostsBanner by toggle(default = false, icon = lucide("arrow-up-to-line"))
     val hideComposeButton by toggle(default = false, icon = lucide("square-plus"))
