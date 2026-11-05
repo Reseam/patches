@@ -9,6 +9,7 @@ import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
 import app.reseam.patches.youtube.internal.playerControls
+import app.reseam.patches.youtube.internal.registerPlayerControlIcon
 import app.reseam.patches.youtube.internal.registerPlayerControlInitializer
 import app.reseam.patches.youtube.internal.registerPlayerControlLayout
 import app.reseam.patches.youtube.internal.videoPlaybackStateHook
@@ -27,12 +28,14 @@ val copyVideoUrl = patch("Copy video URL") {
     execute {
         resources.addId("reseam_copy_video_url_button")
         resources.addId("reseam_copy_video_url_timestamp_button")
-        resources.addFile("drawable", "reseam_copy_video_url", "res/drawable/reseam_copy_video_url.xml",
-            CopyVideoUrl::class.java.getResourceAsStream("/buttons/reseam_copy_video_url.xml")!!.readBytes())
-        resources.addFile("drawable", "reseam_copy_video_url_timestamp", "res/drawable/reseam_copy_video_url_timestamp.xml",
-            CopyVideoUrl::class.java.getResourceAsStream("/buttons/reseam_copy_video_url_timestamp.xml")!!.readBytes())
-        registerPlayerControlLayout("/buttons/copy_video_url_timestamp.xml", "reseam_copy_video_url_timestamp_button", position = 0)
-        registerPlayerControlLayout("/buttons/copy_video_url.xml", "reseam_copy_video_url_button", position = 1)
+        registerPlayerControlIcon("reseam_copy_video_url", "/buttons/reseam_copy_video_url.xml",
+            "/buttons/bold/reseam_copy_video_url.xml")
+        registerPlayerControlIcon("reseam_copy_video_url_timestamp", "/buttons/reseam_copy_video_url_timestamp.xml",
+            "/buttons/bold/reseam_copy_video_url_timestamp.xml")
+        registerPlayerControlLayout("/buttons/copy_video_url_timestamp.xml", "/buttons/bold/copy_video_url_timestamp.xml",
+            "reseam_copy_video_url_timestamp_button", position = 0)
+        registerPlayerControlLayout("/buttons/copy_video_url.xml", "/buttons/bold/copy_video_url.xml",
+            "reseam_copy_video_url_button", position = 1)
         registerPlayerControlInitializer(CopyVideoUrl.initialize)
     }
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Reseam contributors <https://reseam.app> -->
+<!-- SPDX-License-Identifier: AGPL-3.0-or-later -->
+<!-- A frame for a button's text, in the stroke weight of YouTube's bold player icons. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:pathData="M4,5H20A2,2 0,0 1,22 7V17A2,2 0,0 1,20 19H4A2,2 0,0 1,2 17V7A2,2 0,0 1,4 5Z"
+        android:strokeWidth="2"
+        android:strokeColor="@android:color/white" />
+</vector>

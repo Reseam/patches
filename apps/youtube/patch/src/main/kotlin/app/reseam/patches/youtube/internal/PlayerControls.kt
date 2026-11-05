@@ -31,20 +31,39 @@ private val CONSTRAINT_LAYOUTS = listOf(
     "android.support.constraint.ConstraintLayout",
 )
 
+// Inflates youtube_video_exploder_controls_bottom_ui_container in place of youtube_controls_bottom_ui_container.
+private const val BOLD_BOTTOM_CONTROLS = 45643739L
+private const val BUTTON_STROKE = 45713296L
+// 45686474 (before 21.36) puts a circle behind the fullscreen button, and 45724241 sizes it for the bold layout.
+private val BOLD_PLAYER_BUTTONS = listOf(BOLD_BOTTOM_CONTROLS, 45709810L, BUTTON_STROKE, 45686474L, 45724241L)
+
+// Releases before the button stroke experiment only have the thin player buttons.
+private fun boldPlayerButtons() = optionalBooleanFeatureReads(BUTTON_STROKE).isNotEmpty()
+
 private fun ResourceScope.id(name: String): Long = id("id", name)?.toLong()
     ?: error("id/$name is missing")
 
-private class BottomLayout(val resourcePath: String, val idName: String, val position: Int)
+private fun bundledResource(path: String): ByteArray =
+    PlayerControls::class.java.getResourceAsStream(path)?.use { it.readBytes() } ?: error("$path is missing")
+
+private class BottomLayout(val thinResourcePath: String, val boldResourcePath: String, val idName: String, val position: Int)
+private class ButtonIcon(val name: String, val thinResourcePath: String, val boldResourcePath: String)
 
 private val bottomLayouts = RunList<BottomLayout>()
 private val bottomInitializers = RunList<ExtMethod>()
+private val buttonIcons = RunList<ButtonIcon>()
+
+/** Adds drawable [name], drawn to match the release's player buttons. */
+fun registerPlayerControlIcon(name: String, thinResourcePath: String, boldResourcePath: String) {
+    buttonIcons.add(ButtonIcon(name, thinResourcePath, boldResourcePath))
+}
 
 /**
- * Registers an XML fragment and its ids before the shared seam grafts all controls.
+ * Registers an XML fragment, drawn to match the release's player buttons, before the shared seam grafts all controls.
  * [position] orders the buttons outward from the fullscreen button, lowest nearest.
  */
-fun registerPlayerControlLayout(resourcePath: String, idName: String, position: Int) {
-    bottomLayouts.add(BottomLayout(resourcePath, idName, position))
+fun registerPlayerControlLayout(thinResourcePath: String, boldResourcePath: String, idName: String, position: Int) {
+    bottomLayouts.add(BottomLayout(thinResourcePath, boldResourcePath, idName, position))
 }
 
 /** Registers the extension initializer corresponding to a previously registered XML fragment. */
@@ -128,18 +147,10 @@ val playerControls = patch {
                 PlayerControls.setPlayerControlsVisibility(call(visibilityFactory, capture("visibilityContainer").field(visibilityStateField)))
             }
 
-        // Older releases predate the last two experiments.
-        listOf(
-            booleanFeatureReads(45643739L),
-            optionalBooleanFeatureReads(45709810L),
-            optionalBooleanFeatureReads(45713296L),
-        ).forEach { reads ->
-            reads.forEach { site ->
-                site.next { resultOf(Type.Boolean) }.captureAs("flag").after {
-                    capture("flag").assign(bool(false))
-                }
-            }
-        }
+        // YouTube enables the bold player buttons for every client, from a config a GmsCore install lacks until its
+        // third launch. Fixing them keeps the bottom layout our buttons are added to the one YouTube inflates.
+        if (boldPlayerButtons()) BOLD_PLAYER_BUTTONS.forEach(::enableBooleanFeature)
+        else disableBooleanFeature(BOLD_BOTTOM_CONTROLS)
     }
 
     afterDependents {
@@ -157,23 +168,33 @@ val playerControls = patch {
                 }
         }
 
+        val bold = boldPlayerButtons()
+        buttonIcons.values.forEach { icon ->
+            resources.addFile("drawable", icon.name, "res/drawable/${icon.name}.xml",
+                bundledResource(if (bold) icon.boldResourcePath else icon.thinResourcePath))
+        }
+
         if (layouts.isEmpty()) return@afterDependents
+        if (bold) {
+            resources.addFile("drawable", "reseam_player_button_circle", "res/drawable/reseam_player_button_circle.xml",
+                bundledResource("/buttons/bold/reseam_player_button_circle.xml"))
+        }
         val fullscreenId = resources.id("fullscreen_button")
         // Placed before these, the buttons would overlap them; they move left of the last button.
         val followingIds = setOf(resources.id("bottom_end_container"), resources.id("multiview_button"))
-        resources.editXml("layout", "youtube_controls_bottom_ui_container") {
+        val bottomLayout = if (bold) "youtube_video_exploder_controls_bottom_ui_container" else "youtube_controls_bottom_ui_container"
+        resources.editXml("layout", bottomLayout) {
             declareNamespace("yt", AUTO_NS)
             val parent = CONSTRAINT_LAYOUTS.flatMap { findByTag(it) }.singleOrNull()
-                ?: error("youtube_controls_bottom_ui_container has no constraint parent")
+                ?: error("$bottomLayout has no constraint parent")
             fun idOf(element: XmlElement, attr: String) = resourceRef(element[attr].orEmpty())?.toLong()
             val anchor = parent.children.firstOrNull { idOf(it, "android:inflatedId") == fullscreenId }
-                ?: error("fullscreen_button is missing from youtube_controls_bottom_ui_container")
+                ?: error("fullscreen_button is missing from $bottomLayout")
             var last = "@id/fullscreen_button"
             var insertBefore = anchor
             for (layout in layouts) {
-                val bytes = PlayerControls::class.java.getResourceAsStream(layout.resourcePath)?.use { it.readBytes() }
-                    ?: error("player-control layout fragment ${layout.resourcePath} is missing")
-                XmlDocument.compile(bytes.toString(Charsets.UTF_8)).use { source ->
+                val fragment = bundledResource(if (bold) layout.boldResourcePath else layout.thinResourcePath)
+                XmlDocument.compile(fragment.toString(Charsets.UTF_8)).use { source ->
                     val child = adopt(source.root)
                     child["yt:layout_constraintRight_toLeftOf"] = last
                     insertBefore = parent.insertBefore(child, insertBefore)

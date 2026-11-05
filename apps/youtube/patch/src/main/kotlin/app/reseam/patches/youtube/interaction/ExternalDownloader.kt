@@ -14,6 +14,7 @@ import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
 import app.reseam.patches.youtube.internal.mainActivityHook
 import app.reseam.patches.youtube.internal.playerControls
+import app.reseam.patches.youtube.internal.registerPlayerControlIcon
 import app.reseam.patches.youtube.internal.registerPlayerControlInitializer
 import app.reseam.patches.youtube.internal.registerPlayerControlLayout
 import app.reseam.patches.youtube.internal.videoPlaybackStateHook
@@ -40,9 +41,9 @@ val externalDownloader = patch("External downloader") {
     )
     execute {
         resources.addId("reseam_external_download_button")
-        resources.addFile("drawable", "reseam_download", "res/drawable/reseam_download.xml",
-            ExternalDownloader::class.java.getResourceAsStream("/buttons/reseam_download.xml")!!.readBytes())
-        registerPlayerControlLayout("/buttons/download.xml", "reseam_external_download_button", position = 2)
+        registerPlayerControlIcon("reseam_download", "/buttons/reseam_download.xml", "/buttons/bold/reseam_download.xml")
+        registerPlayerControlLayout("/buttons/download.xml", "/buttons/bold/download.xml",
+            "reseam_external_download_button", position = 2)
         registerPlayerControlInitializer(ExternalDownloader.initialize)
 
         // This target is the four-parameter offline endpoint; parameter 2 is the video id

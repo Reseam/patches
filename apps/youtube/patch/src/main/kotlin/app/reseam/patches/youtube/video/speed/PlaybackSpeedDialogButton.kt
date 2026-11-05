@@ -10,6 +10,7 @@ import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
 import app.reseam.patches.youtube.internal.playerControls
+import app.reseam.patches.youtube.internal.registerPlayerControlIcon
 import app.reseam.patches.youtube.internal.registerPlayerControlInitializer
 import app.reseam.patches.youtube.internal.registerPlayerControlLayout
 import app.reseam.patches.youtube.internal.userSelectedPlaybackSpeedHook
@@ -27,13 +28,9 @@ val playbackSpeedDialogButton = patch("Playback speed player button") {
 
     execute {
         resources.addId("reseam_playback_speed_button")
-        resources.addFile(
-            "drawable",
-            "reseam_playback_speed",
-            "res/drawable/reseam_playback_speed.xml",
-            PlaybackSpeedDialogButton::class.java.getResourceAsStream("/buttons/reseam_playback_speed.xml")!!.readBytes(),
-        )
-        registerPlayerControlLayout("/buttons/playback_speed.xml", "reseam_playback_speed_button_container", position = 4)
+        registerPlayerControlIcon("reseam_playback_speed", "/buttons/reseam_playback_speed.xml", "/buttons/bold/reseam_text_box.xml")
+        registerPlayerControlLayout("/buttons/playback_speed.xml", "/buttons/bold/playback_speed.xml",
+            "reseam_playback_speed_button_container", position = 4)
         registerPlayerControlInitializer(PlaybackSpeedDialogButton.initialize)
         videoSpeedChangedHook(PlaybackSpeedDialogButton.videoSpeedChanged)
         userSelectedPlaybackSpeedHook(PlaybackSpeedDialogButton.videoSpeedChanged)

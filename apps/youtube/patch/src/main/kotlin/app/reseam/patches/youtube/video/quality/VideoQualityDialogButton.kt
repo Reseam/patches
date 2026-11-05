@@ -9,6 +9,7 @@ import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
 import app.reseam.patches.youtube.internal.playerControls
+import app.reseam.patches.youtube.internal.registerPlayerControlIcon
 import app.reseam.patches.youtube.internal.registerPlayerControlInitializer
 import app.reseam.patches.youtube.internal.registerPlayerControlLayout
 import app.reseam.youtube.quality.bindings.VideoQualityDialogButton
@@ -23,13 +24,9 @@ val videoQualityDialogButton = patch("Video quality player button") {
 
     execute {
         resources.addId("reseam_video_quality_button")
-        resources.addFile(
-            "drawable",
-            "reseam_video_quality",
-            "res/drawable/reseam_video_quality.xml",
-            VideoQualityDialogButton::class.java.getResourceAsStream("/buttons/reseam_video_quality.xml")!!.readBytes(),
-        )
-        registerPlayerControlLayout("/buttons/video_quality.xml", "reseam_video_quality_button_container", position = 5)
+        registerPlayerControlIcon("reseam_video_quality", "/buttons/reseam_video_quality.xml", "/buttons/bold/reseam_text_box.xml")
+        registerPlayerControlLayout("/buttons/video_quality.xml", "/buttons/bold/video_quality.xml",
+            "reseam_video_quality_button_container", position = 5)
         registerPlayerControlInitializer(VideoQualityDialogButton.initialize)
     }
 }

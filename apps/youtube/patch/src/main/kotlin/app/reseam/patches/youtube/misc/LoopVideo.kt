@@ -13,6 +13,7 @@ import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
 import app.reseam.patches.youtube.internal.playerControls
 import app.reseam.patches.youtube.internal.playerStatus
+import app.reseam.patches.youtube.internal.registerPlayerControlIcon
 import app.reseam.patches.youtube.internal.registerPlayerControlInitializer
 import app.reseam.patches.youtube.internal.registerPlayerControlLayout
 import app.reseam.patches.youtube.internal.videoInformationHook
@@ -27,11 +28,12 @@ val loopVideo = patch("Loop video") {
     settings(youTubeSettings, section(YouTubeSettingsPages.Player, YouTubeStrings.sectionPlayer, PlayerSettings.loopVideo, PlayerSettings.loopVideoButton))
     execute {
         resources.addId("reseam_loop_video_button")
-        resources.addFile("drawable", "reseam_loop_video_off", "res/drawable/reseam_loop_video_off.xml",
-            LoopVideo::class.java.getResourceAsStream("/buttons/reseam_loop_video_off.xml")!!.readBytes())
-        resources.addFile("drawable", "reseam_loop_video_on", "res/drawable/reseam_loop_video_on.xml",
-            LoopVideo::class.java.getResourceAsStream("/buttons/reseam_loop_video_on.xml")!!.readBytes())
-        registerPlayerControlLayout("/buttons/loop_video.xml", "reseam_loop_video_button", position = 3)
+        registerPlayerControlIcon("reseam_loop_video_off", "/buttons/reseam_loop_video_off.xml",
+            "/buttons/bold/reseam_loop_video_off.xml")
+        registerPlayerControlIcon("reseam_loop_video_on", "/buttons/reseam_loop_video_on.xml",
+            "/buttons/bold/reseam_loop_video_on.xml")
+        registerPlayerControlLayout("/buttons/loop_video.xml", "/buttons/bold/loop_video.xml",
+            "reseam_loop_video_button", position = 3)
         registerPlayerControlInitializer(LoopVideo.initialize)
 
         // The exported player-status target already identifies the status enum and its Instant

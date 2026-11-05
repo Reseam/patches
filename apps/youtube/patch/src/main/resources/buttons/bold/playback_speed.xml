@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Reseam contributors <https://reseam.app> -->
+<!-- SPDX-License-Identifier: AGPL-3.0-or-later -->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yt="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/reseam_playback_speed_button_container"
+    android:layout_width="48.0dip"
+    android:layout_height="0dp"
+    yt:layout_constraintBottom_toBottomOf="@+id/fullscreen_button"
+    yt:layout_constraintRight_toLeftOf="@+id/fullscreen_button"
+    yt:layout_constraintTop_toTopOf="@+id/fullscreen_button">
+
+    <com.google.android.libraries.youtube.common.ui.TouchImageView
+        android:id="@+id/reseam_playback_speed_button"
+        style="@style/YouTubePlayerButton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/reseam_player_button_circle"
+        android:longClickable="false"
+        android:scaleType="center"
+        android:src="@drawable/reseam_playback_speed"
+        android:tint="@android:color/white" />
+
+    <!-- Centered in the circle, which ends 12dp above the bottom. -->
+    <TextView
+        android:id="@+id/reseam_playback_speed_button_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="sans-serif-condensed"
+        android:paddingBottom="12dp"
+        android:textColor="@android:color/white"
+        android:textSize="10dp" />
+</FrameLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Reseam contributors <https://reseam.app> -->
+<!-- SPDX-License-Identifier: AGPL-3.0-or-later -->
+<!-- Two pages with a clock, in the stroke weight of YouTube's bold player icons. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <group>
+        <!-- The full square minus the clock's margin, wound the other way so it cuts the pages. -->
+        <clip-path android:pathData="M0,0H24V24H0Z M25.5,18A7.5,7.5 0,1 0,10.5 18A7.5,7.5 0,1 0,25.5 18Z" />
+        <path
+            android:pathData="M10,2H18A2,2 0,0 1,20 4V16A2,2 0,0 1,18 18H10A2,2 0,0 1,8 16V4A2,2 0,0 1,10 2Z"
+            android:strokeWidth="2"
+            android:strokeColor="@android:color/white"
+            android:strokeLineJoin="round" />
+        <path
+            android:pathData="M4,6V20A2,2 0,0 0,6 22H16"
+            android:strokeWidth="2"
+            android:strokeColor="@android:color/white"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round" />
+    </group>
+    <path
+        android:pathData="M18,13A5,5 0,1 1,18 23A5,5 0,1 1,18 13Z"
+        android:strokeWidth="2"
+        android:strokeColor="@android:color/white" />
+    <path
+        android:pathData="M18,15.5V18L19.75,19.25"
+        android:strokeWidth="2"
+        android:strokeColor="@android:color/white"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+</vector>
