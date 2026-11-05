@@ -92,6 +92,10 @@
     <string name="custom_url_handling_summary">Opens fixvx.com, vxtwitter.com and similar mirror links in the app, like x.com links.</string>
     <string name="share_link_provider">Share link provider</string>
     <string name="share_link_provider_summary">Host used for shared post links.</string>
+    <string name="post_translator">Translator</string>
+    <string name="post_translator_summary">Translates posts in other languages as you scroll. Reseam Translate receives the text of those posts.</string>
+    <string name="post_translator_grok">Grok (X)</string>
+    <string name="post_translator_reseam">Reseam Translate</string>
     <string name="dark_theme">Dark theme</string>
     <string name="dark_theme_summary">Background X uses at night.</string>
     <string name="dark_theme_lights_out">Lights out (black)</string>
@@ -127,6 +131,7 @@
     <string name="section_ads">Ads</string>
     <string name="section_media">Media</string>
     <string name="section_grok">Grok</string>
+    <string name="section_translation">Translation</string>
     <string name="section_privacy">Privacy</string>
     <string name="section_home">Home</string>
     <string name="section_timeline">Timeline</string>

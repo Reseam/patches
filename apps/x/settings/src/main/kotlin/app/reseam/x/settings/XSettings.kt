@@ -63,6 +63,17 @@ object XSettings : SettingsGroup(XStrings) {
             icon = lucide("share-2"),
         )
 
+    val postTranslator by
+        choice(
+            default = "grok",
+            choices =
+                listOf(
+                    Choice("grok", XStrings.postTranslatorGrok),
+                    Choice("reseam", XStrings.postTranslatorReseam),
+                ),
+            icon = lucide("languages"),
+        )
+
     val darkTheme by
         choice(
             default = "lights_out",
