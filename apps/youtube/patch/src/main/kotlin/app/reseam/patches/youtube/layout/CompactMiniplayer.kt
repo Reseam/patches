@@ -3,6 +3,7 @@
 
 package app.reseam.patches.youtube.layout
 
+import app.reseam.patch.PatchRuntime
 import app.reseam.patch.Type
 import app.reseam.patch.after
 import app.reseam.patch.before
@@ -14,6 +15,7 @@ import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
+import app.reseam.patches.youtube.internal.mainActivityHook
 import app.reseam.youtube.miniplayer.bindings.CompactMiniplayer
 import app.reseam.youtube.settings.PlayerSettings
 import app.reseam.youtube.settings.YouTubeStrings
@@ -21,9 +23,11 @@ import app.reseam.youtube.settings.YouTubeStrings
 val compactMiniplayer = patch("Compact miniplayer") {
     description("Adds an option to show the minimized video as a bar above the navigation bar.")
     compatibleWith(YOUTUBE)
+    dependsOn(mainActivityHook)
     settings(youTubeSettings, section(YouTubeSettingsPages.Player, YouTubeStrings.sectionMiniplayer, PlayerSettings.compactMiniplayer))
 
     execute {
+        floatingRect().before { param(0).assign(CompactMiniplayer.floatingRect(param(0))) }
         watchLayout("onLayout").after { CompactMiniplayer.layout(thisObject) }
         watchLayout("onInterceptTouchEvent").before {
             whenTrue(CompactMiniplayer.ownsTouch(thisObject, param(0))) {
@@ -38,6 +42,13 @@ val compactMiniplayer = patch("Compact miniplayer") {
         videoMetadata.after { CompactMiniplayer.setMetadata(param(0), param(1)) }
         controlsVideoState.before { CompactMiniplayer.setVideoState(param(0)) }
     }
+}
+
+// Places the floating miniplayer: YouTube animates the player to this rect on minimize and from it on expand.
+private fun PatchRuntime.floatingRect() = method("miniplayer floating rect") {
+    inClass(klass(miniplayerSizing().owner))
+    params("android.graphics.Rect")
+    returns(Type.Void)
 }
 
 // Lays out the player, the miniplayer and the watch panel.

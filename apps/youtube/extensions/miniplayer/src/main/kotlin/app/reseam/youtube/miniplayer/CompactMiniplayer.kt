@@ -5,6 +5,7 @@
 
 package app.reseam.youtube.miniplayer
 
+import android.content.Context
 import android.graphics.Rect
 import android.view.MotionEvent
 import android.view.View
@@ -17,6 +18,7 @@ import app.reseam.bundle.Logger
 import app.reseam.bundle.identifier
 import app.reseam.bundle.isMainThread
 import app.reseam.runtime.Export
+import app.reseam.youtube.core.YouTubeContext
 import app.reseam.youtube.settings.PlayerSettings
 import java.util.Collections
 import java.util.WeakHashMap
@@ -42,6 +44,18 @@ fun setVideoState(state: Enum<*>?) {
     if (isPlaying == playing) return
     playing = isPlaying
     bindAll()
+}
+
+/** Moves the floating miniplayer into the bar, so that YouTube animates the player to and from it. */
+@Export
+fun floatingRect(rect: Rect): Rect {
+    if (!PlayerSettings.compactMiniplayer.value) return rect
+    val activity = YouTubeContext.mainActivity ?: return rect
+    val height = activity.dimension("floaty_bar_height")
+    // Before the watch page is laid out, the floating miniplayer's own bottom edge stands in for the navigation bar.
+    val watchLayout = activity.window.decorView.findByName("watch_player")?.parent as? View
+    val bottom = watchLayout?.navigationTop() ?: rect.bottom
+    return Rect(0, bottom - height, videoWidth(height), bottom)
 }
 
 @Export
@@ -81,8 +95,8 @@ private fun bar(watchLayout: View): CompactBar? {
 
 /**
  * YouTube keeps inflating the bar miniplayer's views and lays them out over the floating miniplayer, but no longer
- * shows or fills them. While the miniplayer is open, the bar takes the full width above the navigation bar with the
- * video at its start, and its buttons act through the floating miniplayer's own buttons.
+ * shows or fills them. Once YouTube has placed the player in the bar's video slot, the bar takes the full width around
+ * it, and its buttons act through the floating miniplayer's own buttons.
  */
 private class CompactBar(val layout: ViewGroup) {
     private val container = layout.find("floaty_bar_controls_view")
@@ -97,9 +111,9 @@ private class CompactBar(val layout: ViewGroup) {
     private val timeBarLine = timeBar.getChildAt(0) ?: error("Missing miniplayer view: time bar line")
     // The floating miniplayer's overlays and the watch time bar have no room in the bar.
     private val floatingViews = listOf(player.find("player_overlays"), layout.find("watch_while_time_bar_view"))
-    private val hiddenVisibility = mutableMapOf<View, Int>()
-    private val barHeight = dimension("floaty_bar_height")
-    private val timeLine = dimension("floaty_inline_time_bar_size")
+    private val overriddenVisibility = mutableMapOf<View, Int>()
+    private val barHeight = layout.context.dimension("floaty_bar_height")
+    private val timeLine = layout.context.dimension("floaty_inline_time_bar_size")
     private val touchSlop = ViewConfiguration.get(layout.context).scaledTouchSlop
     private val bounds = Rect()
     private val location = IntArray(2)
@@ -118,29 +132,24 @@ private class CompactBar(val layout: ViewGroup) {
     fun post(action: () -> Unit) = layout.post(action)
 
     fun layout(enabled: Boolean) {
-        // YouTube shows the container over the floating miniplayer; some releases also keep it shown but empty.
-        active = enabled && container.visibility == View.VISIBLE && container.width > 0 && container.height > 0
+        // The player has the slot's size only once minimizing ends, and loses it as soon as expanding starts.
+        active = enabled && container.visibility == View.VISIBLE &&
+            player.left == 0 && player.height == barHeight && player.width == videoWidth(barHeight)
         if (!active) {
-            hiddenVisibility.forEach { (view, visibility) -> view.visibility = visibility }
-            hiddenVisibility.clear()
+            overriddenVisibility.forEach { (view, visibility) -> view.visibility = visibility }
+            overriddenVisibility.clear()
             return
         }
-        floatingViews.forEach { view ->
-            hiddenVisibility.getOrPut(view) { view.visibility }
-            view.visibility = View.INVISIBLE
-        }
+        floatingViews.forEach { override(it, View.INVISIBLE) }
+        override(controls, View.VISIBLE)
         loading.visibility = View.GONE
-        val bottom = navigationTop() ?: container.bottom
-        val top = bottom - barHeight
-        val videoWidth = barHeight * 16 / 9
-        controls.visibility = View.VISIBLE
+        val top = player.top
+        val bottom = player.bottom
         container.measure(exactly(layout.width), exactly(barHeight))
         container.layout(0, top, layout.width, bottom)
         // Releases that still have the bar's own code give the controls a margin of their own.
-        controls.measure(exactly(layout.width - videoWidth), exactly(barHeight))
-        controls.layout(videoWidth, 0, layout.width, barHeight)
-        player.measure(exactly(videoWidth), exactly(barHeight))
-        player.layout(0, top, videoWidth, bottom)
+        controls.measure(exactly(layout.width - player.width), exactly(barHeight))
+        controls.layout(player.width, 0, layout.width, barHeight)
         // The time bar draws its line through its middle, which belongs along the bar's bottom edge.
         timeBar.measure(exactly(layout.width), exactly(barHeight))
         val timeBarHeight = timeBarLine.measuredHeight
@@ -149,6 +158,11 @@ private class CompactBar(val layout: ViewGroup) {
         timeBar.layout(0, timeBarTop, layout.width, timeBarTop + timeBarHeight)
         bounds.set(0, top, layout.width, bottom)
         bind()
+    }
+
+    private fun override(view: View, visibility: Int) {
+        overriddenVisibility.getOrPut(view) { view.visibility }
+        view.visibility = visibility
     }
 
     fun bind() {
@@ -195,24 +209,25 @@ private class CompactBar(val layout: ViewGroup) {
         layout.findByName(name)?.performClick() ?: Logger.error { "Missing miniplayer button: $name" }
     }
 
-    private fun dimension(name: String) =
-        layout.resources.getDimensionPixelSize(layout.context.identifier(name, "dimen"))
-
-    private fun navigationTop(): Int? {
-        val navigation = layout.rootView.findByName("bottom_bar_container")?.takeIf { it.isShown && it.height > 0 }
-            ?: return null
-        navigation.getLocationInWindow(location)
-        val navigationTop = location[1]
-        layout.getLocationInWindow(location)
-        return navigationTop - location[1]
-    }
-
     private fun View.contains(event: MotionEvent): Boolean {
         getLocationOnScreen(location)
         return event.rawX >= location[0] && event.rawX < location[0] + width &&
             event.rawY >= location[1] && event.rawY < location[1] + height
     }
 }
+
+private fun videoWidth(barHeight: Int) = barHeight * 16 / 9
+
+private fun View.navigationTop(): Int? {
+    val navigation = rootView.findByName("bottom_bar_container")?.takeIf { it.isShown && it.height > 0 } ?: return null
+    val location = IntArray(2)
+    navigation.getLocationInWindow(location)
+    val navigationTop = location[1]
+    getLocationInWindow(location)
+    return navigationTop - location[1]
+}
+
+private fun Context.dimension(name: String) = resources.getDimensionPixelSize(identifier(name, "dimen"))
 
 private val MotionEvent.isLast: Boolean
     get() = actionMasked == MotionEvent.ACTION_UP || actionMasked == MotionEvent.ACTION_CANCEL

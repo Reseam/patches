@@ -3,6 +3,8 @@
 
 package app.reseam.patches.youtube.layout
 
+import app.reseam.patch.MethodTarget
+import app.reseam.patch.PatchRuntime
 import app.reseam.patch.Type
 import app.reseam.patch.after
 import app.reseam.patch.before
@@ -56,12 +58,7 @@ val miniplayer = patch("Miniplayer") {
             }
         }
 
-        val maxSize = resources.id("dimen", "miniplayer_max_size")?.toLong()
-            ?: error("dimen/miniplayer_max_size is missing")
-        val sizing = method("miniplayerSizing") {
-            flags(AccessFlags.CONSTRUCTOR)
-            literals(maxSize)
-        }
+        val sizing = miniplayerSizing()
         // The first 192dp conversion initializes the current width. The later conversion
         // initializes the resize minimum; leave that native constraint intact. Some releases
         // inline the conversion as 192f times the density, so the width is taken where it is stored.
@@ -70,6 +67,16 @@ val miniplayer = patch("Miniplayer") {
             .captureAs("width", Type.Int).before {
                 capture("width").assign(Miniplayer.width(capture("width")))
             }
+    }
+}
+
+// Sizes and places the floating miniplayer.
+internal fun PatchRuntime.miniplayerSizing(): MethodTarget {
+    val maxSize = resources.id("dimen", "miniplayer_max_size")?.toLong()
+        ?: error("dimen/miniplayer_max_size is missing")
+    return method("miniplayerSizing") {
+        flags(AccessFlags.CONSTRUCTOR)
+        literals(maxSize)
     }
 }
 
