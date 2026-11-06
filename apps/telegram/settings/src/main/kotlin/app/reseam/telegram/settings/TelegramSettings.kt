@@ -5,19 +5,19 @@ package app.reseam.telegram.settings
 
 import app.reseam.patch.settings.Choice
 import app.reseam.patch.settings.SettingsGroup
+import app.reseam.patch.settings.Vector
 import app.reseam.patch.settings.choice
 import app.reseam.patch.settings.toggle
-import app.reseam.patches.bundle.lucide
 
 object TelegramSettings : SettingsGroup(TelegramStrings) {
-    val hideSponsoredAds by toggle(default = true, icon = lucide("megaphone-off"))
-    val disableAutoUpdate by toggle(default = true, icon = lucide("refresh-cw-off"))
-    val unlockPremium by toggle(default = true, icon = lucide("gem"))
-    val hideTyping by toggle(default = false, icon = lucide("keyboard-off"))
-    val boostDownloads by toggle(default = true, icon = lucide("download"))
-    val saveFromRestricted by toggle(default = true, icon = lucide("lock-open"))
-    val removePlayStoreRestrictions by toggle(default = true, icon = lucide("store"))
-    val recoverDeleted by toggle(default = false, icon = lucide("message-square-x"))
+    val hideSponsoredAds by toggle(default = true, icon = Vector.lucide("megaphone-off"))
+    val disableAutoUpdate by toggle(default = true, icon = Vector.lucide("refresh-cw-off"))
+    val unlockPremium by toggle(default = true, icon = Vector.lucide("gem"))
+    val hideTyping by toggle(default = false, icon = Vector.lucide("keyboard-off"))
+    val boostDownloads by toggle(default = true, icon = Vector.lucide("download"))
+    val saveFromRestricted by toggle(default = true, icon = Vector.lucide("lock-open"))
+    val removePlayStoreRestrictions by toggle(default = true, icon = Vector.lucide("store"))
+    val recoverDeleted by toggle(default = false, icon = Vector.lucide("message-square-x"))
     val recoverDeletedChats by
         choice(
             default = "chosen",
@@ -26,7 +26,7 @@ object TelegramSettings : SettingsGroup(TelegramStrings) {
                     Choice("chosen", TelegramStrings.recoverDeletedChatsChosen),
                     Choice("all", TelegramStrings.recoverDeletedChatsAll),
                 ),
-            icon = lucide("messages-square"),
+            icon = Vector.lucide("messages-square"),
         )
-    val allowScreenshots by toggle(default = true, icon = lucide("camera"))
+    val allowScreenshots by toggle(default = true, icon = Vector.lucide("camera"))
 }

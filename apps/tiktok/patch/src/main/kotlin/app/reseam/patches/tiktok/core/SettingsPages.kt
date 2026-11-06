@@ -4,7 +4,7 @@
 package app.reseam.patches.tiktok.core
 
 import app.reseam.patch.settings.SettingsPage
-import app.reseam.patches.bundle.lucide
+import app.reseam.patch.settings.Vector
 import app.reseam.tiktok.settings.TikTokStrings
 
 internal object TikTokSettingsPages {
@@ -14,7 +14,7 @@ internal object TikTokSettingsPages {
             TikTokStrings.pageFeed,
             order = 0,
             summary = TikTokStrings.pageFeedSummary,
-            icon = lucide("layout-list"),
+            icon = Vector.lucide("layout-list"),
         )
     val Video =
         SettingsPage(
@@ -22,7 +22,7 @@ internal object TikTokSettingsPages {
             TikTokStrings.pageVideo,
             order = 10,
             summary = TikTokStrings.pageVideoSummary,
-            icon = lucide("clapperboard"),
+            icon = Vector.lucide("clapperboard"),
         )
     val Playback =
         SettingsPage(
@@ -30,7 +30,7 @@ internal object TikTokSettingsPages {
             TikTokStrings.pagePlayback,
             order = 20,
             summary = TikTokStrings.pagePlaybackSummary,
-            icon = lucide("play"),
+            icon = Vector.lucide("play"),
         )
     val SearchAndApp =
         SettingsPage(
@@ -38,7 +38,7 @@ internal object TikTokSettingsPages {
             TikTokStrings.pageSearchAndApp,
             order = 30,
             summary = TikTokStrings.pageSearchAndAppSummary,
-            icon = lucide("layout-dashboard"),
+            icon = Vector.lucide("layout-dashboard"),
         )
     val Inbox =
         SettingsPage(
@@ -46,7 +46,7 @@ internal object TikTokSettingsPages {
             TikTokStrings.pageInbox,
             order = 40,
             summary = TikTokStrings.pageInboxSummary,
-            icon = lucide("inbox"),
+            icon = Vector.lucide("inbox"),
         )
     val Downloads =
         SettingsPage(
@@ -54,7 +54,7 @@ internal object TikTokSettingsPages {
             TikTokStrings.pageDownloads,
             order = 50,
             summary = TikTokStrings.pageDownloadsSummary,
-            icon = lucide("download"),
+            icon = Vector.lucide("download"),
         )
     val Privacy =
         SettingsPage(
@@ -62,7 +62,7 @@ internal object TikTokSettingsPages {
             TikTokStrings.pagePrivacy,
             order = 60,
             summary = TikTokStrings.pagePrivacySummary,
-            icon = lucide("shield"),
+            icon = Vector.lucide("shield"),
         )
     val Advanced =
         SettingsPage(
@@ -70,6 +70,6 @@ internal object TikTokSettingsPages {
             TikTokStrings.pageAdvanced,
             order = 70,
             summary = TikTokStrings.pageAdvancedSummary,
-            icon = lucide("sliders-horizontal"),
+            icon = Vector.lucide("sliders-horizontal"),
         )
 }

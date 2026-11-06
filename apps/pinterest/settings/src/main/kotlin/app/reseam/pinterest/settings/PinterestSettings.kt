@@ -4,35 +4,35 @@
 package app.reseam.pinterest.settings
 
 import app.reseam.patch.settings.SettingsGroup
+import app.reseam.patch.settings.Vector
 import app.reseam.patch.settings.folder
 import app.reseam.patch.settings.toggle
-import app.reseam.patches.bundle.lucide
 
 object FeedSettings : SettingsGroup(PinterestStrings) {
-    val hideAds by toggle(default = true, icon = lucide("megaphone-off"))
-    val hideShopping by toggle(default = false, icon = lucide("shopping-bag"))
+    val hideAds by toggle(default = true, icon = Vector.lucide("megaphone-off"))
+    val hideShopping by toggle(default = false, icon = Vector.lucide("shopping-bag"))
 }
 
 object UpdateSettings : SettingsGroup(PinterestStrings) {
-    val disableUpdatePrompts by toggle(default = true, icon = lucide("shield-check"))
+    val disableUpdatePrompts by toggle(default = true, icon = Vector.lucide("shield-check"))
 }
 
 object ShareSettings : SettingsGroup(PinterestStrings) {
-    val hideScreenshotShare by toggle(default = true, icon = lucide("camera"))
+    val hideScreenshotShare by toggle(default = true, icon = Vector.lucide("camera"))
 }
 
 object ImageSettings : SettingsGroup(PinterestStrings) {
-    val originalQuality by toggle(default = true, icon = lucide("image"))
+    val originalQuality by toggle(default = true, icon = Vector.lucide("image"))
 }
 
 object DownloadSettings : SettingsGroup(PinterestStrings) {
-    val downloadFolder by folder(default = "Pinterest", icon = lucide("folder-open"))
+    val downloadFolder by folder(default = "Pinterest", icon = Vector.lucide("folder-open"))
 }
 
 object CloseupSettings : SettingsGroup(PinterestStrings) {
-    val showPostedDate by toggle(default = true, icon = lucide("calendar"))
+    val showPostedDate by toggle(default = true, icon = Vector.lucide("calendar"))
 }
 
 object PromptSettings : SettingsGroup(PinterestStrings) {
-    val hideSurveys by toggle(default = true, icon = lucide("message-circle-off"))
+    val hideSurveys by toggle(default = true, icon = Vector.lucide("message-circle-off"))
 }

@@ -6,6 +6,7 @@ package app.reseam.patches.bundle
 import app.reseam.bundle.settings.BundleStrings
 import app.reseam.patch.settings.About
 import app.reseam.patch.settings.Link
+import app.reseam.patch.settings.Vector
 import app.reseam.patch.settings.Verbatim
 
 private const val SITE = "https://reseam.app"
@@ -17,7 +18,7 @@ val reseamAbout =
             Link(Verbatim(name), "$SITE/$slug", vector("/socials/$slug.svg"))
         },
         actions = listOf(
-            Link(BundleStrings.bundleDonate, "$SITE/donate/", lucide("heart")),
-            Link(BundleStrings.bundleRequestPatch, "$SITE/requests/", lucide("plus")),
+            Link(BundleStrings.bundleDonate, "$SITE/donate/", Vector.lucide("heart")),
+            Link(BundleStrings.bundleRequestPatch, "$SITE/requests/", Vector.lucide("plus")),
         ),
     )

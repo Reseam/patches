@@ -82,5 +82,3 @@ internal fun resource(path: String) =
     Files::class.java.getResource(path) ?: error("$path is missing from the bundle's patch jar")
 
 internal fun vector(path: String) = Vector.svg(resource(path).readText())
-
-fun lucide(name: String) = vector("/icons/$name.svg")

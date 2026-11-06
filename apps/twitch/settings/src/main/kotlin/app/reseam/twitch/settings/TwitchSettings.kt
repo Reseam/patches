@@ -4,25 +4,25 @@
 package app.reseam.twitch.settings
 
 import app.reseam.patch.settings.SettingsGroup
+import app.reseam.patch.settings.Vector
 import app.reseam.patch.settings.text
 import app.reseam.patch.settings.toggle
-import app.reseam.patches.bundle.lucide
 
 object AdsSettings : SettingsGroup(TwitchStrings) {
-    val blockVideoAds by toggle(default = true, icon = lucide("megaphone-off"))
-    val blockEmbeddedAds by toggle(default = true, icon = lucide("monitor-off"))
-    val embeddedAdsProxy by text(default = "https://eu.luminous.dev", icon = lucide("server"))
-    val ignoreAdEvents by toggle(default = true, icon = lucide("bell-off"))
+    val blockVideoAds by toggle(default = true, icon = Vector.lucide("megaphone-off"))
+    val blockEmbeddedAds by toggle(default = true, icon = Vector.lucide("monitor-off"))
+    val embeddedAdsProxy by text(default = "https://eu.luminous.dev", icon = Vector.lucide("server"))
+    val ignoreAdEvents by toggle(default = true, icon = Vector.lucide("bell-off"))
 }
 
 object PrivacySettings : SettingsGroup(TwitchStrings) {
-    val blockAnalytics by toggle(default = true, icon = lucide("shield"))
+    val blockAnalytics by toggle(default = true, icon = Vector.lucide("shield"))
 }
 
 object UpdateSettings : SettingsGroup(TwitchStrings) {
-    val disableUpdatePrompts by toggle(default = true, icon = lucide("shield-check"))
+    val disableUpdatePrompts by toggle(default = true, icon = Vector.lucide("shield-check"))
 }
 
 object DeveloperSettings : SettingsGroup(TwitchStrings) {
-    val debugMode by toggle(default = true, icon = lucide("bug"))
+    val debugMode by toggle(default = true, icon = Vector.lucide("bug"))
 }
