@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import ChannelMessages from "discord:lib/ChannelMessages.tsx";
+import { resolveHighlightThemedColors } from "discord:modules/messages/native/renderer/RowGeneratorUtils.tsx";
 
 const MAX_MESSAGES = 1000;
 const MAX_EDITS = 3;
@@ -81,6 +82,14 @@ export function withHistory(args: any) {
     const shown = recordShown(args.message);
     if (args.isEditing || (!shown.deleted && shown.edits.length === 0)) return args;
     return { ...args, message: args.message.set("content", displayText(args.message.content, shown)) };
+}
+
+export function deletedHighlight(args: { message: Message; theme: unknown; isEditing: boolean }, highlight: unknown) {
+    if (args.isEditing || shownMessages.get(messageKey(args.message.channel_id, args.message.id))?.deleted !== true) {
+        return highlight;
+    }
+    const colors = resolveHighlightThemedColors(args.theme);
+    return { backgroundColor: colors.automodBlockedBackgroundColor, gutterColor: colors.automodBlockedGutterColor };
 }
 
 // Kept text belongs to the account that saw it.

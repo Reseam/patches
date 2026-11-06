@@ -14,7 +14,7 @@ import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordSettings
 
 val keepDeletedMessages = patch("Keep deleted messages") {
-    description("Keep loaded messages after deletion and mark them as deleted.")
+    description("Keep loaded messages after deletion and highlight them in red.")
     compatibleWith(DISCORD)
     enabledByDefault(false)
     dependsOn(messageHistory)
@@ -29,6 +29,7 @@ val keepDeletedMessages = patch("Keep deleted messages") {
                 param(0).assign(MessageHistory.withoutKeptMessages(param(0)))
             }
             handleMessageDeleteBulk.after { returnValue(MessageHistory.bulkDeleteResult(result)) }
+            createBackgroundHighlight.after { returnValue(MessageHistory.deletedHighlight(param(0), result)) }
         }
     }
 }
@@ -42,5 +43,12 @@ private val handleMessageDelete = function {
 private val handleMessageDeleteBulk = function {
     name("handleMessageDeleteBulk")
     strings("revealedMessageId", "removeMany", "commit")
+    paramCount(1)
+}
+
+/** Picks a chat row's background and gutter colors, such as the mention and automod highlights. */
+private val createBackgroundHighlight = function {
+    name("createBackgroundHighlight")
+    strings("isAutomodBlockedMessage", "editingColor")
     paramCount(1)
 }
