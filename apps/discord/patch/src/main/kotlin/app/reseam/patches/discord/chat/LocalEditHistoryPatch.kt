@@ -16,7 +16,6 @@ import app.reseam.patches.discord.core.discordSettings
 val localEditHistory = patch("Local edit history") {
     description("Show up to three previously displayed text versions of edited messages.")
     compatibleWith(DISCORD)
-    enabledByDefault(false)
     dependsOn(messageHistory)
     settings(discordSettings, section(DiscordStrings.sectionChat, DiscordSettings.localEditHistory))
 

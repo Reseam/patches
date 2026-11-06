@@ -17,7 +17,6 @@ import app.reseam.patches.discord.core.discordSettings
 val disableMessageSwipes = patch("Disable message swipes") {
     description("Stop swipes from starting replies or edits.")
     compatibleWith(DISCORD)
-    enabledByDefault(false)
     settings(discordSettings, section(DiscordStrings.sectionChat, DiscordSettings.disableMessageSwipes))
 
     execute {

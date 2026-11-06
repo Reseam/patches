@@ -15,7 +15,6 @@ import app.reseam.patches.discord.core.discordSettings
 val staticChatGifs = patch("Static chat GIFs") {
     description("Stop GIFs from playing automatically in chat.")
     compatibleWith(DISCORD)
-    enabledByDefault(false)
     settings(discordSettings, section(DiscordStrings.sectionMedia, DiscordSettings.staticChatGifs))
 
     execute {

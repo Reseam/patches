@@ -15,7 +15,6 @@ import app.reseam.patches.discord.core.discordSettings
 val repliesWithoutPings = patch("Replies without pings") {
     description("Start replies with mentions turned off. You can still turn them on.")
     compatibleWith(DISCORD)
-    enabledByDefault(false)
     settings(discordSettings, section(DiscordStrings.sectionChat, DiscordSettings.repliesWithoutPings))
 
     execute {

@@ -15,7 +15,6 @@ import app.reseam.patches.discord.core.discordSettings
 val staticChatEmoji = patch("Static chat emoji") {
     description("Stop custom emoji from animating in chat.")
     compatibleWith(DISCORD)
-    enabledByDefault(false)
     settings(discordSettings, section(DiscordStrings.sectionMedia, DiscordSettings.staticChatEmoji))
 
     execute {

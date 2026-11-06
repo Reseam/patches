@@ -16,7 +16,6 @@ import app.reseam.patches.discord.core.discordSettings
 val developerMenu = patch("Developer menu") {
     description("Show Discord's existing developer tools in Settings.")
     compatibleWith(DISCORD)
-    enabledByDefault(false)
     settings(discordSettings, section(DiscordStrings.sectionDeveloper, DiscordSettings.developerMenu))
 
     execute {

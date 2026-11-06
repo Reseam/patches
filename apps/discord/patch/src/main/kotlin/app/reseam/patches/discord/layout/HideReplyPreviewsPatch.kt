@@ -15,7 +15,6 @@ import app.reseam.patches.discord.core.discordSettings
 val hideReplyPreviews = patch("Hide reply previews") {
     description("Hide the quoted message above replies.")
     compatibleWith(DISCORD)
-    enabledByDefault(false)
     settings(discordSettings, section(DiscordStrings.sectionLayout, DiscordSettings.hideReplyPreviews))
 
     execute {

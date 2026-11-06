@@ -16,7 +16,6 @@ import app.reseam.patches.discord.core.discordSettings
 val keepDeletedMessages = patch("Keep deleted messages") {
     description("Keep loaded messages after deletion and highlight them in red.")
     compatibleWith(DISCORD)
-    enabledByDefault(false)
     dependsOn(messageHistory)
     settings(discordSettings, section(DiscordStrings.sectionChat, DiscordSettings.keepDeletedMessages))
 

@@ -16,7 +16,6 @@ import app.reseam.patches.discord.core.discordSettings
 val hideLinkCards = patch("Hide link cards") {
     description("Hide message preview cards while keeping text links, attachments and emoji or sticker images.")
     compatibleWith(DISCORD)
-    enabledByDefault(false)
     settings(discordSettings, section(DiscordStrings.sectionLayout, DiscordSettings.hideLinkCards))
 
     execute {

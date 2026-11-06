@@ -17,7 +17,6 @@ import app.reseam.patches.discord.core.discordSettings
 val hideBlockedMessages = patch("Hide blocked messages") {
     description("Remove messages from blocked and ignored users from chat entirely.")
     compatibleWith(DISCORD)
-    enabledByDefault(false)
     dependsOn(discordModules)
     settings(discordSettings, section(DiscordStrings.sectionChat, DiscordSettings.hideBlockedMessages))
 

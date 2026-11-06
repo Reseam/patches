@@ -17,7 +17,6 @@ import app.reseam.patches.discord.core.discordSettings
 val instantChatJumps = patch("Instant chat jumps") {
     description("Jump to messages without animated scrolling.")
     compatibleWith(DISCORD)
-    enabledByDefault(false)
     settings(discordSettings, section(DiscordStrings.sectionChat, DiscordSettings.instantChatJumps))
 
     execute {

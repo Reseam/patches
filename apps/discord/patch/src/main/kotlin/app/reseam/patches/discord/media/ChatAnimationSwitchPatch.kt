@@ -17,7 +17,6 @@ import app.reseam.patches.discord.core.discordSettings
 val chatAnimationSwitch = patch("Chat animation switch") {
     description("Use the GIF autoplay switch to also turn off chat emoji animation.")
     compatibleWith(DISCORD)
-    enabledByDefault(false)
     settings(discordSettings, section(DiscordStrings.sectionMedia, DiscordSettings.chatAnimationSwitch))
 
     execute {

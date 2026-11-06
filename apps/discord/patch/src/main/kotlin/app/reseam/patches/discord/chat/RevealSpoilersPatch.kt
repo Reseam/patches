@@ -16,7 +16,6 @@ import app.reseam.patches.discord.core.discordSettings
 val revealSpoilers = patch("Reveal spoilers") {
     description("Show spoiler text and media without tapping to reveal them.")
     compatibleWith(DISCORD)
-    enabledByDefault(false)
     settings(discordSettings, section(DiscordStrings.sectionChat, DiscordSettings.revealSpoilers))
 
     execute {

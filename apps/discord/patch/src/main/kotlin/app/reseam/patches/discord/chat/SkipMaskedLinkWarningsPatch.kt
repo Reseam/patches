@@ -15,7 +15,6 @@ import app.reseam.patches.discord.core.discordSettings
 val skipMaskedLinkWarnings = patch("Skip masked link warnings") {
     description("Open masked links without the destination warning.")
     compatibleWith(DISCORD)
-    enabledByDefault(false)
     settings(discordSettings, section(DiscordStrings.sectionChat, DiscordSettings.skipMaskedLinkWarnings))
 
     execute {

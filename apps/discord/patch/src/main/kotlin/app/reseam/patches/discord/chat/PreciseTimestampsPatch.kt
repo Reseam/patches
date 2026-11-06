@@ -16,7 +16,6 @@ import app.reseam.patches.discord.core.discordSettings
 val preciseTimestamps = patch("Precise timestamps") {
     description("Show seconds in chat timestamps.")
     compatibleWith(DISCORD)
-    enabledByDefault(false)
     settings(discordSettings, section(DiscordStrings.sectionChat, DiscordSettings.preciseTimestamps))
 
     execute {

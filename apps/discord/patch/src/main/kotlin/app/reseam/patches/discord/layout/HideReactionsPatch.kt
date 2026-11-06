@@ -15,7 +15,6 @@ import app.reseam.patches.discord.core.discordSettings
 val hideReactions = patch("Hide reactions") {
     description("Hide reaction chips below messages.")
     compatibleWith(DISCORD)
-    enabledByDefault(false)
     settings(discordSettings, section(DiscordStrings.sectionLayout, DiscordSettings.hideReactions))
 
     execute {

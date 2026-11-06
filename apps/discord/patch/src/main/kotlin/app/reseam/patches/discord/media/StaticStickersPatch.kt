@@ -15,7 +15,6 @@ import app.reseam.patches.discord.core.discordSettings
 val staticStickers = patch("Static stickers") {
     description("Use still sticker previews and chat images.")
     compatibleWith(DISCORD)
-    enabledByDefault(false)
     settings(discordSettings, section(DiscordStrings.sectionMedia, DiscordSettings.staticStickers))
 
     execute {

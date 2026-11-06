@@ -15,7 +15,6 @@ import app.reseam.patches.discord.core.discordSettings
 val betterVideoQuality = patch("Better video quality") {
     description("Use a higher video quality when preparing uploads. Upload limits stay the same.")
     compatibleWith(DISCORD)
-    enabledByDefault(false)
     settings(discordSettings, section(DiscordStrings.sectionMedia, DiscordSettings.betterVideoQuality))
 
     execute {
