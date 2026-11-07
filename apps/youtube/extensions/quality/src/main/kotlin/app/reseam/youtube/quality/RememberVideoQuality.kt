@@ -6,15 +6,37 @@
 
 package app.reseam.youtube.quality
 
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import app.reseam.bundle.Logger
+import app.reseam.runtime.ChoiceValue
 import app.reseam.runtime.Export
+import app.reseam.youtube.core.YouTubeContext
 import app.reseam.youtube.core.debug
 import app.reseam.youtube.settings.VideoSettings
 import app.reseam.youtube.video.VideoInformation
 import app.reseam.youtube.video.VideoQuality
 
+private const val SAME_AS_WIFI = "wifi"
+
+private val onMobileData: Boolean
+    get() {
+        val connectivity =
+            YouTubeContext.applicationContext.getSystemService(ConnectivityManager::class.java)
+        return connectivity.getNetworkCapabilities(connectivity.activeNetwork)
+            ?.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) == true
+    }
+
+private val networkQualitySetting: ChoiceValue
+    get() = if (onMobileData) VideoSettings.videoQualityDefaultMobile else VideoSettings.videoQualityDefault
+
 val defaultQualityResolution: Int
-    get() = VideoSettings.videoQualityDefault.value.toIntOrNull() ?: VideoQuality.AUTOMATIC
+    get() {
+        val resolution =
+            networkQualitySetting.value.takeUnless { it == SAME_AS_WIFI }
+                ?: VideoSettings.videoQualityDefault.value
+        return resolution.toIntOrNull() ?: VideoQuality.AUTOMATIC
+    }
 
 @Export
 fun newVideoStarted(controller: VideoInformation.PlaybackController) {
@@ -26,7 +48,7 @@ fun newVideoStarted(controller: VideoInformation.PlaybackController) {
 @Export
 fun userChangedQuality(resolution: Int) {
     if (!VideoSettings.rememberVideoQuality.value) return
-    VideoSettings.videoQualityDefault.value = resolution.toString()
+    networkQualitySetting.value = resolution.toString()
     Logger.debug { "Remembered video quality: $resolution" }
 }
 

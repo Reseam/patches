@@ -9,6 +9,21 @@ import app.reseam.patch.settings.choice
 import app.reseam.patch.settings.text
 import app.reseam.patch.settings.toggle
 
+private const val VIDEO_QUALITY_SAME_AS_WIFI = "wifi"
+
+private val videoQualityChoices =
+    listOf(
+        Choice("-2", YouTubeStrings.videoQualityDefault2),
+        Choice("144", YouTubeStrings.videoQualityDefault144),
+        Choice("240", YouTubeStrings.videoQualityDefault240),
+        Choice("360", YouTubeStrings.videoQualityDefault360),
+        Choice("480", YouTubeStrings.videoQualityDefault480),
+        Choice("720", YouTubeStrings.videoQualityDefault720),
+        Choice("1080", YouTubeStrings.videoQualityDefault1080),
+        Choice("1440", YouTubeStrings.videoQualityDefault1440),
+        Choice("2160", YouTubeStrings.videoQualityDefault2160),
+    )
+
 object VideoSettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
     val sbVotingButton by toggle(default = false)
     val sbCreateNewSegment by toggle(default = false)
@@ -29,21 +44,17 @@ object VideoSettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
     val forceAvcCodec by toggle(default = false)
     val unlockQueue by toggle(default = true)
     val restoreCastQueue by toggle(default = true)
-    val videoQualityDefault by
+    val videoQualityDefault by choice(default = "-2", choices = videoQualityChoices)
+    val videoQualityDefaultMobile by
         choice(
-            default = "-2",
+            default = VIDEO_QUALITY_SAME_AS_WIFI,
             choices =
                 listOf(
-                    Choice("-2", YouTubeStrings.videoQualityDefault2),
-                    Choice("144", YouTubeStrings.videoQualityDefault144),
-                    Choice("240", YouTubeStrings.videoQualityDefault240),
-                    Choice("360", YouTubeStrings.videoQualityDefault360),
-                    Choice("480", YouTubeStrings.videoQualityDefault480),
-                    Choice("720", YouTubeStrings.videoQualityDefault720),
-                    Choice("1080", YouTubeStrings.videoQualityDefault1080),
-                    Choice("1440", YouTubeStrings.videoQualityDefault1440),
-                    Choice("2160", YouTubeStrings.videoQualityDefault2160),
-                ),
+                    Choice(
+                        VIDEO_QUALITY_SAME_AS_WIFI,
+                        YouTubeStrings.videoQualityDefaultMobileSameAsWifi,
+                    )
+                ) + videoQualityChoices,
         )
     val rememberVideoQuality by toggle(default = false)
     val advancedVideoQualityMenu by toggle(default = true)
@@ -57,4 +68,5 @@ object VideoSettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
     val rememberPlaybackSpeed by toggle(default = false)
     val removeBackgroundPlaybackRestrictions by toggle(default = true)
     val allowShortsBackgroundPlayback by toggle(default = true)
+    val disableResumingPlaybackOnReturn by toggle(default = false)
 }

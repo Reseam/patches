@@ -64,7 +64,7 @@ val rememberVideoQuality = patch("Remember video quality") {
     description("Remembers the selected video quality and applies the configured default.")
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings, videoInformationHook)
-    settings(youTubeSettings, section(YouTubeSettingsPages.Video, YouTubeStrings.sectionVideoQuality, VideoSettings.videoQualityDefault, VideoSettings.rememberVideoQuality))
+    settings(youTubeSettings, section(YouTubeSettingsPages.Video, YouTubeStrings.sectionVideoQuality, VideoSettings.videoQualityDefault, VideoSettings.videoQualityDefaultMobile, VideoSettings.rememberVideoQuality))
 
     execute {
         onCreateHook(RememberVideoQuality.newVideoStarted)
