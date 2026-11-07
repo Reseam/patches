@@ -8,6 +8,7 @@ import app.reseam.patch.Type
 import app.reseam.patch.after
 import app.reseam.patch.dex.AccessFlags
 import app.reseam.patch.method
+import app.reseam.patch.methods
 import app.reseam.patch.points
 import app.reseam.patch.settings.gate
 import app.reseam.youtube.hidelayout.bindings.LayoutViews
@@ -17,21 +18,22 @@ internal fun PatchRuntime.hideFeedFilterBars() {
     val filterBarHeight = requireNotNull(resources.id("dimen", "filter_bar_height")) {
         "dimen/filter_bar_height is missing"
     }.toLong()
-    val filterBar = method("filterBarHeight") {
-        flags(AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR)
+    // The feed header keeps its own copy of the bar height for its offset, so every read is zeroed.
+    val filterBarReaders = methods("filterBarHeight") {
+        flags(AccessFlags.CONSTRUCTOR)
         literals(filterBarHeight)
-        hasParam("android.widget.LinearLayout")
     }
     gate(FeedSettings.hideFilterBarFeedInFeed) {
-        filterBar.points("feedFilterBarHeight") {
+        filterBarReaders.points("feedFilterBarHeight") {
             invokeVirtual { name("getDimensionPixelSize"); params(Type.Int); returns(Type.Int) }
             argument(1) { literal(filterBarHeight) }
-        }.single()
-            .next { resultOf(Type.Int) }
-            .captureAs("height", Type.Int)
-            .after {
-                capture("height").assign(int(0))
-            }
+        }.all.ifEmpty { error("No reads of dimen/filter_bar_height") }.forEach { read ->
+            read.next { resultOf(Type.Int) }
+                .captureAs("height", Type.Int)
+                .after {
+                    capture("height").assign(int(0))
+                }
+        }
     }
 
     val barContainerHeight = requireNotNull(resources.id("dimen", "bar_container_height")) {

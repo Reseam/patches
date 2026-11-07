@@ -98,7 +98,7 @@
     <string name="alt_thumbnail_player">Player thumbnails</string>
     <string name="alt_thumbnail_search">Search thumbnails</string>
     <string name="alt_thumbnail_dearrow_api_url">DeArrow API URL</string>
-    <string name="alt_thumbnail_dearrow_api_url_summary">Crowdsourced thumbnails provided by DeArrow (dearrow.ajay.app). Restart after changing.</string>
+    <string name="alt_thumbnail_dearrow_api_url_summary">Crowdsourced thumbnails provided by DeArrow (dearrow.ajay.app).</string>
     <string name="alt_thumbnail_dearrow_connection_toast">Show DeArrow connection errors</string>
     <string name="alt_thumbnail_stills_fast">Fast video stills</string>
     <string name="alt_thumbnail_stills_fast_summary">Uses SD images without checking availability. Failed images use the original when reloaded.</string>
@@ -577,7 +577,7 @@
     <string name="unlock_queue">Unlock queue</string>
     <string name="unlock_queue_summary">Unlocks the video queue.</string>
     <string name="restore_cast_queue">Restore Cast Play/Queue dialog</string>
-    <string name="restore_cast_queue_summary">Keeps the Cast session active and shows Play and Queue choices when selecting another video. Restart YouTube after changing this setting.</string>
+    <string name="restore_cast_queue_summary">Keeps the Cast session active and shows Play and Queue choices when selecting another video.</string>
     <string name="unlock_downloads">Unlock downloads</string>
     <string name="unlock_downloads_summary">Unlocks downloads in every quality.</string>
     <string name="download_shorts">Download Shorts</string>
