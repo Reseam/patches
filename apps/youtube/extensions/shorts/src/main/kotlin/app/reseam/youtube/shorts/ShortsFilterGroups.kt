@@ -8,6 +8,7 @@ import app.reseam.youtube.litho.FilterGroup.ByteArrayFilterGroup
 import app.reseam.youtube.litho.FilterGroupList.ByteArrayFilterGroupList
 import app.reseam.youtube.litho.FilterRule
 import app.reseam.youtube.litho.LithoComponent
+import app.reseam.youtube.navigation.NavigationBar
 import app.reseam.youtube.player.EngagementPanel
 import app.reseam.youtube.player.PlayerType
 import app.reseam.youtube.settings.AdsSettings
@@ -16,9 +17,13 @@ import app.reseam.youtube.settings.ShortsSettings
 private val LithoComponent.isPlayerOverlay: Boolean
     get() = playerOverlayPrefixes.any(path::startsWith)
 
-// A carousel's labels are separate pills; each path ends at its button: "…|button.eml-fe|<hash>|".
+// A carousel's labels are separate pills, each ending at its button.
 private val LithoComponent.isCarouselPill: Boolean
-    get() = path.removeSuffix("|").substringBeforeLast('|').substringAfterLast('|').startsWith("button.e")
+    get() = endsAt("button.e")
+
+// A tree's parts share its identifier; only the root's element holds the whole tree.
+private val LithoComponent.isTreeRoot: Boolean
+    get() = path.indexOf(".e", identifier.length) < 0
 
 private val playerOverlayPrefixes =
     listOf("reel_channel_bar.e", "reel_metapanel.e", "reel_player_overlay.e")
@@ -27,6 +32,7 @@ internal class ShortsFilterGroups {
     private val channelHeaderBuffer =
         ByteArrayFilterGroup(ShortsSettings.hideShortsChannel, "Shorts")
     private val compactVideoBuffer = ByteArrayFilterGroup(null, "/frame0.jpg")
+    private val shortsShelfHeader = ByteArrayFilterGroup(null, "ic_youtube_shorts")
     private val useSoundBuffer = ByteArrayFilterGroup(null, "yt_outline_camera_")
     private val reelCarouselBuffer =
         ByteArrayFilterGroupList().apply {
@@ -108,13 +114,31 @@ internal class ShortsFilterGroups {
             )
         }
 
+    // Search results send a Shorts grid's title as a separate header without the Shorts icon; no other
+    // result there has a separate header.
+    private fun isShortsShelfHeader(header: LithoComponent): Boolean =
+        shortsShelfHeader.check(header.elementBuffer).isFiltered ||
+            (NavigationBar.isSearchBarActive && !PlayerType.current.isMaximizedOrFullscreen)
+
+    // A channel's Shorts shelf header has the title without the Shorts icon of feed shelves; search result titles
+    // can name Shorts too.
+    private fun isChannelShortsShelfHeader(header: LithoComponent): Boolean =
+        header.isTreeRoot &&
+            channelHeaderBuffer.check(header.elementBuffer).isFiltered &&
+            !shortsShelfHeader.check(header.elementBuffer).isFiltered &&
+            !NavigationBar.isSearchBarActive &&
+            !PlayerType.current.isMaximizedOrFullscreen
+
     val identifierGroups =
         arrayOf(
             FilterRule(null, "shorts_shelf", "inline_shorts", "shorts_grid", "shorts_video_cell") {
                 shouldHideShortsFeedItems()
             },
             FilterRule(ShortsSettings.hideShortsChannel, "shorts_pivot_item"),
-            FilterRule(null, "shelf_header.e") { it.index == 0 && shouldHideShortsFeedItems() },
+            FilterRule(null, "shelf_header.e") {
+                it.index == 0 &&
+                    (isChannelShortsShelfHeader(it) || isShortsShelfHeader(it) && shouldHideShortsFeedItems())
+            },
         )
 
     val pathGroups =
@@ -125,12 +149,7 @@ internal class ShortsFilterGroups {
                 "video_lockup_with_attachment.e",
                 "video_card.e",
             ) {
-                shouldHideShortsFeedItems() && compactVideoBuffer.check(it.buffer).isFiltered
-            },
-            FilterRule(null, "shelf_header.e") {
-                it.index == 0 &&
-                    channelHeaderBuffer.check(it.buffer).isFiltered &&
-                    shouldHideShortsFeedItems()
+                shouldHideShortsFeedItems() && compactVideoBuffer.check(it.elementBuffer).isFiltered
             },
             FilterRule(ShortsSettings.hideShortsJoinButton, "sponsor_button") {
                 it.isPlayerOverlay
@@ -196,10 +215,18 @@ internal class ShortsFilterGroups {
 
 internal fun shouldHideShortsFeedItems(): Boolean {
     val hideHome = ShortsSettings.hideShortsHome.value
+    val hideSubscriptions = ShortsSettings.hideShortsSubscriptions.value
+    val hideSearch = ShortsSettings.hideShortsSearch.value
     val hideDescription = ShortsSettings.hideShortsVideoDescription.value
-    if (!hideHome && !hideDescription) return false
-    val descriptionOpen =
-        PlayerType.current.isMaximizedOrFullscreen &&
-            EngagementPanel.openPanelId == "video-description-ep-identifier"
-    return if (descriptionOpen) hideDescription else hideHome
+    if (!hideHome && !hideSubscriptions && !hideSearch && !hideDescription) return false
+    if (PlayerType.current.isMaximizedOrFullscreen) {
+        val descriptionOpen = EngagementPanel.openPanelId == "video-description-ep-identifier"
+        return if (descriptionOpen) hideDescription else hideHome
+    }
+    if (NavigationBar.isSearchBarActive) return hideSearch
+    if (!hideHome && !hideSubscriptions) return false
+    val subscriptions =
+        NavigationBar.NavigationButton.selectedNavigationButton ==
+            NavigationBar.NavigationButton.SUBSCRIPTIONS
+    return if (subscriptions) hideSubscriptions else hideHome
 }

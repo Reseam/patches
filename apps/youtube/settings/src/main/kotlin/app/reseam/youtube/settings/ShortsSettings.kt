@@ -29,6 +29,7 @@ object ShortsSettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
     val hideShortsPausedOverlayButtons by toggle(default = false)
     val hideShortsPreviewComment by toggle(default = true)
     val hideShortsRemixButton by toggle(default = false)
+    val hideShortsSearch by toggle(default = false)
     val hideShortsSaveSoundButton by toggle(default = true)
     val hideShortsSearchSuggestions by toggle(default = true)
     val hideShortsShareButton by toggle(default = false)
@@ -37,6 +38,7 @@ object ShortsSettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
     val hideShortsSoundMetadataLabel by toggle(default = false)
     val hideShortsStickers by toggle(default = true)
     val hideShortsSubscribeButton by toggle(default = true)
+    val hideShortsSubscriptions by toggle(default = false)
     val hideShortsSuperThanksButton by toggle(default = true)
     val hideShortsTaggedProducts by toggle(default = true)
     val hideShortsUpcomingButton by toggle(default = true)
@@ -56,6 +58,9 @@ object ShortsSettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
             covers =
                 listOf(
                     hideShortsHome,
+                    hideShortsChannel,
+                    hideShortsSubscriptions,
+                    hideShortsSearch,
                     hideShortsVideoDescription,
                     disableResumingShortsOnStartup,
                     playShortsAsVideos,

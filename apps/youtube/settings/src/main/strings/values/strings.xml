@@ -355,8 +355,8 @@
     <string name="hide_shorts_ai_button_summary">Hides the AI button in the Shorts player.</string>
     <string name="hide_shorts_auto_dubbed_label">Hide Shorts auto-dubbed label</string>
     <string name="hide_shorts_auto_dubbed_label_summary">Hides the auto-dubbed label in Shorts.</string>
-    <string name="hide_shorts_channel">Hide Shorts channel</string>
-    <string name="hide_shorts_channel_summary">Hides the channel identity in Shorts shelves and the player.</string>
+    <string name="hide_shorts_channel">Hide Shorts on channel pages</string>
+    <string name="hide_shorts_channel_summary">Removes the Shorts shelf from channel pages.</string>
     <string name="hide_shorts_channel_bar">Hide Shorts channel bar</string>
     <string name="hide_shorts_channel_bar_summary">Hides the channel action bar in the Shorts player.</string>
     <string name="hide_shorts_comments_button">Hide Shorts comments button</string>
@@ -373,8 +373,12 @@
     <string name="hide_shorts_new_posts_button_summary">Hides the new-posts button in the Shorts player.</string>
     <string name="hide_shorts_hashtag_button">Hide Shorts hashtag button</string>
     <string name="hide_shorts_hashtag_button_summary">Hides the hashtag button in the Shorts player.</string>
-    <string name="hide_shorts_home">Hide Shorts shelf</string>
-    <string name="hide_shorts_home_summary">Removes Shorts shelves from the Home feed.</string>
+    <string name="hide_shorts_home">Hide Shorts in Home</string>
+    <string name="hide_shorts_home_summary">Removes Shorts from Home, related videos and other feeds.</string>
+    <string name="hide_shorts_subscriptions">Hide Shorts in Subscriptions</string>
+    <string name="hide_shorts_subscriptions_summary">Removes Shorts from the Subscriptions feed.</string>
+    <string name="hide_shorts_search">Hide Shorts in Search</string>
+    <string name="hide_shorts_search_summary">Removes Shorts from search results.</string>
     <string name="hide_shorts_info_panel">Hide Shorts info panel</string>
     <string name="hide_shorts_info_panel_summary">Hides the information panel in the Shorts player.</string>
     <string name="hide_shorts_join_button">Hide Shorts Join button</string>

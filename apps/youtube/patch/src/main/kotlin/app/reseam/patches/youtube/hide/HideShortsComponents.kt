@@ -13,6 +13,7 @@ import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
 import app.reseam.patches.youtube.internal.engagementPanelHook
+import app.reseam.patches.youtube.internal.navigationBarHook
 import app.reseam.patches.youtube.internal.playerTypeHook
 import app.reseam.patches.youtubecommon.lithoFilter
 import app.reseam.patches.youtubecommon.registerLithoFilter
@@ -37,7 +38,7 @@ val hideShortsComponents = patch("Hide Shorts components") {
         default = false,
     )
 
-    dependsOn(lithoFilter, engagementPanelHook, playerTypeHook, youTubeSettings)
+    dependsOn(lithoFilter, engagementPanelHook, playerTypeHook, navigationBarHook, youTubeSettings)
     settings(
         youTubeSettings,
         section(
@@ -56,6 +57,8 @@ val hideShortsComponents = patch("Hide Shorts components") {
             ShortsSettings.hideShortsNewPostsButton,
             ShortsSettings.hideShortsHashtagButton,
             ShortsSettings.hideShortsHome,
+            ShortsSettings.hideShortsSubscriptions,
+            ShortsSettings.hideShortsSearch,
             ShortsSettings.hideShortsInfoPanel,
             ShortsSettings.hideShortsJoinButton,
             ShortsSettings.hideShortsLikeButton,
