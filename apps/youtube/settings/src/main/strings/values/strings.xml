@@ -191,6 +191,8 @@
     <string name="remove_feed_scroll_speed_limit_summary">Lets feeds fling as fast as other Android lists instead of YouTube\'s lower limit.</string>
     <string name="hide_compact_banner">Hide compact banners</string>
     <string name="hide_compact_banner_summary">Removes compact promotional banners.</string>
+    <string name="hide_get_premium_button">Hide Get Premium button</string>
+    <string name="hide_get_premium_button_summary">Removes the Get Premium button from the You tab.</string>
     <string name="hide_creator_store_shelf">Hide creator-store shelves</string>
     <string name="hide_creator_store_shelf_summary">Removes creator merchandise shelves.</string>
     <string name="hide_crowdfunding_box">Hide crowdfunding boxes</string>
@@ -478,6 +480,8 @@
     <string name="hide_remix_button">Hide remix button</string>
     <string name="hide_save_button">Hide save button</string>
     <string name="hide_share_button">Hide share button</string>
+    <string name="hide_ask_button">Hide Ask button</string>
+    <string name="hide_ask_button_summary">Removes the Ask (Gemini) button below videos.</string>
     <string name="hide_info_cards">Hide info cards</string>
     <string name="hide_info_cards_summary">Removes information cards shown over videos.</string>
     <string name="hide_player_flyout_captions">Hide flyout captions</string>

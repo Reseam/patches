@@ -29,6 +29,7 @@ val hideVideoActionButtons = patch("Hide video action buttons") {
             PlayerOverlaySettings.hideRemixButton,
             PlayerOverlaySettings.hideSaveButton,
             PlayerOverlaySettings.hideShareButton,
+            PlayerOverlaySettings.hideAskButton,
         ),
     )
 

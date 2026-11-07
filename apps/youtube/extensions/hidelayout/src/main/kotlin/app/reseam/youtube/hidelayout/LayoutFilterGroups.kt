@@ -21,6 +21,7 @@ internal class LayoutFilterGroups(private val filtering: LayoutFiltering) {
     private val innerButton = StringFilterGroup(null, "|button.e")
     private val joinMembershipButton = ByteArrayFilterGroup(null, "sponsorships")
     private val buyMovieBuffer = ByteArrayFilterGroup(null, "FEstorefront")
+    private val premiumPageCommand = ByteArrayFilterGroup(null, "SPunlimited")
     private val chips = feedRule(FeedSettings.hideChipsShelf, "chips_shelf")
     private val channelProfileGroups =
         StringFilterGroupList().apply {
@@ -51,6 +52,9 @@ internal class LayoutFilterGroups(private val filtering: LayoutFiltering) {
             FilterRule(null, "channel_profile.e", "page_header.e") {
                 channelProfileGroups.check(it.accessibility).isFiltered ||
                     hideHeaderActionButton(it)
+            },
+            FilterRule(FeedSettings.hideGetPremiumButton, "flexible_actions.e") {
+                it.endsAt("button.e") && premiumPageCommand.check(it.elementBuffer).isFiltered
             },
             feedRule(PlayerSettings.hideChannelWatermark, "featured_channel_watermark_overlay"),
             feedRule(FeedSettings.hideFilterBarFeedInHistory, "chip_bar") {

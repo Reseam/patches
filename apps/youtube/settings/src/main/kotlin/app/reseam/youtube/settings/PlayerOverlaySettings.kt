@@ -28,6 +28,7 @@ object PlayerOverlaySettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
     val disableLikeSubscribeGlow by toggle(default = false)
     val hideLikeDislikeButton by toggle(default = false)
     val hideDownloadButton by toggle(default = false)
+    val hideAskButton by toggle(default = false)
     val hideRemixButton by toggle(default = false)
     val hideSaveButton by toggle(default = false)
     val hideShareButton by toggle(default = false)

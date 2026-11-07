@@ -6,6 +6,7 @@ package app.reseam.youtube.playerui
 
 import app.reseam.runtime.Export
 import app.reseam.youtube.litho.Filter
+import app.reseam.youtube.litho.FilterGroup.ByteArrayFilterGroup
 import app.reseam.youtube.litho.FilterGroup.StringFilterGroup
 import app.reseam.youtube.litho.FilterGroupList.StringFilterGroupList
 import app.reseam.youtube.litho.FilterRule
@@ -20,6 +21,8 @@ class VideoActionButtonsFilter : Filter() {
                 StringFilterGroup(PlayerOverlaySettings.hideRemixButton, "id.video.remix.button"),
             )
         }
+
+    private val askButton = ByteArrayFilterGroup(null, "you-chat-entrypoint-button")
 
     init {
         addIdentifierCallbacks(
@@ -42,6 +45,9 @@ class VideoActionButtonsFilter : Filter() {
             FilterRule(PlayerOverlaySettings.hideSaveButton, "|save_to_playlist_button"),
             FilterRule(null, "|ContainerType|button.e") {
                 isActionBar(it.path) && accessibilityGroups.check(it.accessibility).isFiltered
+            },
+            FilterRule(PlayerOverlaySettings.hideAskButton, "|ContainerType|button.e") {
+                isActionBar(it.path) && askButton.check(it.elementBuffer).isFiltered
             },
         )
     }

@@ -26,6 +26,7 @@ object FeedSettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
     val hideFilterBarFeedInSearch by toggle(default = false)
     val hideFloatingMicrophoneButton by toggle(default = true)
     val hideForYouShelf by toggle(default = false)
+    val hideGetPremiumButton by toggle(default = true)
     val hideHorizontalShelves by toggle(default = true)
     val hideImageShelf by toggle(default = true)
     val hideLatestPosts by toggle(default = true)

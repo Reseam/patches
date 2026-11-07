@@ -52,6 +52,7 @@ val hideLayoutComponents = patch("Hide layout components") {
             FeedSettings.hideFilterBarFeedInSearch,
             FeedSettings.hideFloatingMicrophoneButton,
             FeedSettings.hideForYouShelf,
+            FeedSettings.hideGetPremiumButton,
             FeedSettings.hideHorizontalShelves,
             FeedSettings.hideImageShelf,
             FeedSettings.hideLatestPosts,

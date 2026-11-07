@@ -61,4 +61,8 @@ internal constructor(
 
     val elementBuffer: ByteArray
         get() = element.value
+
+    /** Whether the path ends at a named element, as `…|button.eml-fe|<hash>|` ends at `button.e`. */
+    fun endsAt(element: String): Boolean =
+        path.removeSuffix("|").substringBeforeLast('|').substringAfterLast('|').startsWith(element)
 }
