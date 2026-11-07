@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- SPDX-FileCopyrightText: 2026 Reseam contributors <https://reseam.app> -->
 <!-- SPDX-License-Identifier: AGPL-3.0-or-later -->
-<!-- The circle YouTube draws behind the fullscreen button in the bold layout: 36dp, 12dp above the button's bottom. -->
+<!-- The circle YouTube draws behind the fullscreen button in the bold layout: 36dp, 12dp above the button's bottom.
+     The inset also pads the icon up into the circle; the fixed size keeps it round when the row narrows the button. -->
 <inset xmlns:android="http://schemas.android.com/apk/res/android"
-    android:drawable="@drawable/player_button_circle_background"
-    android:insetLeft="6dp"
-    android:insetRight="6dp"
-    android:insetBottom="12dp" />
+    android:insetBottom="12dp">
+    <layer-list>
+        <item
+            android:width="36dp"
+            android:height="36dp"
+            android:drawable="@drawable/player_button_circle_background"
+            android:gravity="center" />
+    </layer-list>
+</inset>

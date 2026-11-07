@@ -783,7 +783,6 @@
     <string name="video_quality_label_unknown">?</string>
     <string name="playback_speed_invalid_speeds">Use unique playback speeds greater than 0 and at most <xliff:g id="maximum">%1$s</xliff:g></string>
     <string name="playback_speed_multiplier"><xliff:g id="speed">%1$s</xliff:g>x</string>
-    <string name="sponsorblock_menu_label">SB</string>
     <string name="sponsorblock_menu_description">SponsorBlock segments, voting and submissions</string>
     <string name="sponsorblock_skip">Skip</string>
     <string name="sponsorblock_jump_to_highlight">Jump to highlight</string>

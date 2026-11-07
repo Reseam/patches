@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import app.reseam.bundle.mainThreadHandler
 import app.reseam.runtime.Export
 import app.reseam.youtube.controls.PlayerControls
+import app.reseam.youtube.controls.playerControlButton
 import app.reseam.youtube.player.PlayerType
 import app.reseam.youtube.settings.VideoSettings
 import app.reseam.youtube.settings.YouTubeStrings
@@ -60,6 +61,21 @@ fun playerView(view: View) {
     player = WeakReference(view)
     view.addOnLayoutChangeListener(playerLayout)
     overlay.get()?.alignTo(view)
+}
+
+@Export
+fun initializeMenuButton(root: View) {
+    playerControlButton(
+        root,
+        "reseam_sponsorblock_button",
+        description = YouTubeStrings.sponsorblockMenuDescription,
+        enabled = {
+            SponsorBlockPlayback.isActive &&
+                (VideoSettings.sbVotingButton.value || VideoSettings.sbCreateNewSegment.value)
+        },
+    ) {
+        overlay.get()?.showMenu()
+    }
 }
 
 internal fun offerUndo(segment: Segment, from: Long, target: Long) {

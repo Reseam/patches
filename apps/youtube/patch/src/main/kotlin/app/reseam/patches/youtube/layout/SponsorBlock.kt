@@ -40,6 +40,12 @@ val sponsorBlock = patch("SponsorBlock") {
             AppearanceSettings.sbHookColor, AppearanceSettings.sbFillerColor, AppearanceSettings.sbMusicOfftopicColor))
 
     execute {
+        resources.addId("reseam_sponsorblock_button")
+        registerPlayerControlIcon("reseam_sponsorblock", "/buttons/reseam_sponsorblock.xml", "/buttons/bold/reseam_sponsorblock.xml")
+        registerPlayerControlLayout("/buttons/sponsorblock.xml", "/buttons/bold/sponsorblock.xml",
+            "reseam_sponsorblock_button", position = 6)
+        registerPlayerControlInitializer(SponsorBlock.initializeMenuButton)
+
         hookVideoId(SponsorBlockSession.newVideoLoaded)
         hookBackgroundPlayVideoId(SponsorBlockSession.newVideoLoaded)
         onCreateHook(SponsorBlockPlayback.initialize)

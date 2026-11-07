@@ -19,11 +19,12 @@ fun playerControlButton(
     buttonId: String,
     containerId: String = buttonId,
     textId: String? = null,
+    description: CharSequence? = null,
     enabled: () -> Boolean,
     longClick: ((View) -> Unit)? = null,
     click: (View) -> Unit,
 ): PlayerControlButton? = runCatching {
-    PlayerControlButton(root, buttonId, containerId, textId, enabled, longClick, click)
+    PlayerControlButton(root, buttonId, containerId, textId, description, enabled, longClick, click)
 }
     .onFailure { Logger.error(it) { "Player control $buttonId failed to initialize" } }
     .getOrNull()
@@ -34,6 +35,7 @@ internal constructor(
     buttonId: String,
     containerId: String,
     textId: String?,
+    description: CharSequence?,
     private val enabled: () -> Boolean,
     longClick: ((View) -> Unit)?,
     click: (View) -> Unit,
@@ -45,9 +47,13 @@ internal constructor(
     internal val alignmentView: View?
         get() = button.get()
 
+    internal val rowView: View?
+        get() = container.get()
+
     init {
         container.get()?.visibility = View.GONE
         button.get()?.run {
+            if (description != null) contentDescription = description
             setOnClickListener {
                 animateIcon()
                 click(it)

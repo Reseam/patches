@@ -165,6 +165,7 @@ val playerControls = patch {
                 .captureAs("bottomControls", Type.View)
                 .after {
                     initializers.forEach { call(it, capture("bottomControls")) }
+                    PlayerControls.fitButtonRow(capture("bottomControls"))
                 }
         }
 

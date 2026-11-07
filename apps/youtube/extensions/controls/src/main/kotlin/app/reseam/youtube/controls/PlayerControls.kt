@@ -7,6 +7,7 @@ package app.reseam.youtube.controls
 import android.view.View
 import android.view.ViewTreeObserver
 import app.reseam.bundle.Logger
+import app.reseam.bundle.identifier
 import app.reseam.runtime.Export
 import app.reseam.youtube.core.debug
 import java.util.Collections
@@ -53,6 +54,35 @@ object PlayerControls {
         val visible =
             visibilityBySuffix.entries.firstOrNull { name.endsWith(it.key) }?.value ?: return
         setVisibility(visible, true)
+    }
+
+    /** Narrows the buttons when they would run into the time label, which YouTube never moves. */
+    @Export
+    @JvmStatic
+    fun fitButtonRow(row: View) {
+        val id = { name: String -> row.context.identifier(name, "id") }
+        val timestamps = id("timestamps_container")
+        val fullscreen = id("fullscreen_button")
+        val leading = listOf(id("bottom_end_container"), id("multiview_button"))
+        val naturalWidths = WeakHashMap<View, Int>()
+        row.addOnLayoutChangeListener { _, _, _, _, _, _, _, _, _ ->
+            val start = row.findViewById<View>(timestamps)?.takeIf { it.visibility == View.VISIBLE }?.right
+                ?: return@addOnLayoutChangeListener
+            val end = row.findViewById<View>(fullscreen)?.takeIf { it.visibility != View.GONE }?.left ?: row.width
+            val reserved = leading.mapNotNull { row.findViewById<View>(it) }
+                .filter { it.visibility != View.GONE }
+                .sumOf { it.width }
+            val shown = buttons.toTypedArray()
+                .mapNotNull { it.rowView }
+                .filter { it.parent === row && it.visibility != View.GONE }
+            if (shown.isEmpty()) return@addOnLayoutChangeListener
+            val share = (end - start - reserved) / shown.size
+            shown.forEach { view ->
+                val width = minOf(naturalWidths.getOrPut(view) { view.layoutParams.width }, share)
+                if (view.layoutParams.width != width)
+                    row.post { view.layoutParams = view.layoutParams.apply { this.width = width } }
+            }
+        }
     }
 
     @Export

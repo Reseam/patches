@@ -7,12 +7,12 @@ import android.app.Activity
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.os.SystemClock
+import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
 import android.widget.Button
 import android.widget.FrameLayout
 import app.reseam.bundle.dpToPx
-import app.reseam.youtube.controls.PlayerControls
 import app.reseam.youtube.player.PlayerType
 import app.reseam.youtube.settings.VideoSettings
 import app.reseam.youtube.settings.YouTubeStrings
@@ -24,12 +24,11 @@ internal class SponsorBlockOverlay(activity: Activity) : FrameLayout(activity) {
         Button(activity).apply {
             isAllCaps = false
             setTextColor(Color.WHITE)
-            visibility = GONE
-        }
-    private val menu =
-        Button(activity).apply {
-            text = YouTubeStrings.sponsorblockMenuLabel
-            contentDescription = YouTubeStrings.sponsorblockMenuDescription
+            minWidth = 0
+            minHeight = 0
+            minimumWidth = 0
+            minimumHeight = 0
+            stateListAnimator = null
             visibility = GONE
         }
 
@@ -70,15 +69,9 @@ internal class SponsorBlockOverlay(activity: Activity) : FrameLayout(activity) {
                     )
                 },
         )
-        addView(
-            menu,
-            LayoutParams(resources.dpToPx(64f), resources.dpToPx(48f), Gravity.TOP or Gravity.END)
-                .apply {
-                    setMargins(0, resources.dpToPx(68f), resources.dpToPx(20f), 0)
-                },
-        )
-        menu.setOnClickListener { showSponsorBlockMenu(this, draft::createSegment) }
     }
+
+    fun showMenu() = showSponsorBlockMenu(this, draft::createSegment)
 
     fun alignTo(player: View) {
         val parentView = parent as? View ?: return
@@ -99,8 +92,6 @@ internal class SponsorBlockOverlay(activity: Activity) : FrameLayout(activity) {
 
     fun update(segment: Segment?, active: Boolean) {
         val playerVisible = PlayerType.current.isMaximizedOrFullscreen
-        val showMenu = active && playerVisible && PlayerControls.isVisible && menuEnabled
-        menu.visibility = if (showMenu) VISIBLE else GONE
         if (!active || !playerVisible) {
             removeCallbacks(dismiss)
             buttonState = ButtonState.Hidden
@@ -151,20 +142,22 @@ internal class SponsorBlockOverlay(activity: Activity) : FrameLayout(activity) {
         postDelayed(dismiss, autoHideTime)
     }
 
-    private val menuEnabled: Boolean
-        get() = VideoSettings.sbVotingButton.value || VideoSettings.sbCreateNewSegment.value
-
     private val autoHideTime: Long
         get() =
             VideoSettings.sbAutoHideSkipButtonDuration.value.toLongOrNull()?.coerceIn(1000L, 15000L)
                 ?: 4000
 
     private fun styleButton() {
+        val compact = VideoSettings.sbCompactSkipButton.value
         skip.background =
             GradientDrawable().apply {
                 setColor(0xDD222222.toInt())
                 cornerRadius =
                     if (VideoSettings.sbSquareLayout.value) 0f else resources.dpToPx(24f).toFloat()
             }
+        skip.setTextSize(TypedValue.COMPLEX_UNIT_SP, if (compact) 12f else 14f)
+        val horizontal = resources.dpToPx(if (compact) 12f else 16f)
+        val vertical = resources.dpToPx(if (compact) 6f else 10f)
+        skip.setPadding(horizontal, vertical, horizontal, vertical)
     }
 }

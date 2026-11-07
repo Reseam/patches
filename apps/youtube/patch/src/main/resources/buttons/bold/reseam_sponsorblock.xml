@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-FileCopyrightText: 2026 Reseam contributors <https://reseam.app> -->
+<!-- SPDX-License-Identifier: AGPL-3.0-or-later -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/yt_outline_shield_empty_vd_theme_24" />
+</layer-list>
