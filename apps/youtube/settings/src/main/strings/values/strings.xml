@@ -187,6 +187,8 @@
     <string name="hide_community_button_summary">Removes the Community tab button from channel pages.</string>
     <string name="hide_community_posts">Hide community posts</string>
     <string name="hide_community_posts_summary">Removes community-post components from feeds and channels.</string>
+    <string name="remove_feed_scroll_speed_limit">Remove feed scroll speed limit</string>
+    <string name="remove_feed_scroll_speed_limit_summary">Lets feeds fling as fast as other Android lists instead of YouTube\'s lower limit.</string>
     <string name="hide_compact_banner">Hide compact banners</string>
     <string name="hide_compact_banner_summary">Removes compact promotional banners.</string>
     <string name="hide_creator_store_shelf">Hide creator-store shelves</string>

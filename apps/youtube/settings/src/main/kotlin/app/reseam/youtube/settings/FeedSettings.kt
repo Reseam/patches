@@ -46,4 +46,5 @@ object FeedSettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
     val hideWebSearchResults by toggle(default = true)
     val hideYouMayLikeSection by toggle(default = true)
     val liveRingsOpenChannel by toggle(default = false)
+    val removeFeedScrollSpeedLimit by toggle(default = true)
 }
