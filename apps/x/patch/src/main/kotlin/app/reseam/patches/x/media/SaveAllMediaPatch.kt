@@ -12,6 +12,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.X
+import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
 import app.reseam.x.download.bindings.GalleryDownloads
 import app.reseam.x.settings.XSettings
@@ -23,7 +24,7 @@ val saveAllMedia = patch("Save all media") {
     description("Offers to save every photo, GIF and video in a post when you save one of them.")
     compatibleWith(X)
     dependsOn(saveMedia)
-    settings(xSettings, section(XStrings.sectionMedia, XSettings.saveAllMedia))
+    settings(xSettings, section(XSettingsPages.Media, XStrings.sectionMedia, XSettings.saveAllMedia))
 
     execute {
         appEntry { GalleryDownloads.init(application) }

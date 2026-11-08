@@ -11,6 +11,7 @@ import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.X
+import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
 import app.reseam.x.home.bindings.HomeTabs
 import app.reseam.x.settings.XSettings
@@ -19,7 +20,7 @@ import app.reseam.x.settings.XStrings
 val customizeHomeTabs = patch("Customize Home tabs") {
     description("Hides the For You tab and the Add tab above Home.")
     compatibleWith(X)
-    settings(xSettings, section(XStrings.sectionHome, XSettings.hideForYouTab, XSettings.hideAddTab))
+    settings(xSettings, section(XSettingsPages.Home, XStrings.sectionHome, XSettings.hideForYouTab, XSettings.hideAddTab))
 
     execute {
         HomeTabs.isForYou.implement {

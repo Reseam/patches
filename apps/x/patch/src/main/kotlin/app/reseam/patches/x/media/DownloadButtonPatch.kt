@@ -25,6 +25,7 @@ import app.reseam.patches.x.core.FUNCTION0
 import app.reseam.patches.x.core.FUNCTION1
 import app.reseam.patches.x.core.MODIFIER
 import app.reseam.patches.x.core.X
+import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xIcon
 import app.reseam.patches.x.core.unitInstance
 import app.reseam.patches.x.core.xSettings
@@ -41,7 +42,7 @@ val downloadButton = patch("Download button") {
     description("Adds a download button next to the post menu on posts with photos, GIFs or videos.")
     compatibleWith(X)
     dependsOn(saveMedia)
-    settings(xSettings, section(XStrings.sectionMedia, XSettings.downloadButton, XSettings.saveAllMedia))
+    settings(xSettings, section(XSettingsPages.Media, XStrings.sectionMedia, XSettings.downloadButton, XSettings.saveAllMedia))
 
     execute {
         val optionsLabel = resources.id("string", "button_action_options_tweet") ?: error("string/button_action_options_tweet missing")

@@ -13,6 +13,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.settings.ToggleSetting
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.X
+import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
 import app.reseam.x.featureswitches.bindings.FeatureSwitchOverrides
 import app.reseam.x.settings.XSettings
@@ -34,7 +35,7 @@ val userFeatureSwitches = patch("Feature switch overrides") {
     description("Sets X's feature switches to values you choose.")
     compatibleWith(X)
     dependsOn(featureSwitchOverrides)
-    settings(xSettings, section(XStrings.sectionAdvanced, XSettings.featureSwitchOverrides))
+    settings(xSettings, section(XSettingsPages.Advanced, XStrings.sectionAdvanced, XSettings.featureSwitchOverrides))
 
     execute {
         appEntry { FeatureSwitchOverrides.applyUserOverrides() }

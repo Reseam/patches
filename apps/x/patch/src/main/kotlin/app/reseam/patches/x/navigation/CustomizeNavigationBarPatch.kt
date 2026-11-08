@@ -10,6 +10,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.X
+import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
 import app.reseam.x.navigation.bindings.NavigationBar
 import app.reseam.x.settings.XSettings
@@ -22,7 +23,7 @@ val customizeNavigationBar = patch("Customize navigation bar") {
     compatibleWith(X)
     settings(
         xSettings,
-        section(XStrings.sectionNavigation, XSettings.firstTab, XSettings.secondTab, XSettings.thirdTab, XSettings.fourthTab, XSettings.fifthTab),
+        section(XSettingsPages.Navigation, XStrings.sectionNavigation, XSettings.firstTab, XSettings.secondTab, XSettings.thirdTab, XSettings.fourthTab, XSettings.fifthTab),
     )
 
     execute {

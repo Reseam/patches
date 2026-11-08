@@ -11,6 +11,7 @@ import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.X
+import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
 import app.reseam.x.postdetail.bindings.ReplySort
 import app.reseam.x.settings.XSettings
@@ -19,7 +20,7 @@ import app.reseam.x.settings.XStrings
 val defaultReplySort = patch("Default reply sort") {
     description("Sorts the replies of a post you open by your choice. Picking another sort on the post still works.")
     compatibleWith(X)
-    settings(xSettings, section(XStrings.sectionTimeline, XSettings.defaultReplySort, XSettings.rememberReplySort))
+    settings(xSettings, section(XSettingsPages.Home, XStrings.sectionTimeline, XSettings.defaultReplySort, XSettings.rememberReplySort))
 
     execute {
         // Post detail starts the conversation prefetch, the timeline repository and the header's

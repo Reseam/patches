@@ -13,6 +13,7 @@ import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.MODIFIER
 import app.reseam.patches.x.core.X
+import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.x.settings.XSettings
 import app.reseam.patches.x.core.xSettings
 import app.reseam.x.settings.XStrings
@@ -23,6 +24,7 @@ val hidePostMetrics = patch("Hide post metrics") {
     settings(
         xSettings,
         section(
+            XSettingsPages.Home,
             XStrings.sectionTimeline,
             XSettings.hideViewCounts,
             XSettings.hideReplyCounts,

@@ -9,6 +9,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.MAIN_ACTIVITY
 import app.reseam.patches.x.core.X
+import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.x.links.bindings.UrlHandling
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
@@ -20,7 +21,7 @@ private val mirrorHosts = listOf("vxtwitter.com", "fixvx.com", "fxtwitter.com", 
 val customUrlHandling = patch("Custom URL handling") {
     description("Opens fixvx.com, vxtwitter.com and similar mirror links in the app, like x.com links.")
     compatibleWith(X)
-    settings(xSettings, section(XStrings.sectionLinks, XSettings.customUrlHandling))
+    settings(xSettings, section(XSettingsPages.Links, XStrings.sectionLinks, XSettings.customUrlHandling))
 
     execute {
         intentHandler.before { UrlHandling.normalizeIntent(param(0)) }

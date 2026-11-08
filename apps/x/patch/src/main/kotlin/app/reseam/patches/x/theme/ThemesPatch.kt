@@ -15,6 +15,7 @@ import app.reseam.patch.point
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.COMPOSER
 import app.reseam.patches.x.core.X
+import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
@@ -25,7 +26,7 @@ val themes = patch("Themes") {
     compatibleWith(X)
     settings(
         xSettings,
-        section(XStrings.sectionTheme, XSettings.darkTheme, XSettings.accentColor, XSettings.customAccentColor, XSettings.twitterBranding),
+        section(XSettingsPages.Appearance, XStrings.sectionTheme, XSettings.darkTheme, XSettings.accentColor, XSettings.customAccentColor, XSettings.twitterBranding),
     )
 
     execute {

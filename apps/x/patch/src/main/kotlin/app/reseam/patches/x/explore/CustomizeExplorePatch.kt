@@ -13,6 +13,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.X
+import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
 import app.reseam.patches.x.timeline.timelineQueryFilter
 import app.reseam.x.explore.bindings.ExploreTabs
@@ -27,6 +28,7 @@ val customizeExplore = patch("Customize Explore") {
     settings(
         xSettings,
         section(
+            XSettingsPages.Explore,
             XStrings.sectionExplore,
             XSettings.hideGrokStories,
             XSettings.hideExploreTrends,

@@ -7,6 +7,7 @@ import app.reseam.patch.appEntry
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.X
+import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xApi
 import app.reseam.patches.x.core.xSettings
 import app.reseam.x.settings.XSettings
@@ -17,7 +18,7 @@ val showWithheldPosts = patch("Show withheld posts") {
     description("Shows posts and profiles withheld in your country.")
     compatibleWith(X)
     dependsOn(xApi)
-    settings(xSettings, section(XStrings.sectionTimeline, XSettings.showWithheldPosts))
+    settings(xSettings, section(XSettingsPages.Home, XStrings.sectionTimeline, XSettings.showWithheldPosts))
 
     execute {
         appEntry { WithheldPosts.init(application) }

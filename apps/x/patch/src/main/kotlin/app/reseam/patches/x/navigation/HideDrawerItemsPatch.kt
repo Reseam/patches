@@ -13,6 +13,7 @@ import app.reseam.patch.points
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.X
+import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
@@ -23,6 +24,7 @@ val hideDrawerItems = patch("Hide drawer items") {
     settings(
         xSettings,
         section(
+            XSettingsPages.Navigation,
             XStrings.sectionDrawer,
             XSettings.hideDrawerPremium,
             XSettings.hideDrawerMoney,

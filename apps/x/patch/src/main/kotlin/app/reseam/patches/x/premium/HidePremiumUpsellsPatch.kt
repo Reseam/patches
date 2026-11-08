@@ -12,6 +12,7 @@ import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.X
+import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.x.settings.XSettings
 import app.reseam.patches.x.core.xSettings
 import app.reseam.patches.x.featureswitches.disableFeatureSwitches
@@ -22,7 +23,7 @@ val hidePremiumUpsells = patch("Hide Premium upsells") {
     description("Removes the Upgrade button and discount pills, the Get Verified prompts, the Premium upsells on profiles, posts, and in the composer, the Premium edit entry in the post menu, and the paywall at launch.")
     compatibleWith(X)
     dependsOn(featureSwitchOverrides)
-    settings(xSettings, section(XStrings.sectionPremium, XSettings.hidePremiumUpsells, XSettings.hideAppOpenPaywall))
+    settings(xSettings, section(XSettingsPages.Ads, XStrings.sectionPremium, XSettings.hidePremiumUpsells, XSettings.hideAppOpenPaywall))
 
     execute {
         disableFeatureSwitches(

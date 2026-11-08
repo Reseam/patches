@@ -10,6 +10,7 @@ import app.reseam.patch.points
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.X
+import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
 import app.reseam.x.premium.bindings.Premium
 import app.reseam.x.settings.XSettings
@@ -23,7 +24,7 @@ val unlockPremium = patch("Unlock Premium") {
             "and other Premium-only options.",
     )
     compatibleWith(X)
-    settings(xSettings, section(XStrings.sectionPremium, XSettings.unlockPremium))
+    settings(xSettings, section(XSettingsPages.Ads, XStrings.sectionPremium, XSettings.unlockPremium))
 
     execute {
         val reads = subscriptionReads.all.also { check(it.isNotEmpty()) { "No reads of the stored subscriptions" } }

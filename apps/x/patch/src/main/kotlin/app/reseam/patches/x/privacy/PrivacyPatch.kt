@@ -11,6 +11,7 @@ import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.X
+import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.x.settings.XSettings
 import app.reseam.patches.x.core.xSettings
 import app.reseam.patches.x.featureswitches.disableFeatureSwitches
@@ -21,7 +22,7 @@ val privacy = patch("Privacy") {
     description("Stops the installed-apps report used for ad targeting and turns off ad tracking switches.")
     compatibleWith(X)
     dependsOn(featureSwitchOverrides)
-    settings(xSettings, section(XStrings.sectionPrivacy, XSettings.blockInstalledAppsScan, XSettings.disableAdTracking))
+    settings(xSettings, section(XSettingsPages.Advanced, XStrings.sectionPrivacy, XSettings.blockInstalledAppsScan, XSettings.disableAdTracking))
 
     execute {
         gate(XSettings.blockInstalledAppsScan) {

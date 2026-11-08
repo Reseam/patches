@@ -10,6 +10,7 @@ import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.X
+import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.x.settings.XSettings
 import app.reseam.patches.x.core.xSettings
 import app.reseam.patches.x.featureswitches.disableFeatureSwitches
@@ -22,7 +23,7 @@ val hideNotificationPrompts = patch("Hide notification prompts") {
     description("Stops the full-screen prompt, the dialog, and the banner asking to turn on notifications.")
     compatibleWith(X)
     dependsOn(featureSwitchOverrides)
-    settings(xSettings, section(XStrings.sectionNotifications, XSettings.hideNotificationPrompts))
+    settings(xSettings, section(XSettingsPages.Ads, XStrings.sectionNotifications, XSettings.hideNotificationPrompts))
 
     execute {
         disableFeatureSwitches(

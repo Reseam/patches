@@ -11,6 +11,7 @@ import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.X
+import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
@@ -18,7 +19,7 @@ import app.reseam.x.settings.XStrings
 val disableHomeTabSwipe = patch("Disable Home tab swipe") {
     description("Stops swiping between the Home tabs. Tapping a tab still switches to it.")
     compatibleWith(X)
-    settings(xSettings, section(XStrings.sectionHome, XSettings.disableHomeTabSwipe))
+    settings(xSettings, section(XSettingsPages.Home, XStrings.sectionHome, XSettings.disableHomeTabSwipe))
 
     execute {
         // Tab taps scroll the pager from code, which userScrollEnabled does not block.

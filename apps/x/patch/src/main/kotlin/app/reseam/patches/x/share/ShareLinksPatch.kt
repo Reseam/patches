@@ -10,6 +10,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.X
+import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
@@ -18,7 +19,7 @@ import app.reseam.x.share.bindings.ShareLinks
 val shareLinks = patch("Share links") {
     description("Shares posts through an embed-friendly host instead of x.com. Lists, trends and profiles keep x.com links.")
     compatibleWith(X)
-    settings(xSettings, section(XStrings.sectionSharing, XSettings.shareLinkProvider))
+    settings(xSettings, section(XSettingsPages.Links, XStrings.sectionSharing, XSettings.shareLinkProvider))
 
     execute {
         appEntry { ShareLinks.configure(string(XSettings.shareLinkProvider.key)) }

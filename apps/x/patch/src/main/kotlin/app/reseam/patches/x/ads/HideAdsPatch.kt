@@ -7,6 +7,7 @@ import app.reseam.patch.appEntry
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.X
+import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
 import app.reseam.patches.x.featureswitches.disableFeatureSwitches
 import app.reseam.patches.x.featureswitches.featureSwitchOverrides
@@ -19,7 +20,7 @@ val hideAds = patch("Hide ads") {
     description("Removes promoted posts and Google ads from timelines.")
     compatibleWith(X)
     dependsOn(featureSwitchOverrides, timelineQueryFilter)
-    settings(xSettings, section(XStrings.sectionAds, XSettings.hideAds))
+    settings(xSettings, section(XSettingsPages.Ads, XStrings.sectionAds, XSettings.hideAds))
 
     execute {
         disableFeatureSwitches(XSettings.hideAds, "android_x_lite_ssp_ads_enabled", "ssp_ads_home_enabled")

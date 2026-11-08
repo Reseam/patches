@@ -10,6 +10,7 @@ import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.COMPOSER
 import app.reseam.patches.x.core.X
+import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
@@ -17,7 +18,7 @@ import app.reseam.x.settings.XStrings
 val hideComposeButton = patch("Hide compose button") {
     description("Removes the floating compose button from every screen.")
     compatibleWith(X)
-    settings(xSettings, section(XStrings.sectionTimeline, XSettings.hideComposeButton))
+    settings(xSettings, section(XSettingsPages.Home, XStrings.sectionTimeline, XSettings.hideComposeButton))
 
     execute {
         gate(XSettings.hideComposeButton) {

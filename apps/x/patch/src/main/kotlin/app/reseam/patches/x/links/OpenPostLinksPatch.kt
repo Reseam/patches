@@ -6,6 +6,7 @@ package app.reseam.patches.x.links
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.X
+import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
 import app.reseam.patches.x.featureswitches.disableFeatureSwitches
 import app.reseam.patches.x.featureswitches.featureSwitchOverrides
@@ -16,7 +17,7 @@ val openPostLinks = patch("Open post links") {
     description("Opens a post link on the post itself instead of on top of the For You timeline.")
     compatibleWith(X)
     dependsOn(featureSwitchOverrides)
-    settings(xSettings, section(XStrings.sectionLinks, XSettings.openPostLinks))
+    settings(xSettings, section(XSettingsPages.Links, XStrings.sectionLinks, XSettings.openPostLinks))
 
     execute {
         // The status link matcher hands the post to Home as a timeline injection while this switch is on.

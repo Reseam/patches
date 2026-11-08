@@ -7,6 +7,7 @@ import app.reseam.patch.appEntry
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.X
+import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
@@ -16,7 +17,7 @@ val hideRecommendations = patch("Hide recommendations") {
     description("Removes the Who to follow, Subscribe to, and Communities to join modules from timelines.")
     compatibleWith(X)
     dependsOn(timelineQueryFilter)
-    settings(xSettings, section(XStrings.sectionTimeline, XSettings.hideRecommendations))
+    settings(xSettings, section(XSettingsPages.Home, XStrings.sectionTimeline, XSettings.hideRecommendations))
 
     execute {
         appEntry {
