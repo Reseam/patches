@@ -136,6 +136,20 @@ object XSettings : SettingsGroup(XStrings) {
     val customAccentColor by text(default = "#1D9BF0", icon = Vector.lucide("pipette"))
     val twitterBranding by toggle(default = false, icon = Vector.lucide("bird"))
 
+    val defaultReplySort by
+        choice(
+            default = "off",
+            choices =
+                listOf(
+                    Choice("off", XStrings.defaultReplySortOff),
+                    Choice("relevance", XStrings.defaultReplySortRelevance),
+                    Choice("recency", XStrings.defaultReplySortRecency),
+                    Choice("likes", XStrings.defaultReplySortLikes),
+                ),
+            icon = Vector.lucide("arrow-down-up"),
+        )
+    val rememberReplySort by toggle(default = false, icon = Vector.lucide("pin"))
+
     val defaultMediaTab by
         choice(
             default = "off",
