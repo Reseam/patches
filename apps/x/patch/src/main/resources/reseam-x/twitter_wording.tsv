@@ -1,0 +1,867 @@
+APP_NAME	en	Twitter
+APP_NAME	x	X
+bookmarks_empty	ar	‏حفظ التغريدات للاستخدام لاحقًا
+bookmarks_empty	ar-rEH	‏حفظ التغريدات للاستخدام لاحقًا
+bookmarks_empty	de	Tweets für später speichern
+bookmarks_empty	en	Save Tweets for later
+bookmarks_empty	es	Guarda los Tweets para verlos más tarde
+bookmarks_empty	fi	Ota twiittejä talteen
+bookmarks_empty	fr	Enregistrez des Tweets pour plus tard
+bookmarks_empty	hi	बाद के लिए ट्वीट्स सहेजें
+bookmarks_empty	hu	Ments el Tweeteket későbbre
+bookmarks_empty	in	Simpan Tweet untuk dibaca nanti
+bookmarks_empty	it	Salva Tweet per dopo
+bookmarks_empty	ja	後で参照できるようにツイートを保存する
+bookmarks_empty	ko	나중을 위해 트윗 저장하기
+bookmarks_empty	ms	Simpan Tweet untuk kemudian
+bookmarks_empty	nl	Tweets opslaan voor later
+bookmarks_empty	pl	Zapisz Tweety na później
+bookmarks_empty	pt	Salvar Tweets para depois
+bookmarks_empty	ru	Сохраняйте твиты на потом
+bookmarks_empty	sv	Spara Tweets till senare
+bookmarks_empty	th	บันทึกทวีตไว้ดูภายหลัง
+bookmarks_empty	tr	Tweetleri daha sonrası için kaydet
+bookmarks_empty	uk	Зберігайте твіти на потім
+bookmarks_empty	vi	Lưu Tweet để xem sau
+bookmarks_empty	x	Save posts for later
+bookmarks_empty	zh-rCN	保存推文以备之后使用
+bookmarks_empty	zh-rHK	儲存推文以供日後查看
+bookmarks_empty	zh-rTW	儲存推文以供日後查看
+button_action_add_tweet	ar	‏إضافة تغريدة
+button_action_add_tweet	ar-rEH	‏إضافة تغريدة
+button_action_add_tweet	de	Tweet hinzufügen
+button_action_add_tweet	en	Add a Tweet
+button_action_add_tweet	es	Agregar un Tweet
+button_action_add_tweet	fi	Lisää twiitti
+button_action_add_tweet	fr	Ajouter un Tweet
+button_action_add_tweet	hi	एक ट्वीट जोड़ें
+button_action_add_tweet	hu	Tweet hozzáadása
+button_action_add_tweet	in	Tambahkan Tweet
+button_action_add_tweet	it	Aggiungi un Tweet
+button_action_add_tweet	ja	ツイートを追加
+button_action_add_tweet	ko	트윗 추가하기
+button_action_add_tweet	ms	Tambah Tweet
+button_action_add_tweet	nl	Een Tweet toevoegen
+button_action_add_tweet	pl	Dodaj Tweeta
+button_action_add_tweet	pt	Adicionar um Tweet
+button_action_add_tweet	ru	Добавить твит
+button_action_add_tweet	sv	Lägg till en Tweet
+button_action_add_tweet	th	เพิ่มทวีต
+button_action_add_tweet	tr	Bir Tweet ekle
+button_action_add_tweet	uk	Додати твіт
+button_action_add_tweet	vi	Thêm một Tweet
+button_action_add_tweet	x	Add a post
+button_action_add_tweet	zh-rCN	添加一条推文
+button_action_add_tweet	zh-rHK	加入推文
+button_action_add_tweet	zh-rTW	加入推文
+button_action_options_tweet	ar	‏خيارات التغريدة
+button_action_options_tweet	ar-rEH	‏خيارات التغريدة
+button_action_options_tweet	de	Tweet-Optionen
+button_action_options_tweet	en	Tweet options
+button_action_options_tweet	es	Opciones del Tweet
+button_action_options_tweet	fi	Twiitin vaihtoehdot
+button_action_options_tweet	fr	Options du Tweet
+button_action_options_tweet	hi	ट्वीट विकल्प
+button_action_options_tweet	hu	Tweettel kapcsolatos választási lehetőségek
+button_action_options_tweet	in	Opsi Tweet
+button_action_options_tweet	it	Opzioni Tweet
+button_action_options_tweet	ja	ツイートオプション
+button_action_options_tweet	ko	트윗 옵션
+button_action_options_tweet	ms	Pilihan Tweet
+button_action_options_tweet	nl	Tweetopties
+button_action_options_tweet	pl	Opcje Tweetów
+button_action_options_tweet	pt	Opções de Tweets
+button_action_options_tweet	ru	Параметры твита
+button_action_options_tweet	sv	Alternativ för Tweets
+button_action_options_tweet	th	ตัวเลือกทวีต
+button_action_options_tweet	tr	Tweet seçenekleri
+button_action_options_tweet	uk	Параметри твіта
+button_action_options_tweet	vi	Tùy chọn Tweet
+button_action_options_tweet	x	Post options
+button_action_options_tweet	zh-rCN	推文选项
+button_action_options_tweet	zh-rHK	推文選項
+button_action_options_tweet	zh-rTW	推文選項
+button_action_retweet	ar	‏إعادة تغريد
+button_action_retweet	ar-rEH	‏إعادة تغريد
+button_action_retweet	de	Retweeten
+button_action_retweet	en	Retweet
+button_action_retweet	es	Retwittear
+button_action_retweet	fi	Uudelleentwiittaa
+button_action_retweet	fr	Retweeter
+button_action_retweet	hi	रीट्वीट
+button_action_retweet	hu	Retweet
+button_action_retweet	in	Retweet
+button_action_retweet	it	Retweet
+button_action_retweet	ja	リツイート
+button_action_retweet	ko	리트윗
+button_action_retweet	ms	Tweet semula
+button_action_retweet	nl	Retweeten
+button_action_retweet	pl	Podaj dalej
+button_action_retweet	pt	Retweetar
+button_action_retweet	ru	Ретвитнуть
+button_action_retweet	sv	Retweeta
+button_action_retweet	th	รีทวีต
+button_action_retweet	tr	Retweetle
+button_action_retweet	uk	Ретвітнути
+button_action_retweet	vi	Tweet lại
+button_action_retweet	x	Repost
+button_action_retweet	zh-rCN	转推
+button_action_retweet	zh-rHK	轉推
+button_action_retweet	zh-rTW	轉推
+composer_hint_self_thread	ar	‏إضافة تغريدة جديدة
+composer_hint_self_thread	ar-rEH	‏إضافة تغريدة أخرى
+composer_hint_self_thread	de	Weiteren Tweet hinzufügen
+composer_hint_self_thread	en	Add another Tweet
+composer_hint_self_thread	es	Agregar otro Tweet
+composer_hint_self_thread	fi	Lisää toinen twiitti
+composer_hint_self_thread	fr	Ajouter un autre Tweet
+composer_hint_self_thread	hi	एक और ट्वीट जोड़ें
+composer_hint_self_thread	hu	Másik Tweet hozzáadása
+composer_hint_self_thread	in	Tambahkan Tweet lain
+composer_hint_self_thread	it	Aggiungi un altro Tweet
+composer_hint_self_thread	ja	ツイートを追加
+composer_hint_self_thread	ko	다른 트윗 추가하기
+composer_hint_self_thread	ms	Tambahkan lagi Tweet
+composer_hint_self_thread	nl	Nog een Tweet toevoegen
+composer_hint_self_thread	pl	Dodaj kolejnego Tweeta
+composer_hint_self_thread	pt	Adicionar outro Tweet
+composer_hint_self_thread	ru	Добавить еще один твит
+composer_hint_self_thread	sv	Lägg till en Tweet till
+composer_hint_self_thread	th	เพิ่มอีกทวีต
+composer_hint_self_thread	tr	Başka bir Tweet ekle
+composer_hint_self_thread	uk	Додайте ще один твіт
+composer_hint_self_thread	vi	Thêm một Tweet khác
+composer_hint_self_thread	x	Add another post
+composer_hint_self_thread	zh-rCN	添加另一条推文
+composer_hint_self_thread	zh-rHK	加入另一則推文
+composer_hint_self_thread	zh-rTW	加入另一則推文
+composer_quote_post	en	Quote a Tweet
+composer_quote_post	x	Quote a post
+conversations_alternative_reply_hint	ar	‏غرّد ردك
+conversations_alternative_reply_hint	ar-rEH	‏التغريد بردكِ
+conversations_alternative_reply_hint	de	Deine Antwort twittern
+conversations_alternative_reply_hint	en	Tweet your reply
+conversations_alternative_reply_hint	es	Twittea tu respuesta
+conversations_alternative_reply_hint	fi	Twiittaa vastauksesi
+conversations_alternative_reply_hint	fr	Tweeter votre réponse
+conversations_alternative_reply_hint	hi	अपना जवाब ट्वीट करें
+conversations_alternative_reply_hint	hu	Tweeteld válaszodat
+conversations_alternative_reply_hint	in	Tweet balasan Anda
+conversations_alternative_reply_hint	it	Twitta una risposta
+conversations_alternative_reply_hint	ja	返信をツイート
+conversations_alternative_reply_hint	ko	답글 트윗하기
+conversations_alternative_reply_hint	ms	Tweet balasan anda
+conversations_alternative_reply_hint	nl	Je antwoord tweeten
+conversations_alternative_reply_hint	pl	Tweetnij odpowiedź
+conversations_alternative_reply_hint	pt	Tweete sua resposta
+conversations_alternative_reply_hint	ru	Твитнуть ответ
+conversations_alternative_reply_hint	sv	Tweeta ditt svar
+conversations_alternative_reply_hint	th	ทวีตการตอบกลับของคุณ
+conversations_alternative_reply_hint	tr	Yanıtını Tweetle
+conversations_alternative_reply_hint	uk	Твітніть свою відповідь
+conversations_alternative_reply_hint	vi	Tweet trả lời của bạn
+conversations_alternative_reply_hint	x	Post your reply
+conversations_alternative_reply_hint	zh-rCN	发布回复推文
+conversations_alternative_reply_hint	zh-rHK	推你的回覆
+conversations_alternative_reply_hint	zh-rTW	推你的回覆
+deleted_tweet_title	ar	‏تم حذف هذه التغريدة.
+deleted_tweet_title	ar-rEH	‏تم حذف هذه التغريدة.
+deleted_tweet_title	de	Dieser Tweet wurde gelöscht.
+deleted_tweet_title	en	This Tweet has been deleted.
+deleted_tweet_title	es	Este Tweet se eliminó.
+deleted_tweet_title	fi	Tämä twiitti on poistettu.
+deleted_tweet_title	fr	Ce Tweet a été supprimé.
+deleted_tweet_title	hi	इस ट्वीट को मिटा दिया गया है.
+deleted_tweet_title	hu	Ezt a Tweetet törölték.
+deleted_tweet_title	in	Tweet ini telah dihapus.
+deleted_tweet_title	it	Questo Tweet è stato eliminato.
+deleted_tweet_title	ja	このツイートは削除されました。
+deleted_tweet_title	ko	이 트윗은 삭제되었습니다.
+deleted_tweet_title	ms	Tweet ini telah dipadamkan.
+deleted_tweet_title	nl	Deze Tweet is verwijderd.
+deleted_tweet_title	pl	Ten Tweet został usunięty.
+deleted_tweet_title	pt	Este Tweet foi excluído.
+deleted_tweet_title	ru	Этот твит был удален.
+deleted_tweet_title	sv	Denna Tweet har blivit raderad.
+deleted_tweet_title	th	ทวีตนี้ถูกลบแล้ว
+deleted_tweet_title	tr	Bu Tweet silinmiş.
+deleted_tweet_title	uk	Цей твіт видалено.
+deleted_tweet_title	vi	Tweet này đã được xóa.
+deleted_tweet_title	x	This post has been deleted.
+deleted_tweet_title	zh-rCN	推文已删除。
+deleted_tweet_title	zh-rHK	此推文已被刪除。
+deleted_tweet_title	zh-rTW	此推文已被刪除。
+duplicate_post_title	en	Tweet not sent
+duplicate_post_title	x	Post not sent
+early_access_edit_tweet_title	ar	‏تعديل التغريدة
+early_access_edit_tweet_title	ar-rEH	‏تعديل التغريدة
+early_access_edit_tweet_title	de	Tweet bearbeiten
+early_access_edit_tweet_title	en	Edit Tweet
+early_access_edit_tweet_title	es	Editar Tweet
+early_access_edit_tweet_title	fi	Muokkaa twiittiä
+early_access_edit_tweet_title	fr	Éditer le Tweet
+early_access_edit_tweet_title	hi	ट्वीट संपादित करें
+early_access_edit_tweet_title	hu	Tweet szerkesztése
+early_access_edit_tweet_title	in	Edit Tweet
+early_access_edit_tweet_title	it	Modifica Tweet
+early_access_edit_tweet_title	ja	ツイートを編集
+early_access_edit_tweet_title	ko	트윗 수정하기
+early_access_edit_tweet_title	ms	Edit Tweet
+early_access_edit_tweet_title	nl	Tweet bewerken
+early_access_edit_tweet_title	pl	Edytuj Tweeta
+early_access_edit_tweet_title	pt	Editar Tweet
+early_access_edit_tweet_title	ru	Редактируйте твиты
+early_access_edit_tweet_title	sv	Redigera tweeten
+early_access_edit_tweet_title	th	แก้ไขทวีต
+early_access_edit_tweet_title	tr	Tweeti Düzenle
+early_access_edit_tweet_title	uk	Редагування твітів
+early_access_edit_tweet_title	vi	Chỉnh sửa Tweet
+early_access_edit_tweet_title	x	Edit post
+early_access_edit_tweet_title	zh-rCN	编辑推文
+early_access_edit_tweet_title	zh-rHK	編輯推文
+early_access_edit_tweet_title	zh-rTW	編輯推文
+filter_item_tweets	ar	‏التغريدات
+filter_item_tweets	ar-rEH	‏التغريدات
+filter_item_tweets	de	Tweets
+filter_item_tweets	en	Tweets
+filter_item_tweets	es	Tweets
+filter_item_tweets	fi	Twiitit
+filter_item_tweets	fr	Tweets
+filter_item_tweets	hi	ट्वीट्स
+filter_item_tweets	hu	Tweetek
+filter_item_tweets	in	Tweet
+filter_item_tweets	it	Tweet
+filter_item_tweets	ja	ツイート
+filter_item_tweets	ko	트윗
+filter_item_tweets	ms	Tweet
+filter_item_tweets	nl	Tweets
+filter_item_tweets	pl	Tweety
+filter_item_tweets	pt	Tweets
+filter_item_tweets	ru	Твиты
+filter_item_tweets	sv	Tweets
+filter_item_tweets	th	ทวีต
+filter_item_tweets	tr	Tweetler
+filter_item_tweets	uk	Твіти
+filter_item_tweets	vi	Tweet
+filter_item_tweets	x	Posts
+filter_item_tweets	zh-rCN	推文
+filter_item_tweets	zh-rHK	推文
+filter_item_tweets	zh-rTW	推文
+gif_fab_label	ar	‏تغريد ملف Gif
+gif_fab_label	ar-rEH	‏تغريد ملف GIF
+gif_fab_label	de	GIF twittern
+gif_fab_label	en	Tweet Gif
+gif_fab_label	es	Twittear GIF
+gif_fab_label	fi	Twiittaa GIF
+gif_fab_label	fr	Tweeter le GIF
+gif_fab_label	hi	Gif ट्वीट करें
+gif_fab_label	hu	GIF Tweetelése
+gif_fab_label	in	Tweet GIF
+gif_fab_label	it	GIF del Tweet
+gif_fab_label	ja	GIF画像をツイート
+gif_fab_label	ko	GIF 트윗하기
+gif_fab_label	ms	Tweet GIF
+gif_fab_label	nl	GIF tweeten
+gif_fab_label	pl	Tweetnij GIF
+gif_fab_label	pt	Tweetar GIF
+gif_fab_label	ru	Твитнуть GIF-файл
+gif_fab_label	sv	GIF-tweet
+gif_fab_label	th	ทวีต Gif
+gif_fab_label	tr	Gif Tweetle
+gif_fab_label	uk	Твітнути GIF-файл
+gif_fab_label	vi	Tweet ảnh Gif
+gif_fab_label	x	Post Gif
+gif_fab_label	zh-rCN	发 Gif
+gif_fab_label	zh-rHK	推 GIF
+gif_fab_label	zh-rTW	推 GIF
+notification_prompt_card_like_body	en	Liked ❤️ your Tweet
+notification_prompt_card_like_body	x	Liked ❤️ your post
+notification_retweet_confirmation	ar	‏مُعاد تغريدها
+notification_retweet_confirmation	ar-rEH	‏مُعاد تغريدها
+notification_retweet_confirmation	de	Retweetet
+notification_retweet_confirmation	en	Retweeted
+notification_retweet_confirmation	es	Retwitteado
+notification_retweet_confirmation	fi	Uudelleentwiitattu
+notification_retweet_confirmation	fr	Retweeté
+notification_retweet_confirmation	hi	रीट्वीट किया
+notification_retweet_confirmation	hu	Retweetelve
+notification_retweet_confirmation	in	Di-Retweet
+notification_retweet_confirmation	it	Ritwittato
+notification_retweet_confirmation	ja	リツイートしました
+notification_retweet_confirmation	ko	리트윗함
+notification_retweet_confirmation	ms	Ditweet semula
+notification_retweet_confirmation	nl	Geretweet
+notification_retweet_confirmation	pl	Podany dalej
+notification_retweet_confirmation	pt	Retweetou
+notification_retweet_confirmation	ru	Ретвит отправлен
+notification_retweet_confirmation	sv	Retweetade
+notification_retweet_confirmation	th	รีทวีตแล้ว
+notification_retweet_confirmation	tr	Retweetlendi
+notification_retweet_confirmation	uk	Ретвітнуто
+notification_retweet_confirmation	vi	Đã Tweet lại
+notification_retweet_confirmation	x	Reposted
+notification_retweet_confirmation	zh-rCN	已转推
+notification_retweet_confirmation	zh-rHK	已轉推
+notification_retweet_confirmation	zh-rTW	已轉推
+ntp_see_new_posts	en	New Tweets
+ntp_see_new_posts	x	New posts
+option_delete_tweet	ar	‏حذف التغريدة
+option_delete_tweet	ar-rEH	‏حذف التغريدة
+option_delete_tweet	de	Tweet löschen
+option_delete_tweet	en	Delete Tweet
+option_delete_tweet	es	Eliminar Tweet
+option_delete_tweet	fi	Poista twiitti
+option_delete_tweet	fr	Supprimer le Tweet
+option_delete_tweet	hi	ट्वीट मिटाएं
+option_delete_tweet	hu	Tweet törlése
+option_delete_tweet	in	Hapus Tweet
+option_delete_tweet	it	Elimina Tweet
+option_delete_tweet	ja	ツイートを削除
+option_delete_tweet	ko	트윗 삭제하기
+option_delete_tweet	ms	Padam Tweet
+option_delete_tweet	nl	Tweet verwijderen
+option_delete_tweet	pl	Usuń Tweeta
+option_delete_tweet	pt	Excluir Tweet
+option_delete_tweet	ru	Удалить твит
+option_delete_tweet	sv	Radera Tweet
+option_delete_tweet	th	ลบทวีต
+option_delete_tweet	tr	Tweeti sil
+option_delete_tweet	uk	Видалити твіт
+option_delete_tweet	vi	Xóa Tweet
+option_delete_tweet	x	Delete post
+option_delete_tweet	zh-rCN	删除推文
+option_delete_tweet	zh-rHK	刪除推文
+option_delete_tweet	zh-rTW	刪除推文
+option_report_tweet	ar	‏الإبلاغ عن تغريدة
+option_report_tweet	ar-rEH	‏الإبلاغ عن تغريدة
+option_report_tweet	de	Tweet melden
+option_report_tweet	en	Report Tweet
+option_report_tweet	es	Denunciar Tweet
+option_report_tweet	fi	Ilmianna twiitti
+option_report_tweet	fr	Signaler le Tweet
+option_report_tweet	hi	ट्वीट की रिपोर्ट करें
+option_report_tweet	hu	Tweet jelentése
+option_report_tweet	in	Laporkan Tweet
+option_report_tweet	it	Segnala Tweet
+option_report_tweet	ja	ツイートを報告
+option_report_tweet	ko	트윗 신고하기
+option_report_tweet	ms	Lapor Tweet
+option_report_tweet	nl	Tweet rapporteren
+option_report_tweet	pl	Zgłoś Tweeta
+option_report_tweet	pt	Denunciar Tweet
+option_report_tweet	ru	Пожаловаться на твит
+option_report_tweet	sv	Rapportera Tweet
+option_report_tweet	th	รายงานทวีต
+option_report_tweet	tr	Tweeti bildir
+option_report_tweet	uk	Поскаржитися на твіт
+option_report_tweet	vi	Báo cáo Tweet
+option_report_tweet	x	Report post
+option_report_tweet	zh-rCN	举报推文
+option_report_tweet	zh-rHK	檢舉推文
+option_report_tweet	zh-rTW	檢舉推文
+pin_confirmation_title	ar	‏تثبيت هذه التغريدة
+pin_confirmation_title	ar-rEH	‏تثبيت هذه التغريدة
+pin_confirmation_title	de	Diesen Tweet anheften
+pin_confirmation_title	en	Pin this Tweet
+pin_confirmation_title	es	Fijar este Tweet
+pin_confirmation_title	fi	Kiinnitä tämä twiitti
+pin_confirmation_title	fr	Épingler ce Tweet
+pin_confirmation_title	hi	इस ट्वीट को पिन करें
+pin_confirmation_title	hu	Tweet kitűzése
+pin_confirmation_title	in	Sematkan Tweet ini
+pin_confirmation_title	it	Fissa questo Tweet
+pin_confirmation_title	ja	このツイートを固定
+pin_confirmation_title	ko	이 트윗을 메인에 올리기
+pin_confirmation_title	ms	Pin Tweet ini
+pin_confirmation_title	nl	Deze Tweet vastmaken
+pin_confirmation_title	pl	Przypnij tego Tweeta
+pin_confirmation_title	pt	Fixar este Tweet
+pin_confirmation_title	ru	Закрепить этот твит
+pin_confirmation_title	sv	Nåla fast den här Tweeten
+pin_confirmation_title	th	ปักหมุดทวีตนี้
+pin_confirmation_title	tr	Bu Tweeti sabitle
+pin_confirmation_title	uk	Закріпити цей твіт
+pin_confirmation_title	vi	Ghim Tweet này
+pin_confirmation_title	x	Pin this post
+pin_confirmation_title	zh-rCN	置顶该推文
+pin_confirmation_title	zh-rHK	釘選這則推文
+pin_confirmation_title	zh-rTW	釘選這則推文
+post_details_post_your_reply	en	Tweet your reply
+post_details_post_your_reply	x	Post your reply
+post_details_title	en	Tweet
+post_details_title	x	Post
+post_photo	en	Tweet Photo
+post_photo	x	Post Photo
+post_self_thread	ar	‏تغريد الكل
+post_self_thread	ar-rEH	‏تغريد الكل
+post_self_thread	de	Alle twittern
+post_self_thread	en	Tweet all
+post_self_thread	es	Twittear todo
+post_self_thread	fi	Twiittaa kaikki
+post_self_thread	fr	Tout tweeter
+post_self_thread	hi	सभी ट्वीट करें
+post_self_thread	hu	Tweet küldése mindenkinek
+post_self_thread	in	Tweet semua
+post_self_thread	it	Twitta tutto
+post_self_thread	ja	すべてツイート
+post_self_thread	ko	모두 트윗하기
+post_self_thread	ms	Tweet semua
+post_self_thread	nl	Alles tweeten
+post_self_thread	pl	Tweetnij wszystko
+post_self_thread	pt	Tweetar tudo
+post_self_thread	ru	Твитнуть все
+post_self_thread	sv	Tweeta allt
+post_self_thread	th	ทวีตทั้งหมด
+post_self_thread	tr	Tümünü Tweetle
+post_self_thread	uk	Твітнути все
+post_self_thread	vi	Tweet tất cả
+post_self_thread	x	Post all
+post_self_thread	zh-rCN	全部发推
+post_self_thread	zh-rHK	推所有推文
+post_self_thread	zh-rTW	推所有推文
+post_tweet	ar	‏تغريد
+post_tweet	ar-rEH	‏تغريد
+post_tweet	de	Twittern
+post_tweet	en	Tweet
+post_tweet	es	Twittear
+post_tweet	fi	Twiittaa
+post_tweet	fr	Tweeter
+post_tweet	hi	ट्वीट
+post_tweet	hu	Tweet küldése
+post_tweet	in	Tweet
+post_tweet	it	Twitta
+post_tweet	ja	ツイートする
+post_tweet	ko	트윗
+post_tweet	ms	Tweet
+post_tweet	nl	Tweeten
+post_tweet	pl	Tweetnij
+post_tweet	pt	Tweetar
+post_tweet	ru	Твитнуть
+post_tweet	sv	Tweeta
+post_tweet	th	ทวีต
+post_tweet	tr	Tweetle
+post_tweet	uk	Твітнути
+post_tweet	vi	Đăng Tweet
+post_tweet	x	Post
+post_tweet	zh-rCN	发推
+post_tweet	zh-rHK	推文
+post_tweet	zh-rTW	推文
+post_tweet_error	ar	‏فشل في إرسال التغريدة
+post_tweet_error	ar-rEH	‏فشل إرسال التغريدة
+post_tweet_error	de	Senden des Tweets fehlgeschlagen
+post_tweet_error	en	Failed to send Tweet
+post_tweet_error	es	Error al enviar el Tweet
+post_tweet_error	fi	Twiitin lähettäminen epäonnistui
+post_tweet_error	fr	Échec de l'envoi du Tweet
+post_tweet_error	hi	ट्वीट भेजने में विफल
+post_tweet_error	hu	Nem sikerült a Tweetet elküldeni
+post_tweet_error	in	Gagal mengirim Tweet
+post_tweet_error	it	Errore nell'invio del Tweet
+post_tweet_error	ja	ツイートの送信に失敗しました
+post_tweet_error	ko	트윗 전송 오류로 임시 저장됨
+post_tweet_error	ms	Gagal untuk menghantar Tweet
+post_tweet_error	nl	Verzenden van Tweet mislukt
+post_tweet_error	pl	Błąd wysyłania tweeta
+post_tweet_error	pt	Falha ao enviar o Tweet
+post_tweet_error	ru	Не удалось отправить твит
+post_tweet_error	sv	Misslyckades att skicka tweet
+post_tweet_error	th	ส่งทวีตไม่สําเร็จ
+post_tweet_error	tr	Tweet gönderme başarısız
+post_tweet_error	uk	Не вдалося надіслати твіт
+post_tweet_error	vi	Không gửi được Tweet
+post_tweet_error	x	Failed to send post
+post_tweet_error	zh-rCN	推文发送失败
+post_tweet_error	zh-rHK	發送推文失敗
+post_tweet_error	zh-rTW	發送推文失敗
+post_video	en	Tweet Video
+post_video	x	Post Video
+profile_search	en	Search Tweets
+profile_search	x	Search posts
+profile_tab_title_posts	en	Tweets
+profile_tab_title_posts	x	Posts
+reposted_by	en	%s Retweeted
+reposted_by	x	%s reposted
+retweeters_title	ar	‏مُعاد تغريدها بواسطة
+retweeters_title	ar-rEH	‏مُعاد تغريدها بواسطة
+retweeters_title	de	Retweetet von
+retweeters_title	en	Retweeted by
+retweeters_title	es	Retwitteado por
+retweeters_title	fi	Uudelleentwiitannut
+retweeters_title	fr	Retweeté par
+retweeters_title	hi	के द्वारा रिट्विट
+retweeters_title	hu	Retweetelte:
+retweeters_title	in	Di-retweet oleh
+retweeters_title	it	Ritwittato da
+retweeters_title	ja	リツイート
+retweeters_title	ko	리트윗한 사용자
+retweeters_title	ms	Ditweet semula oleh
+retweeters_title	nl	Geretweet door
+retweeters_title	pl	Podane dalej przez
+retweeters_title	pt	Retweetado por
+retweeters_title	ru	Ретвиты от
+retweeters_title	sv	Retweetad av
+retweeters_title	th	ถูกรีทวีตโดย
+retweeters_title	tr	Retweetleyenler
+retweeters_title	uk	Ретвіти
+retweeters_title	vi	Đã Tweet lại bởi
+retweeters_title	x	Reposted by
+retweeters_title	zh-rCN	被转推
+retweeters_title	zh-rHK	轉推由
+retweeters_title	zh-rTW	轉推由
+retweeters_title_with_count	en	Retweeted by {count}
+retweeters_title_with_count	x	Reposted by {count}
+search_hint	ar	‏البحث في تويتر
+search_hint	ar-rEH	‏البحث في Twitter
+search_hint	de	Twitter durchsuchen
+search_hint	en	Search Twitter
+search_hint	es	Buscar en Twitter
+search_hint	fi	Etsi Twitteristä
+search_hint	fr	Rechercher sur Twitter
+search_hint	hi	Twitter पर खोजें
+search_hint	hu	Twitter keresése
+search_hint	in	Cari di Twitter
+search_hint	it	Cerca su Twitter
+search_hint	ja	キーワード検索
+search_hint	ko	트위터 검색
+search_hint	ms	Cari di Twitter
+search_hint	nl	Zoeken op Twitter
+search_hint	pl	Szukaj na Twitterze
+search_hint	pt	Busca do Twitter
+search_hint	ru	Поиск в Твиттере
+search_hint	sv	Sök på Twitter
+search_hint	th	ค้นหาทวิตเตอร์
+search_hint	tr	Twitter'da Ara
+search_hint	uk	Пошук у Твіттері
+search_hint	vi	Tìm kiếm Twitter
+search_hint	x	Search X
+search_hint	zh-rCN	搜索 Twitter
+search_hint	zh-rHK	搜尋 Twitter
+search_hint	zh-rTW	搜尋 Twitter
+show_more_posts	en	Show more Tweets
+show_more_posts	x	Show more posts
+social_you_retweeted	ar	‏قمت بإعادة تغريد
+social_you_retweeted	ar-rEH	‏لقد قمتِ بإعادة التغريد
+social_you_retweeted	de	Du hast retweetet
+social_you_retweeted	en	You Retweeted
+social_you_retweeted	es	Retwitteado por ti
+social_you_retweeted	fi	Uudelleentwiittasit
+social_you_retweeted	fr	Vous avez retweeté
+social_you_retweeted	hi	आपने रीट्वीट किया
+social_you_retweeted	hu	Retweetelted
+social_you_retweeted	in	Anda me-Retweet
+social_you_retweeted	it	Hai ritwittato
+social_you_retweeted	ja	リツイート済み
+social_you_retweeted	ko	내가 리트윗한 트윗
+social_you_retweeted	ms	Anda Mengetweet Semula
+social_you_retweeted	nl	Je hebt geretweet
+social_you_retweeted	pl	Podałeś/aś dalej
+social_you_retweeted	pt	Você retweetou
+social_you_retweeted	ru	Вы ретвитнули
+social_you_retweeted	sv	Du Retweetade
+social_you_retweeted	th	คุณรีทวีตแล้ว
+social_you_retweeted	tr	Retweetledin
+social_you_retweeted	uk	Ви ретвітнули
+social_you_retweeted	vi	Bạn đã Tweet lại
+social_you_retweeted	x	You reposted
+social_you_retweeted	zh-rCN	你转推了
+social_you_retweeted	zh-rHK	你已轉推
+social_you_retweeted	zh-rTW	你已轉推
+tweet_added_to_your_bookmarks	ar	‏تمت إضافة التغريدة إلى علامات المرجعية
+tweet_added_to_your_bookmarks	ar-rEH	‏تمت إضافة التغريدة إلى علاماتكِ المرجعية
+tweet_added_to_your_bookmarks	de	Tweet zu den Lesezeichen hinzugefügt
+tweet_added_to_your_bookmarks	en	Tweet added to your Bookmarks
+tweet_added_to_your_bookmarks	es	Se agregó el Tweet a tus Elementos guardados
+tweet_added_to_your_bookmarks	fi	Twiitti lisätty kirjanmerkkeihin
+tweet_added_to_your_bookmarks	fr	Tweet ajouté à vos signets
+tweet_added_to_your_bookmarks	hi	ट्वीट को आपके बुकमार्क में जोड़ा गया
+tweet_added_to_your_bookmarks	hu	A Tweet hozzá lett adva a könyvjelzőkhöz
+tweet_added_to_your_bookmarks	in	Tweet ditambahkan ke Markah Anda
+tweet_added_to_your_bookmarks	it	Tweet salvato nei segnalibri
+tweet_added_to_your_bookmarks	ja	ツイートがブックマークに追加されました
+tweet_added_to_your_bookmarks	ko	북마크에 트윗을 추가했습니다.
+tweet_added_to_your_bookmarks	ms	Tweet ditambah ke Bookmark anda
+tweet_added_to_your_bookmarks	nl	Tweet toegevoegd aan je bladwijzers
+tweet_added_to_your_bookmarks	pl	Tweet został dodany do Zakładek
+tweet_added_to_your_bookmarks	pt	Tweet adicionado aos Itens salvos
+tweet_added_to_your_bookmarks	ru	Твит добавлен в закладки
+tweet_added_to_your_bookmarks	sv	Tweeten har lagts till i dina bokmärken
+tweet_added_to_your_bookmarks	th	เพิ่มทวีตลงในบุ๊คมาร์กของคุณแล้ว
+tweet_added_to_your_bookmarks	tr	Tweet Yer İşaretlerine eklendi
+tweet_added_to_your_bookmarks	uk	Твіт додано до закладок
+tweet_added_to_your_bookmarks	vi	Tweet đã được thêm vào Dấu trang
+tweet_added_to_your_bookmarks	x	Post added to your Bookmarks
+tweet_added_to_your_bookmarks	zh-rCN	推文已添加到你的书签中
+tweet_added_to_your_bookmarks	zh-rHK	推文已加入至你的書籤
+tweet_added_to_your_bookmarks	zh-rTW	推文已加入至你的書籤
+tweet_edit_sent_in_app_message_text	ar	‏تم تحرير تغريدتك
+tweet_edit_sent_in_app_message_text	ar-rEH	‏تم تحرير تغريدتكِ
+tweet_edit_sent_in_app_message_text	de	Dein Tweet wurde bearbeitet
+tweet_edit_sent_in_app_message_text	en	Your Tweet has been edited
+tweet_edit_sent_in_app_message_text	es	Tu Tweet se editó
+tweet_edit_sent_in_app_message_text	fi	Twiittiäsi on muokattu
+tweet_edit_sent_in_app_message_text	fr	Votre Tweet a été modifié.
+tweet_edit_sent_in_app_message_text	hi	आपके ट्वीट को संपादित किया गया
+tweet_edit_sent_in_app_message_text	hu	A Tweeted szerkesztve lett
+tweet_edit_sent_in_app_message_text	in	Tweet Anda telah diedit
+tweet_edit_sent_in_app_message_text	it	Il Tweet è stato modificato
+tweet_edit_sent_in_app_message_text	ja	ツイートを編集しました
+tweet_edit_sent_in_app_message_text	ko	트윗이 수정되었습니다
+tweet_edit_sent_in_app_message_text	ms	Tweet anda telah diedit
+tweet_edit_sent_in_app_message_text	nl	Je Tweet is gewijzigd
+tweet_edit_sent_in_app_message_text	pl	Twój Tweet był edytowany
+tweet_edit_sent_in_app_message_text	pt	Seu Tweet foi editado
+tweet_edit_sent_in_app_message_text	ru	Изменения сохранены.
+tweet_edit_sent_in_app_message_text	sv	Din Tweet har redigerats
+tweet_edit_sent_in_app_message_text	th	ทวีตของคุณได้รับการแก้ไขแล้ว
+tweet_edit_sent_in_app_message_text	tr	Tweetin düzenlendi
+tweet_edit_sent_in_app_message_text	uk	Ваш твіт відредаговано
+tweet_edit_sent_in_app_message_text	vi	Tweet của bạn đã được chỉnh sửa
+tweet_edit_sent_in_app_message_text	x	Your post has been edited
+tweet_edit_sent_in_app_message_text	zh-rCN	你的推文已被编辑
+tweet_edit_sent_in_app_message_text	zh-rHK	你的推文已編輯
+tweet_edit_sent_in_app_message_text	zh-rTW	你的推文已編輯
+tweet_fab_item	ar	‏التغريدة
+tweet_fab_item	ar-rEH	‏من التغريدات
+tweet_fab_item	de	Twittern
+tweet_fab_item	en	Tweet
+tweet_fab_item	es	Tweet
+tweet_fab_item	fi	Twiitti
+tweet_fab_item	fr	Tweeter
+tweet_fab_item	hi	ट्वीट
+tweet_fab_item	hu	Tweet
+tweet_fab_item	in	Tweet
+tweet_fab_item	it	Tweet
+tweet_fab_item	ja	ツイート
+tweet_fab_item	ko	트윗
+tweet_fab_item	ms	Tweet
+tweet_fab_item	nl	Tweet
+tweet_fab_item	pl	Tweet
+tweet_fab_item	pt	Tweet
+tweet_fab_item	ru	Твит
+tweet_fab_item	sv	Tweet
+tweet_fab_item	th	ทวีต
+tweet_fab_item	tr	Tweet
+tweet_fab_item	uk	Твіт
+tweet_fab_item	vi	Tweet
+tweet_fab_item	x	Post
+tweet_fab_item	zh-rCN	推文
+tweet_fab_item	zh-rHK	推文
+tweet_fab_item	zh-rTW	推文
+tweet_removed_from_your_bookmarks	ar	‏تمت إزالة التغريدة من علاماتك المرجعية
+tweet_removed_from_your_bookmarks	ar-rEH	‏تمت إزالة التغريدة من علاماتكِ المرجعية
+tweet_removed_from_your_bookmarks	de	Tweet aus deinen Lesezeichen entfernt
+tweet_removed_from_your_bookmarks	en	Tweet removed from your Bookmarks
+tweet_removed_from_your_bookmarks	es	Se eliminó el Tweet de tus Elementos guardados
+tweet_removed_from_your_bookmarks	fi	Twiitti poistettu kirjanmerkeistä
+tweet_removed_from_your_bookmarks	fr	Tweet retiré de vos signets
+tweet_removed_from_your_bookmarks	hi	ट्वीट को आपके बुकमार्क से निकाल दिया गया
+tweet_removed_from_your_bookmarks	hu	A Tweet el lett távolítva a könyvejlzőkből
+tweet_removed_from_your_bookmarks	in	Tweet dihapus dari Markah Anda
+tweet_removed_from_your_bookmarks	it	Tweet rimosso dai segnalibri
+tweet_removed_from_your_bookmarks	ja	ツイートをブックマークから削除しました
+tweet_removed_from_your_bookmarks	ko	북마크에서 트윗을 삭제했습니다.
+tweet_removed_from_your_bookmarks	ms	Tweet dialih keluar daripada Boomark anda
+tweet_removed_from_your_bookmarks	nl	Tweet verwijderd uit je bladwijzers
+tweet_removed_from_your_bookmarks	pl	Tweet został usunięty z Zakładek
+tweet_removed_from_your_bookmarks	pt	Tweet removido dos Itens salvos
+tweet_removed_from_your_bookmarks	ru	Твит удален из закладок
+tweet_removed_from_your_bookmarks	sv	Tweeten har tagits bort från dina bokmärken
+tweet_removed_from_your_bookmarks	th	ลบทวีตออกจากบุ๊คมาร์กแล้ว
+tweet_removed_from_your_bookmarks	tr	Tweet Yer İşaretlerinden kaldırıldı
+tweet_removed_from_your_bookmarks	uk	Твіт видалено із закладок
+tweet_removed_from_your_bookmarks	vi	Tweet được xóa khỏi Dấu trang
+tweet_removed_from_your_bookmarks	x	Post removed from your Bookmarks
+tweet_removed_from_your_bookmarks	zh-rCN	推文已从你的书签中移除
+tweet_removed_from_your_bookmarks	zh-rHK	推文已從你的書籤中移除
+tweet_removed_from_your_bookmarks	zh-rTW	推文已從你的書籤中移除
+tweet_sent_in_app_message_text	ar	‏تم إرسال تغريدتك
+tweet_sent_in_app_message_text	ar-rEH	‏تم إرسال تغريدتكِ
+tweet_sent_in_app_message_text	de	Dein Tweet wurde gesendet
+tweet_sent_in_app_message_text	en	Your Tweet was sent
+tweet_sent_in_app_message_text	es	Se envió tu Tweet
+tweet_sent_in_app_message_text	fi	Twiittisi on lähetetty
+tweet_sent_in_app_message_text	fr	Votre Tweet a été publié.
+tweet_sent_in_app_message_text	hi	आपका ट्वीट भेज दिया गया था
+tweet_sent_in_app_message_text	hu	A Tweetedet elküldtük
+tweet_sent_in_app_message_text	in	Tweet Anda terkirim
+tweet_sent_in_app_message_text	it	Il tuo Tweet è stato inviato
+tweet_sent_in_app_message_text	ja	ツイートを送信しました
+tweet_sent_in_app_message_text	ko	트윗이 전송되었습니다
+tweet_sent_in_app_message_text	ms	Tweet anda telah dihantar
+tweet_sent_in_app_message_text	nl	Je Tweet is verstuurd
+tweet_sent_in_app_message_text	pl	Twój Tweet został wysłany
+tweet_sent_in_app_message_text	pt	Seu Tweet foi enviado
+tweet_sent_in_app_message_text	ru	Твит отправлен
+tweet_sent_in_app_message_text	sv	Din Tweet skickades
+tweet_sent_in_app_message_text	th	ทวีตของคุณถูกส่งแล้ว
+tweet_sent_in_app_message_text	tr	Tweetin gönderildi
+tweet_sent_in_app_message_text	uk	Ваш твіт надіслано
+tweet_sent_in_app_message_text	vi	Tweet của bạn đã được gửi đi
+tweet_sent_in_app_message_text	x	Your post was sent
+tweet_sent_in_app_message_text	zh-rCN	你的推文已发送
+tweet_sent_in_app_message_text	zh-rHK	你的推文已發送
+tweet_sent_in_app_message_text	zh-rTW	你的推文已發送
+tweet_title	ar	‏غرّد
+tweet_title	ar-rEH	‏تغريد
+tweet_title	de	Tweet
+tweet_title	en	Tweet
+tweet_title	es	Tweet
+tweet_title	fi	Twiitti
+tweet_title	fr	Tweet
+tweet_title	hi	ट्वीट
+tweet_title	hu	Tweet
+tweet_title	in	Tweet
+tweet_title	it	Tweet
+tweet_title	ja	ツイート
+tweet_title	ko	트윗
+tweet_title	ms	Tweet
+tweet_title	nl	Tweet
+tweet_title	pl	Tweet
+tweet_title	pt	Tweet
+tweet_title	ru	Твитнуть
+tweet_title	sv	Tweet
+tweet_title	th	ทวีต
+tweet_title	tr	Tweet
+tweet_title	uk	Твіт
+tweet_title	vi	Tweet
+tweet_title	x	Post
+tweet_title	zh-rCN	推文
+tweet_title	zh-rHK	推文
+tweet_title	zh-rTW	推文
+tweets_delete_title	ar	‏هل تريد حذف التغريدة؟
+tweets_delete_title	ar-rEH	‏هل تريدين حذف التغريدة؟
+tweets_delete_title	de	Tweet löschen?
+tweets_delete_title	en	Delete Tweet?
+tweets_delete_title	es	¿Quieres eliminar el Tweet?
+tweets_delete_title	fi	Poistetaanko twiitti?
+tweets_delete_title	fr	Supprimer le Tweet ?
+tweets_delete_title	hi	ट्वीट को मिटा दें?
+tweets_delete_title	hu	Törlöd a Tweetet?
+tweets_delete_title	in	Hapus Tweet?
+tweets_delete_title	it	Vuoi eliminare il Tweet?
+tweets_delete_title	ja	ツイートを削除しますか？
+tweets_delete_title	ko	트윗을 삭제할까요?
+tweets_delete_title	ms	Padam Tweet?
+tweets_delete_title	nl	Tweet verwijderen?
+tweets_delete_title	pl	Usunąć Tweeta?
+tweets_delete_title	pt	Excluir Tweet?
+tweets_delete_title	ru	Удалить твит?
+tweets_delete_title	sv	Vill du radera tweeten?
+tweets_delete_title	th	ลบทวีตหรือไม่
+tweets_delete_title	tr	Tweet silinsin mi?
+tweets_delete_title	uk	Видалити твіт?
+tweets_delete_title	vi	Xóa Tweet?
+tweets_delete_title	x	Delete post?
+tweets_delete_title	zh-rCN	删除推文？
+tweets_delete_title	zh-rHK	要刪除推文嗎？
+tweets_delete_title	zh-rTW	要刪除推文嗎？
+tweets_retweet	ar	‏إعادة التغريد
+tweets_retweet	ar-rEH	‏إعادة التغريد
+tweets_retweet	de	Retweeten
+tweets_retweet	en	Retweet
+tweets_retweet	es	Retwittear
+tweets_retweet	fi	Uudelleentwiittaa
+tweets_retweet	fr	Retweeter
+tweets_retweet	hi	रिट्वीट
+tweets_retweet	hu	Retweet
+tweets_retweet	in	Retweet
+tweets_retweet	it	Ritwitta
+tweets_retweet	ja	リツイート
+tweets_retweet	ko	리트윗
+tweets_retweet	ms	Tweet semula
+tweets_retweet	nl	Retweeten
+tweets_retweet	pl	Podaj dalej
+tweets_retweet	pt	Retweetar
+tweets_retweet	ru	Ретвит
+tweets_retweet	sv	Retweeta
+tweets_retweet	th	รีทวีต
+tweets_retweet	tr	Retweetle
+tweets_retweet	uk	Ретвітнути
+tweets_retweet	vi	Tweet lại
+tweets_retweet	x	Repost
+tweets_retweet	zh-rCN	转推
+tweets_retweet	zh-rHK	轉推
+tweets_retweet	zh-rTW	轉推
+tweets_retweeted_accessibility_description	ar	‏معاد تغريدها بواسطة %s
+tweets_retweeted_accessibility_description	ar-rEH	‏مُعاد تغريدها بواسطة %s
+tweets_retweeted_accessibility_description	de	Retweetet von %s
+tweets_retweeted_accessibility_description	en	Retweeted by %s
+tweets_retweeted_accessibility_description	es	Retwitteado por %s
+tweets_retweeted_accessibility_description	fi	Uudelleentwiittannut %s
+tweets_retweeted_accessibility_description	fr	Retweeté par %s
+tweets_retweeted_accessibility_description	hi	%s द्वारा रीट्वीट
+tweets_retweeted_accessibility_description	hu	Retweetelte: %s
+tweets_retweeted_accessibility_description	in	Di-retweet oleh %s
+tweets_retweeted_accessibility_description	it	Ritwittato da %s
+tweets_retweeted_accessibility_description	ja	%sさんにリツイートされました
+tweets_retweeted_accessibility_description	ko	%s 님이 리트윗했습니다
+tweets_retweeted_accessibility_description	ms	Di tweet semula oleh %s
+tweets_retweeted_accessibility_description	nl	Geretweet door %s
+tweets_retweeted_accessibility_description	pl	Podany dalej przez %s
+tweets_retweeted_accessibility_description	pt	Retweetado por %s
+tweets_retweeted_accessibility_description	ru	Ретвитнуто пользователем %s
+tweets_retweeted_accessibility_description	sv	Retweetat av %s
+tweets_retweeted_accessibility_description	th	ถูกรีทวีตโดย %s
+tweets_retweeted_accessibility_description	tr	%s tarafından retweetlendi
+tweets_retweeted_accessibility_description	uk	Ретвітнуто %s
+tweets_retweeted_accessibility_description	vi	Đã Tweet lại bởi %s
+tweets_retweeted_accessibility_description	x	Reposted by %s
+tweets_retweeted_accessibility_description	zh-rCN	由 %s 转推
+tweets_retweeted_accessibility_description	zh-rHK	已被 %s 轉推
+tweets_retweeted_accessibility_description	zh-rTW	已被 %s 轉推
+tweets_undo_retweet_vertical	ar	‏التراجع عن إعادة التغريد
+tweets_undo_retweet_vertical	ar-rEH	‏التراجع عن إعادة التغريد
+tweets_undo_retweet_vertical	de	Retweet rückgängig machen
+tweets_undo_retweet_vertical	en	Undo Retweet
+tweets_undo_retweet_vertical	es	Deshacer Retweet
+tweets_undo_retweet_vertical	fi	Kumoa uudelleentwiittaus
+tweets_undo_retweet_vertical	fr	Annuler le Retweet
+tweets_undo_retweet_vertical	hi	रीट्वीट पूर्ववत करें
+tweets_undo_retweet_vertical	hu	Retweet visszavonása
+tweets_undo_retweet_vertical	in	Batalkan Retweet
+tweets_undo_retweet_vertical	it	Annulla Retweet
+tweets_undo_retweet_vertical	ja	リツイートを取り消す
+tweets_undo_retweet_vertical	ko	리트윗 취소
+tweets_undo_retweet_vertical	ms	Buat asal Tweet Semula
+tweets_undo_retweet_vertical	nl	Retweet ongedaan maken
+tweets_undo_retweet_vertical	pl	Cofnij podanie dalej
+tweets_undo_retweet_vertical	pt	Desfazer Retweet
+tweets_undo_retweet_vertical	ru	Отменить ретвит
+tweets_undo_retweet_vertical	sv	Ångra Retweet
+tweets_undo_retweet_vertical	th	ยกเลิกการรีทวีต
+tweets_undo_retweet_vertical	tr	Retweetlemeyi geri al
+tweets_undo_retweet_vertical	uk	Скасувати ретвіт
+tweets_undo_retweet_vertical	vi	Hoàn tác Tweet lại
+tweets_undo_retweet_vertical	x	Undo Repost
+tweets_undo_retweet_vertical	zh-rCN	撤销转推
+tweets_undo_retweet_vertical	zh-rHK	取消轉推
+tweets_undo_retweet_vertical	zh-rTW	取消轉推
+undo_tweet	ar	‏تراجع عن التغريدة
+undo_tweet	ar-rEH	‏التراجع عن التغريدة
+undo_tweet	de	Tweet rückgängig machen
+undo_tweet	en	Undo Tweet
+undo_tweet	es	Deshacer Tweet
+undo_tweet	fi	Kumoa twiitti
+undo_tweet	fr	Annuler le Tweet
+undo_tweet	hi	ट्वीट को पूर्ववत करें
+undo_tweet	hu	Tweet visszavonása
+undo_tweet	in	Batalkan Tweet
+undo_tweet	it	Annulla Tweet
+undo_tweet	ja	ツイートを取り消す
+undo_tweet	ko	트윗 취소하기
+undo_tweet	ms	Buat asal Tweet
+undo_tweet	nl	Tweet ongedaan maken
+undo_tweet	pl	Cofnij Tweeta
+undo_tweet	pt	Desfazer Tweet
+undo_tweet	ru	Отменить твит
+undo_tweet	sv	Ångra Tweet
+undo_tweet	th	ยกเลิกการทวีต
+undo_tweet	tr	Tweeti geri al
+undo_tweet	uk	Скасувати твіт
+undo_tweet	vi	Hoàn tác Tweet
+undo_tweet	x	Undo post
+undo_tweet	zh-rCN	撤销发推
+undo_tweet	zh-rHK	取消推文
+undo_tweet	zh-rTW	取消推文
+x_lite_profile_tab_title_reposts	en	Retweets
+x_lite_profile_tab_title_reposts	x	Reposts

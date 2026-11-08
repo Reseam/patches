@@ -17,8 +17,10 @@ import app.reseam.patches.bundle.LauncherAlias
 import app.reseam.patches.bundle.addLauncherAliases
 import app.reseam.patches.x.core.COMPOSER
 import app.reseam.patches.x.core.MAIN_ACTIVITY
+import app.reseam.patches.x.core.mainActivityAttachBaseContext
 import app.reseam.patches.x.core.mainActivityOnCreate
 import app.reseam.patches.x.core.composerAtEntry
+import app.reseam.x.theme.bindings.TwitterWording
 import app.reseam.x.theme.bindings.XTheme
 
 // The Twitter bird on a 24-unit grid, from Simple Icons 9.21.0 (CC0-1.0).
@@ -36,6 +38,7 @@ private const val LAUNCHER_ICON = "reseam_twitter_launcher"
 private const val SPLASH_ICON = "reseam_twitter_splash"
 private const val SPLASH_THEME = "Theme.Reseam.TwitterSplash"
 private const val REFRESH_LOGO = "reseam_twitter_refresh_logo"
+private const val WORDING = "reseam_twitter_wording"
 
 internal fun PatchRuntime.addTwitterBranding() {
     // Each X logo gets a bird twin drawn at the share of the canvas the X takes, in the same fill so
@@ -87,9 +90,11 @@ internal fun PatchRuntime.addTwitterBranding() {
         this["windowSplashScreenAnimatedIcon"] = "@drawable/$SPLASH_ICON"
     }
     XTheme.twitterSplashTheme.implement { returnValue(int(splashTheme.toInt())) }
+    XTheme.twitterBlue.implement { returnValue(int(TWITTER_BLUE.removePrefix("#").toLong(16).toInt())) }
     mainActivityOnCreate.after { XTheme.applyLauncherBranding(thisObject) }
 
     addTwitterColors()
+    addTwitterWording()
 }
 
 private fun PatchRuntime.addTwitterColors() {
@@ -124,6 +129,21 @@ private val currentThemeColors = method("currentThemeColors") {
     returns(themeColors.descriptor)
     params(COMPOSER, Type.Int)
 }
+
+// Twitter's wording for the strings people see most (research/x/tools/twitter_wording.py): Twitter's own text and
+// translations where the string kept its Twitter-era name, else X's English rewritten. A string X has reworded
+// since keeps X's text, so the table never overrides a meaning it was not written for.
+private fun PatchRuntime.addTwitterWording() {
+    val rows = resource("twitter_wording.tsv").decodeToString().lines().filter { it.isNotEmpty() }.map { it.split('\t', limit = 3) }
+    val current = rows.filter { (name, qualifier, text) -> qualifier == "x" && resources.getString(name)?.escapeTsv() == text }
+        .map { it[0] }.toSet()
+    val table = rows.filter { (name, qualifier) -> name in current && qualifier != "x" }.joinToString("") { it.joinToString("\t", postfix = "\n") }
+    val wording = resources.addFile("raw", WORDING, "res/raw/$WORDING.tsv", table.toByteArray())
+    TwitterWording.wordingResource.implement { returnValue(int(wording.toInt())) }
+    mainActivityAttachBaseContext.before { param(0).assign(TwitterWording.wrap(param(0))) }
+}
+
+private fun String.escapeTsv(): String = replace("\\", "\\\\").replace("\t", "\\t").replace("\n", "\\n")
 
 private object TwitterBrandingResources
 

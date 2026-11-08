@@ -17,6 +17,8 @@ import app.reseam.x.settings.XSettings
 
 @Export external fun twitterSplashTheme(): Int
 
+@Export external fun twitterBlue(): Int
+
 @Export fun twitter(): Boolean = XSettings.twitterBranding.value
 
 @Export fun branded(id: Int): Int = if (twitter()) twitterResource(id) else id
@@ -60,6 +62,9 @@ fun dimmed(color: Long): Long {
 private fun composeColor(argb: Int): Long = argb.toLong().and(0xffffffffL) shl 32
 
 private fun accentArgb(): Int? =
+    pickedAccent() ?: twitterBlue().takeIf { twitter() }
+
+private fun pickedAccent(): Int? =
     when (XSettings.accentColor.value) {
         // System palettes are overlaid onto the framework's own resources, so no context is needed.
         "material_you" ->

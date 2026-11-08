@@ -51,6 +51,10 @@ val themes = patch("Themes") {
                 param(0).assign(newInstance(accentTransform.owner, "(J)V", XTheme.accent()))
             }
         }
+        // The blue badge takes X's fixed palette blue, outside the theme the accent replaces.
+        verifiedBadgeTint.after {
+            whenTrue(XTheme.overridesAccent()) { returnValue(XTheme.accent()) }
+        }
     }
 }
 
@@ -86,3 +90,13 @@ private val accentTransform = method("accentWrapper") {
     calls(accentTheme)
 }.point { invokeDirect { name("<init>"); params(Type.Long) } }.callee("accentTransform")
 
+private val governmentBadge = klass("governmentBadge") { strings("GovernmentVerified") }
+private val verifiedBadge = klass("verifiedBadge") {
+    strings("Verified")
+    implements(governmentBadge.classDef.interfaces.single())
+}
+private val verifiedBadgeTint = method("verifiedBadgeTint") {
+    inClass(verifiedBadge)
+    returns(Type.Long)
+    params(COMPOSER)
+}

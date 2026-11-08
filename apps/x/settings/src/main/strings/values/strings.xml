@@ -154,14 +154,14 @@
     <string name="dark_theme_lights_out">Lights out (black)</string>
     <string name="dark_theme_dim">Dim (dark blue)</string>
     <string name="accent_color">Accent color</string>
-    <string name="accent_color_summary">Color of buttons, links and highlights.</string>
-    <string name="accent_color_x">X\'s color setting</string>
+    <string name="accent_color_summary">Color of buttons, links, highlights and the blue verified badge.</string>
+    <string name="accent_color_x">X\'s color setting (Twitter blue with Twitter branding)</string>
     <string name="accent_color_material_you">Material You (Android 12+)</string>
     <string name="accent_color_custom">Custom</string>
     <string name="custom_accent_color">Custom accent color</string>
     <string name="custom_accent_color_summary">Hex color such as #1D9BF0, used when Accent color is Custom.</string>
     <string name="twitter_branding">Twitter branding</string>
-    <string name="twitter_branding_summary">The Twitter name and bird, a blue launcher icon and splash screen, and the bird and tab underline in the accent color. Restart X to apply.</string>
+    <string name="twitter_branding_summary">The Twitter name and bird, Tweet and Retweet wording, a blue launcher icon and splash screen, and Twitter blue as the accent unless you picked another. Restart X to apply.</string>
     <string name="default_media_tab">Default media tab</string>
     <string name="default_media_tab_summary">Sub-tab a profile\'s Media tab opens on.</string>
     <string name="default_media_tab_photos">Photos</string>
