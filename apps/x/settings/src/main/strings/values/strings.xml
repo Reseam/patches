@@ -135,6 +135,18 @@
     <string name="hide_subscriptions_tab_summary">Removes the subscriptions tab from creator profiles.</string>
     <string name="hide_likes_tab">Hide Likes tab</string>
     <string name="hide_likes_tab_summary">Removes the Likes tab from your own profile.</string>
+    <string name="hide_grok_stories">Hide Grok stories</string>
+    <string name="hide_grok_stories_summary">Removes Today\'s News and the other story lists Grok writes. The News, Sports and Entertainment tabs show only these.</string>
+    <string name="hide_explore_trends">Hide trends in For You</string>
+    <string name="hide_explore_trends_summary">Removes the trend rows from the Explore For You tab. The Trending tab keeps them.</string>
+    <string name="hide_trending_tab">Hide Trending tab</string>
+    <string name="hide_trending_tab_summary">Removes the Trending tab from Explore.</string>
+    <string name="hide_news_tab">Hide News tab</string>
+    <string name="hide_news_tab_summary">Removes the News tab from Explore.</string>
+    <string name="hide_sports_tab">Hide Sports tab</string>
+    <string name="hide_sports_tab_summary">Removes the Sports tab from Explore.</string>
+    <string name="hide_entertainment_tab">Hide Entertainment tab</string>
+    <string name="hide_entertainment_tab_summary">Removes the Entertainment tab from Explore.</string>
     <string name="first_tab">First tab</string>
     <string name="second_tab">Second tab</string>
     <string name="third_tab">Third tab</string>
@@ -160,6 +172,7 @@
     <string name="section_sharing">Sharing</string>
     <string name="section_profile">Profile</string>
     <string name="section_navigation">Navigation bar</string>
+    <string name="section_explore">Explore</string>
     <string name="section_advanced">Advanced</string>
     <string name="section_links">Links</string>
     <string name="section_login">Login</string>
