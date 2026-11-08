@@ -19,8 +19,6 @@ import app.reseam.patch.methods
 import app.reseam.patch.point
 import app.reseam.x.settings.bindings.SettingsRows
 
-const val FUNCTION0 = "kotlin.jvm.functions.Function0"
-
 private const val LOGO_PATH = "res/drawable/reseam_logo.png"
 private const val SECTION_DEFAULTS_HEADER_AND_SUBTITLE = 0b11
 
@@ -62,7 +60,7 @@ fun CodeScope.settingsItem(design: SettingsDesign, title: String, subtitle: Stri
         newInstance(item.parameterTypes[2], "(I)V", int(iconId)),
     ) + item.parameterTypes.drop(3).map { type ->
         when (type) {
-            descriptor(FUNCTION0) -> newInstance(onClick)
+            FUNCTION0 -> newInstance(onClick)
             Type.Boolean -> bool(false)
             Type.Int -> int(0)
             else -> nullObject

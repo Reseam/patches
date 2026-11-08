@@ -26,7 +26,7 @@ val hideComposeButton = patch("Hide compose button") {
     }
 }
 
-private val composerFabState = klass("composerFabState") { strings("ComposerFabState(secondaryActions=") }
+private val composerFabState = klass("composerFabState") { strings("ComposerFabState(isHiddenForZoom=") }
 
 // Every screen with the button draws it through this composable, which reads the button's state.
 private val composerFab = method("composerFab") {

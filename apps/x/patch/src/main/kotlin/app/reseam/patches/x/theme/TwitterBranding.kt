@@ -19,7 +19,6 @@ import app.reseam.patches.x.core.COMPOSER
 import app.reseam.patches.x.core.MAIN_ACTIVITY
 import app.reseam.patches.x.core.mainActivityOnCreate
 import app.reseam.patches.x.core.composerAtEntry
-import app.reseam.patches.x.core.xIcon
 import app.reseam.x.theme.bindings.XTheme
 
 // The Twitter bird on a 24-unit grid, from Simple Icons 9.21.0 (CC0-1.0).
@@ -103,21 +102,6 @@ private fun PatchRuntime.addTwitterColors() {
         homeTopBarLogo.point { field { owner(componentColors.descriptor); type(Type.Long) } }
             .captureAs("tint")
             .after { whenTrue(XTheme.twitter()) { capture("tint").assign(XTheme.brandColor(local(composer))) } }
-    }
-    resources.id("string", "home_logo_scroll_to_top")?.let { label ->
-        val homeTopBar = method("homeTopBar") { literals(label.toLong()) }
-        val composer = homeTopBar.composerAtEntry()
-        val logo = homeTopBar.point { invokeStatic { hasParam(xIcon.descriptor); hasParam(COMPOSER) } }
-        val drawIcon = logo.callee("drawIcon")
-        val types = drawIcon.parameterTypes
-        val tint = types.indexOf(Type.Long)
-        val defaults = types.lastIndex
-        logo.captureArgumentAs("tint", tint).captureArgumentAs("defaults", defaults).before {
-            whenTrue(XTheme.twitter()) {
-                capture("tint").assign(XTheme.brandColor(local(composer)))
-                capture("defaults").assign(XTheme.withoutDefault(capture("defaults"), int(1 shl tint)))
-            }
-        }
     }
     val composer = scrollingTabs.composerAtEntry()
     scrollingTabs.point { invokeDirect { name("<init>"); paramCount(3); hasParam(Type.Long) } }

@@ -11,6 +11,7 @@ import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.methods
 import app.reseam.patch.patch
+import app.reseam.patch.point
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.COMPOSER
 import app.reseam.patches.x.core.X
@@ -47,7 +48,7 @@ val themes = patch("Themes") {
         }
         accentTheme.before {
             whenTrue(XTheme.overridesAccent()) {
-                param(0).assign(newInstance(accentTheme.parameterTypes[0], "(J)V", XTheme.accent()))
+                param(0).assign(newInstance(accentTransform.owner, "(J)V", XTheme.accent()))
             }
         }
     }
@@ -71,9 +72,17 @@ private val componentColorsInit = componentColors.methods("componentColorsInit")
 
 internal val themeColors = klass("themeColors") { strings("HorizonThemeColors(isLight=") }
 
+// Takes the accent as a colors transform; the root theme and X's accent wrapper both pass through it.
 private val accentTheme = method("accentTheme") {
-    calls { owner(themeColors.descriptor); name("<init>") }
+    calls { returns(themeColors.descriptor); hasParam(themeColors.descriptor) }
     paramCount(4)
     param(2, COMPOSER)
     param(3, Type.Int)
 }
+
+// X's accent wrapper builds its transform from a color.
+private val accentTransform = method("accentWrapper") {
+    param(0, Type.Long)
+    calls(accentTheme)
+}.point { invokeDirect { name("<init>"); params(Type.Long) } }.callee("accentTransform")
+

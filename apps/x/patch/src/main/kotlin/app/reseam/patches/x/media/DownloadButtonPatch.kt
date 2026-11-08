@@ -21,6 +21,8 @@ import app.reseam.patch.points
 import app.reseam.patch.reserveLocal
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.COMPOSER
+import app.reseam.patches.x.core.FUNCTION0
+import app.reseam.patches.x.core.FUNCTION1
 import app.reseam.patches.x.core.MODIFIER
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.xIcon
@@ -31,8 +33,6 @@ import app.reseam.x.postheader.bindings.DownloadClick
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
 
-private const val FUNCTION0 = "Lkotlin/jvm/functions/Function0;"
-private const val FUNCTION1 = "Lkotlin/jvm/functions/Function1;"
 
 // Compose's defaults mask for padding(start, top, end, bottom): top and bottom left at 0.
 private const val PADDING_TOP_BOTTOM_DEFAULT = 0b1010
@@ -87,8 +87,8 @@ val downloadButton = patch("Download button") {
             }
         }
         // The menu icon is the secondary text color at half alpha; the download icon takes it at full.
-        optionsButton.point { invokeStatic { params(Type.Long, Type.Float); returns(Type.Long) } }
-            .captureArgumentAs("color", 0)
+        optionsButton.point { invokeStatic { params(Type.Float, Type.Long); returns(Type.Long) } }
+            .captureArgumentAs("color", 1)
             .before { local(downloadTint).assign(capture("color")) }
         optionsButton.point { calls(clickable) }.capturingArguments(clickable).before {
             whenNotNull(local(downloadMedia)) {

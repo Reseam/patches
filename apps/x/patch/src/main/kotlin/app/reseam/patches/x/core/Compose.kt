@@ -11,6 +11,8 @@ import app.reseam.patch.reserveLocal
 
 const val COMPOSER = "Landroidx/compose/runtime/Composer;"
 const val MODIFIER = "Landroidx/compose/ui/Modifier;"
+const val FUNCTION0 = "Lkotlin/jvm/functions/Function0;"
+const val FUNCTION1 = "Lkotlin/jvm/functions/Function1;"
 
 val xIcon = klass("xIcon") { strings("Icon(drawableRes=") }
 

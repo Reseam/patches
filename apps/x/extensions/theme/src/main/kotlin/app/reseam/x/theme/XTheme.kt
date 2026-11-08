@@ -34,9 +34,6 @@ fun applyLauncherBranding(activity: Activity?) {
 
 @Export external fun brandColor(composer: Any?): Long
 
-/** A Compose defaults mask with [parameter]'s bit cleared, so the value passed for it is used. */
-@Export fun withoutDefault(mask: Int, parameter: Int): Int = mask and parameter.inv()
-
 @Export fun dim(): Boolean = XSettings.darkTheme.value == "dim"
 
 // Lights out grays of the newer palette and their Dim shades, mostly from X's own Dim palette.

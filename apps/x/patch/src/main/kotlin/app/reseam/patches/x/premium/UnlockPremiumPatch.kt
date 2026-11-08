@@ -3,6 +3,7 @@
 
 package app.reseam.patches.x.premium
 
+import app.reseam.patch.Type
 import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.points
@@ -14,7 +15,6 @@ import app.reseam.x.premium.bindings.Premium
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
 
-private const val SHARED_PREFERENCES = "android.content.SharedPreferences"
 private const val SET = "java.util.Set"
 
 val unlockPremium = patch("Unlock Premium") {
@@ -40,8 +40,8 @@ val unlockPremium = patch("Unlock Premium") {
 // Every tier check, boolean or flow, reads this stored entitlement set.
 val subscriptionReads = methods("subscriptionReads") {
     strings("subscriptions")
-    calls { owner(SHARED_PREFERENCES); name("getStringSet") }
+    calls { returns(SET); hasParam(Type.String) }
 }.points("subscriptionRead") {
-    invokeInterface { owner(SHARED_PREFERENCES); name("getStringSet") }
+    invoke { returns(SET) }
     argument(1) { string("subscriptions") }
 }
