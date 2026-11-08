@@ -28,7 +28,7 @@ val defaultMediaTab = patch("Default media tab") {
     }
 }
 
-private val profileSubTab = klass("profileSubTab") { enumConstants("Posts", "Media", "Photos", "Videos") }
+internal val profileSubTab = klass("profileSubTab") { enumConstants("Posts", "Media", "Photos", "Videos") }
 
 private val combinedTimeline = klass("combinedProfileTimeline") {
     strings("Combined timeline requires at least two sub-tabs")
