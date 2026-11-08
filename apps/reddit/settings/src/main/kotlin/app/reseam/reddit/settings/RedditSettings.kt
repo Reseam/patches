@@ -64,6 +64,7 @@ object RedditSettings : SettingsGroup(RedditStrings) {
     val hideDrawerLatest by toggle(default = false, icon = Vector.lucide("clock"))
     val hideDrawerRedditPro by toggle(default = false, icon = Vector.lucide("store"))
     val hideDrawerResources by toggle(default = false, icon = Vector.lucide("layout-list"))
+    val vxredditLinks by toggle(default = false, icon = Vector.lucide("link"))
     val hidePremiumSettings by toggle(default = true, icon = Vector.lucide("settings"))
     val blockForcedUpdates by toggle(default = true, icon = Vector.lucide("shield-check"))
     val disableScreenshotBanner by toggle(default = true, icon = Vector.lucide("camera"))

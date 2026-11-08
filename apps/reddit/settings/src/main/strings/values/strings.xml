@@ -65,6 +65,8 @@
     <string name="hide_drawer_reddit_pro_summary">Removes the Reddit Pro section from the community drawer.</string>
     <string name="hide_drawer_resources">Hide Resources</string>
     <string name="hide_drawer_resources_summary">Removes Premium, Earn and Reddit Ads from the community drawer.</string>
+    <string name="vxreddit_links">Share vxreddit links</string>
+    <string name="vxreddit_links_summary">Shares posts as full vxreddit.com links, which embed with media in Discord and other apps.</string>
     <string name="hide_premium_settings">Hide Premium and Pro settings</string>
     <string name="hide_premium_settings_summary">Removes Premium and Reddit Pro rows from settings.</string>
     <string name="block_forced_updates">Block remote forced updates</string>
