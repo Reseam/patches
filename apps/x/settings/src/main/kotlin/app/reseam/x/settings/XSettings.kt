@@ -14,6 +14,7 @@ import app.reseam.patch.settings.toggle
 
 object XSettings : SettingsGroup(XStrings) {
     val defaultToFollowing by toggle(default = false, icon = Vector.lucide("users"))
+    val disableHomeTabSwipe by toggle(default = false, icon = Vector.lucide("move-horizontal"))
     val hidePromotionPrompts by toggle(default = true, icon = Vector.lucide("rocket"))
     val hideAds by toggle(default = true, icon = Vector.lucide("megaphone-off"))
     val hidePremiumUpsells by toggle(default = true, icon = Vector.lucide("gem"))

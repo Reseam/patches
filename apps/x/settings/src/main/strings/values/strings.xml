@@ -7,6 +7,8 @@
     <string name="share_link_provider_off">Off (x.com)</string>
     <string name="default_to_following">Default to Following</string>
     <string name="default_to_following_summary">Opens Following on launch and stops automatic switches to For You.</string>
+    <string name="disable_home_tab_swipe">Disable Home tab swipe</string>
+    <string name="disable_home_tab_swipe_summary">Stops swiping between For You, Following and pinned tabs. Tap a tab to switch.</string>
     <string name="hide_promotion_prompts">Hide promotion prompts</string>
     <string name="hide_promotion_prompts_summary">Removes Boost and Promote prompts on your posts.</string>
     <string name="hide_ads">Hide ads</string>
