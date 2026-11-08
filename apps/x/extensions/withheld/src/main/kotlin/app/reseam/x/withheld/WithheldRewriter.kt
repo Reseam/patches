@@ -13,6 +13,7 @@ import org.json.JSONObject
 
 internal object WithheldRewriter : GraphqlRewriter {
     private const val WITHHELD_LINK = "withheld-by-country"
+    private const val TOMBSTONE = "TweetTombstone"
     private const val USER_UNAVAILABLE = "UserUnavailable"
     private const val CURSOR_PREFIX = "reseam-withheld:"
 
@@ -26,7 +27,7 @@ internal object WithheldRewriter : GraphqlRewriter {
         val tab = ProfileTab.of(response.operation)
         return when {
             tab != null && USER_UNAVAILABLE in response.body -> fillProfileTimeline(response, tab)
-            WITHHELD_LINK in response.body -> fillWithheld(response.json)
+            WITHHELD_LINK in response.body || TOMBSTONE in response.body -> fillWithheld(response.json)
             else -> false
         }
     }
@@ -46,10 +47,12 @@ internal object WithheldRewriter : GraphqlRewriter {
 
     private fun isWithheldPost(node: JSONObject): Boolean {
         val result = node.optJSONObject("result") ?: return false
-        if (node.optString("rest_id").isEmpty() || result.optString("__typename") != "TweetTombstone") return false
-        val text = result.optJSONObject("tombstone")?.optJSONObject("text")
-        val entities = text?.optJSONArray("entities")?.objects().orEmpty()
-        return entities.any { WITHHELD_LINK in it.optJSONObject("ref")?.optString("url").orEmpty() }
+        if (node.optString("rest_id").isEmpty() || result.optString("__typename") != TOMBSTONE) return false
+        val text = result.optJSONObject("tombstone")?.optJSONObject("text") ?: return false
+        val entities = text.optJSONArray("entities")?.objects().orEmpty()
+        // Withheld by country links to X's help page; restricted under local regulations is bare text. Deleted,
+        // protected and suspended posts link elsewhere, and FxTwitter does not serve them either.
+        return entities.isEmpty() || entities.any { WITHHELD_LINK in it.optJSONObject("ref")?.optString("url").orEmpty() }
     }
 
     private fun isWithheldProfile(node: JSONObject): Boolean {

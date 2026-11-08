@@ -74,7 +74,7 @@
     <string name="hide_recommendations">Hide recommendations</string>
     <string name="hide_recommendations_summary">Removes Who to follow, Subscribe to, and Communities to join modules.</string>
     <string name="show_withheld_posts">Show withheld posts</string>
-    <string name="show_withheld_posts_summary">Loads posts and profiles withheld in your country from FxTwitter, which sees your IP address and what you open.</string>
+    <string name="show_withheld_posts_summary">Loads posts and profiles withheld in your country or restricted under local regulations from FxTwitter, which sees your IP address and what you open.</string>
     <string name="withheld_repost_refused">X blocks reposts of withheld posts. Use Quote instead.</string>
     <string name="hide_view_counts">Hide view counts</string>
     <string name="default_reply_sort">Default reply sort</string>
