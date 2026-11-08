@@ -3,8 +3,10 @@
 
 package app.reseam.reddit.settings
 
+import app.reseam.patch.settings.Choice
 import app.reseam.patch.settings.SettingsGroup
 import app.reseam.patch.settings.Vector
+import app.reseam.patch.settings.choice
 import app.reseam.patch.settings.text
 import app.reseam.patch.settings.toggle
 
@@ -22,6 +24,35 @@ object RedditSettings : SettingsGroup(RedditStrings) {
     val hideRecommendedPosts by toggle(default = false, icon = Vector.lucide("thumbs-down"))
     val hideRecommendedCommunities by toggle(default = true, icon = Vector.lucide("users"))
     val hideTrendingSearches by toggle(default = true, icon = Vector.lucide("search-x"))
+    val defaultFeedSort by
+        choice(
+            default = "off",
+            choices =
+                listOf(
+                    Choice("off", RedditStrings.defaultFeedSortOff),
+                    Choice("best", RedditStrings.defaultFeedSortBest),
+                    Choice("hot", RedditStrings.defaultFeedSortHot),
+                    Choice("new", RedditStrings.defaultFeedSortNew),
+                    Choice("top", RedditStrings.defaultFeedSortTop),
+                    Choice("rising", RedditStrings.defaultFeedSortRising),
+                    Choice("controversial", RedditStrings.defaultFeedSortControversial),
+                ),
+            icon = Vector.lucide("arrow-down-up"),
+        )
+    val defaultFeedTimeFrame by
+        choice(
+            default = "day",
+            choices =
+                listOf(
+                    Choice("hour", RedditStrings.defaultFeedTimeFrameHour),
+                    Choice("day", RedditStrings.defaultFeedTimeFrameDay),
+                    Choice("week", RedditStrings.defaultFeedTimeFrameWeek),
+                    Choice("month", RedditStrings.defaultFeedTimeFrameMonth),
+                    Choice("year", RedditStrings.defaultFeedTimeFrameYear),
+                    Choice("all", RedditStrings.defaultFeedTimeFrameAll),
+                ),
+            icon = Vector.lucide("calendar-range"),
+        )
     val ignoreSuggestedSort by toggle(default = false, icon = Vector.lucide("arrow-down-wide-narrow"))
     val colorThreadLines by toggle(default = false, icon = Vector.lucide("palette"))
     val threadLineColors by text(default = "#73D98C8C, #73D9A86C, #73C9C26B, #737FBF8A, #736FA8D9, #73A890D9")
