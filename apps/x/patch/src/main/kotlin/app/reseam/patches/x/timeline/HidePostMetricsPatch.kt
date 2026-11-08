@@ -11,21 +11,53 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.x.core.MODIFIER
 import app.reseam.patches.x.core.X
 import app.reseam.x.settings.XSettings
 import app.reseam.patches.x.core.xSettings
 import app.reseam.x.settings.XStrings
 
-val hideViewCounts = patch("Hide view counts") {
-    description("Removes the Views item from the post action bar and the view count from the post detail line.")
+val hidePostMetrics = patch("Hide post metrics") {
+    description("Hides the view, reply, repost, like and bookmark counts on posts. The buttons stay and keep working.")
     compatibleWith(X)
-    settings(xSettings, section(XStrings.sectionTimeline, XSettings.hideViewCounts))
+    settings(
+        xSettings,
+        section(
+            XStrings.sectionTimeline,
+            XSettings.hideViewCounts,
+            XSettings.hideReplyCounts,
+            XSettings.hideRepostCounts,
+            XSettings.hideLikeCounts,
+            XSettings.hideBookmarkCounts,
+        ),
+    )
 
     execute {
         // The action type enum keeps its constant names for serialization.
+        val actionType = inlineActionButton.parameterTypes[0]
         gate(XSettings.hideViewCounts) {
             inlineActionButton.before {
-                whenEqual(param(0), enumValue(inlineActionButton.parameterTypes[0], "ViewCount")) { returnVoid() }
+                whenEqual(param(0), enumValue(actionType, "ViewCount")) { returnVoid() }
+            }
+        }
+
+        // The button's first String is the count its caller formatted. X draws no number for a null,
+        // blank or "0" count, so the button keeps the layout it has at zero. The raw count stays: it
+        // picks the like animation.
+        val countText = inlineActionButton.parameterTypes.indexOf(Type.String)
+        val counts = mapOf(
+            XSettings.hideReplyCounts to listOf("Reply"),
+            XSettings.hideRepostCounts to listOf("Retweet", "UndoRetweet"),
+            XSettings.hideLikeCounts to listOf("Favorite", "Unfavorite"),
+            XSettings.hideBookmarkCounts to listOf("AddToBookmarks", "RemoveFromBookmarks"),
+        )
+        for ((toggle, actions) in counts) {
+            gate(toggle) {
+                inlineActionButton.before {
+                    for (action in actions) {
+                        whenEqual(param(0), enumValue(actionType, action)) { param(countText).assign(nullObject) }
+                    }
+                }
             }
         }
 
@@ -38,8 +70,6 @@ val hideViewCounts = patch("Hide view counts") {
         }
     }
 }
-
-private const val MODIFIER = "androidx.compose.ui.Modifier"
 
 private val inlineActionType = klass("inlineActionType") { enumConstants("ViewCount", "UndoRetweet") }
 

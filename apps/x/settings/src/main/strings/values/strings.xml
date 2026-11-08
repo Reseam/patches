@@ -82,6 +82,14 @@
     <string name="hide_compose_button">Hide compose button</string>
     <string name="hide_compose_button_summary">No floating button for writing a post on any screen.</string>
     <string name="hide_view_counts_summary">Removes Views from the post action bar and the post detail line.</string>
+    <string name="hide_reply_counts">Hide reply counts</string>
+    <string name="hide_reply_counts_summary">No number next to the reply button.</string>
+    <string name="hide_repost_counts">Hide repost counts</string>
+    <string name="hide_repost_counts_summary">No number next to the repost button.</string>
+    <string name="hide_like_counts">Hide like counts</string>
+    <string name="hide_like_counts_summary">No number next to the like button.</string>
+    <string name="hide_bookmark_counts">Hide bookmark counts</string>
+    <string name="hide_bookmark_counts_summary">No number next to the bookmark button.</string>
     <string name="hide_drawer_premium">Hide Premium</string>
     <string name="hide_drawer_premium_summary">Removes the Premium, Premium+ or Subscription row.</string>
     <string name="hide_drawer_money">Hide Money</string>
