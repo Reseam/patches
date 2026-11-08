@@ -15,19 +15,24 @@ import app.reseam.patches.reddit.core.redditSettings
 import app.reseam.reddit.settings.RedditStrings
 
 val hideNavigationTabs = patch("Hide navigation tabs") {
-    description("Removes the Create or Inbox tab from the bottom bar.")
+    description("Removes the Communities, Create or Inbox tab from the bottom bar.")
     compatibleWith(REDDIT)
-    settings(redditSettings, section(RedditStrings.sectionNavigation, RedditSettings.hideCreateTab, RedditSettings.hideInboxTab))
+    settings(redditSettings, section(RedditStrings.sectionNavigation, RedditSettings.hideCommunitiesTab, RedditSettings.hideCreateTab, RedditSettings.hideInboxTab))
 
     execute {
         fun label(name: String) = resources.id("string", name)?.toLong() ?: error("string/$name missing")
+        val communities = label("communities_label")
         val post = label("label_post")
         val inbox = label("label_inbox")
         // Builds every tab once; the tab list getter skips null tabs.
         val tabSet = method("bottomNavTabSet") { literals(label("label_home"), post) }
         fun tab(label: Long) = tabSet.point { literal(label) }.next { opcode(Opcode.IPUT_OBJECT) }.field()
+        val communitiesTab = tab(communities)
         val postTab = tab(post)
         val inboxTab = tab(inbox)
+        gate(RedditSettings.hideCommunitiesTab) {
+            tabSet.after { thisObject.set(communitiesTab, nullObject) }
+        }
         gate(RedditSettings.hideCreateTab) {
             tabSet.after { thisObject.set(postTab, nullObject) }
         }

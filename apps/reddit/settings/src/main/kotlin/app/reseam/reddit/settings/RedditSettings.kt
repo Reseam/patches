@@ -25,6 +25,7 @@ object RedditSettings : SettingsGroup(RedditStrings) {
     val ignoreSuggestedSort by toggle(default = false, icon = Vector.lucide("arrow-down-wide-narrow"))
     val colorThreadLines by toggle(default = false, icon = Vector.lucide("palette"))
     val threadLineColors by text(default = "#73D98C8C, #73D9A86C, #73C9C26B, #737FBF8A, #736FA8D9, #73A890D9")
+    val hideCommunitiesTab by toggle(default = false, icon = Vector.lucide("users-round"))
     val hideCreateTab by toggle(default = false, icon = Vector.lucide("square-plus"))
     val hideInboxTab by toggle(default = false, icon = Vector.lucide("inbox"))
     val hideDrawerPopular by toggle(default = false, icon = Vector.lucide("trending-up"))

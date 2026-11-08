@@ -32,6 +32,8 @@
     <string name="color_thread_lines_summary">Gives each reply depth its own line color.</string>
     <string name="thread_line_colors">Thread line colors</string>
     <string name="thread_line_colors_summary">One color per reply depth, such as #73D98C8C, separated by commas. Deeper replies repeat the list.</string>
+    <string name="hide_communities_tab">Hide Communities tab</string>
+    <string name="hide_communities_tab_summary">Removes Communities from the bottom bar.</string>
     <string name="hide_create_tab">Hide Create tab</string>
     <string name="hide_create_tab_summary">Removes Create from the bottom bar.</string>
     <string name="hide_inbox_tab">Hide Inbox tab</string>
