@@ -81,6 +81,7 @@ object XSettings : SettingsGroup(XStrings) {
     val featureSwitchOverrides by text(default = "", multiline = true, icon = Vector.lucide("flask-conical"))
     val canonicalLinks by toggle(default = true, icon = Vector.lucide("link"))
     val customUrlHandling by toggle(default = true, icon = Vector.lucide("external-link"))
+    val openPostLinks by toggle(default = true, icon = Vector.lucide("message-square-share"))
     val showImportOnLaunch by toggle(default = true, icon = Vector.lucide("download"))
     val exportLogin by action(icon = Vector.lucide("copy"))
 
