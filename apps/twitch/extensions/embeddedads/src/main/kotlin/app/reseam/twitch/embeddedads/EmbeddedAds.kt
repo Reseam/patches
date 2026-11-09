@@ -55,9 +55,10 @@ private fun proxiedChannelStart(url: String): Int {
     return if (url.indexOf(PLAYLIST_EXTENSION, channelStart) > channelStart) channelStart else -1
 }
 
-/** The proxy setting's playlist path; a value that is not an https base URL falls back to the declared default. */
+/** The chosen proxy's playlist path; a custom value that is not an https base URL falls back to the default. */
 private fun playlistPrefix(): String {
-    val proxy = AdsSettings.embeddedAdsProxy.value.trim().trimEnd('/')
+    val chosen = AdsSettings.embeddedAdsProxy.value
+    val proxy = if (chosen == "custom") AdsSettings.customEmbeddedAdsProxy.value.trim().trimEnd('/') else chosen
     return (if (proxyBaseUrl.matches(proxy)) proxy else AdsSettings.embeddedAdsProxy.default) + "/playlist/"
 }
 

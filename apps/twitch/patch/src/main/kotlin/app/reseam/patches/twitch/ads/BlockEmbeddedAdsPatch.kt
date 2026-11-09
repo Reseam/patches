@@ -22,7 +22,7 @@ val blockEmbeddedAds = patch("Block embedded ads") {
     description("Loads live streams through a third-party proxy in a region without ads, which sees your IP address and the channels you watch, and switches to Twitch for a few minutes when the proxy fails.")
     compatibleWith(TWITCH)
     enabledByDefault(false)
-    settings(twitchSettings, section(TwitchStrings.sectionAds, AdsSettings.blockEmbeddedAds, AdsSettings.embeddedAdsProxy))
+    settings(twitchSettings, section(TwitchStrings.sectionAds, AdsSettings.blockEmbeddedAds, AdsSettings.embeddedAdsProxy, AdsSettings.customEmbeddedAdsProxy))
 
     execute {
         gate(AdsSettings.blockEmbeddedAds) {
