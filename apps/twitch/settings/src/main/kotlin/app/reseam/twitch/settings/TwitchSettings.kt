@@ -62,6 +62,10 @@ object NavigationSettings : SettingsGroup(TwitchStrings) {
         )
 }
 
+object ChatSettings : SettingsGroup(TwitchStrings) {
+    val autoClaimRewards by toggle(default = true, icon = Vector.lucide("gift"))
+}
+
 object DeveloperSettings : SettingsGroup(TwitchStrings) {
     val debugMode by toggle(default = true, icon = Vector.lucide("bug"))
 }

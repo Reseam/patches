@@ -32,10 +32,12 @@
     <string name="startup_tab_home">Home</string>
     <string name="startup_tab_browse">Browse</string>
     <string name="startup_tab_profile">Profile</string>
+    <string name="auto_claim_rewards">Auto-claim rewards</string>
     <string name="debug_mode">Debug mode</string>
     <string name="section_ads">Ads</string>
     <string name="section_privacy">Privacy</string>
     <string name="section_updates">Updates</string>
     <string name="section_navigation">Navigation</string>
+    <string name="section_chat">Chat</string>
     <string name="section_developer">Developer</string>
 </resources>
