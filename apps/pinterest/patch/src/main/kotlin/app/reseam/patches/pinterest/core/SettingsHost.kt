@@ -3,6 +3,7 @@
 
 package app.reseam.patches.pinterest.core
 
+import app.reseam.gmscore.settings.GmsCoreStrings
 import app.reseam.patch.settings.settingsHost
 import app.reseam.patches.bundle.reseamAbout
 import app.reseam.patches.bundle.reseamBrand
@@ -11,4 +12,5 @@ val pinterestSettings = settingsHost("pinterest") {
     compatibleWith(PINTEREST)
     brand(reseamBrand)
     about(reseamAbout)
+    strings(GmsCoreStrings)
 }
