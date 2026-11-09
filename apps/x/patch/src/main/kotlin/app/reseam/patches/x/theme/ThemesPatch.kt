@@ -29,9 +29,17 @@ val themes = patch("Themes") {
         section(XSettingsPages.Appearance, XStrings.sectionTheme, XSettings.darkTheme, XSettings.accentColor, XSettings.customAccentColor, XSettings.twitterBranding),
     )
 
+    val twitterAppIdentity = boolOption(
+        "twitterAppIdentity",
+        title = "Twitter app name and icon",
+        description = "Names the app Twitter with the bird icon in Android's app info and notification headers. " +
+            "Android fixes these at install, so they stay Twitter whatever the Twitter branding setting says.",
+        default = false,
+    )
+
     execute {
         appEntry { XTheme.init(application) }
-        addTwitterBranding()
+        addTwitterBranding(options[twitterAppIdentity])
         // X keeps the Dim palette but resolves every dark appearance to Lights out.
         themeResolver.after {
             whenEqual(result, staticField(lightsOut)) {

@@ -40,7 +40,7 @@ private const val SPLASH_THEME = "Theme.Reseam.TwitterSplash"
 private const val REFRESH_LOGO = "reseam_twitter_refresh_logo"
 private const val WORDING = "reseam_twitter_wording"
 
-internal fun PatchRuntime.addTwitterBranding() {
+internal fun PatchRuntime.addTwitterBranding(appIdentity: Boolean) {
     // Each X logo gets a bird twin drawn at the share of the canvas the X takes, in the same fill so
     // the app tints it the same way; code that loads the logo loads the twin while the setting is on.
     val twins = mutableMapOf<UInt, UInt>()
@@ -75,6 +75,14 @@ internal fun PatchRuntime.addTwitterBranding() {
             """<monochrome android:drawable="@drawable/$LAUNCHER_FOREGROUND"/></adaptive-icon>""").toByteArray(),
         "anydpi-v26",
     )
+    if (appIdentity) {
+        manifest.edit {
+            val application = findByTag("application").single()
+            application["android:label"] = "@string/$TWITTER_NAME"
+            application["android:icon"] = "@mipmap/$LAUNCHER_ICON"
+            application["android:roundIcon"] = "@mipmap/$LAUNCHER_ICON"
+        }
+    }
     // Only the launcher filter moves: the deep-link filters stay on the activity alone.
     addLauncherAliases(
         MAIN_ACTIVITY,
