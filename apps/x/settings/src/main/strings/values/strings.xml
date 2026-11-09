@@ -85,6 +85,8 @@
     <string name="default_reply_sort_likes">Most liked</string>
     <string name="remember_reply_sort">Remember reply sort</string>
     <string name="remember_reply_sort_summary">A sort you pick on a post becomes the default reply sort.</string>
+    <string name="show_poll_results">Show poll results</string>
+    <string name="show_poll_results_summary">Shows a poll\'s results before you vote. Voting stays closed while this is on.</string>
     <string name="hide_new_posts_banner">Hide new posts banner</string>
     <string name="hide_new_posts_banner_summary">No banner pointing to new posts at the top of timelines.</string>
     <string name="hide_compose_button">Hide compose button</string>
