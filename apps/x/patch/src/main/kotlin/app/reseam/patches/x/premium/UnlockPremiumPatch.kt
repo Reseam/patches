@@ -4,8 +4,11 @@
 package app.reseam.patches.x.premium
 
 import app.reseam.patch.Type
+import app.reseam.patch.dex.Opcode
+import app.reseam.patch.method
 import app.reseam.patch.methods
 import app.reseam.patch.patch
+import app.reseam.patch.point
 import app.reseam.patch.points
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
@@ -34,6 +37,11 @@ val unlockPremium = patch("Unlock Premium") {
                     capture("subscriptions").assign(Premium.withPremium(capture("subscriptions")))
                 }
             }
+            // The drawer turns a tier into Subscription, a management page X's servers fail for unpaid accounts.
+            drawerTier.point { invokeVirtual { owner("Lkotlin/Pair;"); name("component1") } }
+                .next { opcode(Opcode.CHECK_CAST) }
+                .captureAs("tier")
+                .after { whenFalse(Premium.subscribed()) { capture("tier").assign(nullObject) } }
         }
     }
 }
@@ -45,4 +53,10 @@ val subscriptionReads = methods("subscriptionReads") {
 }.points("subscriptionRead") {
     invoke { returns(SET) }
     argument(1) { string("subscriptions") }
+}
+
+// Receives the tier paired with a commerce title and picks the drawer's Premium row from it.
+private val drawerTier = method("drawerTier") {
+    name("emit")
+    strings("dash_items_account_analytics_enabled")
 }
