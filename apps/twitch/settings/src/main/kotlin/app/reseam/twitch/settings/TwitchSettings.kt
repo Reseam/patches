@@ -3,8 +3,10 @@
 
 package app.reseam.twitch.settings
 
+import app.reseam.patch.settings.Choice
 import app.reseam.patch.settings.SettingsGroup
 import app.reseam.patch.settings.Vector
+import app.reseam.patch.settings.choice
 import app.reseam.patch.settings.text
 import app.reseam.patch.settings.toggle
 
@@ -21,6 +23,22 @@ object PrivacySettings : SettingsGroup(TwitchStrings) {
 
 object UpdateSettings : SettingsGroup(TwitchStrings) {
     val disableUpdatePrompts by toggle(default = true, icon = Vector.lucide("shield-check"))
+}
+
+object NavigationSettings : SettingsGroup(TwitchStrings) {
+    val startupTab by
+        choice(
+            default = "live",
+            choices =
+                listOf(
+                    Choice("following", TwitchStrings.startupTabFollowing),
+                    Choice("live", TwitchStrings.startupTabLive),
+                    Choice("clips", TwitchStrings.startupTabClips),
+                    Choice("browse", TwitchStrings.startupTabBrowse),
+                    Choice("profile", TwitchStrings.startupTabProfile),
+                ),
+            icon = Vector.lucide("house"),
+        )
 }
 
 object DeveloperSettings : SettingsGroup(TwitchStrings) {

@@ -10,9 +10,17 @@
     <string name="ignore_ad_events_summary">Takes effect after restarting Twitch.</string>
     <string name="block_analytics">Block analytics</string>
     <string name="disable_update_prompts">Disable update prompts</string>
+    <string name="startup_tab">Startup tab</string>
+    <string name="startup_tab_summary">Takes effect after restarting Twitch.</string>
+    <string name="startup_tab_following">Home: Following</string>
+    <string name="startup_tab_live">Home: Live</string>
+    <string name="startup_tab_clips">Home: Clips</string>
+    <string name="startup_tab_browse">Browse</string>
+    <string name="startup_tab_profile">Profile</string>
     <string name="debug_mode">Debug mode</string>
     <string name="section_ads">Ads</string>
     <string name="section_privacy">Privacy</string>
     <string name="section_updates">Updates</string>
+    <string name="section_navigation">Navigation</string>
     <string name="section_developer">Developer</string>
 </resources>
