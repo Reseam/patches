@@ -142,6 +142,8 @@
     <string name="custom_url_handling_summary">Opens fixvx.com, vxtwitter.com and similar mirror links in the app, like x.com links.</string>
     <string name="open_post_links">Open post links</string>
     <string name="open_post_links_summary">Opens a post link on the post itself, not on top of the For You timeline.</string>
+    <string name="remove_share_tracking">Remove tracking from shared links</string>
+    <string name="remove_share_tracking_summary">Shares links without the parameters X adds to track who shared them.</string>
     <string name="share_link_provider">Share link provider</string>
     <string name="share_link_provider_summary">Host used for shared post links.</string>
     <string name="post_translator">Translator</string>

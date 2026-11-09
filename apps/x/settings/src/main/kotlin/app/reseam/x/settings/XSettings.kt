@@ -82,6 +82,7 @@ object XSettings : SettingsGroup(XStrings) {
     val canonicalLinks by toggle(default = true, icon = Vector.lucide("link"))
     val customUrlHandling by toggle(default = true, icon = Vector.lucide("external-link"))
     val openPostLinks by toggle(default = true, icon = Vector.lucide("message-square-share"))
+    val removeShareTracking by toggle(default = true, icon = Vector.lucide("link-2-off"))
     val showImportOnLaunch by toggle(default = true, icon = Vector.lucide("download"))
     val exportLogin by action(icon = Vector.lucide("copy"))
 

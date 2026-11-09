@@ -5,27 +5,18 @@
 
 package app.reseam.x.share
 
-import app.reseam.bundle.ReseamPatches
 import app.reseam.runtime.Export
+import app.reseam.x.settings.XSettings
 import java.net.URI
 import java.net.URISyntaxException
 import java.util.Locale
 
 private val xHosts =
     setOf("x.com", "www.x.com", "twitter.com", "www.twitter.com", "mobile.twitter.com")
-@Volatile private var providerKey: String? = null
-
-@Export
-fun configure(key: String) {
-    providerKey = key
-}
 
 @Export
 fun rewrite(link: String?): String? {
-    val key = providerKey ?: return link
     if (link == null) return null
-    val provider = ReseamPatches.bundle().settings.getChoice(key)
-    if (provider == "off") return link
     val uri =
         try {
             URI(link.trim())
@@ -36,12 +27,16 @@ fun rewrite(link: String?): String? {
     val host = uri.host ?: return link
     val path = uri.rawPath ?: return link
     val isHttp = listOf("https", "http").any { scheme.equals(it, ignoreCase = true) }
-    if (!isHttp) return link
-    val isPost = host.lowercase(Locale.ROOT) in xHosts && "/status/" in path
-    if (!isPost) return link
+    if (!isHttp || host.lowercase(Locale.ROOT) !in xHosts) return link
+    val provider = XSettings.shareLinkProvider.value.takeIf { it != "off" && "/status/" in path }
+    // Shared trends are searches, whose query is the search itself.
+    val clean = XSettings.removeShareTracking.value && path != "/search"
     return buildString {
-        append("https://$provider$path")
-        uri.rawQuery?.let { append('?').append(it) }
-        uri.rawFragment?.let { append('#').append(it) }
+        append(if (provider != null) "https://$provider" else "${uri.scheme}://${uri.rawAuthority}")
+        append(path)
+        if (!clean) {
+            uri.rawQuery?.let { append('?').append(it) }
+            uri.rawFragment?.let { append('#').append(it) }
+        }
     }
 }

@@ -4,7 +4,6 @@
 package app.reseam.patches.x.share
 
 import app.reseam.patch.Type
-import app.reseam.patch.appEntry
 import app.reseam.patch.before
 import app.reseam.patch.method
 import app.reseam.patch.patch
@@ -17,13 +16,11 @@ import app.reseam.x.settings.XStrings
 import app.reseam.x.share.bindings.ShareLinks
 
 val shareLinks = patch("Share links") {
-    description("Shares posts through an embed-friendly host instead of x.com. Lists, trends and profiles keep x.com links.")
+    description("Removes tracking from shared links and can share posts through an embed-friendly host instead of x.com.")
     compatibleWith(X)
-    settings(xSettings, section(XSettingsPages.Links, XStrings.sectionSharing, XSettings.shareLinkProvider))
+    settings(xSettings, section(XSettingsPages.Links, XStrings.sectionSharing, XSettings.removeShareTracking, XSettings.shareLinkProvider))
 
     execute {
-        appEntry { ShareLinks.configure(string(XSettings.shareLinkProvider.key)) }
-
         // Every share intent, whether from the action bar, the share sheet's app row or its
         // "Share via" chooser, is built from the link in the first parameter.
         shareIntent.before { param(0).assign(ShareLinks.rewrite(param(0))) }
