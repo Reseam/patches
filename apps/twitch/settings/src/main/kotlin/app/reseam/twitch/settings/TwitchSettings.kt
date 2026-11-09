@@ -7,31 +7,36 @@ import app.reseam.patch.settings.Choice
 import app.reseam.patch.settings.SettingsGroup
 import app.reseam.patch.settings.Vector
 import app.reseam.patch.settings.choice
+import app.reseam.patch.settings.text
 import app.reseam.patch.settings.toggle
 
 object AdsSettings : SettingsGroup(TwitchStrings) {
     val blockVideoAds by toggle(default = true, icon = Vector.lucide("megaphone-off"))
     val blockEmbeddedAds by toggle(default = true, icon = Vector.lucide("monitor-off"))
-    val embeddedAdsProxy by choice(
-        default = "https://eu.luminous.dev",
-        choices = listOf(
-            Choice("https://eu.luminous.dev", TwitchStrings.embeddedAdsProxyEuLuminous),
-            Choice("https://eu2.luminous.dev", TwitchStrings.embeddedAdsProxyEu2Luminous),
-            Choice("https://eu3.luminous.dev", TwitchStrings.embeddedAdsProxyEu3Luminous),
-            Choice("https://as.luminous.dev", TwitchStrings.embeddedAdsProxyAsLuminous),
-            Choice("https://lb-eu.cdn-perfprod.com", TwitchStrings.embeddedAdsProxyEuPerfprod),
-            Choice("https://lb-eu2.cdn-perfprod.com", TwitchStrings.embeddedAdsProxyEu2Perfprod),
-            Choice("https://lb-eu3.cdn-perfprod.com", TwitchStrings.embeddedAdsProxyEu3Perfprod),
-            Choice("https://lb-eu4.cdn-perfprod.com", TwitchStrings.embeddedAdsProxyEu4Perfprod),
-            Choice("https://lb-eu5.cdn-perfprod.com", TwitchStrings.embeddedAdsProxyEu5Perfprod),
-            Choice("https://lb-na.cdn-perfprod.com", TwitchStrings.embeddedAdsProxyNaPerfprod),
-            Choice("https://lb-sa.cdn-perfprod.com", TwitchStrings.embeddedAdsProxySaPerfprod),
-            Choice("https://lb-as.cdn-perfprod.com", TwitchStrings.embeddedAdsProxyAsPerfprod),
-            Choice("https://twitch.nadeko.net", TwitchStrings.embeddedAdsProxyNadeko),
-            Choice("https://twitch-al.nadeko.net", TwitchStrings.embeddedAdsProxyAlNadeko),
-        ),
-        icon = Vector.lucide("server"),
-    )
+    val embeddedAdsProxy by
+        choice(
+            default = "https://eu.luminous.dev",
+            choices =
+                listOf(
+                    Choice("https://eu.luminous.dev", TwitchStrings.embeddedAdsProxyEuLuminous),
+                    Choice("https://eu2.luminous.dev", TwitchStrings.embeddedAdsProxyEu2Luminous),
+                    Choice("https://eu3.luminous.dev", TwitchStrings.embeddedAdsProxyEu3Luminous),
+                    Choice("https://as.luminous.dev", TwitchStrings.embeddedAdsProxyAsLuminous),
+                    Choice("https://lb-eu.cdn-perfprod.com", TwitchStrings.embeddedAdsProxyEuPerfprod),
+                    Choice("https://lb-eu2.cdn-perfprod.com", TwitchStrings.embeddedAdsProxyEu2Perfprod),
+                    Choice("https://lb-eu3.cdn-perfprod.com", TwitchStrings.embeddedAdsProxyEu3Perfprod),
+                    Choice("https://lb-eu4.cdn-perfprod.com", TwitchStrings.embeddedAdsProxyEu4Perfprod),
+                    Choice("https://lb-eu5.cdn-perfprod.com", TwitchStrings.embeddedAdsProxyEu5Perfprod),
+                    Choice("https://lb-na.cdn-perfprod.com", TwitchStrings.embeddedAdsProxyNaPerfprod),
+                    Choice("https://lb-sa.cdn-perfprod.com", TwitchStrings.embeddedAdsProxySaPerfprod),
+                    Choice("https://lb-as.cdn-perfprod.com", TwitchStrings.embeddedAdsProxyAsPerfprod),
+                    Choice("https://twitch.nadeko.net", TwitchStrings.embeddedAdsProxyNadeko),
+                    Choice("https://twitch-al.nadeko.net", TwitchStrings.embeddedAdsProxyAlNadeko),
+                    Choice("custom", TwitchStrings.embeddedAdsProxyCustom),
+                ),
+            icon = Vector.lucide("server"),
+        )
+    val customEmbeddedAdsProxy by text(default = "", icon = Vector.lucide("link"))
     val ignoreAdEvents by toggle(default = true, icon = Vector.lucide("bell-off"))
 }
 

@@ -16,6 +16,7 @@ private const val PLAYLIST_EXTENSION = ".m3u8"
 private const val PROXY_QUERY = "%3Fallow_source%3Dtrue%26allow_audio_only%3Dtrue%26fast_bread%3Dtrue"
 private const val FALLBACK_MILLIS = 5 * 60 * 1000L
 private const val NOT_FOUND = 404
+private val proxyBaseUrl = Regex("https://[A-Za-z0-9.-]+(:[0-9]+)?(/[A-Za-z0-9._~/-]*)?")
 
 // Playlists load from Twitch until then, so the player's retry after a proxy failure succeeds.
 @Volatile
@@ -54,8 +55,12 @@ private fun proxiedChannelStart(url: String): Int {
     return if (url.indexOf(PLAYLIST_EXTENSION, channelStart) > channelStart) channelStart else -1
 }
 
-// A choice always reads as one of its listed base URLs, so the value needs no checks.
-private fun playlistPrefix(): String = AdsSettings.embeddedAdsProxy.value + "/playlist/"
+/** The chosen proxy's playlist path; a custom value that is not an https base URL falls back to the default. */
+private fun playlistPrefix(): String {
+    val chosen = AdsSettings.embeddedAdsProxy.value
+    val proxy = if (chosen == "custom") AdsSettings.customEmbeddedAdsProxy.value.trim().trimEnd('/') else chosen
+    return (if (proxyBaseUrl.matches(proxy)) proxy else AdsSettings.embeddedAdsProxy.default) + "/playlist/"
+}
 
 private fun isProxied(url: String?): Boolean = url != null && url.startsWith(playlistPrefix())
 
