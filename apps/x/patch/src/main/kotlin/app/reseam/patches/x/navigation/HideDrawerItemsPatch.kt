@@ -8,12 +8,12 @@ import app.reseam.patch.dex.Opcode
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.point
 import app.reseam.patch.points
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettingsPages
+import app.reseam.patches.x.core.drawerRow
 import app.reseam.patches.x.core.xSettings
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
@@ -45,32 +45,25 @@ val hideDrawerItems = patch("Hide drawer items") {
     )
 
     execute {
-        fun label(name: String) = resources.id("string", name)?.toLong() ?: error("string/$name missing")
         val rows = mapOf(
-            XSettings.hideDrawerMoney to label("drawer_money_title"),
-            XSettings.hideDrawerCommunities to label("drawer_communities_title"),
-            XSettings.hideDrawerSports to label("drawer_sports_title"),
+            XSettings.hideDrawerMoney to "drawer_money_title",
+            XSettings.hideDrawerCommunities to "drawer_communities_title",
+            XSettings.hideDrawerSports to "drawer_sports_title",
             // The same row reads History when X shows bookmarks inside History.
-            XSettings.hideDrawerBookmarks to label("bookmarks_title"),
-            XSettings.hideDrawerCommunityNotes to label("birdwatch_pivot_header_title"),
-            XSettings.hideDrawerOffline to label("offline_videos_title"),
-            XSettings.hideDrawerLists to label("drawer_lists"),
-            XSettings.hideDrawerBoost to label("quick_promote_boost_button_text"),
-            XSettings.hideDrawerSpaces to label("spaces_tab_name"),
-            XSettings.hideDrawerMonetization to label("monetization_drawer_menu_title"),
-            XSettings.hideDrawerCreatorStudio to label("creator_studio_drawer_menu_title"),
-            XSettings.hideDrawerAnalytics to label("subscriptions_drawer_menu_group_analytics"),
-            XSettings.hideDrawerHelpCenter to label("help_center"),
-            XSettings.hideDrawerFeedback to label("drawer_feedback_and_issues"),
+            XSettings.hideDrawerBookmarks to "bookmarks_title",
+            XSettings.hideDrawerCommunityNotes to "birdwatch_pivot_header_title",
+            XSettings.hideDrawerOffline to "offline_videos_title",
+            XSettings.hideDrawerLists to "drawer_lists",
+            XSettings.hideDrawerBoost to "quick_promote_boost_button_text",
+            XSettings.hideDrawerSpaces to "spaces_tab_name",
+            XSettings.hideDrawerMonetization to "monetization_drawer_menu_title",
+            XSettings.hideDrawerCreatorStudio to "creator_studio_drawer_menu_title",
+            XSettings.hideDrawerAnalytics to "subscriptions_drawer_menu_group_analytics",
+            XSettings.hideDrawerHelpCenter to "help_center",
+            XSettings.hideDrawerFeedback to "drawer_feedback_and_issues",
         )
-        // The drawer is one composable with a fixed row call per entry, each right after its label;
-        // several rows have no flag in the drawer state, so the row call itself is skipped.
-        val menu = method("drawerMenu") { literals(*rows.values.toLongArray()) }
-        for ((toggle, id) in rows) {
-            gate(toggle) {
-                menu.point { literal(id) }.next { invokeStatic { returns(Type.Void); hasParam(Type.String) } }.skip()
-            }
-        }
+        // Several rows have no flag in the drawer state, so the row call itself is skipped.
+        for ((toggle, label) in rows) gate(toggle) { drawerRow(label).skip() }
 
         // The Premium row's label comes from the server (Premium, Premium+, Subscription, a product
         // title), so its state is set to the Hidden one the drawer starts with: the defaults

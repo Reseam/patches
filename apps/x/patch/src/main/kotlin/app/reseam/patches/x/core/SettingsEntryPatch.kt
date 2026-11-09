@@ -24,7 +24,7 @@ val settingsEntry = patch("Reseam entry in X settings") {
             settingsSection(
                 design,
                 SettingsRows.single(
-                    settingsItem(design, "Reseam Settings", "Ads, downloads, Premium, Grok, and privacy toggles.", logoId, OpenReseamSettings.descriptor)
+                    settingsItem(design, RESEAM_SETTINGS, "Ads, downloads, Premium, Grok, and privacy toggles.", logoId, OpenReseamSettings.descriptor)
                 ),
             )
         }

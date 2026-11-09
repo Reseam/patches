@@ -19,6 +19,8 @@ import app.reseam.patch.methods
 import app.reseam.patch.point
 import app.reseam.x.settings.bindings.SettingsRows
 
+const val RESEAM_SETTINGS = "Reseam Settings"
+
 private const val LOGO_PATH = "res/drawable/reseam_logo.png"
 private const val SECTION_DEFAULTS_HEADER_AND_SUBTITLE = 0b11
 
