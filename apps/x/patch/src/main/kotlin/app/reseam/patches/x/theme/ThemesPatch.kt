@@ -5,13 +5,13 @@ package app.reseam.patches.x.theme
 
 import app.reseam.patch.Type
 import app.reseam.patch.after
+import app.reseam.patch.appEntry
 import app.reseam.patch.before
 import app.reseam.patch.enumConstant
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.methods
 import app.reseam.patch.patch
-import app.reseam.patch.point
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.core.COMPOSER
 import app.reseam.patches.x.core.X
@@ -30,6 +30,7 @@ val themes = patch("Themes") {
     )
 
     execute {
+        appEntry { XTheme.init(application) }
         addTwitterBranding()
         // X keeps the Dim palette but resolves every dark appearance to Lights out.
         themeResolver.after {
@@ -47,10 +48,8 @@ val themes = patch("Themes") {
                 }
             }
         }
-        accentTheme.before {
-            whenTrue(XTheme.overridesAccent()) {
-                param(0).assign(newInstance(accentTransform.owner, "(J)V", XTheme.accent()))
-            }
+        accentWrapper.before {
+            whenTrue(XTheme.overridesAccent()) { param(0).assign(XTheme.accent()) }
         }
         // The blue badge takes X's fixed palette blue, outside the theme the accent replaces.
         verifiedBadgeTint.after {
@@ -85,11 +84,11 @@ private val accentTheme = method("accentTheme") {
     param(3, Type.Int)
 }
 
-// X's accent wrapper builds its transform from a color.
-private val accentTransform = method("accentWrapper") {
+// Applies the user's accent to both the theme colors and the XDS palette that X's own controls use.
+private val accentWrapper = method("accentWrapper") {
     param(0, Type.Long)
     calls(accentTheme)
-}.point { invokeDirect { name("<init>"); params(Type.Long) } }.callee("accentTransform")
+}
 
 private val governmentBadge = klass("governmentBadge") { strings("GovernmentVerified") }
 private val verifiedBadge = klass("verifiedBadge") {

@@ -6,12 +6,20 @@
 package app.reseam.x.theme
 
 import android.app.Activity
+import android.app.Application
 import android.content.res.Resources
 import android.graphics.Color
 import android.os.Build
 import app.reseam.bundle.selectLauncherAlias
 import app.reseam.runtime.Export
 import app.reseam.x.settings.XSettings
+
+private lateinit var app: Application
+
+@Export
+fun init(application: Application) {
+    app = application
+}
 
 @Export external fun twitterResource(id: Int): Int
 
@@ -66,10 +74,9 @@ private fun accentArgb(): Int? =
 
 private fun pickedAccent(): Int? =
     when (XSettings.accentColor.value) {
-        // System palettes are overlaid onto the framework's own resources, so no context is needed.
+        // The wallpaper palette is an overlay on the app's resources; Resources.getSystem() keeps the stock palette.
         "material_you" ->
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) Resources.getSystem().getColor(android.R.color.system_accent1_400, null)
-            else null
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) app.getColor(android.R.color.system_accent1_400) else null
         "custom" -> runCatching { Color.parseColor(XSettings.customAccentColor.value.trim()) }.getOrNull()
         else -> null
     }
