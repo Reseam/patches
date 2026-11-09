@@ -48,6 +48,20 @@ object UpdateSettings : SettingsGroup(TwitchStrings) {
     val disableUpdatePrompts by toggle(default = true, icon = Vector.lucide("shield-check"))
 }
 
+object NavigationSettings : SettingsGroup(TwitchStrings) {
+    val startupTab by
+        choice(
+            default = "home",
+            choices =
+                listOf(
+                    Choice("home", TwitchStrings.startupTabHome),
+                    Choice("browse", TwitchStrings.startupTabBrowse),
+                    Choice("profile", TwitchStrings.startupTabProfile),
+                ),
+            icon = Vector.lucide("house"),
+        )
+}
+
 object DeveloperSettings : SettingsGroup(TwitchStrings) {
     val debugMode by toggle(default = true, icon = Vector.lucide("bug"))
 }
