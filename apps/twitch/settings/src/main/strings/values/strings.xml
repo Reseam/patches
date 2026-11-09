@@ -11,10 +11,8 @@
     <string name="block_analytics">Block analytics</string>
     <string name="disable_update_prompts">Disable update prompts</string>
     <string name="startup_tab">Startup tab</string>
-    <string name="startup_tab_summary">Takes effect after restarting Twitch.</string>
-    <string name="startup_tab_following">Home: Following</string>
-    <string name="startup_tab_live">Home: Live</string>
-    <string name="startup_tab_clips">Home: Clips</string>
+    <string name="startup_tab_summary">Takes effect after restarting Twitch. Pick Following, Live or Clips for Home in Twitch\'s Settings › Preferences › Default Home Page.</string>
+    <string name="startup_tab_home">Home</string>
     <string name="startup_tab_browse">Browse</string>
     <string name="startup_tab_profile">Profile</string>
     <string name="debug_mode">Debug mode</string>

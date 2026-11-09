@@ -28,12 +28,10 @@ object UpdateSettings : SettingsGroup(TwitchStrings) {
 object NavigationSettings : SettingsGroup(TwitchStrings) {
     val startupTab by
         choice(
-            default = "live",
+            default = "home",
             choices =
                 listOf(
-                    Choice("following", TwitchStrings.startupTabFollowing),
-                    Choice("live", TwitchStrings.startupTabLive),
-                    Choice("clips", TwitchStrings.startupTabClips),
+                    Choice("home", TwitchStrings.startupTabHome),
                     Choice("browse", TwitchStrings.startupTabBrowse),
                     Choice("profile", TwitchStrings.startupTabProfile),
                 ),

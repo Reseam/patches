@@ -4,13 +4,12 @@
 package app.reseam.patches.twitch.navigation
 
 import app.reseam.patch.CodeScope
-import app.reseam.patch.FieldTarget
 import app.reseam.patch.PatchRuntime
 import app.reseam.patch.PointTarget
 import app.reseam.patch.Type
+import app.reseam.patch.alwaysReturn
 import app.reseam.patch.before
 import app.reseam.patch.enumConstant
-import app.reseam.patch.field
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
@@ -26,16 +25,13 @@ import app.reseam.twitch.settings.TwitchStrings
 private const val DESTINATION_ORDINAL = "destinationOrdinal"
 
 val startupTab = patch("Startup tab") {
-    description("Starts Twitch on Following, Clips, Browse or Profile instead of Live.")
+    description("Starts Twitch on Browse or Profile instead of Home, and unlocks Twitch's Default Home Page setting for Following, Live or Clips.")
     compatibleWith(TWITCH)
     settings(twitchSettings, section(TwitchStrings.sectionNavigation, NavigationSettings.startupTab))
 
     execute {
-        initialHomePage.before {
-            whenTrue(opens("following")) { returnValue(staticField(followingPage)) }
-            whenTrue(opens("live")) { returnValue(feedPage(liveLocation)) }
-            whenTrue(opens("clips")) { returnValue(feedPage(clipsLocation)) }
-        }
+        // Twitch's own Following, Live or Clips choice, shown only to users enrolled in its home page experiment.
+        defaultHomePageEnabled.alwaysReturn(true)
 
         val profileTab = resources.id("id", "viewer_bottom_nav_profile")?.toInt()
             ?: error("id/viewer_bottom_nav_profile missing")
@@ -59,19 +55,16 @@ val startupTab = patch("Startup tab") {
 private fun CodeScope.opens(tab: String) =
     valueOf(NavigationSettings.startupTab).callVirtual("java.lang.String", "equals", "(Ljava/lang/Object;)Z", string(tab))
 
-private fun CodeScope.feedPage(location: FieldTarget) =
-    newInstance(feedLocationPage.owner, feedLocationPage.proto, staticField(location))
-
 private val initialHomePage = method("initialHomePage") {
     strings("default_home_page")
     returns("Ltv/twitch/android/models/feed/DiscoveryFeedPage;")
 }
 
-private val followingPage = klass($$"tv.twitch.android.models.feed.DiscoveryFeedPage$FollowingPage").field("INSTANCE")
-private val liveLocation = klass($$"tv.twitch.android.models.feed.FeedLocation$Live").field("INSTANCE")
-private val clipsLocation = klass($$"tv.twitch.android.models.feed.FeedLocation$Clips").field("INSTANCE")
-private val feedLocationPage = klass($$"tv.twitch.android.models.feed.DiscoveryFeedPage$FeedLocationPage")
-    .method("<init>") { params("Ltv/twitch/android/models/feed/FeedLocation;") }
+private val defaultHomePageEnabled = method("defaultHomePageEnabled") {
+    inClass(klass(initialHomePage.owner))
+    returns(Type.Boolean)
+    paramCount(0)
+}
 
 private fun PatchRuntime.initialBottomTab(): PointTarget {
     val viewerMenu = resources.id("menu", "viewer_bottom_navigation_items")?.toLong()
