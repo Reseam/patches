@@ -51,3 +51,15 @@ import java.util.Date
 @Export fun storyBlockVideo(block: Any): Any? = null
 
 @Export fun storyVideos(video: Any): Map<String, Any>? = null
+
+@Export fun storyBlockImage(block: Any): Any? = null
+
+@Export fun storyImages(image: Any): Map<String, Any>? = null
+
+@Export fun carousel(pin: Any): Any? = null
+
+@Export fun carouselSlots(carousel: Any): List<Any>? = null
+
+@Export fun slotImages(slot: Any): Map<String, Any>? = null
+
+@Export fun slotVideos(slot: Any): Any? = null

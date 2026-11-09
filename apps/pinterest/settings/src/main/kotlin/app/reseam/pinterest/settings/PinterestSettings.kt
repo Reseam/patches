@@ -27,6 +27,7 @@ object ImageSettings : SettingsGroup(PinterestStrings) {
 
 object DownloadSettings : SettingsGroup(PinterestStrings) {
     val downloadFolder by folder(default = "Pinterest", icon = Vector.lucide("folder-open"))
+    val askWhichMedia by toggle(default = true, icon = Vector.lucide("images"))
 }
 
 object CloseupSettings : SettingsGroup(PinterestStrings) {

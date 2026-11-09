@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2026 Reseam contributors <https://reseam.app>
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-package app.reseam.x.download
+package app.reseam.bundle
 
 import android.app.Activity
 import android.app.Application
@@ -12,9 +12,9 @@ private var resumed = WeakReference<Activity>(null)
 private var tracking = false
 
 /** Dialogs need an activity: the application context cannot show one. */
-internal fun resumedActivity(): Activity? = resumed.get()
+fun resumedActivity(): Activity? = resumed.get()
 
-internal fun trackResumedActivity(app: Application) {
+fun trackResumedActivity(app: Application) {
     if (tracking) return
     tracking = true
     app.registerActivityLifecycleCallbacks(

@@ -13,6 +13,7 @@ import app.reseam.pinterest.refs.id
 import app.reseam.pinterest.refs.isPin
 import app.reseam.pinterest.settings.PinterestStrings
 import app.reseam.runtime.Export
+import kotlin.concurrent.thread
 
 private const val PINS_PER_BOARD = 500
 private const val BOARDS = 20
@@ -35,7 +36,7 @@ fun rememberPin(pin: Any?) {
 
 fun download(board: Any) {
     val pins = synchronized(loaded) { boardId(board)?.let(loaded::get)?.values?.toList() }.orEmpty()
-    pins.forEach(::enqueue)
+    thread(name = "reseam-board-download") { pins.forEach(::enqueue) }
     app.showToast(if (pins.isEmpty()) PinterestStrings.downloadBoardEmpty else PinterestStrings.downloadBoardStarted(pins.size))
 }
 

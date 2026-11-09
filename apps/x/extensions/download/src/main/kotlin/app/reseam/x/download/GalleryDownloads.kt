@@ -7,6 +7,8 @@ package app.reseam.x.download
 
 import android.app.Application
 import app.reseam.bundle.ReseamPatches
+import app.reseam.bundle.resumedActivity
+import app.reseam.bundle.trackResumedActivity
 import app.reseam.runtime.Export
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings

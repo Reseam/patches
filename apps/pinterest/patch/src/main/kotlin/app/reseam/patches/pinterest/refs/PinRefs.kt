@@ -42,17 +42,15 @@ internal val pinRefs = patch {
             Pins.storyPagesPreview to storyValue("pages_preview"),
             Pins.storyBlocks to storyPageValue("blocks"),
             Pins.storyVideos to storyVideoValue("video_list"),
+            Pins.storyImages to storyImageValue("images"),
+            Pins.carousel to pinValue("carousel_data"),
+            Pins.carouselSlots to carouselValue("carousel_slots"),
+            Pins.slotImages to carouselSlotValue("images"),
+            Pins.slotVideos to carouselSlotValue("videos"),
         ).forEach { (export, accessor) -> export.readsThrough(accessor) }
 
-        val blockVideo = storyBlockValue("video")
-        val videoBlock = blockVideo.parameterTypes.single()
-        Pins.storyBlockVideo.implement {
-            whenInstanceOf(param(0), storyBlock.descriptor) {
-                val block = param(0).cast(storyBlock.descriptor).fieldOfType(videoBlock)
-                whenNotNull(block) { returnValue(call(blockVideo, block)) }
-            }
-            returnNull()
-        }
+        Pins.storyBlockVideo.readsBlock(storyBlockValue("video"))
+        Pins.storyBlockImage.readsBlock(storyImageBlockValue("image"))
     }
 }
 
@@ -60,6 +58,16 @@ internal val pinRefs = patch {
 private fun ExtMethod.readsThrough(accessor: MethodTarget) = implement {
     val model = accessor.parameterTypes.single()
     whenInstanceOf(param(0), model) { returnValue(call(accessor, param(0).cast(model))) }
+    returnNull()
+}
+
+// A story block is a union with one field per block type, of which one is set.
+private fun ExtMethod.readsBlock(accessor: MethodTarget) = implement {
+    val block = accessor.parameterTypes.single()
+    whenInstanceOf(param(0), storyBlock.descriptor) {
+        val value = param(0).cast(storyBlock.descriptor).fieldOfType(block)
+        whenNotNull(value) { returnValue(call(accessor, value)) }
+    }
     returnNull()
 }
 

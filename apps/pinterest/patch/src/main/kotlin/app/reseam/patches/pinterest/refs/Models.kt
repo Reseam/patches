@@ -27,6 +27,17 @@ private val storyWriter = modelWriter("storyWriter", "pages", "page_count", "met
 private val storyPageWriter = modelWriter("storyPageWriter", "blocks", "style", "layout")
 private val storyBlockWriter = modelWriter("storyBlockWriter", "video", "block_type", "block_style")
 private val storyVideoWriter = modelWriter("storyVideoWriter", "bitrates", "video_list")
+private val storyImageBlockWriter = modelWriter("storyImageBlockWriter", "image", "image_signature", "block_type", "block_style")
+private val carouselWriter = modelWriter("carouselWriter", "carousel_slots", "index")
+private val carouselSlotWriter = modelWriter("carouselSlotWriter", "android_deep_link", "images", "videos")
+
+// The pin writer writes these keys too; only the story image's own writer reads a story image.
+private val storyImageWriter = method("storyImageWriter") {
+    strings("dominant_color", "images")
+    returns(Type.Void)
+    paramCount(2)
+    calls { params(storyImageBlockValue("image").returnType) }
+}
 
 fun pinValue(key: String) = pinWriter.valueOf(key)
 fun imageValue(key: String) = imageWriter.valueOf(key)
@@ -37,3 +48,7 @@ fun storyValue(key: String) = storyWriter.valueOf(key)
 fun storyPageValue(key: String) = storyPageWriter.valueOf(key)
 fun storyBlockValue(key: String) = storyBlockWriter.valueOf(key)
 fun storyVideoValue(key: String) = storyVideoWriter.valueOf(key)
+fun storyImageBlockValue(key: String) = storyImageBlockWriter.valueOf(key)
+fun storyImageValue(key: String) = storyImageWriter.valueOf(key)
+fun carouselValue(key: String) = carouselWriter.valueOf(key)
+fun carouselSlotValue(key: String) = carouselSlotWriter.valueOf(key)

@@ -35,7 +35,7 @@ val downloadPins = patch("Download pins") {
     description("Downloads pins as original images and videos.")
     compatibleWith(PINTEREST)
     dependsOn(pinRefs)
-    settings(pinterestSettings, section(PinterestStrings.sectionDownloads, DownloadSettings.downloadFolder))
+    settings(pinterestSettings, section(PinterestStrings.sectionDownloads, DownloadSettings.downloadFolder, DownloadSettings.askWhichMedia))
 
     execute {
         val pin = pinValue("id").parameterTypes.single()

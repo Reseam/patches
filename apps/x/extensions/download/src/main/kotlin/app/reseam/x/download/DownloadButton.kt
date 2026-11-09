@@ -11,6 +11,8 @@ import android.content.Context
 import android.net.Uri
 import android.webkit.MimeTypeMap
 import app.reseam.bundle.ReseamPatches
+import app.reseam.bundle.resumedActivity
+import app.reseam.bundle.trackResumedActivity
 import app.reseam.runtime.Export
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
