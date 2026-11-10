@@ -6,6 +6,7 @@ package app.reseam.patches.youtube.hide
 
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -25,8 +26,8 @@ import app.reseam.youtube.settings.PlayerSettings
 import app.reseam.youtube.settings.YouTubeStrings
 import app.reseam.youtubecommon.settings.YouTubeCommonSettings
 
-val hideLayoutComponents = patch("Hide layout components") {
-    description("Adds options to hide feed, player, description, comment and channel components.")
+val hideLayoutComponents = patch(YouTubePatchStrings.hideLayoutComponents) {
+    description(YouTubePatchStrings.hideLayoutComponentsDescription)
     compatibleWith(YOUTUBE)
     dependsOn(lithoFilter, engagementPanelHook, app.reseam.patches.youtube.internal.navigationBarHook)
     settings(

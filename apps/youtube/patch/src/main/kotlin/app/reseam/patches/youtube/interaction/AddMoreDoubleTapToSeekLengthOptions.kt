@@ -4,10 +4,11 @@
 package app.reseam.patches.youtube.interaction
 
 import app.reseam.patch.patch
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 
-val addMoreDoubleTapToSeekLengthOptions = patch("Add more double-tap seek lengths") {
-    description("Adds longer choices to YouTube's double-tap seek length setting.")
+val addMoreDoubleTapToSeekLengthOptions = patch(YouTubePatchStrings.addMoreDoubleTapToSeekLengthOptions) {
+    description(YouTubePatchStrings.addMoreDoubleTapToSeekLengthOptionsDescription)
     compatibleWith(YOUTUBE)
 
     execute {

@@ -7,6 +7,7 @@ import app.reseam.patch.after
 import app.reseam.patch.patch
 import app.reseam.patch.settings.onAction
 import app.reseam.patch.settings.section
+import app.reseam.patches.x.XPatchStrings
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.mainActivityOnCreate
@@ -15,8 +16,8 @@ import app.reseam.x.login.bindings.LoginTransfer
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
 
-val loginTransfer = patch("Import and export login") {
-    description("Copies this account's login to the clipboard, and offers a field on the welcome screen to paste one into, for signing in without the browser.")
+val loginTransfer = patch(XPatchStrings.loginTransfer) {
+    description(XPatchStrings.loginTransferDescription)
     compatibleWith(X)
     enabledByDefault(false)
     settings(xSettings, section(XSettingsPages.Advanced, XStrings.sectionLogin, XSettings.showImportOnLaunch, XSettings.exportLogin))

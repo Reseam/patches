@@ -10,14 +10,15 @@ import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patch.settings.valueOf
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
 import app.reseam.youtube.settings.AdvancedSettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val spoofAppVersion = patch("Spoof app version") {
-    description("Reports an older app version, which brings back some layouts YouTube has replaced.")
+val spoofAppVersion = patch(YouTubePatchStrings.spoofAppVersion) {
+    description(YouTubePatchStrings.spoofAppVersionDescription)
     compatibleWith(YOUTUBE)
     settings(
         youTubeSettings,

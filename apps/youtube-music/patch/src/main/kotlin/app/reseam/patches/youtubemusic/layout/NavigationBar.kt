@@ -10,6 +10,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.section
 import app.reseam.patch.settings.whenEnabled
+import app.reseam.patches.youtubemusic.YouTubeMusicPatchStrings
 import app.reseam.patches.youtubemusic.core.YOUTUBE_MUSIC
 import app.reseam.youtubemusic.settings.YouTubeMusicSettings
 import app.reseam.patches.youtubemusic.core.YouTubeMusicSettingsPages
@@ -28,8 +29,8 @@ private val TABS = listOf(
     YouTubeMusicSettings.hideUpgradeTab to "SPunlimited",
 )
 
-val navigationBar = patch("Navigation bar") {
-    description("Adds options to hide tabs from the bottom navigation bar.")
+val navigationBar = patch(YouTubeMusicPatchStrings.navigationBar) {
+    description(YouTubeMusicPatchStrings.navigationBarDescription)
     compatibleWith(YOUTUBE_MUSIC)
     settings(youTubeMusicSettings, section(YouTubeMusicSettingsPages.Interface, YouTubeMusicStrings.sectionNavigationBar, *TABS.map { it.first }.toTypedArray()))
 

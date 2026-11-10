@@ -6,6 +6,7 @@ package app.reseam.patches.youtube.player
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -13,8 +14,8 @@ import app.reseam.patches.youtube.internal.engagementPanelShow
 import app.reseam.youtube.settings.PlayerOverlaySettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val disablePlayerPopupPanels = patch("Disable player popup panels") {
-    description("Stops panels such as live chat from opening by themselves over the player.")
+val disablePlayerPopupPanels = patch(YouTubePatchStrings.disablePlayerPopupPanels) {
+    description(YouTubePatchStrings.disablePlayerPopupPanelsDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings)
     settings(youTubeSettings, section(YouTubeSettingsPages.Overlay, YouTubeStrings.sectionPlayerOverlay, PlayerOverlaySettings.disablePlayerPopupPanels))

@@ -10,6 +10,7 @@ import app.reseam.patch.point
 import app.reseam.patch.points
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.twitch.TwitchPatchStrings
 import app.reseam.patches.twitch.core.TWITCH
 import app.reseam.patches.twitch.core.cutOffServer
 import app.reseam.patches.twitch.core.forceTrue
@@ -22,8 +23,8 @@ private const val AD_SERVER = "https://edge.ads.twitch.tv/"
 private const val AD_VERIFICATION_SERVER = "https://fw.adsafeprotected.com/"
 private const val GOOGLE_AD_SERVER = "https://pagead2.googlesyndication.com/"
 
-val blockVideoAds = patch("Block video ads") {
-    description("Blocks the video, audio and display ads the app requests itself and their verification pings, while ads stitched into the stream need Block embedded ads.")
+val blockVideoAds = patch(TwitchPatchStrings.blockVideoAds) {
+    description(TwitchPatchStrings.blockVideoAdsDescription)
     compatibleWith(TWITCH)
     settings(twitchSettings, section(TwitchStrings.sectionAds, AdsSettings.blockVideoAds))
 

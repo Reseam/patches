@@ -11,6 +11,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.redirectTo
 import app.reseam.patch.settings.section
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.patches.tiktok.core.TIKTOK
 import app.reseam.patches.tiktok.core.TikTokSettingsPages
 import app.reseam.patches.tiktok.core.tiktokSettings
@@ -21,10 +22,8 @@ import app.reseam.tiktok.settings.TikTokStrings
 private const val PREFERRED_REFRESH_RATE = "preferredRefreshRate"
 
 val keepRefreshRate =
-    patch("Keep the display refresh rate") {
-        description(
-            "Stops TikTok from lowering the screen's refresh rate to the video's frame rate."
-        )
+    patch(TikTokPatchStrings.keepRefreshRate) {
+        description(TikTokPatchStrings.keepRefreshRateDescription)
         compatibleWith(TIKTOK)
         settings(
             tiktokSettings,

@@ -10,12 +10,13 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordModules
 import app.reseam.patches.discord.core.discordSettings
 
-val coloredNames = patch("Colored names") {
-    description("Color members' names with their role color in mentions, the typing indicator, voice channels and member list headers.")
+val coloredNames = patch(DiscordPatchStrings.coloredNames) {
+    description(DiscordPatchStrings.coloredNamesDescription)
     compatibleWith(DISCORD)
     dependsOn(discordModules)
     settings(discordSettings, section(DiscordStrings.sectionChat, DiscordSettings.coloredNames))

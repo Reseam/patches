@@ -11,7 +11,6 @@ import app.reseam.patches.pinterest.core.PINTEREST
 import app.reseam.pinterest.refs.bindings.Pins
 
 internal val pinRefs = patch {
-    description("Reads pin, image and video values.")
     compatibleWith(PINTEREST)
 
     execute {

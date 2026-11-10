@@ -10,8 +10,8 @@ private const val WINDOW = "android.view.Window"
 private const val WINDOW_MANAGER = "android.view.WindowManager"
 private const val VIEW_MANAGER = "android.view.ViewManager"
 private const val LAYOUT_PARAMS = "android.view.ViewGroup\$LayoutParams"
-val allowScreenshots = patch("Allow screenshots") {
-    description("Allows screenshots and screen recording on screens the app protects.")
+val allowScreenshots = patch(UniversalPatchStrings.allowScreenshots) {
+    description(UniversalPatchStrings.allowScreenshotsDescription)
 
     execute {
         val redirected = with(SecureFlags) {

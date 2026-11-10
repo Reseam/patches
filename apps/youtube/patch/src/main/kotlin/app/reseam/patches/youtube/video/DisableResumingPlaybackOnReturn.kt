@@ -8,6 +8,7 @@ import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -20,8 +21,8 @@ private val resumeOnReturn = methods("resume playback on return") {
     returns(Type.Void)
 }
 
-val disableResumingPlaybackOnReturn = patch("Disable resuming playback on return") {
-    description("Keeps a video paused when you come back after the lock screen or another app stopped it.")
+val disableResumingPlaybackOnReturn = patch(YouTubePatchStrings.disableResumingPlaybackOnReturn) {
+    description(YouTubePatchStrings.disableResumingPlaybackOnReturnDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings)
     settings(

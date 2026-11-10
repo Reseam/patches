@@ -10,11 +10,12 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordSettings
 
-val localReadState = patch("Local read state") {
-    description("Mark messages as read on this phone without updating your other devices.")
+val localReadState = patch(DiscordPatchStrings.localReadState) {
+    description(DiscordPatchStrings.localReadStateDescription)
     compatibleWith(DISCORD)
     settings(discordSettings, section(DiscordStrings.sectionPrivacy, DiscordSettings.localReadState))
 

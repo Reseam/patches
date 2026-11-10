@@ -11,12 +11,13 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.instagram.InstagramPatchStrings
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.instagramSettings
 import app.reseam.patches.instagram.core.signatureCheck
 
-val disableReelsSwiping = patch("Disable Reels swiping") {
-    description("Keeps the Reels viewer on the reel you opened instead of swiping to the next one.")
+val disableReelsSwiping = patch(InstagramPatchStrings.disableReelsSwiping) {
+    description(InstagramPatchStrings.disableReelsSwipingDescription)
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
     settings(instagramSettings, section(InstagramStrings.sectionPlayback, PlaybackSettings.disableReelsSwiping))

@@ -11,6 +11,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.x.XPatchStrings
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
@@ -18,8 +19,8 @@ import app.reseam.x.profile.bindings.ProfileTabs
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
 
-val customizeProfileTabs = patch("Customize profile tabs") {
-    description("Hides profile tabs such as Highlights, Articles and Likes.")
+val customizeProfileTabs = patch(XPatchStrings.customizeProfileTabs) {
+    description(XPatchStrings.customizeProfileTabsDescription)
     compatibleWith(X)
     settings(
         xSettings,

@@ -13,6 +13,7 @@ import app.reseam.patch.dex.returnType
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
+import app.reseam.patches.instagram.InstagramPatchStrings
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.USER_SESSION
 import app.reseam.patches.instagram.refs.mediaRefs
@@ -64,8 +65,8 @@ private val renderInstant = method("renderInstant") {
     params(Type.Object, Type.Object)
 }
 
-val downloadInstants = patch("Download Instants") {
-    description("Adds a download button to the Instants viewer.")
+val downloadInstants = patch(InstagramPatchStrings.downloadInstants) {
+    description(InstagramPatchStrings.downloadInstantsDescription)
     compatibleWith(INSTAGRAM)
     dependsOn(mediaRefs, downloadMedia)
 

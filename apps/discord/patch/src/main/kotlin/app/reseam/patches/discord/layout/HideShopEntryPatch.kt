@@ -10,11 +10,12 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordSettings
 
-val hideShopEntry = patch("Hide shop entry") {
-    description("Remove Shop buttons from profiles and the Shop entry in settings.")
+val hideShopEntry = patch(DiscordPatchStrings.hideShopEntry) {
+    description(DiscordPatchStrings.hideShopEntryDescription)
     compatibleWith(DISCORD)
     settings(discordSettings, section(DiscordStrings.sectionLayout, DiscordSettings.hideShopEntry))
 

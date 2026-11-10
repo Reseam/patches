@@ -16,6 +16,7 @@ import app.reseam.patch.point
 import app.reseam.patch.reserveLocal
 import app.reseam.patch.settings.section
 import app.reseam.patch.settings.whenEnabled
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -95,8 +96,8 @@ private val queueStateField = queueContextRead.previous {
     field { owner(queueInsertResolver.owner) }
 }.field("queue state field")
 
-val unlockQueue = patch("Unlock queue") {
-    description("Unlocks the video queue.")
+val unlockQueue = patch(YouTubePatchStrings.unlockQueue) {
+    description(YouTubePatchStrings.unlockQueueDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings, videoInformationHook)
     settings(

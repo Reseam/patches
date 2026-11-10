@@ -8,13 +8,14 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.telegram.TelegramPatchStrings
 import app.reseam.patches.telegram.core.TELEGRAM
 import app.reseam.telegram.settings.TelegramSettings
 import app.reseam.patches.telegram.core.telegramSettings
 import app.reseam.telegram.settings.TelegramStrings
 
-val hideSponsoredAds = patch("Hide sponsored messages") {
-    description("Removes promoted posts from channels.")
+val hideSponsoredAds = patch(TelegramPatchStrings.hideSponsoredAds) {
+    description(TelegramPatchStrings.hideSponsoredAdsDescription)
     compatibleWith(TELEGRAM)
     settings(telegramSettings, section(TelegramStrings.sectionAds, TelegramSettings.hideSponsoredAds))
 

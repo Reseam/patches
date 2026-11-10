@@ -12,6 +12,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.patches.tiktok.core.AWEME
 import app.reseam.patches.tiktok.core.TIKTOK
 import app.reseam.patches.tiktok.core.TikTokSettingsPages
@@ -24,10 +25,8 @@ private const val URL_MODEL = "com.ss.android.ugc.aweme.base.model.UrlModel"
 private const val ACL_COMMON_SHARE = "com.ss.android.ugc.aweme.feed.model.ACLCommonShare"
 
 val downloads =
-    patch("Downloads") {
-        description(
-            "Saves TikTok videos and photos without the watermark, also when the author turned saving off."
-        )
+    patch(TikTokPatchStrings.downloads) {
+        description(TikTokPatchStrings.downloadsDescription)
         compatibleWith(TIKTOK)
         settings(
             tiktokSettings,

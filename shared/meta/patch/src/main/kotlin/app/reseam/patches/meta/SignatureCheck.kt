@@ -14,8 +14,8 @@ import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.point
 
-fun signatureCheckFor(app: CompatiblePackage): ReseamPatch = patch("Fix signature check") {
-    description("Lets the re-signed app trust itself so it starts.")
+fun signatureCheckFor(app: CompatiblePackage): ReseamPatch = patch(MetaPatchStrings.signatureCheck) {
+    description(MetaPatchStrings.signatureCheckDescription)
     compatibleWith(app)
 
     execute {

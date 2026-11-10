@@ -9,13 +9,14 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.reddit.RedditPatchStrings
 import app.reseam.patches.reddit.core.REDDIT
 import app.reseam.reddit.settings.RedditSettings
 import app.reseam.patches.reddit.core.redditSettings
 import app.reseam.reddit.settings.RedditStrings
 
-val hideNavigationTabs = patch("Hide navigation tabs") {
-    description("Removes the Communities, Create or Inbox tab from the bottom bar.")
+val hideNavigationTabs = patch(RedditPatchStrings.hideNavigationTabs) {
+    description(RedditPatchStrings.hideNavigationTabsDescription)
     compatibleWith(REDDIT)
     settings(redditSettings, section(RedditStrings.sectionNavigation, RedditSettings.hideCommunitiesTab, RedditSettings.hideCreateTab, RedditSettings.hideInboxTab))
 

@@ -13,6 +13,7 @@ import app.reseam.patch.method
 import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.x.XPatchStrings
 import app.reseam.patches.x.core.COMPOSER
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettingsPages
@@ -21,8 +22,8 @@ import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
 import app.reseam.x.theme.bindings.XTheme
 
-val themes = patch("Themes") {
-    description("Brings back the Dim dark theme and the Twitter branding, and adds a Material You or custom accent color.")
+val themes = patch(XPatchStrings.themes) {
+    description(XPatchStrings.themesDescription)
     compatibleWith(X)
     settings(
         xSettings,
@@ -31,9 +32,8 @@ val themes = patch("Themes") {
 
     val twitterAppIdentity = boolOption(
         "twitterAppIdentity",
-        title = "Twitter app name and icon",
-        description = "Names the app Twitter with the bird icon in Android's app info and notification headers. " +
-            "Android fixes these at install, so they stay Twitter whatever the Twitter branding setting says.",
+        title = XPatchStrings.themesTwitterAppIdentity,
+        description = XPatchStrings.themesTwitterAppIdentityDescription,
         default = false,
     )
 

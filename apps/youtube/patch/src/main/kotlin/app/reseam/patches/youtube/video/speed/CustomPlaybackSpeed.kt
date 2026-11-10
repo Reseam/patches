@@ -21,6 +21,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.section
 import app.reseam.patch.types.NewField
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -103,8 +104,8 @@ private val playbackSpeedRecyclerViewAttached = lithoRecyclerViewBinder.point("p
     }
 }
 
-val customPlaybackSpeed = patch("Custom playback speed") {
-    description("Adds configured playback speeds and supports the modern tap-and-hold speed.")
+val customPlaybackSpeed = patch(YouTubePatchStrings.customPlaybackSpeed) {
+    description(YouTubePatchStrings.customPlaybackSpeedDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings, videoInformationHook, lithoFilter, lithoTextHook)
     settings(

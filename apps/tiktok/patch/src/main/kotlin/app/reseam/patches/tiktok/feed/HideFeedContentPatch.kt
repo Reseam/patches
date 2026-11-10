@@ -6,6 +6,7 @@ package app.reseam.patches.tiktok.feed
 import app.reseam.patch.patch
 import app.reseam.patch.settings.ToggleSetting
 import app.reseam.patch.settings.section
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.patches.tiktok.core.TIKTOK
 import app.reseam.patches.tiktok.core.TikTokSettingsPages
 import app.reseam.patches.tiktok.core.tiktokSettings
@@ -27,10 +28,8 @@ private val RULES: Map<ToggleSetting, String> =
     )
 
 val hideFeedContent =
-    patch("Hide feed content") {
-        description(
-            "Removes chosen kinds of posts, such as LIVE, Shop or AI-generated posts, from TikTok's feeds and search."
-        )
+    patch(TikTokPatchStrings.hideFeedContent) {
+        description(TikTokPatchStrings.hideFeedContentDescription)
         compatibleWith(TIKTOK)
         dependsOn(feedFilter)
         settings(

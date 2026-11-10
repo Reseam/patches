@@ -12,6 +12,7 @@ import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.patches.tiktok.core.TIKTOK
 import app.reseam.patches.tiktok.core.TikTokSettingsPages
 import app.reseam.patches.tiktok.core.tiktokSettings
@@ -20,10 +21,8 @@ import app.reseam.tiktok.settings.InterfaceSettings
 import app.reseam.tiktok.settings.TikTokStrings
 
 val showExactCounts =
-    patch("Show exact counts") {
-        description(
-            "Shows full numbers, such as 12,345, instead of 12.3K on likes, comments, views and followers."
-        )
+    patch(TikTokPatchStrings.showExactCounts) {
+        description(TikTokPatchStrings.showExactCountsDescription)
         compatibleWith(TIKTOK)
         settings(
             tiktokSettings,

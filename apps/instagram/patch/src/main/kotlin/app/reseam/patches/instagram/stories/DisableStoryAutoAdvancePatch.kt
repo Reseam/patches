@@ -10,13 +10,14 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.instagram.InstagramPatchStrings
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.instagram.settings.StorySettings
 import app.reseam.patches.instagram.core.instagramSettings
 import app.reseam.patches.instagram.core.signatureCheck
 
-val disableStoryAutoAdvance = patch("Disable story auto-advance") {
-    description("Keeps a story on screen after it finishes, until you tap to move on.")
+val disableStoryAutoAdvance = patch(InstagramPatchStrings.disableStoryAutoAdvance) {
+    description(InstagramPatchStrings.disableStoryAutoAdvanceDescription)
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
     settings(instagramSettings, section(InstagramStrings.sectionStories, StorySettings.disableAutoAdvance))

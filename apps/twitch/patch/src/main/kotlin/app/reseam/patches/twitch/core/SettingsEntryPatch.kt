@@ -12,6 +12,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.openSettings
+import app.reseam.patches.twitch.TwitchPatchStrings
 import app.reseam.twitch.settings.bindings.OpenReseamSettings
 
 private const val TITLE = "Reseam Settings"
@@ -21,8 +22,8 @@ private const val ICON_PATH = "res/drawable/$ICON.xml"
 // Compose defaults mask: the subtitle and the badge.
 private const val ROW_DEFAULTS = 0b10010
 
-val settingsEntry = patch("Reseam entry in Twitch settings") {
-    description("Adds a Reseam Settings row above Account in Twitch's settings when you are signed in.")
+val settingsEntry = patch(TwitchPatchStrings.settingsEntry) {
+    description(TwitchPatchStrings.settingsEntryDescription)
     compatibleWith(TWITCH)
     dependsOn(twitchSettings)
 

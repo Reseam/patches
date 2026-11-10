@@ -11,6 +11,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -35,8 +36,8 @@ private val listNavigationAvailability = method("list navigation availability") 
 // 1 is what a list answers when it has no item in that direction.
 private const val UNAVAILABLE = 1
 
-val disableAutoplayInPlaylists = patch("Disable autoplay in playlists") {
-    description("Stops at the end of each video in a playlist instead of playing the next one.")
+val disableAutoplayInPlaylists = patch(YouTubePatchStrings.disableAutoplayInPlaylists) {
+    description(YouTubePatchStrings.disableAutoplayInPlaylistsDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings)
     settings(youTubeSettings, section(YouTubeSettingsPages.Player, YouTubeStrings.sectionPlayer, PlayerSettings.disableAutoplayInPlaylists))

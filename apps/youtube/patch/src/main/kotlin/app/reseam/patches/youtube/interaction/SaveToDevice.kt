@@ -18,6 +18,7 @@ import app.reseam.patch.point
 import app.reseam.patch.points
 import app.reseam.patch.reserveLocal
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -33,8 +34,8 @@ import app.reseam.youtubesavetodevice.settings.SaveToDeviceStrings
 
 private const val LIST_POPUP_WINDOW = "android.widget.ListPopupWindow"
 
-val saveToDevice = patch("Save to device") {
-    description("Adds Save to device to downloaded videos, which saves them as video files in a folder you choose.")
+val saveToDevice = patch(YouTubePatchStrings.saveToDevice) {
+    description(YouTubePatchStrings.saveToDeviceDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings, mainActivityHook)
     settings(

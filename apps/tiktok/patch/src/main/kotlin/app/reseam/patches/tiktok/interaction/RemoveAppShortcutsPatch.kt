@@ -11,6 +11,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patch.settings.whenEnabled
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.patches.tiktok.core.TIKTOK
 import app.reseam.patches.tiktok.core.TikTokSettingsPages
 import app.reseam.patches.tiktok.core.tiktokSettings
@@ -21,8 +22,8 @@ import app.reseam.tiktok.settings.TikTokStrings
 private val shortcutManager = klass("com.ss.android.ugc.aweme.shortcut.TiktokShortcutManager")
 
 val removeAppShortcuts =
-    patch("Remove app shortcuts") {
-        description("Removes TikTok's entries from the long-press menu of its launcher icon.")
+    patch(TikTokPatchStrings.removeAppShortcuts) {
+        description(TikTokPatchStrings.removeAppShortcutsDescription)
         compatibleWith(TIKTOK)
         settings(
             tiktokSettings,

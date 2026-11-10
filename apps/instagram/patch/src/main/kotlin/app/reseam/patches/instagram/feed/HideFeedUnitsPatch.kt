@@ -14,6 +14,7 @@ import app.reseam.patch.point
 import app.reseam.patch.redirectTo
 import app.reseam.patch.settings.ToggleSetting
 import app.reseam.patch.settings.section
+import app.reseam.patches.instagram.InstagramPatchStrings
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.instagramSettings
 import app.reseam.patches.instagram.core.signatureCheck
@@ -48,8 +49,8 @@ private val UNIT_KEYS: Map<ToggleSetting, List<String>> = mapOf(
     FeedSettings.hideSuggestedReels to listOf("clips_netego"),
 )
 
-val hideFeedUnits = patch("Hide suggested carousels") {
-    description("Removes suggested-account, Threads, shopping and Reels carousels from Home. Suggested posts still show; Following-only feed removes them.")
+val hideFeedUnits = patch(InstagramPatchStrings.hideFeedUnits) {
+    description(InstagramPatchStrings.hideFeedUnitsDescription)
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
     settings(

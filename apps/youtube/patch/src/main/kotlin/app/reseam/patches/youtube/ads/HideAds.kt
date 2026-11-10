@@ -15,6 +15,7 @@ import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patch.settings.whenEnabled
 import app.reseam.patch.skipWhen
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -34,8 +35,8 @@ import app.reseam.youtube.ads.bindings.AdsFilter
 import app.reseam.youtube.settings.AdsSettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val hideAds = patch("Hide ads") {
-    description("Removes general ads and promotional components.")
+val hideAds = patch(YouTubePatchStrings.hideAds) {
+    description(YouTubePatchStrings.hideAdsDescription)
     compatibleWith(YOUTUBE)
     dependsOn(
         lithoFilter,

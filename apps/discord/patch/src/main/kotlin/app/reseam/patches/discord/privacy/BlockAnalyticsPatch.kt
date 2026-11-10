@@ -9,11 +9,12 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordSettings
 
-val blockAnalytics = patch("Block analytics") {
-    description("Stop Discord from logging usage events.")
+val blockAnalytics = patch(DiscordPatchStrings.blockAnalytics) {
+    description(DiscordPatchStrings.blockAnalyticsDescription)
     compatibleWith(DISCORD)
     settings(discordSettings, section(DiscordStrings.sectionPrivacy, DiscordSettings.blockAnalytics))
 

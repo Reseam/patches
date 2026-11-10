@@ -10,6 +10,7 @@ import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.points
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -32,8 +33,8 @@ private fun asset(path: String): ByteArray =
     ChangeHeaderResources::class.java.getResourceAsStream("/reseam-header/$path")?.use { it.readBytes() }
         ?: error("reseam-header resource is missing: $path")
 
-val changeHeader = patch("Change header") {
-    description("Adds an option to change the logo in YouTube's top-left header.")
+val changeHeader = patch(YouTubePatchStrings.changeHeader) {
+    description(YouTubePatchStrings.changeHeaderDescription)
     compatibleWith(YOUTUBE)
     dependsOn(reseamMark)
     settings(youTubeSettings, section(YouTubeSettingsPages.Appearance, YouTubeStrings.sectionGeneral, AppearanceSettings.changeHeaderLogo))

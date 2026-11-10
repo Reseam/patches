@@ -6,6 +6,7 @@ package app.reseam.patches.tiktok.privacy
 import app.reseam.patch.ExtMethod
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.patches.tiktok.core.TIKTOK
 import app.reseam.patches.tiktok.core.TikTokSettingsPages
 import app.reseam.patches.tiktok.core.tiktokSettings
@@ -52,17 +53,15 @@ private val COUNTRIES =
     )
 
 val spoofSim =
-    patch("Spoof SIM country") {
-        description(
-            "Reports a chosen country's carrier to TikTok, so it can be reached where it is region-blocked. Needs a VPN in the same country."
-        )
+    patch(TikTokPatchStrings.spoofSim) {
+        description(TikTokPatchStrings.spoofSimDescription)
         compatibleWith(TIKTOK)
 
         val defaultCountry =
             stringOption(
                 "country",
-                title = "Default country",
-                description = "The carrier country reported until the user changes it in settings.",
+                title = TikTokPatchStrings.spoofSimCountry,
+                description = TikTokPatchStrings.spoofSimCountryDescription,
                 default = "us",
                 validValues = COUNTRIES,
             )

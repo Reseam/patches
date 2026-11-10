@@ -11,7 +11,6 @@ import app.reseam.patches.instagram.core.signatureCheck
 import app.reseam.patches.instagram.internal.InstagramMediaGraph
 
 val mediaRefs = patch {
-    description("Binds app.reseam.instagram.refs.Media bridges to Instagram's media value class.")
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
 

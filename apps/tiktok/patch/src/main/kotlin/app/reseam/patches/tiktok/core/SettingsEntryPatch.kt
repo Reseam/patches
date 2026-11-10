@@ -17,15 +17,14 @@ import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.tiktok.entry.bindings.ProfileGear
 
 private val signedOutProfile = klass("com.ss.android.ugc.aweme.unlogin.UnloginSignUpFragment")
 
 val settingsGear =
-    patch("Reseam settings") {
-        description(
-            "Adds a gear next to the menu button on the Profile tab that opens Reseam settings."
-        )
+    patch(TikTokPatchStrings.settingsGear) {
+        description(TikTokPatchStrings.settingsGearDescription)
         compatibleWith(TIKTOK)
         dependsOn(tiktokSettings)
 

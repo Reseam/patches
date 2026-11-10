@@ -9,6 +9,7 @@ import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.reddit.RedditPatchStrings
 import app.reseam.patches.reddit.core.REDDIT
 import app.reseam.patches.reddit.core.redditSettings
 import app.reseam.reddit.settings.RedditSettings
@@ -18,8 +19,8 @@ import app.reseam.reddit.sort.bindings.FeedSort
 private const val SORT_TYPE = "Lcom/reddit/listing/model/sort/SortType;"
 private const val SORT_TIME_FRAME = "Lcom/reddit/listing/model/sort/SortTimeFrame;"
 
-val defaultFeedSort = patch("Default feed sort") {
-    description("Sorts communities, custom feeds, Popular and All by your choice until you pick a sort there.")
+val defaultFeedSort = patch(RedditPatchStrings.defaultFeedSort) {
+    description(RedditPatchStrings.defaultFeedSortDescription)
     compatibleWith(REDDIT)
     settings(redditSettings, section(RedditStrings.sectionFeed, RedditSettings.defaultFeedSort, RedditSettings.defaultFeedTimeFrame))
 

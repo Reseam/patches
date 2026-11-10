@@ -9,11 +9,12 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordSettings
 
-val repliesWithoutPings = patch("Replies without pings") {
-    description("Start replies with mentions turned off. You can still turn them on.")
+val repliesWithoutPings = patch(DiscordPatchStrings.repliesWithoutPings) {
+    description(DiscordPatchStrings.repliesWithoutPingsDescription)
     compatibleWith(DISCORD)
     settings(discordSettings, section(DiscordStrings.sectionChat, DiscordSettings.repliesWithoutPings))
 

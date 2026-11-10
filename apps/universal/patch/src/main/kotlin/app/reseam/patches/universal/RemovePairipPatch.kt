@@ -7,22 +7,20 @@ package app.reseam.patches.universal
 
 import app.reseam.patch.*
 
-val removePairip = patch("Remove Pairip") {
-    description(
-        "Removes Pairip (Google Play automatic integrity protection). Optionally kills the Pairip VM. Does NOT bypass server-side Play Integrity attestation or pairipcore virtualization.",
-    )
+val removePairip = patch(UniversalPatchStrings.removePairip) {
+    description(UniversalPatchStrings.removePairipDescription)
 
     val killVM = boolOption(
         "killVM",
-        title = "Kill Pairip VM",
-        description = "Also kills the Pairip VM. Only enable this for apps whose VM merely runs the startup integrity/license program. If the app routes real functionality through the VM enabling this breaks those features. Leave off unless the app needs it.",
+        title = UniversalPatchStrings.removePairipKillVm,
+        description = UniversalPatchStrings.removePairipKillVmDescription,
         default = false,
     )
 
     val spoofInstaller = boolOption(
         "spoofInstaller",
-        title = "Spoof installer checks",
-        description = "Rewrites leftover installer-origin checks that reference the Play Store package so they report a Play Store installation.",
+        title = UniversalPatchStrings.removePairipSpoofInstaller,
+        description = UniversalPatchStrings.removePairipSpoofInstallerDescription,
         default = true,
     )
 

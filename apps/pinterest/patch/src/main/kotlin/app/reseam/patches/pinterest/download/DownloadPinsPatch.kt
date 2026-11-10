@@ -17,6 +17,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.points
 import app.reseam.patch.settings.section
+import app.reseam.patches.pinterest.PinterestPatchStrings
 import app.reseam.patches.pinterest.core.PINTEREST
 import app.reseam.patches.pinterest.core.pinterestSettings
 import app.reseam.patches.pinterest.refs.holdsField
@@ -31,8 +32,8 @@ import app.reseam.pinterest.settings.PinterestStrings
 private const val FUNCTION0 = "kotlin.jvm.functions.Function0"
 private const val FUNCTION1 = "kotlin.jvm.functions.Function1"
 
-val downloadPins = patch("Download pins") {
-    description("Downloads pins as original images and videos.")
+val downloadPins = patch(PinterestPatchStrings.downloadPins) {
+    description(PinterestPatchStrings.downloadPinsDescription)
     compatibleWith(PINTEREST)
     dependsOn(pinRefs)
     settings(pinterestSettings, section(PinterestStrings.sectionDownloads, DownloadSettings.downloadFolder, DownloadSettings.askWhichMedia))

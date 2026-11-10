@@ -6,14 +6,15 @@ package app.reseam.patches.reddit.feed
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.reddit.RedditPatchStrings
 import app.reseam.patches.reddit.core.REDDIT
 import app.reseam.reddit.settings.RedditSettings
 import app.reseam.patches.reddit.core.feedSectionContent
 import app.reseam.patches.reddit.core.redditSettings
 import app.reseam.reddit.settings.RedditStrings
 
-val hideRecommendedCommunities = patch("Hide recommended communities") {
-    description("Removes the community suggestions shelf from feeds.")
+val hideRecommendedCommunities = patch(RedditPatchStrings.hideRecommendedCommunities) {
+    description(RedditPatchStrings.hideRecommendedCommunitiesDescription)
     compatibleWith(REDDIT)
     settings(redditSettings, section(RedditStrings.sectionFeed, RedditSettings.hideRecommendedCommunities))
 

@@ -5,6 +5,7 @@ package app.reseam.patches.x.links
 
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.x.XPatchStrings
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
@@ -13,8 +14,8 @@ import app.reseam.patches.x.featureswitches.featureSwitchOverrides
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
 
-val openPostLinks = patch("Open post links") {
-    description("Opens a post link on the post itself instead of on top of the For You timeline.")
+val openPostLinks = patch(XPatchStrings.openPostLinks) {
+    description(XPatchStrings.openPostLinksDescription)
     compatibleWith(X)
     dependsOn(featureSwitchOverrides)
     settings(xSettings, section(XSettingsPages.Links, XStrings.sectionLinks, XSettings.openPostLinks))

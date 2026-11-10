@@ -8,12 +8,13 @@ import app.reseam.discord.settings.DiscordStrings
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.createMessageContent
 import app.reseam.patches.discord.core.discordSettings
 
-val hideGiftCards = patch("Hide gift cards") {
-    description("Hide gift redemption cards in messages.")
+val hideGiftCards = patch(DiscordPatchStrings.hideGiftCards) {
+    description(DiscordPatchStrings.hideGiftCardsDescription)
     compatibleWith(DISCORD)
     settings(discordSettings, section(DiscordStrings.sectionLayout, DiscordSettings.hideGiftCards))
 

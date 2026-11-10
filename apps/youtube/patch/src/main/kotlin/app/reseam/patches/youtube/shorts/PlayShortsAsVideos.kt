@@ -11,6 +11,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -20,8 +21,8 @@ import app.reseam.youtube.settings.ShortsSettings
 import app.reseam.youtube.settings.YouTubeStrings
 import app.reseam.youtube.shorts.bindings.ShortsPlayer
 
-val playShortsAsVideos = patch("Play Shorts as regular videos") {
-    description("Plays Shorts in YouTube's regular video player instead of the Shorts player.")
+val playShortsAsVideos = patch(YouTubePatchStrings.playShortsAsVideos) {
+    description(YouTubePatchStrings.playShortsAsVideosDescription)
     compatibleWith(YOUTUBE)
     dependsOn(commandRouter, navigationBarHook)
     settings(

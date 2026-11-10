@@ -10,6 +10,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.patches.tiktok.core.TIKTOK
 import app.reseam.patches.tiktok.core.TikTokSettingsPages
 import app.reseam.patches.tiktok.core.tiktokSettings
@@ -19,8 +20,8 @@ import app.reseam.tiktok.settings.TikTokStrings
 private const val KEYBOARD = "com.ss.android.ugc.aweme.comment.keyboard.keyboardv2.refactor"
 
 val hideCommentSuggestions =
-    patch("Hide comment suggestions") {
-        description("Removes the sticker and emoji suggestions shown while typing a comment.")
+    patch(TikTokPatchStrings.hideCommentSuggestions) {
+        description(TikTokPatchStrings.hideCommentSuggestionsDescription)
         compatibleWith(TIKTOK)
         settings(
             tiktokSettings,

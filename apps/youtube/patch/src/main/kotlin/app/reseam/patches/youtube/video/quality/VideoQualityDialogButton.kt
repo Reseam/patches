@@ -5,6 +5,7 @@ package app.reseam.patches.youtube.video.quality
 
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -16,8 +17,8 @@ import app.reseam.youtube.quality.bindings.VideoQualityDialogButton
 import app.reseam.youtube.settings.PlayerControlsSettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val videoQualityDialogButton = patch("Video quality player button") {
-    description("Adds a button that opens the current video's quality picker.")
+val videoQualityDialogButton = patch(YouTubePatchStrings.videoQualityDialogButton) {
+    description(YouTubePatchStrings.videoQualityDialogButtonDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings, playerControls)
     settings(youTubeSettings, section(YouTubeSettingsPages.Controls, YouTubeStrings.sectionPlayerButtons, PlayerControlsSettings.videoQualityDialogButton))

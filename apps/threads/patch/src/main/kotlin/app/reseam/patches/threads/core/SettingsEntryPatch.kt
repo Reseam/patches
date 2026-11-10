@@ -9,6 +9,7 @@ import app.reseam.patch.classTarget
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
+import app.reseam.patches.threads.ThreadsPatchStrings
 import app.reseam.threads.settings.bindings.OpenReseamSettings
 
 private const val FUNCTION0 = "kotlin.jvm.functions.Function0"
@@ -20,8 +21,8 @@ private const val ICON_PATH = "res/drawable/$ICON.xml"
 // Compose defaults mask: the subtitle and the trailing flag.
 private const val ROW_DEFAULTS = 0b110000
 
-val settingsEntry = patch("Reseam entry in Threads settings") {
-    description("Adds a Reseam Settings row.")
+val settingsEntry = patch(ThreadsPatchStrings.settingsEntry) {
+    description(ThreadsPatchStrings.settingsEntryDescription)
     compatibleWith(THREADS)
     dependsOn(threadsSettings)
 

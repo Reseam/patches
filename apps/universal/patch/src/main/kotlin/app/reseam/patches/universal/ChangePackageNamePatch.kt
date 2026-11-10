@@ -15,16 +15,13 @@ private val PACKAGE_NAME = Regex("^[a-z]\\w*(\\.[a-z]\\w*)+$")
 private val PERMISSION_DECLARATIONS = setOf("permission", "uses-permission", "uses-permission-sdk-23")
 private val PERMISSION_ATTRIBUTES = listOf("android:permission", "android:readPermission", "android:writePermission")
 
-val changePackageName = patch("Change package name") {
-    description(
-        "Installs the app under a new package name, so a clone runs alongside the original. " +
-            "Without a chosen name, \".reseam\" is added to the original one. Not every app works under a different name.",
-    )
+val changePackageName = patch(UniversalPatchStrings.changePackageName) {
+    description(UniversalPatchStrings.changePackageNameDescription)
 
     val packageNameOption = stringOption(
         "packageName",
-        title = "Package name",
-        description = "The new package name, or empty to append \".reseam\" to the original.",
+        title = UniversalPatchStrings.changePackageNamePackageName,
+        description = UniversalPatchStrings.changePackageNamePackageNameDescription,
     )
 
     // After every other patch, so they read and edit the app under its original package name.

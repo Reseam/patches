@@ -9,14 +9,15 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.pinterest.PinterestPatchStrings
 import app.reseam.patches.pinterest.core.PINTEREST
 import app.reseam.patches.pinterest.core.pinterestSettings
 import app.reseam.pinterest.screenshot.bindings.ScreenshotShares
 import app.reseam.pinterest.settings.PinterestStrings
 import app.reseam.pinterest.settings.ShareSettings
 
-val hideScreenshotShare = patch("Hide screenshot share menu") {
-    description("Hides the share menu that appears after a screenshot.")
+val hideScreenshotShare = patch(PinterestPatchStrings.hideScreenshotShare) {
+    description(PinterestPatchStrings.hideScreenshotShareDescription)
     compatibleWith(PINTEREST)
     settings(pinterestSettings, section(PinterestStrings.sectionSharing, ShareSettings.hideScreenshotShare))
 

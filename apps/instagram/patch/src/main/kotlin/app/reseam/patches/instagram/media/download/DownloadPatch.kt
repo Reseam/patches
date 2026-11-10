@@ -16,6 +16,7 @@ import app.reseam.patch.after
 import app.reseam.patch.before
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.instagram.InstagramPatchStrings
 import app.reseam.patches.instagram.core.FRAGMENT_ACTIVITY
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.MEDIA_OPTION
@@ -25,8 +26,8 @@ import app.reseam.patches.instagram.refs.mediaRefs
 import app.reseam.patches.instagram.refs.userRefs
 
 private const val MEDIA = "com.instagram.feed.media.Media"
-val downloadMedia = patch("Download media") {
-    description("Adds a download option to feed, reels, and story overflow menus.")
+val downloadMedia = patch(InstagramPatchStrings.downloadMedia) {
+    description(InstagramPatchStrings.downloadMediaDescription)
     compatibleWith(INSTAGRAM)
     dependsOn(mediaRefs)
     dependsOn(userRefs)

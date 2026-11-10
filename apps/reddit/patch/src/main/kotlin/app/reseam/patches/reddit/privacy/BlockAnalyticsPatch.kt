@@ -11,6 +11,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.valueOf
 import app.reseam.patch.settings.section
+import app.reseam.patches.reddit.RedditPatchStrings
 import app.reseam.patches.reddit.core.REDDIT
 import app.reseam.reddit.settings.RedditSettings
 import app.reseam.patches.reddit.core.redditSettings
@@ -18,8 +19,8 @@ import app.reseam.reddit.settings.RedditStrings
 
 private const val TRACKING_LEVEL = "com.reddit.mmp.TrackingAndAttributionLevel"
 
-val blockAnalytics = patch("Block analytics") {
-    description("Stops Reddit's event and metric logging and turns off AppsFlyer tracking.")
+val blockAnalytics = patch(RedditPatchStrings.blockAnalytics) {
+    description(RedditPatchStrings.blockAnalyticsDescription)
     compatibleWith(REDDIT)
     settings(
         redditSettings,

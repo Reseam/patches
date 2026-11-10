@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_comment_ads">Hide comment ads</string>
+    <string name="hide_comment_ads_description">Hides ads under posts and between comments.</string>
+    <string name="hide_feed_ads">Hide feed ads</string>
+    <string name="hide_feed_ads_description">Hides promoted posts in feeds and search.</string>
+    <string name="color_thread_lines">Color thread lines</string>
+    <string name="color_thread_lines_description">Gives each reply level its own line color.</string>
+    <string name="ignore_suggested_sort">Always use my comment sort</string>
+    <string name="ignore_suggested_sort_description">Ignores the sort a post or community suggests.</string>
+    <string name="settings_entry">Reseam settings entry</string>
+    <string name="settings_entry_description">Adds Reseam Settings under Account settings.</string>
+    <string name="disable_features">Disable Reddit features</string>
+    <string name="disable_features_description">Turns off Reddit Answers, Games, upsells, nudges and other features.</string>
+    <string name="default_feed_sort">Default feed sort</string>
+    <string name="default_feed_sort_description">Sorts communities, custom feeds, Popular and All the way you choose.</string>
+    <string name="hide_feed_units">Hide feed units</string>
+    <string name="hide_feed_units_description">Hides Trending, carousels, promos, surveys and other inserts in feeds.</string>
+    <string name="hide_recommended_communities">Hide recommended communities</string>
+    <string name="hide_recommended_communities_description">Hides community suggestions in feeds.</string>
+    <string name="hide_recommended_posts">Hide recommended posts</string>
+    <string name="hide_recommended_posts_description">Hides posts from communities you don\'t follow in Home.</string>
+    <string name="hide_drawer_items">Hide community drawer items</string>
+    <string name="hide_drawer_items_description">Hides chosen rows of the community drawer.</string>
+    <string name="hide_navigation_tabs">Hide navigation tabs</string>
+    <string name="hide_navigation_tabs_description">Hides chosen tabs of the navigation bar.</string>
+    <string name="fix_push_notifications">Fix push notifications</string>
+    <string name="fix_push_notifications_description">Makes push notifications arrive after patching.</string>
+    <string name="skip_nsfw_warning">Skip NSFW community warning</string>
+    <string name="skip_nsfw_warning_description">Opens mature communities without asking.</string>
+    <string name="block_analytics">Block analytics</string>
+    <string name="block_analytics_description">Stops Reddit\'s event logging and AppsFlyer tracking.</string>
+    <string name="disable_app_rate_prompt">Hide rating prompt</string>
+    <string name="disable_app_rate_prompt_description">Stops Reddit from asking you to rate it.</string>
+    <string name="disable_screenshot_banner">Hide screenshot banner</string>
+    <string name="disable_screenshot_banner_description">Stops Reddit from noticing screenshots.</string>
+    <string name="hide_trending_searches">Hide trending searches</string>
+    <string name="hide_trending_searches_description">Hides Trending on the search screen.</string>
+    <string name="hide_premium_settings">Hide Premium settings</string>
+    <string name="hide_premium_settings_description">Hides Premium and Reddit Pro offers in settings.</string>
+    <string name="vxreddit_links">Share vxreddit links</string>
+    <string name="vxreddit_links_description">Shares posts as vxreddit.com links, which show their media in Discord and other apps.</string>
+    <string name="block_forced_update">Block forced updates</string>
+    <string name="block_forced_update_description">Stops Reddit from blocking this version with an update screen.</string>
+</resources>

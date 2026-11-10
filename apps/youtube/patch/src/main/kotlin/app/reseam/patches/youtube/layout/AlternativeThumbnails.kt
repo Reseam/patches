@@ -9,14 +9,15 @@ import app.reseam.patch.addMethod
 import app.reseam.patch.dex.AccessFlags
 import app.reseam.patch.dex.Opcode
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.*
 import app.reseam.patches.youtube.internal.*
 import app.reseam.youtube.settings.AppearanceSettings
 import app.reseam.youtube.settings.YouTubeStrings
 import app.reseam.youtube.thumbnails.bindings.AlternativeThumbnailsPatch
 
-val alternativeThumbnails = patch("Alternative thumbnails") {
-    description("Replaces thumbnails with DeArrow images or still captures, with separate choices for each feed.")
+val alternativeThumbnails = patch(YouTubePatchStrings.alternativeThumbnails) {
+    description(YouTubePatchStrings.alternativeThumbnailsDescription)
     compatibleWith(YOUTUBE)
     dependsOn(navigationBarHook, playerTypeHook)
     settings(youTubeSettings, section(YouTubeSettingsPages.Appearance, YouTubeStrings.sectionAlternativeThumbnails,

@@ -12,6 +12,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.reddit.RedditPatchStrings
 import app.reseam.patches.reddit.core.REDDIT
 import app.reseam.patches.reddit.core.redditSettings
 import app.reseam.reddit.comments.bindings.ThreadLines
@@ -22,8 +23,8 @@ private const val FADED_ALPHA = 0x3ecccccdL // 0.4f
 private const val MAX_FADE_DEPTH = 11L
 private const val DRAW_LINE_PARAMS = 9
 
-val colorThreadLines = patch("Color comment thread lines") {
-    description("Gives each reply depth its own thread line color.")
+val colorThreadLines = patch(RedditPatchStrings.colorThreadLines) {
+    description(RedditPatchStrings.colorThreadLinesDescription)
     compatibleWith(REDDIT)
     settings(redditSettings, section(RedditStrings.sectionComments, RedditSettings.colorThreadLines, RedditSettings.threadLineColors))
 

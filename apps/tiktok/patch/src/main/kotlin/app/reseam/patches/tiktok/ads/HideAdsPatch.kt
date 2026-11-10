@@ -10,6 +10,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.patches.tiktok.core.AWEME
 import app.reseam.patches.tiktok.core.TIKTOK
 import app.reseam.patches.tiktok.core.TikTokSettingsPages
@@ -20,10 +21,8 @@ import app.reseam.tiktok.settings.FeedSettings
 import app.reseam.tiktok.settings.TikTokStrings
 
 val hideAds =
-    patch("Hide ads") {
-        description(
-            "Removes ads and promoted posts from TikTok's feeds, including a profile's videos, and the full-screen ad at app start."
-        )
+    patch(TikTokPatchStrings.hideAds) {
+        description(TikTokPatchStrings.hideAdsDescription)
         compatibleWith(TIKTOK)
         dependsOn(feedFilter)
         settings(

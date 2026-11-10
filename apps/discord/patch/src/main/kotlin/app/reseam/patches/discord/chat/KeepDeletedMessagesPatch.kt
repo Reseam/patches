@@ -10,11 +10,12 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordSettings
 
-val keepDeletedMessages = patch("Keep deleted messages") {
-    description("Keep loaded messages after deletion and highlight them in red.")
+val keepDeletedMessages = patch(DiscordPatchStrings.keepDeletedMessages) {
+    description(DiscordPatchStrings.keepDeletedMessagesDescription)
     compatibleWith(DISCORD)
     dependsOn(messageHistory)
     settings(discordSettings, section(DiscordStrings.sectionChat, DiscordSettings.keepDeletedMessages))

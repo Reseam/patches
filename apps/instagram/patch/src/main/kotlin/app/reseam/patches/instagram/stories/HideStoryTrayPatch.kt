@@ -10,6 +10,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.instagram.InstagramPatchStrings
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.instagramSettings
 import app.reseam.patches.instagram.core.signatureCheck
@@ -17,8 +18,8 @@ import app.reseam.patches.instagram.core.signatureCheck
 private const val VIEW_GROUP = "android.view.ViewGroup"
 private const val VIEW_GONE = 8
 
-val hideStoryTray = patch("Hide story tray") {
-    description("Removes the row of stories from the top of Home.")
+val hideStoryTray = patch(InstagramPatchStrings.hideStoryTray) {
+    description(InstagramPatchStrings.hideStoryTrayDescription)
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
     settings(instagramSettings, section(InstagramStrings.sectionStories, StorySettings.hideStoryTray))

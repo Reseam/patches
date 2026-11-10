@@ -8,6 +8,7 @@ import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.patches.tiktok.core.TIKTOK
 import app.reseam.patches.tiktok.core.TikTokSettingsPages
 import app.reseam.patches.tiktok.core.tiktokSettings
@@ -18,8 +19,8 @@ import app.reseam.tiktok.settings.TikTokStrings
 private const val SIM_MODEL = "com.ss.android.ugc.playerkit.simapicommon.model"
 
 val videoQuality =
-    patch("Video quality") {
-        description("Caps the video quality TikTok may pick.")
+    patch(TikTokPatchStrings.videoQuality) {
+        description(TikTokPatchStrings.videoQualityDescription)
         compatibleWith(TIKTOK)
         settings(
             tiktokSettings,

@@ -12,6 +12,7 @@ import app.reseam.patch.dex.opcode
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -19,8 +20,8 @@ import app.reseam.youtube.playerui.bindings.HideEndScreenSuggestedVideo
 import app.reseam.youtube.settings.PlayerOverlaySettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val hideEndScreenSuggestedVideo = patch("Hide end-screen suggested video") {
-    description("Removes the suggested video shown at the end of playback.")
+val hideEndScreenSuggestedVideo = patch(YouTubePatchStrings.hideEndScreenSuggestedVideo) {
+    description(YouTubePatchStrings.hideEndScreenSuggestedVideoDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings)
     settings(youTubeSettings, section(YouTubeSettingsPages.Overlay, YouTubeStrings.sectionEndScreen, PlayerOverlaySettings.hideEndScreenSuggestedVideo))

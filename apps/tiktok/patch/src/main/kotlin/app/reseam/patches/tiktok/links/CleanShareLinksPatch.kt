@@ -12,6 +12,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.patches.tiktok.core.TIKTOK
 import app.reseam.patches.tiktok.core.TikTokSettingsPages
 import app.reseam.patches.tiktok.core.tiktokSettings
@@ -23,10 +24,8 @@ private const val SHARE_PACKAGE = "com.ss.android.ugc.aweme.share.base.model.Bas
 private const val SHARE_SERVICE = "com.ss.android.ugc.aweme.share.ShareExtService"
 
 val cleanShareLinks =
-    patch("Clean share links") {
-        description(
-            "Shares plain tiktok.com links, without tracking parameters or short links that identify you."
-        )
+    patch(TikTokPatchStrings.cleanShareLinks) {
+        description(TikTokPatchStrings.cleanShareLinksDescription)
         compatibleWith(TIKTOK)
         settings(
             tiktokSettings,

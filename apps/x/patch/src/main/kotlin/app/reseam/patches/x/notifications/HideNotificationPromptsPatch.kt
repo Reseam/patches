@@ -9,6 +9,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.x.XPatchStrings
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.x.settings.XSettings
@@ -19,8 +20,8 @@ import app.reseam.x.settings.XStrings
 
 private const val PROMPT_SWITCH = "x_lite_notifications_permission_prompt_enabled"
 
-val hideNotificationPrompts = patch("Hide notification prompts") {
-    description("Stops the full-screen prompt, the dialog, and the banner asking to turn on notifications.")
+val hideNotificationPrompts = patch(XPatchStrings.hideNotificationPrompts) {
+    description(XPatchStrings.hideNotificationPromptsDescription)
     compatibleWith(X)
     dependsOn(featureSwitchOverrides)
     settings(xSettings, section(XSettingsPages.Ads, XStrings.sectionNotifications, XSettings.hideNotificationPrompts))

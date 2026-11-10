@@ -9,6 +9,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.points
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -17,8 +18,8 @@ import app.reseam.youtube.settings.YouTubeStrings
 
 private const val CUSTOM_TABS_SERVICE = "android.support.customtabs.action.CustomTabsService"
 
-val openLinksExternally = patch("Open links externally") {
-    description("Opens links in your browser instead of YouTube's in-app browser.")
+val openLinksExternally = patch(YouTubePatchStrings.openLinksExternally) {
+    description(YouTubePatchStrings.openLinksExternallyDescription)
     compatibleWith(YOUTUBE)
     settings(youTubeSettings, section(YouTubeSettingsPages.Advanced, YouTubeStrings.sectionLinks, AdvancedSettings.openLinksExternally))
 

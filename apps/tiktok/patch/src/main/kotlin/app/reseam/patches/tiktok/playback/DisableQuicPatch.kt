@@ -13,6 +13,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.patches.tiktok.core.TIKTOK
 import app.reseam.patches.tiktok.core.TikTokSettingsPages
 import app.reseam.patches.tiktok.core.tiktokSettings
@@ -22,10 +23,8 @@ import app.reseam.tiktok.settings.TikTokStrings
 private const val LOADER = "com.ss.mediakit.medialoader"
 
 val disableQuic =
-    patch("Disable QUIC") {
-        description(
-            "Loads videos, uploads and TikTok's live connection over regular HTTPS instead of QUIC."
-        )
+    patch(TikTokPatchStrings.disableQuic) {
+        description(TikTokPatchStrings.disableQuicDescription)
         compatibleWith(TIKTOK)
         settings(
             tiktokSettings,

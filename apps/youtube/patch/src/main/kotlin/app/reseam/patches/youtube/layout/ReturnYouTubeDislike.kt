@@ -9,6 +9,7 @@ import app.reseam.patch.dex.Opcode
 import app.reseam.patch.dex.literal
 import app.reseam.patch.dex.opcode
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.*
 import app.reseam.patches.youtube.internal.*
 import app.reseam.patches.youtubecommon.*
@@ -20,8 +21,8 @@ import app.reseam.youtube.dislike.bindings.DislikeVideoHooks
 import app.reseam.youtube.settings.VideoSettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val returnYouTubeDislike = patch("Return YouTube Dislike") {
-    description("Shows dislike counts from Return YouTube Dislike and supports voting and Shorts.")
+val returnYouTubeDislike = patch(YouTubePatchStrings.returnYouTubeDislike) {
+    description(YouTubePatchStrings.returnYouTubeDislikeDescription)
     compatibleWith(YOUTUBE)
     dependsOn(lithoFilter, lithoTextHook, videoInformationHook, playerTypeHook)
     settings(youTubeSettings, section(YouTubeSettingsPages.Video, YouTubeStrings.sectionReturnYoutubeDislike,

@@ -10,6 +10,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
 import app.reseam.patch.settings.whenEnabled
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -48,8 +49,8 @@ private val downloadActionRequest = method("download action request") {
     params(downloadActionCommand.parameterTypes[0], "java.util.Map")
 }
 
-val unlockDownloads = patch("Unlock downloads") {
-    description("Unlocks downloads in every quality.")
+val unlockDownloads = patch(YouTubePatchStrings.unlockDownloads) {
+    description(YouTubePatchStrings.unlockDownloadsDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings, spoofVideoStreams)
     settings(

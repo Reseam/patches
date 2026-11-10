@@ -7,8 +7,8 @@ import app.reseam.patch.patch
 import app.reseam.universal.location.bindings.MockLocation
 
 private const val LOCATION = "android.location.Location"
-val hideMockLocation = patch("Hide mock location") {
-    description("Hides that the location comes from a mock location app.")
+val hideMockLocation = patch(UniversalPatchStrings.hideMockLocation) {
+    description(UniversalPatchStrings.hideMockLocationDescription)
 
     execute {
         val redirected = bytecode.redirectInstanceCalls(MockLocation.isFromMockProvider, MockLocation.isMock)

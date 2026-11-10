@@ -11,6 +11,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.points
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.patches.tiktok.core.TIKTOK
 import app.reseam.patches.tiktok.core.TikTokSettingsPages
 import app.reseam.patches.tiktok.core.tiktokSettings
@@ -21,8 +22,8 @@ private const val VIDEO_ENGINE = "com.ss.ttvideoengine.TTVideoEngine"
 private const val EXPECTED_LOOP_CALLS = 3
 
 val disableLooping =
-    patch("Disable looping") {
-        description("Videos stop at the end instead of replaying.")
+    patch(TikTokPatchStrings.disableLooping) {
+        description(TikTokPatchStrings.disableLoopingDescription)
         compatibleWith(TIKTOK)
         settings(
             tiktokSettings,

@@ -10,6 +10,7 @@ import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.patches.tiktok.core.TIKTOK
 import app.reseam.patches.tiktok.core.TikTokSettingsPages
 import app.reseam.patches.tiktok.core.tiktokSettings
@@ -20,8 +21,8 @@ private val pushGuide =
     klass("com.ss.android.ugc.aweme.unifiedauth.push.UniAuthGuidePopupServiceImpl")
 
 val hideNotificationPrompts =
-    patch("Hide notification prompts") {
-        description("Stops TikTok's prompts to turn on notifications.")
+    patch(TikTokPatchStrings.hideNotificationPrompts) {
+        description(TikTokPatchStrings.hideNotificationPromptsDescription)
         compatibleWith(TIKTOK)
         settings(
             tiktokSettings,

@@ -12,13 +12,14 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.reddit.RedditPatchStrings
 import app.reseam.patches.reddit.core.REDDIT
 import app.reseam.reddit.settings.RedditSettings
 import app.reseam.patches.reddit.core.redditSettings
 import app.reseam.reddit.settings.RedditStrings
 
-val hideCommentAds = patch("Hide comment ads") {
-    description("Removes the ads under a post and between its comments.")
+val hideCommentAds = patch(RedditPatchStrings.hideCommentAds) {
+    description(RedditPatchStrings.hideCommentAdsDescription)
     compatibleWith(REDDIT)
     settings(redditSettings, section(RedditStrings.sectionAds, RedditSettings.hideCommentAds))
 

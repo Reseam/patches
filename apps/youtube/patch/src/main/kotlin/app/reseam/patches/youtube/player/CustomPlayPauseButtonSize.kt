@@ -11,6 +11,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.section
 import app.reseam.patch.settings.valueOf
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -18,8 +19,8 @@ import app.reseam.youtube.playerui.bindings.PlayPauseButtonSize
 import app.reseam.youtube.settings.PlayerOverlaySettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val customPlayPauseButtonSize = patch("Custom play and pause button size") {
-    description("Changes the size of the play and pause button in the middle of the player.")
+val customPlayPauseButtonSize = patch(YouTubePatchStrings.customPlayPauseButtonSize) {
+    description(YouTubePatchStrings.customPlayPauseButtonSizeDescription)
     compatibleWith(YOUTUBE)
     settings(youTubeSettings, section(YouTubeSettingsPages.Overlay, YouTubeStrings.sectionPlayerOverlay, PlayerOverlaySettings.playPauseButtonSize))
 

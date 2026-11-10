@@ -8,6 +8,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.telegram.TelegramPatchStrings
 import app.reseam.patches.telegram.core.TELEGRAM
 import app.reseam.patches.telegram.core.TL_CHAT
 import app.reseam.patches.telegram.core.TL_USER_FULL
@@ -16,8 +17,8 @@ import app.reseam.patches.telegram.core.messagesController
 import app.reseam.patches.telegram.core.telegramSettings
 import app.reseam.telegram.settings.TelegramStrings
 
-val bypassRestrictions = patch("Save from restricted chats") {
-    description("Re-enables copy, save, and forward in chats with content protection on.")
+val bypassRestrictions = patch(TelegramPatchStrings.bypassRestrictions) {
+    description(TelegramPatchStrings.bypassRestrictionsDescription)
     compatibleWith(TELEGRAM)
     settings(telegramSettings, section(TelegramStrings.sectionPrivacy, TelegramSettings.saveFromRestricted))
 

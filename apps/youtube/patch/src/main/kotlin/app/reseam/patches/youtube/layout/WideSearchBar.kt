@@ -10,6 +10,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -19,8 +20,8 @@ import app.reseam.youtube.navbuttons.bindings.WideSearchBar
 import app.reseam.youtube.settings.AppearanceSettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val wideSearchBar = patch("Wide search bar") {
-    description("Replaces the search button in the top bar with a search bar next to the logo.")
+val wideSearchBar = patch(YouTubePatchStrings.wideSearchBar) {
+    description(YouTubePatchStrings.wideSearchBarDescription)
     compatibleWith(YOUTUBE)
     settings(youTubeSettings, section(YouTubeSettingsPages.Appearance, YouTubeStrings.sectionNavigationBar, AppearanceSettings.wideSearchBar))
 

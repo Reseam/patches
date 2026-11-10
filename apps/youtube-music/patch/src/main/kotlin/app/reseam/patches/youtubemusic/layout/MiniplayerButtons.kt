@@ -11,6 +11,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.points
 import app.reseam.patch.resourceRef
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtubemusic.YouTubeMusicPatchStrings
 import app.reseam.patches.youtubemusic.core.YOUTUBE_MUSIC
 import app.reseam.patches.youtubemusic.core.YouTubeMusicSettingsPages
 import app.reseam.patches.youtubemusic.core.youTubeMusicSettings
@@ -18,8 +19,8 @@ import app.reseam.youtubemusic.layout.bindings.MiniplayerButtons
 import app.reseam.youtubemusic.settings.YouTubeMusicSettings
 import app.reseam.youtubemusic.settings.YouTubeMusicStrings
 
-val miniplayerButtons = patch("Miniplayer skip buttons") {
-    description("Adds previous and next buttons to the miniplayer.")
+val miniplayerButtons = patch(YouTubeMusicPatchStrings.miniplayerButtons) {
+    description(YouTubeMusicPatchStrings.miniplayerButtonsDescription)
     compatibleWith(YOUTUBE_MUSIC)
     settings(
         youTubeMusicSettings,

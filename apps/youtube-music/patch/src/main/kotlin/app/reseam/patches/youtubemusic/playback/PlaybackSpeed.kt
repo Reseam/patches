@@ -7,6 +7,7 @@ import app.reseam.patch.before
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtubecommon.setPlaybackRate
+import app.reseam.patches.youtubemusic.YouTubeMusicPatchStrings
 import app.reseam.patches.youtubemusic.core.YOUTUBE_MUSIC
 import app.reseam.patches.youtubemusic.core.YouTubeMusicSettingsPages
 import app.reseam.patches.youtubemusic.core.youTubeMusicSettings
@@ -14,8 +15,8 @@ import app.reseam.youtubemusic.layout.bindings.PlaybackSpeed
 import app.reseam.youtubemusic.settings.YouTubeMusicSettings
 import app.reseam.youtubemusic.settings.YouTubeMusicStrings
 
-val playbackSpeed = patch("Playback speed") {
-    description("Plays every song at the speed you choose.")
+val playbackSpeed = patch(YouTubeMusicPatchStrings.playbackSpeed) {
+    description(YouTubeMusicPatchStrings.playbackSpeedDescription)
     compatibleWith(YOUTUBE_MUSIC)
     settings(youTubeMusicSettings, section(YouTubeMusicSettingsPages.Playback, YouTubeMusicStrings.sectionSpeed, YouTubeMusicSettings.playbackSpeed))
 

@@ -14,6 +14,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.points
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -68,8 +69,8 @@ private val legacyController = legacyPlaybackEnd.point("Shorts sequence controll
     field { type(nextShort.owner) }
 }.field()
 
-val shortsAutoplay = patch("Shorts autoplay") {
-    description("Automatically plays the next Short when Shorts autoplay is enabled.")
+val shortsAutoplay = patch(YouTubePatchStrings.shortsAutoplay) {
+    description(YouTubePatchStrings.shortsAutoplayDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings, mainActivityHook)
     settings(youTubeSettings, section(YouTubeSettingsPages.Shorts, YouTubeStrings.sectionShorts, ShortsSettings.shortsAutoplay, ShortsSettings.shortsAutoplayBackground))

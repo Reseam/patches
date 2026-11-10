@@ -49,22 +49,19 @@ fun customBrandingFor(
     launcher: Launcher,
     activityOnCreate: MethodTarget,
     extra: PatchRuntime.() -> Unit = {},
-): ReseamPatch = patch("Custom branding") {
-    description("Adds selectable launcher icon and app-name presets, plus your own name and icon.")
+): ReseamPatch = patch(YouTubeCommonPatchStrings.customBranding) {
+    description(YouTubeCommonPatchStrings.customBrandingDescription)
     compatibleWith(app)
     dependsOn(host, reseamMark)
     val customName = stringOption(
         "customName",
-        title = "Custom app name",
-        description = "Adds this name to the App name setting and makes it the default.",
+        title = YouTubeCommonPatchStrings.customBrandingCustomName,
+        description = YouTubeCommonPatchStrings.customBrandingCustomNameDescription,
     )
     val customIcon = pathOption(
         "customIcon",
-        title = "Custom icon",
-        description = "A folder with one or more of mipmap-mdpi, mipmap-hdpi, mipmap-xhdpi, mipmap-xxhdpi and " +
-            "mipmap-xxxhdpi. Each holds foreground.png and background.png, the adaptive icon layers: 108 px " +
-            "at mdpi, 162 px at hdpi, 216 px at xhdpi, 324 px at xxhdpi, 432 px at xxxhdpi. Adds it to the " +
-            "App icon setting and makes it the default.",
+        title = YouTubeCommonPatchStrings.customBrandingCustomIcon,
+        description = YouTubeCommonPatchStrings.customBrandingCustomIconDescription,
     )
     fun names(name: String?) = nameSetting.withCustom(name?.let(::Verbatim))
     fun icons(icon: OptionPath?) = iconSetting.withCustom(icon?.let { YouTubeCommonStrings.customBrandingIconCustom })

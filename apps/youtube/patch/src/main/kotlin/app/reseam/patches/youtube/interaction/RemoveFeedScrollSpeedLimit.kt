@@ -10,6 +10,7 @@ import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -26,8 +27,8 @@ private val flingVelocityClamp = methods("feed fling velocity clamp") {
     calls { owner("Ljava/lang/Math;"); name("min") }
 }
 
-val removeFeedScrollSpeedLimit = patch("Remove feed scroll speed limit") {
-    description("Lets feeds fling as fast as other Android lists instead of YouTube's lower limit.")
+val removeFeedScrollSpeedLimit = patch(YouTubePatchStrings.removeFeedScrollSpeedLimit) {
+    description(YouTubePatchStrings.removeFeedScrollSpeedLimitDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings)
     settings(youTubeSettings, section(YouTubeSettingsPages.Feed, YouTubeStrings.sectionFeed, FeedSettings.removeFeedScrollSpeedLimit))

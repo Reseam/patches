@@ -5,6 +5,7 @@ package app.reseam.patches.youtubemusic.misc
 
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtubemusic.YouTubeMusicPatchStrings
 import app.reseam.patches.youtubemusic.core.YOUTUBE_MUSIC
 import app.reseam.patches.youtubemusic.core.YouTubeMusicSettingsPages
 import app.reseam.patches.youtubemusic.core.musicActivityOnCreate
@@ -13,8 +14,8 @@ import app.reseam.youtubespoof.settings.SpoofSettings
 import app.reseam.patches.youtubespoof.spoofStreams
 import app.reseam.youtubemusic.settings.YouTubeMusicStrings
 
-val spoofVideoStreams = patch("Fix playback") {
-    description("Makes videos play when YouTube Music blocks the app.")
+val spoofVideoStreams = patch(YouTubeMusicPatchStrings.spoofVideoStreams) {
+    description(YouTubeMusicPatchStrings.spoofVideoStreamsDescription)
     compatibleWith(YOUTUBE_MUSIC)
     settings(
         youTubeMusicSettings,

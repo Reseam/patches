@@ -8,6 +8,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.x.XPatchStrings
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.x.settings.XSettings
@@ -16,8 +17,8 @@ import app.reseam.patches.x.featureswitches.disableFeatureSwitches
 import app.reseam.patches.x.featureswitches.featureSwitchOverrides
 import app.reseam.x.settings.XStrings
 
-val hideLiveBar = patch("Hide Live bar") {
-    description("Removes the Live bar of Spaces and broadcasts above Home, and can hide the live rings on avatars.")
+val hideLiveBar = patch(XPatchStrings.hideLiveBar) {
+    description(XPatchStrings.hideLiveBarDescription)
     compatibleWith(X)
     dependsOn(featureSwitchOverrides)
     settings(xSettings, section(XSettingsPages.Home, XStrings.sectionHome, XSettings.hideLiveBar, XSettings.hideLiveAvatarRings))

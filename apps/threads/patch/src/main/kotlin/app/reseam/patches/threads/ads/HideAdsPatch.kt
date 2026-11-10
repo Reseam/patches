@@ -8,14 +8,15 @@ import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.meta.sponsoredContentInjection
+import app.reseam.patches.threads.ThreadsPatchStrings
 import app.reseam.patches.threads.core.THREADS
 import app.reseam.patches.threads.core.signatureCheck
 import app.reseam.patches.threads.core.threadsSettings
 import app.reseam.threads.settings.AdSettings
 import app.reseam.threads.settings.ThreadsStrings
 
-val hideAds = patch("Hide ads") {
-    description("Hides sponsored posts.")
+val hideAds = patch(ThreadsPatchStrings.hideAds) {
+    description(ThreadsPatchStrings.hideAdsDescription)
     compatibleWith(THREADS)
     dependsOn(signatureCheck)
     settings(threadsSettings, section(ThreadsStrings.sectionAds, AdSettings.hideAds))

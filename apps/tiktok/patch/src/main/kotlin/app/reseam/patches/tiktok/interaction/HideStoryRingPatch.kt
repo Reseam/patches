@@ -9,6 +9,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.patches.tiktok.core.FEED_AVATAR
 import app.reseam.patches.tiktok.core.TIKTOK
 import app.reseam.patches.tiktok.core.TikTokSettingsPages
@@ -18,10 +19,8 @@ import app.reseam.tiktok.settings.InterfaceSettings
 import app.reseam.tiktok.settings.TikTokStrings
 
 val hideStoryRing =
-    patch("Hide story rings") {
-        description(
-            "Removes the story ring around authors' pictures on videos. Tapping the picture opens the profile."
-        )
+    patch(TikTokPatchStrings.hideStoryRing) {
+        description(TikTokPatchStrings.hideStoryRingDescription)
         compatibleWith(TIKTOK)
         settings(
             tiktokSettings,

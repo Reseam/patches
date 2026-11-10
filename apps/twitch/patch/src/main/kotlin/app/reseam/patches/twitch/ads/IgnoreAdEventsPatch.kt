@@ -10,14 +10,15 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.twitch.TwitchPatchStrings
 import app.reseam.patches.twitch.core.TWITCH
 import app.reseam.patches.twitch.core.twitchSettings
 import app.reseam.twitch.adevents.bindings.AdEvents
 import app.reseam.twitch.settings.AdsSettings
 import app.reseam.twitch.settings.TwitchStrings
 
-val ignoreAdEvents = patch("Ignore ad events") {
-    description("Ignores the ad breaks, picture-by-picture ads and ad tracking that Twitch announces to the app during a stream.")
+val ignoreAdEvents = patch(TwitchPatchStrings.ignoreAdEvents) {
+    description(TwitchPatchStrings.ignoreAdEventsDescription)
     compatibleWith(TWITCH)
     settings(twitchSettings, section(TwitchStrings.sectionAds, AdsSettings.ignoreAdEvents))
 

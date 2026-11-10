@@ -4,6 +4,7 @@
 
 package app.reseam.patches.youtube.video.quality
 
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.internal.VIDEO_QUALITY_ARRAY
 import app.reseam.patch.Type
 import app.reseam.patch.before
@@ -51,8 +52,8 @@ private val qualityArrayPut = currentVideoFormatConstructor.point("current quali
     }
 }
 
-val hidePremiumVideoQuality = patch("Hide Premium video quality") {
-    description("Removes Premium-only quality choices from the quality menu.")
+val hidePremiumVideoQuality = patch(YouTubePatchStrings.hidePremiumVideoQuality) {
+    description(YouTubePatchStrings.hidePremiumVideoQualityDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings, videoInformationHook)
     settings(youTubeSettings, section(YouTubeSettingsPages.Video, YouTubeStrings.sectionVideoQuality, VideoSettings.hidePremiumVideoQuality))

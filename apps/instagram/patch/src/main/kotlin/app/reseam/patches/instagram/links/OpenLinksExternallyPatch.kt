@@ -14,12 +14,13 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.instagram.InstagramPatchStrings
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.instagramSettings
 import app.reseam.patches.instagram.core.signatureCheck
 
-val openLinksExternally = patch("Open links in external browser") {
-    description("Opens web links in your default browser instead of Instagram's in-app browser.")
+val openLinksExternally = patch(InstagramPatchStrings.openLinksExternally) {
+    description(InstagramPatchStrings.openLinksExternallyDescription)
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
     settings(instagramSettings, section(InstagramStrings.sectionLinks, LinkSettings.openExternally))

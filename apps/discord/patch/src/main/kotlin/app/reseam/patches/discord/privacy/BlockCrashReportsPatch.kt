@@ -11,11 +11,12 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordSettings
 
-val blockCrashReports = patch("Block crash reports") {
-    description("Stop Discord from initializing its native crash reporter.")
+val blockCrashReports = patch(DiscordPatchStrings.blockCrashReports) {
+    description(DiscordPatchStrings.blockCrashReportsDescription)
     compatibleWith(DISCORD)
     settings(discordSettings, section(DiscordStrings.sectionPrivacy, DiscordSettings.blockCrashReports))
 

@@ -10,11 +10,12 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordSettings
 
-val premiumAppIcons = patch("Premium app icons") {
-    description("Use the premium launcher icons included in Discord.")
+val premiumAppIcons = patch(DiscordPatchStrings.premiumAppIcons) {
+    description(DiscordPatchStrings.premiumAppIconsDescription)
     compatibleWith(DISCORD)
     settings(discordSettings, section(DiscordStrings.sectionNitro, DiscordSettings.premiumAppIcons))
 

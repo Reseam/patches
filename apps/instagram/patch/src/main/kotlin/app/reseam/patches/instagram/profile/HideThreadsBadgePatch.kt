@@ -12,14 +12,15 @@ import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.instagram.settings.AppearanceSettings
+import app.reseam.patches.instagram.InstagramPatchStrings
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.instagramSettings
 import app.reseam.patches.instagram.core.signatureCheck
 
 private const val BOXED_BOOLEAN = "java.lang.Boolean"
 
-val hideThreadsBadge = patch("Hide Threads badge") {
-    description("Removes the Threads badge, label and profile link chip from profiles.")
+val hideThreadsBadge = patch(InstagramPatchStrings.hideThreadsBadge) {
+    description(InstagramPatchStrings.hideThreadsBadgeDescription)
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
     settings(instagramSettings, section(InstagramStrings.sectionAppearance, AppearanceSettings.hideThreadsBadge))

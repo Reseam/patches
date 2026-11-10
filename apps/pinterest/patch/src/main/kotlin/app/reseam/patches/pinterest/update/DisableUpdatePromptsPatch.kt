@@ -10,6 +10,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.pinterest.PinterestPatchStrings
 import app.reseam.patches.pinterest.core.PINTEREST
 import app.reseam.patches.pinterest.core.pinterestSettings
 import app.reseam.pinterest.settings.PinterestStrings
@@ -17,8 +18,8 @@ import app.reseam.pinterest.settings.UpdateSettings
 
 private const val UPDATE_NOT_AVAILABLE = 1
 
-val disableUpdatePrompts = patch("Disable update prompts") {
-    description("Stops update prompts.")
+val disableUpdatePrompts = patch(PinterestPatchStrings.disableUpdatePrompts) {
+    description(PinterestPatchStrings.disableUpdatePromptsDescription)
     compatibleWith(PINTEREST)
     settings(pinterestSettings, section(PinterestStrings.sectionUpdates, UpdateSettings.disableUpdatePrompts))
 

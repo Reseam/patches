@@ -6,17 +6,18 @@ package app.reseam.patches.youtubemusic.layout
 import app.reseam.patch.patch
 import app.reseam.patches.youtubecommon.lithoColorHook
 import app.reseam.patches.youtubecommon.registerLithoColorHook
+import app.reseam.patches.youtubemusic.YouTubeMusicPatchStrings
 import app.reseam.patches.youtubemusic.core.YOUTUBE_MUSIC
 import app.reseam.youtubemusic.layout.bindings.MusicTheme
 
-val theme = patch("Theme") {
-    description("Changes YouTube Music's black background to a color of your choice.")
+val theme = patch(YouTubeMusicPatchStrings.theme) {
+    description(YouTubeMusicPatchStrings.themeDescription)
     compatibleWith(YOUTUBE_MUSIC)
     dependsOn(lithoColorHook)
     val backgroundColor = stringOption(
         "backgroundColor",
-        title = "Background color",
-        description = "The color that replaces YouTube Music's black background, as #AARRGGBB.",
+        title = YouTubeMusicPatchStrings.themeBackgroundColor,
+        description = YouTubeMusicPatchStrings.themeBackgroundColorDescription,
         default = "#FF000000",
         required = true,
     )

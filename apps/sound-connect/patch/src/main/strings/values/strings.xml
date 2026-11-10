@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reseam_you_tube_music">Reseam YouTube Music</string>
+    <string name="reseam_you_tube_music_description">Uses Reseam\'s YouTube Music for Auto Play and linked services when it is installed.</string>
+    <string name="reseam_you_tube_music_you_tube_music_package_name">YouTube Music package name</string>
+    <string name="reseam_you_tube_music_you_tube_music_package_name_description">The package name your Reseam YouTube Music was patched with.</string>
+</resources>

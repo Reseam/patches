@@ -10,14 +10,15 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtubemusic.YouTubeMusicPatchStrings
 import app.reseam.patches.youtubemusic.core.YOUTUBE_MUSIC
 import app.reseam.youtubemusic.settings.YouTubeMusicSettings
 import app.reseam.patches.youtubemusic.core.YouTubeMusicSettingsPages
 import app.reseam.patches.youtubemusic.core.youTubeMusicSettings
 import app.reseam.youtubemusic.settings.YouTubeMusicStrings
 
-val videoAds = patch("Video ads") {
-    description("Skips advertisements played before and between songs.")
+val videoAds = patch(YouTubeMusicPatchStrings.videoAds) {
+    description(YouTubeMusicPatchStrings.videoAdsDescription)
     compatibleWith(YOUTUBE_MUSIC)
     settings(youTubeMusicSettings, section(YouTubeMusicSettingsPages.Ads, YouTubeMusicStrings.sectionAds, YouTubeMusicSettings.hideVideoAds))
 

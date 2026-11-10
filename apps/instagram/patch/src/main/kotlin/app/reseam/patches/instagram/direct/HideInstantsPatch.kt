@@ -11,12 +11,13 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.instagram.InstagramPatchStrings
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.instagramSettings
 import app.reseam.patches.instagram.core.signatureCheck
 
-val hideInstants = patch("Hide Instants") {
-    description("Removes the Instants stack from the corner of the inbox.")
+val hideInstants = patch(InstagramPatchStrings.hideInstants) {
+    description(InstagramPatchStrings.hideInstantsDescription)
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
     settings(instagramSettings, section(InstagramStrings.sectionAppearance, AppearanceSettings.hideInstants))

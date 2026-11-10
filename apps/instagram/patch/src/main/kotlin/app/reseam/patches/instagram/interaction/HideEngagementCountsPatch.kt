@@ -9,6 +9,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.instagram.settings.AppearanceSettings
+import app.reseam.patches.instagram.InstagramPatchStrings
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.instagramSettings
 import app.reseam.patches.instagram.core.signatureCheck
@@ -20,8 +21,8 @@ private val COUNT_LABELS = listOf(
     ", shouldShowRepostCount=",
 )
 
-val hideEngagementCounts = patch("Hide engagement counts") {
-    description("Hides like, comment, share and repost counts beside the feed action buttons.")
+val hideEngagementCounts = patch(InstagramPatchStrings.hideEngagementCounts) {
+    description(InstagramPatchStrings.hideEngagementCountsDescription)
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
     settings(instagramSettings, section(InstagramStrings.sectionAppearance, AppearanceSettings.hideEngagementCounts))

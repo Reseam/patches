@@ -11,6 +11,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.patches.tiktok.core.AWEME
 import app.reseam.patches.tiktok.core.TIKTOK
 import app.reseam.patches.tiktok.core.TikTokSettingsPages
@@ -23,10 +24,8 @@ private const val SHOWN = 1
 private const val VISIBLE = 0
 
 val alwaysShowSeekBar =
-    patch("Always show the seek bar") {
-        description(
-            "Shows the progress bar on every video. TikTok normally shows it only on longer ones."
-        )
+    patch(TikTokPatchStrings.alwaysShowSeekBar) {
+        description(TikTokPatchStrings.alwaysShowSeekBarDescription)
         compatibleWith(TIKTOK)
         settings(
             tiktokSettings,

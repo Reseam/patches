@@ -15,6 +15,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.points
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -27,8 +28,8 @@ import app.reseam.youtube.quality.bindings.AdvancedVideoQualityMenu
 import app.reseam.youtube.settings.VideoSettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val advancedVideoQualityMenu = patch("Advanced video quality menu") {
-    description("Opens YouTube's detailed quality list from the quick quality menu.")
+val advancedVideoQualityMenu = patch(YouTubePatchStrings.advancedVideoQualityMenu) {
+    description(YouTubePatchStrings.advancedVideoQualityMenuDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings, videoInformationHook, lithoFilter)
     settings(youTubeSettings, section(YouTubeSettingsPages.Video, YouTubeStrings.sectionVideoQuality, VideoSettings.advancedVideoQualityMenu))

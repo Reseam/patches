@@ -9,11 +9,12 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordSettings
 
-val quietSuperReactions = patch("Quiet Super Reactions") {
-    description("Remove looping Super Reaction decorations.")
+val quietSuperReactions = patch(DiscordPatchStrings.quietSuperReactions) {
+    description(DiscordPatchStrings.quietSuperReactionsDescription)
     compatibleWith(DISCORD)
     settings(discordSettings, section(DiscordStrings.sectionMedia, DiscordSettings.quietSuperReactions))
 

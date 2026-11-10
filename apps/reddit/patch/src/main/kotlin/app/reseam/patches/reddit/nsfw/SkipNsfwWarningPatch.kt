@@ -8,6 +8,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.reddit.RedditPatchStrings
 import app.reseam.patches.reddit.core.REDDIT
 import app.reseam.reddit.settings.RedditSettings
 import app.reseam.patches.reddit.core.redditSettings
@@ -15,8 +16,8 @@ import app.reseam.reddit.settings.RedditStrings
 
 private const val FUNCTION0 = "kotlin.jvm.functions.Function0"
 
-val skipNsfwWarning = patch("Skip NSFW community warning") {
-    description("Opens mature communities without the confirmation dialog.")
+val skipNsfwWarning = patch(RedditPatchStrings.skipNsfwWarning) {
+    description(RedditPatchStrings.skipNsfwWarningDescription)
     compatibleWith(REDDIT)
     settings(redditSettings, section(RedditStrings.sectionCommunities, RedditSettings.skipNsfwWarning))
 

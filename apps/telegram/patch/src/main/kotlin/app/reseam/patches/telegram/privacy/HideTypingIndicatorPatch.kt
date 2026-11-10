@@ -8,14 +8,15 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.telegram.TelegramPatchStrings
 import app.reseam.patches.telegram.core.TELEGRAM
 import app.reseam.telegram.settings.TelegramSettings
 import app.reseam.patches.telegram.core.messagesController
 import app.reseam.patches.telegram.core.telegramSettings
 import app.reseam.telegram.settings.TelegramStrings
 
-val hideTypingIndicator = patch("Hide typing indicator") {
-    description("Don't notify others when you're typing or recording.")
+val hideTypingIndicator = patch(TelegramPatchStrings.hideTypingIndicator) {
+    description(TelegramPatchStrings.hideTypingIndicatorDescription)
     compatibleWith(TELEGRAM)
     settings(telegramSettings, section(TelegramStrings.sectionPrivacy, TelegramSettings.hideTyping))
 

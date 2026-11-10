@@ -9,6 +9,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.patches.tiktok.core.TIKTOK
 import app.reseam.patches.tiktok.core.TikTokSettingsPages
 import app.reseam.patches.tiktok.core.tiktokSettings
@@ -19,8 +20,8 @@ private const val POLL_CELL = "com.ss.android.ugc.aweme.commentv2.commentlist.po
 private const val POLL_INFO = "com.ss.android.ugc.aweme.comment.model.PollInfo"
 
 val showPollResults =
-    patch("Show poll results") {
-        description("Shows the results of polls in TikTok comments without voting first.")
+    patch(TikTokPatchStrings.showPollResults) {
+        description(TikTokPatchStrings.showPollResultsDescription)
         compatibleWith(TIKTOK)
         settings(
             tiktokSettings,

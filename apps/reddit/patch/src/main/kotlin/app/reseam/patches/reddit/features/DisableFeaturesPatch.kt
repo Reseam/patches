@@ -11,6 +11,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.ToggleSetting
 import app.reseam.patch.settings.section
+import app.reseam.patches.reddit.RedditPatchStrings
 import app.reseam.patches.reddit.core.REDDIT
 import app.reseam.patches.reddit.core.redditSettings
 import app.reseam.reddit.flags.bindings.FlagOverrides
@@ -80,8 +81,8 @@ private val FLAG_GROUPS: Map<ToggleSetting, FlagGroup> = mapOf(
     RedditSettings.hideChatDiscovery to FlagGroup(disable = listOf("android_chat_discovery_hidden_ks")),
 )
 
-val disableFeatures = patch("Disable Reddit features") {
-    description("Turns off Reddit Answers, prompts, nudges, upsells, search ads, feed unit requests, ad autoplay, Games and more through Reddit's own feature flags.")
+val disableFeatures = patch(RedditPatchStrings.disableFeatures) {
+    description(RedditPatchStrings.disableFeaturesDescription)
     compatibleWith(REDDIT)
     settings(redditSettings, section(RedditStrings.sectionFeatures, *FLAG_GROUPS.keys.toTypedArray()))
 

@@ -9,6 +9,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -18,8 +19,8 @@ import app.reseam.youtube.misc.bindings.LiveAvatar
 import app.reseam.youtube.settings.FeedSettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val liveRingsOpenChannel = patch("Live rings open the channel") {
-    description("Opens the channel when its live ring is tapped instead of starting the live stream.")
+val liveRingsOpenChannel = patch(YouTubePatchStrings.liveRingsOpenChannel) {
+    description(YouTubePatchStrings.liveRingsOpenChannelDescription)
     compatibleWith(YOUTUBE)
     dependsOn(commandRouter)
     settings(youTubeSettings, section(YouTubeSettingsPages.Feed, YouTubeStrings.sectionFeed, FeedSettings.liveRingsOpenChannel))

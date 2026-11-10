@@ -10,6 +10,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.patches.tiktok.core.FEED_AVATAR
 import app.reseam.patches.tiktok.core.TIKTOK
 import app.reseam.patches.tiktok.core.TikTokSettingsPages
@@ -20,8 +21,8 @@ import app.reseam.tiktok.settings.TikTokStrings
 private const val GONE = 8
 
 val hideFollowButton =
-    patch("Hide follow button") {
-        description("Removes the follow button under the author's picture on videos.")
+    patch(TikTokPatchStrings.hideFollowButton) {
+        description(TikTokPatchStrings.hideFollowButtonDescription)
         compatibleWith(TIKTOK)
         settings(
             tiktokSettings,

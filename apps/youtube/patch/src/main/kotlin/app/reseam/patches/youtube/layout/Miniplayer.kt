@@ -18,6 +18,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.points
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -25,8 +26,8 @@ import app.reseam.youtube.miniplayer.bindings.Miniplayer
 import app.reseam.youtube.settings.PlayerSettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val miniplayer = patch("Miniplayer") {
-    description("Changes the current miniplayer's width, buttons and subtext.")
+val miniplayer = patch(YouTubePatchStrings.miniplayer) {
+    description(YouTubePatchStrings.miniplayerDescription)
     compatibleWith(YOUTUBE)
     settings(youTubeSettings, section(YouTubeSettingsPages.Player, YouTubeStrings.sectionMiniplayer,
         PlayerSettings.hideMiniplayerOverlayButtons,

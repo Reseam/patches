@@ -18,6 +18,7 @@ import app.reseam.patch.points
 import app.reseam.patch.settings.section
 import app.reseam.patch.settings.valueOf
 import app.reseam.patch.skipWhen
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -46,8 +47,8 @@ private const val SCROLL_HIDES_HEADER = 45649805L
 private const val SCROLL_HIDES_PIVOT_BAR = 45677535L
 private const val RECYCLER_VIEW = "android.support.v7.widget.RecyclerView"
 
-val navigationButtons = patch("Navigation bar") {
-    description("Adds options to hide and change the bottom navigation bar and upper toolbar buttons.")
+val navigationButtons = patch(YouTubePatchStrings.navigationButtons) {
+    description(YouTubePatchStrings.navigationButtonsDescription)
     compatibleWith(YOUTUBE)
     dependsOn(navigationBarHook, clientContextHook, youTubeSettings)
     settings(

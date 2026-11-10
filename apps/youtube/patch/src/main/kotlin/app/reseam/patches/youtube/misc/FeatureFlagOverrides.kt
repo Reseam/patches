@@ -9,6 +9,7 @@ import app.reseam.patch.klass
 import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -21,8 +22,8 @@ import app.reseam.youtube.settings.YouTubeStrings
  * hooks that let a user pin an A/B experiment flag on or off. The long and double accessors are
  * not hooked: nothing in the YouTube tree reads a numeric flag a user would want to change.
  */
-val featureFlagOverrides = patch("Feature flag overrides") {
-    description("Lets you pin YouTube's A/B experiment flags on or off by id.")
+val featureFlagOverrides = patch(YouTubePatchStrings.featureFlagOverrides) {
+    description(YouTubePatchStrings.featureFlagOverridesDescription)
     compatibleWith(YOUTUBE)
     settings(youTubeSettings, section(YouTubeSettingsPages.Advanced, YouTubeStrings.sectionExperiments, AdvancedSettings.featureFlagOverrides))
 

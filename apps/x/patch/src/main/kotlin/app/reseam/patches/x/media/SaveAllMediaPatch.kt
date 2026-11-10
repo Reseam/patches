@@ -11,6 +11,7 @@ import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.x.XPatchStrings
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
@@ -20,8 +21,8 @@ import app.reseam.x.settings.XStrings
 
 private const val LIST = "Ljava/util/List;"
 
-val saveAllMedia = patch("Save all media") {
-    description("Offers to save every photo, GIF and video in a post when you save one of them.")
+val saveAllMedia = patch(XPatchStrings.saveAllMedia) {
+    description(XPatchStrings.saveAllMediaDescription)
     compatibleWith(X)
     dependsOn(saveMedia)
     settings(xSettings, section(XSettingsPages.Media, XStrings.sectionMedia, XSettings.saveAllMedia))

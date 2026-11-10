@@ -26,26 +26,21 @@ fun gmsCoreSupportFor(
     defaultPackageName: String,
     mainActivityOnCreate: MethodTarget,
     extra: PatchRuntime.() -> Unit = {},
-): ReseamPatch = patch("GmsCore support") {
-    description(
-        """
-        Installs alongside the Play Store app under its own package name and signs in through
-        GmsCore instead of Google Play Services. GmsCore has to be installed separately.
-        """,
-    )
+): ReseamPatch = patch(GmsCorePatchStrings.gmsCoreSupport) {
+    description(GmsCorePatchStrings.gmsCoreSupportDescription)
     compatibleWith(app)
     dependsOn(settings)
     val vendorGroupId = stringOption(
         "gmsCoreVendorGroupId",
-        title = "GmsCore vendor group ID",
-        description = "The group ID the installed GmsCore build was published under",
+        title = GmsCorePatchStrings.gmsCoreSupportGmsCoreVendorGroupId,
+        description = GmsCorePatchStrings.gmsCoreSupportGmsCoreVendorGroupIdDescription,
         default = "app.reseam",
         required = true,
     )
     val packageName = stringOption(
         "packageName",
-        title = "Package name",
-        description = "New package name for the patched app",
+        title = GmsCorePatchStrings.gmsCoreSupportPackageName,
+        description = GmsCorePatchStrings.gmsCoreSupportPackageNameDescription,
         default = defaultPackageName,
         required = true,
     )

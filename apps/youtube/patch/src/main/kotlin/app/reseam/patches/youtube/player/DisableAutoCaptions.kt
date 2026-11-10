@@ -10,6 +10,7 @@ import app.reseam.patch.dex.AccessFlags
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -17,8 +18,8 @@ import app.reseam.youtube.playerui.bindings.DisableAutoCaptions
 import app.reseam.youtube.settings.PlayerOverlaySettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val disableAutoCaptions = patch("Disable auto captions") {
-    description("Prevents captions from being enabled automatically.")
+val disableAutoCaptions = patch(YouTubePatchStrings.disableAutoCaptions) {
+    description(YouTubePatchStrings.disableAutoCaptionsDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings)
     settings(youTubeSettings, section(YouTubeSettingsPages.Overlay, YouTubeStrings.sectionPlayerOverlay, PlayerOverlaySettings.disableAutoCaptions))

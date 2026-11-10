@@ -18,6 +18,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patch.settings.whenEnabled
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.createMessageContent
 import app.reseam.patches.discord.core.discordModules
@@ -26,8 +27,8 @@ import app.reseam.patches.discord.core.getPackages
 import app.reseam.patches.discord.core.moduleExports
 import app.reseam.patches.discord.core.settingRows
 
-val customThemes = patch("Custom themes") {
-    description("Create, edit, share and use full themes, the Reseam theme included.")
+val customThemes = patch(DiscordPatchStrings.customThemes) {
+    description(DiscordPatchStrings.customThemesDescription)
     compatibleWith(DISCORD)
     dependsOn(discordModules)
     settings(discordSettings, section(DiscordStrings.sectionAppearance, DiscordSettings.customThemes))

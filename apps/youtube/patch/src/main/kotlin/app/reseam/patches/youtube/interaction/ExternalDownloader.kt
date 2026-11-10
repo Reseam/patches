@@ -9,6 +9,7 @@ import app.reseam.patch.before
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -30,8 +31,8 @@ private val offlineVideoEndpoint = method("offline video endpoint") {
     stringsStartingWith("Object is not an offlineable video: ")
 }
 
-val externalDownloader = patch("External downloader") {
-    description("Sends videos to an external downloader app from a player button or YouTube's Download action.")
+val externalDownloader = patch(YouTubePatchStrings.externalDownloader) {
+    description(YouTubePatchStrings.externalDownloaderDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings, videoPlaybackStateHook, playerControls, mainActivityHook)
     settings(

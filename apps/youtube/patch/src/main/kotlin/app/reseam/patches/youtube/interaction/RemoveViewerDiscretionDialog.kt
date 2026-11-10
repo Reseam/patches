@@ -14,6 +14,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -24,13 +25,8 @@ import app.reseam.youtube.settings.YouTubeStrings
 private const val ALERT_DIALOG = "android.app.AlertDialog"
 private const val ALERT_DIALOG_BUILDER = "android.app.AlertDialog\$Builder"
 
-val removeViewerDiscretionDialog = patch("Remove viewer discretion dialog") {
-    description(
-        """
-            Accepts the age-restriction warning for you instead of showing it.
-            It does not bypass the restriction itself.
-        """,
-    )
+val removeViewerDiscretionDialog = patch(YouTubePatchStrings.removeViewerDiscretionDialog) {
+    description(YouTubePatchStrings.removeViewerDiscretionDialogDescription)
     compatibleWith(YOUTUBE)
     settings(youTubeSettings, section(YouTubeSettingsPages.Video, YouTubeStrings.sectionAgeRestriction, VideoSettings.removeViewerDiscretionDialog))
 

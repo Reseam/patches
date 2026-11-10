@@ -10,14 +10,15 @@ import app.reseam.patch.patch
 import app.reseam.patch.points
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.x.XPatchStrings
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
 
-val showSensitiveMedia = patch("Show sensitive media") {
-    description("Shows sensitive media in timelines, quotes, notifications and the media viewer without the blur or confirmation prompt.")
+val showSensitiveMedia = patch(XPatchStrings.showSensitiveMedia) {
+    description(XPatchStrings.showSensitiveMediaDescription)
     compatibleWith(X)
     settings(xSettings, section(XSettingsPages.Media, XStrings.sectionMedia, XSettings.showSensitiveMedia))
 

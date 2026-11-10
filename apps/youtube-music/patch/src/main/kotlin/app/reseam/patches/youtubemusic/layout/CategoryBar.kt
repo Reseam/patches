@@ -9,14 +9,15 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtubemusic.YouTubeMusicPatchStrings
 import app.reseam.patches.youtubemusic.core.YOUTUBE_MUSIC
 import app.reseam.youtubemusic.settings.YouTubeMusicSettings
 import app.reseam.patches.youtubemusic.core.YouTubeMusicSettingsPages
 import app.reseam.patches.youtubemusic.core.youTubeMusicSettings
 import app.reseam.youtubemusic.settings.YouTubeMusicStrings
 
-val hideCategoryBar = patch("Hide category bar") {
-    description("Removes the row of mood and genre chips above feeds.")
+val hideCategoryBar = patch(YouTubeMusicPatchStrings.hideCategoryBar) {
+    description(YouTubeMusicPatchStrings.hideCategoryBarDescription)
     compatibleWith(YOUTUBE_MUSIC)
     settings(youTubeMusicSettings, section(YouTubeMusicSettingsPages.Interface, YouTubeMusicStrings.sectionFeed, YouTubeMusicSettings.hideCategoryBar))
 

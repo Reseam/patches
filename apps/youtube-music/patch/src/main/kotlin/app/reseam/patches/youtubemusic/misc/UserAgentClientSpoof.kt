@@ -5,6 +5,7 @@ package app.reseam.patches.youtubemusic.misc
 
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtubemusic.YouTubeMusicPatchStrings
 import app.reseam.patches.youtubemusic.core.YOUTUBE_MUSIC
 import app.reseam.patches.youtubemusic.core.YOUTUBE_MUSIC_PACKAGE
 import app.reseam.patches.youtubemusic.core.YouTubeMusicSettingsPages
@@ -13,8 +14,8 @@ import app.reseam.youtubespoof.settings.SpoofSettings
 import app.reseam.patches.youtubespoof.spoofUserAgentPackageName
 import app.reseam.youtubemusic.settings.YouTubeMusicStrings
 
-val userAgentClientSpoof = patch("User-agent client spoof") {
-    description("Keeps client user-agent package names compatible with YouTube Music's original package.")
+val userAgentClientSpoof = patch(YouTubeMusicPatchStrings.userAgentClientSpoof) {
+    description(YouTubeMusicPatchStrings.userAgentClientSpoofDescription)
     compatibleWith(YOUTUBE_MUSIC)
     settings(
         youTubeMusicSettings,

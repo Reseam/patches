@@ -6,10 +6,11 @@ package app.reseam.patches.x.core
 import app.reseam.patch.Type
 import app.reseam.patch.after
 import app.reseam.patch.patch
+import app.reseam.patches.x.XPatchStrings
 import app.reseam.x.settings.bindings.OpenReseamSettings
 
-val drawerEntry = patch("Reseam entry in drawer") {
-    description("Adds a Reseam Settings row under Settings and privacy in the drawer.")
+val drawerEntry = patch(XPatchStrings.drawerEntry) {
+    description(XPatchStrings.drawerEntryDescription)
     compatibleWith(X)
     dependsOn(settingsEntry)
 

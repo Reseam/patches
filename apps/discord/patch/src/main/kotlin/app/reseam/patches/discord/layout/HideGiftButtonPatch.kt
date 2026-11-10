@@ -9,11 +9,12 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordSettings
 
-val hideGiftButton = patch("Hide gift button") {
-    description("Remove the gift button from the message box.")
+val hideGiftButton = patch(DiscordPatchStrings.hideGiftButton) {
+    description(DiscordPatchStrings.hideGiftButtonDescription)
     compatibleWith(DISCORD)
     settings(discordSettings, section(DiscordStrings.sectionLayout, DiscordSettings.hideGiftButton))
 

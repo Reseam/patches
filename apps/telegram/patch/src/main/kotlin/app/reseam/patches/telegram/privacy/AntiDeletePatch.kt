@@ -16,6 +16,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.telegram.TelegramPatchStrings
 import app.reseam.patches.telegram.core.SPARSE_ARRAYS
 import app.reseam.patches.telegram.core.TELEGRAM
 import app.reseam.patches.telegram.core.TL_MESSAGES
@@ -31,8 +32,8 @@ import app.reseam.telegram.antidelete.bindings.RecoveredChats
 import app.reseam.telegram.settings.TelegramSettings
 import app.reseam.telegram.settings.TelegramStrings
 
-val antiDelete = patch("Recover deleted messages") {
-    description("Keeps messages others delete, archived locally and shown back in the chat.")
+val antiDelete = patch(TelegramPatchStrings.antiDelete) {
+    description(TelegramPatchStrings.antiDeleteDescription)
     compatibleWith(TELEGRAM)
     enabledByDefault(false)
     dependsOn(antiDeleteRuntime)

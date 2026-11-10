@@ -15,6 +15,7 @@ import app.reseam.patch.method
 import app.reseam.patch.methodTarget
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.x.XPatchStrings
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
@@ -22,8 +23,8 @@ import app.reseam.x.links.bindings.Links
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
 
-val openLinks = patch("Open full links") {
-    description("Opens a link's real destination instead of routing it through t.co.")
+val openLinks = patch(XPatchStrings.openLinks) {
+    description(XPatchStrings.openLinksDescription)
     compatibleWith(X)
     settings(xSettings, section(XSettingsPages.Links, XStrings.sectionLinks, XSettings.canonicalLinks))
 

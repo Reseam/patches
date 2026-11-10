@@ -9,12 +9,13 @@ import app.reseam.discord.settings.DiscordStrings
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.createMessageContent
 import app.reseam.patches.discord.core.discordSettings
 
-val hideLinkCards = patch("Hide link cards") {
-    description("Hide message preview cards while keeping text links, attachments and emoji or sticker images.")
+val hideLinkCards = patch(DiscordPatchStrings.hideLinkCards) {
+    description(DiscordPatchStrings.hideLinkCardsDescription)
     compatibleWith(DISCORD)
     settings(discordSettings, section(DiscordStrings.sectionLayout, DiscordSettings.hideLinkCards))
 

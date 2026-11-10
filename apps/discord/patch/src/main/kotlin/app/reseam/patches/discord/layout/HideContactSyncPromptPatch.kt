@@ -9,11 +9,12 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordSettings
 
-val hideContactSyncPrompt = patch("Hide contact sync prompt") {
-    description("Remove the contact sync promotion from the friends screen.")
+val hideContactSyncPrompt = patch(DiscordPatchStrings.hideContactSyncPrompt) {
+    description(DiscordPatchStrings.hideContactSyncPromptDescription)
     compatibleWith(DISCORD)
     settings(discordSettings, section(DiscordStrings.sectionLayout, DiscordSettings.hideContactSyncPrompt))
 

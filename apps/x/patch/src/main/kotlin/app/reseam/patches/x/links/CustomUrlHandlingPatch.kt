@@ -7,6 +7,7 @@ import app.reseam.patch.before
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.x.XPatchStrings
 import app.reseam.patches.x.core.MAIN_ACTIVITY
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettingsPages
@@ -18,8 +19,8 @@ import app.reseam.patches.x.core.xSettings
 // Keep in sync with UrlHandling.mirrorHosts in the extension.
 private val mirrorHosts = listOf("vxtwitter.com", "fixvx.com", "fxtwitter.com", "fixupx.com", "twittpr.com", "fixtweet.com", "girlcockx.com")
 
-val customUrlHandling = patch("Custom URL handling") {
-    description("Opens fixvx.com, vxtwitter.com and similar mirror links in the app, like x.com links.")
+val customUrlHandling = patch(XPatchStrings.customUrlHandling) {
+    description(XPatchStrings.customUrlHandlingDescription)
     compatibleWith(X)
     settings(xSettings, section(XSettingsPages.Links, XStrings.sectionLinks, XSettings.customUrlHandling))
 

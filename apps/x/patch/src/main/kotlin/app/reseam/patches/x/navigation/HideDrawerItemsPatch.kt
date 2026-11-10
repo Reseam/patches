@@ -11,6 +11,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.points
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.x.XPatchStrings
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.drawerRow
@@ -18,8 +19,8 @@ import app.reseam.patches.x.core.xSettings
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
 
-val hideDrawerItems = patch("Hide drawer items") {
-    description("Removes rows such as Premium, Money, Communities, Bookmarks, Lists and Spaces from the drawer. Profile and Settings stay.")
+val hideDrawerItems = patch(XPatchStrings.hideDrawerItems) {
+    description(XPatchStrings.hideDrawerItemsDescription)
     compatibleWith(X)
     settings(
         xSettings,

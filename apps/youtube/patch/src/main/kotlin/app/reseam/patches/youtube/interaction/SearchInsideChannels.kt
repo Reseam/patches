@@ -12,6 +12,7 @@ import app.reseam.patch.point
 import app.reseam.patch.redirectTo
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -25,8 +26,8 @@ import app.reseam.youtube.hidelayout.bindings.ChannelSearchFilter
 import app.reseam.youtube.settings.ChannelSettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val searchInsideChannels = patch("Search inside channels") {
-    description("Starts searches made on a channel page with the channel's handle and shows only that channel's results.")
+val searchInsideChannels = patch(YouTubePatchStrings.searchInsideChannels) {
+    description(YouTubePatchStrings.searchInsideChannelsDescription)
     compatibleWith(YOUTUBE)
     dependsOn(lithoFilter, navigationBarHook)
     settings(youTubeSettings, section(YouTubeSettingsPages.Channel, YouTubeStrings.sectionChannel, ChannelSettings.searchInsideChannels))

@@ -9,11 +9,12 @@ import app.reseam.patch.dex.Opcode
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
+import app.reseam.patches.telegram.TelegramPatchStrings
 import app.reseam.patches.telegram.core.TELEGRAM
 import app.reseam.patches.universal.spoofSignature
 
-val bypassIntegrity = patch("Bypass integrity") {
-    description("Allows login on rooted or non-Google devices.")
+val bypassIntegrity = patch(TelegramPatchStrings.bypassIntegrity) {
+    description(TelegramPatchStrings.bypassIntegrityDescription)
     compatibleWith(TELEGRAM)
     dependsOn(spoofSignature)
 

@@ -13,6 +13,7 @@ import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.patches.tiktok.core.TIKTOK
 import app.reseam.patches.tiktok.core.TikTokSettingsPages
 import app.reseam.patches.tiktok.core.tiktokSettings
@@ -24,10 +25,8 @@ private val TELEMETRY_CALLS =
     setOf("onEvent", "onEventV3", "onMiscEvent", "onInternalEventV3", "flush", "flushAsync")
 
 val privacy =
-    patch("Privacy") {
-        description(
-            "Stops TikTok's usage events, watch history reports, typing indicator and saved searches."
-        )
+    patch(TikTokPatchStrings.privacy) {
+        description(TikTokPatchStrings.privacyDescription)
         compatibleWith(TIKTOK)
         settings(
             tiktokSettings,

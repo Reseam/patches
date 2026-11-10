@@ -9,11 +9,12 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordSettings
 
-val betterStreamQuality = patch("Better stream quality") {
-    description("Stream your screen at the resolutions and frame rates Nitro unlocks.")
+val betterStreamQuality = patch(DiscordPatchStrings.betterStreamQuality) {
+    description(DiscordPatchStrings.betterStreamQualityDescription)
     compatibleWith(DISCORD)
     settings(discordSettings, section(DiscordStrings.sectionMedia, DiscordSettings.betterStreamQuality))
 

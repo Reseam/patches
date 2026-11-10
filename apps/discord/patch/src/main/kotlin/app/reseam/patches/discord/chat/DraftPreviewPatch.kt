@@ -10,12 +10,13 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordModules
 import app.reseam.patches.discord.core.discordSettings
 
-val draftPreview = patch("Draft preview") {
-    description("Long press the send button to see your message in the chat before sending it.")
+val draftPreview = patch(DiscordPatchStrings.draftPreview) {
+    description(DiscordPatchStrings.draftPreviewDescription)
     compatibleWith(DISCORD)
     dependsOn(discordModules)
     settings(discordSettings, section(DiscordStrings.sectionChat, DiscordSettings.draftPreview))

@@ -9,6 +9,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.telegram.TelegramPatchStrings
 import app.reseam.patches.telegram.core.TELEGRAM
 import app.reseam.telegram.settings.TelegramSettings
 import app.reseam.patches.telegram.core.telegramSettings
@@ -18,8 +19,8 @@ import app.reseam.telegram.settings.TelegramStrings
 private const val SECRET_VIEWER_FLAGS = 0x80012108.toInt()
 private const val FLAG_SECURE = 0x2000
 
-val allowScreenshots = patch("Allow screenshots in secret viewers") {
-    description("Strips FLAG_SECURE from view-once / self-destruct media viewers so you can screenshot or screen-record.")
+val allowScreenshots = patch(TelegramPatchStrings.allowScreenshots) {
+    description(TelegramPatchStrings.allowScreenshotsDescription)
     compatibleWith(TELEGRAM)
     settings(telegramSettings, section(TelegramStrings.sectionPrivacy, TelegramSettings.allowScreenshots))
 

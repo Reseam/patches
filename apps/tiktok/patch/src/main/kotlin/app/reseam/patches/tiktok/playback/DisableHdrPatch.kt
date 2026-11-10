@@ -9,6 +9,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.patches.tiktok.core.TIKTOK
 import app.reseam.patches.tiktok.core.TikTokSettingsPages
 import app.reseam.patches.tiktok.core.tiktokSettings
@@ -16,8 +17,8 @@ import app.reseam.tiktok.settings.PlaybackSettings
 import app.reseam.tiktok.settings.TikTokStrings
 
 val disableHdr =
-    patch("Disable HDR") {
-        description("Plays HDR videos as regular ones, through TikTok's own accessibility switch.")
+    patch(TikTokPatchStrings.disableHdr) {
+        description(TikTokPatchStrings.disableHdrDescription)
         compatibleWith(TIKTOK)
         settings(
             tiktokSettings,

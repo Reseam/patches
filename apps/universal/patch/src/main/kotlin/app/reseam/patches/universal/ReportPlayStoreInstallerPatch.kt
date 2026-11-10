@@ -8,8 +8,8 @@ import app.reseam.universal.installer.bindings.PlayStoreInstaller
 
 private const val PACKAGE_MANAGER = "android.content.pm.PackageManager"
 private const val INSTALL_SOURCE_INFO = "android.content.pm.InstallSourceInfo"
-val reportPlayStoreInstaller = patch("Report Play Store as installer") {
-    description("Makes the app see itself as installed from Google Play.")
+val reportPlayStoreInstaller = patch(UniversalPatchStrings.reportPlayStoreInstaller) {
+    description(UniversalPatchStrings.reportPlayStoreInstallerDescription)
 
     execute {
         val packageName = requireNotNull(manifest.packageName) { "The manifest names no package" }

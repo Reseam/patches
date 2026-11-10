@@ -16,6 +16,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.section
 import app.reseam.patch.settings.valueOf
+import app.reseam.patches.twitch.TwitchPatchStrings
 import app.reseam.patches.twitch.core.TWITCH
 import app.reseam.patches.twitch.core.twitchSettings
 import app.reseam.twitch.navigation.bindings.StartupTab
@@ -24,8 +25,8 @@ import app.reseam.twitch.settings.TwitchStrings
 
 private const val DESTINATION_ORDINAL = "destinationOrdinal"
 
-val startupTab = patch("Startup tab") {
-    description("Starts Twitch on Browse or Profile instead of Home, and unlocks Twitch's Default Home Page setting for Following, Live or Clips.")
+val startupTab = patch(TwitchPatchStrings.startupTab) {
+    description(TwitchPatchStrings.startupTabDescription)
     compatibleWith(TWITCH)
     settings(twitchSettings, section(TwitchStrings.sectionNavigation, NavigationSettings.startupTab))
 

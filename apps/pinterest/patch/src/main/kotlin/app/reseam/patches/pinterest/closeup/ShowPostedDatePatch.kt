@@ -10,6 +10,7 @@ import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.pinterest.PinterestPatchStrings
 import app.reseam.patches.pinterest.core.PINTEREST
 import app.reseam.patches.pinterest.core.pinterestSettings
 import app.reseam.patches.pinterest.refs.pinRefs
@@ -18,8 +19,8 @@ import app.reseam.pinterest.closeup.bindings.PostedDate
 import app.reseam.pinterest.settings.CloseupSettings
 import app.reseam.pinterest.settings.PinterestStrings
 
-val showPostedDate = patch("Show posted date") {
-    description("Shows when a pin was posted.")
+val showPostedDate = patch(PinterestPatchStrings.showPostedDate) {
+    description(PinterestPatchStrings.showPostedDateDescription)
     compatibleWith(PINTEREST)
     dependsOn(pinRefs)
     settings(pinterestSettings, section(PinterestStrings.sectionCloseup, CloseupSettings.showPostedDate))

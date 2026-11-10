@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="show_posted_date">Show posted date</string>
+    <string name="show_posted_date_description">Shows when a pin was posted.</string>
+    <string name="settings_entry">Reseam settings entry</string>
+    <string name="settings_entry_description">Adds Reseam Settings to Pinterest\'s settings.</string>
+    <string name="download_board">Download board</string>
+    <string name="download_board_description">Downloads the pins a board has loaded.</string>
+    <string name="download_pins">Download pins</string>
+    <string name="download_pins_description">Downloads pins as original images and videos.</string>
+    <string name="hide_ads">Hide ads</string>
+    <string name="hide_ads_description">Hides promoted pins.</string>
+    <string name="hide_shopping">Hide shopping pins</string>
+    <string name="hide_shopping_description">Hides shoppable pins.</string>
+    <string name="original_quality">Original-quality images</string>
+    <string name="original_quality_description">Loads images in original quality.</string>
+    <string name="fix_push_notifications">Fix push notifications</string>
+    <string name="fix_push_notifications_description">Makes push notifications arrive after patching.</string>
+    <string name="hide_surveys">Hide survey prompts</string>
+    <string name="hide_surveys_description">Hides survey prompts.</string>
+    <string name="hide_screenshot_share">Hide screenshot share menu</string>
+    <string name="hide_screenshot_share_description">Hides the share menu that opens after a screenshot.</string>
+    <string name="disable_update_prompts">Disable update prompts</string>
+    <string name="disable_update_prompts_description">Stops update prompts.</string>
+</resources>

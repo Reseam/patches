@@ -9,14 +9,15 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
 import app.reseam.patch.settings.valueOf
+import app.reseam.patches.youtubemusic.YouTubeMusicPatchStrings
 import app.reseam.patches.youtubemusic.core.YOUTUBE_MUSIC
 import app.reseam.youtubemusic.settings.YouTubeMusicSettings
 import app.reseam.patches.youtubemusic.core.YouTubeMusicSettingsPages
 import app.reseam.patches.youtubemusic.core.youTubeMusicSettings
 import app.reseam.youtubemusic.settings.YouTubeMusicStrings
 
-val startPage = patch("Start page") {
-    description("Opens a page of your choice instead of Home.")
+val startPage = patch(YouTubeMusicPatchStrings.startPage) {
+    description(YouTubeMusicPatchStrings.startPageDescription)
     compatibleWith(YOUTUBE_MUSIC)
     settings(youTubeMusicSettings, section(YouTubeMusicSettingsPages.Interface, YouTubeMusicStrings.sectionStartPage, YouTubeMusicSettings.startPage))
 

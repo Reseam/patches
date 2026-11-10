@@ -12,14 +12,15 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.twitch.TwitchPatchStrings
 import app.reseam.patches.twitch.core.TWITCH
 import app.reseam.patches.twitch.core.twitchSettings
 import app.reseam.twitch.embeddedads.bindings.EmbeddedAds
 import app.reseam.twitch.settings.AdsSettings
 import app.reseam.twitch.settings.TwitchStrings
 
-val blockEmbeddedAds = patch("Block embedded ads") {
-    description("Loads live streams through a third-party proxy in a region without ads, which sees your IP address and the channels you watch, and switches to Twitch for a few minutes when the proxy fails.")
+val blockEmbeddedAds = patch(TwitchPatchStrings.blockEmbeddedAds) {
+    description(TwitchPatchStrings.blockEmbeddedAdsDescription)
     compatibleWith(TWITCH)
     enabledByDefault(false)
     settings(twitchSettings, section(TwitchStrings.sectionAds, AdsSettings.blockEmbeddedAds, AdsSettings.embeddedAdsProxy, AdsSettings.customEmbeddedAdsProxy))

@@ -10,6 +10,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.x.XPatchStrings
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.x.settings.XSettings
@@ -18,8 +19,8 @@ import app.reseam.patches.x.featureswitches.disableFeatureSwitches
 import app.reseam.patches.x.featureswitches.featureSwitchOverrides
 import app.reseam.x.settings.XStrings
 
-val defaultToFollowing = patch("Default to Following") {
-    description("Opens Following by default and prevents automatic switches to For You.")
+val defaultToFollowing = patch(XPatchStrings.defaultToFollowing) {
+    description(XPatchStrings.defaultToFollowingDescription)
     compatibleWith(X)
     dependsOn(featureSwitchOverrides)
     settings(xSettings, section(XSettingsPages.Home, XStrings.sectionHome, XSettings.defaultToFollowing))

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_branding">Custom branding</string>
+    <string name="custom_branding_description">Adds launcher icons and app names to choose from, including your own.</string>
+    <string name="custom_branding_custom_name">Custom app name</string>
+    <string name="custom_branding_custom_name_description">Adds this name to the app name choices and makes it the default.</string>
+    <string name="custom_branding_custom_icon">Custom icon</string>
+    <string name="custom_branding_custom_icon_description">A folder with mipmap-mdpi to mipmap-xxxhdpi folders, each with foreground.png and background.png. Adds the icon to the choices and makes it the default.</string>
+</resources>

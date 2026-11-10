@@ -13,6 +13,7 @@ import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.patches.tiktok.core.TIKTOK
 import app.reseam.patches.tiktok.core.TikTokSettingsPages
 import app.reseam.patches.tiktok.core.tiktokSettings
@@ -25,10 +26,8 @@ private const val SPARK_THIRD_CONTEXT = "com.bytedance.hybrid.spark.third.router
 private val smartRoute = klass("com.bytedance.router.SmartRoute")
 
 val openLinksExternally =
-    patch("Open links in browser") {
-        description(
-            "Opens web links from bios, captions and comments in your browser instead of TikTok's."
-        )
+    patch(TikTokPatchStrings.openLinksExternally) {
+        description(TikTokPatchStrings.openLinksExternallyDescription)
         compatibleWith(TIKTOK)
         settings(
             tiktokSettings,

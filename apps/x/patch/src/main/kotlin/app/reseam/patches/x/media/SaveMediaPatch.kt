@@ -13,6 +13,7 @@ import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.x.XPatchStrings
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
@@ -22,8 +23,8 @@ import app.reseam.x.settings.XStrings
 
 private const val CONTEXT = "Landroid/content/Context;"
 
-val saveMedia = patch("Save media") {
-    description("Saves photos, videos and GIFs where the gallery can see them, in a folder you choose.")
+val saveMedia = patch(XPatchStrings.saveMedia) {
+    description(XPatchStrings.saveMediaDescription)
     compatibleWith(X)
     settings(xSettings, section(XSettingsPages.Media, XStrings.sectionMedia, XSettings.downloadFolder))
 

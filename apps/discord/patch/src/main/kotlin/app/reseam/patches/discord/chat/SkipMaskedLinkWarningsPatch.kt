@@ -9,11 +9,12 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordSettings
 
-val skipMaskedLinkWarnings = patch("Skip masked link warnings") {
-    description("Open masked links without the destination warning.")
+val skipMaskedLinkWarnings = patch(DiscordPatchStrings.skipMaskedLinkWarnings) {
+    description(DiscordPatchStrings.skipMaskedLinkWarningsDescription)
     compatibleWith(DISCORD)
     settings(discordSettings, section(DiscordStrings.sectionChat, DiscordSettings.skipMaskedLinkWarnings))
 

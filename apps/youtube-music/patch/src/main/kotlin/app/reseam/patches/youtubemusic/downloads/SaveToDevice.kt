@@ -16,6 +16,7 @@ import app.reseam.patch.reserveLocal
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtubecommon.parseProtobuf
 import app.reseam.patches.youtubecommon.protobufBytes
+import app.reseam.patches.youtubemusic.YouTubeMusicPatchStrings
 import app.reseam.patches.youtubemusic.core.YOUTUBE_MUSIC
 import app.reseam.patches.youtubemusic.core.YouTubeMusicSettingsPages
 import app.reseam.patches.youtubemusic.core.youTubeMusicSettings
@@ -25,8 +26,8 @@ import app.reseam.youtubemusic.downloads.bindings.SaveToDeviceMenu
 import app.reseam.youtubesavetodevice.settings.SaveToDeviceSettings
 import app.reseam.youtubemusic.settings.YouTubeMusicStrings
 
-val saveToDevice = patch("Save to device") {
-    description("Adds Save to device to downloaded songs and playlists, which saves them as audio files in a folder you choose.")
+val saveToDevice = patch(YouTubeMusicPatchStrings.saveToDevice) {
+    description(YouTubeMusicPatchStrings.saveToDeviceDescription)
     compatibleWith(YOUTUBE_MUSIC)
     settings(
         youTubeMusicSettings,

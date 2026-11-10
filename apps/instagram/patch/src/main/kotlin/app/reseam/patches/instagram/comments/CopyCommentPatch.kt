@@ -21,6 +21,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.instagram.InstagramPatchStrings
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.instagramSettings
 import app.reseam.patches.instagram.core.signatureCheck
@@ -28,8 +29,8 @@ import app.reseam.patches.instagram.core.signatureCheck
 private const val COMMENT_REPOSITORY = "com.instagram.comments.mvvm.data.MediaCommentListRepository"
 private const val FUNCTION0 = "kotlin.jvm.functions.Function0"
 
-val copyComment = patch("Copy comment") {
-    description("Adds Copy to the menu that opens when you press and hold a comment.")
+val copyComment = patch(InstagramPatchStrings.copyComment) {
+    description(InstagramPatchStrings.copyCommentDescription)
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
     settings(instagramSettings, section(InstagramStrings.sectionComments, CommentSettings.copyComment))

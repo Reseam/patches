@@ -5,6 +5,7 @@ package app.reseam.patches.x.premium
 
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.x.XPatchStrings
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.x.settings.XSettings
@@ -13,8 +14,8 @@ import app.reseam.patches.x.featureswitches.disableFeatureSwitches
 import app.reseam.patches.x.featureswitches.featureSwitchOverrides
 import app.reseam.x.settings.XStrings
 
-val hidePromotionPrompts = patch("Hide promotion prompts") {
-    description("Hides the Boost and Promote prompts on your posts.")
+val hidePromotionPrompts = patch(XPatchStrings.hidePromotionPrompts) {
+    description(XPatchStrings.hidePromotionPromptsDescription)
     compatibleWith(X)
     dependsOn(featureSwitchOverrides)
     settings(xSettings, section(XSettingsPages.Ads, XStrings.sectionPremium, XSettings.hidePromotionPrompts))

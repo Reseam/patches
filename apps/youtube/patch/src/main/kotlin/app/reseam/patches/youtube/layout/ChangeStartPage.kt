@@ -12,6 +12,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -21,8 +22,8 @@ import app.reseam.youtube.settings.YouTubeStrings
 
 private val paneDescriptor = klass("paneDescriptor") { strings("PaneDescriptor for ") }
 
-val changeStartPage = patch("Change start page") {
-    description("Opens a page of your choice instead of the home feed.")
+val changeStartPage = patch(YouTubePatchStrings.changeStartPage) {
+    description(YouTubePatchStrings.changeStartPageDescription)
     compatibleWith(YOUTUBE)
     settings(
         youTubeSettings,

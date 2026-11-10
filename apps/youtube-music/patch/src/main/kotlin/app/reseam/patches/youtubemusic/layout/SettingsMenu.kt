@@ -10,6 +10,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
 import app.reseam.patch.settings.whenEnabled
+import app.reseam.patches.youtubemusic.YouTubeMusicPatchStrings
 import app.reseam.patches.youtubemusic.core.YOUTUBE_MUSIC
 import app.reseam.youtubemusic.settings.YouTubeMusicSettings
 import app.reseam.patches.youtubemusic.core.YouTubeMusicSettingsPages
@@ -27,8 +28,8 @@ private val ROWS = mapOf(
     "settings_header_about_youtube_music" to YouTubeMusicSettings.hideSettingsAbout,
 )
 
-val hideSettingsMenuItems = patch("Hide settings menu items") {
-    description("Adds options to hide rows from YouTube Music's settings screen.")
+val hideSettingsMenuItems = patch(YouTubeMusicPatchStrings.hideSettingsMenuItems) {
+    description(YouTubeMusicPatchStrings.hideSettingsMenuItemsDescription)
     compatibleWith(YOUTUBE_MUSIC)
     settings(youTubeMusicSettings, section(YouTubeMusicSettingsPages.Interface, YouTubeMusicStrings.sectionSettingsMenu, *ROWS.values.toTypedArray()))
 

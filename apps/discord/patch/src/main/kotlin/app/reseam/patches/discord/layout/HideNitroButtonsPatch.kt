@@ -9,11 +9,12 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordSettings
 
-val hideNitroButtons = patch("Hide Nitro buttons") {
-    description("Remove small Nitro promotion buttons from feature screens.")
+val hideNitroButtons = patch(DiscordPatchStrings.hideNitroButtons) {
+    description(DiscordPatchStrings.hideNitroButtonsDescription)
     compatibleWith(DISCORD)
     settings(discordSettings, section(DiscordStrings.sectionLayout, DiscordSettings.hideNitroButtons))
 

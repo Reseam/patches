@@ -13,6 +13,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -60,8 +61,8 @@ private val qualityChangedValue = qualityChangedMethod.point("selected video qua
     invokeDirect { owner(videoQualityClass.descriptor); name("<init>") }
 }.captureArgumentAs("quality", 1, Type.Int)
 
-val rememberVideoQuality = patch("Remember video quality") {
-    description("Remembers the selected video quality and applies the configured default.")
+val rememberVideoQuality = patch(YouTubePatchStrings.rememberVideoQuality) {
+    description(YouTubePatchStrings.rememberVideoQualityDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings, videoInformationHook)
     settings(youTubeSettings, section(YouTubeSettingsPages.Video, YouTubeStrings.sectionVideoQuality, VideoSettings.videoQualityDefault, VideoSettings.videoQualityDefaultMobile, VideoSettings.rememberVideoQuality))

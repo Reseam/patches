@@ -7,9 +7,10 @@ import app.reseam.patch.patch
 import app.reseam.patch.settings.opensSettings
 import app.reseam.patches.youtubecommon.exportFlagsFromSettingsRow
 import app.reseam.patches.youtubecommon.openSettingsFromPreferenceIntents
+import app.reseam.patches.youtubemusic.YouTubeMusicPatchStrings
 
-val settingsEntry = patch("Reseam entry in YouTube Music settings") {
-    description("Adds a Reseam Settings row to YouTube Music's settings screen. Long-pressing it saves the app's experiment flags to Downloads.")
+val settingsEntry = patch(YouTubeMusicPatchStrings.settingsEntry) {
+    description(YouTubeMusicPatchStrings.settingsEntryDescription)
     compatibleWith(YOUTUBE_MUSIC)
     dependsOn(youTubeMusicSettings)
 

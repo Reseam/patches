@@ -14,12 +14,13 @@ import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.instagram.settings.AppearanceSettings
+import app.reseam.patches.instagram.InstagramPatchStrings
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.instagramSettings
 import app.reseam.patches.instagram.core.signatureCheck
 
-val hideRepostButtons = patch("Hide repost buttons") {
-    description("Hides repost controls in Instagram's feed and reels.")
+val hideRepostButtons = patch(InstagramPatchStrings.hideRepostButtons) {
+    description(InstagramPatchStrings.hideRepostButtonsDescription)
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
     settings(instagramSettings, section(InstagramStrings.sectionAppearance, AppearanceSettings.hideRepostButtons))

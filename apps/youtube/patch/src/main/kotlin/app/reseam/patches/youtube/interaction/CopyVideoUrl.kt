@@ -5,6 +5,7 @@ package app.reseam.patches.youtube.interaction
 
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -17,8 +18,8 @@ import app.reseam.youtube.buttons.bindings.CopyVideoUrl
 import app.reseam.youtube.settings.PlayerControlsSettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val copyVideoUrl = patch("Copy video URL") {
-    description("Adds player buttons that copy the current video's URL, optionally with its timestamp.")
+val copyVideoUrl = patch(YouTubePatchStrings.copyVideoUrl) {
+    description(YouTubePatchStrings.copyVideoUrlDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings, videoPlaybackStateHook, playerControls)
     settings(

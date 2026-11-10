@@ -4,6 +4,7 @@
 package app.reseam.patches.youtube.video.speed
 
 import app.reseam.patch.patch
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.youTubeSettings
 import app.reseam.patches.youtube.video.speed.customPlaybackSpeed
@@ -11,8 +12,8 @@ import app.reseam.patches.youtube.video.speed.playbackSpeedDialogButton
 import app.reseam.patches.youtube.video.speed.rememberPlaybackSpeed
 
 /** Umbrella for the modern and legacy playback-speed controls. */
-val playbackSpeed = patch("Playback speed") {
-    description("Adds custom playback-speed choices, defaults, and a player button.")
+val playbackSpeed = patch(YouTubePatchStrings.playbackSpeed) {
+    description(YouTubePatchStrings.playbackSpeedDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings, customPlaybackSpeed, rememberPlaybackSpeed, playbackSpeedDialogButton)
 }

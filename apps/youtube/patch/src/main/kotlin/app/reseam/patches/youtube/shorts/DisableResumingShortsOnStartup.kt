@@ -13,6 +13,7 @@ import app.reseam.patch.point
 import app.reseam.patch.points
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -44,8 +45,8 @@ private val resumeAllowed = methods("Shorts startup eligibility checks") {
     field { owner(resumeEligibility.owner); name(resumeEligibility.name) }
 }.single().method
 
-val disableResumingShortsOnStartup = patch("Disable resuming Shorts on startup") {
-    description("Stops YouTube reopening the last Short when the app starts.")
+val disableResumingShortsOnStartup = patch(YouTubePatchStrings.disableResumingShortsOnStartup) {
+    description(YouTubePatchStrings.disableResumingShortsOnStartupDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings)
     settings(

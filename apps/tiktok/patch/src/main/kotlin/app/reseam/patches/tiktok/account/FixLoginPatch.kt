@@ -10,14 +10,15 @@ import app.reseam.patch.field
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.patches.tiktok.core.TIKTOK
 
 // Google Play services and the Facebook app both check TikTok's signing certificate, and refuse
 // TikTok's sign-in for any certificate but TikTok's own. The browser sign-in TikTok falls back to
 // cannot see the certificate.
 val fixLogin =
-    patch("Fix login") {
-        description("Makes logging in with Google and Facebook work.")
+    patch(TikTokPatchStrings.fixLogin) {
+        description(TikTokPatchStrings.fixLoginDescription)
         compatibleWith(TIKTOK)
 
         execute {

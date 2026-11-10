@@ -8,6 +8,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -21,8 +22,8 @@ import app.reseam.youtube.settings.YouTubeStrings
  * The tap-and-hold vibration is not covered: it lives in one arm of a shared dispatch method that
  * hundreds of unrelated callbacks also run through, so returning early there is not an option.
  */
-val disableHapticFeedback = patch("Disable haptic feedback") {
-    description("Turns off the player's vibration for chapters, seeking and zoom.")
+val disableHapticFeedback = patch(YouTubePatchStrings.disableHapticFeedback) {
+    description(YouTubePatchStrings.disableHapticFeedbackDescription)
     compatibleWith(YOUTUBE)
     settings(
         youTubeSettings,

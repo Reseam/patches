@@ -12,13 +12,14 @@ import app.reseam.patch.field
 import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.point
+import app.reseam.patches.twitch.TwitchPatchStrings
 import app.reseam.patches.twitch.core.TWITCH
 import app.reseam.twitch.login.bindings.LoginPage
 
 private const val LOGIN_SUCCESS = "login-success"
 
-val fixLoginCrash = patch("Fix login crash") {
-    description("Stops Twitch from crashing right after you log in.")
+val fixLoginCrash = patch(TwitchPatchStrings.fixLoginCrash) {
+    description(TwitchPatchStrings.fixLoginCrashDescription)
     compatibleWith(TWITCH)
 
     execute {

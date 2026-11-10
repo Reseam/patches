@@ -8,13 +8,14 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.reddit.RedditPatchStrings
 import app.reseam.patches.reddit.core.REDDIT
 import app.reseam.reddit.settings.RedditSettings
 import app.reseam.patches.reddit.core.redditSettings
 import app.reseam.reddit.settings.RedditStrings
 
-val ignoreSuggestedSort = patch("Always use my default comment sort") {
-    description("Ignores the comment sort a post or community suggests and uses your default sort.")
+val ignoreSuggestedSort = patch(RedditPatchStrings.ignoreSuggestedSort) {
+    description(RedditPatchStrings.ignoreSuggestedSortDescription)
     compatibleWith(REDDIT)
     settings(redditSettings, section(RedditStrings.sectionComments, RedditSettings.ignoreSuggestedSort))
 

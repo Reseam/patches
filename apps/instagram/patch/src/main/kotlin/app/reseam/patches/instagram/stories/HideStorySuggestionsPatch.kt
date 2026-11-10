@@ -13,12 +13,13 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.instagram.InstagramPatchStrings
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.instagramSettings
 import app.reseam.patches.instagram.core.signatureCheck
 
-val hideStorySuggestions = patch("Hide suggested accounts in stories") {
-    description("Removes stories and accounts you don't follow from the story tray, and the suggested-account cards between stories.")
+val hideStorySuggestions = patch(InstagramPatchStrings.hideStorySuggestions) {
+    description(InstagramPatchStrings.hideStorySuggestionsDescription)
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
     settings(instagramSettings, section(InstagramStrings.sectionStories, StorySettings.hideSuggestedUsers))

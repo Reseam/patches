@@ -8,6 +8,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.reddit.RedditPatchStrings
 import app.reseam.patches.reddit.core.REDDIT
 import app.reseam.patches.reddit.core.redditSettings
 import app.reseam.patches.reddit.core.settingsItemKey
@@ -18,8 +19,8 @@ import app.reseam.reddit.settings.bindings.SettingsRows
 
 private const val SETTINGS_SECTION = "com.reddit.settings.usersettings.UserSettingsSection"
 
-val hidePremiumSettings = patch("Hide Premium settings") {
-    description("Removes Premium and Reddit Pro upsell rows from Reddit's settings, keeping app icons and your subscription row.")
+val hidePremiumSettings = patch(RedditPatchStrings.hidePremiumSettings) {
+    description(RedditPatchStrings.hidePremiumSettingsDescription)
     compatibleWith(REDDIT)
     settings(redditSettings, section(RedditStrings.sectionSettings, RedditSettings.hidePremiumSettings))
 

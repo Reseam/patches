@@ -5,6 +5,7 @@ package app.reseam.patches.youtube.player
 
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -14,8 +15,8 @@ import app.reseam.youtube.playerui.bindings.VideoActionButtonsFilter
 import app.reseam.youtube.settings.PlayerOverlaySettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val hideVideoActionButtons = patch("Hide video action buttons") {
-    description("Hides selected action buttons below videos.")
+val hideVideoActionButtons = patch(YouTubePatchStrings.hideVideoActionButtons) {
+    description(YouTubePatchStrings.hideVideoActionButtonsDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings, lithoFilter)
     settings(

@@ -9,6 +9,7 @@ import app.reseam.patch.dex.AccessFlags
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.mainActivityOnCreate
@@ -24,8 +25,8 @@ import app.reseam.youtube.settings.YouTubeStrings
 import app.reseam.youtube.spoof.bindings.SpoofVideoStreams
 import app.reseam.youtubespoof.settings.SpoofSettings
 
-val spoofVideoStreams = patch("Fix playback") {
-    description("Makes videos play when YouTube blocks the app.")
+val spoofVideoStreams = patch(YouTubePatchStrings.spoofVideoStreams) {
+    description(YouTubePatchStrings.spoofVideoStreamsDescription)
     compatibleWith(YOUTUBE)
     dependsOn(videoIdHook, clientContextHook)
     settings(

@@ -6,6 +6,7 @@ package app.reseam.patches.youtube.layout
 
 import app.reseam.patch.*
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.*
 import app.reseam.patches.youtube.interaction.seekbarOnDraw
 import app.reseam.patches.youtube.internal.*
@@ -18,8 +19,8 @@ import app.reseam.youtube.sponsorblock.bindings.SponsorBlockSession
 import app.reseam.youtubecommon.settings.SponsorBlockSettings
 import app.reseam.youtubecommon.settings.YouTubeCommonStrings
 
-val sponsorBlock = patch("SponsorBlock") {
-    description("Skips crowdsourced segments, marks the seekbar, and supports segment voting and submissions.")
+val sponsorBlock = patch(YouTubePatchStrings.sponsorBlock) {
+    description(YouTubePatchStrings.sponsorBlockDescription)
     compatibleWith(YOUTUBE)
     dependsOn(videoInformationHook, playerTypeHook, playerControls)
     settings(youTubeSettings,

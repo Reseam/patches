@@ -10,6 +10,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.reddit.RedditPatchStrings
 import app.reseam.patches.reddit.core.REDDIT
 import app.reseam.patches.reddit.core.feedElementClassNames
 import app.reseam.patches.reddit.core.redditSettings
@@ -17,8 +18,8 @@ import app.reseam.reddit.feed.bindings.FeedElements
 import app.reseam.reddit.settings.RedditSettings
 import app.reseam.reddit.settings.RedditStrings
 
-val hideTrendingSearches = patch("Hide trending searches") {
-    description("Removes the Trending section from the search screen.")
+val hideTrendingSearches = patch(RedditPatchStrings.hideTrendingSearches) {
+    description(RedditPatchStrings.hideTrendingSearchesDescription)
     compatibleWith(REDDIT)
     settings(redditSettings, section(RedditStrings.sectionSearch, RedditSettings.hideTrendingSearches))
 

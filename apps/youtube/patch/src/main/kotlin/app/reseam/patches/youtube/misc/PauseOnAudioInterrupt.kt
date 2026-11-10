@@ -11,6 +11,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -18,8 +19,8 @@ import app.reseam.youtube.misc.bindings.PauseOnAudioInterrupt
 import app.reseam.youtube.settings.VideoSettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val pauseOnAudioInterrupt = patch("Pause on audio interrupt") {
-    description("Pauses playback instead of lowering the volume when another app plays audio.")
+val pauseOnAudioInterrupt = patch(YouTubePatchStrings.pauseOnAudioInterrupt) {
+    description(YouTubePatchStrings.pauseOnAudioInterruptDescription)
     compatibleWith(YOUTUBE)
     settings(youTubeSettings, section(YouTubeSettingsPages.Video, YouTubeStrings.sectionAudio, VideoSettings.pauseOnAudioInterrupt))
 

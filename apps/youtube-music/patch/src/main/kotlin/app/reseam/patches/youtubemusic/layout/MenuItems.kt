@@ -15,6 +15,7 @@ import app.reseam.patch.reserveLocal
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtubecommon.lithoFilter
 import app.reseam.patches.youtubecommon.registerLithoFilter
+import app.reseam.patches.youtubemusic.YouTubeMusicPatchStrings
 import app.reseam.patches.youtubemusic.core.YOUTUBE_MUSIC
 import app.reseam.patches.youtubemusic.core.YouTubeMusicSettingsPages
 import app.reseam.patches.youtubemusic.core.youTubeMusicSettings
@@ -23,8 +24,8 @@ import app.reseam.youtubemusic.layout.bindings.MenuTilesFilter
 import app.reseam.youtubemusic.settings.YouTubeMusicSettings
 import app.reseam.youtubemusic.settings.YouTubeMusicStrings
 
-val hideMenuItems = patch("Hide menu items") {
-    description("Adds options to hide items from the long-press and three-dot menus.")
+val hideMenuItems = patch(YouTubeMusicPatchStrings.hideMenuItems) {
+    description(YouTubeMusicPatchStrings.hideMenuItemsDescription)
     compatibleWith(YOUTUBE_MUSIC)
     dependsOn(lithoFilter)
     settings(

@@ -7,6 +7,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtubecommon.lithoFilter
 import app.reseam.patches.youtubecommon.registerLithoFilter
+import app.reseam.patches.youtubemusic.YouTubeMusicPatchStrings
 import app.reseam.patches.youtubemusic.core.YOUTUBE_MUSIC
 import app.reseam.patches.youtubemusic.core.YouTubeMusicSettingsPages
 import app.reseam.patches.youtubemusic.core.youTubeMusicSettings
@@ -14,8 +15,8 @@ import app.reseam.youtubemusic.layout.bindings.ActionButtonsFilter
 import app.reseam.youtubemusic.settings.YouTubeMusicSettings
 import app.reseam.youtubemusic.settings.YouTubeMusicStrings
 
-val hideActionButtons = patch("Hide action buttons") {
-    description("Adds options to hide the buttons below the player.")
+val hideActionButtons = patch(YouTubeMusicPatchStrings.hideActionButtons) {
+    description(YouTubeMusicPatchStrings.hideActionButtonsDescription)
     compatibleWith(YOUTUBE_MUSIC)
     dependsOn(lithoFilter)
     settings(

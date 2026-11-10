@@ -10,12 +10,13 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordModules
 import app.reseam.patches.discord.core.discordSettings
 
-val deleteWithoutConfirmation = patch("Delete without confirmation") {
-    description("Delete your messages from the long press menu without the confirmation dialog.")
+val deleteWithoutConfirmation = patch(DiscordPatchStrings.deleteWithoutConfirmation) {
+    description(DiscordPatchStrings.deleteWithoutConfirmationDescription)
     compatibleWith(DISCORD)
     dependsOn(discordModules)
     settings(discordSettings, section(DiscordStrings.sectionChat, DiscordSettings.deleteWithoutConfirmation))

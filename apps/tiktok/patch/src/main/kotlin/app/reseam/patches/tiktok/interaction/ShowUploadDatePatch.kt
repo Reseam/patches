@@ -11,6 +11,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.points
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.patches.tiktok.core.TIKTOK
 import app.reseam.patches.tiktok.core.TikTokSettingsPages
 import app.reseam.patches.tiktok.core.VIDEO_ITEM_PARAMS
@@ -20,8 +21,8 @@ import app.reseam.tiktok.settings.InterfaceSettings
 import app.reseam.tiktok.settings.TikTokStrings
 
 val showUploadDate =
-    patch("Show upload date") {
-        description("Shows the date and region a video was posted next to the author's name.")
+    patch(TikTokPatchStrings.showUploadDate) {
+        description(TikTokPatchStrings.showUploadDateDescription)
         compatibleWith(TIKTOK)
         settings(
             tiktokSettings,

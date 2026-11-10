@@ -10,8 +10,8 @@ private const val PACKAGE_MANAGER = "android.content.pm.PackageManager"
 private const val PACKAGE_INFO = "android.content.pm.PackageInfo"
 private const val SIGNING_INFO = "android.content.pm.SigningInfo"
 private const val SIGNATURES = "android.content.pm.Signature[]"
-val spoofSignature = patch("Spoof signature") {
-    description("Shows the app the signature it was published with, so checks for a modified app pass.")
+val spoofSignature = patch(UniversalPatchStrings.spoofSignature) {
+    description(UniversalPatchStrings.spoofSignatureDescription)
 
     execute {
         val packageName = requireNotNull(manifest.packageName) { "The manifest names no package" }

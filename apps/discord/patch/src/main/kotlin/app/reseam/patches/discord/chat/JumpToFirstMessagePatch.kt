@@ -10,12 +10,13 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordModules
 import app.reseam.patches.discord.core.discordSettings
 
-val jumpToFirstMessage = patch("Jump to first message") {
-    description("Add a button above Jump to present that jumps to the first message.")
+val jumpToFirstMessage = patch(DiscordPatchStrings.jumpToFirstMessage) {
+    description(DiscordPatchStrings.jumpToFirstMessageDescription)
     compatibleWith(DISCORD)
     dependsOn(discordModules)
     settings(discordSettings, section(DiscordStrings.sectionChat, DiscordSettings.jumpToFirstMessage))

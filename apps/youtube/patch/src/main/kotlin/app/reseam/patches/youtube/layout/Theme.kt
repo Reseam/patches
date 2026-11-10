@@ -15,6 +15,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.points
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.MAIN_ACTIVITY
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
@@ -30,8 +31,8 @@ private const val LIGHT_DEFAULT = "#FFFFFFFF"
 private const val SPLASH_COLOR = "reseam_splash_background_color"
 private const val NAVIGATION_BAR_COLOR = "reseam_navigation_bar_color"
 
-val theme = patch("Theme") {
-    description("Changes YouTube's light and dark background colors and loading screen.")
+val theme = patch(YouTubePatchStrings.theme) {
+    description(YouTubePatchStrings.themeDescription)
     compatibleWith(YOUTUBE)
     dependsOn(lithoColorHook)
     settings(
@@ -41,20 +42,18 @@ val theme = patch("Theme") {
 
     val darkThemeBackgroundColor = stringOption(
         "darkThemeBackgroundColor",
-        title = "Dark theme background color",
-        description = "The background color used by YouTube's dark theme.",
+        title = YouTubePatchStrings.themeDarkThemeBackgroundColor,
         default = DARK_DEFAULT,
     )
     val lightThemeBackgroundColor = stringOption(
         "lightThemeBackgroundColor",
-        title = "Light theme background color",
-        description = "The background color used by YouTube's light theme.",
+        title = YouTubePatchStrings.themeLightThemeBackgroundColor,
         default = LIGHT_DEFAULT,
     )
     val materialYou = boolOption(
         "materialYou",
-        title = "Material You",
-        description = "Uses the system's wallpaper-based background colors on Android 12 and newer, in place of the colors above.",
+        title = YouTubePatchStrings.themeMaterialYou,
+        description = YouTubePatchStrings.themeMaterialYouDescription,
         default = false,
     )
 

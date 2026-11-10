@@ -10,10 +10,11 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.openSettings
+import app.reseam.patches.pinterest.PinterestPatchStrings
 import app.reseam.pinterest.settings.bindings.SettingsRow
 
-val settingsEntry = patch("Reseam entry in Pinterest settings") {
-    description("Adds a Reseam Settings row.")
+val settingsEntry = patch(PinterestPatchStrings.settingsEntry) {
+    description(PinterestPatchStrings.settingsEntryDescription)
     compatibleWith(PINTEREST)
     dependsOn(pinterestSettings)
 

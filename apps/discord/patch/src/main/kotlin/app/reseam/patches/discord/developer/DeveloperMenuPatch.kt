@@ -10,11 +10,12 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordSettings
 
-val developerMenu = patch("Developer menu") {
-    description("Show Discord's existing developer tools in Settings.")
+val developerMenu = patch(DiscordPatchStrings.developerMenu) {
+    description(DiscordPatchStrings.developerMenuDescription)
     compatibleWith(DISCORD)
     settings(discordSettings, section(DiscordStrings.sectionDeveloper, DiscordSettings.developerMenu))
 

@@ -11,11 +11,12 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordSettings
 
-val instantChatJumps = patch("Instant chat jumps") {
-    description("Jump to messages without animated scrolling.")
+val instantChatJumps = patch(DiscordPatchStrings.instantChatJumps) {
+    description(DiscordPatchStrings.instantChatJumpsDescription)
     compatibleWith(DISCORD)
     settings(discordSettings, section(DiscordStrings.sectionChat, DiscordSettings.instantChatJumps))
 

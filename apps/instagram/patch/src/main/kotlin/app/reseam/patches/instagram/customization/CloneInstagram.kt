@@ -5,24 +5,25 @@ package app.reseam.patches.instagram.customization
 
 import app.reseam.patch.patch
 import app.reseam.patch.resourceRef
+import app.reseam.patches.instagram.InstagramPatchStrings
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.INSTAGRAM_PACKAGE
 import app.reseam.patches.instagram.core.signatureCheck
 
-val cloneInstagram = patch("Clone Instagram") {
-    description("Allows the app to be installed alongside the official Instagram app with a distinct package name.")
+val cloneInstagram = patch(InstagramPatchStrings.cloneInstagram) {
+    description(InstagramPatchStrings.cloneInstagramDescription)
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
     val packageName = stringOption(
         "packageName",
-        title = "Package name",
-        description = "New package name for the cloned app",
+        title = InstagramPatchStrings.cloneInstagramPackageName,
+        description = InstagramPatchStrings.cloneInstagramPackageNameDescription,
         default = "com.instagram.android.clone",
     )
     val appName = stringOption(
         "appName",
-        title = "App name",
-        description = "Display name for the cloned app",
+        title = InstagramPatchStrings.cloneInstagramAppName,
+        description = InstagramPatchStrings.cloneInstagramAppNameDescription,
         default = "Instagram Clone",
     )
 

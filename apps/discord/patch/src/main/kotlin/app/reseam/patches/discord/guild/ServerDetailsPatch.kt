@@ -10,12 +10,13 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordModules
 import app.reseam.patches.discord.core.discordSettings
 
-val serverDetails = patch("Server details") {
-    description("Show a server's owner, creation date, members, boosts and more in its options.")
+val serverDetails = patch(DiscordPatchStrings.serverDetails) {
+    description(DiscordPatchStrings.serverDetailsDescription)
     compatibleWith(DISCORD)
     dependsOn(discordModules)
     settings(discordSettings, section(DiscordStrings.sectionServers, DiscordSettings.serverDetails))

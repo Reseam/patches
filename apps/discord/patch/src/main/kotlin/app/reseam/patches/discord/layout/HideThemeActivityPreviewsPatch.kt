@@ -9,11 +9,12 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordSettings
 
-val hideThemeActivityPreviews = patch("Hide theme activity previews") {
-    description("Remove activity cards from the Appearance preview.")
+val hideThemeActivityPreviews = patch(DiscordPatchStrings.hideThemeActivityPreviews) {
+    description(DiscordPatchStrings.hideThemeActivityPreviewsDescription)
     compatibleWith(DISCORD)
     settings(discordSettings, section(DiscordStrings.sectionLayout, DiscordSettings.hideThemeActivityPreviews))
 

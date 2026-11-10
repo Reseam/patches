@@ -8,6 +8,7 @@ import app.reseam.patch.dex.Opcode
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -21,8 +22,8 @@ import app.reseam.youtube.buttons.bindings.LoopVideo
 import app.reseam.youtube.settings.PlayerSettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val loopVideo = patch("Loop video") {
-    description("Loops videos and optionally adds a loop button to the player.")
+val loopVideo = patch(YouTubePatchStrings.loopVideo) {
+    description(YouTubePatchStrings.loopVideoDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings, videoInformationHook, playerControls)
     settings(youTubeSettings, section(YouTubeSettingsPages.Player, YouTubeStrings.sectionPlayer, PlayerSettings.loopVideo, PlayerSettings.loopVideoButton))

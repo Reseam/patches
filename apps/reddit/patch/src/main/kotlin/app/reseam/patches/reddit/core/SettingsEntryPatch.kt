@@ -16,6 +16,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.openSettings
+import app.reseam.patches.reddit.RedditPatchStrings
 import app.reseam.reddit.settings.bindings.OpenReseamSettings
 import app.reseam.reddit.settings.bindings.ReseamSettingsIcon
 import app.reseam.reddit.settings.bindings.ReseamSettingsItem
@@ -38,8 +39,8 @@ private const val ICON_DEFAULTS = 0b11100
 // 20x20 dp, packed as two 32-bit values.
 private const val ICON_SIZE = 0x14_00000014L
 
-val settingsEntry = patch("Reseam entry in Reddit settings") {
-    description("Adds a Reseam Settings row under Account settings in Reddit's settings.")
+val settingsEntry = patch(RedditPatchStrings.settingsEntry) {
+    description(RedditPatchStrings.settingsEntryDescription)
     compatibleWith(REDDIT)
     dependsOn(redditSettings)
 

@@ -9,6 +9,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.patches.tiktok.core.TIKTOK
 import app.reseam.patches.tiktok.core.TikTokSettingsPages
 import app.reseam.patches.tiktok.core.tiktokSettings
@@ -16,8 +17,8 @@ import app.reseam.tiktok.settings.InterfaceSettings
 import app.reseam.tiktok.settings.TikTokStrings
 
 val hideQuickComments =
-    patch("Hide quick comments") {
-        description("Removes the emoji bar that appears under videos after watching for a while.")
+    patch(TikTokPatchStrings.hideQuickComments) {
+        description(TikTokPatchStrings.hideQuickCommentsDescription)
         compatibleWith(TIKTOK)
         settings(
             tiktokSettings,

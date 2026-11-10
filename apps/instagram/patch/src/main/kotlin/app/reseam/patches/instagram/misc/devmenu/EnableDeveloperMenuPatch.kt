@@ -12,13 +12,14 @@ import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.instagram.settings.DeveloperSettings
+import app.reseam.patches.instagram.InstagramPatchStrings
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.USER_SESSION
 import app.reseam.patches.instagram.core.instagramSettings
 import app.reseam.patches.instagram.core.signatureCheck
 
-val enableDeveloperMenu = patch("Enable developer menu") {
-    description("Surfaces Instagram's hidden developer menu as 'Internal Settings' at the bottom of the settings screen. Recommended on alpha/beta builds.")
+val enableDeveloperMenu = patch(InstagramPatchStrings.enableDeveloperMenu) {
+    description(InstagramPatchStrings.enableDeveloperMenuDescription)
     compatibleWith(INSTAGRAM)
     enabledByDefault(false)
     dependsOn(signatureCheck)

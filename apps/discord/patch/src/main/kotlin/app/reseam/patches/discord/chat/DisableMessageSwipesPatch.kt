@@ -11,11 +11,12 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordSettings
 
-val disableMessageSwipes = patch("Disable message swipes") {
-    description("Stop swipes from starting replies or edits.")
+val disableMessageSwipes = patch(DiscordPatchStrings.disableMessageSwipes) {
+    description(DiscordPatchStrings.disableMessageSwipesDescription)
     compatibleWith(DISCORD)
     settings(discordSettings, section(DiscordStrings.sectionChat, DiscordSettings.disableMessageSwipes))
 

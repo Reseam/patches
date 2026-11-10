@@ -12,6 +12,7 @@ import app.reseam.patch.point
 import app.reseam.patch.points
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.x.XPatchStrings
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
@@ -21,11 +22,8 @@ import app.reseam.x.settings.XStrings
 
 private const val SET = "java.util.Set"
 
-val unlockPremium = patch("Unlock Premium") {
-    description(
-        "Passes the client-side Premium checks X runs before video downloads, app colors and icons, " +
-            "and other Premium-only options.",
-    )
+val unlockPremium = patch(XPatchStrings.unlockPremium) {
+    description(XPatchStrings.unlockPremiumDescription)
     compatibleWith(X)
     settings(xSettings, section(XSettingsPages.Ads, XStrings.sectionPremium, XSettings.unlockPremium))
 

@@ -12,6 +12,7 @@ import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -20,8 +21,8 @@ import app.reseam.youtube.miniplayer.bindings.CompactMiniplayer
 import app.reseam.youtube.settings.PlayerSettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val compactMiniplayer = patch("Compact miniplayer") {
-    description("Adds an option to show the minimized video as a bar above the navigation bar.")
+val compactMiniplayer = patch(YouTubePatchStrings.compactMiniplayer) {
+    description(YouTubePatchStrings.compactMiniplayerDescription)
     compatibleWith(YOUTUBE)
     dependsOn(mainActivityHook)
     settings(youTubeSettings, section(YouTubeSettingsPages.Player, YouTubeStrings.sectionMiniplayer, PlayerSettings.compactMiniplayer))

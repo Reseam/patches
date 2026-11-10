@@ -10,6 +10,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.patches.tiktok.core.TIKTOK
 import app.reseam.patches.tiktok.core.TikTokSettingsPages
 import app.reseam.patches.tiktok.core.tiktokSettings
@@ -17,10 +18,8 @@ import app.reseam.tiktok.settings.InterfaceSettings
 import app.reseam.tiktok.settings.TikTokStrings
 
 val disableLikeLongPress =
-    patch("Disable like long-press") {
-        description(
-            "Stops holding the Like button from opening TikTok's repost and reaction options."
-        )
+    patch(TikTokPatchStrings.disableLikeLongPress) {
+        description(TikTokPatchStrings.disableLikeLongPressDescription)
         compatibleWith(TIKTOK)
         settings(
             tiktokSettings,

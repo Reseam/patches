@@ -8,6 +8,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -15,8 +16,8 @@ import app.reseam.youtube.misc.bindings.VideoCodecs
 import app.reseam.youtube.settings.VideoSettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val disableVideoCodecs = patch("Disable video codecs") {
-    description("Turns off HDR and the VP9 codec, which lowers battery use at the cost of quality.")
+val disableVideoCodecs = patch(YouTubePatchStrings.disableVideoCodecs) {
+    description(YouTubePatchStrings.disableVideoCodecsDescription)
     compatibleWith(YOUTUBE)
     settings(
         youTubeSettings,

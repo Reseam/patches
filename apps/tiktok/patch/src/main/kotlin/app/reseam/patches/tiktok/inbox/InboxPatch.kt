@@ -10,6 +10,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.settings.ToggleSetting
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.patches.tiktok.core.TIKTOK
 import app.reseam.patches.tiktok.core.TikTokSettingsPages
 import app.reseam.patches.tiktok.core.tiktokSettings
@@ -45,10 +46,8 @@ private val SECTIONS: Map<ToggleSetting, List<String>> =
     )
 
 val inbox =
-    patch("Inbox") {
-        description(
-            "Removes chosen sections from TikTok's Inbox, such as stories, suggested accounts and banners."
-        )
+    patch(TikTokPatchStrings.inbox) {
+        description(TikTokPatchStrings.inboxDescription)
         compatibleWith(TIKTOK)
         settings(
             tiktokSettings,

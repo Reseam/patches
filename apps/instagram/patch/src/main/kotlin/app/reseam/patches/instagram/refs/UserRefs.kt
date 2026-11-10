@@ -29,7 +29,6 @@ private val userUsername = method("userUsername") {
 }
 
 val userRefs = patch {
-    description("Binds app.reseam.instagram.refs.User bridges to Instagram's user principal.")
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
 

@@ -13,12 +13,13 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.instagram.InstagramPatchStrings
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.instagramSettings
 import app.reseam.patches.instagram.core.signatureCheck
 
-val followingFeed = patch("Following-only feed") {
-    description("Loads the home feed from accounts you follow, without suggested posts.")
+val followingFeed = patch(InstagramPatchStrings.followingFeed) {
+    description(InstagramPatchStrings.followingFeedDescription)
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
     settings(instagramSettings, section(InstagramStrings.sectionFeed, FeedSettings.followingOnly))

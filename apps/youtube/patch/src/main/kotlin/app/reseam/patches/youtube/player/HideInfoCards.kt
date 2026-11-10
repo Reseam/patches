@@ -13,6 +13,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -22,8 +23,8 @@ import app.reseam.youtube.playerui.bindings.HideInfoCardsFilter
 import app.reseam.youtube.settings.PlayerOverlaySettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val hideInfoCards = patch("Hide info cards") {
-    description("Removes information cards shown over videos.")
+val hideInfoCards = patch(YouTubePatchStrings.hideInfoCards) {
+    description(YouTubePatchStrings.hideInfoCardsDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings, lithoFilter)
     settings(youTubeSettings, section(YouTubeSettingsPages.Overlay, YouTubeStrings.sectionPlayerOverlay, PlayerOverlaySettings.hideInfoCards))

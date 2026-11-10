@@ -5,6 +5,7 @@ package app.reseam.patches.youtube.video
 
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.mainActivityOnCreate
@@ -14,8 +15,8 @@ import app.reseam.youtubecommon.settings.YouTubeCommonSettings
 import app.reseam.patches.youtubecommon.preferOriginalAudio
 import app.reseam.youtube.settings.YouTubeStrings
 
-val forceOriginalAudio = patch("Force original audio") {
-    description("Prefers the original audio stream when YouTube offers a dubbed track.")
+val forceOriginalAudio = patch(YouTubePatchStrings.forceOriginalAudio) {
+    description(YouTubePatchStrings.forceOriginalAudioDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings, videoInformationHook)
     settings(youTubeSettings, section(YouTubeSettingsPages.Video, YouTubeStrings.sectionAudio, YouTubeCommonSettings.forceOriginalAudio))

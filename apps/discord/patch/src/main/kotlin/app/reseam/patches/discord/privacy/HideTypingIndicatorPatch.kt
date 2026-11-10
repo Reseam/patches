@@ -9,11 +9,12 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordSettings
 
-val hideTypingIndicator = patch("Hide typing indicator") {
-    description("Stop others from seeing when you are typing.")
+val hideTypingIndicator = patch(DiscordPatchStrings.hideTypingIndicator) {
+    description(DiscordPatchStrings.hideTypingIndicatorDescription)
     compatibleWith(DISCORD)
     settings(discordSettings, section(DiscordStrings.sectionPrivacy, DiscordSettings.hideTypingIndicator))
 

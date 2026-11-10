@@ -11,6 +11,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtubecommon.hideById
+import app.reseam.patches.youtubemusic.YouTubeMusicPatchStrings
 import app.reseam.patches.youtubemusic.core.YOUTUBE_MUSIC
 import app.reseam.patches.youtubemusic.core.YouTubeMusicSettingsPages
 import app.reseam.patches.youtubemusic.core.youTubeMusicSettings
@@ -18,8 +19,8 @@ import app.reseam.youtubemusic.layout.bindings.ToolbarButtons
 import app.reseam.youtubemusic.settings.YouTubeMusicSettings
 import app.reseam.youtubemusic.settings.YouTubeMusicStrings
 
-val hideButtons = patch("Hide buttons") {
-    description("Adds options to hide the cast, search, history and activity feed buttons.")
+val hideButtons = patch(YouTubeMusicPatchStrings.hideButtons) {
+    description(YouTubeMusicPatchStrings.hideButtonsDescription)
     compatibleWith(YOUTUBE_MUSIC)
     settings(
         youTubeMusicSettings,

@@ -20,6 +20,7 @@ import app.reseam.patches.youtubecommon.playerSeekMethod
 import app.reseam.patches.youtubecommon.playerSeekSource
 import app.reseam.patches.youtubecommon.playerTimeMethod
 import app.reseam.patches.youtubecommon.videoIdGetter
+import app.reseam.patches.youtubemusic.YouTubeMusicPatchStrings
 import app.reseam.patches.youtubemusic.core.YOUTUBE_MUSIC
 import app.reseam.patches.youtubemusic.core.YouTubeMusicSettingsPages
 import app.reseam.patches.youtubemusic.core.youTubeMusicSettings
@@ -27,8 +28,8 @@ import app.reseam.youtubecommon.settings.SponsorBlockSettings
 import app.reseam.youtubecommon.settings.YouTubeCommonStrings
 import app.reseam.youtubemusic.sponsorblock.bindings.SponsorBlock
 
-val sponsorBlock = patch("SponsorBlock") {
-    description("Skips crowdsourced segments, such as the parts of music videos that are not music.")
+val sponsorBlock = patch(YouTubeMusicPatchStrings.sponsorBlock) {
+    description(YouTubeMusicPatchStrings.sponsorBlockDescription)
     compatibleWith(YOUTUBE_MUSIC)
     settings(
         youTubeMusicSettings,

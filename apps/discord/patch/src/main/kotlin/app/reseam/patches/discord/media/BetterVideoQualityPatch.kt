@@ -9,11 +9,12 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordSettings
 
-val betterVideoQuality = patch("Better video quality") {
-    description("Use a higher video quality when preparing uploads. Upload limits stay the same.")
+val betterVideoQuality = patch(DiscordPatchStrings.betterVideoQuality) {
+    description(DiscordPatchStrings.betterVideoQualityDescription)
     compatibleWith(DISCORD)
     settings(discordSettings, section(DiscordStrings.sectionMedia, DiscordSettings.betterVideoQuality))
 

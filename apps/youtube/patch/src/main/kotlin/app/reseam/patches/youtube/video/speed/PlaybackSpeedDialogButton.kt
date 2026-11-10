@@ -6,6 +6,7 @@ package app.reseam.patches.youtube.video.speed
 
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -20,8 +21,8 @@ import app.reseam.youtube.settings.PlayerControlsSettings
 import app.reseam.youtube.settings.YouTubeStrings
 import app.reseam.youtube.speed.bindings.PlaybackSpeedDialogButton
 
-val playbackSpeedDialogButton = patch("Playback speed player button") {
-    description("Adds a button that opens the configured playback-speed picker.")
+val playbackSpeedDialogButton = patch(YouTubePatchStrings.playbackSpeedDialogButton) {
+    description(YouTubePatchStrings.playbackSpeedDialogButtonDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings, playerControls, customPlaybackSpeed, videoInformationHook)
     settings(youTubeSettings, section(YouTubeSettingsPages.Controls, YouTubeStrings.sectionPlayerButtons, PlayerControlsSettings.playbackSpeedDialogButton))

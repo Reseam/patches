@@ -8,6 +8,7 @@ import app.reseam.patch.before
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.x.XPatchStrings
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
@@ -15,8 +16,8 @@ import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
 import app.reseam.x.share.bindings.ShareLinks
 
-val shareLinks = patch("Share links") {
-    description("Removes tracking from shared links and can share posts through an embed-friendly host instead of x.com.")
+val shareLinks = patch(XPatchStrings.shareLinks) {
+    description(XPatchStrings.shareLinksDescription)
     compatibleWith(X)
     settings(xSettings, section(XSettingsPages.Links, XStrings.sectionSharing, XSettings.removeShareTracking, XSettings.shareLinkProvider))
 

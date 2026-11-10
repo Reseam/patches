@@ -8,12 +8,13 @@ import app.reseam.patch.before
 import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.points
+import app.reseam.patches.pinterest.PinterestPatchStrings
 import app.reseam.patches.pinterest.core.PINTEREST
 import app.reseam.patches.pinterest.core.PINTEREST_PACKAGE
 import app.reseam.patches.pinterest.core.PINTEREST_SIGNATURE
 
-val fixPushNotifications = patch("Fix push notifications") {
-    description("Fixes push notifications in the patched app.")
+val fixPushNotifications = patch(PinterestPatchStrings.fixPushNotifications) {
+    description(PinterestPatchStrings.fixPushNotificationsDescription)
     compatibleWith(PINTEREST)
 
     execute {

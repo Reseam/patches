@@ -10,6 +10,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.twitch.TwitchPatchStrings
 import app.reseam.patches.twitch.core.TWITCH
 import app.reseam.patches.twitch.core.twitchSettings
 import app.reseam.twitch.settings.TwitchStrings
@@ -17,8 +18,8 @@ import app.reseam.twitch.settings.UpdateSettings
 
 private const val UPDATE_NOT_AVAILABLE = 1
 
-val disableUpdatePrompts = patch("Disable update prompts") {
-    description("Stops update prompts.")
+val disableUpdatePrompts = patch(TwitchPatchStrings.disableUpdatePrompts) {
+    description(TwitchPatchStrings.disableUpdatePromptsDescription)
     compatibleWith(TWITCH)
     settings(twitchSettings, section(TwitchStrings.sectionUpdates, UpdateSettings.disableUpdatePrompts))
 

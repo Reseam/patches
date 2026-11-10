@@ -7,8 +7,8 @@ import app.reseam.patch.patch
 
 private const val RESIZEABLE_ACTIVITY = "android:resizeableActivity"
 
-val allowSplitScreen = patch("Allow split screen") {
-    description("Lets the app open in split screen and in bubble windows instead of only full screen.")
+val allowSplitScreen = patch(UniversalPatchStrings.allowSplitScreen) {
+    description(UniversalPatchStrings.allowSplitScreenDescription)
 
     execute {
         var activities = 0

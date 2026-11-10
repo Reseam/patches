@@ -11,6 +11,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.points
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.twitch.TwitchPatchStrings
 import app.reseam.patches.twitch.core.TWITCH
 import app.reseam.patches.twitch.core.forceTrue
 import app.reseam.patches.twitch.core.isStaff
@@ -21,8 +22,8 @@ import app.reseam.twitch.settings.TwitchStrings
 // Twitch's R8 rules keep the names of its fragments.
 private const val MAIN_SETTINGS_FRAGMENT = "tv.twitch.android.settings.main.MainSettingsFragmentV2"
 
-val enableDebugMode = patch("Enable debug mode") {
-    description("Shows Twitch's staff tools, such as the debug menu, the video debug panel and the debug options of its web pages.")
+val enableDebugMode = patch(TwitchPatchStrings.enableDebugMode) {
+    description(TwitchPatchStrings.enableDebugModeDescription)
     compatibleWith(TWITCH)
     enabledByDefault(false)
     settings(twitchSettings, section(TwitchStrings.sectionDeveloper, DeveloperSettings.debugMode))

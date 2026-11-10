@@ -9,6 +9,7 @@ import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.x.XPatchStrings
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
@@ -16,8 +17,8 @@ import app.reseam.x.profile.bindings.ProfileMedia
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
 
-val defaultMediaTab = patch("Default media tab") {
-    description("Opens a profile's Media tab on Photos or Videos.")
+val defaultMediaTab = patch(XPatchStrings.defaultMediaTab) {
+    description(XPatchStrings.defaultMediaTabDescription)
     compatibleWith(X)
     settings(xSettings, section(XSettingsPages.Profile, XStrings.sectionProfile, XSettings.defaultMediaTab))
 

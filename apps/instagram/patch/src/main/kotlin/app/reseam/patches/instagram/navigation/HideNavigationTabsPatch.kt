@@ -13,13 +13,14 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
 import app.reseam.patch.settings.valueOf
+import app.reseam.patches.instagram.InstagramPatchStrings
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.USER_SESSION
 import app.reseam.patches.instagram.core.instagramSettings
 import app.reseam.patches.instagram.core.signatureCheck
 
-val hideNavigationTabs = patch("Hide navigation tabs") {
-    description("Removes the Home, Reels or Create tab from the bottom bar.")
+val hideNavigationTabs = patch(InstagramPatchStrings.hideNavigationTabs) {
+    description(InstagramPatchStrings.hideNavigationTabsDescription)
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
     settings(instagramSettings, section(InstagramStrings.sectionAppearance, AppearanceSettings.hideHomeTab, AppearanceSettings.hideReelsTab, AppearanceSettings.hideCreateTab))

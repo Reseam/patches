@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="allow_screenshots">Allow screenshots</string>
+    <string name="allow_screenshots_description">Allows screenshots and screen recordings of protected screens.</string>
+    <string name="allow_split_screen">Allow split screen</string>
+    <string name="allow_split_screen_description">Lets the app open in split screen and bubbles.</string>
+    <string name="change_package_name">Change package name</string>
+    <string name="change_package_name_description">Installs the app under another package name, so it runs next to the original. Some apps don\'t work this way.</string>
+    <string name="change_package_name_package_name">Package name</string>
+    <string name="change_package_name_package_name_description">The new package name. Empty adds .reseam to the original.</string>
+    <string name="disable_play_store_updates">Disable Play Store updates</string>
+    <string name="disable_play_store_updates_description">Hides the app from Google Play\'s updates.</string>
+    <string name="enable_debugging">Enable debugging</string>
+    <string name="enable_debugging_description">Marks the app debuggable, so adb can inspect it without root.</string>
+    <string name="hide_mock_location">Hide mock location</string>
+    <string name="hide_mock_location_description">Hides that your location comes from a mock location app.</string>
+    <string name="override_certificate_pinning">Override certificate pinning</string>
+    <string name="override_certificate_pinning_description">Trusts your own certificates, so a proxy can inspect the app\'s traffic.</string>
+    <string name="remove_ads">Block ads</string>
+    <string name="remove_ads_description">Stops the app from loading ads from common ad networks.</string>
+    <string name="remove_pairip">Remove Pairip</string>
+    <string name="remove_pairip_description">Removes Google Play\'s automatic integrity protection. Server-side checks still apply.</string>
+    <string name="remove_pairip_kill_vm">Stop the Pairip VM</string>
+    <string name="remove_pairip_kill_vm_description">Only for apps whose Pairip VM does nothing but check the license. Breaks apps that run their own code in it.</string>
+    <string name="remove_pairip_spoof_installer">Spoof installer checks</string>
+    <string name="remove_pairip_spoof_installer_description">Makes leftover installer checks report Google Play.</string>
+    <string name="report_play_store_installer">Report Play Store as installer</string>
+    <string name="report_play_store_installer_description">Makes the app see itself as installed from Google Play.</string>
+    <string name="spoof_signature">Spoof signature</string>
+    <string name="spoof_signature_description">Shows the app its original signature, so checks for a modified app pass.</string>
+</resources>

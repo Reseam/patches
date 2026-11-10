@@ -12,6 +12,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.section
+import app.reseam.patches.reddit.RedditPatchStrings
 import app.reseam.patches.reddit.core.REDDIT
 import app.reseam.patches.reddit.core.redditSettings
 import app.reseam.reddit.drawer.bindings.DrawerItems
@@ -22,8 +23,8 @@ import app.reseam.reddit.settings.RedditStrings
 private const val HEADER_ITEM = "com.reddit.screens.drawer.community.HeaderItem"
 private const val BIND_LIST_ON_VIEW = "com.reddit.screens.drawer.community.CommunityDrawerPresenter\$bindListOnView\$2"
 
-val hideDrawerItems = patch("Hide community drawer items") {
-    description("Removes Popular, News, Latest, Reddit Pro or Resources from the community drawer.")
+val hideDrawerItems = patch(RedditPatchStrings.hideDrawerItems) {
+    description(RedditPatchStrings.hideDrawerItemsDescription)
     compatibleWith(REDDIT)
     settings(
         redditSettings,

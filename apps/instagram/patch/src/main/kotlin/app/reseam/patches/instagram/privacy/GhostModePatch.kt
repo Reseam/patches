@@ -12,13 +12,14 @@ import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.instagram.settings.GhostSettings
+import app.reseam.patches.instagram.InstagramPatchStrings
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.USER_SESSION
 import app.reseam.patches.instagram.core.instagramSettings
 import app.reseam.patches.instagram.core.signatureCheck
 
-val ghostMode = patch("Ghost mode") {
-    description("Hides your activity: typing indicators, DM read receipts, story/live views, and screenshot notifications. Risk of account ban.")
+val ghostMode = patch(InstagramPatchStrings.ghostMode) {
+    description(InstagramPatchStrings.ghostModeDescription)
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
     settings(

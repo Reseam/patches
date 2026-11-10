@@ -10,12 +10,13 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordModules
 import app.reseam.patches.discord.core.discordSettings
 
-val hideBlockedMessages = patch("Hide blocked messages") {
-    description("Remove messages from blocked and ignored users from chat entirely.")
+val hideBlockedMessages = patch(DiscordPatchStrings.hideBlockedMessages) {
+    description(DiscordPatchStrings.hideBlockedMessagesDescription)
     compatibleWith(DISCORD)
     dependsOn(discordModules)
     settings(discordSettings, section(DiscordStrings.sectionChat, DiscordSettings.hideBlockedMessages))

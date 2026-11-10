@@ -5,8 +5,8 @@ package app.reseam.patches.universal
 
 import app.reseam.patch.patch
 
-val enableDebugging = patch("Enable debugging") {
-    description("Marks the app debuggable, so adb can run-as it and attach debuggers without root.")
+val enableDebugging = patch(UniversalPatchStrings.enableDebugging) {
+    description(UniversalPatchStrings.enableDebuggingDescription)
 
     execute {
         manifest.edit {

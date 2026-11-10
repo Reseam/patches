@@ -125,8 +125,8 @@ private fun BytecodeScope.neuter(className: String, methodName: String): Int {
     return methods.size
 }
 
-val removeAds = patch("Remove ads") {
-    description("Stops the app from loading ads from common ad networks.")
+val removeAds = patch(UniversalPatchStrings.removeAds) {
+    description(UniversalPatchStrings.removeAdsDescription)
 
     execute {
         var loaders = 0

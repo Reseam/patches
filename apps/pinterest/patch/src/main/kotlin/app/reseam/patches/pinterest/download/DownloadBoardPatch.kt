@@ -20,6 +20,7 @@ import app.reseam.patch.methodTarget
 import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.point
+import app.reseam.patches.pinterest.PinterestPatchStrings
 import app.reseam.patches.pinterest.core.PINTEREST
 import app.reseam.patches.pinterest.feed.dynamicFeedParsed
 import app.reseam.patches.pinterest.feed.feedModels
@@ -31,8 +32,8 @@ import app.reseam.pinterest.download.bindings.BoardDownloads
 // The item takes its title and index, seven optional fields, then its icon.
 private const val OPTIONAL_ITEM_FIELDS = 7
 
-val downloadBoard = patch("Download board") {
-    description("Downloads the loaded pins of a board.")
+val downloadBoard = patch(PinterestPatchStrings.downloadBoard) {
+    description(PinterestPatchStrings.downloadBoardDescription)
     compatibleWith(PINTEREST)
     dependsOn(downloadPins)
 

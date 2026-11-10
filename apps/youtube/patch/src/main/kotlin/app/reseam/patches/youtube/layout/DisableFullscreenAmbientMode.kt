@@ -11,6 +11,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -21,8 +22,8 @@ import app.reseam.youtube.settings.YouTubeStrings
 // attributes call the system default.
 private const val OPAQUE_BLACK = -16777216
 
-val disableFullscreenAmbientMode = patch("Disable fullscreen ambient mode") {
-    description("Stops the fullscreen background from glowing with the video's colours.")
+val disableFullscreenAmbientMode = patch(YouTubePatchStrings.disableFullscreenAmbientMode) {
+    description(YouTubePatchStrings.disableFullscreenAmbientModeDescription)
     compatibleWith(YOUTUBE)
     settings(youTubeSettings, section(YouTubeSettingsPages.Player, YouTubeStrings.sectionAmbientMode, PlayerSettings.disableFullscreenAmbientMode))
 

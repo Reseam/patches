@@ -10,11 +10,12 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordSettings
 
-val localThemes = patch("Local themes") {
-    description("Use bundled Nitro themes and save your choice on this phone.")
+val localThemes = patch(DiscordPatchStrings.localThemes) {
+    description(DiscordPatchStrings.localThemesDescription)
     compatibleWith(DISCORD)
     settings(discordSettings, section(DiscordStrings.sectionNitro, DiscordSettings.localThemes))
 

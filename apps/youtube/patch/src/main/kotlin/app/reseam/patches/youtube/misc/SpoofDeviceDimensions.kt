@@ -10,6 +10,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -21,8 +22,8 @@ import app.reseam.youtube.settings.YouTubeStrings
 private const val SMALLEST_SIDE = 64
 private const val LARGEST_SIDE = 4096
 
-val spoofDeviceDimensions = patch("Spoof device dimensions") {
-    description("Reports a screen that spans every size YouTube knows, which unlocks higher video qualities.")
+val spoofDeviceDimensions = patch(YouTubePatchStrings.spoofDeviceDimensions) {
+    description(YouTubePatchStrings.spoofDeviceDimensionsDescription)
     compatibleWith(YOUTUBE)
     settings(youTubeSettings, section(YouTubeSettingsPages.Advanced, YouTubeStrings.sectionDeviceDimensions, AdvancedSettings.spoofDeviceDimensions))
 

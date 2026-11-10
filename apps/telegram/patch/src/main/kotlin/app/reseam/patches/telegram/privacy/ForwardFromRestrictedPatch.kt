@@ -8,6 +8,7 @@ import app.reseam.patch.before
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
+import app.reseam.patches.telegram.TelegramPatchStrings
 import app.reseam.patches.telegram.core.MESSAGE_OBJECT
 import app.reseam.patches.telegram.core.MESSAGE_SUGGESTION_PARAMS
 import app.reseam.patches.telegram.core.SEND_MESSAGE_PARAMS
@@ -20,8 +21,8 @@ import app.reseam.telegram.settings.TelegramSettings
 // The server enforces `noforwards` on messages.forwardMessages, so re-enabling the UI is not
 // enough. Forwards from such chats go through processForwardFromMyName, which the app already
 // uses for encrypted dialogs: each message is re-sent as a fresh upload.
-val forwardFromRestricted = patch("Forward from restricted chats") {
-    description("Re-sends as a new message when forwarding from a no-forwards chat.")
+val forwardFromRestricted = patch(TelegramPatchStrings.forwardFromRestricted) {
+    description(TelegramPatchStrings.forwardFromRestrictedDescription)
     compatibleWith(TELEGRAM)
     dependsOn(telegramSettings)
 

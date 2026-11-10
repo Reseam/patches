@@ -10,12 +10,13 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordModules
 import app.reseam.patches.discord.core.discordSettings
 
-val quickReplyAndDelete = patch("Quick reply and delete") {
-    description("Double tap your message to reply to it. Tap it a third time to delete it.")
+val quickReplyAndDelete = patch(DiscordPatchStrings.quickReplyAndDelete) {
+    description(DiscordPatchStrings.quickReplyAndDeleteDescription)
     compatibleWith(DISCORD)
     dependsOn(discordModules)
     settings(discordSettings, section(DiscordStrings.sectionChat, DiscordSettings.quickReplyAndDelete))

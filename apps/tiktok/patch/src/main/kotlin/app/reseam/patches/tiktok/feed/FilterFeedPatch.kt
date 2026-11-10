@@ -6,6 +6,7 @@ package app.reseam.patches.tiktok.feed
 import app.reseam.patch.patch
 import app.reseam.patch.settings.TextSetting
 import app.reseam.patch.settings.section
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.patches.tiktok.core.TIKTOK
 import app.reseam.patches.tiktok.core.TikTokSettingsPages
 import app.reseam.patches.tiktok.core.tiktokSettings
@@ -26,10 +27,8 @@ private val LIMITS: Map<TextSetting, String> =
     )
 
 val filterFeed =
-    patch("Filter feed") {
-        description(
-            "Hides posts by account, hashtag, caption words, region, views, likes, age or length in TikTok's feeds and search."
-        )
+    patch(TikTokPatchStrings.filterFeed) {
+        description(TikTokPatchStrings.filterFeedDescription)
         compatibleWith(TIKTOK)
         dependsOn(feedFilter)
         settings(

@@ -12,6 +12,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.section
+import app.reseam.patches.instagram.InstagramPatchStrings
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.instagramSettings
 import app.reseam.patches.instagram.core.signatureCheck
@@ -19,8 +20,8 @@ import app.reseam.patches.instagram.core.signatureCheck
 private const val AVATAR_TO_ITEM = 0x3f495e9eL // 0.7866f
 private const val TWO = 0x40000000L // 2.0f
 
-val storyRingSize = patch("Story ring size") {
-    description("Resizes the story circles in the tray at the top of Home.")
+val storyRingSize = patch(InstagramPatchStrings.storyRingSize) {
+    description(InstagramPatchStrings.storyRingSizeDescription)
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
     settings(instagramSettings, section(InstagramStrings.sectionStories, StorySettings.ringSize))

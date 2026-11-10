@@ -16,12 +16,13 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.instagram.InstagramPatchStrings
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.instagramSettings
 import app.reseam.patches.instagram.core.signatureCheck
 
-val cleanShareLinks = patch("Clean share links") {
-    description("Copies and shares links to posts, reels, stories, profiles, lives and places without the part that identifies you.")
+val cleanShareLinks = patch(InstagramPatchStrings.cleanShareLinks) {
+    description(InstagramPatchStrings.cleanShareLinksDescription)
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
     settings(instagramSettings, section(InstagramStrings.sectionLinks, LinkSettings.cleanShareLinks))

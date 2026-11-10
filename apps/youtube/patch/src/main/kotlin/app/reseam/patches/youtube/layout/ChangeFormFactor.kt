@@ -10,6 +10,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -17,8 +18,8 @@ import app.reseam.youtube.misc.bindings.FormFactor
 import app.reseam.youtube.settings.AppearanceSettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val changeFormFactor = patch("Change form factor") {
-    description("Serves the phone, tablet or wearable layout regardless of the device.")
+val changeFormFactor = patch(YouTubePatchStrings.changeFormFactor) {
+    description(YouTubePatchStrings.changeFormFactorDescription)
     compatibleWith(YOUTUBE)
     settings(youTubeSettings, section(YouTubeSettingsPages.Appearance, YouTubeStrings.sectionFormFactor, AppearanceSettings.changeFormFactor))
 

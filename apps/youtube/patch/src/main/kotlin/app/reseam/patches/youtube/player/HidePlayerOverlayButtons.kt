@@ -20,6 +20,7 @@ import app.reseam.patch.redirectTo
 import app.reseam.patch.settings.ToggleSetting
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -63,8 +64,8 @@ internal val subtitleButtonController = methodTarget("subtitle button controller
     method("subtitle button controller") { literals(label); returns(Type.Void) }.method
 }
 
-val hidePlayerOverlayButtons = patch("Hide player overlay buttons") {
-    description("Adds options to hide controls and buttons over the video player.")
+val hidePlayerOverlayButtons = patch(YouTubePatchStrings.hidePlayerOverlayButtons) {
+    description(YouTubePatchStrings.hidePlayerOverlayButtonsDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings)
     settings(

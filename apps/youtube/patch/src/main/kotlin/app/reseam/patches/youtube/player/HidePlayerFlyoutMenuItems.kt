@@ -5,6 +5,7 @@ package app.reseam.patches.youtube.player
 
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -15,8 +16,8 @@ import app.reseam.youtube.playerui.bindings.PlayerFlyoutMenuItemsFilter
 import app.reseam.youtube.settings.PlayerOverlaySettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val hidePlayerFlyoutMenuItems = patch("Hide player flyout menu items") {
-    description("Hides selected items from the player's overflow menu.")
+val hidePlayerFlyoutMenuItems = patch(YouTubePatchStrings.hidePlayerFlyoutMenuItems) {
+    description(YouTubePatchStrings.hidePlayerFlyoutMenuItemsDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings, lithoFilter, playerTypeHook)
     settings(

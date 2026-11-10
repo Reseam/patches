@@ -10,6 +10,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.points
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -19,8 +20,8 @@ import app.reseam.youtube.settings.YouTubeStrings
 
 private const val URI = "android.net.Uri"
 
-val bypassUrlRedirects = patch("Bypass URL redirects") {
-    description("Opens a link directly instead of through youtube.com/redirect, which logs the click.")
+val bypassUrlRedirects = patch(YouTubePatchStrings.bypassUrlRedirects) {
+    description(YouTubePatchStrings.bypassUrlRedirectsDescription)
     compatibleWith(YOUTUBE)
     settings(youTubeSettings, section(YouTubeSettingsPages.Advanced, YouTubeStrings.sectionRedirects, AdvancedSettings.bypassUrlRedirects))
 

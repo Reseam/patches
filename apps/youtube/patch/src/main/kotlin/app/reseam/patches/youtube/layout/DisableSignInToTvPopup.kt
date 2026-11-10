@@ -9,14 +9,15 @@ import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
 import app.reseam.youtube.settings.PlayerSettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val disableSignInToTvPopup = patch("Disable sign in to TV popup") {
-    description("Hides the prompt to sign in to a TV on the same network.")
+val disableSignInToTvPopup = patch(YouTubePatchStrings.disableSignInToTvPopup) {
+    description(YouTubePatchStrings.disableSignInToTvPopupDescription)
     compatibleWith(YOUTUBE)
     settings(youTubeSettings, section(YouTubeSettingsPages.Player, YouTubeStrings.sectionCasting, PlayerSettings.disableSignInToTvPopup))
 

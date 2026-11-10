@@ -14,6 +14,7 @@ import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patch.settings.whenEnabled
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -43,8 +44,8 @@ private val kidsPlaybackPolicy = method("kids background playback policy") {
     returns(Type.Void)
 }
 
-val removeBackgroundPlaybackRestrictions = patch("Remove background playback restrictions") {
-    description("Allows eligible videos and Shorts to continue playing in the background.")
+val removeBackgroundPlaybackRestrictions = patch(YouTubePatchStrings.removeBackgroundPlaybackRestrictions) {
+    description(YouTubePatchStrings.removeBackgroundPlaybackRestrictionsDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings)
     settings(

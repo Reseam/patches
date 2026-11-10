@@ -11,19 +11,20 @@ import app.reseam.patch.method
 import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.points
+import app.reseam.patches.soundconnect.SoundConnectPatchStrings
 import app.reseam.patches.soundconnect.core.SOUND_CONNECT
 import app.reseam.soundconnect.youtubemusic.bindings.AppSpecs
 import app.reseam.soundconnect.youtubemusic.bindings.YouTubeMusicPackage
 
 private const val PLAY_STORE_YOUTUBE_MUSIC = "com.google.android.apps.youtube.music"
 
-val reseamYouTubeMusic = patch("Reseam YouTube Music") {
-    description("Uses Reseam's YouTube Music for Auto Play and linked services when it is installed, and Google's otherwise.")
+val reseamYouTubeMusic = patch(SoundConnectPatchStrings.reseamYouTubeMusic) {
+    description(SoundConnectPatchStrings.reseamYouTubeMusicDescription)
     compatibleWith(SOUND_CONNECT)
     val packageName = stringOption(
         "youTubeMusicPackageName",
-        title = "YouTube Music package name",
-        description = "The package name Reseam's YouTube Music was patched with",
+        title = SoundConnectPatchStrings.reseamYouTubeMusicYouTubeMusicPackageName,
+        description = SoundConnectPatchStrings.reseamYouTubeMusicYouTubeMusicPackageNameDescription,
         default = "app.reseam.android.apps.youtube.music",
         required = true,
     )

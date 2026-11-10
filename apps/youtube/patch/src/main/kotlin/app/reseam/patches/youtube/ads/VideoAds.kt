@@ -9,6 +9,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -19,8 +20,8 @@ import app.reseam.youtube.ads.bindings.Ads
 import app.reseam.youtube.settings.AdsSettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val videoAds = patch("Video ads") {
-    description("Skips advertisements served before or during video playback.")
+val videoAds = patch(YouTubePatchStrings.videoAds) {
+    description(YouTubePatchStrings.videoAdsDescription)
     compatibleWith(YOUTUBE)
     dependsOn(clientContextHook)
     settings(youTubeSettings, section(YouTubeSettingsPages.Ads, YouTubeStrings.sectionAds, AdsSettings.hideVideoAds))

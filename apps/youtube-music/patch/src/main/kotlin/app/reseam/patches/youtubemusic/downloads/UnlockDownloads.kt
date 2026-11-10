@@ -16,6 +16,7 @@ import app.reseam.patch.point
 import app.reseam.patch.reserveLocal
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtubemusic.YouTubeMusicPatchStrings
 import app.reseam.patches.youtubemusic.core.YOUTUBE_MUSIC
 import app.reseam.patches.youtubemusic.core.YouTubeMusicSettingsPages
 import app.reseam.patches.youtubemusic.core.youTubeMusicSettings
@@ -32,8 +33,8 @@ private const val ENDPOINT_TAG = "com.google.android.libraries.youtube.innertube
 private const val DOWNLOAD_STREAM_CONFIG = 3
 private const val JAVA_KEY = "java.security.Key"
 
-val unlockDownloads = patch("Unlock downloads") {
-    description("Downloads songs, albums and playlists without Premium.")
+val unlockDownloads = patch(YouTubeMusicPatchStrings.unlockDownloads) {
+    description(YouTubeMusicPatchStrings.unlockDownloadsDescription)
     compatibleWith(YOUTUBE_MUSIC)
     dependsOn(spoofVideoStreams)
     settings(

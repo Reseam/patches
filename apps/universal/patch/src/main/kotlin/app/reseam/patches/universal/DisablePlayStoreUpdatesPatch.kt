@@ -5,8 +5,8 @@ package app.reseam.patches.universal
 
 import app.reseam.patch.patch
 
-val disablePlayStoreUpdates = patch("Disable Play Store updates") {
-    description("Hides the app from Google Play's pending updates.")
+val disablePlayStoreUpdates = patch(UniversalPatchStrings.disablePlayStoreUpdates) {
+    description(UniversalPatchStrings.disablePlayStoreUpdatesDescription)
 
     execute {
         // Google Play accepts version codes up to 2100000000, below Android's signed Int maximum.

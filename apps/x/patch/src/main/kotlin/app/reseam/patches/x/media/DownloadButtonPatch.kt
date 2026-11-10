@@ -20,6 +20,7 @@ import app.reseam.patch.point
 import app.reseam.patch.points
 import app.reseam.patch.reserveLocal
 import app.reseam.patch.settings.section
+import app.reseam.patches.x.XPatchStrings
 import app.reseam.patches.x.core.COMPOSER
 import app.reseam.patches.x.core.FUNCTION0
 import app.reseam.patches.x.core.FUNCTION1
@@ -38,8 +39,8 @@ import app.reseam.x.settings.XStrings
 // Compose's defaults mask for padding(start, top, end, bottom): top and bottom left at 0.
 private const val PADDING_TOP_BOTTOM_DEFAULT = 0b1010
 
-val downloadButton = patch("Download button") {
-    description("Adds a download button next to the post menu on posts with photos, GIFs or videos.")
+val downloadButton = patch(XPatchStrings.downloadButton) {
+    description(XPatchStrings.downloadButtonDescription)
     compatibleWith(X)
     dependsOn(saveMedia)
     settings(xSettings, section(XSettingsPages.Media, XStrings.sectionMedia, XSettings.downloadButton, XSettings.saveAllMedia))

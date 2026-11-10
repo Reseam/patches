@@ -12,6 +12,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.section
 import app.reseam.patch.settings.whenEnabled
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -39,8 +40,8 @@ private val ROWS = mapOf(
     "send_feedback_key" to AppearanceSettings.hideSettingsSendFeedback,
 )
 
-val hideSettingsMenuItems = patch("Hide settings menu items") {
-    description("Adds options to hide rows from YouTube's settings screen.")
+val hideSettingsMenuItems = patch(YouTubePatchStrings.hideSettingsMenuItems) {
+    description(YouTubePatchStrings.hideSettingsMenuItemsDescription)
     compatibleWith(YOUTUBE)
     settings(youTubeSettings, section(YouTubeSettingsPages.Appearance, YouTubeStrings.sectionSettingsMenu, *ROWS.values.distinct().toTypedArray()))
 

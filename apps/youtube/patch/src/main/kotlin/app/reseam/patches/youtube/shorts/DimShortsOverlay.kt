@@ -10,6 +10,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -20,8 +21,8 @@ import app.reseam.youtube.settings.ShortsSettings
 import app.reseam.youtube.settings.YouTubeStrings
 import app.reseam.youtube.shorts.bindings.DimShortsOverlay
 
-val dimShortsOverlay = patch("Dim Shorts overlay") {
-    description("Dims the Shorts overlay and toolbar, with an optional immersive status bar.")
+val dimShortsOverlay = patch(YouTubePatchStrings.dimShortsOverlay) {
+    description(YouTubePatchStrings.dimShortsOverlayDescription)
     compatibleWith(YOUTUBE)
     dependsOn(playerTypeHook, youTubeSettings)
     settings(

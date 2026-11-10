@@ -10,11 +10,12 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordSettings
 
-val localEditHistory = patch("Local edit history") {
-    description("Show up to three previously displayed text versions of edited messages.")
+val localEditHistory = patch(DiscordPatchStrings.localEditHistory) {
+    description(DiscordPatchStrings.localEditHistoryDescription)
     compatibleWith(DISCORD)
     dependsOn(messageHistory)
     settings(discordSettings, section(DiscordStrings.sectionChat, DiscordSettings.localEditHistory))

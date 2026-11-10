@@ -10,14 +10,15 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.x.XPatchStrings
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
 
-val disableHomeTabSwipe = patch("Disable Home tab swipe") {
-    description("Stops swiping between the Home tabs. Tapping a tab still switches to it.")
+val disableHomeTabSwipe = patch(XPatchStrings.disableHomeTabSwipe) {
+    description(XPatchStrings.disableHomeTabSwipeDescription)
     compatibleWith(X)
     settings(xSettings, section(XSettingsPages.Home, XStrings.sectionHome, XSettings.disableHomeTabSwipe))
 

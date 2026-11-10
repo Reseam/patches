@@ -19,8 +19,8 @@ private val NETWORK_SECURITY_CONFIG = """
     </network-security-config>
 """.trimIndent()
 
-val overrideCertificatePinning = patch("Override certificate pinning") {
-    description("Trusts user-added certificate authorities and drops certificate pinning, so a proxy can inspect the app's traffic.")
+val overrideCertificatePinning = patch(UniversalPatchStrings.overrideCertificatePinning) {
+    description(UniversalPatchStrings.overrideCertificatePinningDescription)
 
     execute {
         resources.addFile(

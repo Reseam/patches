@@ -5,14 +5,15 @@ package app.reseam.patches.youtube.player
 
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
 import app.reseam.youtube.settings.PlayerOverlaySettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val hideAutoplayPreview = patch("Hide autoplay preview") {
-    description("Stops the autoplay preview from appearing over the player.")
+val hideAutoplayPreview = patch(YouTubePatchStrings.hideAutoplayPreview) {
+    description(YouTubePatchStrings.hideAutoplayPreviewDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings)
     settings(youTubeSettings, section(YouTubeSettingsPages.Overlay, YouTubeStrings.sectionPlayerOverlay, PlayerOverlaySettings.hideAutoplayPreview))

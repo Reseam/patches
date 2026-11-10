@@ -8,6 +8,7 @@ import app.reseam.patch.settings.section
 import app.reseam.patches.youtubecommon.hideById
 import app.reseam.patches.youtubecommon.lithoFilter
 import app.reseam.patches.youtubecommon.registerLithoFilter
+import app.reseam.patches.youtubemusic.YouTubeMusicPatchStrings
 import app.reseam.patches.youtubemusic.core.YOUTUBE_MUSIC
 import app.reseam.patches.youtubemusic.core.YouTubeMusicSettingsPages
 import app.reseam.patches.youtubemusic.core.youTubeMusicSettings
@@ -15,8 +16,8 @@ import app.reseam.youtubemusic.layout.bindings.LayoutComponentsFilter
 import app.reseam.youtubemusic.settings.YouTubeMusicSettings
 import app.reseam.youtubemusic.settings.YouTubeMusicStrings
 
-val hideLayoutComponents = patch("Hide layout components") {
-    description("Adds options to hide the Speed dial shelf and parts of the player.")
+val hideLayoutComponents = patch(YouTubeMusicPatchStrings.hideLayoutComponents) {
+    description(YouTubeMusicPatchStrings.hideLayoutComponentsDescription)
     compatibleWith(YOUTUBE_MUSIC)
     dependsOn(lithoFilter)
     settings(

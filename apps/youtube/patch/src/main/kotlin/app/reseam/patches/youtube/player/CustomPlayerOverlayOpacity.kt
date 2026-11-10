@@ -10,6 +10,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -17,8 +18,8 @@ import app.reseam.youtube.playerui.bindings.CustomPlayerOverlayOpacity
 import app.reseam.youtube.settings.PlayerOverlaySettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val customPlayerOverlayOpacity = patch("Custom player overlay opacity") {
-    description("Changes the opacity of the player background while controls are visible.")
+val customPlayerOverlayOpacity = patch(YouTubePatchStrings.customPlayerOverlayOpacity) {
+    description(YouTubePatchStrings.customPlayerOverlayOpacityDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings)
     settings(youTubeSettings, section(YouTubeSettingsPages.Overlay, YouTubeStrings.sectionPlayerOverlay, PlayerOverlaySettings.playerOverlayOpacity))

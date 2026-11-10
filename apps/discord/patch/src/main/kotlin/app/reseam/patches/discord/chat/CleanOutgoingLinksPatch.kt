@@ -10,11 +10,12 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordSettings
 
-val cleanOutgoingLinks = patch("Clean outgoing links") {
-    description("Remove tracking parameters from supported links when you send them.")
+val cleanOutgoingLinks = patch(DiscordPatchStrings.cleanOutgoingLinks) {
+    description(DiscordPatchStrings.cleanOutgoingLinksDescription)
     compatibleWith(DISCORD)
     settings(discordSettings, section(DiscordStrings.sectionChat, DiscordSettings.cleanOutgoingLinks))
 

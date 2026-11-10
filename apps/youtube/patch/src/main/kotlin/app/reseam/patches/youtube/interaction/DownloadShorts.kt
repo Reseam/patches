@@ -7,6 +7,7 @@ import app.reseam.patch.before
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
 import app.reseam.patch.settings.whenEnabled
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -25,8 +26,8 @@ import app.reseam.youtube.settings.YouTubeStrings
 
 private const val MESSAGE_LITE = "com.google.protobuf.MessageLite"
 
-val downloadShorts = patch("Download Shorts") {
-    description("Adds Download to the menus of the Shorts player and of Shorts' cards, using the app's own download flow.")
+val downloadShorts = patch(YouTubePatchStrings.downloadShorts) {
+    description(YouTubePatchStrings.downloadShortsDescription)
     compatibleWith(YOUTUBE)
     // Shorts are offered the qualities Unlock downloads offers, and download through its answers.
     dependsOn(youTubeSettings, videoInformationHook, unlockDownloads)

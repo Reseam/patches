@@ -14,6 +14,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.section
+import app.reseam.patches.instagram.InstagramPatchStrings
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.instagramSettings
 import app.reseam.patches.instagram.core.signatureCheck
@@ -23,8 +24,8 @@ private const val RELATIONSHIP = "com.instagram.api.schemas.RelationshipInfoDict
 private const val PANDO_RELATIONSHIP = "com.instagram.api.schemas.ImmutablePandoRelationshipInfoDict"
 private const val USER_DETAIL_VIEW_MODEL = "com.instagram.profile.fragment.UserDetailViewModel"
 
-val followsYou = patch("Follows you indicator") {
-    description("Shows 'Follows you' next to the name on profiles of accounts that follow you.")
+val followsYou = patch(InstagramPatchStrings.followsYou) {
+    description(InstagramPatchStrings.followsYouDescription)
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
     settings(instagramSettings, section(InstagramStrings.sectionSocial, FollowSettings.followsYouIndicator))

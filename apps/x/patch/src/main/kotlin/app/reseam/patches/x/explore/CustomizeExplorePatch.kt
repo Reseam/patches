@@ -12,6 +12,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.section
+import app.reseam.patches.x.XPatchStrings
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
@@ -21,8 +22,8 @@ import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
 import app.reseam.x.timeline.bindings.TimelineQueryFilter
 
-val customizeExplore = patch("Customize Explore") {
-    description("Hides Grok stories, trends and Explore tabs such as News and Sports.")
+val customizeExplore = patch(XPatchStrings.customizeExplore) {
+    description(XPatchStrings.customizeExploreDescription)
     compatibleWith(X)
     dependsOn(timelineQueryFilter)
     settings(

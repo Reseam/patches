@@ -11,6 +11,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.instagram.InstagramPatchStrings
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.instagramSettings
 import app.reseam.patches.instagram.core.signatureCheck
@@ -18,8 +19,8 @@ import app.reseam.patches.instagram.core.signatureCheck
 private const val RECYCLER_VIEW = "androidx.recyclerview.widget.RecyclerView"
 private const val VIEW_GONE = 8
 
-val hideExploreGrid = patch("Hide Explore grid") {
-    description("Leaves only search on the Explore tab.")
+val hideExploreGrid = patch(InstagramPatchStrings.hideExploreGrid) {
+    description(InstagramPatchStrings.hideExploreGridDescription)
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
     settings(instagramSettings, section(InstagramStrings.sectionAppearance, AppearanceSettings.hideExploreGrid))

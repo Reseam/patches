@@ -9,6 +9,7 @@ import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
+import app.reseam.patches.x.XPatchStrings
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
@@ -18,8 +19,8 @@ import app.reseam.x.settings.XStrings
 
 private const val LINKED_HASH_MAP = "java.util.LinkedHashMap"
 
-val customizeNavigationBar = patch("Customize navigation bar") {
-    description("Reorders, hides, and replaces the tabs in the bottom bar.")
+val customizeNavigationBar = patch(XPatchStrings.customizeNavigationBar) {
+    description(XPatchStrings.customizeNavigationBarDescription)
     compatibleWith(X)
     settings(
         xSettings,

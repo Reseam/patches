@@ -7,6 +7,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.settings.ToggleSetting
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.reddit.RedditPatchStrings
 import app.reseam.patches.reddit.core.REDDIT
 import app.reseam.reddit.settings.RedditSettings
 import app.reseam.patches.reddit.core.feedSectionContent
@@ -43,8 +44,8 @@ private val FEED_UNITS: Map<ToggleSetting, FeedUnits> = mapOf(
     RedditSettings.hideRelatedPosts to FeedUnits(sections = listOf("RelatedPostLazyListSection(id=")),
 )
 
-val hideFeedUnits = patch("Hide feed units") {
-    description("Removes Trending, carousels, promos, surveys, nudges and other units Reddit injects into feeds and posts.")
+val hideFeedUnits = patch(RedditPatchStrings.hideFeedUnits) {
+    description(RedditPatchStrings.hideFeedUnitsDescription)
     compatibleWith(REDDIT)
     settings(redditSettings, section(RedditStrings.sectionFeed, *FEED_UNITS.keys.toTypedArray()))
 

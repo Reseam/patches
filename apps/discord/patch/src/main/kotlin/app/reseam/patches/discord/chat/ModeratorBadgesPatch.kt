@@ -10,12 +10,13 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.discordModules
 import app.reseam.patches.discord.core.discordSettings
 
-val moderatorBadges = patch("Moderator badges") {
-    description("Tag the server owner, admins, managers and moderators next to their names in chat.")
+val moderatorBadges = patch(DiscordPatchStrings.moderatorBadges) {
+    description(DiscordPatchStrings.moderatorBadgesDescription)
     compatibleWith(DISCORD)
     dependsOn(discordModules)
     settings(discordSettings, section(DiscordStrings.sectionChat, DiscordSettings.moderatorBadges))

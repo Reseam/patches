@@ -9,6 +9,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.resourceRef
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -21,20 +22,20 @@ import app.reseam.youtube.settings.ShortsSettings
 import app.reseam.youtube.settings.YouTubeStrings
 import app.reseam.youtube.shorts.bindings.ShortsFilter
 
-val hideShortsComponents = patch("Hide Shorts components") {
-    description("Hides Shorts shelves and configurable components in the Shorts player.")
+val hideShortsComponents = patch(YouTubePatchStrings.hideShortsComponents) {
+    description(YouTubePatchStrings.hideShortsComponentsDescription)
     compatibleWith(YOUTUBE)
 
     val hideShortsAppShortcut = boolOption(
         "hideShortsAppShortcut",
-        title = "Hide Shorts app shortcut",
-        description = "Permanently removes the Shorts shortcut from the launcher.",
+        title = YouTubePatchStrings.hideShortsComponentsHideShortsAppShortcut,
+        description = YouTubePatchStrings.hideShortsComponentsHideShortsAppShortcutDescription,
         default = false,
     )
     val hideShortsWidget = boolOption(
         "hideShortsWidget",
-        title = "Hide Shorts widget",
-        description = "Permanently removes the Shorts button from YouTube's widget.",
+        title = YouTubePatchStrings.hideShortsComponentsHideShortsWidget,
+        description = YouTubePatchStrings.hideShortsComponentsHideShortsWidgetDescription,
         default = false,
     )
 

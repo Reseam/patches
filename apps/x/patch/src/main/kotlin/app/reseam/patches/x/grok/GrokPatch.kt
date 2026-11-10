@@ -11,6 +11,7 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.x.XPatchStrings
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.x.settings.XSettings
@@ -19,8 +20,8 @@ import app.reseam.patches.x.featureswitches.disableFeatureSwitches
 import app.reseam.patches.x.featureswitches.featureSwitchOverrides
 import app.reseam.x.settings.XStrings
 
-val grok = patch("Grok") {
-    description("Hides the Grok tab, the Grok buttons on posts and profiles, Imagine prompts, and Grok in the composer and the drawer.")
+val grok = patch(XPatchStrings.grok) {
+    description(XPatchStrings.grokDescription)
     compatibleWith(X)
     dependsOn(featureSwitchOverrides)
     settings(

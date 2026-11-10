@@ -8,12 +8,13 @@ import app.reseam.discord.settings.DiscordStrings
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.createMessageContent
 import app.reseam.patches.discord.core.discordSettings
 
-val staticChatEmoji = patch("Static chat emoji") {
-    description("Stop custom emoji from animating in chat.")
+val staticChatEmoji = patch(DiscordPatchStrings.staticChatEmoji) {
+    description(DiscordPatchStrings.staticChatEmojiDescription)
     compatibleWith(DISCORD)
     settings(discordSettings, section(DiscordStrings.sectionMedia, DiscordSettings.staticChatEmoji))
 

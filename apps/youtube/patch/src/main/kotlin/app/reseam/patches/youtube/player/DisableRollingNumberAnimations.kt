@@ -10,14 +10,15 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
 import app.reseam.youtube.settings.PlayerOverlaySettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val disableRollingNumberAnimations = patch("Disable rolling number animations") {
-    description("Stops animated number transitions in the player.")
+val disableRollingNumberAnimations = patch(YouTubePatchStrings.disableRollingNumberAnimations) {
+    description(YouTubePatchStrings.disableRollingNumberAnimationsDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings)
     settings(youTubeSettings, section(YouTubeSettingsPages.Overlay, YouTubeStrings.sectionPlayerOverlay, PlayerOverlaySettings.disableRollingNumberAnimations))

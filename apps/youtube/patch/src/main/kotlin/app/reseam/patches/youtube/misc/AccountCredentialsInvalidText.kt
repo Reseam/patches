@@ -9,6 +9,7 @@ import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.points
 import app.reseam.patch.settings.section
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
@@ -16,8 +17,8 @@ import app.reseam.youtube.misc.bindings.AccountCredentialsInvalidText
 import app.reseam.youtube.settings.AdvancedSettings
 import app.reseam.youtube.settings.YouTubeStrings
 
-val accountCredentialsInvalidText = patch("Account credentials invalid text") {
-    description("Explains the misleading offline account error when the network is available.")
+val accountCredentialsInvalidText = patch(YouTubePatchStrings.accountCredentialsInvalidText) {
+    description(YouTubePatchStrings.accountCredentialsInvalidTextDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings)
     settings(youTubeSettings, section(YouTubeSettingsPages.Advanced, YouTubeStrings.sectionAccountCompatibility, AdvancedSettings.accountCredentialsInvalidText))

@@ -11,13 +11,14 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.instagram.InstagramPatchStrings
 import app.reseam.patches.instagram.core.EXTENDED_IMAGE_URL
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.instagram.settings.MediaSettings
 import app.reseam.patches.instagram.core.instagramSettings
 
-val maxResolution = patch("Max resolution") {
-    description("Always loads the highest resolution image available, optionally the uploaded original.")
+val maxResolution = patch(InstagramPatchStrings.maxResolution) {
+    description(InstagramPatchStrings.maxResolutionDescription)
     compatibleWith(INSTAGRAM)
     settings(instagramSettings, section(InstagramStrings.sectionMedia, MediaSettings.maxResolution, MediaSettings.originalQuality))
 

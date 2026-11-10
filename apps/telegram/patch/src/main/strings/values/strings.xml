@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_sponsored_ads">Hide sponsored messages</string>
+    <string name="hide_sponsored_ads_description">Hides sponsored messages in channels.</string>
+    <string name="download_boost">Faster downloads</string>
+    <string name="download_boost_description">Downloads in larger parts, more at a time.</string>
+    <string name="bypass_integrity">Bypass integrity check</string>
+    <string name="bypass_integrity_description">Allows signing in on rooted phones and phones without Google services.</string>
+    <string name="fix_push_notifications">Fix push notifications</string>
+    <string name="fix_push_notifications_description">Makes push notifications arrive after patching.</string>
+    <string name="allow_screenshots">Allow screenshots of secret media</string>
+    <string name="allow_screenshots_description">Allows screenshots and screen recordings of view-once and self-destructing media.</string>
+    <string name="anti_delete">Keep deleted messages</string>
+    <string name="anti_delete_description">Keeps messages others delete and shows them in the chat.</string>
+    <string name="bypass_restrictions">Save from restricted chats</string>
+    <string name="bypass_restrictions_description">Allows copying, saving and forwarding in protected chats.</string>
+    <string name="forward_from_restricted">Forward from restricted chats</string>
+    <string name="forward_from_restricted_description">Sends messages from chats that block forwarding as new messages.</string>
+    <string name="hide_typing_indicator">Hide typing indicator</string>
+    <string name="hide_typing_indicator_description">Stops others from seeing that you are typing or recording.</string>
+    <string name="play_store_restrictions">Remove Play Store restrictions</string>
+    <string name="play_store_restrictions_description">Shows the chats and media Telegram hides only in its Play Store version.</string>
+    <string name="unlock_premium">Unlock Premium</string>
+    <string name="unlock_premium_description">Unlocks Premium features that work on this phone.</string>
+    <string name="disable_auto_update">Disable update prompts</string>
+    <string name="disable_auto_update_description">Stops update checks and prompts.</string>
+</resources>

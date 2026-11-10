@@ -16,14 +16,15 @@ import app.reseam.patch.point
 import app.reseam.patch.points
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.instagram.InstagramPatchStrings
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.instagram.settings.MetaAiSettings
 import app.reseam.patches.instagram.core.USER_SESSION
 import app.reseam.patches.instagram.core.instagramSettings
 import app.reseam.patches.instagram.core.signatureCheck
 
-val hideMetaAi = patch("Hide Meta AI") {
-    description("Removes Meta AI from Explore search, DMs and the post menu.")
+val hideMetaAi = patch(InstagramPatchStrings.hideMetaAi) {
+    description(InstagramPatchStrings.hideMetaAiDescription)
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck)
     settings(

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="block_embedded_ads">Block embedded ads</string>
+    <string name="block_embedded_ads_description">Loads live streams through a third-party proxy without ads, which sees your IP address and the channels you watch.</string>
+    <string name="block_video_ads">Block video ads</string>
+    <string name="block_video_ads_description">Blocks the video, audio and display ads Twitch requests itself.</string>
+    <string name="ignore_ad_events">Ignore ad events</string>
+    <string name="ignore_ad_events_description">Ignores the ad breaks and ad tracking Twitch announces during a stream.</string>
+    <string name="settings_entry">Reseam settings entry</string>
+    <string name="settings_entry_description">Adds Reseam Settings above Account in Twitch\'s settings.</string>
+    <string name="enable_debug_mode">Enable debug mode</string>
+    <string name="enable_debug_mode_description">Shows Twitch\'s staff tools, such as the debug menu and the video debug panel.</string>
+    <string name="fix_login_crash">Fix login crash</string>
+    <string name="fix_login_crash_description">Stops Twitch from crashing right after you log in.</string>
+    <string name="startup_tab">Startup tab</string>
+    <string name="startup_tab_description">Opens Twitch on Browse or Profile, and unlocks the Default Home Page setting.</string>
+    <string name="block_analytics">Block analytics</string>
+    <string name="block_analytics_description">Stops comScore, Nielsen, Sentry, Crashlytics, Sprig and Branch.</string>
+    <string name="disable_update_prompts">Disable update prompts</string>
+    <string name="disable_update_prompts_description">Stops update prompts.</string>
+</resources>

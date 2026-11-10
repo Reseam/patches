@@ -10,13 +10,14 @@ import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.replace
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 
 private const val BUNDLE_UPDATER = "com.discord.bundle_updater.BundleUpdater"
 private const val FUNCTION0 = "kotlin.jvm.functions.Function0"
 
-val keepPatchedBundle = patch("Keep patched bundle") {
-    description("Stop in-app code updates from replacing your patches.")
+val keepPatchedBundle = patch(DiscordPatchStrings.keepPatchedBundle) {
+    description(DiscordPatchStrings.keepPatchedBundleDescription)
     compatibleWith(DISCORD)
 
     execute {

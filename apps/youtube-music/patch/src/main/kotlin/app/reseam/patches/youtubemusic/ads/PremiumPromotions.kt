@@ -12,6 +12,7 @@ import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtubecommon.lithoFilter
 import app.reseam.patches.youtubecommon.registerLithoFilter
+import app.reseam.patches.youtubemusic.YouTubeMusicPatchStrings
 import app.reseam.patches.youtubemusic.core.YOUTUBE_MUSIC
 import app.reseam.patches.youtubemusic.core.YouTubeMusicSettingsPages
 import app.reseam.patches.youtubemusic.core.youTubeMusicSettings
@@ -20,8 +21,8 @@ import app.reseam.youtubemusic.layout.bindings.PremiumPromotionsFilter
 import app.reseam.youtubemusic.settings.YouTubeMusicSettings
 import app.reseam.youtubemusic.settings.YouTubeMusicStrings
 
-val premiumPromotions = patch("Premium promotions") {
-    description("Hides Get Music Premium in the account menu and in settings.")
+val premiumPromotions = patch(YouTubeMusicPatchStrings.premiumPromotions) {
+    description(YouTubeMusicPatchStrings.premiumPromotionsDescription)
     compatibleWith(YOUTUBE_MUSIC)
     settings(youTubeMusicSettings, section(YouTubeMusicSettingsPages.Ads, YouTubeMusicStrings.sectionPremium, YouTubeMusicSettings.hidePremiumPromotions))
 

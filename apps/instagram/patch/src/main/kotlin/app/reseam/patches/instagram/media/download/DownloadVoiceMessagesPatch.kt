@@ -13,6 +13,7 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.reserveLocal
+import app.reseam.patches.instagram.InstagramPatchStrings
 import app.reseam.patches.instagram.core.INSTAGRAM
 import app.reseam.patches.instagram.core.signatureCheck
 
@@ -20,8 +21,8 @@ private const val MEDIA = "com.instagram.feed.media.Media"
 private const val ACTIVITY = "android.app.Activity"
 private const val AUDIO_INFO = "com.instagram.api.schemas.AudioInfoIntf"
 
-val downloadVoiceMessages = patch("Download voice messages") {
-    description("Adds Save to the menu of voice messages in chats.")
+val downloadVoiceMessages = patch(InstagramPatchStrings.downloadVoiceMessages) {
+    description(InstagramPatchStrings.downloadVoiceMessagesDescription)
     compatibleWith(INSTAGRAM)
     dependsOn(signatureCheck, downloadMedia)
 

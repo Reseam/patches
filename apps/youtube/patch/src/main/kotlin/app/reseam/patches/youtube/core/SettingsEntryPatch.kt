@@ -7,6 +7,7 @@ import app.reseam.patch.Type
 import app.reseam.patch.after
 import app.reseam.patch.patch
 import app.reseam.patch.settings.opensSettings
+import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.internal.booleanFeatureReads
 import app.reseam.patches.youtubecommon.exportFlagsFromSettingsRow
 import app.reseam.patches.youtubecommon.openSettingsFromPreferenceIntents
@@ -21,8 +22,8 @@ private const val ICON_PATH = "res/drawable/$ICON.xml"
  * styling for free. androidx starts the `<intent>` a preference carries when it is tapped; the
  * row's intent asks for the settings, which open over the screen rather than in an activity.
  */
-val settingsEntry = patch("Reseam entry in YouTube settings") {
-    description("Adds a Reseam Settings row to YouTube's settings screen. Long-pressing it saves the app's experiment flags to Downloads.")
+val settingsEntry = patch(YouTubePatchStrings.settingsEntry) {
+    description(YouTubePatchStrings.settingsEntryDescription)
     compatibleWith(YOUTUBE)
     dependsOn(youTubeSettings)
 

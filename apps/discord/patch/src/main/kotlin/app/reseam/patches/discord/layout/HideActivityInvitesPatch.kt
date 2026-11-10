@@ -8,12 +8,13 @@ import app.reseam.discord.settings.DiscordStrings
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.createMessageContent
 import app.reseam.patches.discord.core.discordSettings
 
-val hideActivityInvites = patch("Hide activity invites") {
-    description("Hide activity invite cards in messages.")
+val hideActivityInvites = patch(DiscordPatchStrings.hideActivityInvites) {
+    description(DiscordPatchStrings.hideActivityInvitesDescription)
     compatibleWith(DISCORD)
     settings(discordSettings, section(DiscordStrings.sectionLayout, DiscordSettings.hideActivityInvites))
 

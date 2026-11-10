@@ -9,13 +9,14 @@ import app.reseam.discord.settings.DiscordStrings
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.createMessageContent
 import app.reseam.patches.discord.core.discordModules
 import app.reseam.patches.discord.core.discordSettings
 
-val addSourceCards = patch("Add source cards") {
-    description("Show shared patch source links as a card with an Add to Reseam Manager button.")
+val addSourceCards = patch(DiscordPatchStrings.addSourceCards) {
+    description(DiscordPatchStrings.addSourceCardsDescription)
     compatibleWith(DISCORD)
     dependsOn(discordModules)
     settings(discordSettings, section(DiscordStrings.sectionChat, DiscordSettings.addSourceCards))

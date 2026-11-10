@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_ads">Hide ads</string>
+    <string name="hide_ads_description">Hides sponsored posts.</string>
+    <string name="settings_entry">Reseam settings entry</string>
+    <string name="settings_entry_description">Adds Reseam Settings to Threads\' settings.</string>
+</resources>

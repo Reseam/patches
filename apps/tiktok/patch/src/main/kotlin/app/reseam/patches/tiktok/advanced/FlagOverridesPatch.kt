@@ -12,6 +12,7 @@ import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.section
+import app.reseam.patches.tiktok.TikTokPatchStrings
 import app.reseam.patches.tiktok.core.TIKTOK
 import app.reseam.patches.tiktok.core.TikTokSettingsPages
 import app.reseam.patches.tiktok.core.tiktokSettings
@@ -28,8 +29,8 @@ private val OVERRIDES =
     )
 
 val flagOverrides =
-    patch("Flag overrides") {
-        description("Lets you set TikTok's server settings and experiments by key, for testing.")
+    patch(TikTokPatchStrings.flagOverrides) {
+        description(TikTokPatchStrings.flagOverridesDescription)
         compatibleWith(TIKTOK)
         settings(
             tiktokSettings,
