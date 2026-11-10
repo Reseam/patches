@@ -1,85 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="hide_typing">Hide typing indicator</string>
-    <string name="hide_typing_summary">Others don\'t see when you\'re typing. Risk of account ban.</string>
+    <string name="hide_typing_summary">Others don\'t see that you\'re typing. Instagram may ban your account.</string>
     <string name="hide_dm_seen">Hide DM read receipts</string>
-    <string name="hide_dm_seen_summary">Senders don\'t see that you read their messages. Risk of account ban.</string>
+    <string name="hide_dm_seen_summary">Senders don\'t see that you read their messages. Instagram may ban your account.</string>
     <string name="hide_story_seen">Hide story views</string>
-    <string name="hide_story_seen_summary">You don\'t appear in story viewer lists. Risk of account ban.</string>
+    <string name="hide_story_seen_summary">You don\'t appear in story viewer lists. Instagram may ban your account.</string>
     <string name="hide_live_seen">Hide live views</string>
-    <string name="hide_live_seen_summary">You don\'t appear as a viewer of live videos. Risk of account ban.</string>
+    <string name="hide_live_seen_summary">You don\'t appear as a viewer of live videos. Instagram may ban your account.</string>
     <string name="hide_screenshot_notifications">Hide screenshot notifications</string>
-    <string name="hide_screenshot_notifications_summary">Others aren\'t told when you take a screenshot. Risk of account ban.</string>
-    <string name="max_resolution">Max photo resolution</string>
-    <string name="max_resolution_summary">Loads photos at their full resolution.</string>
+    <string name="hide_screenshot_notifications_summary">Others aren\'t told when you take a screenshot. Instagram may ban your account.</string>
+    <string name="max_resolution">Full-resolution photos</string>
     <string name="original_quality">Original photo quality</string>
-    <string name="original_quality_summary">Asks for photos as uploaded, larger than 1080p, by reporting a larger screen to Instagram. Risk of account ban.</string>
+    <string name="original_quality_summary">Loads photos as they were uploaded by reporting a larger screen. Instagram may ban your account.</string>
     <string name="disable_video_autoplay">Disable video autoplay</string>
-    <string name="disable_video_autoplay_summary">Feed videos play only when you tap them.</string>
+    <string name="disable_video_autoplay_summary">Plays feed videos only when you tap them.</string>
     <string name="disable_reels_swiping">Disable Reels swiping</string>
-    <string name="disable_reels_swiping_summary">The Reels viewer stays on the reel you opened.</string>
+    <string name="disable_reels_swiping_summary">Keeps Reels on the reel you opened.</string>
     <string name="disable_auto_advance">Disable story auto-advance</string>
-    <string name="disable_auto_advance_summary">Stays on a finished story until you tap.</string>
-    <string name="hide_suggested_users">Hide suggested accounts in stories</string>
-    <string name="hide_suggested_users_summary">Removes stories and accounts you don\'t follow from the story tray.</string>
+    <string name="disable_auto_advance_summary">Keeps a finished story on screen until you tap.</string>
+    <string name="hide_suggested_users">Hide suggested stories</string>
+    <string name="hide_suggested_users_summary">Hides stories and accounts you don\'t follow in the story tray.</string>
     <string name="hide_story_tray">Hide story tray</string>
-    <string name="hide_story_tray_summary">Removes the row of stories from the top of Home.</string>
+    <string name="hide_story_tray_summary">Hides the stories at the top of Home.</string>
     <string name="ring_size">Story ring size</string>
-    <string name="ring_size_summary">Size of the story circles at the top of Home.</string>
+    <string name="ring_size_summary">The size of the story circles at the top of Home.</string>
     <string name="ring_size_small">Small (80%)</string>
     <string name="ring_size_default">Default</string>
     <string name="ring_size_large">Large (120%)</string>
     <string name="ring_size_extra_large">Extra large (140%)</string>
     <string name="hide_in_explore_search">Hide Meta AI in Explore search</string>
-    <string name="hide_in_explore_search_summary">Removes Meta AI answers and prompts from Explore search.</string>
     <string name="hide_in_direct">Hide Meta AI in DMs</string>
-    <string name="hide_in_direct_summary">Removes Meta AI from the inbox, DM search and chats.</string>
+    <string name="hide_in_direct_summary">Hides Meta AI in the inbox, DM search and chats.</string>
     <string name="hide_in_posts">Hide Meta AI in posts</string>
-    <string name="hide_in_posts_summary">Removes the post summary and Ask Meta AI box from post menus.</string>
-    <string name="open_externally">Open links in external browser</string>
-    <string name="open_externally_summary">Opens web links in your default browser.</string>
+    <string name="hide_in_posts_summary">Hides the post summary and Ask Meta AI in post menus.</string>
+    <string name="open_externally">Open links in browser</string>
     <string name="clean_share_links">Clean share links</string>
-    <string name="clean_share_links_summary">Copies and shares links without the part that identifies you.</string>
+    <string name="clean_share_links_summary">Removes the part of shared links that identifies you.</string>
     <string name="allow_screenshots">Allow screenshots</string>
-    <string name="allow_screenshots_summary">Lifts the screenshot block in chats, view-once media and vanish mode.</string>
-    <string name="unlock_developer_options">Unlock developer options</string>
-    <string name="unlock_developer_options_summary">Shows Instagram\'s internal developer menu.</string>
+    <string name="allow_screenshots_summary">Includes chats, view-once media and vanish mode.</string>
+    <string name="unlock_developer_options">Enable developer menu</string>
+    <string name="unlock_developer_options_summary">Adds Instagram\'s developer menu at the bottom of settings.</string>
     <string name="copy_comment">Copy comment</string>
-    <string name="copy_comment_summary">Adds Copy to the menu that opens when you press and hold a comment.</string>
+    <string name="copy_comment_summary">Adds Copy to the long-press menu of comments.</string>
     <string name="comment_copied">Comment copied</string>
-    <string name="follows_you_indicator">Follows-you indicator</string>
-    <string name="follows_you_indicator_summary">Marks accounts that follow you on their profile.</string>
+    <string name="follows_you_indicator">Follows you indicator</string>
+    <string name="follows_you_indicator_summary">Shows Follows you on the profiles of accounts that follow you.</string>
     <string name="hide_repost_buttons">Hide repost buttons</string>
-    <string name="hide_repost_buttons_summary">Removes the repost button from the feed and Reels.</string>
     <string name="hide_engagement_counts">Hide engagement counts</string>
     <string name="hide_engagement_counts_summary">Hides like, comment, share and repost counts in the feed.</string>
     <string name="hide_home_tab">Hide Home tab</string>
-    <string name="hide_home_tab_summary">Removes Home from the bottom bar. Instagram opens on the next tab.</string>
+    <string name="hide_home_tab_summary">Instagram opens on the next tab.</string>
     <string name="hide_reels_tab">Hide Reels tab</string>
-    <string name="hide_reels_tab_summary">Removes Reels from the bottom bar.</string>
     <string name="hide_create_tab">Hide Create tab</string>
-    <string name="hide_create_tab_summary">Removes Create from the bottom bar where it appears.</string>
     <string name="hide_explore_grid">Hide Explore grid</string>
     <string name="hide_explore_grid_summary">Leaves only search on the Explore tab.</string>
     <string name="hide_instants">Hide Instants</string>
-    <string name="hide_instants_summary">Removes the Instants stack from the corner of your inbox.</string>
+    <string name="hide_instants_summary">Hides the Instants stack in the inbox.</string>
     <string name="hide_threads_badge">Hide Threads badge</string>
-    <string name="hide_threads_badge_summary">Removes the Threads link from profile headers.</string>
     <string name="hide_ads">Hide ads</string>
-    <string name="hide_ads_summary">Stops sponsored posts in feed, stories, explore, reels and search.</string>
     <string name="following_only">Following-only feed</string>
-    <string name="following_only_summary">Home shows posts from accounts you follow, in time order, then older posts instead of suggestions.</string>
+    <string name="following_only_summary">Shows posts from accounts you follow, newest first.</string>
     <string name="hide_suggested_accounts">Hide suggested accounts</string>
-    <string name="hide_suggested_accounts_summary">Removes suggested-account carousels from Home. Suggested posts still show; Following-only feed removes them.</string>
+    <string name="hide_suggested_accounts_summary">Suggested posts stay. Following-only feed hides them.</string>
     <string name="hide_threads_units">Hide Threads units</string>
-    <string name="hide_threads_units_summary">Removes Threads units from Home. May leave an empty gap.</string>
+    <string name="hide_threads_units_summary">Can leave an empty space in Home.</string>
     <string name="hide_shopping_units">Hide shopping units</string>
-    <string name="hide_shopping_units_summary">Removes shopping units from Home. May leave an empty gap.</string>
+    <string name="hide_shopping_units_summary">Can leave an empty space in Home.</string>
     <string name="hide_suggested_reels">Hide suggested Reels</string>
-    <string name="hide_suggested_reels_summary">Removes suggested Reels carousels from Home.</string>
     <string name="folder">Download folder</string>
-    <string name="show_toast">Show download toast</string>
-    <string name="show_toast_summary">Shows a message when a download starts.</string>
+    <string name="show_toast">Show download message</string>
     <string name="section_social">Social</string>
     <string name="section_comments">Comments</string>
     <string name="section_appearance">Appearance</string>
@@ -96,16 +86,22 @@
     <string name="download_label">Download</string>
     <string name="download_instant_description">Download instant</string>
     <string name="download_carousel_current">Current (<xliff:g id="slide">%1$d</xliff:g>/<xliff:g id="total">%2$d</xliff:g>)</string>
-    <string name="download_carousel_all">All <xliff:g id="count">%1$d</xliff:g> items</string>
+    <plurals name="download_carousel_all">
+        <item quantity="one">All <xliff:g id="count">%1$d</xliff:g> item</item>
+        <item quantity="other">All <xliff:g id="count">%1$d</xliff:g> items</item>
+    </plurals>
     <string name="download_cancel">Cancel</string>
     <string name="download_started">Downloading</string>
-    <string name="download_media_url_missing">Could not extract media URL</string>
+    <string name="download_media_url_missing">Couldn\'t find the media to download</string>
     <string name="download_failed">Download failed</string>
     <string name="download_slide_started">Downloading slide <xliff:g id="slide">%1$d</xliff:g></string>
-    <string name="download_slide_url_missing">Slide <xliff:g id="slide">%1$d</xliff:g>: could not extract URL</string>
-    <string name="download_story_media_missing">Could not extract story media</string>
-    <string name="download_carousel_started">Downloading <xliff:g id="count">%1$d</xliff:g> of <xliff:g id="total">%2$d</xliff:g> items</string>
-    <string name="download_carousel_urls_missing">Could not extract carousel URLs</string>
+    <string name="download_slide_url_missing">Couldn\'t download slide <xliff:g id="slide">%1$d</xliff:g></string>
+    <string name="download_story_media_missing">Couldn\'t find the story to download</string>
+    <plurals name="download_carousel_started">
+        <item quantity="one">Downloading <xliff:g id="started">%1$d</xliff:g> of <xliff:g id="count">%2$d</xliff:g> item</item>
+        <item quantity="other">Downloading <xliff:g id="started">%1$d</xliff:g> of <xliff:g id="count">%2$d</xliff:g> items</item>
+    </plurals>
+    <string name="download_carousel_urls_missing">Couldn\'t find the carousel\'s media</string>
     <string name="download_notification_description">Downloading Instagram media</string>
     <string name="follows_you_label">Follows you</string>
     <string name="follows_you_suffix">\u0020· Follows you</string>

@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="spoof_video_streams_client_tv">TV (SABR)</string>
-    <string name="spoof_video_streams_client_android">Android</string>
+    <string name="spoof_video_streams_client_android" translatable="false">Android</string>
     <string name="spoof_video_streams_client_web">Web (SABR)</string>
-    <string name="spoof_video_streams_client_visionos">visionOS</string>
+    <string name="spoof_video_streams_client_visionos" translatable="false">visionOS</string>
     <string name="spoof_video_streams_client_tv_simply">TV Simply</string>
     <string name="spoof_video_streams_stats_for_nerds">Show spoofed client in stats</string>
-    <string name="spoof_video_streams_stats_for_nerds_summary">Adds the active stream client to the player statistics format line.</string>
+    <string name="spoof_video_streams_stats_for_nerds_summary">Shows the stream client in Stats for nerds.</string>
     <string name="token_server_credential">Token server credential</string>
     <string name="spoof_video_streams">Fix playback</string>
     <string name="spoof_video_streams_summary">Makes videos play when YouTube blocks the app.</string>
     <string name="spoof_video_streams_client">Preferred client</string>
-    <string name="spoof_video_streams_client_summary">The client tried first; the rest follow in a fixed order. Android and Web can use the Reseam token server, under its terms at https://mint.reseam.app.</string>
-    <string name="user_agent_client_spoof">Spoof user-agent client</string>
-    <string name="user_agent_client_spoof_summary">Reports the app\'s original package name in generated client user agents.</string>
+    <string name="spoof_video_streams_client_summary">The client tried first. Android and Web can use the Reseam token server, under its terms at https://mint.reseam.app.</string>
+    <string name="user_agent_client_spoof">Spoof user agent</string>
+    <string name="user_agent_client_spoof_summary">Reports the original app in requests, so YouTube accepts them.</string>
     <string name="spoof_client_tv">TV (SABR)</string>
-    <string name="spoof_client_android">Android</string>
+    <string name="spoof_client_android" translatable="false">Android</string>
     <string name="spoof_client_web">Web (SABR)</string>
-    <string name="spoof_client_visionos">visionOS</string>
+    <string name="spoof_client_visionos" translatable="false">visionOS</string>
     <string name="spoof_client_tv_simply">TV Simply</string>
     <string name="spoof_client_native">Native</string>
-    <string name="spoof_stats_client">\u202D<xliff:g id="original">%1$s</xliff:g>\u2009(<xliff:g id="client">%2$s</xliff:g>)</string>
+    <string name="spoof_stats_client" translatable="false">\u202D<xliff:g id="original">%1$s</xliff:g>\u2009(<xliff:g id="client">%2$s</xliff:g>)</string>
 </resources>

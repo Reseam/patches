@@ -18,12 +18,17 @@ internal fun showSponsorBlockStats(context: Context, overlay: View) {
     AlertDialog.Builder(context)
         .setTitle(YouTubeStrings.sponsorblockStatisticsTitle)
         .setMessage(
-            YouTubeStrings.sponsorblockLocalStatistics(
-                storedSponsorBlockLong("you_tube_settings.sb_local_skip_count").toString(),
-                formatSponsorBlockDuration(
-                    storedSponsorBlockLong("you_tube_settings.sb_local_time_saved") / 1000
-                ),
-            )
+            listOf(
+                    YouTubeStrings.sponsorblockSegmentsSkipped(
+                        storedSponsorBlockLong("you_tube_settings.sb_local_skip_count").toInt()
+                    ),
+                    YouTubeStrings.sponsorblockTimeSaved(
+                        formatSponsorBlockDuration(
+                            storedSponsorBlockLong("you_tube_settings.sb_local_time_saved") / 1000
+                        )
+                    ),
+                )
+                .joinToString("\n")
         )
         .setPositiveButton(YouTubeStrings.sponsorblockOk, null)
         .setNeutralButton(YouTubeStrings.sponsorblockMyContributions) { _, _ ->
@@ -40,12 +45,13 @@ internal fun showSponsorBlockStats(context: Context, overlay: View) {
                             )
                         )
                     val message =
-                        YouTubeStrings.sponsorblockContributionStatistics(
-                            info.optString("userName"),
-                            info.optInt("segmentCount"),
-                            info.optInt("viewCount"),
-                            info.optDouble("minutesSaved").toString(),
-                        )
+                        listOf(
+                                info.optString("userName"),
+                                YouTubeStrings.sponsorblockSubmittedSegments(info.optInt("segmentCount")),
+                                YouTubeStrings.sponsorblockViewerSkips(info.optInt("viewCount")),
+                                YouTubeStrings.sponsorblockMinutesSaved(info.optDouble("minutesSaved").toString()),
+                            )
+                            .joinToString("\n")
                     overlay.post {
                         if (!(context as Activity).isDestroyed) {
                             AlertDialog.Builder(context)

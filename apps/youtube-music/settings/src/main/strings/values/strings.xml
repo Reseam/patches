@@ -8,7 +8,7 @@
     <string name="start_page_vllm">Liked music</string>
     <string name="start_page_femusic_offline">Downloads</string>
     <string name="custom_branding_icon_original">Original</string>
-    <string name="custom_branding_icon_reseam">Reseam</string>
+    <string name="custom_branding_icon_reseam" translatable="false">Reseam</string>
     <string name="playback_speed_default">App default</string>
     <string name="playback_speed_0_5">0.5×</string>
     <string name="playback_speed_0_75">0.75×</string>
@@ -18,11 +18,10 @@
     <string name="playback_speed_1_75">1.75×</string>
     <string name="playback_speed_2_0">2×</string>
     <string name="background_playback">Background playback</string>
-    <string name="background_playback_summary">Keeps playing when the app is in the background or the screen is off.</string>
+    <string name="background_playback_summary">Keeps playing in the background and with the screen off.</string>
     <string name="audio_only_playback">Audio-only playback</string>
-    <string name="audio_only_playback_summary">Unlocks the \"Don\'t play music videos\" setting in Data saving.</string>
-    <string name="hide_video_ads">Hide video ads</string>
-    <string name="hide_video_ads_summary">Skips advertisements played before and between songs.</string>
+    <string name="audio_only_playback_summary">Unlocks Don\'t play music videos in Data saving.</string>
+    <string name="hide_video_ads">Block video ads</string>
     <string name="hide_home_tab">Hide Home tab</string>
     <string name="hide_samples_tab">Hide Samples tab</string>
     <string name="hide_explore_tab">Hide Explore tab</string>
@@ -31,9 +30,9 @@
     <string name="hide_upgrade_tab">Hide Upgrade tab</string>
     <string name="start_page">Start page</string>
     <string name="hide_premium_promotions">Hide Get Music Premium</string>
-    <string name="hide_premium_promotions_summary">Removes it from the account menu and settings.</string>
+    <string name="hide_premium_promotions_summary">Hides it in the account menu and settings.</string>
     <string name="hide_category_bar">Hide category bar</string>
-    <string name="hide_category_bar_summary">Removes the row of mood and genre chips above feeds.</string>
+    <string name="hide_category_bar_summary">Hides the mood and genre chips above feeds.</string>
     <string name="hide_like_dislike_button">Hide like and dislike</string>
     <string name="hide_download_button">Hide download</string>
     <string name="hide_comments_button">Hide comments</string>
@@ -42,7 +41,7 @@
     <string name="hide_lyrics_button">Hide lyrics</string>
     <string name="hide_mix_button">Hide mix</string>
     <string name="force_portrait">Force portrait</string>
-    <string name="force_portrait_summary">Keeps the app in portrait when the device is rotated.</string>
+    <string name="force_portrait_summary">Keeps the app in portrait when you rotate your phone.</string>
     <string name="hide_cast_button">Hide cast button</string>
     <string name="hide_search_button">Hide search button</string>
     <string name="hide_history_button">Hide history button</string>
@@ -79,11 +78,10 @@
     <string name="hide_settings_recommendations">Hide Recommendations</string>
     <string name="hide_settings_about">Hide About YouTube Music</string>
     <string name="custom_branding_name">App name</string>
-    <string name="custom_branding_name_summary">Chooses the name shown by the selected launcher icon.</string>
+    <string name="custom_branding_name_summary">The name under the launcher icon.</string>
     <string name="custom_branding_icon">App icon</string>
-    <string name="custom_branding_icon_summary">Chooses the launcher icon used by the patched app.</string>
     <string name="start_minimized">Start in miniplayer</string>
-    <string name="start_minimized_summary">Keeps the player minimized when a new song starts.</string>
+    <string name="start_minimized_summary">Keeps a new song in the miniplayer.</string>
     <string name="playback_speed">Playback speed</string>
     <string name="unlock_downloads">Unlock downloads</string>
     <string name="unlock_downloads_summary">Downloads songs, albums and playlists without Premium.</string>

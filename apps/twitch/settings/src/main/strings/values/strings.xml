@@ -1,34 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="block_video_ads">Block video ads</string>
-    <string name="block_video_ads_summary">Blocks the ads the app requests itself. Ads stitched into the stream need Block embedded ads.</string>
+    <string name="block_video_ads_summary">Blocks the ads Twitch requests itself. Ads inside the stream need Block embedded ads.</string>
     <string name="block_embedded_ads">Block embedded ads</string>
     <string name="block_embedded_ads_summary">Loads live streams through a third-party proxy, which sees your IP address and the channels you watch.</string>
     <string name="embedded_ads_proxy">Ad-free proxy</string>
-    <string name="embedded_ads_proxy_summary">Playlist proxy that loads live streams without ads.</string>
-    <string name="embedded_ads_proxy_eu_luminous">eu.luminous.dev</string>
-    <string name="embedded_ads_proxy_eu2_luminous">eu2.luminous.dev</string>
-    <string name="embedded_ads_proxy_eu3_luminous">eu3.luminous.dev</string>
-    <string name="embedded_ads_proxy_as_luminous">as.luminous.dev</string>
-    <string name="embedded_ads_proxy_eu_perfprod">lb-eu.cdn-perfprod.com</string>
-    <string name="embedded_ads_proxy_eu2_perfprod">lb-eu2.cdn-perfprod.com</string>
-    <string name="embedded_ads_proxy_eu3_perfprod">lb-eu3.cdn-perfprod.com</string>
-    <string name="embedded_ads_proxy_eu4_perfprod">lb-eu4.cdn-perfprod.com</string>
-    <string name="embedded_ads_proxy_eu5_perfprod">lb-eu5.cdn-perfprod.com</string>
-    <string name="embedded_ads_proxy_na_perfprod">lb-na.cdn-perfprod.com</string>
-    <string name="embedded_ads_proxy_sa_perfprod">lb-sa.cdn-perfprod.com</string>
-    <string name="embedded_ads_proxy_as_perfprod">lb-as.cdn-perfprod.com</string>
-    <string name="embedded_ads_proxy_nadeko">twitch.nadeko.net</string>
-    <string name="embedded_ads_proxy_al_nadeko">twitch-al.nadeko.net</string>
+    <string name="embedded_ads_proxy_eu_luminous" translatable="false">eu.luminous.dev</string>
+    <string name="embedded_ads_proxy_eu2_luminous" translatable="false">eu2.luminous.dev</string>
+    <string name="embedded_ads_proxy_eu3_luminous" translatable="false">eu3.luminous.dev</string>
+    <string name="embedded_ads_proxy_as_luminous" translatable="false">as.luminous.dev</string>
+    <string name="embedded_ads_proxy_eu_perfprod" translatable="false">lb-eu.cdn-perfprod.com</string>
+    <string name="embedded_ads_proxy_eu2_perfprod" translatable="false">lb-eu2.cdn-perfprod.com</string>
+    <string name="embedded_ads_proxy_eu3_perfprod" translatable="false">lb-eu3.cdn-perfprod.com</string>
+    <string name="embedded_ads_proxy_eu4_perfprod" translatable="false">lb-eu4.cdn-perfprod.com</string>
+    <string name="embedded_ads_proxy_eu5_perfprod" translatable="false">lb-eu5.cdn-perfprod.com</string>
+    <string name="embedded_ads_proxy_na_perfprod" translatable="false">lb-na.cdn-perfprod.com</string>
+    <string name="embedded_ads_proxy_sa_perfprod" translatable="false">lb-sa.cdn-perfprod.com</string>
+    <string name="embedded_ads_proxy_as_perfprod" translatable="false">lb-as.cdn-perfprod.com</string>
+    <string name="embedded_ads_proxy_nadeko" translatable="false">twitch.nadeko.net</string>
+    <string name="embedded_ads_proxy_al_nadeko" translatable="false">twitch-al.nadeko.net</string>
     <string name="embedded_ads_proxy_custom">Custom</string>
     <string name="custom_embedded_ads_proxy">Custom proxy</string>
-    <string name="custom_embedded_ads_proxy_summary">Base URL of a Luminous or TTV LOL compatible playlist proxy, used when Ad-free proxy is Custom.</string>
+    <string name="custom_embedded_ads_proxy_summary">The address of a Luminous or TTV LOL compatible proxy, used when Ad-free proxy is Custom.</string>
     <string name="ignore_ad_events">Ignore ad events</string>
-    <string name="ignore_ad_events_summary">Takes effect after restarting Twitch.</string>
+    <string name="ignore_ad_events_summary">Ignores the ad breaks Twitch announces during a stream.</string>
     <string name="block_analytics">Block analytics</string>
     <string name="disable_update_prompts">Disable update prompts</string>
     <string name="startup_tab">Startup tab</string>
-    <string name="startup_tab_summary">Takes effect after restarting Twitch. Pick Following, Live or Clips for Home in Twitch\'s Settings › Preferences › Default Home Page.</string>
+    <string name="startup_tab_summary">For Following, Live or Clips, pick Home here and set Twitch\'s Settings › Preferences › Default Home Page.</string>
     <string name="startup_tab_home">Home</string>
     <string name="startup_tab_browse">Browse</string>
     <string name="startup_tab_profile">Profile</string>

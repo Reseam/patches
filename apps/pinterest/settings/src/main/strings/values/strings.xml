@@ -11,7 +11,10 @@
     <string name="hide_surveys">Hide survey prompts</string>
     <string name="download_started">Downloading</string>
     <string name="download_unavailable">Nothing to download</string>
-    <string name="download_board_started">Downloading <xliff:g id="count">%1$d</xliff:g> pins</string>
+    <plurals name="download_board_started">
+        <item quantity="one">Downloading <xliff:g id="count">%1$d</xliff:g> pin</item>
+        <item quantity="other">Downloading <xliff:g id="count">%1$d</xliff:g> pins</item>
+    </plurals>
     <string name="download_board_empty">Scroll the board first to load its pins</string>
     <string name="ask_which_media">Ask which media to save</string>
     <string name="ask_which_media_summary">When a pin has several images or videos, asks which of them to save.</string>
@@ -20,7 +23,7 @@
     <string name="save_media_video">Video <xliff:g id="number">%1$d</xliff:g></string>
     <string name="save_media_all">Save all</string>
     <string name="download_folder">Download folder</string>
-    <string name="download_folder_summary">Where saved pins go. Pick a folder, such as one on your SD card, or keep the gallery default.</string>
+    <string name="download_folder_summary">Where saved pins go. Keep the gallery default or pick a folder.</string>
     <string name="section_downloads">Downloads</string>
     <string name="section_feed">Feed</string>
     <string name="section_closeup">Closeup</string>
