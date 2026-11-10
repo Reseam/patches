@@ -5,6 +5,7 @@ package app.reseam.x.settings
 
 import app.reseam.patch.settings.Choice
 import app.reseam.patch.settings.SettingsGroup
+import app.reseam.patch.settings.TakesEffect
 import app.reseam.patch.settings.Vector
 import app.reseam.patch.settings.action
 import app.reseam.patch.settings.choice
@@ -24,8 +25,18 @@ object XSettings : SettingsGroup(XStrings) {
     val unlockPremium by toggle(default = true, icon = Vector.lucide("badge-check"))
     val downloadAnyVideo by toggle(default = true, icon = Vector.lucide("download"))
     val downloadWithoutWatermark by toggle(default = true, icon = Vector.lucide("droplet-off"))
-    val downloadFolder by folder(default = "X", icon = Vector.lucide("folder-open"))
-    val saveAllMedia by toggle(default = true, icon = Vector.lucide("images"))
+    val downloadFolder by
+        folder(
+            default = "X",
+            icon = Vector.lucide("folder-open"),
+            takesEffect = TakesEffect.IMMEDIATELY,
+        )
+    val saveAllMedia by
+        toggle(
+            default = true,
+            icon = Vector.lucide("images"),
+            takesEffect = TakesEffect.IMMEDIATELY,
+        )
     val downloadButton by toggle(default = true, icon = Vector.lucide("download"))
     val showSensitiveMedia by toggle(default = false, icon = Vector.lucide("eye"))
 

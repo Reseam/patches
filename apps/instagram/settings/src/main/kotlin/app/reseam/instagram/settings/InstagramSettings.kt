@@ -5,6 +5,7 @@ package app.reseam.instagram.settings
 
 import app.reseam.patch.settings.Choice
 import app.reseam.patch.settings.SettingsGroup
+import app.reseam.patch.settings.TakesEffect
 import app.reseam.patch.settings.Vector
 import app.reseam.patch.settings.choice
 import app.reseam.patch.settings.folder
@@ -95,6 +96,16 @@ object FeedSettings : SettingsGroup(InstagramStrings) {
 }
 
 object DownloadSettings : SettingsGroup(InstagramStrings) {
-    val folder by folder(default = "ReseamInsta", icon = Vector.lucide("folder-open"))
-    val showToast by toggle(default = true, icon = Vector.lucide("bell"))
+    val folder by
+        folder(
+            default = "ReseamInsta",
+            icon = Vector.lucide("folder-open"),
+            takesEffect = TakesEffect.IMMEDIATELY,
+        )
+    val showToast by
+        toggle(
+            default = true,
+            icon = Vector.lucide("bell"),
+            takesEffect = TakesEffect.IMMEDIATELY,
+        )
 }

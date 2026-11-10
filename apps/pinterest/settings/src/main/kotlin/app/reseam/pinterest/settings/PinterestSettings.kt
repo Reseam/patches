@@ -4,6 +4,7 @@
 package app.reseam.pinterest.settings
 
 import app.reseam.patch.settings.SettingsGroup
+import app.reseam.patch.settings.TakesEffect
 import app.reseam.patch.settings.Vector
 import app.reseam.patch.settings.folder
 import app.reseam.patch.settings.toggle
@@ -26,8 +27,18 @@ object ImageSettings : SettingsGroup(PinterestStrings) {
 }
 
 object DownloadSettings : SettingsGroup(PinterestStrings) {
-    val downloadFolder by folder(default = "Pinterest", icon = Vector.lucide("folder-open"))
-    val askWhichMedia by toggle(default = true, icon = Vector.lucide("images"))
+    val downloadFolder by
+        folder(
+            default = "Pinterest",
+            icon = Vector.lucide("folder-open"),
+            takesEffect = TakesEffect.IMMEDIATELY,
+        )
+    val askWhichMedia by
+        toggle(
+            default = true,
+            icon = Vector.lucide("images"),
+            takesEffect = TakesEffect.IMMEDIATELY,
+        )
 }
 
 object CloseupSettings : SettingsGroup(PinterestStrings) {
