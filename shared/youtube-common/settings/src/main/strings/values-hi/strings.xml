@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="custom_filter">कस्टम फ़िल्टर इस्तेमाल करें</string>
+    <string name="custom_filter_strings">कस्टम फ़िल्टर</string>
+    <string name="custom_filter_strings_summary">हर लाइन में एक एक्सप्रेशन, ^path#accessibility$buffer के रूप में।</string>
+    <string name="debug_logging">डीबग लॉगिंग</string>
+    <string name="debug_logging_summary">Reseam जो करता है उसे Android लॉग में लिखता है।</string>
+    <string name="sanitize_sharing_links">शेयर किए गए लिंक साफ़ करें</string>
+    <string name="sanitize_sharing_links_summary">आपके शेयर किए गए लिंक से ट्रैकिंग हटाता है।</string>
+    <string name="force_original_audio">हमेशा मूल ऑडियो चलाएँ</string>
+    <string name="force_original_audio_summary">डब किए गए ट्रैक की जगह मूल ऑडियो चलाता है।</string>
+    <string name="custom_branding_icon_custom">कस्टम</string>
+    <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g> को Downloads में सेव किया गया</string>
+    <string name="experiment_flags_failed">एक्सपेरिमेंट फ़्लैग सेव नहीं हो सके</string>
+    <string name="segment_behaviors_skip">अपने-आप छोड़ें</string>
+    <string name="segment_behaviors_skip_once">एक बार छोड़ें</string>
+    <string name="segment_behaviors_manual_skip">स्किप बटन दिखाएँ</string>
+    <string name="segment_behaviors_seekbar_only">प्रोग्रेस बार में दिखाएँ</string>
+    <string name="segment_behaviors_ignore">अनदेखा करें</string>
+    <string name="sb_enabled">SponsorBlock</string>
+    <string name="sb_enabled_summary">SponsorBlock कम्युनिटी के मार्क किए गए हिस्से छोड़ देता है। SponsorBlock को आपके खोले गए वीडियो दिखते हैं।</string>
+    <string name="sb_sponsor">स्पॉन्सर वाले हिस्से</string>
+    <string name="sb_selfpromo">अपना प्रचार</string>
+    <string name="sb_interaction">इंटरैक्शन की याद दिलाना</string>
+    <string name="sb_poi_highlight">हाइलाइट</string>
+    <string name="sb_intro">इंट्रो</string>
+    <string name="sb_outro">आउट्रो</string>
+    <string name="sb_preview">प्रीव्यू</string>
+    <string name="sb_hook">हुक</string>
+    <string name="sb_filler">फ़िलर</string>
+    <string name="sb_music_offtopic">बिना संगीत वाले हिस्से</string>
+    <string name="sb_toast_on_skip">छोड़ने के बाद मैसेज दिखाएँ</string>
+    <string name="sb_toast_on_connection_error">SponsorBlock के कनेक्शन की गड़बड़ियाँ दिखाएँ</string>
+    <string name="sb_track_skip_count">SponsorBlock से छोड़े गए हिस्सों का हिसाब रखें</string>
+    <string name="sb_track_skip_count_summary">आँकड़े इस फ़ोन पर रखता है और आपके छोड़े गए हिस्सों की जानकारी SponsorBlock को भेजता है।</string>
+    <string name="sb_min_segment_duration">हिस्से की कम से कम अवधि (सेकंड)</string>
+    <string name="section_sponsorblock">SponsorBlock</string>
+    <string name="sponsorblock_category_sponsor">स्पॉन्सर</string>
+    <string name="sponsorblock_category_selfpromo">अपना प्रचार</string>
+    <string name="sponsorblock_category_interaction">इंटरैक्शन की याद</string>
+    <string name="sponsorblock_category_highlight">हाइलाइट</string>
+    <string name="sponsorblock_category_intro">इंट्रो</string>
+    <string name="sponsorblock_category_outro">आउट्रो</string>
+    <string name="sponsorblock_category_preview">झलक</string>
+    <string name="sponsorblock_category_hook">हुक</string>
+    <string name="sponsorblock_category_filler">फ़िलर</string>
+    <string name="sponsorblock_category_music">बिना संगीत वाला हिस्सा</string>
+    <string name="sponsorblock_skipped"><xliff:g id="segment">%1$s</xliff:g> छोड़ा गया</string>
+    <string name="sponsorblock_load_failed">SponsorBlock के हिस्से लोड नहीं हो सके</string>
+</resources>

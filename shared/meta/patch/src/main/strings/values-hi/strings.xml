@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="signature_check">सिग्नेचर जाँच ठीक करें</string>
+    <string name="signature_check_description">दोबारा साइन किए गए ऐप को चालू होने देता है।</string>
+</resources>

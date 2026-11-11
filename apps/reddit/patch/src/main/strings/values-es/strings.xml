@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_comment_ads">Ocultar anuncios en comentarios</string>
+    <string name="hide_comment_ads_description">Oculta los anuncios debajo de las publicaciones y entre los comentarios.</string>
+    <string name="hide_feed_ads">Ocultar anuncios del feed</string>
+    <string name="hide_feed_ads_description">Oculta las publicaciones promocionadas en los feeds y en la búsqueda.</string>
+    <string name="color_thread_lines">Colorear líneas de hilos</string>
+    <string name="color_thread_lines_description">Da a cada nivel de respuesta su propio color de línea.</string>
+    <string name="ignore_suggested_sort">Usar siempre mi orden de comentarios</string>
+    <string name="ignore_suggested_sort_description">Ignora el orden que sugiere una publicación o comunidad.</string>
+    <string name="settings_entry">Acceso a los ajustes de Reseam</string>
+    <string name="settings_entry_description">Añade Ajustes de Reseam en los ajustes de la cuenta.</string>
+    <string name="disable_features">Desactivar funciones de Reddit</string>
+    <string name="disable_features_description">Desactiva Reddit Answers, los juegos, las ofertas, las sugerencias y otras funciones.</string>
+    <string name="default_feed_sort">Orden predeterminado del feed</string>
+    <string name="default_feed_sort_description">Ordena las comunidades, los feeds personalizados, Popular y All como tú elijas.</string>
+    <string name="hide_feed_units">Ocultar bloques del feed</string>
+    <string name="hide_feed_units_description">Oculta Tendencias, carruseles, promociones, encuestas y otros añadidos en los feeds.</string>
+    <string name="hide_recommended_communities">Ocultar comunidades recomendadas</string>
+    <string name="hide_recommended_communities_description">Oculta las sugerencias de comunidades en los feeds.</string>
+    <string name="hide_recommended_posts">Ocultar publicaciones recomendadas</string>
+    <string name="hide_recommended_posts_description">Oculta en Inicio las publicaciones de comunidades que no sigues.</string>
+    <string name="hide_drawer_items">Ocultar elementos del panel de comunidades</string>
+    <string name="hide_drawer_items_description">Oculta las filas que elijas del panel de comunidades.</string>
+    <string name="hide_navigation_tabs">Ocultar pestañas de navegación</string>
+    <string name="hide_navigation_tabs_description">Oculta las pestañas que elijas de la barra de navegación.</string>
+    <string name="fix_push_notifications">Arreglar notificaciones push</string>
+    <string name="fix_push_notifications_description">Hace que las notificaciones push lleguen después de aplicar los parches.</string>
+    <string name="skip_nsfw_warning">Omitir aviso de comunidad NSFW</string>
+    <string name="skip_nsfw_warning_description">Abre las comunidades para adultos sin preguntar.</string>
+    <string name="block_analytics">Bloquear analíticas</string>
+    <string name="block_analytics_description">Detiene el registro de eventos de Reddit y el rastreo de AppsFlyer.</string>
+    <string name="disable_app_rate_prompt">Ocultar petición de valoración</string>
+    <string name="disable_app_rate_prompt_description">Evita que Reddit te pida que lo valores.</string>
+    <string name="disable_screenshot_banner">Ocultar aviso de captura de pantalla</string>
+    <string name="disable_screenshot_banner_description">Evita que Reddit detecte las capturas de pantalla.</string>
+    <string name="hide_trending_searches">Ocultar búsquedas en tendencia</string>
+    <string name="hide_trending_searches_description">Oculta Tendencias en la pantalla de búsqueda.</string>
+    <string name="hide_premium_settings">Ocultar ajustes de Premium</string>
+    <string name="hide_premium_settings_description">Oculta las ofertas de Premium y Reddit Pro en los ajustes.</string>
+    <string name="vxreddit_links">Compartir enlaces de vxreddit</string>
+    <string name="vxreddit_links_description">Comparte las publicaciones como enlaces de vxreddit.com, que muestran su contenido en Discord y otras apps.</string>
+    <string name="block_forced_update">Bloquear actualizaciones forzadas</string>
+    <string name="block_forced_update_description">Evita que Reddit bloquee esta versión con una pantalla de actualización.</string>
+</resources>

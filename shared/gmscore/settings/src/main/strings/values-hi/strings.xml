@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="gmscore_missing_title">GmsCore इंस्टॉल नहीं है</string>
+    <string name="gmscore_missing_message">यह ऐप GmsCore (<xliff:g id="packageName">%1$s</xliff:g>) से साइन इन करने के लिए पैच किया गया था, जो इंस्टॉल नहीं है। उसे इंस्टॉल करें, एक बार खोलें और वह जो अनुमतियाँ माँगे वे दें, फिर यह ऐप दोबारा खोलें।</string>
+    <string name="gmscore_get">GmsCore पाएँ</string>
+    <string name="gmscore_close">बंद करें</string>
+    <string name="gmscore_mount_unsupported">GmsCore सपोर्ट पैच से माउंट वाले इंस्टॉलेशन टूट जाते हैं</string>
+    <string name="gmscore_battery_optimized_title">GmsCore पर बैटरी ऑप्टिमाइज़ेशन चालू है</string>
+    <string name="gmscore_battery_optimized_message">Android बैकग्राउंड में GmsCore को रोक देगा, जिससे आप साइन आउट हो जाएँगे और नोटिफ़िकेशन बंद हो जाएँगे। GmsCore के लिए बैटरी ऑप्टिमाइज़ेशन बंद करें।</string>
+    <string name="gmscore_open_settings">सेटिंग खोलें</string>
+    <string name="gmscore_unavailable_title">GmsCore उपलब्ध नहीं है</string>
+    <string name="gmscore_unavailable_message">ऐप GmsCore तक नहीं पहुँच पा रहा। GmsCore खोलें और उसकी अनुमतियाँ और बैकग्राउंड एक्टिविटी की सेटिंग जाँचें।</string>
+    <string name="gmscore_open_website">वेबसाइट खोलें</string>
+    <string name="gmscore_ignore">अनदेखा करें</string>
+    <string name="gmscore_no_screen_handler">यह स्क्रीन खोलने के लिए कोई ऐप उपलब्ध नहीं है</string>
+</resources>

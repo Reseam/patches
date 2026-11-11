@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="allow_screenshots">स्क्रीनशॉट की अनुमति दें</string>
+    <string name="allow_screenshots_description">सुरक्षित स्क्रीन के स्क्रीनशॉट और स्क्रीन रिकॉर्डिंग लेने देता है।</string>
+    <string name="allow_split_screen">स्प्लिट स्क्रीन की अनुमति दें</string>
+    <string name="allow_split_screen_description">ऐप को स्प्लिट स्क्रीन और बबल में खुलने देता है।</string>
+    <string name="change_package_name">पैकेज नाम बदलें</string>
+    <string name="change_package_name_description">ऐप को दूसरे पैकेज नाम से इंस्टॉल करता है, ताकि वह असली ऐप के साथ चल सके। कुछ ऐप इस तरह काम नहीं करते।</string>
+    <string name="change_package_name_package_name">पैकेज नाम</string>
+    <string name="change_package_name_package_name_description">नया पैकेज नाम। खाली रखने पर मूल नाम में .reseam जुड़ जाता है।</string>
+    <string name="disable_play_store_updates">Play Store के अपडेट बंद करें</string>
+    <string name="disable_play_store_updates_description">ऐप को Google Play के अपडेट से छिपाता है।</string>
+    <string name="enable_debugging">डीबगिंग चालू करें</string>
+    <string name="enable_debugging_description">ऐप को डीबग करने लायक बनाता है, ताकि adb बिना रूट के उसे जाँच सके।</string>
+    <string name="hide_mock_location">नकली लोकेशन छिपाएँ</string>
+    <string name="hide_mock_location_description">यह छिपाता है कि आपकी लोकेशन किसी नकली लोकेशन ऐप से आ रही है।</string>
+    <string name="override_certificate_pinning">सर्टिफ़िकेट पिनिंग ओवरराइड करें</string>
+    <string name="override_certificate_pinning_description">आपके अपने सर्टिफ़िकेट पर भरोसा करता है, ताकि प्रॉक्सी ऐप का ट्रैफ़िक जाँच सके।</string>
+    <string name="remove_ads">विज्ञापन ब्लॉक करें</string>
+    <string name="remove_ads_description">ऐप को आम विज्ञापन नेटवर्क से विज्ञापन लोड करने से रोकता है।</string>
+    <string name="remove_pairip">Pairip हटाएँ</string>
+    <string name="remove_pairip_description">Google Play की अपने-आप लगने वाली इंटेग्रिटी सुरक्षा हटाता है। सर्वर की ओर से होने वाली जाँच फिर भी लागू रहती है।</string>
+    <string name="remove_pairip_kill_vm">Pairip VM रोकें</string>
+    <string name="remove_pairip_kill_vm_description">सिर्फ़ उन ऐप के लिए जिनका Pairip VM लाइसेंस जाँचने के अलावा कुछ नहीं करता। जो ऐप उसमें अपना कोड चलाते हैं, वे टूट जाते हैं।</string>
+    <string name="remove_pairip_spoof_installer">इंस्टॉलर की जाँच को चकमा दें</string>
+    <string name="remove_pairip_spoof_installer_description">बची हुई इंस्टॉलर जाँचों को Google Play बताता है।</string>
+    <string name="report_play_store_installer">Play Store को इंस्टॉलर बताएँ</string>
+    <string name="report_play_store_installer_description">ऐप को लगता है कि वह Google Play से इंस्टॉल हुआ है।</string>
+    <string name="spoof_signature">सिग्नेचर बदलकर दिखाएँ</string>
+    <string name="spoof_signature_description">ऐप को उसका मूल सिग्नेचर दिखाता है, ताकि बदले हुए ऐप की जाँच पास हो जाए।</string>
+</resources>

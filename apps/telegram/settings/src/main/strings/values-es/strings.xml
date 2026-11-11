@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="recover_deleted_chats_chosen">Los chats en los que lo active</string>
+    <string name="recover_deleted_chats_all">Todos los chats, salvo los que desactive</string>
+    <string name="hide_sponsored_ads">Ocultar mensajes patrocinados</string>
+    <string name="disable_auto_update">Desactivar avisos de actualización</string>
+    <string name="unlock_premium">Desbloquear Premium</string>
+    <string name="unlock_premium_summary">Las funciones que comprueba el servidor siguen necesitando una suscripción.</string>
+    <string name="hide_typing">Ocultar indicador de escritura</string>
+    <string name="boost_downloads">Descargas más rápidas</string>
+    <string name="save_from_restricted">Guardar desde chats restringidos</string>
+    <string name="save_from_restricted_summary">Permite copiar, guardar y reenviar en chats protegidos.</string>
+    <string name="remove_play_store_restrictions">Quitar restricciones de Play Store</string>
+    <string name="remove_play_store_restrictions_summary">Muestra los chats y el contenido que Telegram oculta solo en su versión de Play Store.</string>
+    <string name="recover_deleted">Conservar mensajes eliminados</string>
+    <string name="recover_deleted_summary">Conserva los mensajes que otros eliminan y los marca con 🗑️.</string>
+    <string name="recover_deleted_chats">Activado para</string>
+    <string name="recover_deleted_chats_summary">Actívalo o desactívalo para un chat en el menú ⋮ del chat.</string>
+    <string name="allow_screenshots">Permitir capturas de contenido secreto</string>
+    <string name="allow_screenshots_summary">Incluye grabaciones de pantalla de contenido de una sola visualización y que se autodestruye.</string>
+    <string name="section_ads">Anuncios</string>
+    <string name="section_updates">Actualizaciones</string>
+    <string name="section_downloads">Descargas</string>
+    <string name="section_premium">Premium</string>
+    <string name="section_privacy">Privacidad</string>
+    <string name="anti_delete_recovery_off">Dejar de conservar mensajes eliminados</string>
+    <string name="anti_delete_recovery_on">Conservar mensajes eliminados</string>
+</resources>

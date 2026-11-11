@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_save_to_device">डिवाइस में सेव करें</string>
+    <string name="save_folder">सेव करने का फ़ोल्डर</string>
+    <string name="save_folder_summary">सेव की गई फ़ाइलें कहाँ जाएँ। पहली बार सेव करते समय आप इसे चुनते हैं।</string>
+    <string name="save_new_downloads">नए डाउनलोड डिवाइस में सेव करें</string>
+    <string name="save_new_downloads_summary">हर डाउनलोड पूरा होने पर उसे भी सेव करता है।</string>
+    <string name="save_to_device">डिवाइस में सेव करें</string>
+    <string name="notification_channel">सेव किए गए डाउनलोड</string>
+    <string name="saving"><xliff:g id="title">%1$s</xliff:g> सेव हो रहा है</string>
+    <string name="saving_progress"><xliff:g id="total">%2$d</xliff:g> में से <xliff:g id="done">%1$d</xliff:g> सेव हो रहा है</string>
+    <string name="saved"><xliff:g id="title">%1$s</xliff:g> सेव हो गया</string>
+    <plurals name="saved_count">
+        <item quantity="one"><xliff:g id="count">%1$d</xliff:g> डाउनलोड सेव हुआ</item>
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> डाउनलोड सेव हुए</item>
+    </plurals>
+    <string name="save_failed"><xliff:g id="title">%1$s</xliff:g> सेव नहीं हो सका</string>
+    <string name="save_failed_unsupported">इस डाउनलोड का फ़ॉर्मैट फ़ाइल के रूप में सेव नहीं हो सकता।</string>
+    <string name="save_failed_incomplete">डाउनलोड अभी पूरा नहीं हुआ है।</string>
+    <string name="save_failed_folder">सेव करने का फ़ोल्डर अब उपलब्ध नहीं है। उसे Reseam सेटिंग में दोबारा चुनें।</string>
+    <string name="save_failed_space">सेव करने के फ़ोल्डर में काफ़ी जगह नहीं है।</string>
+    <string name="open">खोलें</string>
+</resources>

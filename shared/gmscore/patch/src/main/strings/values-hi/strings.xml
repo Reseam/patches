@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gms_core_support">GmsCore सपोर्ट</string>
+    <string name="gms_core_support_description">Google Play services की जगह GmsCore से साइन इन करता है, जिसे आप अलग से इंस्टॉल करते हैं।</string>
+    <string name="gms_core_support_gms_core_vendor_group_id">GmsCore वेंडर</string>
+    <string name="gms_core_support_gms_core_vendor_group_id_description">वह ग्रुप ID जिसके तहत आपका GmsCore पब्लिश हुआ था।</string>
+    <string name="gms_core_support_package_name">पैकेज नाम</string>
+    <string name="gms_core_support_package_name_description">पैच किए गए ऐप का पैकेज नाम।</string>
+</resources>

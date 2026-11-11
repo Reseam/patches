@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="hide_ads">विज्ञापन छिपाएँ</string>
+    <string name="hide_shopping">शॉपिंग पिन छिपाएँ</string>
+    <string name="disable_update_prompts">अपडेट के सुझाव बंद करें</string>
+    <string name="hide_screenshot_share">स्क्रीनशॉट का शेयर मेन्यू छिपाएँ</string>
+    <string name="original_quality">मूल क्वालिटी की तस्वीरें</string>
+    <string name="original_quality_summary">ज़्यादा डेटा खर्च होता है।</string>
+    <string name="show_posted_date">पोस्ट की तारीख़ दिखाएँ</string>
+    <string name="posted_on"><xliff:g id="date">%1$s</xliff:g> को पोस्ट किया गया</string>
+    <string name="hide_surveys">सर्वे के सुझाव छिपाएँ</string>
+    <string name="download_started">डाउनलोड हो रहा है</string>
+    <string name="download_unavailable">डाउनलोड करने के लिए कुछ नहीं है</string>
+    <plurals name="download_board_started">
+        <item quantity="one"><xliff:g id="count">%1$d</xliff:g> पिन डाउनलोड हो रहा है</item>
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> पिन डाउनलोड हो रहे हैं</item>
+    </plurals>
+    <string name="download_board_empty">पिन लोड करने के लिए पहले बोर्ड स्क्रोल करें</string>
+    <string name="ask_which_media">पूछें कि कौन-सा मीडिया सेव करना है</string>
+    <string name="ask_which_media_summary">जब किसी पिन में कई तस्वीरें या वीडियो हों, तो पूछता है कि उनमें से क्या सेव करना है।</string>
+    <string name="save_media_choose">चुनें कि क्या सेव करना है</string>
+    <string name="save_media_image">तस्वीर <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_video">वीडियो <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_all">सभी सेव करें</string>
+    <string name="download_folder">डाउनलोड फ़ोल्डर</string>
+    <string name="download_folder_summary">सेव किए गए पिन कहाँ जाएँ। गैलरी का डिफ़ॉल्ट रखें या कोई फ़ोल्डर चुनें।</string>
+    <string name="section_downloads">डाउनलोड</string>
+    <string name="section_feed">फ़ीड</string>
+    <string name="section_closeup">क्लोज़अप</string>
+    <string name="section_images">तस्वीरें</string>
+    <string name="section_sharing">शेयरिंग</string>
+    <string name="section_prompts">सुझाव</string>
+    <string name="section_updates">अपडेट</string>
+</resources>

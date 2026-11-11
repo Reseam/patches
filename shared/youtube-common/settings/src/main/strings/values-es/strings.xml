@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="custom_filter">Usar filtros personalizados</string>
+    <string name="custom_filter_strings">Filtros personalizados</string>
+    <string name="custom_filter_strings_summary">Una expresión por línea, como ^path#accessibility$buffer.</string>
+    <string name="debug_logging">Registro de depuración</string>
+    <string name="debug_logging_summary">Escribe lo que hace Reseam en el registro de Android.</string>
+    <string name="sanitize_sharing_links">Limpiar enlaces compartidos</string>
+    <string name="sanitize_sharing_links_summary">Quita el rastreo de los enlaces que compartes.</string>
+    <string name="force_original_audio">Forzar audio original</string>
+    <string name="force_original_audio_summary">Reproduce el audio original en lugar de una pista doblada.</string>
+    <string name="custom_branding_icon_custom">Personalizado</string>
+    <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g> guardado en Descargas</string>
+    <string name="experiment_flags_failed">No se pudieron guardar los indicadores de experimentos</string>
+    <string name="segment_behaviors_skip">Omitir automáticamente</string>
+    <string name="segment_behaviors_skip_once">Omitir una vez</string>
+    <string name="segment_behaviors_manual_skip">Mostrar botón de omitir</string>
+    <string name="segment_behaviors_seekbar_only">Mostrar en la barra de progreso</string>
+    <string name="segment_behaviors_ignore">Ignorar</string>
+    <string name="sb_enabled">SponsorBlock</string>
+    <string name="sb_enabled_summary">Omite los segmentos marcados por la comunidad de SponsorBlock, que ve los videos que abres.</string>
+    <string name="sb_sponsor">Segmentos de patrocinio</string>
+    <string name="sb_selfpromo">Autopromoción</string>
+    <string name="sb_interaction">Recordatorios de interacción</string>
+    <string name="sb_poi_highlight">Momentos destacados</string>
+    <string name="sb_intro">Intros</string>
+    <string name="sb_outro">Cierres</string>
+    <string name="sb_preview">Avances</string>
+    <string name="sb_hook">Ganchos</string>
+    <string name="sb_filler">Relleno</string>
+    <string name="sb_music_offtopic">Partes sin música</string>
+    <string name="sb_toast_on_skip">Mostrar un mensaje después de omitir</string>
+    <string name="sb_toast_on_connection_error">Mostrar errores de conexión de SponsorBlock</string>
+    <string name="sb_track_skip_count">Registrar omisiones de SponsorBlock</string>
+    <string name="sb_track_skip_count_summary">Guarda estadísticas en este teléfono e informa de tus omisiones a SponsorBlock.</string>
+    <string name="sb_min_segment_duration">Duración mínima del segmento (segundos)</string>
+    <string name="section_sponsorblock">SponsorBlock</string>
+    <string name="sponsorblock_category_sponsor">Patrocinio</string>
+    <string name="sponsorblock_category_selfpromo">Autopromoción</string>
+    <string name="sponsorblock_category_interaction">Recordatorio de interacción</string>
+    <string name="sponsorblock_category_highlight">Momento destacado</string>
+    <string name="sponsorblock_category_intro">Intro</string>
+    <string name="sponsorblock_category_outro">Cierre</string>
+    <string name="sponsorblock_category_preview">Vista previa</string>
+    <string name="sponsorblock_category_hook">Gancho</string>
+    <string name="sponsorblock_category_filler">Relleno</string>
+    <string name="sponsorblock_category_music">Parte sin música</string>
+    <string name="sponsorblock_skipped">Se omitió <xliff:g id="segment">%1$s</xliff:g></string>
+    <string name="sponsorblock_load_failed">No se pudieron cargar los segmentos de SponsorBlock</string>
+</resources>

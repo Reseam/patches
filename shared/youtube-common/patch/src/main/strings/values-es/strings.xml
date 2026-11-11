@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_branding">Marca personalizada</string>
+    <string name="custom_branding_description">Añade iconos y nombres de app para elegir, incluidos los tuyos.</string>
+    <string name="custom_branding_custom_name">Nombre de app personalizado</string>
+    <string name="custom_branding_custom_name_description">Añade este nombre a las opciones de nombre de la app y lo deja como predeterminado.</string>
+    <string name="custom_branding_custom_icon">Icono personalizado</string>
+    <string name="custom_branding_custom_icon_description">Una carpeta con carpetas de mipmap-mdpi a mipmap-xxxhdpi, cada una con foreground.png y background.png. Añade el icono a las opciones y lo deja como predeterminado.</string>
+</resources>

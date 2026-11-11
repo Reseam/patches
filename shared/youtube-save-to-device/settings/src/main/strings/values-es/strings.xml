@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_save_to_device">Guardar en el dispositivo</string>
+    <string name="save_folder">Carpeta de guardado</string>
+    <string name="save_folder_summary">Adónde van los archivos guardados. La eliges la primera vez que guardas.</string>
+    <string name="save_new_downloads">Guardar descargas nuevas en el dispositivo</string>
+    <string name="save_new_downloads_summary">También guarda cada descarga cuando termina.</string>
+    <string name="save_to_device">Guardar en el dispositivo</string>
+    <string name="notification_channel">Descargas guardadas</string>
+    <string name="saving">Guardando <xliff:g id="title">%1$s</xliff:g></string>
+    <string name="saving_progress">Guardando <xliff:g id="done">%1$d</xliff:g> de <xliff:g id="total">%2$d</xliff:g></string>
+    <string name="saved"><xliff:g id="title">%1$s</xliff:g> guardado</string>
+    <plurals name="saved_count">
+        <item quantity="one"><xliff:g id="count">%1$d</xliff:g> descarga guardada</item>
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> descargas guardadas</item>
+    </plurals>
+    <string name="save_failed">No se pudo guardar <xliff:g id="title">%1$s</xliff:g></string>
+    <string name="save_failed_unsupported">El formato de la descarga no se puede guardar como archivo.</string>
+    <string name="save_failed_incomplete">La descarga no ha terminado.</string>
+    <string name="save_failed_folder">La carpeta de guardado ya no está disponible. Elígela de nuevo en Ajustes de Reseam.</string>
+    <string name="save_failed_space">No hay espacio suficiente en la carpeta de guardado.</string>
+    <string name="open">Abrir</string>
+</resources>

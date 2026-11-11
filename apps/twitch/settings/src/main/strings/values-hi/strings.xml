@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="block_video_ads">वीडियो विज्ञापन ब्लॉक करें</string>
+    <string name="block_video_ads_summary">वे विज्ञापन ब्लॉक करता है जिन्हें Twitch ख़ुद माँगता है। स्ट्रीम के अंदर के विज्ञापनों के लिए \"स्ट्रीम में जुड़े विज्ञापन ब्लॉक करें\" चाहिए।</string>
+    <string name="block_embedded_ads">स्ट्रीम में जुड़े विज्ञापन ब्लॉक करें</string>
+    <string name="block_embedded_ads_summary">लाइव स्ट्रीम किसी तीसरे पक्ष के प्रॉक्सी से लोड करता है, जिसे आपका IP पता और आपके देखे गए चैनल दिखते हैं।</string>
+    <string name="embedded_ads_proxy">बिना विज्ञापन वाला प्रॉक्सी</string>
+    <string name="embedded_ads_proxy_custom">कस्टम</string>
+    <string name="custom_embedded_ads_proxy">कस्टम प्रॉक्सी</string>
+    <string name="custom_embedded_ads_proxy_summary">Luminous या TTV LOL के साथ चलने वाले प्रॉक्सी का पता, जो तब इस्तेमाल होता है जब \"बिना विज्ञापन वाला प्रॉक्सी\" कस्टम पर हो।</string>
+    <string name="ignore_ad_events">विज्ञापन इवेंट अनदेखा करें</string>
+    <string name="ignore_ad_events_summary">स्ट्रीम के दौरान Twitch के बताए विज्ञापन ब्रेक को अनदेखा करता है।</string>
+    <string name="block_analytics">एनालिटिक्स ब्लॉक करें</string>
+    <string name="disable_update_prompts">अपडेट के सुझाव बंद करें</string>
+    <string name="startup_tab">शुरुआती टैब</string>
+    <string name="startup_tab_summary">Following, Live या Clips के लिए यहाँ Home चुनें और Twitch की Settings › Preferences › Default Home Page सेट करें।</string>
+    <string name="startup_tab_home">Home</string>
+    <string name="startup_tab_browse">Browse</string>
+    <string name="startup_tab_profile">Profile</string>
+    <string name="debug_mode">डीबग मोड</string>
+    <string name="section_ads">विज्ञापन</string>
+    <string name="section_privacy">निजता</string>
+    <string name="section_updates">अपडेट</string>
+    <string name="section_navigation">नेविगेशन</string>
+    <string name="section_developer">डेवलपर</string>
+</resources>

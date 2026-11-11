@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gms_core_support">Compatibilidad con GmsCore</string>
+    <string name="gms_core_support_description">Inicia sesión mediante GmsCore en lugar de los servicios de Google Play. GmsCore se instala aparte.</string>
+    <string name="gms_core_support_gms_core_vendor_group_id">Proveedor de GmsCore</string>
+    <string name="gms_core_support_gms_core_vendor_group_id_description">El ID de grupo con el que se publicó tu GmsCore.</string>
+    <string name="gms_core_support_package_name">Nombre del paquete</string>
+    <string name="gms_core_support_package_name_description">El nombre de paquete de la app parcheada.</string>
+</resources>

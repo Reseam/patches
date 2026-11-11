@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="show_posted_date">पोस्ट की तारीख़ दिखाएँ</string>
+    <string name="show_posted_date_description">दिखाता है कि पिन कब पोस्ट हुआ था।</string>
+    <string name="settings_entry">Reseam सेटिंग का विकल्प</string>
+    <string name="settings_entry_description">Pinterest की सेटिंग में Reseam सेटिंग जोड़ता है।</string>
+    <string name="download_board">बोर्ड डाउनलोड करें</string>
+    <string name="download_board_description">बोर्ड में अब तक लोड हुए पिन डाउनलोड करता है।</string>
+    <string name="download_pins">पिन डाउनलोड करें</string>
+    <string name="download_pins_description">पिन को मूल तस्वीर और वीडियो के रूप में डाउनलोड करता है।</string>
+    <string name="hide_ads">विज्ञापन छिपाएँ</string>
+    <string name="hide_ads_description">प्रचारित पिन छिपाता है।</string>
+    <string name="hide_shopping">शॉपिंग पिन छिपाएँ</string>
+    <string name="hide_shopping_description">ख़रीदारी वाले पिन छिपाता है।</string>
+    <string name="original_quality">मूल क्वालिटी की तस्वीरें</string>
+    <string name="original_quality_description">तस्वीरें मूल क्वालिटी में लोड करता है।</string>
+    <string name="fix_push_notifications">पुश नोटिफ़िकेशन ठीक करें</string>
+    <string name="fix_push_notifications_description">पैच करने के बाद पुश नोटिफ़िकेशन आने लगते हैं।</string>
+    <string name="hide_surveys">सर्वे के सुझाव छिपाएँ</string>
+    <string name="hide_surveys_description">सर्वे के सुझाव छिपाता है।</string>
+    <string name="hide_screenshot_share">स्क्रीनशॉट का शेयर मेन्यू छिपाएँ</string>
+    <string name="hide_screenshot_share_description">स्क्रीनशॉट के बाद खुलने वाला शेयर मेन्यू छिपाता है।</string>
+    <string name="disable_update_prompts">अपडेट के सुझाव बंद करें</string>
+    <string name="disable_update_prompts_description">अपडेट के सुझाव रोकता है।</string>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="block_embedded_ads">स्ट्रीम में जुड़े विज्ञापन ब्लॉक करें</string>
+    <string name="block_embedded_ads_description">लाइव स्ट्रीम बिना विज्ञापन के किसी तीसरे पक्ष के प्रॉक्सी से लोड करता है, जिसे आपका IP पता और आपके देखे गए चैनल दिखते हैं।</string>
+    <string name="block_video_ads">वीडियो विज्ञापन ब्लॉक करें</string>
+    <string name="block_video_ads_description">वे वीडियो, ऑडियो और डिस्प्ले विज्ञापन ब्लॉक करता है जिन्हें Twitch ख़ुद माँगता है।</string>
+    <string name="ignore_ad_events">विज्ञापन इवेंट अनदेखा करें</string>
+    <string name="ignore_ad_events_description">स्ट्रीम के दौरान Twitch के बताए विज्ञापन ब्रेक और विज्ञापन ट्रैकिंग को अनदेखा करता है।</string>
+    <string name="settings_entry">Reseam सेटिंग का विकल्प</string>
+    <string name="settings_entry_description">Twitch की सेटिंग में Account के ऊपर Reseam सेटिंग जोड़ता है।</string>
+    <string name="enable_debug_mode">डीबग मोड चालू करें</string>
+    <string name="enable_debug_mode_description">Twitch के स्टाफ़ टूल दिखाता है, जैसे डीबग मेन्यू और वीडियो डीबग पैनल।</string>
+    <string name="fix_login_crash">लॉगिन क्रैश ठीक करें</string>
+    <string name="fix_login_crash_description">लॉग इन करते ही Twitch का क्रैश होना रोकता है।</string>
+    <string name="startup_tab">शुरुआती टैब</string>
+    <string name="startup_tab_description">Twitch को Browse या Profile पर खोलता है, और Default Home Page सेटिंग अनलॉक करता है।</string>
+    <string name="block_analytics">एनालिटिक्स ब्लॉक करें</string>
+    <string name="block_analytics_description">comScore, Nielsen, Sentry, Crashlytics, Sprig और Branch को रोकता है।</string>
+    <string name="disable_update_prompts">अपडेट के सुझाव बंद करें</string>
+    <string name="disable_update_prompts_description">अपडेट के सुझाव रोकता है।</string>
+</resources>

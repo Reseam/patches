@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="spoof_video_streams_client_tv">TV (SABR)</string>
+    <string name="spoof_video_streams_client_web">Web (SABR)</string>
+    <string name="spoof_video_streams_client_tv_simply">TV Simply</string>
+    <string name="spoof_video_streams_stats_for_nerds">आँकड़ों में बदला हुआ क्लाइंट दिखाएँ</string>
+    <string name="spoof_video_streams_stats_for_nerds_summary">Stats for nerds में स्ट्रीम क्लाइंट दिखाता है।</string>
+    <string name="token_server_credential">टोकन सर्वर का क्रेडेंशियल</string>
+    <string name="spoof_video_streams">प्लेबैक ठीक करें</string>
+    <string name="spoof_video_streams_summary">जब YouTube ऐप को ब्लॉक करता है, तब भी वीडियो चलाता है।</string>
+    <string name="spoof_video_streams_client">पसंदीदा क्लाइंट</string>
+    <string name="spoof_video_streams_client_summary">वह क्लाइंट जिसे सबसे पहले आज़माया जाता है। Android और Web, Reseam टोकन सर्वर का इस्तेमाल कर सकते हैं, जिसकी शर्तें https://mint.reseam.app पर हैं।</string>
+    <string name="user_agent_client_spoof">यूज़र एजेंट बदलकर बताएँ</string>
+    <string name="user_agent_client_spoof_summary">अनुरोधों में मूल ऐप बताता है, ताकि YouTube उन्हें मान ले।</string>
+    <string name="spoof_client_tv">TV (SABR)</string>
+    <string name="spoof_client_web">Web (SABR)</string>
+    <string name="spoof_client_tv_simply">TV Simply</string>
+    <string name="spoof_client_native">नेटिव</string>
+</resources>

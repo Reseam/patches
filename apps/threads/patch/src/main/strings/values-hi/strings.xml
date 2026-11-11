@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_ads">विज्ञापन छिपाएँ</string>
+    <string name="hide_ads_description">स्पॉन्सर्ड पोस्ट छिपाता है।</string>
+    <string name="settings_entry">Reseam सेटिंग का विकल्प</string>
+    <string name="settings_entry_description">Threads की सेटिंग में Reseam सेटिंग जोड़ता है।</string>
+</resources>

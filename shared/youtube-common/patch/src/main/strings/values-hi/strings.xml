@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_branding">कस्टम ब्रांडिंग</string>
+    <string name="custom_branding_description">चुनने के लिए लॉन्चर आइकन और ऐप के नाम जोड़ता है, जिनमें आपके अपने भी शामिल हैं।</string>
+    <string name="custom_branding_custom_name">ऐप का कस्टम नाम</string>
+    <string name="custom_branding_custom_name_description">यह नाम ऐप के नाम के विकल्पों में जोड़ता है और इसे डिफ़ॉल्ट बनाता है।</string>
+    <string name="custom_branding_custom_icon">कस्टम आइकन</string>
+    <string name="custom_branding_custom_icon_description">ऐसा फ़ोल्डर जिसमें mipmap-mdpi से mipmap-xxxhdpi तक के फ़ोल्डर हों, और हर एक में foreground.png और background.png हो। आइकन को विकल्पों में जोड़ता है और इसे डिफ़ॉल्ट बनाता है।</string>
+</resources>

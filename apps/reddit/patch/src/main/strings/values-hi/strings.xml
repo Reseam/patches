@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_comment_ads">कमेंट के विज्ञापन छिपाएँ</string>
+    <string name="hide_comment_ads_description">पोस्ट के नीचे और कमेंट के बीच के विज्ञापन छिपाता है।</string>
+    <string name="hide_feed_ads">फ़ीड के विज्ञापन छिपाएँ</string>
+    <string name="hide_feed_ads_description">फ़ीड और खोज में प्रचारित पोस्ट छिपाता है।</string>
+    <string name="color_thread_lines">थ्रेड की रंगीन लाइनें</string>
+    <string name="color_thread_lines_description">जवाब के हर स्तर को अपना अलग लाइन रंग देता है।</string>
+    <string name="ignore_suggested_sort">हमेशा मेरा कमेंट क्रम इस्तेमाल करें</string>
+    <string name="ignore_suggested_sort_description">पोस्ट या कम्युनिटी के सुझाए क्रम को अनदेखा करता है।</string>
+    <string name="settings_entry">Reseam सेटिंग का विकल्प</string>
+    <string name="settings_entry_description">अकाउंट सेटिंग के नीचे Reseam सेटिंग जोड़ता है।</string>
+    <string name="disable_features">Reddit के फ़ीचर बंद करें</string>
+    <string name="disable_features_description">Reddit Answers, Games, अपसेल, सुझाव और दूसरे फ़ीचर बंद करता है।</string>
+    <string name="default_feed_sort">फ़ीड का डिफ़ॉल्ट क्रम</string>
+    <string name="default_feed_sort_description">कम्युनिटी, कस्टम फ़ीड, Popular और All को आपके चुने क्रम में लगाता है।</string>
+    <string name="hide_feed_units">फ़ीड यूनिट छिपाएँ</string>
+    <string name="hide_feed_units_description">फ़ीड में Trending, कैरोसेल, प्रोमो, सर्वे और बीच में आने वाली दूसरी चीज़ें छिपाता है।</string>
+    <string name="hide_recommended_communities">सुझाई गई कम्युनिटी छिपाएँ</string>
+    <string name="hide_recommended_communities_description">फ़ीड में कम्युनिटी के सुझाव छिपाता है।</string>
+    <string name="hide_recommended_posts">सुझाई गई पोस्ट छिपाएँ</string>
+    <string name="hide_recommended_posts_description">होम में उन कम्युनिटी की पोस्ट छिपाता है जिन्हें आप फ़ॉलो नहीं करते।</string>
+    <string name="hide_drawer_items">कम्युनिटी ड्रॉअर के आइटम छिपाएँ</string>
+    <string name="hide_drawer_items_description">कम्युनिटी ड्रॉअर की चुनी हुई पंक्तियाँ छिपाता है।</string>
+    <string name="hide_navigation_tabs">नेविगेशन टैब छिपाएँ</string>
+    <string name="hide_navigation_tabs_description">नेविगेशन बार के चुने हुए टैब छिपाता है।</string>
+    <string name="fix_push_notifications">पुश नोटिफ़िकेशन ठीक करें</string>
+    <string name="fix_push_notifications_description">पैच करने के बाद पुश नोटिफ़िकेशन आने लगते हैं।</string>
+    <string name="skip_nsfw_warning">NSFW कम्युनिटी की चेतावनी छोड़ें</string>
+    <string name="skip_nsfw_warning_description">वयस्क कम्युनिटी बिना पूछे खोलता है।</string>
+    <string name="block_analytics">एनालिटिक्स ब्लॉक करें</string>
+    <string name="block_analytics_description">Reddit की इवेंट लॉगिंग और AppsFlyer की ट्रैकिंग रोकता है।</string>
+    <string name="disable_app_rate_prompt">रेटिंग का सुझाव छिपाएँ</string>
+    <string name="disable_app_rate_prompt_description">Reddit को आपसे रेटिंग माँगने से रोकता है।</string>
+    <string name="disable_screenshot_banner">स्क्रीनशॉट का बैनर छिपाएँ</string>
+    <string name="disable_screenshot_banner_description">Reddit को स्क्रीनशॉट का पता नहीं चलने देता।</string>
+    <string name="hide_trending_searches">ट्रेंडिंग खोजें छिपाएँ</string>
+    <string name="hide_trending_searches_description">खोज स्क्रीन पर Trending छिपाता है।</string>
+    <string name="hide_premium_settings">Premium की सेटिंग छिपाएँ</string>
+    <string name="hide_premium_settings_description">सेटिंग में Premium और Reddit Pro के ऑफ़र छिपाता है।</string>
+    <string name="vxreddit_links">vxreddit लिंक शेयर करें</string>
+    <string name="vxreddit_links_description">पोस्ट को vxreddit.com लिंक के रूप में शेयर करता है, जो Discord और दूसरे ऐप में अपना मीडिया दिखाते हैं।</string>
+    <string name="block_forced_update">ज़बरदस्ती के अपडेट ब्लॉक करें</string>
+    <string name="block_forced_update_description">Reddit को अपडेट स्क्रीन दिखाकर इस वर्शन को रोकने नहीं देता।</string>
+</resources>

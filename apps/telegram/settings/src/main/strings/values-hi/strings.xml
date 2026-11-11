@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="recover_deleted_chats_chosen">वे चैट जिनके लिए मैं इसे चालू करूँ</string>
+    <string name="recover_deleted_chats_all">सभी चैट, जब तक मैं इसे बंद न करूँ</string>
+    <string name="hide_sponsored_ads">स्पॉन्सर्ड मैसेज छिपाएँ</string>
+    <string name="disable_auto_update">अपडेट के सुझाव बंद करें</string>
+    <string name="unlock_premium">Premium अनलॉक करें</string>
+    <string name="unlock_premium_summary">जिन फ़ीचर की जाँच सर्वर करता है, उनके लिए अब भी सब्सक्रिप्शन चाहिए।</string>
+    <string name="hide_typing">टाइपिंग का संकेत छिपाएँ</string>
+    <string name="boost_downloads">तेज़ डाउनलोड</string>
+    <string name="save_from_restricted">प्रतिबंधित चैट से सेव करें</string>
+    <string name="save_from_restricted_summary">सुरक्षित चैट में कॉपी, सेव और फ़ॉरवर्ड करने देता है।</string>
+    <string name="remove_play_store_restrictions">Play Store की पाबंदियाँ हटाएँ</string>
+    <string name="remove_play_store_restrictions_summary">वे चैट और मीडिया दिखाता है जिन्हें Telegram सिर्फ़ अपने Play Store वर्शन में छिपाता है।</string>
+    <string name="recover_deleted">हटाए गए मैसेज रखें</string>
+    <string name="recover_deleted_summary">दूसरों के हटाए गए मैसेज रखता है और उन पर 🗑️ का निशान लगाता है।</string>
+    <string name="recover_deleted_chats">इनके लिए चालू</string>
+    <string name="recover_deleted_chats_summary">किसी चैट के लिए इसे चैट के ⋮ मेन्यू से चालू या बंद करें।</string>
+    <string name="allow_screenshots">गोपनीय मीडिया के स्क्रीनशॉट की अनुमति दें</string>
+    <string name="allow_screenshots_summary">इसमें एक बार देखे जाने वाले और अपने-आप मिटने वाले मीडिया की स्क्रीन रिकॉर्डिंग शामिल है।</string>
+    <string name="section_ads">विज्ञापन</string>
+    <string name="section_updates">अपडेट</string>
+    <string name="section_downloads">डाउनलोड</string>
+    <string name="section_premium">Premium</string>
+    <string name="section_privacy">निजता</string>
+    <string name="anti_delete_recovery_off">हटाए गए मैसेज रखना बंद करें</string>
+    <string name="anti_delete_recovery_on">हटाए गए मैसेज रखें</string>
+</resources>

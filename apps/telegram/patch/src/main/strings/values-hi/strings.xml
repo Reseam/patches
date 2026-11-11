@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_sponsored_ads">स्पॉन्सर्ड मैसेज छिपाएँ</string>
+    <string name="hide_sponsored_ads_description">चैनलों में स्पॉन्सर्ड मैसेज छिपाता है।</string>
+    <string name="download_boost">तेज़ डाउनलोड</string>
+    <string name="download_boost_description">बड़े हिस्सों में और एक साथ ज़्यादा हिस्से डाउनलोड करता है।</string>
+    <string name="bypass_integrity">इंटेग्रिटी जाँच से बचें</string>
+    <string name="bypass_integrity_description">रूट किए गए फ़ोन और बिना Google सेवाओं वाले फ़ोन पर साइन इन करने देता है।</string>
+    <string name="fix_push_notifications">पुश नोटिफ़िकेशन ठीक करें</string>
+    <string name="fix_push_notifications_description">पैच करने के बाद पुश नोटिफ़िकेशन आने लगते हैं।</string>
+    <string name="allow_screenshots">गोपनीय मीडिया के स्क्रीनशॉट की अनुमति दें</string>
+    <string name="allow_screenshots_description">एक बार देखे जाने वाले और अपने-आप मिटने वाले मीडिया के स्क्रीनशॉट और स्क्रीन रिकॉर्डिंग लेने देता है।</string>
+    <string name="anti_delete">हटाए गए मैसेज रखें</string>
+    <string name="anti_delete_description">दूसरों के हटाए गए मैसेज रखता है और उन्हें चैट में दिखाता है।</string>
+    <string name="bypass_restrictions">प्रतिबंधित चैट से सेव करें</string>
+    <string name="bypass_restrictions_description">सुरक्षित चैट में कॉपी, सेव और फ़ॉरवर्ड करने देता है।</string>
+    <string name="forward_from_restricted">प्रतिबंधित चैट से फ़ॉरवर्ड करें</string>
+    <string name="forward_from_restricted_description">जिन चैट में फ़ॉरवर्ड करना बंद है, उनके मैसेज नए मैसेज के रूप में भेजता है।</string>
+    <string name="hide_typing_indicator">टाइपिंग का संकेत छिपाएँ</string>
+    <string name="hide_typing_indicator_description">दूसरों को यह नहीं दिखता कि आप टाइप या रिकॉर्ड कर रहे हैं।</string>
+    <string name="play_store_restrictions">Play Store की पाबंदियाँ हटाएँ</string>
+    <string name="play_store_restrictions_description">वे चैट और मीडिया दिखाता है जिन्हें Telegram सिर्फ़ अपने Play Store वर्शन में छिपाता है।</string>
+    <string name="unlock_premium">Premium अनलॉक करें</string>
+    <string name="unlock_premium_description">Premium के वे फ़ीचर अनलॉक करता है जो इस फ़ोन पर काम करते हैं।</string>
+    <string name="disable_auto_update">अपडेट के सुझाव बंद करें</string>
+    <string name="disable_auto_update_description">अपडेट की जाँच और सुझाव रोकता है।</string>
+</resources>
