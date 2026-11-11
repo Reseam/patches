@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="signature_check">Napraw sprawdzanie podpisu</string>
+    <string name="signature_check_description">Pozwala uruchomić aplikację z nowym podpisem.</string>
+</resources>

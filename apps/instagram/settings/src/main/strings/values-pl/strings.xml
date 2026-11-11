@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="hide_typing">Ukryj wskaźnik pisania</string>
+    <string name="hide_typing_summary">Inni nie widzą, że piszesz. Instagram może zablokować twoje konto.</string>
+    <string name="hide_dm_seen">Ukryj potwierdzenia odczytu w Direct</string>
+    <string name="hide_dm_seen_summary">Nadawcy nie widzą, że przeczytałeś ich wiadomości. Instagram może zablokować twoje konto.</string>
+    <string name="hide_story_seen">Ukryj wyświetlenia relacji</string>
+    <string name="hide_story_seen_summary">Nie pojawiasz się na listach osób, które wyświetliły relację. Instagram może zablokować twoje konto.</string>
+    <string name="hide_live_seen">Ukryj oglądanie transmisji na żywo</string>
+    <string name="hide_live_seen_summary">Nie pojawiasz się jako widz transmisji na żywo. Instagram może zablokować twoje konto.</string>
+    <string name="hide_screenshot_notifications">Ukryj powiadomienia o zrzutach ekranu</string>
+    <string name="hide_screenshot_notifications_summary">Inni nie są powiadamiani, gdy robisz zrzut ekranu. Instagram może zablokować twoje konto.</string>
+    <string name="max_resolution">Zdjęcia w pełnej rozdzielczości</string>
+    <string name="original_quality">Oryginalna jakość zdjęć</string>
+    <string name="original_quality_summary">Wczytuje zdjęcia w takiej postaci, w jakiej zostały przesłane, zgłaszając większy ekran. Instagram może zablokować twoje konto.</string>
+    <string name="disable_video_autoplay">Wyłącz autoodtwarzanie filmów</string>
+    <string name="disable_video_autoplay_summary">Filmy w aktualnościach są odtwarzane dopiero po dotknięciu.</string>
+    <string name="disable_reels_swiping">Wyłącz przesuwanie Rolek</string>
+    <string name="disable_reels_swiping_summary">Pozostaje przy otwartej rolce.</string>
+    <string name="disable_auto_advance">Wyłącz automatyczne przechodzenie relacji</string>
+    <string name="disable_auto_advance_summary">Zatrzymuje zakończoną relację na ekranie, dopóki jej nie dotkniesz.</string>
+    <string name="hide_suggested_users">Ukryj proponowane relacje</string>
+    <string name="hide_suggested_users_summary">Ukrywa relacje i konta, których nie obserwujesz, na pasku relacji.</string>
+    <string name="hide_story_tray">Ukryj pasek relacji</string>
+    <string name="hide_story_tray_summary">Ukrywa relacje u góry strony głównej.</string>
+    <string name="ring_size">Rozmiar kółek relacji</string>
+    <string name="ring_size_summary">Rozmiar kółek relacji u góry strony głównej.</string>
+    <string name="ring_size_small">Małe (80%)</string>
+    <string name="ring_size_default">Domyślne</string>
+    <string name="ring_size_large">Duże (120%)</string>
+    <string name="ring_size_extra_large">Bardzo duże (140%)</string>
+    <string name="hide_in_explore_search">Ukryj Meta AI w wyszukiwaniu Odkrywaj</string>
+    <string name="hide_in_direct">Ukryj Meta AI w Direct</string>
+    <string name="hide_in_direct_summary">Ukrywa Meta AI w skrzynce odbiorczej, wyszukiwaniu w Direct i czatach.</string>
+    <string name="hide_in_posts">Ukryj Meta AI w postach</string>
+    <string name="hide_in_posts_summary">Ukrywa podsumowanie posta i opcję Zapytaj Meta AI w menu postów.</string>
+    <string name="open_externally">Otwieraj linki w przeglądarce</string>
+    <string name="clean_share_links">Czyść udostępniane linki</string>
+    <string name="clean_share_links_summary">Usuwa z udostępnianych linków część, która cię identyfikuje.</string>
+    <string name="allow_screenshots">Zezwalaj na zrzuty ekranu</string>
+    <string name="allow_screenshots_summary">Obejmuje czaty, multimedia do jednorazowego wyświetlenia i tryb znikania.</string>
+    <string name="unlock_developer_options">Włącz menu dewelopera</string>
+    <string name="unlock_developer_options_summary">Dodaje menu dewelopera Instagrama na dole ustawień.</string>
+    <string name="copy_comment">Kopiuj komentarz</string>
+    <string name="copy_comment_summary">Dodaje opcję Kopiuj do menu przytrzymania komentarzy.</string>
+    <string name="comment_copied">Skopiowano komentarz</string>
+    <string name="follows_you_indicator">Wskaźnik Obserwuje cię</string>
+    <string name="follows_you_indicator_summary">Pokazuje Obserwuje cię w profilach kont, które cię obserwują.</string>
+    <string name="hide_repost_buttons">Ukryj przyciski ponownej publikacji</string>
+    <string name="hide_engagement_counts">Ukryj liczniki interakcji</string>
+    <string name="hide_engagement_counts_summary">Ukrywa liczbę polubień, komentarzy, udostępnień i ponownych publikacji w aktualnościach.</string>
+    <string name="hide_home_tab">Ukryj kartę Strona główna</string>
+    <string name="hide_home_tab_summary">Instagram otwiera się na następnej karcie.</string>
+    <string name="hide_reels_tab">Ukryj kartę Rolki</string>
+    <string name="hide_create_tab">Ukryj kartę Utwórz</string>
+    <string name="hide_explore_grid">Ukryj siatkę Odkrywaj</string>
+    <string name="hide_explore_grid_summary">Pozostawia tylko wyszukiwanie na karcie Odkrywaj.</string>
+    <string name="hide_instants">Ukryj Instants</string>
+    <string name="hide_instants_summary">Ukrywa stos Instants w skrzynce odbiorczej.</string>
+    <string name="hide_threads_badge">Ukryj odznakę Threads</string>
+    <string name="hide_ads">Ukryj reklamy</string>
+    <string name="following_only">Aktualności tylko od obserwowanych</string>
+    <string name="following_only_summary">Pokazuje posty od obserwowanych kont, od najnowszych.</string>
+    <string name="hide_suggested_accounts">Ukryj proponowane konta</string>
+    <string name="hide_suggested_accounts_summary">Proponowane posty pozostają. Aktualności tylko od obserwowanych je ukrywają.</string>
+    <string name="hide_threads_units">Ukryj sekcje Threads</string>
+    <string name="hide_threads_units_summary">Może pozostawić puste miejsce na stronie głównej.</string>
+    <string name="hide_shopping_units">Ukryj sekcje zakupów</string>
+    <string name="hide_shopping_units_summary">Może pozostawić puste miejsce na stronie głównej.</string>
+    <string name="hide_suggested_reels">Ukryj proponowane Rolki</string>
+    <string name="folder">Folder pobranych</string>
+    <string name="show_toast">Pokazuj komunikat o pobieraniu</string>
+    <string name="section_social">Społeczność</string>
+    <string name="section_comments">Komentarze</string>
+    <string name="section_appearance">Wygląd</string>
+    <string name="section_playback">Odtwarzanie</string>
+    <string name="section_media">Multimedia</string>
+    <string name="section_privacy">Prywatność</string>
+    <string name="section_ghost_mode">Tryb ducha</string>
+    <string name="section_feed">Aktualności</string>
+    <string name="section_stories">Relacje</string>
+    <string name="section_meta_ai">Meta AI</string>
+    <string name="section_links">Linki</string>
+    <string name="section_developer">Deweloper</string>
+    <string name="section_downloads">Pobrane</string>
+    <string name="download_label">Pobierz</string>
+    <string name="download_instant_description">Pobierz Instant</string>
+    <string name="download_carousel_current">Bieżący (<xliff:g id="slide">%1$d</xliff:g>/<xliff:g id="total">%2$d</xliff:g>)</string>
+    <plurals name="download_carousel_all">
+        <item quantity="one">Wszystkie <xliff:g id="count">%1$d</xliff:g> element</item>
+        <item quantity="few">Wszystkie <xliff:g id="count">%1$d</xliff:g> elementy</item>
+        <item quantity="many">Wszystkie <xliff:g id="count">%1$d</xliff:g> elementów</item>
+        <item quantity="other">Wszystkie <xliff:g id="count">%1$d</xliff:g> elementu</item>
+    </plurals>
+    <string name="download_cancel">Anuluj</string>
+    <string name="download_started">Pobieranie</string>
+    <string name="download_media_url_missing">Nie znaleziono multimediów do pobrania</string>
+    <string name="download_failed">Nie udało się pobrać</string>
+    <string name="download_slide_started">Pobieranie slajdu <xliff:g id="slide">%1$d</xliff:g></string>
+    <string name="download_slide_url_missing">Nie udało się pobrać slajdu <xliff:g id="slide">%1$d</xliff:g></string>
+    <string name="download_story_media_missing">Nie znaleziono relacji do pobrania</string>
+    <plurals name="download_carousel_started">
+        <item quantity="one">Pobieranie <xliff:g id="started">%1$d</xliff:g> z <xliff:g id="count">%2$d</xliff:g> elementu</item>
+        <item quantity="few">Pobieranie <xliff:g id="started">%1$d</xliff:g> z <xliff:g id="count">%2$d</xliff:g> elementów</item>
+        <item quantity="many">Pobieranie <xliff:g id="started">%1$d</xliff:g> z <xliff:g id="count">%2$d</xliff:g> elementów</item>
+        <item quantity="other">Pobieranie <xliff:g id="started">%1$d</xliff:g> z <xliff:g id="count">%2$d</xliff:g> elementu</item>
+    </plurals>
+    <string name="download_carousel_urls_missing">Nie znaleziono multimediów karuzeli</string>
+    <string name="download_notification_description">Pobieranie multimediów z Instagrama</string>
+    <string name="follows_you_label">Obserwuje cię</string>
+    <string name="follows_you_suffix">\u0020· Obserwuje cię</string>
+    <string name="follows_you_subtitle"><xliff:g id="subtitle">%1$s</xliff:g> · Obserwuje cię</string>
+</resources>

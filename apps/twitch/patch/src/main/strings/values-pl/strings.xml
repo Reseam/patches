@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="block_embedded_ads">Blokuj osadzone reklamy</string>
+    <string name="block_embedded_ads_description">Wczytuje transmisje na żywo bez reklam przez zewnętrzne proxy, które widzi twój adres IP i oglądane kanały.</string>
+    <string name="block_video_ads">Blokuj reklamy wideo</string>
+    <string name="block_video_ads_description">Blokuje reklamy wideo, audio i graficzne, o które Twitch prosi sam.</string>
+    <string name="ignore_ad_events">Ignoruj zdarzenia reklamowe</string>
+    <string name="ignore_ad_events_description">Ignoruje przerwy reklamowe i śledzenie reklam ogłaszane przez Twitcha podczas transmisji.</string>
+    <string name="settings_entry">Wpis ustawień Reseam</string>
+    <string name="settings_entry_description">Dodaje Ustawienia Reseam nad Kontem w ustawieniach Twitcha.</string>
+    <string name="enable_debug_mode">Włącz tryb debugowania</string>
+    <string name="enable_debug_mode_description">Pokazuje narzędzia personelu Twitcha, np. menu debugowania i panel debugowania wideo.</string>
+    <string name="fix_login_crash">Napraw awarię przy logowaniu</string>
+    <string name="fix_login_crash_description">Twitch nie ulega już awarii zaraz po zalogowaniu.</string>
+    <string name="startup_tab">Karta startowa</string>
+    <string name="startup_tab_description">Otwiera Twitcha na karcie Przeglądaj lub Profil i odblokowuje ustawienie Domyślna strona główna.</string>
+    <string name="block_analytics">Blokuj analitykę</string>
+    <string name="block_analytics_description">Zatrzymuje comScore, Nielsen, Sentry, Crashlytics, Sprig i Branch.</string>
+    <string name="disable_update_prompts">Wyłącz prośby o aktualizację</string>
+    <string name="disable_update_prompts_description">Zatrzymuje prośby o aktualizację.</string>
+</resources>

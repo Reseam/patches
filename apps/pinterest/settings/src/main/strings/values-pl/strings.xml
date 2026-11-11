@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="hide_ads">Ukryj reklamy</string>
+    <string name="hide_shopping">Ukryj piny zakupowe</string>
+    <string name="disable_update_prompts">Wyłącz prośby o aktualizację</string>
+    <string name="hide_screenshot_share">Ukryj menu udostępniania zrzutu ekranu</string>
+    <string name="original_quality">Obrazy w oryginalnej jakości</string>
+    <string name="original_quality_summary">Zużywa więcej danych.</string>
+    <string name="show_posted_date">Pokazuj datę publikacji</string>
+    <string name="posted_on">Opublikowano <xliff:g id="date">%1$s</xliff:g></string>
+    <string name="hide_surveys">Ukryj prośby o udział w ankietach</string>
+    <string name="download_started">Pobieranie</string>
+    <string name="download_unavailable">Nie ma nic do pobrania</string>
+    <plurals name="download_board_started">
+        <item quantity="one">Pobieranie <xliff:g id="count">%1$d</xliff:g> pina</item>
+        <item quantity="few">Pobieranie <xliff:g id="count">%1$d</xliff:g> pinów</item>
+        <item quantity="many">Pobieranie <xliff:g id="count">%1$d</xliff:g> pinów</item>
+        <item quantity="other">Pobieranie <xliff:g id="count">%1$d</xliff:g> pina</item>
+    </plurals>
+    <string name="download_board_empty">Najpierw przewiń tablicę, aby wczytać jej piny</string>
+    <string name="ask_which_media">Pytaj, które multimedia zapisać</string>
+    <string name="ask_which_media_summary">Gdy pin ma kilka obrazów lub filmów, pyta, które z nich zapisać.</string>
+    <string name="save_media_choose">Wybierz, co zapisać</string>
+    <string name="save_media_image">Obraz <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_video">Film <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_all">Zapisz wszystko</string>
+    <string name="download_folder">Folder pobranych</string>
+    <string name="download_folder_summary">Miejsce zapisu pinów. Zostaw domyślną galerię lub wybierz folder.</string>
+    <string name="section_downloads">Pobrane</string>
+    <string name="section_feed">Aktualności</string>
+    <string name="section_closeup">Zbliżenie</string>
+    <string name="section_images">Obrazy</string>
+    <string name="section_sharing">Udostępnianie</string>
+    <string name="section_prompts">Prośby</string>
+    <string name="section_updates">Aktualizacje</string>
+</resources>

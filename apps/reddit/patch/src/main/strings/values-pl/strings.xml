@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_comment_ads">Ukryj reklamy w komentarzach</string>
+    <string name="hide_comment_ads_description">Ukrywa reklamy pod postami i między komentarzami.</string>
+    <string name="hide_feed_ads">Ukryj reklamy w aktualnościach</string>
+    <string name="hide_feed_ads_description">Ukrywa promowane posty w aktualnościach i wyszukiwaniu.</string>
+    <string name="color_thread_lines">Kolorowe linie wątków</string>
+    <string name="color_thread_lines_description">Nadaje każdemu poziomowi odpowiedzi własny kolor linii.</string>
+    <string name="ignore_suggested_sort">Zawsze używaj mojego sortowania komentarzy</string>
+    <string name="ignore_suggested_sort_description">Ignoruje sortowanie sugerowane przez post lub społeczność.</string>
+    <string name="settings_entry">Wpis ustawień Reseam</string>
+    <string name="settings_entry_description">Dodaje Ustawienia Reseam pod Ustawieniami konta.</string>
+    <string name="disable_features">Wyłącz funkcje Reddita</string>
+    <string name="disable_features_description">Wyłącza Reddit Answers, Gry, oferty ulepszeń, zachęty i inne funkcje.</string>
+    <string name="default_feed_sort">Domyślne sortowanie aktualności</string>
+    <string name="default_feed_sort_description">Sortuje społeczności, własne kanały, Popular i All w wybrany przez ciebie sposób.</string>
+    <string name="hide_feed_units">Ukryj wstawki w aktualnościach</string>
+    <string name="hide_feed_units_description">Ukrywa Popularne, karuzele, promocje, ankiety i inne wstawki w aktualnościach.</string>
+    <string name="hide_recommended_communities">Ukryj polecane społeczności</string>
+    <string name="hide_recommended_communities_description">Ukrywa propozycje społeczności w aktualnościach.</string>
+    <string name="hide_recommended_posts">Ukryj polecane posty</string>
+    <string name="hide_recommended_posts_description">Ukrywa na stronie głównej posty ze społeczności, których nie obserwujesz.</string>
+    <string name="hide_drawer_items">Ukryj elementy panelu społeczności</string>
+    <string name="hide_drawer_items_description">Ukrywa wybrane wiersze panelu społeczności.</string>
+    <string name="hide_navigation_tabs">Ukryj karty nawigacji</string>
+    <string name="hide_navigation_tabs_description">Ukrywa wybrane karty paska nawigacji.</string>
+    <string name="fix_push_notifications">Napraw powiadomienia push</string>
+    <string name="fix_push_notifications_description">Sprawia, że powiadomienia push docierają po załataniu.</string>
+    <string name="skip_nsfw_warning">Pomijaj ostrzeżenie o społeczności NSFW</string>
+    <string name="skip_nsfw_warning_description">Otwiera społeczności dla dorosłych bez pytania.</string>
+    <string name="block_analytics">Blokuj analitykę</string>
+    <string name="block_analytics_description">Zatrzymuje rejestrowanie zdarzeń przez Reddita i śledzenie AppsFlyer.</string>
+    <string name="disable_app_rate_prompt">Ukryj prośbę o ocenę</string>
+    <string name="disable_app_rate_prompt_description">Reddit nie prosi już o ocenę aplikacji.</string>
+    <string name="disable_screenshot_banner">Ukryj baner zrzutu ekranu</string>
+    <string name="disable_screenshot_banner_description">Reddit nie wykrywa już zrzutów ekranu.</string>
+    <string name="hide_trending_searches">Ukryj popularne wyszukiwania</string>
+    <string name="hide_trending_searches_description">Ukrywa Popularne na ekranie wyszukiwania.</string>
+    <string name="hide_premium_settings">Ukryj ustawienia Premium</string>
+    <string name="hide_premium_settings_description">Ukrywa oferty Premium i Reddit Pro w ustawieniach.</string>
+    <string name="vxreddit_links">Udostępniaj linki vxreddit</string>
+    <string name="vxreddit_links_description">Udostępnia posty jako linki vxreddit.com, które pokazują multimedia w Discordzie i innych aplikacjach.</string>
+    <string name="block_forced_update">Blokuj wymuszone aktualizacje</string>
+    <string name="block_forced_update_description">Reddit nie blokuje już tej wersji ekranem aktualizacji.</string>
+</resources>

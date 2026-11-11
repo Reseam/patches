@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_save_to_device">Zapisz na urządzeniu</string>
+    <string name="save_folder">Folder zapisu</string>
+    <string name="save_folder_summary">Miejsce zapisu plików. Wybierasz je przy pierwszym zapisie.</string>
+    <string name="save_new_downloads">Zapisuj nowe pobrane pliki na urządzeniu</string>
+    <string name="save_new_downloads_summary">Zapisuje też każde pobranie po jego zakończeniu.</string>
+    <string name="save_to_device">Zapisz na urządzeniu</string>
+    <string name="notification_channel">Zapisane pobrane pliki</string>
+    <string name="saving">Zapisywanie: <xliff:g id="title">%1$s</xliff:g></string>
+    <string name="saving_progress">Zapisywanie <xliff:g id="done">%1$d</xliff:g> z <xliff:g id="total">%2$d</xliff:g></string>
+    <string name="saved">Zapisano: <xliff:g id="title">%1$s</xliff:g></string>
+    <plurals name="saved_count">
+        <item quantity="one">Zapisano <xliff:g id="count">%1$d</xliff:g> pobrany plik</item>
+        <item quantity="few">Zapisano <xliff:g id="count">%1$d</xliff:g> pobrane pliki</item>
+        <item quantity="many">Zapisano <xliff:g id="count">%1$d</xliff:g> pobranych plików</item>
+        <item quantity="other">Zapisano <xliff:g id="count">%1$d</xliff:g> pobranego pliku</item>
+    </plurals>
+    <string name="save_failed">Nie udało się zapisać: <xliff:g id="title">%1$s</xliff:g></string>
+    <string name="save_failed_unsupported">Formatu tego pobrania nie można zapisać jako pliku.</string>
+    <string name="save_failed_incomplete">Pobieranie nie zostało ukończone.</string>
+    <string name="save_failed_folder">Folder zapisu nie jest już dostępny. Wybierz go ponownie w Ustawieniach Reseam.</string>
+    <string name="save_failed_space">W folderze zapisu brakuje miejsca.</string>
+    <string name="open">Otwórz</string>
+</resources>

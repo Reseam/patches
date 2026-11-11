@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="gmscore_missing_title">GmsCore nie jest zainstalowany</string>
+    <string name="gmscore_missing_message">Ta aplikacja została załatana, aby logować się przez GmsCore (<xliff:g id="packageName">%1$s</xliff:g>), który nie jest zainstalowany. Zainstaluj go, otwórz raz i przyznaj żądane uprawnienia, a potem ponownie otwórz tę aplikację.</string>
+    <string name="gmscore_get">Pobierz GmsCore</string>
+    <string name="gmscore_close">Zamknij</string>
+    <string name="gmscore_mount_unsupported">Łatka obsługi GmsCore psuje instalacje montowane</string>
+    <string name="gmscore_battery_optimized_title">GmsCore ma włączoną optymalizację baterii</string>
+    <string name="gmscore_battery_optimized_message">Android zatrzyma GmsCore w tle, co wyloguje cię i zepsuje powiadomienia. Wyłącz optymalizację baterii dla GmsCore.</string>
+    <string name="gmscore_open_settings">Otwórz ustawienia</string>
+    <string name="gmscore_unavailable_title">GmsCore jest niedostępny</string>
+    <string name="gmscore_unavailable_message">Aplikacja nie ma dostępu do GmsCore. Otwórz GmsCore i sprawdź jego uprawnienia oraz ustawienia aktywności w tle.</string>
+    <string name="gmscore_open_website">Otwórz stronę</string>
+    <string name="gmscore_ignore">Ignoruj</string>
+    <string name="gmscore_no_screen_handler">Brak aplikacji, która może otworzyć ten ekran</string>
+</resources>

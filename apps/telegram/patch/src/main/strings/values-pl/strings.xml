@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_sponsored_ads">Ukryj sponsorowane wiadomości</string>
+    <string name="hide_sponsored_ads_description">Ukrywa sponsorowane wiadomości na kanałach.</string>
+    <string name="download_boost">Szybsze pobieranie</string>
+    <string name="download_boost_description">Pobiera większymi częściami, więcej naraz.</string>
+    <string name="bypass_integrity">Omiń sprawdzanie integralności</string>
+    <string name="bypass_integrity_description">Pozwala logować się na telefonach z rootem i bez usług Google.</string>
+    <string name="fix_push_notifications">Napraw powiadomienia push</string>
+    <string name="fix_push_notifications_description">Sprawia, że powiadomienia push docierają po załataniu.</string>
+    <string name="allow_screenshots">Zezwalaj na zrzuty tajnych multimediów</string>
+    <string name="allow_screenshots_description">Pozwala robić zrzuty i nagrania ekranu multimediów jednorazowych i samoniszczących się.</string>
+    <string name="anti_delete">Zachowuj usunięte wiadomości</string>
+    <string name="anti_delete_description">Zachowuje wiadomości usunięte przez innych i pokazuje je w czacie.</string>
+    <string name="bypass_restrictions">Zapisuj z czatów z ograniczeniami</string>
+    <string name="bypass_restrictions_description">Pozwala kopiować, zapisywać i przekazywać dalej w chronionych czatach.</string>
+    <string name="forward_from_restricted">Przekazuj z czatów z ograniczeniami</string>
+    <string name="forward_from_restricted_description">Wysyła wiadomości z czatów blokujących przekazywanie jako nowe wiadomości.</string>
+    <string name="hide_typing_indicator">Ukryj wskaźnik pisania</string>
+    <string name="hide_typing_indicator_description">Inni nie widzą, że piszesz lub nagrywasz.</string>
+    <string name="play_store_restrictions">Usuń ograniczenia Sklepu Play</string>
+    <string name="play_store_restrictions_description">Pokazuje czaty i multimedia, które Telegram ukrywa tylko w wersji ze Sklepu Play.</string>
+    <string name="unlock_premium">Odblokuj Premium</string>
+    <string name="unlock_premium_description">Odblokowuje funkcje Premium działające na tym telefonie.</string>
+    <string name="disable_auto_update">Wyłącz prośby o aktualizację</string>
+    <string name="disable_auto_update_description">Zatrzymuje sprawdzanie aktualizacji i prośby o aktualizację.</string>
+</resources>

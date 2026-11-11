@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="recover_deleted_chats_chosen">Czaty, w których to włączę</string>
+    <string name="recover_deleted_chats_all">Wszystkie czaty, chyba że wyłączę</string>
+    <string name="hide_sponsored_ads">Ukryj sponsorowane wiadomości</string>
+    <string name="disable_auto_update">Wyłącz prośby o aktualizację</string>
+    <string name="unlock_premium">Odblokuj Premium</string>
+    <string name="unlock_premium_summary">Funkcje sprawdzane przez serwer nadal wymagają subskrypcji.</string>
+    <string name="hide_typing">Ukryj wskaźnik pisania</string>
+    <string name="boost_downloads">Szybsze pobieranie</string>
+    <string name="save_from_restricted">Zapisuj z czatów z ograniczeniami</string>
+    <string name="save_from_restricted_summary">Pozwala kopiować, zapisywać i przekazywać dalej w chronionych czatach.</string>
+    <string name="remove_play_store_restrictions">Usuń ograniczenia Sklepu Play</string>
+    <string name="remove_play_store_restrictions_summary">Pokazuje czaty i multimedia, które Telegram ukrywa tylko w wersji ze Sklepu Play.</string>
+    <string name="recover_deleted">Zachowuj usunięte wiadomości</string>
+    <string name="recover_deleted_summary">Zachowuje wiadomości usunięte przez innych i oznacza je symbolem 🗑️.</string>
+    <string name="recover_deleted_chats">Włączone dla</string>
+    <string name="recover_deleted_chats_summary">Włącz lub wyłącz dla czatu w jego menu ⋮.</string>
+    <string name="allow_screenshots">Zezwalaj na zrzuty tajnych multimediów</string>
+    <string name="allow_screenshots_summary">Obejmuje nagrania ekranu multimediów jednorazowych i samoniszczących się.</string>
+    <string name="section_ads">Reklamy</string>
+    <string name="section_updates">Aktualizacje</string>
+    <string name="section_downloads">Pobrane</string>
+    <string name="section_premium">Premium</string>
+    <string name="section_privacy">Prywatność</string>
+    <string name="anti_delete_recovery_off">Przestań zachowywać usunięte wiadomości</string>
+    <string name="anti_delete_recovery_on">Zachowuj usunięte wiadomości</string>
+</resources>

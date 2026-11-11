@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="block_video_ads">Blokuj reklamy wideo</string>
+    <string name="block_video_ads_summary">Blokuje reklamy, o które Twitch prosi sam. Reklamy wewnątrz transmisji wymagają opcji Blokuj osadzone reklamy.</string>
+    <string name="block_embedded_ads">Blokuj osadzone reklamy</string>
+    <string name="block_embedded_ads_summary">Wczytuje transmisje na żywo przez zewnętrzne proxy, które widzi twój adres IP i oglądane kanały.</string>
+    <string name="embedded_ads_proxy">Proxy bez reklam</string>
+    <string name="embedded_ads_proxy_custom">Własne</string>
+    <string name="custom_embedded_ads_proxy">Własne proxy</string>
+    <string name="custom_embedded_ads_proxy_summary">Adres proxy zgodnego z Luminous lub TTV LOL, używany, gdy Proxy bez reklam ma wartość Własne.</string>
+    <string name="ignore_ad_events">Ignoruj zdarzenia reklamowe</string>
+    <string name="ignore_ad_events_summary">Ignoruje przerwy reklamowe ogłaszane przez Twitcha podczas transmisji.</string>
+    <string name="block_analytics">Blokuj analitykę</string>
+    <string name="disable_update_prompts">Wyłącz prośby o aktualizację</string>
+    <string name="startup_tab">Karta startowa</string>
+    <string name="startup_tab_summary">Aby otwierać Obserwowane, Na żywo lub Klipy, wybierz tutaj Strona główna i ustaw w Twitchu Ustawienia › Preferencje › Domyślna strona główna.</string>
+    <string name="startup_tab_home">Strona główna</string>
+    <string name="startup_tab_browse">Przeglądaj</string>
+    <string name="startup_tab_profile">Profil</string>
+    <string name="debug_mode">Tryb debugowania</string>
+    <string name="section_ads">Reklamy</string>
+    <string name="section_privacy">Prywatność</string>
+    <string name="section_updates">Aktualizacje</string>
+    <string name="section_navigation">Nawigacja</string>
+    <string name="section_developer">Deweloper</string>
+</resources>

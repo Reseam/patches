@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="show_posted_date">Pokazuj datę publikacji</string>
+    <string name="show_posted_date_description">Pokazuje, kiedy pin został opublikowany.</string>
+    <string name="settings_entry">Wpis ustawień Reseam</string>
+    <string name="settings_entry_description">Dodaje Ustawienia Reseam do ustawień Pinteresta.</string>
+    <string name="download_board">Pobierz tablicę</string>
+    <string name="download_board_description">Pobiera piny wczytane na tablicy.</string>
+    <string name="download_pins">Pobieraj piny</string>
+    <string name="download_pins_description">Pobiera piny jako oryginalne obrazy i filmy.</string>
+    <string name="hide_ads">Ukryj reklamy</string>
+    <string name="hide_ads_description">Ukrywa promowane piny.</string>
+    <string name="hide_shopping">Ukryj piny zakupowe</string>
+    <string name="hide_shopping_description">Ukrywa piny z produktami do kupienia.</string>
+    <string name="original_quality">Obrazy w oryginalnej jakości</string>
+    <string name="original_quality_description">Wczytuje obrazy w oryginalnej jakości.</string>
+    <string name="fix_push_notifications">Napraw powiadomienia push</string>
+    <string name="fix_push_notifications_description">Sprawia, że powiadomienia push docierają po załataniu.</string>
+    <string name="hide_surveys">Ukryj prośby o udział w ankietach</string>
+    <string name="hide_surveys_description">Ukrywa prośby o udział w ankietach.</string>
+    <string name="hide_screenshot_share">Ukryj menu udostępniania zrzutu ekranu</string>
+    <string name="hide_screenshot_share_description">Ukrywa menu udostępniania, które otwiera się po zrobieniu zrzutu ekranu.</string>
+    <string name="disable_update_prompts">Wyłącz prośby o aktualizację</string>
+    <string name="disable_update_prompts_description">Zatrzymuje prośby o aktualizację.</string>
+</resources>

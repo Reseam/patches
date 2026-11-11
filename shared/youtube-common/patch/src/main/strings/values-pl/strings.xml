@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_branding">Własna marka</string>
+    <string name="custom_branding_description">Dodaje ikony i nazwy aplikacji do wyboru, w tym twoje własne.</string>
+    <string name="custom_branding_custom_name">Własna nazwa aplikacji</string>
+    <string name="custom_branding_custom_name_description">Dodaje tę nazwę do opcji nazwy aplikacji i ustawia ją jako domyślną.</string>
+    <string name="custom_branding_custom_icon">Własna ikona</string>
+    <string name="custom_branding_custom_icon_description">Folder z folderami od mipmap-mdpi do mipmap-xxxhdpi, z których każdy zawiera foreground.png i background.png. Dodaje ikonę do opcji i ustawia ją jako domyślną.</string>
+</resources>
