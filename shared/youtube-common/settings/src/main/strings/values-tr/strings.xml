@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="custom_filter">Özel filtreleri kullan</string>
+    <string name="custom_filter_strings">Özel filtreler</string>
+    <string name="custom_filter_strings_summary">Her satıra bir ifade, ^path#accessibility$buffer biçiminde.</string>
+    <string name="debug_logging">Hata ayıklama günlüğü</string>
+    <string name="debug_logging_summary">Reseam\'in yaptıklarını Android günlüğüne yazar.</string>
+    <string name="sanitize_sharing_links">Paylaşım bağlantılarını temizle</string>
+    <string name="sanitize_sharing_links_summary">Paylaştığınız bağlantılardan izlemeyi kaldırır.</string>
+    <string name="force_original_audio">Orijinal sesi zorla</string>
+    <string name="force_original_audio_summary">Dublajlı ses yerine orijinal sesi çalar.</string>
+    <string name="custom_branding_icon_custom">Özel</string>
+    <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g> İndirilenler\'e kaydedildi</string>
+    <string name="experiment_flags_failed">Deney bayrakları kaydedilemedi</string>
+    <string name="segment_behaviors_skip">Otomatik atla</string>
+    <string name="segment_behaviors_skip_once">Bir kez atla</string>
+    <string name="segment_behaviors_manual_skip">Atlama düğmesini göster</string>
+    <string name="segment_behaviors_seekbar_only">İlerleme çubuğunda göster</string>
+    <string name="segment_behaviors_ignore">Yok say</string>
+    <string name="sb_enabled">SponsorBlock</string>
+    <string name="sb_enabled_summary">Açtığınız videoları gören SponsorBlock topluluğunun işaretlediği bölümleri atlar.</string>
+    <string name="sb_sponsor">Sponsor bölümleri</string>
+    <string name="sb_selfpromo">Kendi tanıtımı</string>
+    <string name="sb_interaction">Etkileşim hatırlatıcıları</string>
+    <string name="sb_poi_highlight">Öne çıkan anlar</string>
+    <string name="sb_intro">Girişler</string>
+    <string name="sb_outro">Kapanışlar</string>
+    <string name="sb_preview">Önizlemeler</string>
+    <string name="sb_hook">Kancalar</string>
+    <string name="sb_filler">Dolgu</string>
+    <string name="sb_music_offtopic">Müzik dışı bölümler</string>
+    <string name="sb_toast_on_skip">Atladıktan sonra mesaj göster</string>
+    <string name="sb_toast_on_connection_error">SponsorBlock bağlantı hatalarını göster</string>
+    <string name="sb_track_skip_count">SponsorBlock atlamalarını izle</string>
+    <string name="sb_track_skip_count_summary">İstatistikleri bu telefonda tutar ve atlamalarınızı SponsorBlock\'a bildirir.</string>
+    <string name="sb_min_segment_duration">En kısa bölüm süresi (saniye)</string>
+    <string name="section_sponsorblock">SponsorBlock</string>
+    <string name="sponsorblock_category_sponsor">Sponsor</string>
+    <string name="sponsorblock_category_selfpromo">Kendi tanıtımı</string>
+    <string name="sponsorblock_category_interaction">Etkileşim hatırlatıcısı</string>
+    <string name="sponsorblock_category_highlight">Öne çıkan an</string>
+    <string name="sponsorblock_category_intro">Giriş</string>
+    <string name="sponsorblock_category_outro">Kapanış</string>
+    <string name="sponsorblock_category_preview">Önizleme</string>
+    <string name="sponsorblock_category_hook">Kanca</string>
+    <string name="sponsorblock_category_filler">Dolgu</string>
+    <string name="sponsorblock_category_music">Müzik dışı bölüm</string>
+    <string name="sponsorblock_skipped">Atlandı: <xliff:g id="segment">%1$s</xliff:g></string>
+    <string name="sponsorblock_load_failed">SponsorBlock bölümleri yüklenemedi</string>
+</resources>

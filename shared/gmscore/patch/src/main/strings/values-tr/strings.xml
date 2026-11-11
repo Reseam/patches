@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gms_core_support">GmsCore desteği</string>
+    <string name="gms_core_support_description">Google Play hizmetleri yerine, ayrıca yüklediğiniz GmsCore üzerinden oturum açar.</string>
+    <string name="gms_core_support_gms_core_vendor_group_id">GmsCore sağlayıcısı</string>
+    <string name="gms_core_support_gms_core_vendor_group_id_description">GmsCore\'unuzun yayınlandığı grup kimliği.</string>
+    <string name="gms_core_support_package_name">Paket adı</string>
+    <string name="gms_core_support_package_name_description">Yamalanmış uygulamanın paket adı.</string>
+</resources>

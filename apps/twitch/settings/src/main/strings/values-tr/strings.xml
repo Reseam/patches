@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="block_video_ads">Video reklamlarını engelle</string>
+    <string name="block_video_ads_summary">Twitch\'in kendisinin istediği reklamları engeller. Yayının içindeki reklamlar için Gömülü reklamları engelle gerekir.</string>
+    <string name="block_embedded_ads">Gömülü reklamları engelle</string>
+    <string name="block_embedded_ads_summary">Canlı yayınları, IP adresinizi ve izlediğiniz kanalları gören üçüncü taraf bir proxy üzerinden yükler.</string>
+    <string name="embedded_ads_proxy">Reklamsız proxy</string>
+    <string name="embedded_ads_proxy_custom">Özel</string>
+    <string name="custom_embedded_ads_proxy">Özel proxy</string>
+    <string name="custom_embedded_ads_proxy_summary">Reklamsız proxy Özel olarak ayarlandığında kullanılan, Luminous veya TTV LOL uyumlu bir proxy adresi.</string>
+    <string name="ignore_ad_events">Reklam olaylarını yok say</string>
+    <string name="ignore_ad_events_summary">Twitch\'in yayın sırasında duyurduğu reklam aralarını yok sayar.</string>
+    <string name="block_analytics">Analizleri engelle</string>
+    <string name="disable_update_prompts">Güncelleme istemlerini kapat</string>
+    <string name="startup_tab">Açılış sekmesi</string>
+    <string name="startup_tab_summary">Takip Edilenler, Canlı veya Klipler için burada Ana Sayfa\'yı seçin ve Twitch\'te Ayarlar › Tercihler › Varsayılan Ana Sayfa\'yı ayarlayın.</string>
+    <string name="startup_tab_home">Ana Sayfa</string>
+    <string name="startup_tab_browse">Göz At</string>
+    <string name="startup_tab_profile">Profil</string>
+    <string name="debug_mode">Hata ayıklama modu</string>
+    <string name="section_ads">Reklamlar</string>
+    <string name="section_privacy">Gizlilik</string>
+    <string name="section_updates">Güncellemeler</string>
+    <string name="section_navigation">Gezinme</string>
+    <string name="section_developer">Geliştirici</string>
+</resources>

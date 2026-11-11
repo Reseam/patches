@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_comment_ads">Yorum reklamlarını gizle</string>
+    <string name="hide_comment_ads_description">Gönderilerin altındaki ve yorumların arasındaki reklamları gizler.</string>
+    <string name="hide_feed_ads">Akış reklamlarını gizle</string>
+    <string name="hide_feed_ads_description">Akışlardaki ve aramadaki tanıtılan gönderileri gizler.</string>
+    <string name="color_thread_lines">Renkli yorum çizgileri</string>
+    <string name="color_thread_lines_description">Her yanıt düzeyine kendi çizgi rengini verir.</string>
+    <string name="ignore_suggested_sort">Her zaman benim yorum sıralamamı kullan</string>
+    <string name="ignore_suggested_sort_description">Bir gönderinin veya topluluğun önerdiği sıralamayı yok sayar.</string>
+    <string name="settings_entry">Reseam ayarları girişi</string>
+    <string name="settings_entry_description">Hesap ayarları altına Reseam Ayarları\'nı ekler.</string>
+    <string name="disable_features">Reddit özelliklerini kapat</string>
+    <string name="disable_features_description">Reddit Answers, Oyunlar, satış teklifleri, yönlendirmeler ve diğer özellikleri kapatır.</string>
+    <string name="default_feed_sort">Varsayılan akış sıralaması</string>
+    <string name="default_feed_sort_description">Toplulukları, özel akışları, Popular ve All\'u seçtiğiniz şekilde sıralar.</string>
+    <string name="hide_feed_units">Akış eklerini gizle</string>
+    <string name="hide_feed_units_description">Akışlardaki Trend, kaydırmalı alanlar, tanıtımlar, anketler ve diğer ekleri gizler.</string>
+    <string name="hide_recommended_communities">Önerilen toplulukları gizle</string>
+    <string name="hide_recommended_communities_description">Akışlardaki topluluk önerilerini gizler.</string>
+    <string name="hide_recommended_posts">Önerilen gönderileri gizle</string>
+    <string name="hide_recommended_posts_description">Ana Sayfa\'da takip etmediğiniz toplulukların gönderilerini gizler.</string>
+    <string name="hide_drawer_items">Topluluk çekmecesi öğelerini gizle</string>
+    <string name="hide_drawer_items_description">Topluluk çekmecesinde seçilen satırları gizler.</string>
+    <string name="hide_navigation_tabs">Gezinme sekmelerini gizle</string>
+    <string name="hide_navigation_tabs_description">Gezinme çubuğunda seçilen sekmeleri gizler.</string>
+    <string name="fix_push_notifications">Anlık bildirimleri düzelt</string>
+    <string name="fix_push_notifications_description">Yamadan sonra anlık bildirimlerin gelmesini sağlar.</string>
+    <string name="skip_nsfw_warning">NSFW topluluk uyarısını atla</string>
+    <string name="skip_nsfw_warning_description">Yetişkin topluluklarını sormadan açar.</string>
+    <string name="block_analytics">Analizleri engelle</string>
+    <string name="block_analytics_description">Reddit\'in olay kaydını ve AppsFlyer izlemesini durdurur.</string>
+    <string name="disable_app_rate_prompt">Puanlama istemini gizle</string>
+    <string name="disable_app_rate_prompt_description">Reddit\'in sizden puan istemesini durdurur.</string>
+    <string name="disable_screenshot_banner">Ekran görüntüsü bannerını gizle</string>
+    <string name="disable_screenshot_banner_description">Reddit\'in ekran görüntülerini fark etmesini engeller.</string>
+    <string name="hide_trending_searches">Trend aramaları gizle</string>
+    <string name="hide_trending_searches_description">Arama ekranındaki Trend bölümünü gizler.</string>
+    <string name="hide_premium_settings">Premium ayarlarını gizle</string>
+    <string name="hide_premium_settings_description">Ayarlardaki Premium ve Reddit Pro tekliflerini gizler.</string>
+    <string name="vxreddit_links">vxreddit bağlantıları paylaş</string>
+    <string name="vxreddit_links_description">Gönderileri, medyasını Discord ve diğer uygulamalarda gösteren vxreddit.com bağlantıları olarak paylaşır.</string>
+    <string name="block_forced_update">Zorunlu güncellemeleri engelle</string>
+    <string name="block_forced_update_description">Reddit\'in bu sürümü bir güncelleme ekranıyla engellemesini önler.</string>
+</resources>

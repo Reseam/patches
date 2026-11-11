@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reseam_you_tube_music">Reseam YouTube Music</string>
+    <string name="reseam_you_tube_music_description">Yüklüyse Otomatik Oynatma ve bağlı hizmetler için Reseam\'in YouTube Music\'ini kullanır.</string>
+    <string name="reseam_you_tube_music_you_tube_music_package_name">YouTube Music paket adı</string>
+    <string name="reseam_you_tube_music_you_tube_music_package_name_description">Reseam YouTube Music\'inizin yamalandığı paket adı.</string>
+</resources>

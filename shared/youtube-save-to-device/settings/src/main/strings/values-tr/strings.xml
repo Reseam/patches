@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_save_to_device">Cihaza kaydet</string>
+    <string name="save_folder">Kayıt klasörü</string>
+    <string name="save_folder_summary">Kaydedilen dosyaların gideceği yer. İlk kaydettiğinizde seçersiniz.</string>
+    <string name="save_new_downloads">Yeni indirmeleri cihaza kaydet</string>
+    <string name="save_new_downloads_summary">Her indirmeyi bittiğinde ayrıca kaydeder.</string>
+    <string name="save_to_device">Cihaza kaydet</string>
+    <string name="notification_channel">Kaydedilen indirmeler</string>
+    <string name="saving">Kaydediliyor: <xliff:g id="title">%1$s</xliff:g></string>
+    <string name="saving_progress"><xliff:g id="total">%2$d</xliff:g> öğeden <xliff:g id="done">%1$d</xliff:g>. kaydediliyor</string>
+    <string name="saved">Kaydedildi: <xliff:g id="title">%1$s</xliff:g></string>
+    <plurals name="saved_count">
+        <item quantity="one"><xliff:g id="count">%1$d</xliff:g> indirme kaydedildi</item>
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> indirme kaydedildi</item>
+    </plurals>
+    <string name="save_failed">Kaydedilemedi: <xliff:g id="title">%1$s</xliff:g></string>
+    <string name="save_failed_unsupported">İndirmenin biçimi dosya olarak kaydedilemiyor.</string>
+    <string name="save_failed_incomplete">İndirme henüz bitmedi.</string>
+    <string name="save_failed_folder">Kayıt klasörü artık kullanılamıyor. Reseam Ayarları\'ndan yeniden seçin.</string>
+    <string name="save_failed_space">Kayıt klasöründe yeterli alan yok.</string>
+    <string name="open">Aç</string>
+</resources>

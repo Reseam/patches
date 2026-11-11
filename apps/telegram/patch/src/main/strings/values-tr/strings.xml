@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_sponsored_ads">Sponsorlu mesajları gizle</string>
+    <string name="hide_sponsored_ads_description">Kanallardaki sponsorlu mesajları gizler.</string>
+    <string name="download_boost">Daha hızlı indirmeler</string>
+    <string name="download_boost_description">Daha büyük parçalar halinde ve aynı anda daha fazla parça indirir.</string>
+    <string name="bypass_integrity">Bütünlük denetimini atla</string>
+    <string name="bypass_integrity_description">Root\'lu telefonlarda ve Google hizmetleri olmayan telefonlarda oturum açmaya izin verir.</string>
+    <string name="fix_push_notifications">Anlık bildirimleri düzelt</string>
+    <string name="fix_push_notifications_description">Yamadan sonra anlık bildirimlerin gelmesini sağlar.</string>
+    <string name="allow_screenshots">Gizli medyanın ekran görüntüsüne izin ver</string>
+    <string name="allow_screenshots_description">Bir kez görüntülenen ve kendini imha eden medyanın ekran görüntüsünü ve ekran kaydını almaya izin verir.</string>
+    <string name="anti_delete">Silinen mesajları tut</string>
+    <string name="anti_delete_description">Başkalarının sildiği mesajları tutar ve sohbette gösterir.</string>
+    <string name="bypass_restrictions">Kısıtlı sohbetlerden kaydet</string>
+    <string name="bypass_restrictions_description">Korumalı sohbetlerde kopyalamaya, kaydetmeye ve iletmeye izin verir.</string>
+    <string name="forward_from_restricted">Kısıtlı sohbetlerden ilet</string>
+    <string name="forward_from_restricted_description">İletmeyi engelleyen sohbetlerdeki mesajları yeni mesaj olarak gönderir.</string>
+    <string name="hide_typing_indicator">Yazıyor göstergesini gizle</string>
+    <string name="hide_typing_indicator_description">Başkalarının yazdığınızı veya kayıt yaptığınızı görmesini engeller.</string>
+    <string name="play_store_restrictions">Play Store kısıtlamalarını kaldır</string>
+    <string name="play_store_restrictions_description">Telegram\'ın yalnızca Play Store sürümünde gizlediği sohbetleri ve medyayı gösterir.</string>
+    <string name="unlock_premium">Premium\'un kilidini aç</string>
+    <string name="unlock_premium_description">Bu telefonda çalışan Premium özelliklerinin kilidini açar.</string>
+    <string name="disable_auto_update">Güncelleme istemlerini kapat</string>
+    <string name="disable_auto_update_description">Güncelleme denetimlerini ve istemlerini durdurur.</string>
+</resources>

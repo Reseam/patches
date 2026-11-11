@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="recover_deleted_chats_chosen">Açtığım sohbetler</string>
+    <string name="recover_deleted_chats_all">Kapatmadığım sürece tüm sohbetler</string>
+    <string name="hide_sponsored_ads">Sponsorlu mesajları gizle</string>
+    <string name="disable_auto_update">Güncelleme istemlerini kapat</string>
+    <string name="unlock_premium">Premium\'un kilidini aç</string>
+    <string name="unlock_premium_summary">Sunucunun denetlediği özellikler yine abonelik gerektirir.</string>
+    <string name="hide_typing">Yazıyor göstergesini gizle</string>
+    <string name="boost_downloads">Daha hızlı indirmeler</string>
+    <string name="save_from_restricted">Kısıtlı sohbetlerden kaydet</string>
+    <string name="save_from_restricted_summary">Korumalı sohbetlerde kopyalamaya, kaydetmeye ve iletmeye izin verir.</string>
+    <string name="remove_play_store_restrictions">Play Store kısıtlamalarını kaldır</string>
+    <string name="remove_play_store_restrictions_summary">Telegram\'ın yalnızca Play Store sürümünde gizlediği sohbetleri ve medyayı gösterir.</string>
+    <string name="recover_deleted">Silinen mesajları tut</string>
+    <string name="recover_deleted_summary">Başkalarının sildiği mesajları tutar ve 🗑️ ile işaretler.</string>
+    <string name="recover_deleted_chats">Açık olduğu yer</string>
+    <string name="recover_deleted_chats_summary">Bir sohbet için sohbetin ⋮ menüsünden açın veya kapatın.</string>
+    <string name="allow_screenshots">Gizli medyanın ekran görüntüsüne izin ver</string>
+    <string name="allow_screenshots_summary">Bir kez görüntülenen ve kendini imha eden medyanın ekran kayıtları dahil.</string>
+    <string name="section_ads">Reklamlar</string>
+    <string name="section_updates">Güncellemeler</string>
+    <string name="section_downloads">İndirilenler</string>
+    <string name="section_premium">Premium</string>
+    <string name="section_privacy">Gizlilik</string>
+    <string name="anti_delete_recovery_off">Silinen mesajları tutmayı bırak</string>
+    <string name="anti_delete_recovery_on">Silinen mesajları tut</string>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="allow_screenshots">Ekran görüntüsüne izin ver</string>
+    <string name="allow_screenshots_description">Korumalı ekranların ekran görüntüsünü ve ekran kaydını almaya izin verir.</string>
+    <string name="allow_split_screen">Bölünmüş ekrana izin ver</string>
+    <string name="allow_split_screen_description">Uygulamanın bölünmüş ekranda ve baloncuklarda açılmasını sağlar.</string>
+    <string name="change_package_name">Paket adını değiştir</string>
+    <string name="change_package_name_description">Uygulamayı başka bir paket adıyla yükler, böylece orijinalin yanında çalışır. Bazı uygulamalar bu şekilde çalışmaz.</string>
+    <string name="change_package_name_package_name">Paket adı</string>
+    <string name="change_package_name_package_name_description">Yeni paket adı. Boş bırakılırsa orijinalin sonuna .reseam eklenir.</string>
+    <string name="disable_play_store_updates">Play Store güncellemelerini kapat</string>
+    <string name="disable_play_store_updates_description">Uygulamayı Google Play güncellemelerinden gizler.</string>
+    <string name="enable_debugging">Hata ayıklamayı etkinleştir</string>
+    <string name="enable_debugging_description">Uygulamayı hata ayıklanabilir olarak işaretler, böylece adb root olmadan inceleyebilir.</string>
+    <string name="hide_mock_location">Sahte konumu gizle</string>
+    <string name="hide_mock_location_description">Konumunuzun bir sahte konum uygulamasından geldiğini gizler.</string>
+    <string name="override_certificate_pinning">Sertifika sabitlemeyi geçersiz kıl</string>
+    <string name="override_certificate_pinning_description">Kendi sertifikalarınıza güvenir, böylece bir proxy uygulamanın trafiğini inceleyebilir.</string>
+    <string name="remove_ads">Reklamları engelle</string>
+    <string name="remove_ads_description">Uygulamanın yaygın reklam ağlarından reklam yüklemesini durdurur.</string>
+    <string name="remove_pairip">Pairip\'i kaldır</string>
+    <string name="remove_pairip_description">Google Play\'in otomatik bütünlük korumasını kaldırır. Sunucu taraflı denetimler geçerli kalır.</string>
+    <string name="remove_pairip_kill_vm">Pairip VM\'yi durdur</string>
+    <string name="remove_pairip_kill_vm_description">Yalnızca Pairip VM\'si lisans denetiminden başka bir şey yapmayan uygulamalar için. Kendi kodunu onun içinde çalıştıran uygulamaları bozar.</string>
+    <string name="remove_pairip_spoof_installer">Yükleyici denetimlerini taklit et</string>
+    <string name="remove_pairip_spoof_installer_description">Kalan yükleyici denetimlerinin Google Play bildirmesini sağlar.</string>
+    <string name="report_play_store_installer">Yükleyici olarak Play Store bildir</string>
+    <string name="report_play_store_installer_description">Uygulamanın kendisini Google Play\'den yüklenmiş görmesini sağlar.</string>
+    <string name="spoof_signature">İmzayı taklit et</string>
+    <string name="spoof_signature_description">Uygulamaya orijinal imzasını gösterir, böylece değiştirilmiş uygulama denetimleri geçer.</string>
+</resources>

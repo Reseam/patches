@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_branding">Özel marka</string>
+    <string name="custom_branding_description">Kendinizinkiler dahil, seçilebilecek başlatıcı simgeleri ve uygulama adları ekler.</string>
+    <string name="custom_branding_custom_name">Özel uygulama adı</string>
+    <string name="custom_branding_custom_name_description">Bu adı uygulama adı seçeneklerine ekler ve varsayılan yapar.</string>
+    <string name="custom_branding_custom_icon">Özel simge</string>
+    <string name="custom_branding_custom_icon_description">Her birinde foreground.png ve background.png bulunan mipmap-mdpi ile mipmap-xxxhdpi arası klasörleri içeren bir klasör. Simgeyi seçeneklere ekler ve varsayılan yapar.</string>
+</resources>

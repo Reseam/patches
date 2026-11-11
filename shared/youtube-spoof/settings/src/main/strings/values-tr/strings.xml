@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="spoof_video_streams_client_tv">TV (SABR)</string>
+    <string name="spoof_video_streams_client_web">Web (SABR)</string>
+    <string name="spoof_video_streams_client_tv_simply">TV Simply</string>
+    <string name="spoof_video_streams_stats_for_nerds">Taklit edilen istemciyi istatistiklerde göster</string>
+    <string name="spoof_video_streams_stats_for_nerds_summary">Akış istemcisini Meraklısı için istatistikler\'de gösterir.</string>
+    <string name="token_server_credential">Token sunucusu kimlik bilgisi</string>
+    <string name="spoof_video_streams">Oynatmayı düzelt</string>
+    <string name="spoof_video_streams_summary">YouTube uygulamayı engellediğinde videoların oynamasını sağlar.</string>
+    <string name="spoof_video_streams_client">Tercih edilen istemci</string>
+    <string name="spoof_video_streams_client_summary">İlk denenen istemci. Android ve Web, https://mint.reseam.app adresindeki koşullar çerçevesinde Reseam token sunucusunu kullanabilir.</string>
+    <string name="user_agent_client_spoof">Kullanıcı aracısını taklit et</string>
+    <string name="user_agent_client_spoof_summary">İsteklerde orijinal uygulamayı bildirir, böylece YouTube bunları kabul eder.</string>
+    <string name="spoof_client_tv">TV (SABR)</string>
+    <string name="spoof_client_web">Web (SABR)</string>
+    <string name="spoof_client_tv_simply">TV Simply</string>
+    <string name="spoof_client_native">Yerel</string>
+</resources>

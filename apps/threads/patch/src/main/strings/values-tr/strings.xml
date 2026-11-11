@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_ads">Reklamları gizle</string>
+    <string name="hide_ads_description">Sponsorlu gönderileri gizler.</string>
+    <string name="settings_entry">Reseam ayarları girişi</string>
+    <string name="settings_entry_description">Threads\'in ayarlarına Reseam Ayarları\'nı ekler.</string>
+</resources>

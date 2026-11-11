@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="gmscore_missing_title">GmsCore yüklü değil</string>
+    <string name="gmscore_missing_message">Bu uygulama GmsCore (<xliff:g id="packageName">%1$s</xliff:g>) üzerinden oturum açacak şekilde yamalandı, ancak GmsCore yüklü değil. Yükleyin, bir kez açıp istediği izinleri verin, ardından bu uygulamayı yeniden açın.</string>
+    <string name="gmscore_get">GmsCore\'u edin</string>
+    <string name="gmscore_close">Kapat</string>
+    <string name="gmscore_mount_unsupported">GmsCore desteği yaması bağlama kurulumlarını bozar</string>
+    <string name="gmscore_battery_optimized_title">GmsCore pil optimizasyonunda</string>
+    <string name="gmscore_battery_optimized_message">Android, GmsCore\'u arka planda durdurur; bu oturumunuzu kapatır ve bildirimleri bozar. GmsCore için pil optimizasyonunu kapatın.</string>
+    <string name="gmscore_open_settings">Ayarları aç</string>
+    <string name="gmscore_unavailable_title">GmsCore kullanılamıyor</string>
+    <string name="gmscore_unavailable_message">Uygulama GmsCore\'a erişemiyor. GmsCore\'u açıp izinlerini ve arka plan etkinliği ayarlarını denetleyin.</string>
+    <string name="gmscore_open_website">Web sitesini aç</string>
+    <string name="gmscore_ignore">Yok say</string>
+    <string name="gmscore_no_screen_handler">Bu ekranı açabilecek bir uygulama yok</string>
+</resources>

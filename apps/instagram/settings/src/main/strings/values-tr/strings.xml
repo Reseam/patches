@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="hide_typing">Yazıyor göstergesini gizle</string>
+    <string name="hide_typing_summary">Başkaları yazdığınızı görmez. Instagram hesabınızı yasaklayabilir.</string>
+    <string name="hide_dm_seen">DM okundu bilgisini gizle</string>
+    <string name="hide_dm_seen_summary">Gönderenler mesajlarını okuduğunuzu görmez. Instagram hesabınızı yasaklayabilir.</string>
+    <string name="hide_story_seen">Hikaye görüntülemelerini gizle</string>
+    <string name="hide_story_seen_summary">Hikaye izleyenler listelerinde görünmezsiniz. Instagram hesabınızı yasaklayabilir.</string>
+    <string name="hide_live_seen">Canlı yayın izlemelerini gizle</string>
+    <string name="hide_live_seen_summary">Canlı videoların izleyicisi olarak görünmezsiniz. Instagram hesabınızı yasaklayabilir.</string>
+    <string name="hide_screenshot_notifications">Ekran görüntüsü bildirimlerini gizle</string>
+    <string name="hide_screenshot_notifications_summary">Ekran görüntüsü aldığınızda başkalarına bildirilmez. Instagram hesabınızı yasaklayabilir.</string>
+    <string name="max_resolution">Tam çözünürlüklü fotoğraflar</string>
+    <string name="original_quality">Orijinal fotoğraf kalitesi</string>
+    <string name="original_quality_summary">Daha büyük bir ekran bildirerek fotoğrafları yüklendikleri haliyle yükler. Instagram hesabınızı yasaklayabilir.</string>
+    <string name="disable_video_autoplay">Video otomatik oynatmayı kapat</string>
+    <string name="disable_video_autoplay_summary">Akıştaki videolar yalnızca dokunduğunuzda oynar.</string>
+    <string name="disable_reels_swiping">Reels kaydırmayı kapat</string>
+    <string name="disable_reels_swiping_summary">Açtığınız Reels videosunda kalır.</string>
+    <string name="disable_auto_advance">Hikayelerin otomatik geçişini kapat</string>
+    <string name="disable_auto_advance_summary">Biten bir hikayeyi siz dokunana kadar ekranda tutar.</string>
+    <string name="hide_suggested_users">Önerilen hikayeleri gizle</string>
+    <string name="hide_suggested_users_summary">Hikaye şeridinde takip etmediğiniz hikayeleri ve hesapları gizler.</string>
+    <string name="hide_story_tray">Hikaye şeridini gizle</string>
+    <string name="hide_story_tray_summary">Ana Sayfa\'nın üstündeki hikayeleri gizler.</string>
+    <string name="ring_size">Hikaye halkası boyutu</string>
+    <string name="ring_size_summary">Ana Sayfa\'nın üstündeki hikaye dairelerinin boyutu.</string>
+    <string name="ring_size_small">Küçük (%80)</string>
+    <string name="ring_size_default">Varsayılan</string>
+    <string name="ring_size_large">Büyük (%120)</string>
+    <string name="ring_size_extra_large">Çok büyük (%140)</string>
+    <string name="hide_in_explore_search">Keşfet aramasında Meta AI\'ı gizle</string>
+    <string name="hide_in_direct">DM\'lerde Meta AI\'ı gizle</string>
+    <string name="hide_in_direct_summary">Gelen kutusundaki, DM aramasındaki ve sohbetlerdeki Meta AI\'ı gizler.</string>
+    <string name="hide_in_posts">Gönderilerde Meta AI\'ı gizle</string>
+    <string name="hide_in_posts_summary">Gönderi menülerindeki gönderi özetini ve Meta AI\'a Sor seçeneğini gizler.</string>
+    <string name="open_externally">Bağlantıları tarayıcıda aç</string>
+    <string name="clean_share_links">Paylaşım bağlantılarını temizle</string>
+    <string name="clean_share_links_summary">Paylaşılan bağlantıların sizi tanımlayan kısmını kaldırır.</string>
+    <string name="allow_screenshots">Ekran görüntüsüne izin ver</string>
+    <string name="allow_screenshots_summary">Sohbetler, bir kez görüntülenen medya ve kaybolan mod dahil.</string>
+    <string name="unlock_developer_options">Geliştirici menüsünü etkinleştir</string>
+    <string name="unlock_developer_options_summary">Instagram\'ın geliştirici menüsünü ayarların en altına ekler.</string>
+    <string name="copy_comment">Yorumu kopyala</string>
+    <string name="copy_comment_summary">Yorumların uzun basma menüsüne Kopyala seçeneğini ekler.</string>
+    <string name="comment_copied">Yorum kopyalandı</string>
+    <string name="follows_you_indicator">Sizi takip ediyor göstergesi</string>
+    <string name="follows_you_indicator_summary">Sizi takip eden hesapların profillerinde Sizi takip ediyor yazısını gösterir.</string>
+    <string name="hide_repost_buttons">Yeniden paylaşma düğmelerini gizle</string>
+    <string name="hide_engagement_counts">Etkileşim sayılarını gizle</string>
+    <string name="hide_engagement_counts_summary">Akıştaki beğeni, yorum, paylaşım ve yeniden paylaşım sayılarını gizler.</string>
+    <string name="hide_home_tab">Ana Sayfa sekmesini gizle</string>
+    <string name="hide_home_tab_summary">Instagram bir sonraki sekmede açılır.</string>
+    <string name="hide_reels_tab">Reels sekmesini gizle</string>
+    <string name="hide_create_tab">Oluştur sekmesini gizle</string>
+    <string name="hide_explore_grid">Keşfet ızgarasını gizle</string>
+    <string name="hide_explore_grid_summary">Keşfet sekmesinde yalnızca aramayı bırakır.</string>
+    <string name="hide_instants">Instants\'ı gizle</string>
+    <string name="hide_instants_summary">Gelen kutusundaki Instants yığınını gizler.</string>
+    <string name="hide_threads_badge">Threads rozetini gizle</string>
+    <string name="hide_ads">Reklamları gizle</string>
+    <string name="following_only">Yalnızca takip edilenler akışı</string>
+    <string name="following_only_summary">Takip ettiğiniz hesapların gönderilerini en yenisi önce olacak şekilde gösterir.</string>
+    <string name="hide_suggested_accounts">Önerilen hesapları gizle</string>
+    <string name="hide_suggested_accounts_summary">Önerilen gönderiler kalır. Yalnızca takip edilenler akışı onları gizler.</string>
+    <string name="hide_threads_units">Threads bölümlerini gizle</string>
+    <string name="hide_threads_units_summary">Ana Sayfa\'da boş bir alan bırakabilir.</string>
+    <string name="hide_shopping_units">Alışveriş bölümlerini gizle</string>
+    <string name="hide_shopping_units_summary">Ana Sayfa\'da boş bir alan bırakabilir.</string>
+    <string name="hide_suggested_reels">Önerilen Reels\'ı gizle</string>
+    <string name="folder">İndirme klasörü</string>
+    <string name="show_toast">İndirme mesajını göster</string>
+    <string name="section_social">Sosyal</string>
+    <string name="section_comments">Yorumlar</string>
+    <string name="section_appearance">Görünüm</string>
+    <string name="section_playback">Oynatma</string>
+    <string name="section_media">Medya</string>
+    <string name="section_privacy">Gizlilik</string>
+    <string name="section_ghost_mode">Hayalet modu</string>
+    <string name="section_feed">Akış</string>
+    <string name="section_stories">Hikayeler</string>
+    <string name="section_meta_ai">Meta AI</string>
+    <string name="section_links">Bağlantılar</string>
+    <string name="section_developer">Geliştirici</string>
+    <string name="section_downloads">İndirilenler</string>
+    <string name="download_label">İndir</string>
+    <string name="download_instant_description">Instant\'ı indir</string>
+    <string name="download_carousel_current">Geçerli (<xliff:g id="slide">%1$d</xliff:g>/<xliff:g id="total">%2$d</xliff:g>)</string>
+    <plurals name="download_carousel_all">
+        <item quantity="one"><xliff:g id="count">%1$d</xliff:g> öğenin tümü</item>
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> öğenin tümü</item>
+    </plurals>
+    <string name="download_cancel">İptal</string>
+    <string name="download_started">İndiriliyor</string>
+    <string name="download_media_url_missing">İndirilecek medya bulunamadı</string>
+    <string name="download_failed">İndirme başarısız oldu</string>
+    <string name="download_slide_started"><xliff:g id="slide">%1$d</xliff:g>. slayt indiriliyor</string>
+    <string name="download_slide_url_missing"><xliff:g id="slide">%1$d</xliff:g>. slayt indirilemedi</string>
+    <string name="download_story_media_missing">İndirilecek hikaye bulunamadı</string>
+    <plurals name="download_carousel_started">
+        <item quantity="one"><xliff:g id="count">%2$d</xliff:g> öğeden <xliff:g id="started">%1$d</xliff:g>. öğe indiriliyor</item>
+        <item quantity="other"><xliff:g id="count">%2$d</xliff:g> öğeden <xliff:g id="started">%1$d</xliff:g>. öğe indiriliyor</item>
+    </plurals>
+    <string name="download_carousel_urls_missing">Kaydırmalı gönderinin medyası bulunamadı</string>
+    <string name="download_notification_description">Instagram medyası indiriliyor</string>
+    <string name="follows_you_label">Sizi takip ediyor</string>
+    <string name="follows_you_suffix">· Sizi takip ediyor</string>
+    <string name="follows_you_subtitle"><xliff:g id="subtitle">%1$s</xliff:g> · Sizi takip ediyor</string>
+</resources>

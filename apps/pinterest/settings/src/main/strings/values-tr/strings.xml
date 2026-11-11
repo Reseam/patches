@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="hide_ads">Reklamları gizle</string>
+    <string name="hide_shopping">Alışveriş pinlerini gizle</string>
+    <string name="disable_update_prompts">Güncelleme istemlerini kapat</string>
+    <string name="hide_screenshot_share">Ekran görüntüsü paylaşım menüsünü gizle</string>
+    <string name="original_quality">Orijinal kalitede resimler</string>
+    <string name="original_quality_summary">Daha fazla veri kullanır.</string>
+    <string name="show_posted_date">Paylaşım tarihini göster</string>
+    <string name="posted_on">Paylaşıldı: <xliff:g id="date">%1$s</xliff:g></string>
+    <string name="hide_surveys">Anket istemlerini gizle</string>
+    <string name="download_started">İndiriliyor</string>
+    <string name="download_unavailable">İndirilecek bir şey yok</string>
+    <plurals name="download_board_started">
+        <item quantity="one"><xliff:g id="count">%1$d</xliff:g> pin indiriliyor</item>
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> pin indiriliyor</item>
+    </plurals>
+    <string name="download_board_empty">Pinlerini yüklemek için önce panoyu kaydırın</string>
+    <string name="ask_which_media">Hangi medyanın kaydedileceğini sor</string>
+    <string name="ask_which_media_summary">Bir pinde birden fazla resim veya video olduğunda hangilerinin kaydedileceğini sorar.</string>
+    <string name="save_media_choose">Neyin kaydedileceğini seçin</string>
+    <string name="save_media_image">Resim <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_video">Video <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_all">Tümünü kaydet</string>
+    <string name="download_folder">İndirme klasörü</string>
+    <string name="download_folder_summary">Kaydedilen pinlerin gideceği yer. Varsayılan galeriyi koruyun veya bir klasör seçin.</string>
+    <string name="section_downloads">İndirilenler</string>
+    <string name="section_feed">Akış</string>
+    <string name="section_closeup">Yakın görünüm</string>
+    <string name="section_images">Resimler</string>
+    <string name="section_sharing">Paylaşım</string>
+    <string name="section_prompts">İstemler</string>
+    <string name="section_updates">Güncellemeler</string>
+</resources>

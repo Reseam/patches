@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="show_posted_date">Paylaşım tarihini göster</string>
+    <string name="show_posted_date_description">Bir pinin ne zaman paylaşıldığını gösterir.</string>
+    <string name="settings_entry">Reseam ayarları girişi</string>
+    <string name="settings_entry_description">Pinterest\'in ayarlarına Reseam Ayarları\'nı ekler.</string>
+    <string name="download_board">Panoyu indir</string>
+    <string name="download_board_description">Bir panonun yüklediği pinleri indirir.</string>
+    <string name="download_pins">Pinleri indir</string>
+    <string name="download_pins_description">Pinleri orijinal resim ve videolar olarak indirir.</string>
+    <string name="hide_ads">Reklamları gizle</string>
+    <string name="hide_ads_description">Tanıtılan pinleri gizler.</string>
+    <string name="hide_shopping">Alışveriş pinlerini gizle</string>
+    <string name="hide_shopping_description">Satın alınabilir pinleri gizler.</string>
+    <string name="original_quality">Orijinal kalitede resimler</string>
+    <string name="original_quality_description">Resimleri orijinal kalitede yükler.</string>
+    <string name="fix_push_notifications">Anlık bildirimleri düzelt</string>
+    <string name="fix_push_notifications_description">Yamadan sonra anlık bildirimlerin gelmesini sağlar.</string>
+    <string name="hide_surveys">Anket istemlerini gizle</string>
+    <string name="hide_surveys_description">Anket istemlerini gizler.</string>
+    <string name="hide_screenshot_share">Ekran görüntüsü paylaşım menüsünü gizle</string>
+    <string name="hide_screenshot_share_description">Ekran görüntüsünden sonra açılan paylaşım menüsünü gizler.</string>
+    <string name="disable_update_prompts">Güncelleme istemlerini kapat</string>
+    <string name="disable_update_prompts_description">Güncelleme istemlerini durdurur.</string>
+</resources>

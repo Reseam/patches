@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="block_embedded_ads">Gömülü reklamları engelle</string>
+    <string name="block_embedded_ads_description">Canlı yayınları reklamsız olarak, IP adresinizi ve izlediğiniz kanalları gören üçüncü taraf bir proxy üzerinden yükler.</string>
+    <string name="block_video_ads">Video reklamlarını engelle</string>
+    <string name="block_video_ads_description">Twitch\'in kendisinin istediği video, ses ve görüntülü reklamları engeller.</string>
+    <string name="ignore_ad_events">Reklam olaylarını yok say</string>
+    <string name="ignore_ad_events_description">Twitch\'in yayın sırasında duyurduğu reklam aralarını ve reklam izlemesini yok sayar.</string>
+    <string name="settings_entry">Reseam ayarları girişi</string>
+    <string name="settings_entry_description">Twitch\'in ayarlarında Hesap\'ın üstüne Reseam Ayarları\'nı ekler.</string>
+    <string name="enable_debug_mode">Hata ayıklama modunu etkinleştir</string>
+    <string name="enable_debug_mode_description">Hata ayıklama menüsü ve video hata ayıklama paneli gibi Twitch\'in personel araçlarını gösterir.</string>
+    <string name="fix_login_crash">Giriş çökmesini düzelt</string>
+    <string name="fix_login_crash_description">Twitch\'in giriş yaptıktan hemen sonra çökmesini engeller.</string>
+    <string name="startup_tab">Açılış sekmesi</string>
+    <string name="startup_tab_description">Twitch\'i Göz At veya Profil\'de açar ve Varsayılan Ana Sayfa ayarının kilidini açar.</string>
+    <string name="block_analytics">Analizleri engelle</string>
+    <string name="block_analytics_description">comScore, Nielsen, Sentry, Crashlytics, Sprig ve Branch\'i durdurur.</string>
+    <string name="disable_update_prompts">Güncelleme istemlerini kapat</string>
+    <string name="disable_update_prompts_description">Güncelleme istemlerini durdurur.</string>
+</resources>
