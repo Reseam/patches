@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="block_embedded_ads">埋め込み広告をブロック</string>
+    <string name="block_embedded_ads_description">広告のないサードパーティのプロキシ経由でライブ配信を読み込みます。プロキシにはあなたの IP アドレスと視聴するチャンネルが見えます。</string>
+    <string name="block_video_ads">動画広告をブロック</string>
+    <string name="block_video_ads_description">Twitch 自身が要求する動画、音声、ディスプレイ広告をブロックします。</string>
+    <string name="ignore_ad_events">広告イベントを無視</string>
+    <string name="ignore_ad_events_description">配信中に Twitch が通知する広告休憩と広告トラッキングを無視します。</string>
+    <string name="settings_entry">Reseam 設定の項目</string>
+    <string name="settings_entry_description">Twitch の設定のアカウントの上に Reseam 設定を追加します。</string>
+    <string name="enable_debug_mode">デバッグモードを有効にする</string>
+    <string name="enable_debug_mode_description">デバッグメニューや動画デバッグパネルなど、Twitch のスタッフ用ツールを表示します。</string>
+    <string name="fix_login_crash">ログイン時のクラッシュを修正</string>
+    <string name="fix_login_crash_description">ログイン直後に Twitch がクラッシュしないようにします。</string>
+    <string name="startup_tab">起動時のタブ</string>
+    <string name="startup_tab_description">Twitch を参照またはプロフィールで開き、Default Home Page の設定をロック解除します。</string>
+    <string name="block_analytics">アナリティクスをブロック</string>
+    <string name="block_analytics_description">comScore、Nielsen、Sentry、Crashlytics、Sprig、Branch を止めます。</string>
+    <string name="disable_update_prompts">アップデートの案内を無効にする</string>
+    <string name="disable_update_prompts_description">アップデートの案内を止めます。</string>
+</resources>

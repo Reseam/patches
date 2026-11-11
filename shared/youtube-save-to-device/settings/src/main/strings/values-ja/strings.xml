@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_save_to_device">デバイスに保存</string>
+    <string name="save_folder">保存フォルダ</string>
+    <string name="save_folder_summary">保存したファイルの保存先。初めて保存するときに選びます。</string>
+    <string name="save_new_downloads">新しいオフライン保存をデバイスにも保存</string>
+    <string name="save_new_downloads_summary">オフライン保存が完了するたびに、ファイルとしても保存します。</string>
+    <string name="save_to_device">デバイスに保存</string>
+    <string name="notification_channel">保存済みのダウンロード</string>
+    <string name="saving"><xliff:g id="title">%1$s</xliff:g> を保存中</string>
+    <string name="saving_progress"><xliff:g id="total">%2$d</xliff:g> 件中 <xliff:g id="done">%1$d</xliff:g> 件を保存中</string>
+    <string name="saved"><xliff:g id="title">%1$s</xliff:g> を保存しました</string>
+    <plurals name="saved_count">
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> 件のダウンロードを保存しました</item>
+    </plurals>
+    <string name="save_failed"><xliff:g id="title">%1$s</xliff:g> を保存できませんでした</string>
+    <string name="save_failed_unsupported">このダウンロードの形式はファイルとして保存できません。</string>
+    <string name="save_failed_incomplete">ダウンロードがまだ完了していません。</string>
+    <string name="save_failed_folder">保存フォルダを利用できなくなりました。Reseam 設定で選び直してください。</string>
+    <string name="save_failed_space">保存フォルダの空き容量が足りません。</string>
+    <string name="open">開く</string>
+</resources>

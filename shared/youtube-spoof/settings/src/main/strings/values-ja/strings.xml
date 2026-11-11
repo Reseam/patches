@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="spoof_video_streams_client_tv">TV (SABR)</string>
+    <string name="spoof_video_streams_client_web">Web (SABR)</string>
+    <string name="spoof_video_streams_client_tv_simply">TV Simply</string>
+    <string name="spoof_video_streams_stats_for_nerds">偽装したクライアントを統計情報に表示</string>
+    <string name="spoof_video_streams_stats_for_nerds_summary">「詳細統計情報」にストリームのクライアントを表示します。</string>
+    <string name="token_server_credential">トークンサーバーの認証情報</string>
+    <string name="spoof_video_streams">再生を修正</string>
+    <string name="spoof_video_streams_summary">YouTube がアプリをブロックしたときも動画を再生できるようにします。</string>
+    <string name="spoof_video_streams_client">優先するクライアント</string>
+    <string name="spoof_video_streams_client_summary">最初に試すクライアント。Android と Web は Reseam のトークンサーバーを利用できます。利用条件は https://mint.reseam.app にあります。</string>
+    <string name="user_agent_client_spoof">ユーザーエージェントを偽装</string>
+    <string name="user_agent_client_spoof_summary">リクエストで元のアプリを申告し、YouTube に受け入れさせます。</string>
+    <string name="spoof_client_tv">TV (SABR)</string>
+    <string name="spoof_client_web">Web (SABR)</string>
+    <string name="spoof_client_tv_simply">TV Simply</string>
+    <string name="spoof_client_native">ネイティブ</string>
+</resources>

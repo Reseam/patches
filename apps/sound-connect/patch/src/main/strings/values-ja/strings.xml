@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reseam_you_tube_music">Reseam YouTube Music</string>
+    <string name="reseam_you_tube_music_description">インストールされている場合、Auto Play と連携サービスに Reseam の YouTube Music を使います。</string>
+    <string name="reseam_you_tube_music_you_tube_music_package_name">YouTube Music のパッケージ名</string>
+    <string name="reseam_you_tube_music_you_tube_music_package_name_description">Reseam YouTube Music にパッチを適用したときのパッケージ名。</string>
+</resources>

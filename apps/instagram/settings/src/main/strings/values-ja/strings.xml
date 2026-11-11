@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="hide_typing">入力中の表示を隠す</string>
+    <string name="hide_typing_summary">入力中であることが他の人に見えません。Instagram にアカウントを停止されることがあります。</string>
+    <string name="hide_dm_seen">DM の既読を隠す</string>
+    <string name="hide_dm_seen_summary">メッセージを読んだことが送信者に見えません。Instagram にアカウントを停止されることがあります。</string>
+    <string name="hide_story_seen">ストーリーズの閲覧を隠す</string>
+    <string name="hide_story_seen_summary">ストーリーズの閲覧者リストに表示されません。Instagram にアカウントを停止されることがあります。</string>
+    <string name="hide_live_seen">ライブの視聴を隠す</string>
+    <string name="hide_live_seen_summary">ライブ動画の視聴者として表示されません。Instagram にアカウントを停止されることがあります。</string>
+    <string name="hide_screenshot_notifications">スクリーンショットの通知を隠す</string>
+    <string name="hide_screenshot_notifications_summary">スクリーンショットを撮っても他の人に通知されません。Instagram にアカウントを停止されることがあります。</string>
+    <string name="max_resolution">フル解像度の写真</string>
+    <string name="original_quality">元の写真画質</string>
+    <string name="original_quality_summary">より大きな画面を申告して、アップロードされたままの写真を読み込みます。Instagram にアカウントを停止されることがあります。</string>
+    <string name="disable_video_autoplay">動画の自動再生を無効にする</string>
+    <string name="disable_video_autoplay_summary">フィードの動画をタップしたときだけ再生します。</string>
+    <string name="disable_reels_swiping">リールのスワイプを無効にする</string>
+    <string name="disable_reels_swiping_summary">開いたリールのままにします。</string>
+    <string name="disable_auto_advance">ストーリーズの自動送りを無効にする</string>
+    <string name="disable_auto_advance_summary">終わったストーリーズを、タップするまで画面に残します。</string>
+    <string name="hide_suggested_users">おすすめのストーリーズを非表示</string>
+    <string name="hide_suggested_users_summary">ストーリーズトレイで、フォローしていないストーリーズとアカウントを非表示にします。</string>
+    <string name="hide_story_tray">ストーリーズトレイを非表示</string>
+    <string name="hide_story_tray_summary">ホーム上部のストーリーズを非表示にします。</string>
+    <string name="ring_size">ストーリーズリングのサイズ</string>
+    <string name="ring_size_summary">ホーム上部のストーリーズの丸のサイズ。</string>
+    <string name="ring_size_small">小 (80%)</string>
+    <string name="ring_size_default">デフォルト</string>
+    <string name="ring_size_large">大 (120%)</string>
+    <string name="ring_size_extra_large">特大 (140%)</string>
+    <string name="hide_in_explore_search">発見タブの検索で Meta AI を非表示</string>
+    <string name="hide_in_direct">DM の Meta AI を非表示</string>
+    <string name="hide_in_direct_summary">受信箱、DM の検索、チャットの Meta AI を非表示にします。</string>
+    <string name="hide_in_posts">投稿の Meta AI を非表示</string>
+    <string name="hide_in_posts_summary">投稿メニューの投稿の要約と「Meta AI に質問」を非表示にします。</string>
+    <string name="open_externally">リンクをブラウザで開く</string>
+    <string name="clean_share_links">共有リンクをクリーンにする</string>
+    <string name="clean_share_links_summary">共有するリンクから、あなたを特定する部分を取り除きます。</string>
+    <string name="allow_screenshots">スクリーンショットを許可</string>
+    <string name="allow_screenshots_summary">チャット、1 回表示のメディア、消えるメッセージモードを含みます。</string>
+    <string name="unlock_developer_options">開発者メニューを有効にする</string>
+    <string name="unlock_developer_options_summary">設定の一番下に Instagram の開発者メニューを追加します。</string>
+    <string name="copy_comment">コメントをコピー</string>
+    <string name="copy_comment_summary">コメントの長押しメニューに「コピー」を追加します。</string>
+    <string name="comment_copied">コメントをコピーしました</string>
+    <string name="follows_you_indicator">「フォローされています」の表示</string>
+    <string name="follows_you_indicator_summary">あなたをフォローしているアカウントのプロフィールに「フォローされています」を表示します。</string>
+    <string name="hide_repost_buttons">リポストボタンを非表示</string>
+    <string name="hide_engagement_counts">反応の数を非表示</string>
+    <string name="hide_engagement_counts_summary">フィードのいいね、コメント、シェア、リポストの数を非表示にします。</string>
+    <string name="hide_home_tab">ホームタブを非表示</string>
+    <string name="hide_home_tab_summary">Instagram は次のタブで開きます。</string>
+    <string name="hide_reels_tab">リールタブを非表示</string>
+    <string name="hide_create_tab">作成タブを非表示</string>
+    <string name="hide_explore_grid">発見タブのグリッドを非表示</string>
+    <string name="hide_explore_grid_summary">発見タブに検索だけを残します。</string>
+    <string name="hide_instants">Instants を非表示</string>
+    <string name="hide_instants_summary">受信箱の Instants の重なりを非表示にします。</string>
+    <string name="hide_threads_badge">Threads バッジを非表示</string>
+    <string name="hide_ads">広告を非表示</string>
+    <string name="following_only">フォロー中のみのフィード</string>
+    <string name="following_only_summary">フォロー中のアカウントの投稿を新しい順に表示します。</string>
+    <string name="hide_suggested_accounts">おすすめのアカウントを非表示</string>
+    <string name="hide_suggested_accounts_summary">おすすめの投稿は残ります。「フォロー中のみのフィード」で非表示にできます。</string>
+    <string name="hide_threads_units">Threads のユニットを非表示</string>
+    <string name="hide_threads_units_summary">ホームに空白が残ることがあります。</string>
+    <string name="hide_shopping_units">ショッピングのユニットを非表示</string>
+    <string name="hide_shopping_units_summary">ホームに空白が残ることがあります。</string>
+    <string name="hide_suggested_reels">おすすめのリールを非表示</string>
+    <string name="folder">ダウンロードフォルダ</string>
+    <string name="show_toast">ダウンロードのメッセージを表示</string>
+    <string name="section_social">ソーシャル</string>
+    <string name="section_comments">コメント</string>
+    <string name="section_appearance">外観</string>
+    <string name="section_playback">再生</string>
+    <string name="section_media">メディア</string>
+    <string name="section_privacy">プライバシー</string>
+    <string name="section_ghost_mode">ゴーストモード</string>
+    <string name="section_feed">フィード</string>
+    <string name="section_stories">ストーリーズ</string>
+    <string name="section_meta_ai">Meta AI</string>
+    <string name="section_links">リンク</string>
+    <string name="section_developer">開発者</string>
+    <string name="section_downloads">ダウンロード</string>
+    <string name="download_label">ダウンロード</string>
+    <string name="download_instant_description">Instant をダウンロード</string>
+    <string name="download_carousel_current">現在 (<xliff:g id="slide">%1$d</xliff:g>/<xliff:g id="total">%2$d</xliff:g>)</string>
+    <plurals name="download_carousel_all">
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> 件すべて</item>
+    </plurals>
+    <string name="download_cancel">キャンセル</string>
+    <string name="download_started">ダウンロード中</string>
+    <string name="download_media_url_missing">ダウンロードするメディアが見つかりませんでした</string>
+    <string name="download_failed">ダウンロードできませんでした</string>
+    <string name="download_slide_started">スライド <xliff:g id="slide">%1$d</xliff:g> をダウンロード中</string>
+    <string name="download_slide_url_missing">スライド <xliff:g id="slide">%1$d</xliff:g> をダウンロードできませんでした</string>
+    <string name="download_story_media_missing">ダウンロードするストーリーズが見つかりませんでした</string>
+    <plurals name="download_carousel_started">
+        <item quantity="other"><xliff:g id="count">%2$d</xliff:g> 件中 <xliff:g id="started">%1$d</xliff:g> 件をダウンロード中</item>
+    </plurals>
+    <string name="download_carousel_urls_missing">カルーセルのメディアが見つかりませんでした</string>
+    <string name="download_notification_description">Instagram のメディアをダウンロード中</string>
+    <string name="follows_you_label">フォローされています</string>
+    <string name="follows_you_suffix">· フォローされています</string>
+    <string name="follows_you_subtitle"><xliff:g id="subtitle">%1$s</xliff:g> · フォローされています</string>
+</resources>

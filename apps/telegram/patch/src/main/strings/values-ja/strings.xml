@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_sponsored_ads">スポンサーメッセージを非表示</string>
+    <string name="hide_sponsored_ads_description">チャンネル内のスポンサーメッセージを非表示にします。</string>
+    <string name="download_boost">ダウンロードを高速化</string>
+    <string name="download_boost_description">より大きな単位で、同時により多くダウンロードします。</string>
+    <string name="bypass_integrity">整合性チェックを回避</string>
+    <string name="bypass_integrity_description">root 化したスマートフォンや Google サービスのないスマートフォンでログインできるようにします。</string>
+    <string name="fix_push_notifications">プッシュ通知を修正</string>
+    <string name="fix_push_notifications_description">パッチ適用後もプッシュ通知が届くようにします。</string>
+    <string name="allow_screenshots">シークレットメディアのスクリーンショットを許可</string>
+    <string name="allow_screenshots_description">1 回表示や自動消去のメディアのスクリーンショットと画面録画を許可します。</string>
+    <string name="anti_delete">削除されたメッセージを残す</string>
+    <string name="anti_delete_description">相手が削除したメッセージを残し、チャットに表示します。</string>
+    <string name="bypass_restrictions">制限付きチャットから保存</string>
+    <string name="bypass_restrictions_description">保護されたチャットでコピー、保存、転送ができるようにします。</string>
+    <string name="forward_from_restricted">制限付きチャットから転送</string>
+    <string name="forward_from_restricted_description">転送が禁止されたチャットのメッセージを、新しいメッセージとして送信します。</string>
+    <string name="hide_typing_indicator">入力中の表示を隠す</string>
+    <string name="hide_typing_indicator_description">入力中や録音中であることが他の人に見えないようにします。</string>
+    <string name="play_store_restrictions">Play ストアの制限を解除</string>
+    <string name="play_store_restrictions_description">Telegram が Play ストア版でのみ隠しているチャットとメディアを表示します。</string>
+    <string name="unlock_premium">Premium をロック解除</string>
+    <string name="unlock_premium_description">このスマートフォンで動作する Premium 機能をロック解除します。</string>
+    <string name="disable_auto_update">アップデートの案内を無効にする</string>
+    <string name="disable_auto_update_description">アップデートの確認と案内を止めます。</string>
+</resources>

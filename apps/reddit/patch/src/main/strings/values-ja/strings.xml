@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_comment_ads">コメントの広告を非表示</string>
+    <string name="hide_comment_ads_description">投稿の下とコメントの間の広告を非表示にします。</string>
+    <string name="hide_feed_ads">フィードの広告を非表示</string>
+    <string name="hide_feed_ads_description">フィードと検索のプロモーション投稿を非表示にします。</string>
+    <string name="color_thread_lines">スレッドの線に色を付ける</string>
+    <string name="color_thread_lines_description">返信の階層ごとに線の色を変えます。</string>
+    <string name="ignore_suggested_sort">常に自分のコメント並び順を使う</string>
+    <string name="ignore_suggested_sort_description">投稿やコミュニティがすすめる並び順を無視します。</string>
+    <string name="settings_entry">Reseam 設定の項目</string>
+    <string name="settings_entry_description">アカウント設定の下に Reseam 設定を追加します。</string>
+    <string name="disable_features">Reddit の機能を無効にする</string>
+    <string name="disable_features_description">Reddit Answers、ゲーム、購入の案内、各種の促しなどの機能をオフにします。</string>
+    <string name="default_feed_sort">フィードのデフォルトの並び順</string>
+    <string name="default_feed_sort_description">コミュニティ、カスタムフィード、Popular、All を選んだ順に並べます。</string>
+    <string name="hide_feed_units">フィードのユニットを非表示</string>
+    <string name="hide_feed_units_description">フィードのトレンド、カルーセル、プロモーション、アンケートなどの差し込みを非表示にします。</string>
+    <string name="hide_recommended_communities">おすすめのコミュニティを非表示</string>
+    <string name="hide_recommended_communities_description">フィードのコミュニティのおすすめを非表示にします。</string>
+    <string name="hide_recommended_posts">おすすめの投稿を非表示</string>
+    <string name="hide_recommended_posts_description">ホームで、フォローしていないコミュニティの投稿を非表示にします。</string>
+    <string name="hide_drawer_items">コミュニティドロワーの項目を非表示</string>
+    <string name="hide_drawer_items_description">コミュニティドロワーの選んだ行を非表示にします。</string>
+    <string name="hide_navigation_tabs">ナビゲーションタブを非表示</string>
+    <string name="hide_navigation_tabs_description">ナビゲーションバーの選んだタブを非表示にします。</string>
+    <string name="fix_push_notifications">プッシュ通知を修正</string>
+    <string name="fix_push_notifications_description">パッチ適用後もプッシュ通知が届くようにします。</string>
+    <string name="skip_nsfw_warning">NSFW コミュニティの警告をスキップ</string>
+    <string name="skip_nsfw_warning_description">成人向けコミュニティを確認なしで開きます。</string>
+    <string name="block_analytics">アナリティクスをブロック</string>
+    <string name="block_analytics_description">Reddit のイベント記録と AppsFlyer のトラッキングを止めます。</string>
+    <string name="disable_app_rate_prompt">評価の依頼を非表示</string>
+    <string name="disable_app_rate_prompt_description">Reddit が評価を求めてこないようにします。</string>
+    <string name="disable_screenshot_banner">スクリーンショットのバナーを非表示</string>
+    <string name="disable_screenshot_banner_description">Reddit がスクリーンショットを検知しないようにします。</string>
+    <string name="hide_trending_searches">トレンド検索を非表示</string>
+    <string name="hide_trending_searches_description">検索画面のトレンドを非表示にします。</string>
+    <string name="hide_premium_settings">Premium の設定を非表示</string>
+    <string name="hide_premium_settings_description">設定の Premium と Reddit Pro の案内を非表示にします。</string>
+    <string name="vxreddit_links">vxreddit リンクで共有</string>
+    <string name="vxreddit_links_description">投稿を vxreddit.com のリンクで共有します。Discord などのアプリでメディアが表示されます。</string>
+    <string name="block_forced_update">強制アップデートをブロック</string>
+    <string name="block_forced_update_description">Reddit がアップデート画面でこのバージョンを使えなくするのを防ぎます。</string>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="recover_deleted_chats_chosen">自分でオンにしたチャット</string>
+    <string name="recover_deleted_chats_all">オフにしない限りすべてのチャット</string>
+    <string name="hide_sponsored_ads">スポンサーメッセージを非表示</string>
+    <string name="disable_auto_update">アップデートの案内を無効にする</string>
+    <string name="unlock_premium">Premium をロック解除</string>
+    <string name="unlock_premium_summary">サーバー側で確認される機能には引き続き購読が必要です。</string>
+    <string name="hide_typing">入力中の表示を隠す</string>
+    <string name="boost_downloads">ダウンロードを高速化</string>
+    <string name="save_from_restricted">制限付きチャットから保存</string>
+    <string name="save_from_restricted_summary">保護されたチャットでコピー、保存、転送ができるようにします。</string>
+    <string name="remove_play_store_restrictions">Play ストアの制限を解除</string>
+    <string name="remove_play_store_restrictions_summary">Telegram が Play ストア版でのみ隠しているチャットとメディアを表示します。</string>
+    <string name="recover_deleted">削除されたメッセージを残す</string>
+    <string name="recover_deleted_summary">相手が削除したメッセージを残し、🗑️ で示します。</string>
+    <string name="recover_deleted_chats">有効にする範囲</string>
+    <string name="recover_deleted_chats_summary">チャットごとのオン・オフは、チャットの ⋮ メニューで切り替えます。</string>
+    <string name="allow_screenshots">シークレットメディアのスクリーンショットを許可</string>
+    <string name="allow_screenshots_summary">1 回表示や自動消去のメディアの画面録画を含みます。</string>
+    <string name="section_ads">広告</string>
+    <string name="section_updates">アップデート</string>
+    <string name="section_downloads">ダウンロード</string>
+    <string name="section_premium">Premium</string>
+    <string name="section_privacy">プライバシー</string>
+    <string name="anti_delete_recovery_off">削除されたメッセージを残すのをやめる</string>
+    <string name="anti_delete_recovery_on">削除されたメッセージを残す</string>
+</resources>

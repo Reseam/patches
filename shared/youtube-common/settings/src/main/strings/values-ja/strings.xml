@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="custom_filter">カスタムフィルターを使う</string>
+    <string name="custom_filter_strings">カスタムフィルター</string>
+    <string name="custom_filter_strings_summary">^path#accessibility$buffer の形式の式を 1 行に 1 つ入力します。</string>
+    <string name="debug_logging">デバッグログ</string>
+    <string name="debug_logging_summary">Reseam の動作を Android のログに書き出します。</string>
+    <string name="sanitize_sharing_links">共有リンクをクリーンにする</string>
+    <string name="sanitize_sharing_links_summary">共有するリンクからトラッキングを取り除きます。</string>
+    <string name="force_original_audio">元の音声を強制</string>
+    <string name="force_original_audio_summary">吹き替えトラックではなく元の音声を再生します。</string>
+    <string name="custom_branding_icon_custom">カスタム</string>
+    <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g> をダウンロードフォルダに保存しました</string>
+    <string name="experiment_flags_failed">実験フラグを保存できませんでした</string>
+    <string name="segment_behaviors_skip">自動でスキップ</string>
+    <string name="segment_behaviors_skip_once">1 回だけスキップ</string>
+    <string name="segment_behaviors_manual_skip">スキップボタンを表示</string>
+    <string name="segment_behaviors_seekbar_only">シークバーに表示</string>
+    <string name="segment_behaviors_ignore">無視</string>
+    <string name="sb_enabled">SponsorBlock</string>
+    <string name="sb_enabled_summary">SponsorBlock コミュニティが指定したセグメントをスキップします。SponsorBlock にはあなたが開いた動画が見えます。</string>
+    <string name="sb_sponsor">スポンサーのセグメント</string>
+    <string name="sb_selfpromo">自己宣伝</string>
+    <string name="sb_interaction">操作のお願い</string>
+    <string name="sb_poi_highlight">ハイライト</string>
+    <string name="sb_intro">イントロ</string>
+    <string name="sb_outro">アウトロ</string>
+    <string name="sb_preview">予告</string>
+    <string name="sb_hook">フック</string>
+    <string name="sb_filler">余談</string>
+    <string name="sb_music_offtopic">音楽以外の部分</string>
+    <string name="sb_toast_on_skip">スキップ後にメッセージを表示</string>
+    <string name="sb_toast_on_connection_error">SponsorBlock の接続エラーを表示</string>
+    <string name="sb_track_skip_count">SponsorBlock のスキップを記録</string>
+    <string name="sb_track_skip_count_summary">統計をこのスマートフォンに保存し、スキップした回数を SponsorBlock に報告します。</string>
+    <string name="sb_min_segment_duration">セグメントの最小の長さ (秒)</string>
+    <string name="section_sponsorblock">SponsorBlock</string>
+    <string name="sponsorblock_category_sponsor">スポンサー</string>
+    <string name="sponsorblock_category_selfpromo">自己宣伝</string>
+    <string name="sponsorblock_category_interaction">操作のお願い</string>
+    <string name="sponsorblock_category_highlight">ハイライト</string>
+    <string name="sponsorblock_category_intro">イントロ</string>
+    <string name="sponsorblock_category_outro">アウトロ</string>
+    <string name="sponsorblock_category_preview">プレビュー</string>
+    <string name="sponsorblock_category_hook">フック</string>
+    <string name="sponsorblock_category_filler">余談</string>
+    <string name="sponsorblock_category_music">音楽以外の部分</string>
+    <string name="sponsorblock_skipped"><xliff:g id="segment">%1$s</xliff:g> をスキップしました</string>
+    <string name="sponsorblock_load_failed">SponsorBlock のセグメントを読み込めませんでした</string>
+</resources>

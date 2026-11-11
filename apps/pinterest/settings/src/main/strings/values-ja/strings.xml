@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="hide_ads">広告を非表示</string>
+    <string name="hide_shopping">ショッピングピンを非表示</string>
+    <string name="disable_update_prompts">アップデートの案内を無効にする</string>
+    <string name="hide_screenshot_share">スクリーンショット後の共有メニューを非表示</string>
+    <string name="original_quality">元の画質の画像</string>
+    <string name="original_quality_summary">データ使用量が増えます。</string>
+    <string name="show_posted_date">投稿日を表示</string>
+    <string name="posted_on"><xliff:g id="date">%1$s</xliff:g> に投稿</string>
+    <string name="hide_surveys">アンケートの案内を非表示</string>
+    <string name="download_started">ダウンロード中</string>
+    <string name="download_unavailable">ダウンロードするものがありません</string>
+    <plurals name="download_board_started">
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> 件のピンをダウンロード中</item>
+    </plurals>
+    <string name="download_board_empty">ピンを読み込むには、先にボードをスクロールしてください</string>
+    <string name="ask_which_media">保存するメディアを確認する</string>
+    <string name="ask_which_media_summary">ピンに複数の画像や動画があるとき、どれを保存するか確認します。</string>
+    <string name="save_media_choose">保存するものを選択</string>
+    <string name="save_media_image">画像 <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_video">動画 <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_all">すべて保存</string>
+    <string name="download_folder">ダウンロードフォルダ</string>
+    <string name="download_folder_summary">保存したピンの保存先。ギャラリーのデフォルトのままにするか、フォルダを選びます。</string>
+    <string name="section_downloads">ダウンロード</string>
+    <string name="section_feed">フィード</string>
+    <string name="section_closeup">クローズアップ</string>
+    <string name="section_images">画像</string>
+    <string name="section_sharing">共有</string>
+    <string name="section_prompts">案内</string>
+    <string name="section_updates">アップデート</string>
+</resources>

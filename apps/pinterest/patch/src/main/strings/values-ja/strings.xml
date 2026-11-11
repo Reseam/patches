@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="show_posted_date">投稿日を表示</string>
+    <string name="show_posted_date_description">ピンが投稿された日を表示します。</string>
+    <string name="settings_entry">Reseam 設定の項目</string>
+    <string name="settings_entry_description">Pinterest の設定に Reseam 設定を追加します。</string>
+    <string name="download_board">ボードをダウンロード</string>
+    <string name="download_board_description">ボードが読み込み済みのピンをダウンロードします。</string>
+    <string name="download_pins">ピンをダウンロード</string>
+    <string name="download_pins_description">ピンを元の画像や動画でダウンロードします。</string>
+    <string name="hide_ads">広告を非表示</string>
+    <string name="hide_ads_description">プロモーションピンを非表示にします。</string>
+    <string name="hide_shopping">ショッピングピンを非表示</string>
+    <string name="hide_shopping_description">購入できる商品のピンを非表示にします。</string>
+    <string name="original_quality">元の画質の画像</string>
+    <string name="original_quality_description">画像を元の画質で読み込みます。</string>
+    <string name="fix_push_notifications">プッシュ通知を修正</string>
+    <string name="fix_push_notifications_description">パッチ適用後もプッシュ通知が届くようにします。</string>
+    <string name="hide_surveys">アンケートの案内を非表示</string>
+    <string name="hide_surveys_description">アンケートの案内を非表示にします。</string>
+    <string name="hide_screenshot_share">スクリーンショット後の共有メニューを非表示</string>
+    <string name="hide_screenshot_share_description">スクリーンショットの後に開く共有メニューを非表示にします。</string>
+    <string name="disable_update_prompts">アップデートの案内を無効にする</string>
+    <string name="disable_update_prompts_description">アップデートの案内を止めます。</string>
+</resources>

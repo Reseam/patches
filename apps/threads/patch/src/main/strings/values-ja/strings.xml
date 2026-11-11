@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_ads">広告を非表示</string>
+    <string name="hide_ads_description">スポンサー投稿を非表示にします。</string>
+    <string name="settings_entry">Reseam 設定の項目</string>
+    <string name="settings_entry_description">Threads の設定に Reseam 設定を追加します。</string>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="allow_screenshots">スクリーンショットを許可</string>
+    <string name="allow_screenshots_description">保護された画面のスクリーンショットと画面録画を許可します。</string>
+    <string name="allow_split_screen">分割画面を許可</string>
+    <string name="allow_split_screen_description">アプリを分割画面やバブルで開けるようにします。</string>
+    <string name="change_package_name">パッケージ名を変更</string>
+    <string name="change_package_name_description">別のパッケージ名でアプリをインストールし、元のアプリと並べて使えるようにします。この方法では動作しないアプリもあります。</string>
+    <string name="change_package_name_package_name">パッケージ名</string>
+    <string name="change_package_name_package_name_description">新しいパッケージ名。空欄の場合は元の名前に .reseam を付けます。</string>
+    <string name="disable_play_store_updates">Play ストアのアップデートを無効にする</string>
+    <string name="disable_play_store_updates_description">Google Play のアップデート対象からアプリを隠します。</string>
+    <string name="enable_debugging">デバッグを有効にする</string>
+    <string name="enable_debugging_description">アプリをデバッグ可能にし、root なしで adb から調べられるようにします。</string>
+    <string name="hide_mock_location">仮の現在地を隠す</string>
+    <string name="hide_mock_location_description">現在地が仮の現在地アプリによるものであることを隠します。</string>
+    <string name="override_certificate_pinning">証明書ピンニングを上書き</string>
+    <string name="override_certificate_pinning_description">あなた自身の証明書を信頼し、プロキシでアプリの通信を調べられるようにします。</string>
+    <string name="remove_ads">広告をブロック</string>
+    <string name="remove_ads_description">一般的な広告ネットワークからの広告をアプリが読み込まないようにします。</string>
+    <string name="remove_pairip">Pairip を削除</string>
+    <string name="remove_pairip_description">Google Play の自動整合性保護を取り除きます。サーバー側のチェックは引き続き適用されます。</string>
+    <string name="remove_pairip_kill_vm">Pairip VM を停止</string>
+    <string name="remove_pairip_kill_vm_description">Pairip VM がライセンス確認しか行わないアプリ専用です。VM 内で独自のコードを実行するアプリは動かなくなります。</string>
+    <string name="remove_pairip_spoof_installer">インストーラーのチェックを偽装</string>
+    <string name="remove_pairip_spoof_installer_description">残っているインストーラーのチェックに Google Play と答えさせます。</string>
+    <string name="report_play_store_installer">インストーラーを Play ストアと申告</string>
+    <string name="report_play_store_installer_description">アプリに、Google Play からインストールされたと認識させます。</string>
+    <string name="spoof_signature">署名を偽装</string>
+    <string name="spoof_signature_description">アプリに元の署名を見せ、改変アプリのチェックを通過させます。</string>
+</resources>

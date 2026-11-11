@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="signature_check">署名チェックを修正</string>
+    <string name="signature_check_description">再署名したアプリを起動できるようにします。</string>
+</resources>

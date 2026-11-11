@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_branding">カスタムブランド</string>
+    <string name="custom_branding_description">ランチャーアイコンとアプリ名の選択肢を追加します。自分で用意したものも使えます。</string>
+    <string name="custom_branding_custom_name">カスタムアプリ名</string>
+    <string name="custom_branding_custom_name_description">この名前をアプリ名の選択肢に追加し、デフォルトにします。</string>
+    <string name="custom_branding_custom_icon">カスタムアイコン</string>
+    <string name="custom_branding_custom_icon_description">mipmap-mdpi から mipmap-xxxhdpi までのフォルダを含むフォルダ。各フォルダに foreground.png と background.png が必要です。アイコンを選択肢に追加し、デフォルトにします。</string>
+</resources>

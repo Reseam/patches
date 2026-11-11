@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="gmscore_missing_title">GmsCore がインストールされていません</string>
+    <string name="gmscore_missing_message">このアプリは GmsCore (<xliff:g id="packageName">%1$s</xliff:g>) でログインするようにパッチが適用されていますが、GmsCore がインストールされていません。インストールして一度開き、求められた権限を許可してから、このアプリを開き直してください。</string>
+    <string name="gmscore_get">GmsCore を入手</string>
+    <string name="gmscore_close">閉じる</string>
+    <string name="gmscore_mount_unsupported">GmsCore サポートのパッチを適用すると、マウントでのインストールは動作しません</string>
+    <string name="gmscore_battery_optimized_title">GmsCore がバッテリー最適化の対象になっています</string>
+    <string name="gmscore_battery_optimized_message">Android がバックグラウンドで GmsCore を停止するため、ログアウトされたり通知が届かなくなったりします。GmsCore のバッテリー最適化をオフにしてください。</string>
+    <string name="gmscore_open_settings">設定を開く</string>
+    <string name="gmscore_unavailable_title">GmsCore を利用できません</string>
+    <string name="gmscore_unavailable_message">アプリが GmsCore にアクセスできません。GmsCore を開いて、権限とバックグラウンド動作の設定を確認してください。</string>
+    <string name="gmscore_open_website">ウェブサイトを開く</string>
+    <string name="gmscore_ignore">無視</string>
+    <string name="gmscore_no_screen_handler">この画面を開けるアプリがありません</string>
+</resources>
