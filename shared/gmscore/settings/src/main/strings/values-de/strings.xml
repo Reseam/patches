@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="gmscore_missing_title">GmsCore ist nicht installiert</string>
+    <string name="gmscore_missing_message">Diese App wurde so gepatcht, dass sie sich über GmsCore (<xliff:g id="packageName">%1$s</xliff:g>) anmeldet, das nicht installiert ist. Installiere es, öffne es einmal und erteile die Berechtigungen, um die es bittet. Öffne dann diese App erneut.</string>
+    <string name="gmscore_get">GmsCore holen</string>
+    <string name="gmscore_close">Schließen</string>
+    <string name="gmscore_mount_unsupported">Der Patch für GmsCore-Unterstützung macht gemountete Installationen kaputt</string>
+    <string name="gmscore_battery_optimized_title">Für GmsCore ist die Akkuoptimierung aktiv</string>
+    <string name="gmscore_battery_optimized_message">Android wird GmsCore im Hintergrund stoppen. Das meldet dich ab und unterbricht Benachrichtigungen. Schalte die Akkuoptimierung für GmsCore aus.</string>
+    <string name="gmscore_open_settings">Einstellungen öffnen</string>
+    <string name="gmscore_unavailable_title">GmsCore ist nicht verfügbar</string>
+    <string name="gmscore_unavailable_message">Die App kann nicht auf GmsCore zugreifen. Öffne GmsCore und prüfe seine Berechtigungen und die Einstellungen zur Hintergrundaktivität.</string>
+    <string name="gmscore_open_website">Website öffnen</string>
+    <string name="gmscore_ignore">Ignorieren</string>
+    <string name="gmscore_no_screen_handler">Keine App verfügbar, die diesen Bildschirm öffnen kann</string>
+</resources>

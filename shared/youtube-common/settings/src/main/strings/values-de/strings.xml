@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="custom_filter">Eigene Filter verwenden</string>
+    <string name="custom_filter_strings">Eigene Filter</string>
+    <string name="custom_filter_strings_summary">Ein Ausdruck pro Zeile, in der Form ^path#accessibility$buffer.</string>
+    <string name="debug_logging">Debug-Protokollierung</string>
+    <string name="debug_logging_summary">Schreibt ins Android-Protokoll, was Reseam tut.</string>
+    <string name="sanitize_sharing_links">Geteilte Links bereinigen</string>
+    <string name="sanitize_sharing_links_summary">Entfernt Tracking aus Links, die du teilst.</string>
+    <string name="force_original_audio">Originalton erzwingen</string>
+    <string name="force_original_audio_summary">Spielt den Originalton statt einer synchronisierten Tonspur.</string>
+    <string name="custom_branding_icon_custom">Benutzerdefiniert</string>
+    <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g> in Downloads gespeichert</string>
+    <string name="experiment_flags_failed">Die Experiment-Flags konnten nicht gespeichert werden</string>
+    <string name="segment_behaviors_skip">Automatisch überspringen</string>
+    <string name="segment_behaviors_skip_once">Einmal überspringen</string>
+    <string name="segment_behaviors_manual_skip">Überspringen-Schaltfläche anzeigen</string>
+    <string name="segment_behaviors_seekbar_only">In der Fortschrittsleiste anzeigen</string>
+    <string name="segment_behaviors_ignore">Ignorieren</string>
+    <string name="sb_enabled">SponsorBlock</string>
+    <string name="sb_enabled_summary">Überspringt Segmente, die die SponsorBlock-Community markiert hat. SponsorBlock sieht die Videos, die du öffnest.</string>
+    <string name="sb_sponsor">Sponsor-Segmente</string>
+    <string name="sb_selfpromo">Eigenwerbung</string>
+    <string name="sb_interaction">Interaktionsaufrufe</string>
+    <string name="sb_poi_highlight">Highlights</string>
+    <string name="sb_intro">Intros</string>
+    <string name="sb_outro">Outros</string>
+    <string name="sb_preview">Vorschauen</string>
+    <string name="sb_hook">Hooks</string>
+    <string name="sb_filler">Füllmaterial</string>
+    <string name="sb_music_offtopic">Teile ohne Musik</string>
+    <string name="sb_toast_on_skip">Nach dem Überspringen eine Meldung anzeigen</string>
+    <string name="sb_toast_on_connection_error">SponsorBlock-Verbindungsfehler anzeigen</string>
+    <string name="sb_track_skip_count">Übersprungene SponsorBlock-Segmente zählen</string>
+    <string name="sb_track_skip_count_summary">Führt Statistiken auf diesem Handy und meldet SponsorBlock, was du überspringst.</string>
+    <string name="sb_min_segment_duration">Mindestdauer von Segmenten (Sekunden)</string>
+    <string name="section_sponsorblock">SponsorBlock</string>
+    <string name="sponsorblock_category_sponsor">Sponsor</string>
+    <string name="sponsorblock_category_selfpromo">Eigenwerbung</string>
+    <string name="sponsorblock_category_interaction">Interaktionsaufruf</string>
+    <string name="sponsorblock_category_highlight">Highlight</string>
+    <string name="sponsorblock_category_intro">Intro</string>
+    <string name="sponsorblock_category_outro">Outro</string>
+    <string name="sponsorblock_category_preview">Vorschau</string>
+    <string name="sponsorblock_category_hook">Hook</string>
+    <string name="sponsorblock_category_filler">Füllmaterial</string>
+    <string name="sponsorblock_category_music">Teil ohne Musik</string>
+    <string name="sponsorblock_skipped"><xliff:g id="segment">%1$s</xliff:g> übersprungen</string>
+    <string name="sponsorblock_load_failed">SponsorBlock-Segmente konnten nicht geladen werden</string>
+</resources>

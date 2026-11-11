@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="show_posted_date">Veröffentlichungsdatum anzeigen</string>
+    <string name="show_posted_date_description">Zeigt, wann ein Pin veröffentlicht wurde.</string>
+    <string name="settings_entry">Eintrag für Reseam-Einstellungen</string>
+    <string name="settings_entry_description">Fügt den Einstellungen von Pinterest die Reseam-Einstellungen hinzu.</string>
+    <string name="download_board">Pinnwand herunterladen</string>
+    <string name="download_board_description">Lädt die Pins herunter, die eine Pinnwand bereits geladen hat.</string>
+    <string name="download_pins">Pins herunterladen</string>
+    <string name="download_pins_description">Lädt Pins als Originalbilder und -videos herunter.</string>
+    <string name="hide_ads">Werbung ausblenden</string>
+    <string name="hide_ads_description">Blendet beworbene Pins aus.</string>
+    <string name="hide_shopping">Shopping-Pins ausblenden</string>
+    <string name="hide_shopping_description">Blendet Pins mit kaufbaren Produkten aus.</string>
+    <string name="original_quality">Bilder in Originalqualität</string>
+    <string name="original_quality_description">Lädt Bilder in Originalqualität.</string>
+    <string name="fix_push_notifications">Push-Benachrichtigungen reparieren</string>
+    <string name="fix_push_notifications_description">Sorgt dafür, dass Push-Benachrichtigungen nach dem Patchen ankommen.</string>
+    <string name="hide_surveys">Umfrage-Hinweise ausblenden</string>
+    <string name="hide_surveys_description">Blendet Umfrage-Hinweise aus.</string>
+    <string name="hide_screenshot_share">Teilen-Menü nach Screenshots ausblenden</string>
+    <string name="hide_screenshot_share_description">Blendet das Teilen-Menü aus, das sich nach einem Screenshot öffnet.</string>
+    <string name="disable_update_prompts">Update-Hinweise deaktivieren</string>
+    <string name="disable_update_prompts_description">Stoppt Update-Hinweise.</string>
+</resources>

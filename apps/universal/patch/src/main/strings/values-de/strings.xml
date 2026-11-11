@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="allow_screenshots">Screenshots erlauben</string>
+    <string name="allow_screenshots_description">Erlaubt Screenshots und Bildschirmaufnahmen von geschützten Bildschirmen.</string>
+    <string name="allow_split_screen">Geteilten Bildschirm erlauben</string>
+    <string name="allow_split_screen_description">Lässt die App im geteilten Bildschirm und in Bubbles öffnen.</string>
+    <string name="change_package_name">Paketnamen ändern</string>
+    <string name="change_package_name_description">Installiert die App unter einem anderen Paketnamen, sodass sie neben dem Original läuft. Manche Apps funktionieren so nicht.</string>
+    <string name="change_package_name_package_name">Paketname</string>
+    <string name="change_package_name_package_name_description">Der neue Paketname. Leer hängt .reseam an das Original an.</string>
+    <string name="disable_play_store_updates">Play-Store-Updates deaktivieren</string>
+    <string name="disable_play_store_updates_description">Verbirgt die App vor den Updates von Google Play.</string>
+    <string name="enable_debugging">Debugging aktivieren</string>
+    <string name="enable_debugging_description">Markiert die App als debugfähig, sodass adb sie ohne Root untersuchen kann.</string>
+    <string name="hide_mock_location">Simulierten Standort verbergen</string>
+    <string name="hide_mock_location_description">Verbirgt, dass dein Standort von einer App für simulierte Standorte kommt.</string>
+    <string name="override_certificate_pinning">Zertifikats-Pinning überschreiben</string>
+    <string name="override_certificate_pinning_description">Vertraut deinen eigenen Zertifikaten, sodass ein Proxy den Datenverkehr der App untersuchen kann.</string>
+    <string name="remove_ads">Werbung blockieren</string>
+    <string name="remove_ads_description">Verhindert, dass die App Werbung von gängigen Werbenetzwerken lädt.</string>
+    <string name="remove_pairip">Pairip entfernen</string>
+    <string name="remove_pairip_description">Entfernt den automatischen Integritätsschutz von Google Play. Serverseitige Prüfungen gelten weiterhin.</string>
+    <string name="remove_pairip_kill_vm">Pairip-VM stoppen</string>
+    <string name="remove_pairip_kill_vm_description">Nur für Apps, deren Pairip-VM nichts anderes tut, als die Lizenz zu prüfen. Macht Apps kaputt, die darin eigenen Code ausführen.</string>
+    <string name="remove_pairip_spoof_installer">Installer-Prüfungen täuschen</string>
+    <string name="remove_pairip_spoof_installer_description">Lässt verbleibende Installer-Prüfungen Google Play melden.</string>
+    <string name="report_play_store_installer">Play Store als Installer melden</string>
+    <string name="report_play_store_installer_description">Lässt die App glauben, sie sei über Google Play installiert.</string>
+    <string name="spoof_signature">Signatur vortäuschen</string>
+    <string name="spoof_signature_description">Zeigt der App ihre Originalsignatur, damit Prüfungen auf eine veränderte App bestehen.</string>
+</resources>

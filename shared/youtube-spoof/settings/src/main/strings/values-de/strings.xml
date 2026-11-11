@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="spoof_video_streams_client_tv">TV (SABR)</string>
+    <string name="spoof_video_streams_client_web">Web (SABR)</string>
+    <string name="spoof_video_streams_client_tv_simply">TV Simply</string>
+    <string name="spoof_video_streams_stats_for_nerds">Vorgetäuschten Client in den Statistiken anzeigen</string>
+    <string name="spoof_video_streams_stats_for_nerds_summary">Zeigt den Stream-Client in den Statistiken für Nerds.</string>
+    <string name="token_server_credential">Zugangsdaten für den Token-Server</string>
+    <string name="spoof_video_streams">Wiedergabe reparieren</string>
+    <string name="spoof_video_streams_summary">Sorgt dafür, dass Videos abgespielt werden, wenn YouTube die App blockiert.</string>
+    <string name="spoof_video_streams_client">Bevorzugter Client</string>
+    <string name="spoof_video_streams_client_summary">Der Client, der zuerst versucht wird. Android und Web können den Reseam-Token-Server nutzen, zu dessen Bedingungen unter https://mint.reseam.app.</string>
+    <string name="user_agent_client_spoof">User-Agent vortäuschen</string>
+    <string name="user_agent_client_spoof_summary">Meldet in Anfragen die Original-App, damit YouTube sie akzeptiert.</string>
+    <string name="spoof_client_tv">TV (SABR)</string>
+    <string name="spoof_client_web">Web (SABR)</string>
+    <string name="spoof_client_tv_simply">TV Simply</string>
+    <string name="spoof_client_native">Nativ</string>
+</resources>

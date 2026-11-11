@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_save_to_device">Auf dem Gerät speichern</string>
+    <string name="save_folder">Speicherordner</string>
+    <string name="save_folder_summary">Wohin gespeicherte Dateien kommen. Du wählst ihn beim ersten Speichern.</string>
+    <string name="save_new_downloads">Neue Downloads auf dem Gerät speichern</string>
+    <string name="save_new_downloads_summary">Speichert außerdem jeden Download, sobald er fertig ist.</string>
+    <string name="save_to_device">Auf dem Gerät speichern</string>
+    <string name="notification_channel">Gespeicherte Downloads</string>
+    <string name="saving"><xliff:g id="title">%1$s</xliff:g> wird gespeichert</string>
+    <string name="saving_progress"><xliff:g id="done">%1$d</xliff:g> von <xliff:g id="total">%2$d</xliff:g> wird gespeichert</string>
+    <string name="saved"><xliff:g id="title">%1$s</xliff:g> gespeichert</string>
+    <plurals name="saved_count">
+        <item quantity="one"><xliff:g id="count">%1$d</xliff:g> Download gespeichert</item>
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> Downloads gespeichert</item>
+    </plurals>
+    <string name="save_failed"><xliff:g id="title">%1$s</xliff:g> konnte nicht gespeichert werden</string>
+    <string name="save_failed_unsupported">Das Format des Downloads lässt sich nicht als Datei speichern.</string>
+    <string name="save_failed_incomplete">Der Download ist noch nicht fertig.</string>
+    <string name="save_failed_folder">Der Speicherordner ist nicht mehr verfügbar. Wähle ihn in den Reseam-Einstellungen neu.</string>
+    <string name="save_failed_space">Im Speicherordner ist nicht genug Platz.</string>
+    <string name="open">Öffnen</string>
+</resources>

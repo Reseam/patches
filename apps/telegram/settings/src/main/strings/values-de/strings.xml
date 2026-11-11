@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="recover_deleted_chats_chosen">Chats, für die ich es einschalte</string>
+    <string name="recover_deleted_chats_all">Alle Chats, außer ich schalte es aus</string>
+    <string name="hide_sponsored_ads">Gesponserte Nachrichten ausblenden</string>
+    <string name="disable_auto_update">Update-Hinweise deaktivieren</string>
+    <string name="unlock_premium">Premium freischalten</string>
+    <string name="unlock_premium_summary">Funktionen, die der Server prüft, brauchen weiterhin ein Abo.</string>
+    <string name="hide_typing">Tippanzeige ausblenden</string>
+    <string name="boost_downloads">Schnellere Downloads</string>
+    <string name="save_from_restricted">Aus eingeschränkten Chats speichern</string>
+    <string name="save_from_restricted_summary">Erlaubt Kopieren, Speichern und Weiterleiten in geschützten Chats.</string>
+    <string name="remove_play_store_restrictions">Play-Store-Einschränkungen entfernen</string>
+    <string name="remove_play_store_restrictions_summary">Zeigt die Chats und Medien, die Telegram nur in seiner Play-Store-Version verbirgt.</string>
+    <string name="recover_deleted">Gelöschte Nachrichten behalten</string>
+    <string name="recover_deleted_summary">Behält Nachrichten, die andere löschen, und markiert sie mit 🗑️.</string>
+    <string name="recover_deleted_chats">Eingeschaltet für</string>
+    <string name="recover_deleted_chats_summary">Schalte es für einen Chat im ⋮-Menü des Chats ein oder aus.</string>
+    <string name="allow_screenshots">Screenshots geheimer Medien erlauben</string>
+    <string name="allow_screenshots_summary">Umfasst Bildschirmaufnahmen von einmalig ansehbaren und selbstzerstörenden Medien.</string>
+    <string name="section_ads">Werbung</string>
+    <string name="section_updates">Updates</string>
+    <string name="section_downloads">Downloads</string>
+    <string name="section_premium">Premium</string>
+    <string name="section_privacy">Datenschutz</string>
+    <string name="anti_delete_recovery_off">Gelöschte Nachrichten nicht mehr behalten</string>
+    <string name="anti_delete_recovery_on">Gelöschte Nachrichten behalten</string>
+</resources>

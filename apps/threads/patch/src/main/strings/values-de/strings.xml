@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_ads">Werbung ausblenden</string>
+    <string name="hide_ads_description">Blendet gesponserte Beiträge aus.</string>
+    <string name="settings_entry">Eintrag für Reseam-Einstellungen</string>
+    <string name="settings_entry_description">Fügt den Einstellungen von Threads die Reseam-Einstellungen hinzu.</string>
+</resources>

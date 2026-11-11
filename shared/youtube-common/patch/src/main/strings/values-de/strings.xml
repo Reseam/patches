@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_branding">Eigenes Branding</string>
+    <string name="custom_branding_description">Fügt Launcher-Symbole und App-Namen zur Auswahl hinzu, auch deine eigenen.</string>
+    <string name="custom_branding_custom_name">Eigener App-Name</string>
+    <string name="custom_branding_custom_name_description">Fügt diesen Namen der Auswahl der App-Namen hinzu und macht ihn zum Standard.</string>
+    <string name="custom_branding_custom_icon">Eigenes Symbol</string>
+    <string name="custom_branding_custom_icon_description">Ein Ordner mit den Ordnern mipmap-mdpi bis mipmap-xxxhdpi, jeweils mit foreground.png und background.png. Fügt das Symbol der Auswahl hinzu und macht es zum Standard.</string>
+</resources>
