@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_save_to_device">Enregistrer sur l’appareil</string>
+    <string name="save_folder">Dossier d’enregistrement</string>
+    <string name="save_folder_summary">Où vont les fichiers enregistrés. Vous le choisissez au premier enregistrement.</string>
+    <string name="save_new_downloads">Enregistrer les nouveaux téléchargements sur l’appareil</string>
+    <string name="save_new_downloads_summary">Enregistre aussi chaque téléchargement une fois terminé.</string>
+    <string name="save_to_device">Enregistrer sur l’appareil</string>
+    <string name="notification_channel">Téléchargements enregistrés</string>
+    <string name="saving">Enregistrement de <xliff:g id="title">%1$s</xliff:g></string>
+    <string name="saving_progress">Enregistrement de <xliff:g id="done">%1$d</xliff:g> sur <xliff:g id="total">%2$d</xliff:g></string>
+    <string name="saved"><xliff:g id="title">%1$s</xliff:g> enregistré</string>
+    <plurals name="saved_count">
+        <item quantity="one"><xliff:g id="count">%1$d</xliff:g> téléchargement enregistré</item>
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> téléchargements enregistrés</item>
+    </plurals>
+    <string name="save_failed">Impossible d’enregistrer <xliff:g id="title">%1$s</xliff:g></string>
+    <string name="save_failed_unsupported">Le format de ce téléchargement ne peut pas être enregistré en fichier.</string>
+    <string name="save_failed_incomplete">Le téléchargement n’est pas terminé.</string>
+    <string name="save_failed_folder">Le dossier d’enregistrement n’est plus disponible. Choisissez-le à nouveau dans Paramètres Reseam.</string>
+    <string name="save_failed_space">Il n’y a pas assez d’espace dans le dossier d’enregistrement.</string>
+    <string name="open">Ouvrir</string>
+</resources>

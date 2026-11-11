@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_branding">Image de marque personnalisée</string>
+    <string name="custom_branding_description">Ajoute des icônes de lanceur et des noms d’application au choix, dont les vôtres.</string>
+    <string name="custom_branding_custom_name">Nom d’application personnalisé</string>
+    <string name="custom_branding_custom_name_description">Ajoute ce nom aux choix de nom d’application et en fait le nom par défaut.</string>
+    <string name="custom_branding_custom_icon">Icône personnalisée</string>
+    <string name="custom_branding_custom_icon_description">Un dossier contenant les dossiers mipmap-mdpi à mipmap-xxxhdpi, chacun avec foreground.png et background.png. Ajoute l’icône aux choix et en fait l’icône par défaut.</string>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="recover_deleted_chats_chosen">Les discussions où je l’active</string>
+    <string name="recover_deleted_chats_all">Toutes les discussions, sauf si je le désactive</string>
+    <string name="hide_sponsored_ads">Masquer les messages sponsorisés</string>
+    <string name="disable_auto_update">Désactiver les invites de mise à jour</string>
+    <string name="unlock_premium">Débloquer Premium</string>
+    <string name="unlock_premium_summary">Les fonctionnalités vérifiées par le serveur nécessitent toujours un abonnement.</string>
+    <string name="hide_typing">Masquer l’indicateur de saisie</string>
+    <string name="boost_downloads">Téléchargements plus rapides</string>
+    <string name="save_from_restricted">Enregistrer depuis les discussions restreintes</string>
+    <string name="save_from_restricted_summary">Autorise la copie, l’enregistrement et le transfert dans les discussions protégées.</string>
+    <string name="remove_play_store_restrictions">Retirer les restrictions du Play Store</string>
+    <string name="remove_play_store_restrictions_summary">Affiche les discussions et les médias que Telegram ne masque que dans sa version Play Store.</string>
+    <string name="recover_deleted">Garder les messages supprimés</string>
+    <string name="recover_deleted_summary">Garde les messages que les autres suppriment et les marque avec 🗑️.</string>
+    <string name="recover_deleted_chats">Activé pour</string>
+    <string name="recover_deleted_chats_summary">Activez-le ou désactivez-le pour une discussion dans son menu ⋮.</string>
+    <string name="allow_screenshots">Autoriser les captures d’écran des médias secrets</string>
+    <string name="allow_screenshots_summary">Inclut les enregistrements d’écran des médias à vue unique et qui s’autodétruisent.</string>
+    <string name="section_ads">Publicités</string>
+    <string name="section_updates">Mises à jour</string>
+    <string name="section_downloads">Téléchargements</string>
+    <string name="section_premium">Premium</string>
+    <string name="section_privacy">Confidentialité</string>
+    <string name="anti_delete_recovery_off">Ne plus garder les messages supprimés</string>
+    <string name="anti_delete_recovery_on">Garder les messages supprimés</string>
+</resources>

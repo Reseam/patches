@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_ads">Masquer les publicités</string>
+    <string name="hide_ads_description">Masque les publications sponsorisées.</string>
+    <string name="settings_entry">Entrée Paramètres Reseam</string>
+    <string name="settings_entry_description">Ajoute Paramètres Reseam aux paramètres de Threads.</string>
+</resources>

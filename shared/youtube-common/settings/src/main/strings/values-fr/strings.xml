@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="custom_filter">Utiliser des filtres personnalisés</string>
+    <string name="custom_filter_strings">Filtres personnalisés</string>
+    <string name="custom_filter_strings_summary">Une expression par ligne, au format ^path#accessibility$buffer.</string>
+    <string name="debug_logging">Journal de débogage</string>
+    <string name="debug_logging_summary">Écrit ce que fait Reseam dans le journal Android.</string>
+    <string name="sanitize_sharing_links">Nettoyer les liens partagés</string>
+    <string name="sanitize_sharing_links_summary">Retire le suivi des liens que vous partagez.</string>
+    <string name="force_original_audio">Forcer l’audio d’origine</string>
+    <string name="force_original_audio_summary">Lit l’audio d’origine au lieu d’une piste doublée.</string>
+    <string name="custom_branding_icon_custom">Personnalisé</string>
+    <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g> enregistré dans Téléchargements</string>
+    <string name="experiment_flags_failed">Impossible d’enregistrer les indicateurs d’expérience</string>
+    <string name="segment_behaviors_skip">Passer automatiquement</string>
+    <string name="segment_behaviors_skip_once">Passer une fois</string>
+    <string name="segment_behaviors_manual_skip">Afficher le bouton Passer</string>
+    <string name="segment_behaviors_seekbar_only">Afficher dans la barre de progression</string>
+    <string name="segment_behaviors_ignore">Ignorer</string>
+    <string name="sb_enabled">SponsorBlock</string>
+    <string name="sb_enabled_summary">Passe les segments signalés par la communauté SponsorBlock, qui voit les vidéos que vous ouvrez.</string>
+    <string name="sb_sponsor">Segments sponsorisés</string>
+    <string name="sb_selfpromo">Autopromotion</string>
+    <string name="sb_interaction">Rappels d’interaction</string>
+    <string name="sb_poi_highlight">Temps forts</string>
+    <string name="sb_intro">Intros</string>
+    <string name="sb_outro">Outros</string>
+    <string name="sb_preview">Aperçus</string>
+    <string name="sb_hook">Accroches</string>
+    <string name="sb_filler">Remplissage</string>
+    <string name="sb_music_offtopic">Parties sans musique</string>
+    <string name="sb_toast_on_skip">Afficher un message après un saut</string>
+    <string name="sb_toast_on_connection_error">Afficher les erreurs de connexion à SponsorBlock</string>
+    <string name="sb_track_skip_count">Suivre les sauts SponsorBlock</string>
+    <string name="sb_track_skip_count_summary">Garde des statistiques sur ce téléphone et signale vos sauts à SponsorBlock.</string>
+    <string name="sb_min_segment_duration">Durée minimum des segments (secondes)</string>
+    <string name="section_sponsorblock">SponsorBlock</string>
+    <string name="sponsorblock_category_sponsor">Sponsor</string>
+    <string name="sponsorblock_category_selfpromo">Autopromotion</string>
+    <string name="sponsorblock_category_interaction">Rappel d’interaction</string>
+    <string name="sponsorblock_category_highlight">Temps fort</string>
+    <string name="sponsorblock_category_intro">Intro</string>
+    <string name="sponsorblock_category_outro">Outro</string>
+    <string name="sponsorblock_category_preview">Aperçu</string>
+    <string name="sponsorblock_category_hook">Accroche</string>
+    <string name="sponsorblock_category_filler">Remplissage</string>
+    <string name="sponsorblock_category_music">Partie sans musique</string>
+    <string name="sponsorblock_skipped"><xliff:g id="segment">%1$s</xliff:g> passé</string>
+    <string name="sponsorblock_load_failed">Impossible de charger les segments SponsorBlock</string>
+</resources>

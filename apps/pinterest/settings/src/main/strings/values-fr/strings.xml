@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="hide_ads">Masquer les publicités</string>
+    <string name="hide_shopping">Masquer les épingles shopping</string>
+    <string name="disable_update_prompts">Désactiver les invites de mise à jour</string>
+    <string name="hide_screenshot_share">Masquer le menu de partage des captures</string>
+    <string name="original_quality">Images en qualité d’origine</string>
+    <string name="original_quality_summary">Consomme plus de données.</string>
+    <string name="show_posted_date">Afficher la date de publication</string>
+    <string name="posted_on">Publié le <xliff:g id="date">%1$s</xliff:g></string>
+    <string name="hide_surveys">Masquer les invitations aux sondages</string>
+    <string name="download_started">Téléchargement</string>
+    <string name="download_unavailable">Rien à télécharger</string>
+    <plurals name="download_board_started">
+        <item quantity="one">Téléchargement de <xliff:g id="count">%1$d</xliff:g> épingle</item>
+        <item quantity="other">Téléchargement de <xliff:g id="count">%1$d</xliff:g> épingles</item>
+    </plurals>
+    <string name="download_board_empty">Faites d’abord défiler le tableau pour charger ses épingles</string>
+    <string name="ask_which_media">Demander quels médias enregistrer</string>
+    <string name="ask_which_media_summary">Quand une épingle contient plusieurs images ou vidéos, demande lesquelles enregistrer.</string>
+    <string name="save_media_choose">Choisissez quoi enregistrer</string>
+    <string name="save_media_image">Image <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_video">Vidéo <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_all">Tout enregistrer</string>
+    <string name="download_folder">Dossier de téléchargement</string>
+    <string name="download_folder_summary">Où vont les épingles enregistrées. Gardez la galerie par défaut ou choisissez un dossier.</string>
+    <string name="section_downloads">Téléchargements</string>
+    <string name="section_feed">Fil</string>
+    <string name="section_closeup">Vue détaillée</string>
+    <string name="section_images">Images</string>
+    <string name="section_sharing">Partage</string>
+    <string name="section_prompts">Invites</string>
+    <string name="section_updates">Mises à jour</string>
+</resources>

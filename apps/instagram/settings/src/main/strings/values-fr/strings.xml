@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="hide_typing">Masquer l’indicateur de saisie</string>
+    <string name="hide_typing_summary">Les autres ne voient pas que vous écrivez. Instagram peut bannir votre compte.</string>
+    <string name="hide_dm_seen">Masquer les confirmations de lecture des messages</string>
+    <string name="hide_dm_seen_summary">Les expéditeurs ne voient pas que vous avez lu leurs messages. Instagram peut bannir votre compte.</string>
+    <string name="hide_story_seen">Masquer les vues de stories</string>
+    <string name="hide_story_seen_summary">Vous n’apparaissez pas dans la liste des personnes ayant vu une story. Instagram peut bannir votre compte.</string>
+    <string name="hide_live_seen">Masquer les vues de directs</string>
+    <string name="hide_live_seen_summary">Vous n’apparaissez pas comme spectateur des vidéos en direct. Instagram peut bannir votre compte.</string>
+    <string name="hide_screenshot_notifications">Masquer les notifications de capture d’écran</string>
+    <string name="hide_screenshot_notifications_summary">Les autres ne sont pas prévenus quand vous faites une capture d’écran. Instagram peut bannir votre compte.</string>
+    <string name="max_resolution">Photos en pleine résolution</string>
+    <string name="original_quality">Qualité d’origine des photos</string>
+    <string name="original_quality_summary">Charge les photos telles qu’elles ont été envoyées en déclarant un écran plus grand. Instagram peut bannir votre compte.</string>
+    <string name="disable_video_autoplay">Désactiver la lecture automatique des vidéos</string>
+    <string name="disable_video_autoplay_summary">Ne lit les vidéos du fil que lorsque vous les touchez.</string>
+    <string name="disable_reels_swiping">Désactiver le balayage des Reels</string>
+    <string name="disable_reels_swiping_summary">Garde les Reels sur le reel que vous avez ouvert.</string>
+    <string name="disable_auto_advance">Désactiver l’avance automatique des stories</string>
+    <string name="disable_auto_advance_summary">Garde une story terminée à l’écran jusqu’à ce que vous touchiez.</string>
+    <string name="hide_suggested_users">Masquer les stories suggérées</string>
+    <string name="hide_suggested_users_summary">Masque dans la barre de stories les stories et les comptes que vous ne suivez pas.</string>
+    <string name="hide_story_tray">Masquer la barre de stories</string>
+    <string name="hide_story_tray_summary">Masque les stories en haut de l’Accueil.</string>
+    <string name="ring_size">Taille des cercles de stories</string>
+    <string name="ring_size_summary">La taille des cercles de stories en haut de l’Accueil.</string>
+    <string name="ring_size_small">Petite (80 %)</string>
+    <string name="ring_size_default">Par défaut</string>
+    <string name="ring_size_large">Grande (120 %)</string>
+    <string name="ring_size_extra_large">Très grande (140 %)</string>
+    <string name="hide_in_explore_search">Masquer Meta AI dans la recherche Explorer</string>
+    <string name="hide_in_direct">Masquer Meta AI dans les messages</string>
+    <string name="hide_in_direct_summary">Masque Meta AI dans la boîte de réception, la recherche de messages et les discussions.</string>
+    <string name="hide_in_posts">Masquer Meta AI dans les publications</string>
+    <string name="hide_in_posts_summary">Masque le résumé de la publication et « Demander à Meta AI » dans les menus des publications.</string>
+    <string name="open_externally">Ouvrir les liens dans le navigateur</string>
+    <string name="clean_share_links">Nettoyer les liens partagés</string>
+    <string name="clean_share_links_summary">Retire la partie des liens partagés qui vous identifie.</string>
+    <string name="allow_screenshots">Autoriser les captures d’écran</string>
+    <string name="allow_screenshots_summary">Inclut les discussions, les médias à vue unique et le mode éphémère.</string>
+    <string name="unlock_developer_options">Activer le menu développeur</string>
+    <string name="unlock_developer_options_summary">Ajoute le menu développeur d’Instagram en bas des paramètres.</string>
+    <string name="copy_comment">Copier le commentaire</string>
+    <string name="copy_comment_summary">Ajoute Copier au menu d’appui long des commentaires.</string>
+    <string name="comment_copied">Commentaire copié</string>
+    <string name="follows_you_indicator">Indicateur « Vous suit »</string>
+    <string name="follows_you_indicator_summary">Affiche « Vous suit » sur le profil des comptes qui vous suivent.</string>
+    <string name="hide_repost_buttons">Masquer les boutons de republication</string>
+    <string name="hide_engagement_counts">Masquer les compteurs d’engagement</string>
+    <string name="hide_engagement_counts_summary">Masque les nombres de J’aime, de commentaires, de partages et de republications dans le fil.</string>
+    <string name="hide_home_tab">Masquer l’onglet Accueil</string>
+    <string name="hide_home_tab_summary">Instagram s’ouvre sur l’onglet suivant.</string>
+    <string name="hide_reels_tab">Masquer l’onglet Reels</string>
+    <string name="hide_create_tab">Masquer l’onglet Créer</string>
+    <string name="hide_explore_grid">Masquer la grille Explorer</string>
+    <string name="hide_explore_grid_summary">Ne laisse que la recherche dans l’onglet Explorer.</string>
+    <string name="hide_instants">Masquer les Instants</string>
+    <string name="hide_instants_summary">Masque la pile d’Instants dans la boîte de réception.</string>
+    <string name="hide_threads_badge">Masquer le badge Threads</string>
+    <string name="hide_ads">Masquer les publicités</string>
+    <string name="following_only">Fil des abonnements uniquement</string>
+    <string name="following_only_summary">Affiche les publications des comptes que vous suivez, les plus récentes d’abord.</string>
+    <string name="hide_suggested_accounts">Masquer les comptes suggérés</string>
+    <string name="hide_suggested_accounts_summary">Les publications suggérées restent. « Fil des abonnements uniquement » les masque.</string>
+    <string name="hide_threads_units">Masquer les blocs Threads</string>
+    <string name="hide_threads_units_summary">Peut laisser un espace vide dans l’Accueil.</string>
+    <string name="hide_shopping_units">Masquer les blocs shopping</string>
+    <string name="hide_shopping_units_summary">Peut laisser un espace vide dans l’Accueil.</string>
+    <string name="hide_suggested_reels">Masquer les Reels suggérés</string>
+    <string name="folder">Dossier de téléchargement</string>
+    <string name="show_toast">Afficher le message de téléchargement</string>
+    <string name="section_social">Social</string>
+    <string name="section_comments">Commentaires</string>
+    <string name="section_appearance">Apparence</string>
+    <string name="section_playback">Lecture</string>
+    <string name="section_media">Médias</string>
+    <string name="section_privacy">Confidentialité</string>
+    <string name="section_ghost_mode">Mode fantôme</string>
+    <string name="section_feed">Fil</string>
+    <string name="section_stories">Stories</string>
+    <string name="section_meta_ai">Meta AI</string>
+    <string name="section_links">Liens</string>
+    <string name="section_developer">Développeur</string>
+    <string name="section_downloads">Téléchargements</string>
+    <string name="download_label">Télécharger</string>
+    <string name="download_instant_description">Télécharger l’Instant</string>
+    <string name="download_carousel_current">Actuel (<xliff:g id="slide">%1$d</xliff:g>/<xliff:g id="total">%2$d</xliff:g>)</string>
+    <plurals name="download_carousel_all">
+        <item quantity="one">Le seul élément (<xliff:g id="count">%1$d</xliff:g>)</item>
+        <item quantity="other">Les <xliff:g id="count">%1$d</xliff:g> éléments</item>
+    </plurals>
+    <string name="download_cancel">Annuler</string>
+    <string name="download_started">Téléchargement</string>
+    <string name="download_media_url_missing">Média à télécharger introuvable</string>
+    <string name="download_failed">Échec du téléchargement</string>
+    <string name="download_slide_started">Téléchargement de la diapositive <xliff:g id="slide">%1$d</xliff:g></string>
+    <string name="download_slide_url_missing">Impossible de télécharger la diapositive <xliff:g id="slide">%1$d</xliff:g></string>
+    <string name="download_story_media_missing">Story à télécharger introuvable</string>
+    <plurals name="download_carousel_started">
+        <item quantity="one">Téléchargement de <xliff:g id="started">%1$d</xliff:g> élément sur <xliff:g id="count">%2$d</xliff:g></item>
+        <item quantity="other">Téléchargement de <xliff:g id="started">%1$d</xliff:g> éléments sur <xliff:g id="count">%2$d</xliff:g></item>
+    </plurals>
+    <string name="download_carousel_urls_missing">Médias du carrousel introuvables</string>
+    <string name="download_notification_description">Téléchargement de médias Instagram</string>
+    <string name="follows_you_label">Vous suit</string>
+    <string name="follows_you_suffix">· Vous suit</string>
+    <string name="follows_you_subtitle"><xliff:g id="subtitle">%1$s</xliff:g> · Vous suit</string>
+</resources>

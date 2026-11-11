@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="signature_check">Corriger la vérification de signature</string>
+    <string name="signature_check_description">Permet à l’application re-signée de démarrer.</string>
+</resources>

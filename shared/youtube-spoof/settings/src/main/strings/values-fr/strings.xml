@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="spoof_video_streams_client_tv">TV (SABR)</string>
+    <string name="spoof_video_streams_client_web">Web (SABR)</string>
+    <string name="spoof_video_streams_client_tv_simply">TV Simply</string>
+    <string name="spoof_video_streams_stats_for_nerds">Afficher le client simulé dans les statistiques</string>
+    <string name="spoof_video_streams_stats_for_nerds_summary">Affiche le client du flux dans Statistiques avancées.</string>
+    <string name="token_server_credential">Identifiant du serveur de jetons</string>
+    <string name="spoof_video_streams">Réparer la lecture</string>
+    <string name="spoof_video_streams_summary">Fait lire les vidéos quand YouTube bloque l’application.</string>
+    <string name="spoof_video_streams_client">Client préféré</string>
+    <string name="spoof_video_streams_client_summary">Le client essayé en premier. Android et Web peuvent utiliser le serveur de jetons Reseam, selon ses conditions sur https://mint.reseam.app.</string>
+    <string name="user_agent_client_spoof">Simuler le user agent</string>
+    <string name="user_agent_client_spoof_summary">Déclare l’application d’origine dans les requêtes, pour que YouTube les accepte.</string>
+    <string name="spoof_client_tv">TV (SABR)</string>
+    <string name="spoof_client_web">Web (SABR)</string>
+    <string name="spoof_client_tv_simply">TV Simply</string>
+    <string name="spoof_client_native">Natif</string>
+</resources>

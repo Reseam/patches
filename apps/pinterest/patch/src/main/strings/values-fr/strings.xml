@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="show_posted_date">Afficher la date de publication</string>
+    <string name="show_posted_date_description">Affiche quand une épingle a été publiée.</string>
+    <string name="settings_entry">Entrée Paramètres Reseam</string>
+    <string name="settings_entry_description">Ajoute Paramètres Reseam aux paramètres de Pinterest.</string>
+    <string name="download_board">Télécharger le tableau</string>
+    <string name="download_board_description">Télécharge les épingles que le tableau a déjà chargées.</string>
+    <string name="download_pins">Télécharger les épingles</string>
+    <string name="download_pins_description">Télécharge les épingles en images et vidéos d’origine.</string>
+    <string name="hide_ads">Masquer les publicités</string>
+    <string name="hide_ads_description">Masque les épingles sponsorisées.</string>
+    <string name="hide_shopping">Masquer les épingles shopping</string>
+    <string name="hide_shopping_description">Masque les épingles de produits à acheter.</string>
+    <string name="original_quality">Images en qualité d’origine</string>
+    <string name="original_quality_description">Charge les images en qualité d’origine.</string>
+    <string name="fix_push_notifications">Réparer les notifications push</string>
+    <string name="fix_push_notifications_description">Fait arriver les notifications push après l’application des patchs.</string>
+    <string name="hide_surveys">Masquer les invitations aux sondages</string>
+    <string name="hide_surveys_description">Masque les invitations aux sondages.</string>
+    <string name="hide_screenshot_share">Masquer le menu de partage des captures</string>
+    <string name="hide_screenshot_share_description">Masque le menu de partage qui s’ouvre après une capture d’écran.</string>
+    <string name="disable_update_prompts">Désactiver les invites de mise à jour</string>
+    <string name="disable_update_prompts_description">Arrête les invites de mise à jour.</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_sponsored_ads">Masquer les messages sponsorisés</string>
+    <string name="hide_sponsored_ads_description">Masque les messages sponsorisés dans les canaux.</string>
+    <string name="download_boost">Téléchargements plus rapides</string>
+    <string name="download_boost_description">Télécharge par plus gros morceaux, et plusieurs à la fois.</string>
+    <string name="bypass_integrity">Contourner la vérification d’intégrité</string>
+    <string name="bypass_integrity_description">Permet de se connecter sur les téléphones rootés et les téléphones sans services Google.</string>
+    <string name="fix_push_notifications">Réparer les notifications push</string>
+    <string name="fix_push_notifications_description">Fait arriver les notifications push après l’application des patchs.</string>
+    <string name="allow_screenshots">Autoriser les captures d’écran des médias secrets</string>
+    <string name="allow_screenshots_description">Autorise les captures et les enregistrements d’écran des médias à vue unique et qui s’autodétruisent.</string>
+    <string name="anti_delete">Garder les messages supprimés</string>
+    <string name="anti_delete_description">Garde les messages que les autres suppriment et les affiche dans la discussion.</string>
+    <string name="bypass_restrictions">Enregistrer depuis les discussions restreintes</string>
+    <string name="bypass_restrictions_description">Autorise la copie, l’enregistrement et le transfert dans les discussions protégées.</string>
+    <string name="forward_from_restricted">Transférer depuis les discussions restreintes</string>
+    <string name="forward_from_restricted_description">Envoie comme nouveaux messages les messages des discussions qui bloquent le transfert.</string>
+    <string name="hide_typing_indicator">Masquer l’indicateur de saisie</string>
+    <string name="hide_typing_indicator_description">Empêche les autres de voir que vous écrivez ou enregistrez.</string>
+    <string name="play_store_restrictions">Retirer les restrictions du Play Store</string>
+    <string name="play_store_restrictions_description">Affiche les discussions et les médias que Telegram ne masque que dans sa version Play Store.</string>
+    <string name="unlock_premium">Débloquer Premium</string>
+    <string name="unlock_premium_description">Débloque les fonctionnalités Premium qui fonctionnent sur ce téléphone.</string>
+    <string name="disable_auto_update">Désactiver les invites de mise à jour</string>
+    <string name="disable_auto_update_description">Arrête les vérifications et les invites de mise à jour.</string>
+</resources>
