@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="recover_deleted_chats_chosen">แชทที่ฉันเปิดใช้</string>
+    <string name="recover_deleted_chats_all">ทุกแชท ยกเว้นที่ฉันปิด</string>
+    <string name="hide_sponsored_ads">ซ่อนข้อความที่ได้รับการสนับสนุน</string>
+    <string name="disable_auto_update">ปิดข้อความชวนอัปเดต</string>
+    <string name="unlock_premium">ปลดล็อก Premium</string>
+    <string name="unlock_premium_summary">ฟีเจอร์ที่เซิร์ฟเวอร์ตรวจสอบยังคงต้องสมัครสมาชิก</string>
+    <string name="hide_typing">ซ่อนสถานะกำลังพิมพ์</string>
+    <string name="boost_downloads">ดาวน์โหลดเร็วขึ้น</string>
+    <string name="save_from_restricted">บันทึกจากแชทที่จำกัด</string>
+    <string name="save_from_restricted_summary">อนุญาตให้คัดลอก บันทึก และส่งต่อในแชทที่มีการป้องกัน</string>
+    <string name="remove_play_store_restrictions">นำข้อจำกัดของ Play Store ออก</string>
+    <string name="remove_play_store_restrictions_summary">แสดงแชทและสื่อที่ Telegram ซ่อนไว้เฉพาะในเวอร์ชัน Play Store</string>
+    <string name="recover_deleted">เก็บข้อความที่ถูกลบ</string>
+    <string name="recover_deleted_summary">เก็บข้อความที่ผู้อื่นลบไว้และทำเครื่องหมายด้วย 🗑️</string>
+    <string name="recover_deleted_chats">เปิดใช้สำหรับ</string>
+    <string name="recover_deleted_chats_summary">เปิดหรือปิดสำหรับแชทในเมนู ⋮ ของแชทนั้น</string>
+    <string name="allow_screenshots">อนุญาตให้จับภาพหน้าจอสื่อลับ</string>
+    <string name="allow_screenshots_summary">รวมถึงการบันทึกหน้าจอสื่อแบบดูครั้งเดียวและสื่อที่ลบตัวเอง</string>
+    <string name="section_ads">โฆษณา</string>
+    <string name="section_updates">การอัปเดต</string>
+    <string name="section_downloads">ดาวน์โหลด</string>
+    <string name="section_premium">Premium</string>
+    <string name="section_privacy">ความเป็นส่วนตัว</string>
+    <string name="anti_delete_recovery_off">เลิกเก็บข้อความที่ถูกลบ</string>
+    <string name="anti_delete_recovery_on">เก็บข้อความที่ถูกลบ</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reseam_you_tube_music">Reseam YouTube Music</string>
+    <string name="reseam_you_tube_music_description">ใช้ YouTube Music ของ Reseam สำหรับการเล่นอัตโนมัติและบริการที่ลิงก์ไว้เมื่อติดตั้งอยู่</string>
+    <string name="reseam_you_tube_music_you_tube_music_package_name">ชื่อแพ็กเกจของ YouTube Music</string>
+    <string name="reseam_you_tube_music_you_tube_music_package_name_description">ชื่อแพ็กเกจที่ใช้ตอนแพตช์ Reseam YouTube Music ของคุณ</string>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="allow_screenshots">อนุญาตให้จับภาพหน้าจอ</string>
+    <string name="allow_screenshots_description">อนุญาตให้จับภาพและบันทึกหน้าจอที่มีการป้องกัน</string>
+    <string name="allow_split_screen">อนุญาตให้แยกหน้าจอ</string>
+    <string name="allow_split_screen_description">ให้เปิดแอปในโหมดแยกหน้าจอและบับเบิลได้</string>
+    <string name="change_package_name">เปลี่ยนชื่อแพ็กเกจ</string>
+    <string name="change_package_name_description">ติดตั้งแอปด้วยชื่อแพ็กเกจอื่นเพื่อให้ทำงานควบคู่กับต้นฉบับ บางแอปใช้วิธีนี้ไม่ได้</string>
+    <string name="change_package_name_package_name">ชื่อแพ็กเกจ</string>
+    <string name="change_package_name_package_name_description">ชื่อแพ็กเกจใหม่ หากเว้นว่างจะเติม .reseam ต่อท้ายชื่อเดิม</string>
+    <string name="disable_play_store_updates">ปิดการอัปเดตจาก Play Store</string>
+    <string name="disable_play_store_updates_description">ซ่อนแอปจากการอัปเดตของ Google Play</string>
+    <string name="enable_debugging">เปิดการดีบัก</string>
+    <string name="enable_debugging_description">ทำเครื่องหมายแอปว่าดีบักได้ เพื่อให้ adb ตรวจสอบได้โดยไม่ต้องรูท</string>
+    <string name="hide_mock_location">ซ่อนตำแหน่งจำลอง</string>
+    <string name="hide_mock_location_description">ซ่อนว่าตำแหน่งของคุณมาจากแอปจำลองตำแหน่ง</string>
+    <string name="override_certificate_pinning">แทนที่การปักหมุดใบรับรอง</string>
+    <string name="override_certificate_pinning_description">เชื่อถือใบรับรองของคุณเอง เพื่อให้พร็อกซีตรวจสอบการรับส่งข้อมูลของแอปได้</string>
+    <string name="remove_ads">บล็อกโฆษณา</string>
+    <string name="remove_ads_description">ป้องกันไม่ให้แอปโหลดโฆษณาจากเครือข่ายโฆษณาทั่วไป</string>
+    <string name="remove_pairip">นำ Pairip ออก</string>
+    <string name="remove_pairip_description">นำการป้องกันความสมบูรณ์อัตโนมัติของ Google Play ออก การตรวจสอบฝั่งเซิร์ฟเวอร์ยังคงมีผล</string>
+    <string name="remove_pairip_kill_vm">หยุด Pairip VM</string>
+    <string name="remove_pairip_kill_vm_description">สำหรับแอปที่ Pairip VM ใช้ตรวจสอบใบอนุญาตเท่านั้น จะทำให้แอปที่รันโค้ดของตัวเองใน VM ใช้งานไม่ได้</string>
+    <string name="remove_pairip_spoof_installer">ปลอมการตรวจสอบตัวติดตั้ง</string>
+    <string name="remove_pairip_spoof_installer_description">ทำให้การตรวจสอบตัวติดตั้งที่เหลือรายงานว่าเป็น Google Play</string>
+    <string name="report_play_store_installer">รายงานว่า Play Store เป็นตัวติดตั้ง</string>
+    <string name="report_play_store_installer_description">ทำให้แอปเห็นว่าตัวเองติดตั้งจาก Google Play</string>
+    <string name="spoof_signature">ปลอมลายเซ็น</string>
+    <string name="spoof_signature_description">แสดงลายเซ็นต้นฉบับให้แอปเห็น เพื่อให้ผ่านการตรวจสอบแอปที่ถูกแก้ไข</string>
+</resources>

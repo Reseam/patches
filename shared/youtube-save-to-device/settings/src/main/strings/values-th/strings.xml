@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_save_to_device">บันทึกลงในอุปกรณ์</string>
+    <string name="save_folder">โฟลเดอร์ที่บันทึก</string>
+    <string name="save_folder_summary">ตำแหน่งที่บันทึกไฟล์ คุณจะเลือกในการบันทึกครั้งแรก</string>
+    <string name="save_new_downloads">บันทึกการดาวน์โหลดใหม่ลงในอุปกรณ์</string>
+    <string name="save_new_downloads_summary">บันทึกทุกการดาวน์โหลดเมื่อดาวน์โหลดเสร็จด้วย</string>
+    <string name="save_to_device">บันทึกลงในอุปกรณ์</string>
+    <string name="notification_channel">การดาวน์โหลดที่บันทึกไว้</string>
+    <string name="saving">กำลังบันทึก <xliff:g id="title">%1$s</xliff:g></string>
+    <string name="saving_progress">กำลังบันทึก <xliff:g id="done">%1$d</xliff:g> จาก <xliff:g id="total">%2$d</xliff:g></string>
+    <string name="saved">บันทึก <xliff:g id="title">%1$s</xliff:g> แล้ว</string>
+    <plurals name="saved_count">
+        <item quantity="other">บันทึกการดาวน์โหลด <xliff:g id="count">%1$d</xliff:g> รายการแล้ว</item>
+    </plurals>
+    <string name="save_failed">บันทึก <xliff:g id="title">%1$s</xliff:g> ไม่ได้</string>
+    <string name="save_failed_unsupported">รูปแบบของการดาวน์โหลดนี้บันทึกเป็นไฟล์ไม่ได้</string>
+    <string name="save_failed_incomplete">การดาวน์โหลดยังไม่เสร็จ</string>
+    <string name="save_failed_folder">ใช้โฟลเดอร์ที่บันทึกไม่ได้อีกต่อไป เลือกใหม่ในการตั้งค่า Reseam</string>
+    <string name="save_failed_space">พื้นที่ในโฟลเดอร์ที่บันทึกไม่พอ</string>
+    <string name="open">เปิด</string>
+</resources>

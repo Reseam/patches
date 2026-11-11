@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="hide_ads">ซ่อนโฆษณา</string>
+    <string name="hide_shopping">ซ่อนพินช้อปปิ้ง</string>
+    <string name="disable_update_prompts">ปิดข้อความชวนอัปเดต</string>
+    <string name="hide_screenshot_share">ซ่อนเมนูแชร์ภาพหน้าจอ</string>
+    <string name="original_quality">รูปภาพคุณภาพต้นฉบับ</string>
+    <string name="original_quality_summary">ใช้อินเทอร์เน็ตมากขึ้น</string>
+    <string name="show_posted_date">แสดงวันที่โพสต์</string>
+    <string name="posted_on">โพสต์เมื่อ <xliff:g id="date">%1$s</xliff:g></string>
+    <string name="hide_surveys">ซ่อนข้อความชวนตอบแบบสำรวจ</string>
+    <string name="download_started">กำลังดาวน์โหลด</string>
+    <string name="download_unavailable">ไม่มีอะไรให้ดาวน์โหลด</string>
+    <plurals name="download_board_started">
+        <item quantity="other">กำลังดาวน์โหลด <xliff:g id="count">%1$d</xliff:g> พิน</item>
+    </plurals>
+    <string name="download_board_empty">เลื่อนบอร์ดก่อนเพื่อโหลดพิน</string>
+    <string name="ask_which_media">ถามว่าจะบันทึกสื่อใด</string>
+    <string name="ask_which_media_summary">เมื่อพินมีรูปภาพหรือวิดีโอหลายรายการ ระบบจะถามว่าจะบันทึกรายการใด</string>
+    <string name="save_media_choose">เลือกสิ่งที่จะบันทึก</string>
+    <string name="save_media_image">รูปภาพ <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_video">วิดีโอ <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_all">บันทึกทั้งหมด</string>
+    <string name="download_folder">โฟลเดอร์ดาวน์โหลด</string>
+    <string name="download_folder_summary">ตำแหน่งที่จัดเก็บพินที่บันทึก ใช้แกลเลอรีที่เป็นค่าเริ่มต้นหรือเลือกโฟลเดอร์</string>
+    <string name="section_downloads">ดาวน์โหลด</string>
+    <string name="section_feed">ฟีด</string>
+    <string name="section_closeup">ภาพระยะใกล้</string>
+    <string name="section_images">รูปภาพ</string>
+    <string name="section_sharing">การแชร์</string>
+    <string name="section_prompts">ข้อความชวน</string>
+    <string name="section_updates">การอัปเดต</string>
+</resources>

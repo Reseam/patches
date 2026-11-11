@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="hide_typing">ซ่อนสถานะกำลังพิมพ์</string>
+    <string name="hide_typing_summary">ผู้อื่นจะไม่เห็นว่าคุณกำลังพิมพ์ Instagram อาจแบนบัญชีของคุณ</string>
+    <string name="hide_dm_seen">ซ่อนสถานะอ่านแล้วใน DM</string>
+    <string name="hide_dm_seen_summary">ผู้ส่งจะไม่เห็นว่าคุณอ่านข้อความแล้ว Instagram อาจแบนบัญชีของคุณ</string>
+    <string name="hide_story_seen">ซ่อนการดูสตอรี่</string>
+    <string name="hide_story_seen_summary">คุณจะไม่ปรากฏในรายชื่อผู้ดูสตอรี่ Instagram อาจแบนบัญชีของคุณ</string>
+    <string name="hide_live_seen">ซ่อนการดูไลฟ์</string>
+    <string name="hide_live_seen_summary">คุณจะไม่ปรากฏเป็นผู้ชมวิดีโอไลฟ์ Instagram อาจแบนบัญชีของคุณ</string>
+    <string name="hide_screenshot_notifications">ซ่อนการแจ้งเตือนภาพหน้าจอ</string>
+    <string name="hide_screenshot_notifications_summary">ผู้อื่นจะไม่ได้รับแจ้งเมื่อคุณจับภาพหน้าจอ Instagram อาจแบนบัญชีของคุณ</string>
+    <string name="max_resolution">รูปภาพความละเอียดเต็ม</string>
+    <string name="original_quality">คุณภาพรูปภาพต้นฉบับ</string>
+    <string name="original_quality_summary">โหลดรูปภาพตามที่อัปโหลดไว้โดยรายงานว่ามีหน้าจอที่ใหญ่ขึ้น Instagram อาจแบนบัญชีของคุณ</string>
+    <string name="disable_video_autoplay">ปิดการเล่นวิดีโออัตโนมัติ</string>
+    <string name="disable_video_autoplay_summary">วิดีโอในฟีดจะเล่นเมื่อคุณแตะเท่านั้น</string>
+    <string name="disable_reels_swiping">ปิดการปัด Reels</string>
+    <string name="disable_reels_swiping_summary">อยู่ที่ Reel ที่คุณเปิดไว้</string>
+    <string name="disable_auto_advance">ปิดการเลื่อนสตอรี่อัตโนมัติ</string>
+    <string name="disable_auto_advance_summary">ค้างสตอรี่ที่เล่นจบไว้บนหน้าจอจนกว่าคุณจะแตะ</string>
+    <string name="hide_suggested_users">ซ่อนสตอรี่แนะนำ</string>
+    <string name="hide_suggested_users_summary">ซ่อนสตอรี่และบัญชีที่คุณไม่ได้ติดตามในแถบสตอรี่</string>
+    <string name="hide_story_tray">ซ่อนแถบสตอรี่</string>
+    <string name="hide_story_tray_summary">ซ่อนสตอรี่ที่ด้านบนของหน้าหลัก</string>
+    <string name="ring_size">ขนาดวงสตอรี่</string>
+    <string name="ring_size_summary">ขนาดวงกลมสตอรี่ที่ด้านบนของหน้าหลัก</string>
+    <string name="ring_size_small">เล็ก (80%)</string>
+    <string name="ring_size_default">ค่าเริ่มต้น</string>
+    <string name="ring_size_large">ใหญ่ (120%)</string>
+    <string name="ring_size_extra_large">ใหญ่พิเศษ (140%)</string>
+    <string name="hide_in_explore_search">ซ่อน Meta AI ในการค้นหาของสำรวจ</string>
+    <string name="hide_in_direct">ซ่อน Meta AI ใน DM</string>
+    <string name="hide_in_direct_summary">ซ่อน Meta AI ในกล่องข้อความ การค้นหา DM และแชท</string>
+    <string name="hide_in_posts">ซ่อน Meta AI ในโพสต์</string>
+    <string name="hide_in_posts_summary">ซ่อนสรุปโพสต์และ \"ถาม Meta AI\" ในเมนูโพสต์</string>
+    <string name="open_externally">เปิดลิงก์ในเบราว์เซอร์</string>
+    <string name="clean_share_links">ล้างลิงก์ที่แชร์</string>
+    <string name="clean_share_links_summary">นำส่วนที่ระบุตัวคุณออกจากลิงก์ที่แชร์</string>
+    <string name="allow_screenshots">อนุญาตให้จับภาพหน้าจอ</string>
+    <string name="allow_screenshots_summary">รวมถึงแชท สื่อแบบดูครั้งเดียว และโหมดหายไป</string>
+    <string name="unlock_developer_options">เปิดเมนูนักพัฒนาซอฟต์แวร์</string>
+    <string name="unlock_developer_options_summary">เพิ่มเมนูนักพัฒนาซอฟต์แวร์ของ Instagram ที่ด้านล่างของการตั้งค่า</string>
+    <string name="copy_comment">คัดลอกความคิดเห็น</string>
+    <string name="copy_comment_summary">เพิ่ม \"คัดลอก\" ในเมนูกดค้างของความคิดเห็น</string>
+    <string name="comment_copied">คัดลอกความคิดเห็นแล้ว</string>
+    <string name="follows_you_indicator">ตัวบ่งชี้ \"ติดตามคุณ\"</string>
+    <string name="follows_you_indicator_summary">แสดง \"ติดตามคุณ\" ในโปรไฟล์ของบัญชีที่ติดตามคุณ</string>
+    <string name="hide_repost_buttons">ซ่อนปุ่มรีโพสต์</string>
+    <string name="hide_engagement_counts">ซ่อนจำนวนการมีส่วนร่วม</string>
+    <string name="hide_engagement_counts_summary">ซ่อนจำนวนถูกใจ ความคิดเห็น การแชร์ และการรีโพสต์ในฟีด</string>
+    <string name="hide_home_tab">ซ่อนแท็บหน้าหลัก</string>
+    <string name="hide_home_tab_summary">Instagram จะเปิดที่แท็บถัดไป</string>
+    <string name="hide_reels_tab">ซ่อนแท็บ Reels</string>
+    <string name="hide_create_tab">ซ่อนแท็บสร้าง</string>
+    <string name="hide_explore_grid">ซ่อนตารางสำรวจ</string>
+    <string name="hide_explore_grid_summary">เหลือไว้แค่การค้นหาในแท็บสำรวจ</string>
+    <string name="hide_instants">ซ่อน Instants</string>
+    <string name="hide_instants_summary">ซ่อนกอง Instants ในกล่องข้อความ</string>
+    <string name="hide_threads_badge">ซ่อนป้าย Threads</string>
+    <string name="hide_ads">ซ่อนโฆษณา</string>
+    <string name="following_only">ฟีดเฉพาะคนที่ติดตาม</string>
+    <string name="following_only_summary">แสดงโพสต์จากบัญชีที่คุณติดตาม โดยเรียงจากใหม่ไปเก่า</string>
+    <string name="hide_suggested_accounts">ซ่อนบัญชีแนะนำ</string>
+    <string name="hide_suggested_accounts_summary">โพสต์แนะนำยังคงอยู่ \"ฟีดเฉพาะคนที่ติดตาม\" จะซ่อนโพสต์เหล่านั้น</string>
+    <string name="hide_threads_units">ซ่อนส่วน Threads</string>
+    <string name="hide_threads_units_summary">อาจเหลือพื้นที่ว่างในหน้าหลัก</string>
+    <string name="hide_shopping_units">ซ่อนส่วนช้อปปิ้ง</string>
+    <string name="hide_shopping_units_summary">อาจเหลือพื้นที่ว่างในหน้าหลัก</string>
+    <string name="hide_suggested_reels">ซ่อน Reels แนะนำ</string>
+    <string name="folder">โฟลเดอร์ดาวน์โหลด</string>
+    <string name="show_toast">แสดงข้อความการดาวน์โหลด</string>
+    <string name="section_social">โซเชียล</string>
+    <string name="section_comments">ความคิดเห็น</string>
+    <string name="section_appearance">ลักษณะที่ปรากฏ</string>
+    <string name="section_playback">การเล่น</string>
+    <string name="section_media">สื่อ</string>
+    <string name="section_privacy">ความเป็นส่วนตัว</string>
+    <string name="section_ghost_mode">โหมดล่องหน</string>
+    <string name="section_feed">ฟีด</string>
+    <string name="section_stories">สตอรี่</string>
+    <string name="section_meta_ai">Meta AI</string>
+    <string name="section_links">ลิงก์</string>
+    <string name="section_developer">นักพัฒนาซอฟต์แวร์</string>
+    <string name="section_downloads">ดาวน์โหลด</string>
+    <string name="download_label">ดาวน์โหลด</string>
+    <string name="download_instant_description">ดาวน์โหลด Instant</string>
+    <string name="download_carousel_current">ปัจจุบัน (<xliff:g id="slide">%1$d</xliff:g>/<xliff:g id="total">%2$d</xliff:g>)</string>
+    <plurals name="download_carousel_all">
+        <item quantity="other">ทั้งหมด <xliff:g id="count">%1$d</xliff:g> รายการ</item>
+    </plurals>
+    <string name="download_cancel">ยกเลิก</string>
+    <string name="download_started">กำลังดาวน์โหลด</string>
+    <string name="download_media_url_missing">ไม่พบสื่อที่จะดาวน์โหลด</string>
+    <string name="download_failed">ดาวน์โหลดไม่สำเร็จ</string>
+    <string name="download_slide_started">กำลังดาวน์โหลดสไลด์ที่ <xliff:g id="slide">%1$d</xliff:g></string>
+    <string name="download_slide_url_missing">ดาวน์โหลดสไลด์ที่ <xliff:g id="slide">%1$d</xliff:g> ไม่ได้</string>
+    <string name="download_story_media_missing">ไม่พบสตอรี่ที่จะดาวน์โหลด</string>
+    <plurals name="download_carousel_started">
+        <item quantity="other">กำลังดาวน์โหลดรายการที่ <xliff:g id="started">%1$d</xliff:g> จาก <xliff:g id="count">%2$d</xliff:g></item>
+    </plurals>
+    <string name="download_carousel_urls_missing">ไม่พบสื่อในภาพสไลด์</string>
+    <string name="download_notification_description">กำลังดาวน์โหลดสื่อจาก Instagram</string>
+    <string name="follows_you_label">ติดตามคุณ</string>
+    <string name="follows_you_suffix">\u0020· ติดตามคุณ</string>
+    <string name="follows_you_subtitle"><xliff:g id="subtitle">%1$s</xliff:g> · ติดตามคุณ</string>
+</resources>

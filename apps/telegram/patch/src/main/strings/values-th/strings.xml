@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_sponsored_ads">ซ่อนข้อความที่ได้รับการสนับสนุน</string>
+    <string name="hide_sponsored_ads_description">ซ่อนข้อความที่ได้รับการสนับสนุนในช่อง</string>
+    <string name="download_boost">ดาวน์โหลดเร็วขึ้น</string>
+    <string name="download_boost_description">ดาวน์โหลดเป็นส่วนที่ใหญ่ขึ้น และพร้อมกันได้หลายส่วนขึ้น</string>
+    <string name="bypass_integrity">ข้ามการตรวจสอบความสมบูรณ์</string>
+    <string name="bypass_integrity_description">ให้เข้าสู่ระบบได้บนโทรศัพท์ที่รูทแล้วและโทรศัพท์ที่ไม่มีบริการของ Google</string>
+    <string name="fix_push_notifications">แก้ไขการแจ้งเตือนแบบพุช</string>
+    <string name="fix_push_notifications_description">ทำให้การแจ้งเตือนแบบพุชยังเข้ามาหลังจากแพตช์แล้ว</string>
+    <string name="allow_screenshots">อนุญาตให้จับภาพหน้าจอสื่อลับ</string>
+    <string name="allow_screenshots_description">อนุญาตให้จับภาพและบันทึกหน้าจอสื่อแบบดูครั้งเดียวและสื่อที่ลบตัวเอง</string>
+    <string name="anti_delete">เก็บข้อความที่ถูกลบ</string>
+    <string name="anti_delete_description">เก็บข้อความที่ผู้อื่นลบไว้และแสดงในแชท</string>
+    <string name="bypass_restrictions">บันทึกจากแชทที่จำกัด</string>
+    <string name="bypass_restrictions_description">อนุญาตให้คัดลอก บันทึก และส่งต่อในแชทที่มีการป้องกัน</string>
+    <string name="forward_from_restricted">ส่งต่อจากแชทที่จำกัด</string>
+    <string name="forward_from_restricted_description">ส่งข้อความจากแชทที่บล็อกการส่งต่อเป็นข้อความใหม่</string>
+    <string name="hide_typing_indicator">ซ่อนสถานะกำลังพิมพ์</string>
+    <string name="hide_typing_indicator_description">ไม่ให้ผู้อื่นเห็นว่าคุณกำลังพิมพ์หรือบันทึกเสียง</string>
+    <string name="play_store_restrictions">นำข้อจำกัดของ Play Store ออก</string>
+    <string name="play_store_restrictions_description">แสดงแชทและสื่อที่ Telegram ซ่อนไว้เฉพาะในเวอร์ชัน Play Store</string>
+    <string name="unlock_premium">ปลดล็อก Premium</string>
+    <string name="unlock_premium_description">ปลดล็อกฟีเจอร์ Premium ที่ใช้งานได้บนโทรศัพท์เครื่องนี้</string>
+    <string name="disable_auto_update">ปิดข้อความชวนอัปเดต</string>
+    <string name="disable_auto_update_description">หยุดการตรวจหาอัปเดตและข้อความชวนอัปเดต</string>
+</resources>

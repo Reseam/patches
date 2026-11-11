@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="custom_filter">ใช้ตัวกรองที่กำหนดเอง</string>
+    <string name="custom_filter_strings">ตัวกรองที่กำหนดเอง</string>
+    <string name="custom_filter_strings_summary">หนึ่งนิพจน์ต่อบรรทัด ในรูปแบบ ^path#accessibility$buffer</string>
+    <string name="debug_logging">บันทึกการดีบัก</string>
+    <string name="debug_logging_summary">เขียนสิ่งที่ Reseam ทำลงในบันทึกของ Android</string>
+    <string name="sanitize_sharing_links">ล้างลิงก์ที่แชร์</string>
+    <string name="sanitize_sharing_links_summary">นำการติดตามออกจากลิงก์ที่คุณแชร์</string>
+    <string name="force_original_audio">บังคับเสียงต้นฉบับ</string>
+    <string name="force_original_audio_summary">เล่นเสียงต้นฉบับแทนแทร็กพากย์</string>
+    <string name="custom_branding_icon_custom">กำหนดเอง</string>
+    <string name="experiment_flags_saved">บันทึก <xliff:g id="file_name">%1$s</xliff:g> ไปยังดาวน์โหลดแล้ว</string>
+    <string name="experiment_flags_failed">บันทึกแฟล็กการทดลองไม่ได้</string>
+    <string name="segment_behaviors_skip">ข้ามโดยอัตโนมัติ</string>
+    <string name="segment_behaviors_skip_once">ข้ามครั้งเดียว</string>
+    <string name="segment_behaviors_manual_skip">แสดงปุ่มข้าม</string>
+    <string name="segment_behaviors_seekbar_only">แสดงในแถบเลื่อน</string>
+    <string name="segment_behaviors_ignore">ไม่สนใจ</string>
+    <string name="sb_enabled">SponsorBlock</string>
+    <string name="sb_enabled_summary">ข้ามช่วงที่ชุมชน SponsorBlock ทำเครื่องหมายไว้ ซึ่งจะเห็นวิดีโอที่คุณเปิด</string>
+    <string name="sb_sponsor">ช่วงสปอนเซอร์</string>
+    <string name="sb_selfpromo">การโปรโมตตัวเอง</string>
+    <string name="sb_interaction">การชวนมีส่วนร่วม</string>
+    <string name="sb_poi_highlight">ไฮไลต์</string>
+    <string name="sb_intro">ช่วงเปิด</string>
+    <string name="sb_outro">ช่วงปิด</string>
+    <string name="sb_preview">ตัวอย่าง</string>
+    <string name="sb_hook">ฮุก</string>
+    <string name="sb_filler">ช่วงเติมเวลา</string>
+    <string name="sb_music_offtopic">ช่วงที่ไม่ใช่เพลง</string>
+    <string name="sb_toast_on_skip">แสดงข้อความหลังจากข้าม</string>
+    <string name="sb_toast_on_connection_error">แสดงข้อผิดพลาดการเชื่อมต่อ SponsorBlock</string>
+    <string name="sb_track_skip_count">ติดตามการข้ามของ SponsorBlock</string>
+    <string name="sb_track_skip_count_summary">เก็บสถิติไว้บนโทรศัพท์เครื่องนี้และรายงานการข้ามของคุณไปยัง SponsorBlock</string>
+    <string name="sb_min_segment_duration">ความยาวช่วงขั้นต่ำ (วินาที)</string>
+    <string name="section_sponsorblock">SponsorBlock</string>
+    <string name="sponsorblock_category_sponsor">สปอนเซอร์</string>
+    <string name="sponsorblock_category_selfpromo">การโปรโมตตัวเอง</string>
+    <string name="sponsorblock_category_interaction">การชวนมีส่วนร่วม</string>
+    <string name="sponsorblock_category_highlight">ไฮไลต์</string>
+    <string name="sponsorblock_category_intro">ช่วงเปิด</string>
+    <string name="sponsorblock_category_outro">ช่วงปิด</string>
+    <string name="sponsorblock_category_preview">ตัวอย่าง</string>
+    <string name="sponsorblock_category_hook">ฮุก</string>
+    <string name="sponsorblock_category_filler">ช่วงเติมเวลา</string>
+    <string name="sponsorblock_category_music">ช่วงที่ไม่ใช่เพลง</string>
+    <string name="sponsorblock_skipped">ข้าม<xliff:g id="segment">%1$s</xliff:g>แล้ว</string>
+    <string name="sponsorblock_load_failed">โหลดช่วง SponsorBlock ไม่ได้</string>
+</resources>

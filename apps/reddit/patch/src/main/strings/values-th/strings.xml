@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_comment_ads">ซ่อนโฆษณาในความคิดเห็น</string>
+    <string name="hide_comment_ads_description">ซ่อนโฆษณาใต้โพสต์และระหว่างความคิดเห็น</string>
+    <string name="hide_feed_ads">ซ่อนโฆษณาในฟีด</string>
+    <string name="hide_feed_ads_description">ซ่อนโพสต์ที่โปรโมตในฟีดและการค้นหา</string>
+    <string name="color_thread_lines">เส้นเธรดหลากสี</string>
+    <string name="color_thread_lines_description">ให้การตอบกลับแต่ละระดับมีสีเส้นของตัวเอง</string>
+    <string name="ignore_suggested_sort">ใช้การเรียงความคิดเห็นของฉันเสมอ</string>
+    <string name="ignore_suggested_sort_description">ไม่สนใจการเรียงลำดับที่โพสต์หรือชุมชนแนะนำ</string>
+    <string name="settings_entry">รายการการตั้งค่า Reseam</string>
+    <string name="settings_entry_description">เพิ่มการตั้งค่า Reseam ใต้การตั้งค่าบัญชี</string>
+    <string name="disable_features">ปิดฟีเจอร์ของ Reddit</string>
+    <string name="disable_features_description">ปิด Reddit Answers เกม การชวนอัปเกรด การกระตุ้น และฟีเจอร์อื่นๆ</string>
+    <string name="default_feed_sort">การเรียงฟีดเริ่มต้น</string>
+    <string name="default_feed_sort_description">เรียงชุมชน ฟีดที่กำหนดเอง Popular และ All ตามที่คุณเลือก</string>
+    <string name="hide_feed_units">ซ่อนส่วนแทรกในฟีด</string>
+    <string name="hide_feed_units_description">ซ่อนมาแรง ภาพสไลด์ โปรโมชัน แบบสำรวจ และส่วนแทรกอื่นๆ ในฟีด</string>
+    <string name="hide_recommended_communities">ซ่อนชุมชนแนะนำ</string>
+    <string name="hide_recommended_communities_description">ซ่อนคำแนะนำชุมชนในฟีด</string>
+    <string name="hide_recommended_posts">ซ่อนโพสต์แนะนำ</string>
+    <string name="hide_recommended_posts_description">ซ่อนโพสต์จากชุมชนที่คุณไม่ได้ติดตามในหน้าหลัก</string>
+    <string name="hide_drawer_items">ซ่อนรายการในลิ้นชักชุมชน</string>
+    <string name="hide_drawer_items_description">ซ่อนแถวที่เลือกในลิ้นชักชุมชน</string>
+    <string name="hide_navigation_tabs">ซ่อนแท็บการนำทาง</string>
+    <string name="hide_navigation_tabs_description">ซ่อนแท็บที่เลือกในแถบนำทาง</string>
+    <string name="fix_push_notifications">แก้ไขการแจ้งเตือนแบบพุช</string>
+    <string name="fix_push_notifications_description">ทำให้การแจ้งเตือนแบบพุชยังเข้ามาหลังจากแพตช์แล้ว</string>
+    <string name="skip_nsfw_warning">ข้ามคำเตือนชุมชน NSFW</string>
+    <string name="skip_nsfw_warning_description">เปิดชุมชนสำหรับผู้ใหญ่โดยไม่ถาม</string>
+    <string name="block_analytics">บล็อกการวิเคราะห์</string>
+    <string name="block_analytics_description">หยุดการบันทึกเหตุการณ์ของ Reddit และการติดตามของ AppsFlyer</string>
+    <string name="disable_app_rate_prompt">ซ่อนข้อความชวนให้คะแนน</string>
+    <string name="disable_app_rate_prompt_description">ไม่ให้ Reddit ขอให้คุณให้คะแนน</string>
+    <string name="disable_screenshot_banner">ซ่อนแบนเนอร์ภาพหน้าจอ</string>
+    <string name="disable_screenshot_banner_description">ไม่ให้ Reddit ตรวจจับภาพหน้าจอ</string>
+    <string name="hide_trending_searches">ซ่อนคำค้นหายอดนิยม</string>
+    <string name="hide_trending_searches_description">ซ่อนมาแรงในหน้าค้นหา</string>
+    <string name="hide_premium_settings">ซ่อนการตั้งค่า Premium</string>
+    <string name="hide_premium_settings_description">ซ่อนข้อเสนอ Premium และ Reddit Pro ในการตั้งค่า</string>
+    <string name="vxreddit_links">แชร์ลิงก์ vxreddit</string>
+    <string name="vxreddit_links_description">แชร์โพสต์เป็นลิงก์ vxreddit.com ซึ่งแสดงสื่อใน Discord และแอปอื่นๆ ได้</string>
+    <string name="block_forced_update">บล็อกการบังคับอัปเดต</string>
+    <string name="block_forced_update_description">ไม่ให้ Reddit บล็อกเวอร์ชันนี้ด้วยหน้าจออัปเดต</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gms_core_support">การรองรับ GmsCore</string>
+    <string name="gms_core_support_description">ลงชื่อเข้าใช้ผ่าน GmsCore ที่ติดตั้งแยกต่างหาก แทนบริการ Google Play</string>
+    <string name="gms_core_support_gms_core_vendor_group_id">ผู้ให้บริการ GmsCore</string>
+    <string name="gms_core_support_gms_core_vendor_group_id_description">Group ID ที่ใช้เผยแพร่ GmsCore ของคุณ</string>
+    <string name="gms_core_support_package_name">ชื่อแพ็กเกจ</string>
+    <string name="gms_core_support_package_name_description">ชื่อแพ็กเกจของแอปที่แพตช์แล้ว</string>
+</resources>

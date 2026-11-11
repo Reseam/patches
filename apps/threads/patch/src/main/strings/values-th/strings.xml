@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_ads">ซ่อนโฆษณา</string>
+    <string name="hide_ads_description">ซ่อนโพสต์ที่ได้รับการสนับสนุน</string>
+    <string name="settings_entry">รายการการตั้งค่า Reseam</string>
+    <string name="settings_entry_description">เพิ่มการตั้งค่า Reseam ในการตั้งค่าของ Threads</string>
+</resources>

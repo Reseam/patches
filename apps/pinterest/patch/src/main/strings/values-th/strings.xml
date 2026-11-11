@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="show_posted_date">แสดงวันที่โพสต์</string>
+    <string name="show_posted_date_description">แสดงเวลาที่โพสต์พิน</string>
+    <string name="settings_entry">รายการการตั้งค่า Reseam</string>
+    <string name="settings_entry_description">เพิ่มการตั้งค่า Reseam ในการตั้งค่าของ Pinterest</string>
+    <string name="download_board">ดาวน์โหลดบอร์ด</string>
+    <string name="download_board_description">ดาวน์โหลดพินที่บอร์ดโหลดไว้แล้ว</string>
+    <string name="download_pins">ดาวน์โหลดพิน</string>
+    <string name="download_pins_description">ดาวน์โหลดพินเป็นรูปภาพและวิดีโอต้นฉบับ</string>
+    <string name="hide_ads">ซ่อนโฆษณา</string>
+    <string name="hide_ads_description">ซ่อนพินที่โปรโมต</string>
+    <string name="hide_shopping">ซ่อนพินช้อปปิ้ง</string>
+    <string name="hide_shopping_description">ซ่อนพินที่มีสินค้าให้ซื้อ</string>
+    <string name="original_quality">รูปภาพคุณภาพต้นฉบับ</string>
+    <string name="original_quality_description">โหลดรูปภาพด้วยคุณภาพต้นฉบับ</string>
+    <string name="fix_push_notifications">แก้ไขการแจ้งเตือนแบบพุช</string>
+    <string name="fix_push_notifications_description">ทำให้การแจ้งเตือนแบบพุชยังเข้ามาหลังจากแพตช์แล้ว</string>
+    <string name="hide_surveys">ซ่อนข้อความชวนตอบแบบสำรวจ</string>
+    <string name="hide_surveys_description">ซ่อนข้อความชวนตอบแบบสำรวจ</string>
+    <string name="hide_screenshot_share">ซ่อนเมนูแชร์ภาพหน้าจอ</string>
+    <string name="hide_screenshot_share_description">ซ่อนเมนูแชร์ที่เปิดขึ้นหลังจับภาพหน้าจอ</string>
+    <string name="disable_update_prompts">ปิดข้อความชวนอัปเดต</string>
+    <string name="disable_update_prompts_description">หยุดแสดงข้อความชวนอัปเดต</string>
+</resources>

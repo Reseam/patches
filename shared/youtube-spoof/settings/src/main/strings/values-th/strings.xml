@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="spoof_video_streams_client_tv">TV (SABR)</string>
+    <string name="spoof_video_streams_client_web">Web (SABR)</string>
+    <string name="spoof_video_streams_client_tv_simply">TV Simply</string>
+    <string name="spoof_video_streams_stats_for_nerds">แสดงไคลเอ็นต์ที่ปลอมในสถิติ</string>
+    <string name="spoof_video_streams_stats_for_nerds_summary">แสดงไคลเอ็นต์ของสตรีมในสถิติสำหรับผู้เชี่ยวชาญ</string>
+    <string name="token_server_credential">ข้อมูลรับรองของเซิร์ฟเวอร์โทเค็น</string>
+    <string name="spoof_video_streams">แก้ไขการเล่น</string>
+    <string name="spoof_video_streams_summary">ทำให้วิดีโอเล่นได้เมื่อ YouTube บล็อกแอป</string>
+    <string name="spoof_video_streams_client">ไคลเอ็นต์ที่ต้องการ</string>
+    <string name="spoof_video_streams_client_summary">ไคลเอ็นต์ที่จะลองก่อน Android และ Web ใช้เซิร์ฟเวอร์โทเค็นของ Reseam ได้ตามข้อกำหนดที่ https://mint.reseam.app</string>
+    <string name="user_agent_client_spoof">ปลอม User Agent</string>
+    <string name="user_agent_client_spoof_summary">รายงานว่าเป็นแอปต้นฉบับในคำขอ เพื่อให้ YouTube ยอมรับ</string>
+    <string name="spoof_client_tv">TV (SABR)</string>
+    <string name="spoof_client_web">Web (SABR)</string>
+    <string name="spoof_client_tv_simply">TV Simply</string>
+    <string name="spoof_client_native">เนทีฟ</string>
+</resources>

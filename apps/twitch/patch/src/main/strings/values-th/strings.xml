@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="block_embedded_ads">บล็อกโฆษณาที่ฝังไว้</string>
+    <string name="block_embedded_ads_description">โหลดไลฟ์สตรีมที่ไม่มีโฆษณาผ่านพร็อกซีของบุคคลที่สาม ซึ่งจะเห็นที่อยู่ IP ของคุณและช่องที่คุณดู</string>
+    <string name="block_video_ads">บล็อกโฆษณาวิดีโอ</string>
+    <string name="block_video_ads_description">บล็อกโฆษณาวิดีโอ เสียง และดิสเพลย์ที่ Twitch ขอเอง</string>
+    <string name="ignore_ad_events">ไม่สนใจเหตุการณ์โฆษณา</string>
+    <string name="ignore_ad_events_description">ไม่สนใจช่วงโฆษณาและการติดตามโฆษณาที่ Twitch ประกาศระหว่างสตรีม</string>
+    <string name="settings_entry">รายการการตั้งค่า Reseam</string>
+    <string name="settings_entry_description">เพิ่มการตั้งค่า Reseam เหนือบัญชีในการตั้งค่าของ Twitch</string>
+    <string name="enable_debug_mode">เปิดโหมดดีบัก</string>
+    <string name="enable_debug_mode_description">แสดงเครื่องมือของพนักงาน Twitch เช่น เมนูดีบักและแผงดีบักวิดีโอ</string>
+    <string name="fix_login_crash">แก้ไขแอปขัดข้องตอนเข้าสู่ระบบ</string>
+    <string name="fix_login_crash_description">ป้องกันไม่ให้ Twitch ขัดข้องทันทีหลังจากเข้าสู่ระบบ</string>
+    <string name="startup_tab">แท็บเริ่มต้น</string>
+    <string name="startup_tab_description">เปิด Twitch ที่เรียกดูหรือโปรไฟล์ และปลดล็อกการตั้งค่าหน้าแรกเริ่มต้น</string>
+    <string name="block_analytics">บล็อกการวิเคราะห์</string>
+    <string name="block_analytics_description">หยุด comScore, Nielsen, Sentry, Crashlytics, Sprig และ Branch</string>
+    <string name="disable_update_prompts">ปิดข้อความชวนอัปเดต</string>
+    <string name="disable_update_prompts_description">หยุดแสดงข้อความชวนอัปเดต</string>
+</resources>

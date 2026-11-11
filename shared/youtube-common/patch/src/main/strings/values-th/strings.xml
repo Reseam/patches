@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_branding">แบรนด์ที่กำหนดเอง</string>
+    <string name="custom_branding_description">เพิ่มไอคอนตัวเปิดแอปและชื่อแอปให้เลือก รวมถึงของคุณเอง</string>
+    <string name="custom_branding_custom_name">ชื่อแอปที่กำหนดเอง</string>
+    <string name="custom_branding_custom_name_description">เพิ่มชื่อนี้ในตัวเลือกชื่อแอปและตั้งเป็นค่าเริ่มต้น</string>
+    <string name="custom_branding_custom_icon">ไอคอนที่กำหนดเอง</string>
+    <string name="custom_branding_custom_icon_description">โฟลเดอร์ที่มีโฟลเดอร์ mipmap-mdpi ถึง mipmap-xxxhdpi โดยแต่ละโฟลเดอร์มี foreground.png และ background.png ระบบจะเพิ่มไอคอนในตัวเลือกและตั้งเป็นค่าเริ่มต้น</string>
+</resources>

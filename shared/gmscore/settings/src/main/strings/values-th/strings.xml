@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="gmscore_missing_title">ไม่ได้ติดตั้ง GmsCore</string>
+    <string name="gmscore_missing_message">แอปนี้ถูกแพตช์ให้ลงชื่อเข้าใช้ผ่าน GmsCore (<xliff:g id="packageName">%1$s</xliff:g>) แต่ยังไม่ได้ติดตั้ง GmsCore ให้ติดตั้ง เปิดหนึ่งครั้ง และให้สิทธิ์ที่ขอ จากนั้นเปิดแอปนี้อีกครั้ง</string>
+    <string name="gmscore_get">รับ GmsCore</string>
+    <string name="gmscore_close">ปิด</string>
+    <string name="gmscore_mount_unsupported">แพตช์การรองรับ GmsCore ทำให้การติดตั้งแบบเมานต์ใช้งานไม่ได้</string>
+    <string name="gmscore_battery_optimized_title">GmsCore ถูกเพิ่มประสิทธิภาพแบตเตอรี่</string>
+    <string name="gmscore_battery_optimized_message">Android จะหยุด GmsCore ในเบื้องหลัง ซึ่งทำให้คุณออกจากระบบและการแจ้งเตือนใช้ไม่ได้ ปิดการเพิ่มประสิทธิภาพแบตเตอรี่สำหรับ GmsCore</string>
+    <string name="gmscore_open_settings">เปิดการตั้งค่า</string>
+    <string name="gmscore_unavailable_title">ใช้ GmsCore ไม่ได้</string>
+    <string name="gmscore_unavailable_message">แอปเข้าถึง GmsCore ไม่ได้ เปิด GmsCore และตรวจสอบสิทธิ์และการตั้งค่ากิจกรรมในเบื้องหลัง</string>
+    <string name="gmscore_open_website">เปิดเว็บไซต์</string>
+    <string name="gmscore_ignore">ไม่สนใจ</string>
+    <string name="gmscore_no_screen_handler">ไม่มีแอปที่เปิดหน้าจอนี้ได้</string>
+</resources>
