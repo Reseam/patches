@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="allow_screenshots">允許截圖</string>
+    <string name="allow_screenshots_description">允許截圖和錄製受保護的畫面。</string>
+    <string name="allow_split_screen">允許分割畫面</string>
+    <string name="allow_split_screen_description">讓應用程式可在分割畫面和對話框泡泡中開啟。</string>
+    <string name="change_package_name">變更套件名稱</string>
+    <string name="change_package_name_description">以另一個套件名稱安裝應用程式，使它能與原版並存。有些應用程式這樣會無法運作。</string>
+    <string name="change_package_name_package_name">套件名稱</string>
+    <string name="change_package_name_package_name_description">新的套件名稱。留空則在原名稱後加上 .reseam。</string>
+    <string name="disable_play_store_updates">停用 Play 商店更新</string>
+    <string name="disable_play_store_updates_description">不讓 Google Play 更新這個應用程式。</string>
+    <string name="enable_debugging">啟用偵錯</string>
+    <string name="enable_debugging_description">將應用程式標示為可偵錯，讓 adb 不需 root 即可檢查它。</string>
+    <string name="hide_mock_location">隱藏模擬位置</string>
+    <string name="hide_mock_location_description">隱藏你的位置來自模擬位置應用程式這件事。</string>
+    <string name="override_certificate_pinning">覆寫憑證綁定</string>
+    <string name="override_certificate_pinning_description">信任你自己的憑證，讓代理伺服器可以檢查應用程式的流量。</string>
+    <string name="remove_ads">封鎖廣告</string>
+    <string name="remove_ads_description">阻止應用程式從常見的廣告聯播網載入廣告。</string>
+    <string name="remove_pairip">移除 Pairip</string>
+    <string name="remove_pairip_description">移除 Google Play 的自動完整性保護。伺服器端的檢查仍然有效。</string>
+    <string name="remove_pairip_kill_vm">停止 Pairip 虛擬機器</string>
+    <string name="remove_pairip_kill_vm_description">只適用於 Pairip 虛擬機器僅用來檢查授權的應用程式。在其中執行自身程式碼的應用程式會因此無法使用。</string>
+    <string name="remove_pairip_spoof_installer">偽裝安裝來源檢查</string>
+    <string name="remove_pairip_spoof_installer_description">讓其餘的安裝來源檢查回報 Google Play。</string>
+    <string name="report_play_store_installer">回報 Play 商店為安裝來源</string>
+    <string name="report_play_store_installer_description">讓應用程式認為自己是從 Google Play 安裝的。</string>
+    <string name="spoof_signature">偽裝簽章</string>
+    <string name="spoof_signature_description">向應用程式顯示其原始簽章，以通過修改檢查。</string>
+</resources>

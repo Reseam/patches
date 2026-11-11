@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_branding">自訂品牌</string>
+    <string name="custom_branding_description">新增可供選擇的啟動器圖示和應用程式名稱，包括你自己的。</string>
+    <string name="custom_branding_custom_name">自訂應用程式名稱</string>
+    <string name="custom_branding_custom_name_description">將這個名稱加入應用程式名稱選項，並設為預設值。</string>
+    <string name="custom_branding_custom_icon">自訂圖示</string>
+    <string name="custom_branding_custom_icon_description">一個含有 mipmap-mdpi 到 mipmap-xxxhdpi 資料夾的資料夾，每個資料夾中都有 foreground.png 和 background.png。會將圖示加入選項並設為預設值。</string>
+</resources>

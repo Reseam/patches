@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_comment_ads">隱藏留言廣告</string>
+    <string name="hide_comment_ads_description">隱藏貼文下方和留言之間的廣告。</string>
+    <string name="hide_feed_ads">隱藏動態消息廣告</string>
+    <string name="hide_feed_ads_description">隱藏動態消息和搜尋中的推廣貼文。</string>
+    <string name="color_thread_lines">彩色留言串線條</string>
+    <string name="color_thread_lines_description">每一層回覆使用不同顏色的線條。</string>
+    <string name="ignore_suggested_sort">一律使用我的留言排序</string>
+    <string name="ignore_suggested_sort_description">忽略貼文或社群建議的排序方式。</string>
+    <string name="settings_entry">Reseam 設定入口</string>
+    <string name="settings_entry_description">在「帳號設定」下方新增 Reseam 設定。</string>
+    <string name="disable_features">停用 Reddit 功能</string>
+    <string name="disable_features_description">關閉 Reddit Answers、遊戲、付費推銷、提醒和其他功能。</string>
+    <string name="default_feed_sort">預設動態消息排序</string>
+    <string name="default_feed_sort_description">依你選擇的方式排序社群、自訂動態消息、Popular 和 All。</string>
+    <string name="hide_feed_units">隱藏動態消息插入內容</string>
+    <string name="hide_feed_units_description">隱藏動態消息中的熱門、輪播、推廣、問卷和其他插入內容。</string>
+    <string name="hide_recommended_communities">隱藏推薦社群</string>
+    <string name="hide_recommended_communities_description">隱藏動態消息中的社群推薦。</string>
+    <string name="hide_recommended_posts">隱藏推薦貼文</string>
+    <string name="hide_recommended_posts_description">隱藏首頁中來自你未加入社群的貼文。</string>
+    <string name="hide_drawer_items">隱藏社群側邊選單項目</string>
+    <string name="hide_drawer_items_description">隱藏社群側邊選單中選取的項目。</string>
+    <string name="hide_navigation_tabs">隱藏導覽分頁</string>
+    <string name="hide_navigation_tabs_description">隱藏導覽列中選取的分頁。</string>
+    <string name="fix_push_notifications">修正推播通知</string>
+    <string name="fix_push_notifications_description">讓修補後的應用程式也能收到推播通知。</string>
+    <string name="skip_nsfw_warning">略過 NSFW 社群警告</string>
+    <string name="skip_nsfw_warning_description">直接開啟成人社群，不再詢問。</string>
+    <string name="block_analytics">封鎖分析</string>
+    <string name="block_analytics_description">阻止 Reddit 的事件記錄和 AppsFlyer 追蹤。</string>
+    <string name="disable_app_rate_prompt">隱藏評分提示</string>
+    <string name="disable_app_rate_prompt_description">不再讓 Reddit 請你評分。</string>
+    <string name="disable_screenshot_banner">隱藏截圖橫幅</string>
+    <string name="disable_screenshot_banner_description">不讓 Reddit 偵測到截圖。</string>
+    <string name="hide_trending_searches">隱藏熱門搜尋</string>
+    <string name="hide_trending_searches_description">隱藏搜尋畫面上的熱門內容。</string>
+    <string name="hide_premium_settings">隱藏 Premium 設定</string>
+    <string name="hide_premium_settings_description">隱藏設定中的 Premium 和 Reddit Pro 推銷。</string>
+    <string name="vxreddit_links">分享 vxreddit 連結</string>
+    <string name="vxreddit_links_description">以 vxreddit.com 連結分享貼文，在 Discord 等應用程式中可直接顯示其中的媒體。</string>
+    <string name="block_forced_update">封鎖強制更新</string>
+    <string name="block_forced_update_description">不讓 Reddit 以更新畫面阻擋這個版本。</string>
+</resources>

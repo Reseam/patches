@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="spoof_video_streams_client_tv">TV (SABR)</string>
+    <string name="spoof_video_streams_client_web">Web (SABR)</string>
+    <string name="spoof_video_streams_client_tv_simply">TV Simply</string>
+    <string name="spoof_video_streams_stats_for_nerds">在統計資料中顯示偽裝的用戶端</string>
+    <string name="spoof_video_streams_stats_for_nerds_summary">在「詳細統計資料」中顯示串流用戶端。</string>
+    <string name="token_server_credential">權杖伺服器憑證</string>
+    <string name="spoof_video_streams">修正播放</string>
+    <string name="spoof_video_streams_summary">在 YouTube 封鎖這個應用程式時，讓影片仍能播放。</string>
+    <string name="spoof_video_streams_client">偏好的用戶端</string>
+    <string name="spoof_video_streams_client_summary">第一個嘗試的用戶端。Android 和 Web 可使用 Reseam 權杖伺服器，須遵守 https://mint.reseam.app 上的條款。</string>
+    <string name="user_agent_client_spoof">偽裝使用者代理程式</string>
+    <string name="user_agent_client_spoof_summary">在請求中回報為原版應用程式，讓 YouTube 接受這些請求。</string>
+    <string name="spoof_client_tv">TV (SABR)</string>
+    <string name="spoof_client_web">Web (SABR)</string>
+    <string name="spoof_client_tv_simply">TV Simply</string>
+    <string name="spoof_client_native">原生</string>
+</resources>

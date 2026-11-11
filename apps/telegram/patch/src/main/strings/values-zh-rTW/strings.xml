@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_sponsored_ads">隱藏贊助訊息</string>
+    <string name="hide_sponsored_ads_description">隱藏頻道中的贊助訊息。</string>
+    <string name="download_boost">更快的下載</string>
+    <string name="download_boost_description">以較大的區塊下載，並同時下載更多區塊。</string>
+    <string name="bypass_integrity">略過完整性檢查</string>
+    <string name="bypass_integrity_description">允許在已 root 的手機和沒有 Google 服務的手機上登入。</string>
+    <string name="fix_push_notifications">修正推播通知</string>
+    <string name="fix_push_notifications_description">讓修補後的應用程式也能收到推播通知。</string>
+    <string name="allow_screenshots">允許擷取私密媒體</string>
+    <string name="allow_screenshots_description">允許截圖和錄製單次檢視及自動銷毀的媒體。</string>
+    <string name="anti_delete">保留已刪除的訊息</string>
+    <string name="anti_delete_description">保留別人刪除的訊息，並在聊天中顯示。</string>
+    <string name="bypass_restrictions">從受限制的聊天儲存</string>
+    <string name="bypass_restrictions_description">允許在受保護的聊天中複製、儲存和轉傳。</string>
+    <string name="forward_from_restricted">從受限制的聊天轉傳</string>
+    <string name="forward_from_restricted_description">將禁止轉傳的聊天中的訊息以新訊息傳送。</string>
+    <string name="hide_typing_indicator">隱藏正在輸入提示</string>
+    <string name="hide_typing_indicator_description">不讓別人看到你正在輸入或錄音。</string>
+    <string name="play_store_restrictions">移除 Play 商店限制</string>
+    <string name="play_store_restrictions_description">顯示 Telegram 只在 Play 商店版本中隱藏的聊天和媒體。</string>
+    <string name="unlock_premium">解鎖 Premium</string>
+    <string name="unlock_premium_description">解鎖可在這支手機上使用的 Premium 功能。</string>
+    <string name="disable_auto_update">停用更新提示</string>
+    <string name="disable_auto_update_description">停止檢查更新和更新提示。</string>
+</resources>

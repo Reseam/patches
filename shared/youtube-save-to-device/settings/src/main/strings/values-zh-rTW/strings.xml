@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_save_to_device">儲存到裝置</string>
+    <string name="save_folder">儲存資料夾</string>
+    <string name="save_folder_summary">儲存檔案的位置。你會在第一次儲存時選擇。</string>
+    <string name="save_new_downloads">將新下載的內容儲存到裝置</string>
+    <string name="save_new_downloads_summary">每次下載完成時也一併儲存。</string>
+    <string name="save_to_device">儲存到裝置</string>
+    <string name="notification_channel">已儲存的下載內容</string>
+    <string name="saving">正在儲存 <xliff:g id="title">%1$s</xliff:g></string>
+    <string name="saving_progress">正在儲存第 <xliff:g id="done">%1$d</xliff:g> 個，共 <xliff:g id="total">%2$d</xliff:g> 個</string>
+    <string name="saved">已儲存 <xliff:g id="title">%1$s</xliff:g></string>
+    <plurals name="saved_count">
+        <item quantity="other">已儲存 <xliff:g id="count">%1$d</xliff:g> 個下載內容</item>
+    </plurals>
+    <string name="save_failed">無法儲存 <xliff:g id="title">%1$s</xliff:g></string>
+    <string name="save_failed_unsupported">這個下載內容的格式無法儲存為檔案。</string>
+    <string name="save_failed_incomplete">下載尚未完成。</string>
+    <string name="save_failed_folder">儲存資料夾已無法使用。請在 Reseam 設定中重新選擇。</string>
+    <string name="save_failed_space">儲存資料夾的空間不足。</string>
+    <string name="open">開啟</string>
+</resources>

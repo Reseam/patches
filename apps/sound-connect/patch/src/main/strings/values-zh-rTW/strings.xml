@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reseam_you_tube_music">Reseam YouTube Music</string>
+    <string name="reseam_you_tube_music_description">已安裝 Reseam 的 YouTube Music 時，將它用於自動播放和連結的服務。</string>
+    <string name="reseam_you_tube_music_you_tube_music_package_name">YouTube Music 套件名稱</string>
+    <string name="reseam_you_tube_music_you_tube_music_package_name_description">修補你的 Reseam YouTube Music 時使用的套件名稱。</string>
+</resources>

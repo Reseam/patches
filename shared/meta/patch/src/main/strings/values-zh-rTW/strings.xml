@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="signature_check">修正簽章檢查</string>
+    <string name="signature_check_description">讓重新簽署的應用程式可以啟動。</string>
+</resources>

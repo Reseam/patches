@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bundle_donate">贊助</string>
+    <string name="bundle_request_patch">申請修補程式</string>
+</resources>

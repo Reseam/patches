@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="block_embedded_ads">封鎖內嵌廣告</string>
+    <string name="block_embedded_ads_description">透過第三方代理伺服器載入無廣告的直播，該代理伺服器看得到你的 IP 位址和你觀看的頻道。</string>
+    <string name="block_video_ads">封鎖影片廣告</string>
+    <string name="block_video_ads_description">封鎖 Twitch 自行請求的影片、音訊和展示廣告。</string>
+    <string name="ignore_ad_events">忽略廣告事件</string>
+    <string name="ignore_ad_events_description">忽略 Twitch 在直播期間宣告的廣告時段和廣告追蹤。</string>
+    <string name="settings_entry">Reseam 設定入口</string>
+    <string name="settings_entry_description">在 Twitch 設定的「帳號」上方新增 Reseam 設定。</string>
+    <string name="enable_debug_mode">啟用偵錯模式</string>
+    <string name="enable_debug_mode_description">顯示 Twitch 的員工工具，例如偵錯選單和影片偵錯面板。</string>
+    <string name="fix_login_crash">修正登入當機</string>
+    <string name="fix_login_crash_description">防止 Twitch 在你登入後立即當機。</string>
+    <string name="startup_tab">啟動分頁</string>
+    <string name="startup_tab_description">讓 Twitch 在「瀏覽」或「個人檔案」開啟，並解鎖「預設首頁」設定。</string>
+    <string name="block_analytics">封鎖分析</string>
+    <string name="block_analytics_description">阻止 comScore、Nielsen、Sentry、Crashlytics、Sprig 和 Branch。</string>
+    <string name="disable_update_prompts">停用更新提示</string>
+    <string name="disable_update_prompts_description">不再顯示更新提示。</string>
+</resources>

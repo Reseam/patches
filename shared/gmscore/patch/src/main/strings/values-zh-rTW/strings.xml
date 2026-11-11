@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gms_core_support">GmsCore 支援</string>
+    <string name="gms_core_support_description">透過另外安裝的 GmsCore 登入，而不是 Google Play 服務。</string>
+    <string name="gms_core_support_gms_core_vendor_group_id">GmsCore 發布者</string>
+    <string name="gms_core_support_gms_core_vendor_group_id_description">你的 GmsCore 發布時使用的群組 ID。</string>
+    <string name="gms_core_support_package_name">套件名稱</string>
+    <string name="gms_core_support_package_name_description">修補後應用程式的套件名稱。</string>
+</resources>

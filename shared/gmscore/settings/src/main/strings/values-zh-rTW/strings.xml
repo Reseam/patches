@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="gmscore_missing_title">未安裝 GmsCore</string>
+    <string name="gmscore_missing_message">這個應用程式已修補為透過 GmsCore (<xliff:g id="packageName">%1$s</xliff:g>) 登入，但尚未安裝 GmsCore。請安裝它、開啟一次並授予它要求的權限，然後再開啟這個應用程式。</string>
+    <string name="gmscore_get">取得 GmsCore</string>
+    <string name="gmscore_close">關閉</string>
+    <string name="gmscore_mount_unsupported">GmsCore 支援修補程式會使掛載安裝無法運作</string>
+    <string name="gmscore_battery_optimized_title">GmsCore 受到電池最佳化限制</string>
+    <string name="gmscore_battery_optimized_message">Android 會在背景停止 GmsCore，導致你被登出，也收不到通知。請為 GmsCore 關閉電池最佳化。</string>
+    <string name="gmscore_open_settings">開啟設定</string>
+    <string name="gmscore_unavailable_title">無法使用 GmsCore</string>
+    <string name="gmscore_unavailable_message">應用程式無法存取 GmsCore。請開啟 GmsCore，檢查它的權限和背景活動設定。</string>
+    <string name="gmscore_open_website">開啟網站</string>
+    <string name="gmscore_ignore">忽略</string>
+    <string name="gmscore_no_screen_handler">沒有可開啟這個畫面的應用程式</string>
+</resources>

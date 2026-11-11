@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="hide_typing">隱藏正在輸入提示</string>
+    <string name="hide_typing_summary">別人看不到你正在輸入。Instagram 可能會將你的帳號停權。</string>
+    <string name="hide_dm_seen">隱藏私訊已讀回條</string>
+    <string name="hide_dm_seen_summary">傳送者看不到你已讀他們的訊息。Instagram 可能會將你的帳號停權。</string>
+    <string name="hide_story_seen">隱藏限時動態觀看記錄</string>
+    <string name="hide_story_seen_summary">你不會出現在限時動態的觀看者清單中。Instagram 可能會將你的帳號停權。</string>
+    <string name="hide_live_seen">隱藏直播觀看記錄</string>
+    <string name="hide_live_seen_summary">你不會出現在直播的觀看者中。Instagram 可能會將你的帳號停權。</string>
+    <string name="hide_screenshot_notifications">隱藏截圖通知</string>
+    <string name="hide_screenshot_notifications_summary">你截圖時不會通知別人。Instagram 可能會將你的帳號停權。</string>
+    <string name="max_resolution">完整解析度相片</string>
+    <string name="original_quality">原始相片畫質</string>
+    <string name="original_quality_summary">回報較大的螢幕尺寸，以上傳時的原樣載入相片。Instagram 可能會將你的帳號停權。</string>
+    <string name="disable_video_autoplay">停用影片自動播放</string>
+    <string name="disable_video_autoplay_summary">動態消息中的影片只在你輕觸時播放。</string>
+    <string name="disable_reels_swiping">停用 Reels 滑動</string>
+    <string name="disable_reels_swiping_summary">停留在你開啟的那則 Reels。</string>
+    <string name="disable_auto_advance">停用限時動態自動切換</string>
+    <string name="disable_auto_advance_summary">限時動態播完後停留在畫面上，直到你輕觸。</string>
+    <string name="hide_suggested_users">隱藏推薦的限時動態</string>
+    <string name="hide_suggested_users_summary">隱藏限時動態列中你未追蹤的限時動態和帳號。</string>
+    <string name="hide_story_tray">隱藏限時動態列</string>
+    <string name="hide_story_tray_summary">隱藏首頁頂端的限時動態。</string>
+    <string name="ring_size">限時動態圓圈大小</string>
+    <string name="ring_size_summary">首頁頂端限時動態圓圈的大小。</string>
+    <string name="ring_size_small">小 (80%)</string>
+    <string name="ring_size_default">預設</string>
+    <string name="ring_size_large">大 (120%)</string>
+    <string name="ring_size_extra_large">特大 (140%)</string>
+    <string name="hide_in_explore_search">隱藏探索搜尋中的 Meta AI</string>
+    <string name="hide_in_direct">隱藏私訊中的 Meta AI</string>
+    <string name="hide_in_direct_summary">隱藏收件匣、私訊搜尋和聊天中的 Meta AI。</string>
+    <string name="hide_in_posts">隱藏貼文中的 Meta AI</string>
+    <string name="hide_in_posts_summary">隱藏貼文選單中的貼文摘要和「詢問 Meta AI」。</string>
+    <string name="open_externally">在瀏覽器中開啟連結</string>
+    <string name="clean_share_links">清理分享連結</string>
+    <string name="clean_share_links_summary">移除分享連結中可識別你身分的部分。</string>
+    <string name="allow_screenshots">允許截圖</string>
+    <string name="allow_screenshots_summary">包括聊天、單次檢視的媒體和閱後即焚模式。</string>
+    <string name="unlock_developer_options">啟用開發人員選單</string>
+    <string name="unlock_developer_options_summary">在設定底部新增 Instagram 的開發人員選單。</string>
+    <string name="copy_comment">複製留言</string>
+    <string name="copy_comment_summary">在留言的長按選單中新增「複製」。</string>
+    <string name="comment_copied">已複製留言</string>
+    <string name="follows_you_indicator">「追蹤你」標示</string>
+    <string name="follows_you_indicator_summary">在追蹤你的帳號個人檔案上顯示「追蹤你」。</string>
+    <string name="hide_repost_buttons">隱藏轉發按鈕</string>
+    <string name="hide_engagement_counts">隱藏互動數</string>
+    <string name="hide_engagement_counts_summary">隱藏動態消息中讚、留言、分享和轉發的數量。</string>
+    <string name="hide_home_tab">隱藏首頁分頁</string>
+    <string name="hide_home_tab_summary">Instagram 會在下一個分頁開啟。</string>
+    <string name="hide_reels_tab">隱藏 Reels 分頁</string>
+    <string name="hide_create_tab">隱藏建立分頁</string>
+    <string name="hide_explore_grid">隱藏探索網格</string>
+    <string name="hide_explore_grid_summary">探索分頁只保留搜尋。</string>
+    <string name="hide_instants">隱藏 Instants</string>
+    <string name="hide_instants_summary">隱藏收件匣中的 Instants 堆疊。</string>
+    <string name="hide_threads_badge">隱藏 Threads 徽章</string>
+    <string name="hide_ads">隱藏廣告</string>
+    <string name="following_only">只顯示追蹤對象的動態消息</string>
+    <string name="following_only_summary">顯示你追蹤的帳號的貼文，最新的在前。</string>
+    <string name="hide_suggested_accounts">隱藏推薦帳號</string>
+    <string name="hide_suggested_accounts_summary">推薦貼文仍會保留。「只顯示追蹤對象的動態消息」會隱藏它們。</string>
+    <string name="hide_threads_units">隱藏 Threads 區塊</string>
+    <string name="hide_threads_units_summary">可能會在首頁留下空白。</string>
+    <string name="hide_shopping_units">隱藏購物區塊</string>
+    <string name="hide_shopping_units_summary">可能會在首頁留下空白。</string>
+    <string name="hide_suggested_reels">隱藏推薦的 Reels</string>
+    <string name="folder">下載資料夾</string>
+    <string name="show_toast">顯示下載訊息</string>
+    <string name="section_social">社交</string>
+    <string name="section_comments">留言</string>
+    <string name="section_appearance">外觀</string>
+    <string name="section_playback">播放</string>
+    <string name="section_media">媒體</string>
+    <string name="section_privacy">隱私權</string>
+    <string name="section_ghost_mode">隱身模式</string>
+    <string name="section_feed">動態消息</string>
+    <string name="section_stories">限時動態</string>
+    <string name="section_meta_ai">Meta AI</string>
+    <string name="section_links">連結</string>
+    <string name="section_developer">開發人員</string>
+    <string name="section_downloads">下載</string>
+    <string name="download_label">下載</string>
+    <string name="download_instant_description">下載 Instant</string>
+    <string name="download_carousel_current">目前 (<xliff:g id="slide">%1$d</xliff:g>/<xliff:g id="total">%2$d</xliff:g>)</string>
+    <plurals name="download_carousel_all">
+        <item quantity="other">全部 <xliff:g id="count">%1$d</xliff:g> 項</item>
+    </plurals>
+    <string name="download_cancel">取消</string>
+    <string name="download_started">下載中</string>
+    <string name="download_media_url_missing">找不到要下載的媒體</string>
+    <string name="download_failed">下載失敗</string>
+    <string name="download_slide_started">正在下載第 <xliff:g id="slide">%1$d</xliff:g> 張</string>
+    <string name="download_slide_url_missing">無法下載第 <xliff:g id="slide">%1$d</xliff:g> 張</string>
+    <string name="download_story_media_missing">找不到要下載的限時動態</string>
+    <plurals name="download_carousel_started">
+        <item quantity="other">正在下載第 <xliff:g id="started">%1$d</xliff:g> 項，共 <xliff:g id="count">%2$d</xliff:g> 項</item>
+    </plurals>
+    <string name="download_carousel_urls_missing">找不到輪播中的媒體</string>
+    <string name="download_notification_description">正在下載 Instagram 媒體</string>
+    <string name="follows_you_label">追蹤你</string>
+    <string name="follows_you_suffix">\u0020· 追蹤你</string>
+    <string name="follows_you_subtitle"><xliff:g id="subtitle">%1$s</xliff:g> · 追蹤你</string>
+</resources>

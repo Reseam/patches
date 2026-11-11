@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_ads">隱藏廣告</string>
+    <string name="hide_ads_description">隱藏贊助貼文。</string>
+    <string name="settings_entry">Reseam 設定入口</string>
+    <string name="settings_entry_description">在 Threads 的設定中新增 Reseam 設定。</string>
+</resources>
