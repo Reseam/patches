@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_ads">Приховати рекламу</string>
+    <string name="hide_ads_description">Приховує спонсорські дописи.</string>
+    <string name="settings_entry">Пункт налаштувань Reseam</string>
+    <string name="settings_entry_description">Додає «Налаштування Reseam» до налаштувань Threads.</string>
+</resources>

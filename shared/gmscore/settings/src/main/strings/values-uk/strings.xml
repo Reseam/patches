@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="gmscore_missing_title">GmsCore не встановлено</string>
+    <string name="gmscore_missing_message">Цей застосунок пропатчено для входу через GmsCore (<xliff:g id="packageName">%1$s</xliff:g>), який не встановлено. Встановіть його, відкрийте один раз і надайте запитані дозволи, а потім знову відкрийте цей застосунок.</string>
+    <string name="gmscore_get">Отримати GmsCore</string>
+    <string name="gmscore_close">Закрити</string>
+    <string name="gmscore_mount_unsupported">Патч підтримки GmsCore ламає змонтовані встановлення</string>
+    <string name="gmscore_battery_optimized_title">Для GmsCore увімкнено оптимізацію батареї</string>
+    <string name="gmscore_battery_optimized_message">Android зупинятиме GmsCore у фоні, через що ви вийдете з облікового запису, а сповіщення перестануть працювати. Вимкніть оптимізацію батареї для GmsCore.</string>
+    <string name="gmscore_open_settings">Відкрити налаштування</string>
+    <string name="gmscore_unavailable_title">GmsCore недоступний</string>
+    <string name="gmscore_unavailable_message">Застосунок не має доступу до GmsCore. Відкрийте GmsCore і перевірте його дозволи та налаштування фонової активності.</string>
+    <string name="gmscore_open_website">Відкрити вебсайт</string>
+    <string name="gmscore_ignore">Ігнорувати</string>
+    <string name="gmscore_no_screen_handler">Немає застосунку, щоб відкрити цей екран</string>
+</resources>

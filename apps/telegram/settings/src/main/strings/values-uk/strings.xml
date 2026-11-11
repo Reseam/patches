@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="recover_deleted_chats_chosen">Чати, де я це ввімкну</string>
+    <string name="recover_deleted_chats_all">Усі чати, якщо я не вимкну</string>
+    <string name="hide_sponsored_ads">Приховати спонсорські повідомлення</string>
+    <string name="disable_auto_update">Вимкнути запити оновлення</string>
+    <string name="unlock_premium">Відкрити Premium</string>
+    <string name="unlock_premium_summary">Функції, які перевіряє сервер, усе одно потребують підписки.</string>
+    <string name="hide_typing">Приховати індикатор набору</string>
+    <string name="boost_downloads">Швидші завантаження</string>
+    <string name="save_from_restricted">Зберігати з обмежених чатів</string>
+    <string name="save_from_restricted_summary">Дозволяє копіювати, зберігати й пересилати в захищених чатах.</string>
+    <string name="remove_play_store_restrictions">Прибрати обмеження Play Маркету</string>
+    <string name="remove_play_store_restrictions_summary">Показує чати й медіа, які Telegram приховує лише у версії з Play Маркету.</string>
+    <string name="recover_deleted">Зберігати видалені повідомлення</string>
+    <string name="recover_deleted_summary">Зберігає повідомлення, які видалили інші, і позначає їх 🗑️.</string>
+    <string name="recover_deleted_chats">Увімкнено для</string>
+    <string name="recover_deleted_chats_summary">Вмикайте чи вимикайте для чату в його меню ⋮.</string>
+    <string name="allow_screenshots">Дозволити знімки секретних медіа</string>
+    <string name="allow_screenshots_summary">Зокрема записи екрана одноразових і самознищувальних медіа.</string>
+    <string name="section_ads">Реклама</string>
+    <string name="section_updates">Оновлення</string>
+    <string name="section_downloads">Завантаження</string>
+    <string name="section_premium">Premium</string>
+    <string name="section_privacy">Конфіденційність</string>
+    <string name="anti_delete_recovery_off">Не зберігати видалені повідомлення</string>
+    <string name="anti_delete_recovery_on">Зберігати видалені повідомлення</string>
+</resources>

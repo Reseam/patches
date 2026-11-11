@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_sponsored_ads">Приховати спонсорські повідомлення</string>
+    <string name="hide_sponsored_ads_description">Приховує спонсорські повідомлення в каналах.</string>
+    <string name="download_boost">Швидші завантаження</string>
+    <string name="download_boost_description">Завантажує більшими частинами й більше одночасно.</string>
+    <string name="bypass_integrity">Обходити перевірку цілісності</string>
+    <string name="bypass_integrity_description">Дає змогу входити на телефонах із root і без сервісів Google.</string>
+    <string name="fix_push_notifications">Виправити push-сповіщення</string>
+    <string name="fix_push_notifications_description">Push-сповіщення надходять і після патчування.</string>
+    <string name="allow_screenshots">Дозволити знімки секретних медіа</string>
+    <string name="allow_screenshots_description">Дозволяє знімки й записи екрана одноразових і самознищувальних медіа.</string>
+    <string name="anti_delete">Зберігати видалені повідомлення</string>
+    <string name="anti_delete_description">Зберігає повідомлення, які видалили інші, і показує їх у чаті.</string>
+    <string name="bypass_restrictions">Зберігати з обмежених чатів</string>
+    <string name="bypass_restrictions_description">Дозволяє копіювати, зберігати й пересилати в захищених чатах.</string>
+    <string name="forward_from_restricted">Пересилати з обмежених чатів</string>
+    <string name="forward_from_restricted_description">Надсилає повідомлення з чатів, що забороняють пересилання, як нові повідомлення.</string>
+    <string name="hide_typing_indicator">Приховати індикатор набору</string>
+    <string name="hide_typing_indicator_description">Інші не бачать, що ви друкуєте або записуєте.</string>
+    <string name="play_store_restrictions">Прибрати обмеження Play Маркету</string>
+    <string name="play_store_restrictions_description">Показує чати й медіа, які Telegram приховує лише у версії з Play Маркету.</string>
+    <string name="unlock_premium">Відкрити Premium</string>
+    <string name="unlock_premium_description">Відкриває функції Premium, які працюють на цьому телефоні.</string>
+    <string name="disable_auto_update">Вимкнути запити оновлення</string>
+    <string name="disable_auto_update_description">Зупиняє перевірку оновлень і запити оновлення.</string>
+</resources>

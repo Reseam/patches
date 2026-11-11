@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_branding">Власний бренд</string>
+    <string name="custom_branding_description">Додає значки й назви застосунку на вибір, зокрема ваші власні.</string>
+    <string name="custom_branding_custom_name">Власна назва застосунку</string>
+    <string name="custom_branding_custom_name_description">Додає цю назву до варіантів назви застосунку й робить її стандартною.</string>
+    <string name="custom_branding_custom_icon">Власний значок</string>
+    <string name="custom_branding_custom_icon_description">Папка з папками від mipmap-mdpi до mipmap-xxxhdpi, у кожній з яких є foreground.png і background.png. Додає значок до варіантів і робить його стандартним.</string>
+</resources>

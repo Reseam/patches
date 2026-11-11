@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="spoof_video_streams_client_tv">TV (SABR)</string>
+    <string name="spoof_video_streams_client_web">Web (SABR)</string>
+    <string name="spoof_video_streams_client_tv_simply">TV Simply</string>
+    <string name="spoof_video_streams_stats_for_nerds">Показувати підроблений клієнт у статистиці</string>
+    <string name="spoof_video_streams_stats_for_nerds_summary">Показує клієнт потоку в «Статистиці для гіків».</string>
+    <string name="token_server_credential">Облікові дані сервера токенів</string>
+    <string name="spoof_video_streams">Виправити відтворення</string>
+    <string name="spoof_video_streams_summary">Відео відтворюються, коли YouTube блокує застосунок.</string>
+    <string name="spoof_video_streams_client">Бажаний клієнт</string>
+    <string name="spoof_video_streams_client_summary">Клієнт, який пробується першим. Android і Web можуть використовувати сервер токенів Reseam на умовах, викладених на https://mint.reseam.app.</string>
+    <string name="user_agent_client_spoof">Підробити user agent</string>
+    <string name="user_agent_client_spoof_summary">Повідомляє в запитах оригінальний застосунок, щоб YouTube їх приймав.</string>
+    <string name="spoof_client_tv">TV (SABR)</string>
+    <string name="spoof_client_web">Web (SABR)</string>
+    <string name="spoof_client_tv_simply">TV Simply</string>
+    <string name="spoof_client_native">Нативний</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reseam_you_tube_music">Reseam YouTube Music</string>
+    <string name="reseam_you_tube_music_description">Використовує YouTube Music від Reseam для автовідтворення й пов’язаних сервісів, якщо його встановлено.</string>
+    <string name="reseam_you_tube_music_you_tube_music_package_name">Назва пакета YouTube Music</string>
+    <string name="reseam_you_tube_music_you_tube_music_package_name_description">Назва пакета, з якою пропатчено ваш Reseam YouTube Music.</string>
+</resources>

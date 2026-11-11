@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_comment_ads">Приховати рекламу в коментарях</string>
+    <string name="hide_comment_ads_description">Приховує рекламу під дописами й між коментарями.</string>
+    <string name="hide_feed_ads">Приховати рекламу в стрічці</string>
+    <string name="hide_feed_ads_description">Приховує рекламні дописи в стрічках і пошуку.</string>
+    <string name="color_thread_lines">Кольорові лінії гілок</string>
+    <string name="color_thread_lines_description">Дає кожному рівню відповідей власний колір лінії.</string>
+    <string name="ignore_suggested_sort">Завжди використовувати моє сортування коментарів</string>
+    <string name="ignore_suggested_sort_description">Ігнорує сортування, яке пропонує допис або спільнота.</string>
+    <string name="settings_entry">Пункт налаштувань Reseam</string>
+    <string name="settings_entry_description">Додає «Налаштування Reseam» під налаштуваннями облікового запису.</string>
+    <string name="disable_features">Вимкнути функції Reddit</string>
+    <string name="disable_features_description">Вимикає Reddit Answers, ігри, пропозиції оплати, підказки та інші функції.</string>
+    <string name="default_feed_sort">Сортування стрічки за замовчуванням</string>
+    <string name="default_feed_sort_description">Сортує спільноти, власні стрічки, Popular і All так, як ви вибрали.</string>
+    <string name="hide_feed_units">Приховати вставки в стрічці</string>
+    <string name="hide_feed_units_description">Приховує «Популярне», каруселі, промо, опитування та інші вставки в стрічках.</string>
+    <string name="hide_recommended_communities">Приховати рекомендовані спільноти</string>
+    <string name="hide_recommended_communities_description">Приховує пропозиції спільнот у стрічках.</string>
+    <string name="hide_recommended_posts">Приховати рекомендовані дописи</string>
+    <string name="hide_recommended_posts_description">Приховує на головній дописи зі спільнот, на які ви не підписані.</string>
+    <string name="hide_drawer_items">Приховати пункти панелі спільнот</string>
+    <string name="hide_drawer_items_description">Приховує вибрані рядки панелі спільнот.</string>
+    <string name="hide_navigation_tabs">Приховати вкладки навігації</string>
+    <string name="hide_navigation_tabs_description">Приховує вибрані вкладки панелі навігації.</string>
+    <string name="fix_push_notifications">Виправити push-сповіщення</string>
+    <string name="fix_push_notifications_description">Push-сповіщення надходять і після патчування.</string>
+    <string name="skip_nsfw_warning">Пропускати попередження про спільноти NSFW</string>
+    <string name="skip_nsfw_warning_description">Відкриває спільноти для дорослих без запиту.</string>
+    <string name="block_analytics">Блокувати аналітику</string>
+    <string name="block_analytics_description">Зупиняє журналювання подій Reddit і відстеження AppsFlyer.</string>
+    <string name="disable_app_rate_prompt">Приховати запит оцінки</string>
+    <string name="disable_app_rate_prompt_description">Reddit більше не просить оцінити застосунок.</string>
+    <string name="disable_screenshot_banner">Приховати банер знімка екрана</string>
+    <string name="disable_screenshot_banner_description">Reddit більше не помічає знімків екрана.</string>
+    <string name="hide_trending_searches">Приховати популярні запити</string>
+    <string name="hide_trending_searches_description">Приховує «Популярне» на екрані пошуку.</string>
+    <string name="hide_premium_settings">Приховати налаштування Premium</string>
+    <string name="hide_premium_settings_description">Приховує пропозиції Premium і Reddit Pro в налаштуваннях.</string>
+    <string name="vxreddit_links">Поширювати посилання vxreddit</string>
+    <string name="vxreddit_links_description">Поширює дописи як посилання vxreddit.com, що показують медіа в Discord та інших застосунках.</string>
+    <string name="block_forced_update">Блокувати примусові оновлення</string>
+    <string name="block_forced_update_description">Reddit більше не блокує цю версію екраном оновлення.</string>
+</resources>

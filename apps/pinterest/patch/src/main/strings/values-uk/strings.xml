@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="show_posted_date">Показувати дату публікації</string>
+    <string name="show_posted_date_description">Показує, коли пін було опубліковано.</string>
+    <string name="settings_entry">Пункт налаштувань Reseam</string>
+    <string name="settings_entry_description">Додає «Налаштування Reseam» до налаштувань Pinterest.</string>
+    <string name="download_board">Завантажити дошку</string>
+    <string name="download_board_description">Завантажує піни, уже завантажені на дошці.</string>
+    <string name="download_pins">Завантажувати піни</string>
+    <string name="download_pins_description">Завантажує піни як оригінальні зображення й відео.</string>
+    <string name="hide_ads">Приховати рекламу</string>
+    <string name="hide_ads_description">Приховує рекламні піни.</string>
+    <string name="hide_shopping">Приховати піни з покупками</string>
+    <string name="hide_shopping_description">Приховує піни з товарами, які можна купити.</string>
+    <string name="original_quality">Зображення в оригінальній якості</string>
+    <string name="original_quality_description">Завантажує зображення в оригінальній якості.</string>
+    <string name="fix_push_notifications">Виправити push-сповіщення</string>
+    <string name="fix_push_notifications_description">Push-сповіщення надходять і після патчування.</string>
+    <string name="hide_surveys">Приховати запрошення до опитувань</string>
+    <string name="hide_surveys_description">Приховує запрошення до опитувань.</string>
+    <string name="hide_screenshot_share">Приховати меню поширення знімка екрана</string>
+    <string name="hide_screenshot_share_description">Приховує меню поширення, яке відкривається після знімка екрана.</string>
+    <string name="disable_update_prompts">Вимкнути запити оновлення</string>
+    <string name="disable_update_prompts_description">Зупиняє запити оновлення.</string>
+</resources>
