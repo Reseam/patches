@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="signature_check">Corrigir verificação de assinatura</string>
+    <string name="signature_check_description">Permite que o app reassinado seja iniciado.</string>
+</resources>

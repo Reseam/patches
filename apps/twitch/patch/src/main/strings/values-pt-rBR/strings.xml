@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="block_embedded_ads">Bloquear anúncios incorporados</string>
+    <string name="block_embedded_ads_description">Carrega as transmissões ao vivo sem anúncios por um proxy de terceiros, que vê seu endereço IP e os canais a que você assiste.</string>
+    <string name="block_video_ads">Bloquear anúncios em vídeo</string>
+    <string name="block_video_ads_description">Bloqueia os anúncios em vídeo, áudio e display que a própria Twitch solicita.</string>
+    <string name="ignore_ad_events">Ignorar eventos de anúncio</string>
+    <string name="ignore_ad_events_description">Ignora os intervalos comerciais e o rastreamento de anúncios que a Twitch sinaliza durante uma transmissão.</string>
+    <string name="settings_entry">Entrada das configurações do Reseam</string>
+    <string name="settings_entry_description">Adiciona as Configurações do Reseam acima de Conta nas configurações da Twitch.</string>
+    <string name="enable_debug_mode">Ativar modo de depuração</string>
+    <string name="enable_debug_mode_description">Mostra as ferramentas internas da Twitch, como o menu de depuração e o painel de depuração de vídeo.</string>
+    <string name="fix_login_crash">Corrigir falha no login</string>
+    <string name="fix_login_crash_description">Impede que a Twitch feche sozinha logo depois do login.</string>
+    <string name="startup_tab">Aba inicial</string>
+    <string name="startup_tab_description">Abre a Twitch em Procurar ou Perfil e desbloqueia a configuração Página inicial padrão.</string>
+    <string name="block_analytics">Bloquear analytics</string>
+    <string name="block_analytics_description">Desativa comScore, Nielsen, Sentry, Crashlytics, Sprig e Branch.</string>
+    <string name="disable_update_prompts">Desativar avisos de atualização</string>
+    <string name="disable_update_prompts_description">Impede os avisos de atualização.</string>
+</resources>

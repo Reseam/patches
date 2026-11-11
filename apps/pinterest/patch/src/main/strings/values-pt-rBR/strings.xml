@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="show_posted_date">Mostrar data de publicação</string>
+    <string name="show_posted_date_description">Mostra quando um Pin foi publicado.</string>
+    <string name="settings_entry">Entrada das configurações do Reseam</string>
+    <string name="settings_entry_description">Adiciona as Configurações do Reseam às configurações do Pinterest.</string>
+    <string name="download_board">Baixar pasta</string>
+    <string name="download_board_description">Baixa os Pins que uma pasta já carregou.</string>
+    <string name="download_pins">Baixar Pins</string>
+    <string name="download_pins_description">Baixa Pins como imagens e vídeos originais.</string>
+    <string name="hide_ads">Ocultar anúncios</string>
+    <string name="hide_ads_description">Oculta Pins promovidos.</string>
+    <string name="hide_shopping">Ocultar Pins de compras</string>
+    <string name="hide_shopping_description">Oculta Pins com produtos à venda.</string>
+    <string name="original_quality">Imagens em qualidade original</string>
+    <string name="original_quality_description">Carrega as imagens em qualidade original.</string>
+    <string name="fix_push_notifications">Corrigir notificações push</string>
+    <string name="fix_push_notifications_description">Faz as notificações push chegarem depois da aplicação dos patches.</string>
+    <string name="hide_surveys">Ocultar convites para pesquisas</string>
+    <string name="hide_surveys_description">Oculta os convites para responder pesquisas.</string>
+    <string name="hide_screenshot_share">Ocultar menu de compartilhar captura de tela</string>
+    <string name="hide_screenshot_share_description">Oculta o menu de compartilhamento que abre depois de uma captura de tela.</string>
+    <string name="disable_update_prompts">Desativar avisos de atualização</string>
+    <string name="disable_update_prompts_description">Impede os avisos de atualização.</string>
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_save_to_device">Salvar no dispositivo</string>
+    <string name="save_folder">Pasta de destino</string>
+    <string name="save_folder_summary">Onde os arquivos salvos ficam. Você escolhe na primeira vez que salvar.</string>
+    <string name="save_new_downloads">Salvar novos downloads no dispositivo</string>
+    <string name="save_new_downloads_summary">Também salva cada download quando ele termina.</string>
+    <string name="save_to_device">Salvar no dispositivo</string>
+    <string name="notification_channel">Downloads salvos</string>
+    <string name="saving">Salvando <xliff:g id="title">%1$s</xliff:g></string>
+    <string name="saving_progress">Salvando <xliff:g id="done">%1$d</xliff:g> de <xliff:g id="total">%2$d</xliff:g></string>
+    <string name="saved"><xliff:g id="title">%1$s</xliff:g> foi salvo</string>
+    <plurals name="saved_count">
+        <item quantity="one"><xliff:g id="count">%1$d</xliff:g> download salvo</item>
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> downloads salvos</item>
+    </plurals>
+    <string name="save_failed">Não foi possível salvar <xliff:g id="title">%1$s</xliff:g></string>
+    <string name="save_failed_unsupported">O formato do download não pode ser salvo como arquivo.</string>
+    <string name="save_failed_incomplete">O download ainda não terminou.</string>
+    <string name="save_failed_folder">A pasta de destino não está mais disponível. Escolha-a de novo nas Configurações do Reseam.</string>
+    <string name="save_failed_space">Não há espaço suficiente na pasta de destino.</string>
+    <string name="open">Abrir</string>
+</resources>

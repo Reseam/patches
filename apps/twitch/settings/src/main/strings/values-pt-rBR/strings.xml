@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="block_video_ads">Bloquear anúncios em vídeo</string>
+    <string name="block_video_ads_summary">Bloqueia os anúncios que a própria Twitch solicita. Para os anúncios dentro da transmissão, use Bloquear anúncios incorporados.</string>
+    <string name="block_embedded_ads">Bloquear anúncios incorporados</string>
+    <string name="block_embedded_ads_summary">Carrega as transmissões ao vivo por um proxy de terceiros, que vê seu endereço IP e os canais a que você assiste.</string>
+    <string name="embedded_ads_proxy">Proxy sem anúncios</string>
+    <string name="embedded_ads_proxy_custom">Personalizado</string>
+    <string name="custom_embedded_ads_proxy">Proxy personalizado</string>
+    <string name="custom_embedded_ads_proxy_summary">O endereço de um proxy compatível com Luminous ou TTV LOL, usado quando Proxy sem anúncios está em Personalizado.</string>
+    <string name="ignore_ad_events">Ignorar eventos de anúncio</string>
+    <string name="ignore_ad_events_summary">Ignora os intervalos comerciais que a Twitch sinaliza durante uma transmissão.</string>
+    <string name="block_analytics">Bloquear analytics</string>
+    <string name="disable_update_prompts">Desativar avisos de atualização</string>
+    <string name="startup_tab">Aba inicial</string>
+    <string name="startup_tab_summary">Para Seguindo, Ao vivo ou Clipes, escolha Início aqui e ajuste Configurações › Preferências › Página inicial padrão na Twitch.</string>
+    <string name="startup_tab_home">Início</string>
+    <string name="startup_tab_browse">Procurar</string>
+    <string name="startup_tab_profile">Perfil</string>
+    <string name="debug_mode">Modo de depuração</string>
+    <string name="section_ads">Anúncios</string>
+    <string name="section_privacy">Privacidade</string>
+    <string name="section_updates">Atualizações</string>
+    <string name="section_navigation">Navegação</string>
+    <string name="section_developer">Desenvolvedor</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reseam_you_tube_music">YouTube Music do Reseam</string>
+    <string name="reseam_you_tube_music_description">Usa o YouTube Music do Reseam, quando instalado, no Auto Play e nos serviços vinculados.</string>
+    <string name="reseam_you_tube_music_you_tube_music_package_name">Nome do pacote do YouTube Music</string>
+    <string name="reseam_you_tube_music_you_tube_music_package_name_description">O nome do pacote usado ao aplicar os patches no seu YouTube Music do Reseam.</string>
+</resources>

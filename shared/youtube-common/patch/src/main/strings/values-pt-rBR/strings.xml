@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_branding">Identidade visual personalizada</string>
+    <string name="custom_branding_description">Adiciona ícones e nomes de app para você escolher, incluindo os seus.</string>
+    <string name="custom_branding_custom_name">Nome de app personalizado</string>
+    <string name="custom_branding_custom_name_description">Adiciona este nome às opções de nome do app e o define como padrão.</string>
+    <string name="custom_branding_custom_icon">Ícone personalizado</string>
+    <string name="custom_branding_custom_icon_description">Uma pasta com as pastas de mipmap-mdpi a mipmap-xxxhdpi, cada uma com foreground.png e background.png. Adiciona o ícone às opções e o define como padrão.</string>
+</resources>

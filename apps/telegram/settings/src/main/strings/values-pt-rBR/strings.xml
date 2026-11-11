@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="recover_deleted_chats_chosen">Chats em que eu ativar</string>
+    <string name="recover_deleted_chats_all">Todos os chats, a menos que eu desative</string>
+    <string name="hide_sponsored_ads">Ocultar mensagens patrocinadas</string>
+    <string name="disable_auto_update">Desativar avisos de atualização</string>
+    <string name="unlock_premium">Desbloquear Premium</string>
+    <string name="unlock_premium_summary">Os recursos que o servidor verifica ainda exigem assinatura.</string>
+    <string name="hide_typing">Ocultar indicador de digitação</string>
+    <string name="boost_downloads">Downloads mais rápidos</string>
+    <string name="save_from_restricted">Salvar de chats restritos</string>
+    <string name="save_from_restricted_summary">Permite copiar, salvar e encaminhar em chats protegidos.</string>
+    <string name="remove_play_store_restrictions">Remover restrições da Play Store</string>
+    <string name="remove_play_store_restrictions_summary">Mostra os chats e as mídias que o Telegram oculta apenas na versão da Play Store.</string>
+    <string name="recover_deleted">Manter mensagens apagadas</string>
+    <string name="recover_deleted_summary">Mantém as mensagens que outras pessoas apagam e as marca com 🗑️.</string>
+    <string name="recover_deleted_chats">Ativado para</string>
+    <string name="recover_deleted_chats_summary">Ative ou desative para um chat no menu ⋮ do chat.</string>
+    <string name="allow_screenshots">Permitir capturas de tela de mídias secretas</string>
+    <string name="allow_screenshots_summary">Inclui gravações de tela de mídias de visualização única e autodestrutivas.</string>
+    <string name="section_ads">Anúncios</string>
+    <string name="section_updates">Atualizações</string>
+    <string name="section_downloads">Downloads</string>
+    <string name="section_premium">Premium</string>
+    <string name="section_privacy">Privacidade</string>
+    <string name="anti_delete_recovery_off">Parar de manter mensagens apagadas</string>
+    <string name="anti_delete_recovery_on">Manter mensagens apagadas</string>
+</resources>

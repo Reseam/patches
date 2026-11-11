@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_ads">Ocultar anúncios</string>
+    <string name="hide_ads_description">Oculta posts patrocinados.</string>
+    <string name="settings_entry">Entrada das configurações do Reseam</string>
+    <string name="settings_entry_description">Adiciona as Configurações do Reseam às configurações do Threads.</string>
+</resources>
