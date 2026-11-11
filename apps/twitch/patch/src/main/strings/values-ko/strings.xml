@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="block_embedded_ads">삽입 광고 차단</string>
+    <string name="block_embedded_ads_description">광고 없는 라이브 방송을 서드파티 프록시를 통해 불러옵니다. 프록시는 내 IP 주소와 시청하는 채널을 볼 수 있습니다.</string>
+    <string name="block_video_ads">동영상 광고 차단</string>
+    <string name="block_video_ads_description">Twitch가 직접 요청하는 동영상, 오디오, 디스플레이 광고를 차단합니다.</string>
+    <string name="ignore_ad_events">광고 이벤트 무시</string>
+    <string name="ignore_ad_events_description">방송 중 Twitch가 알리는 광고 시간과 광고 추적을 무시합니다.</string>
+    <string name="settings_entry">Reseam 설정 항목</string>
+    <string name="settings_entry_description">Twitch 설정의 계정 위에 Reseam 설정을 추가합니다.</string>
+    <string name="enable_debug_mode">디버그 모드 사용</string>
+    <string name="enable_debug_mode_description">디버그 메뉴, 동영상 디버그 패널 같은 Twitch 직원 도구를 표시합니다.</string>
+    <string name="fix_login_crash">로그인 비정상 종료 수정</string>
+    <string name="fix_login_crash_description">로그인 직후 Twitch가 비정상 종료되지 않게 합니다.</string>
+    <string name="startup_tab">시작 탭</string>
+    <string name="startup_tab_description">Twitch를 탐색 또는 프로필에서 열고, 기본 홈 페이지 설정을 잠금 해제합니다.</string>
+    <string name="block_analytics">분석 차단</string>
+    <string name="block_analytics_description">comScore, Nielsen, Sentry, Crashlytics, Sprig, Branch를 중지합니다.</string>
+    <string name="disable_update_prompts">업데이트 안내 사용 중지</string>
+    <string name="disable_update_prompts_description">업데이트 안내를 표시하지 않습니다.</string>
+</resources>

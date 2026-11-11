@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="custom_filter">맞춤 필터 사용</string>
+    <string name="custom_filter_strings">맞춤 필터</string>
+    <string name="custom_filter_strings_summary">한 줄에 하나씩 ^path#accessibility$buffer 형식의 표현식을 입력합니다.</string>
+    <string name="debug_logging">디버그 로깅</string>
+    <string name="debug_logging_summary">Reseam의 동작을 Android 로그에 기록합니다.</string>
+    <string name="sanitize_sharing_links">공유 링크 정리</string>
+    <string name="sanitize_sharing_links_summary">공유하는 링크에서 추적 정보를 제거합니다.</string>
+    <string name="force_original_audio">원래 오디오 강제</string>
+    <string name="force_original_audio_summary">더빙 트랙 대신 원래 오디오를 재생합니다.</string>
+    <string name="custom_branding_icon_custom">사용자 지정</string>
+    <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g>을(를) 다운로드에 저장했습니다</string>
+    <string name="experiment_flags_failed">실험 플래그를 저장할 수 없습니다</string>
+    <string name="segment_behaviors_skip">자동으로 건너뛰기</string>
+    <string name="segment_behaviors_skip_once">한 번 건너뛰기</string>
+    <string name="segment_behaviors_manual_skip">건너뛰기 버튼 표시</string>
+    <string name="segment_behaviors_seekbar_only">탐색 바에 표시</string>
+    <string name="segment_behaviors_ignore">무시</string>
+    <string name="sb_enabled">SponsorBlock</string>
+    <string name="sb_enabled_summary">SponsorBlock 커뮤니티가 표시한 구간을 건너뜁니다. 이 서비스는 내가 여는 동영상을 볼 수 있습니다.</string>
+    <string name="sb_sponsor">스폰서 구간</string>
+    <string name="sb_selfpromo">자기 홍보</string>
+    <string name="sb_interaction">상호작용 알림</string>
+    <string name="sb_poi_highlight">하이라이트</string>
+    <string name="sb_intro">인트로</string>
+    <string name="sb_outro">아웃트로</string>
+    <string name="sb_preview">미리보기</string>
+    <string name="sb_hook">후킹</string>
+    <string name="sb_filler">필러</string>
+    <string name="sb_music_offtopic">비음악 구간</string>
+    <string name="sb_toast_on_skip">건너뛴 후 메시지 표시</string>
+    <string name="sb_toast_on_connection_error">SponsorBlock 연결 오류 표시</string>
+    <string name="sb_track_skip_count">SponsorBlock 건너뛰기 기록</string>
+    <string name="sb_track_skip_count_summary">이 휴대전화에 통계를 보관하고 건너뛴 내용을 SponsorBlock에 보고합니다.</string>
+    <string name="sb_min_segment_duration">최소 구간 길이 (초)</string>
+    <string name="section_sponsorblock">SponsorBlock</string>
+    <string name="sponsorblock_category_sponsor">스폰서</string>
+    <string name="sponsorblock_category_selfpromo">자기 홍보</string>
+    <string name="sponsorblock_category_interaction">상호작용 알림</string>
+    <string name="sponsorblock_category_highlight">하이라이트</string>
+    <string name="sponsorblock_category_intro">인트로</string>
+    <string name="sponsorblock_category_outro">아웃트로</string>
+    <string name="sponsorblock_category_preview">미리보기</string>
+    <string name="sponsorblock_category_hook">후킹</string>
+    <string name="sponsorblock_category_filler">필러</string>
+    <string name="sponsorblock_category_music">비음악 구간</string>
+    <string name="sponsorblock_skipped"><xliff:g id="segment">%1$s</xliff:g> 건너뜀</string>
+    <string name="sponsorblock_load_failed">SponsorBlock 구간을 불러올 수 없습니다</string>
+</resources>

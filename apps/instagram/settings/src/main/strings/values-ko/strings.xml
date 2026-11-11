@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="hide_typing">입력 중 표시 숨기기</string>
+    <string name="hide_typing_summary">다른 사람이 내가 입력 중인 것을 볼 수 없습니다. Instagram이 계정을 정지할 수 있습니다.</string>
+    <string name="hide_dm_seen">DM 읽음 확인 숨기기</string>
+    <string name="hide_dm_seen_summary">보낸 사람이 내가 메시지를 읽은 것을 볼 수 없습니다. Instagram이 계정을 정지할 수 있습니다.</string>
+    <string name="hide_story_seen">스토리 조회 숨기기</string>
+    <string name="hide_story_seen_summary">스토리 조회자 목록에 내가 표시되지 않습니다. Instagram이 계정을 정지할 수 있습니다.</string>
+    <string name="hide_live_seen">라이브 조회 숨기기</string>
+    <string name="hide_live_seen_summary">라이브 방송 시청자로 내가 표시되지 않습니다. Instagram이 계정을 정지할 수 있습니다.</string>
+    <string name="hide_screenshot_notifications">스크린샷 알림 숨기기</string>
+    <string name="hide_screenshot_notifications_summary">스크린샷을 찍어도 다른 사람에게 알림이 가지 않습니다. Instagram이 계정을 정지할 수 있습니다.</string>
+    <string name="max_resolution">전체 해상도 사진</string>
+    <string name="original_quality">원본 사진 화질</string>
+    <string name="original_quality_summary">더 큰 화면을 보고해 사진을 업로드된 그대로 불러옵니다. Instagram이 계정을 정지할 수 있습니다.</string>
+    <string name="disable_video_autoplay">동영상 자동 재생 사용 중지</string>
+    <string name="disable_video_autoplay_summary">피드 동영상은 탭할 때만 재생됩니다.</string>
+    <string name="disable_reels_swiping">릴스 스와이프 사용 중지</string>
+    <string name="disable_reels_swiping_summary">연 릴스에 계속 머뭅니다.</string>
+    <string name="disable_auto_advance">스토리 자동 넘김 사용 중지</string>
+    <string name="disable_auto_advance_summary">끝난 스토리를 탭할 때까지 화면에 둡니다.</string>
+    <string name="hide_suggested_users">추천 스토리 숨기기</string>
+    <string name="hide_suggested_users_summary">스토리 트레이에서 팔로우하지 않는 스토리와 계정을 숨깁니다.</string>
+    <string name="hide_story_tray">스토리 트레이 숨기기</string>
+    <string name="hide_story_tray_summary">홈 상단의 스토리를 숨깁니다.</string>
+    <string name="ring_size">스토리 링 크기</string>
+    <string name="ring_size_summary">홈 상단 스토리 원의 크기입니다.</string>
+    <string name="ring_size_small">작게 (80%)</string>
+    <string name="ring_size_default">기본값</string>
+    <string name="ring_size_large">크게 (120%)</string>
+    <string name="ring_size_extra_large">아주 크게 (140%)</string>
+    <string name="hide_in_explore_search">탐색 검색의 Meta AI 숨기기</string>
+    <string name="hide_in_direct">DM의 Meta AI 숨기기</string>
+    <string name="hide_in_direct_summary">받은 메시지함, DM 검색, 채팅의 Meta AI를 숨깁니다.</string>
+    <string name="hide_in_posts">게시물의 Meta AI 숨기기</string>
+    <string name="hide_in_posts_summary">게시물 메뉴의 게시물 요약과 \'Meta AI에게 질문하기\'를 숨깁니다.</string>
+    <string name="open_externally">브라우저에서 링크 열기</string>
+    <string name="clean_share_links">공유 링크 정리</string>
+    <string name="clean_share_links_summary">공유 링크에서 나를 식별하는 부분을 제거합니다.</string>
+    <string name="allow_screenshots">스크린샷 허용</string>
+    <string name="allow_screenshots_summary">채팅, 한 번만 볼 수 있는 미디어, 사라지는 메시지 모드를 포함합니다.</string>
+    <string name="unlock_developer_options">개발자 메뉴 사용</string>
+    <string name="unlock_developer_options_summary">설정 맨 아래에 Instagram의 개발자 메뉴를 추가합니다.</string>
+    <string name="copy_comment">댓글 복사</string>
+    <string name="copy_comment_summary">댓글의 길게 누르기 메뉴에 \'복사\'를 추가합니다.</string>
+    <string name="comment_copied">댓글을 복사했습니다</string>
+    <string name="follows_you_indicator">나를 팔로우함 표시</string>
+    <string name="follows_you_indicator_summary">나를 팔로우하는 계정의 프로필에 \'나를 팔로우함\'을 표시합니다.</string>
+    <string name="hide_repost_buttons">리포스트 버튼 숨기기</string>
+    <string name="hide_engagement_counts">참여 수 숨기기</string>
+    <string name="hide_engagement_counts_summary">피드의 좋아요, 댓글, 공유, 리포스트 수를 숨깁니다.</string>
+    <string name="hide_home_tab">홈 탭 숨기기</string>
+    <string name="hide_home_tab_summary">Instagram이 다음 탭에서 열립니다.</string>
+    <string name="hide_reels_tab">릴스 탭 숨기기</string>
+    <string name="hide_create_tab">만들기 탭 숨기기</string>
+    <string name="hide_explore_grid">탐색 그리드 숨기기</string>
+    <string name="hide_explore_grid_summary">탐색 탭에 검색만 남깁니다.</string>
+    <string name="hide_instants">Instants 숨기기</string>
+    <string name="hide_instants_summary">받은 메시지함의 Instants 묶음을 숨깁니다.</string>
+    <string name="hide_threads_badge">Threads 배지 숨기기</string>
+    <string name="hide_ads">광고 숨기기</string>
+    <string name="following_only">팔로우만 보는 피드</string>
+    <string name="following_only_summary">내가 팔로우하는 계정의 게시물을 최신순으로 표시합니다.</string>
+    <string name="hide_suggested_accounts">추천 계정 숨기기</string>
+    <string name="hide_suggested_accounts_summary">추천 게시물은 그대로 남습니다. \'팔로우만 보는 피드\'가 숨깁니다.</string>
+    <string name="hide_threads_units">Threads 섹션 숨기기</string>
+    <string name="hide_threads_units_summary">홈에 빈 공간이 남을 수 있습니다.</string>
+    <string name="hide_shopping_units">쇼핑 섹션 숨기기</string>
+    <string name="hide_shopping_units_summary">홈에 빈 공간이 남을 수 있습니다.</string>
+    <string name="hide_suggested_reels">추천 릴스 숨기기</string>
+    <string name="folder">다운로드 폴더</string>
+    <string name="show_toast">다운로드 메시지 표시</string>
+    <string name="section_social">소셜</string>
+    <string name="section_comments">댓글</string>
+    <string name="section_appearance">디스플레이</string>
+    <string name="section_playback">재생</string>
+    <string name="section_media">미디어</string>
+    <string name="section_privacy">개인정보 보호</string>
+    <string name="section_ghost_mode">고스트 모드</string>
+    <string name="section_feed">피드</string>
+    <string name="section_stories">스토리</string>
+    <string name="section_meta_ai">Meta AI</string>
+    <string name="section_links">링크</string>
+    <string name="section_developer">개발자</string>
+    <string name="section_downloads">다운로드</string>
+    <string name="download_label">다운로드</string>
+    <string name="download_instant_description">Instant 다운로드</string>
+    <string name="download_carousel_current">현재 (<xliff:g id="slide">%1$d</xliff:g>/<xliff:g id="total">%2$d</xliff:g>)</string>
+    <plurals name="download_carousel_all">
+        <item quantity="other">전체 <xliff:g id="count">%1$d</xliff:g>개 항목</item>
+    </plurals>
+    <string name="download_cancel">취소</string>
+    <string name="download_started">다운로드 중</string>
+    <string name="download_media_url_missing">다운로드할 미디어를 찾을 수 없습니다</string>
+    <string name="download_failed">다운로드 실패</string>
+    <string name="download_slide_started">슬라이드 <xliff:g id="slide">%1$d</xliff:g> 다운로드 중</string>
+    <string name="download_slide_url_missing">슬라이드 <xliff:g id="slide">%1$d</xliff:g>을(를) 다운로드할 수 없습니다</string>
+    <string name="download_story_media_missing">다운로드할 스토리를 찾을 수 없습니다</string>
+    <plurals name="download_carousel_started">
+        <item quantity="other"><xliff:g id="count">%2$d</xliff:g>개 중 <xliff:g id="started">%1$d</xliff:g>번째 항목 다운로드 중</item>
+    </plurals>
+    <string name="download_carousel_urls_missing">캐러셀의 미디어를 찾을 수 없습니다</string>
+    <string name="download_notification_description">Instagram 미디어 다운로드 중</string>
+    <string name="follows_you_label">나를 팔로우함</string>
+    <string name="follows_you_suffix">\u0020· 나를 팔로우함</string>
+    <string name="follows_you_subtitle"><xliff:g id="subtitle">%1$s</xliff:g> · 나를 팔로우함</string>
+</resources>

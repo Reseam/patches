@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_comment_ads">댓글 광고 숨기기</string>
+    <string name="hide_comment_ads_description">게시물 아래와 댓글 사이의 광고를 숨깁니다.</string>
+    <string name="hide_feed_ads">피드 광고 숨기기</string>
+    <string name="hide_feed_ads_description">피드와 검색의 프로모션 게시물을 숨깁니다.</string>
+    <string name="color_thread_lines">스레드 선 색상</string>
+    <string name="color_thread_lines_description">답글 단계마다 다른 선 색상을 사용합니다.</string>
+    <string name="ignore_suggested_sort">항상 내 댓글 정렬 사용</string>
+    <string name="ignore_suggested_sort_description">게시물이나 커뮤니티가 제안하는 정렬을 무시합니다.</string>
+    <string name="settings_entry">Reseam 설정 항목</string>
+    <string name="settings_entry_description">계정 설정 아래에 Reseam 설정을 추가합니다.</string>
+    <string name="disable_features">Reddit 기능 사용 중지</string>
+    <string name="disable_features_description">Reddit Answers, 게임, 업그레이드 권유, 알림 등 여러 기능을 끕니다.</string>
+    <string name="default_feed_sort">기본 피드 정렬</string>
+    <string name="default_feed_sort_description">커뮤니티, 맞춤 피드, Popular, All을 선택한 방식으로 정렬합니다.</string>
+    <string name="hide_feed_units">피드 삽입 콘텐츠 숨기기</string>
+    <string name="hide_feed_units_description">피드의 인기, 캐러셀, 프로모션, 설문 등 삽입 콘텐츠를 숨깁니다.</string>
+    <string name="hide_recommended_communities">추천 커뮤니티 숨기기</string>
+    <string name="hide_recommended_communities_description">피드의 커뮤니티 추천을 숨깁니다.</string>
+    <string name="hide_recommended_posts">추천 게시물 숨기기</string>
+    <string name="hide_recommended_posts_description">홈에서 가입하지 않은 커뮤니티의 게시물을 숨깁니다.</string>
+    <string name="hide_drawer_items">커뮤니티 서랍 항목 숨기기</string>
+    <string name="hide_drawer_items_description">커뮤니티 서랍에서 선택한 행을 숨깁니다.</string>
+    <string name="hide_navigation_tabs">내비게이션 탭 숨기기</string>
+    <string name="hide_navigation_tabs_description">내비게이션 바에서 선택한 탭을 숨깁니다.</string>
+    <string name="fix_push_notifications">푸시 알림 수정</string>
+    <string name="fix_push_notifications_description">패치 후에도 푸시 알림이 오도록 합니다.</string>
+    <string name="skip_nsfw_warning">NSFW 커뮤니티 경고 건너뛰기</string>
+    <string name="skip_nsfw_warning_description">성인 커뮤니티를 묻지 않고 엽니다.</string>
+    <string name="block_analytics">분석 차단</string>
+    <string name="block_analytics_description">Reddit의 이벤트 기록과 AppsFlyer 추적을 중지합니다.</string>
+    <string name="disable_app_rate_prompt">평가 안내 숨기기</string>
+    <string name="disable_app_rate_prompt_description">Reddit이 평가를 요청하지 않게 합니다.</string>
+    <string name="disable_screenshot_banner">스크린샷 배너 숨기기</string>
+    <string name="disable_screenshot_banner_description">Reddit이 스크린샷을 감지하지 못하게 합니다.</string>
+    <string name="hide_trending_searches">인기 검색어 숨기기</string>
+    <string name="hide_trending_searches_description">검색 화면의 인기 항목을 숨깁니다.</string>
+    <string name="hide_premium_settings">Premium 설정 숨기기</string>
+    <string name="hide_premium_settings_description">설정의 Premium 및 Reddit Pro 제안을 숨깁니다.</string>
+    <string name="vxreddit_links">vxreddit 링크 공유</string>
+    <string name="vxreddit_links_description">게시물을 vxreddit.com 링크로 공유해 Discord 등 다른 앱에서 미디어가 보이게 합니다.</string>
+    <string name="block_forced_update">강제 업데이트 차단</string>
+    <string name="block_forced_update_description">Reddit이 업데이트 화면으로 이 버전을 막지 못하게 합니다.</string>
+</resources>

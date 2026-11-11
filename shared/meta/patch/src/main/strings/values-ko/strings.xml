@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="signature_check">서명 검사 수정</string>
+    <string name="signature_check_description">다시 서명한 앱이 시작되게 합니다.</string>
+</resources>

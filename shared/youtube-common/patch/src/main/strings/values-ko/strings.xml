@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_branding">맞춤 브랜딩</string>
+    <string name="custom_branding_description">내 것을 포함해 선택할 수 있는 런처 아이콘과 앱 이름을 추가합니다.</string>
+    <string name="custom_branding_custom_name">맞춤 앱 이름</string>
+    <string name="custom_branding_custom_name_description">이 이름을 앱 이름 선택지에 추가하고 기본값으로 지정합니다.</string>
+    <string name="custom_branding_custom_icon">맞춤 아이콘</string>
+    <string name="custom_branding_custom_icon_description">mipmap-mdpi부터 mipmap-xxxhdpi까지의 폴더가 있고 각 폴더에 foreground.png와 background.png가 있는 폴더입니다. 아이콘을 선택지에 추가하고 기본값으로 지정합니다.</string>
+</resources>

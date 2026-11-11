@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_ads">광고 숨기기</string>
+    <string name="hide_ads_description">스폰서 게시물을 숨깁니다.</string>
+    <string name="settings_entry">Reseam 설정 항목</string>
+    <string name="settings_entry_description">Threads 설정에 Reseam 설정을 추가합니다.</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_sponsored_ads">스폰서 메시지 숨기기</string>
+    <string name="hide_sponsored_ads_description">채널의 스폰서 메시지를 숨깁니다.</string>
+    <string name="download_boost">더 빠른 다운로드</string>
+    <string name="download_boost_description">더 큰 조각으로, 더 많이 동시에 다운로드합니다.</string>
+    <string name="bypass_integrity">무결성 검사 우회</string>
+    <string name="bypass_integrity_description">루팅된 휴대전화와 Google 서비스가 없는 휴대전화에서 로그인할 수 있게 합니다.</string>
+    <string name="fix_push_notifications">푸시 알림 수정</string>
+    <string name="fix_push_notifications_description">패치 후에도 푸시 알림이 오도록 합니다.</string>
+    <string name="allow_screenshots">비밀 미디어 스크린샷 허용</string>
+    <string name="allow_screenshots_description">한 번만 볼 수 있는 미디어와 자동 삭제 미디어의 스크린샷과 화면 녹화를 허용합니다.</string>
+    <string name="anti_delete">삭제된 메시지 보관</string>
+    <string name="anti_delete_description">다른 사람이 삭제한 메시지를 보관하고 채팅에 표시합니다.</string>
+    <string name="bypass_restrictions">제한된 채팅에서 저장</string>
+    <string name="bypass_restrictions_description">보호된 채팅에서 복사, 저장, 전달을 허용합니다.</string>
+    <string name="forward_from_restricted">제한된 채팅에서 전달</string>
+    <string name="forward_from_restricted_description">전달이 차단된 채팅의 메시지를 새 메시지로 보냅니다.</string>
+    <string name="hide_typing_indicator">입력 중 표시 숨기기</string>
+    <string name="hide_typing_indicator_description">내가 입력하거나 녹음 중인 것을 다른 사람이 보지 못하게 합니다.</string>
+    <string name="play_store_restrictions">Play 스토어 제한 해제</string>
+    <string name="play_store_restrictions_description">Telegram이 Play 스토어 버전에서만 숨기는 채팅과 미디어를 표시합니다.</string>
+    <string name="unlock_premium">Premium 잠금 해제</string>
+    <string name="unlock_premium_description">이 휴대전화에서 작동하는 Premium 기능을 잠금 해제합니다.</string>
+    <string name="disable_auto_update">업데이트 안내 사용 중지</string>
+    <string name="disable_auto_update_description">업데이트 확인과 안내를 중지합니다.</string>
+</resources>

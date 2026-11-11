@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_save_to_device">기기에 저장</string>
+    <string name="save_folder">저장 폴더</string>
+    <string name="save_folder_summary">저장한 파일이 저장되는 위치입니다. 처음 저장할 때 선택합니다.</string>
+    <string name="save_new_downloads">새 다운로드를 기기에 저장</string>
+    <string name="save_new_downloads_summary">다운로드가 끝날 때마다 함께 저장합니다.</string>
+    <string name="save_to_device">기기에 저장</string>
+    <string name="notification_channel">저장한 다운로드</string>
+    <string name="saving"><xliff:g id="title">%1$s</xliff:g> 저장 중</string>
+    <string name="saving_progress"><xliff:g id="total">%2$d</xliff:g>개 중 <xliff:g id="done">%1$d</xliff:g>번째 저장 중</string>
+    <string name="saved"><xliff:g id="title">%1$s</xliff:g> 저장됨</string>
+    <plurals name="saved_count">
+        <item quantity="other">다운로드 <xliff:g id="count">%1$d</xliff:g>개를 저장함</item>
+    </plurals>
+    <string name="save_failed"><xliff:g id="title">%1$s</xliff:g>을(를) 저장할 수 없습니다</string>
+    <string name="save_failed_unsupported">이 다운로드의 형식은 파일로 저장할 수 없습니다.</string>
+    <string name="save_failed_incomplete">다운로드가 완료되지 않았습니다.</string>
+    <string name="save_failed_folder">저장 폴더를 더 이상 사용할 수 없습니다. Reseam 설정에서 다시 선택하세요.</string>
+    <string name="save_failed_space">저장 폴더에 공간이 부족합니다.</string>
+    <string name="open">열기</string>
+</resources>

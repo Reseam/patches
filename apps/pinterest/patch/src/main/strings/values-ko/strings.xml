@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="show_posted_date">게시 날짜 표시</string>
+    <string name="show_posted_date_description">핀이 게시된 시간을 표시합니다.</string>
+    <string name="settings_entry">Reseam 설정 항목</string>
+    <string name="settings_entry_description">Pinterest 설정에 Reseam 설정을 추가합니다.</string>
+    <string name="download_board">보드 다운로드</string>
+    <string name="download_board_description">보드에 로드된 핀을 다운로드합니다.</string>
+    <string name="download_pins">핀 다운로드</string>
+    <string name="download_pins_description">핀을 원본 이미지와 동영상으로 다운로드합니다.</string>
+    <string name="hide_ads">광고 숨기기</string>
+    <string name="hide_ads_description">프로모션 핀을 숨깁니다.</string>
+    <string name="hide_shopping">쇼핑 핀 숨기기</string>
+    <string name="hide_shopping_description">구매 가능한 핀을 숨깁니다.</string>
+    <string name="original_quality">원본 화질 이미지</string>
+    <string name="original_quality_description">이미지를 원본 화질로 불러옵니다.</string>
+    <string name="fix_push_notifications">푸시 알림 수정</string>
+    <string name="fix_push_notifications_description">패치 후에도 푸시 알림이 오도록 합니다.</string>
+    <string name="hide_surveys">설문 안내 숨기기</string>
+    <string name="hide_surveys_description">설문 안내를 숨깁니다.</string>
+    <string name="hide_screenshot_share">스크린샷 공유 메뉴 숨기기</string>
+    <string name="hide_screenshot_share_description">스크린샷 후 열리는 공유 메뉴를 숨깁니다.</string>
+    <string name="disable_update_prompts">업데이트 안내 사용 중지</string>
+    <string name="disable_update_prompts_description">업데이트 안내를 표시하지 않습니다.</string>
+</resources>

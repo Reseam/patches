@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="gmscore_missing_title">GmsCore가 설치되지 않음</string>
+    <string name="gmscore_missing_message">이 앱은 GmsCore(<xliff:g id="packageName">%1$s</xliff:g>)로 로그인하도록 패치되었지만 GmsCore가 설치되어 있지 않습니다. 설치한 후 한 번 열어 요청하는 권한을 허용하고, 이 앱을 다시 여세요.</string>
+    <string name="gmscore_get">GmsCore 받기</string>
+    <string name="gmscore_close">닫기</string>
+    <string name="gmscore_mount_unsupported">GmsCore 지원 패치는 마운트 설치를 깨뜨립니다</string>
+    <string name="gmscore_battery_optimized_title">GmsCore에 배터리 최적화가 적용됨</string>
+    <string name="gmscore_battery_optimized_message">Android가 백그라운드에서 GmsCore를 중지해 로그아웃되고 알림이 작동하지 않습니다. GmsCore의 배터리 최적화를 끄세요.</string>
+    <string name="gmscore_open_settings">설정 열기</string>
+    <string name="gmscore_unavailable_title">GmsCore를 사용할 수 없음</string>
+    <string name="gmscore_unavailable_message">앱이 GmsCore에 접근할 수 없습니다. GmsCore를 열어 권한과 백그라운드 활동 설정을 확인하세요.</string>
+    <string name="gmscore_open_website">웹사이트 열기</string>
+    <string name="gmscore_ignore">무시</string>
+    <string name="gmscore_no_screen_handler">이 화면을 열 수 있는 앱이 없습니다</string>
+</resources>

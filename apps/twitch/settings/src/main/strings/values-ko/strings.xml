@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="block_video_ads">동영상 광고 차단</string>
+    <string name="block_video_ads_summary">Twitch가 직접 요청하는 광고를 차단합니다. 방송에 포함된 광고는 \'삽입 광고 차단\'이 필요합니다.</string>
+    <string name="block_embedded_ads">삽입 광고 차단</string>
+    <string name="block_embedded_ads_summary">라이브 방송을 서드파티 프록시를 통해 불러옵니다. 프록시는 내 IP 주소와 시청하는 채널을 볼 수 있습니다.</string>
+    <string name="embedded_ads_proxy">광고 없는 프록시</string>
+    <string name="embedded_ads_proxy_custom">사용자 지정</string>
+    <string name="custom_embedded_ads_proxy">사용자 지정 프록시</string>
+    <string name="custom_embedded_ads_proxy_summary">Luminous 또는 TTV LOL 호환 프록시 주소로, \'광고 없는 프록시\'가 \'사용자 지정\'일 때 사용합니다.</string>
+    <string name="ignore_ad_events">광고 이벤트 무시</string>
+    <string name="ignore_ad_events_summary">방송 중 Twitch가 알리는 광고 시간을 무시합니다.</string>
+    <string name="block_analytics">분석 차단</string>
+    <string name="disable_update_prompts">업데이트 안내 사용 중지</string>
+    <string name="startup_tab">시작 탭</string>
+    <string name="startup_tab_summary">팔로잉, 라이브, 클립으로 열려면 여기서 \'홈\'을 선택하고 Twitch의 설정 › 환경설정 › 기본 홈 페이지를 설정하세요.</string>
+    <string name="startup_tab_home">홈</string>
+    <string name="startup_tab_browse">탐색</string>
+    <string name="startup_tab_profile">프로필</string>
+    <string name="debug_mode">디버그 모드</string>
+    <string name="section_ads">광고</string>
+    <string name="section_privacy">개인정보 보호</string>
+    <string name="section_updates">업데이트</string>
+    <string name="section_navigation">탐색</string>
+    <string name="section_developer">개발자</string>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="recover_deleted_chats_chosen">내가 켠 채팅</string>
+    <string name="recover_deleted_chats_all">내가 끄지 않은 모든 채팅</string>
+    <string name="hide_sponsored_ads">스폰서 메시지 숨기기</string>
+    <string name="disable_auto_update">업데이트 안내 사용 중지</string>
+    <string name="unlock_premium">Premium 잠금 해제</string>
+    <string name="unlock_premium_summary">서버가 확인하는 기능은 여전히 구독이 필요합니다.</string>
+    <string name="hide_typing">입력 중 표시 숨기기</string>
+    <string name="boost_downloads">더 빠른 다운로드</string>
+    <string name="save_from_restricted">제한된 채팅에서 저장</string>
+    <string name="save_from_restricted_summary">보호된 채팅에서 복사, 저장, 전달을 허용합니다.</string>
+    <string name="remove_play_store_restrictions">Play 스토어 제한 해제</string>
+    <string name="remove_play_store_restrictions_summary">Telegram이 Play 스토어 버전에서만 숨기는 채팅과 미디어를 표시합니다.</string>
+    <string name="recover_deleted">삭제된 메시지 보관</string>
+    <string name="recover_deleted_summary">다른 사람이 삭제한 메시지를 보관하고 🗑️로 표시합니다.</string>
+    <string name="recover_deleted_chats">적용 대상</string>
+    <string name="recover_deleted_chats_summary">채팅의 ⋮ 메뉴에서 해당 채팅에 대해 켜거나 끕니다.</string>
+    <string name="allow_screenshots">비밀 미디어 스크린샷 허용</string>
+    <string name="allow_screenshots_summary">한 번만 볼 수 있는 미디어와 자동 삭제 미디어의 화면 녹화를 포함합니다.</string>
+    <string name="section_ads">광고</string>
+    <string name="section_updates">업데이트</string>
+    <string name="section_downloads">다운로드</string>
+    <string name="section_premium">Premium</string>
+    <string name="section_privacy">개인정보 보호</string>
+    <string name="anti_delete_recovery_off">삭제된 메시지 보관 중지</string>
+    <string name="anti_delete_recovery_on">삭제된 메시지 보관</string>
+</resources>

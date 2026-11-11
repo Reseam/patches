@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="allow_screenshots">스크린샷 허용</string>
+    <string name="allow_screenshots_description">보호된 화면의 스크린샷과 화면 녹화를 허용합니다.</string>
+    <string name="allow_split_screen">화면 분할 허용</string>
+    <string name="allow_split_screen_description">앱을 화면 분할과 대화창 모드로 열 수 있게 합니다.</string>
+    <string name="change_package_name">패키지 이름 변경</string>
+    <string name="change_package_name_description">다른 패키지 이름으로 앱을 설치해 원본과 함께 실행합니다. 일부 앱은 이 방식으로 작동하지 않습니다.</string>
+    <string name="change_package_name_package_name">패키지 이름</string>
+    <string name="change_package_name_package_name_description">새 패키지 이름입니다. 비워 두면 원래 이름에 .reseam을 붙입니다.</string>
+    <string name="disable_play_store_updates">Play 스토어 업데이트 사용 중지</string>
+    <string name="disable_play_store_updates_description">Google Play 업데이트에서 앱을 숨깁니다.</string>
+    <string name="enable_debugging">디버깅 사용</string>
+    <string name="enable_debugging_description">앱을 디버그 가능으로 표시해 루트 없이도 adb로 검사할 수 있게 합니다.</string>
+    <string name="hide_mock_location">모의 위치 숨기기</string>
+    <string name="hide_mock_location_description">위치가 모의 위치 앱에서 온다는 사실을 숨깁니다.</string>
+    <string name="override_certificate_pinning">인증서 고정 재정의</string>
+    <string name="override_certificate_pinning_description">내 인증서를 신뢰해 프록시가 앱의 트래픽을 검사할 수 있게 합니다.</string>
+    <string name="remove_ads">광고 차단</string>
+    <string name="remove_ads_description">앱이 일반적인 광고 네트워크에서 광고를 불러오지 못하게 합니다.</string>
+    <string name="remove_pairip">Pairip 제거</string>
+    <string name="remove_pairip_description">Google Play의 자동 무결성 보호를 제거합니다. 서버 측 검사는 여전히 적용됩니다.</string>
+    <string name="remove_pairip_kill_vm">Pairip VM 중지</string>
+    <string name="remove_pairip_kill_vm_description">Pairip VM이 라이선스 확인만 하는 앱에만 사용하세요. VM 안에서 자체 코드를 실행하는 앱은 작동하지 않게 됩니다.</string>
+    <string name="remove_pairip_spoof_installer">설치 프로그램 검사 위장</string>
+    <string name="remove_pairip_spoof_installer_description">남은 설치 프로그램 검사가 Google Play를 보고하게 합니다.</string>
+    <string name="report_play_store_installer">Play 스토어를 설치 프로그램으로 보고</string>
+    <string name="report_play_store_installer_description">앱이 Google Play에서 설치되었다고 인식하게 합니다.</string>
+    <string name="spoof_signature">서명 위장</string>
+    <string name="spoof_signature_description">앱에 원래 서명을 보여 줘 수정된 앱 검사를 통과하게 합니다.</string>
+</resources>

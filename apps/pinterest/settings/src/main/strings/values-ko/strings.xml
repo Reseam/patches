@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="hide_ads">광고 숨기기</string>
+    <string name="hide_shopping">쇼핑 핀 숨기기</string>
+    <string name="disable_update_prompts">업데이트 안내 사용 중지</string>
+    <string name="hide_screenshot_share">스크린샷 공유 메뉴 숨기기</string>
+    <string name="original_quality">원본 화질 이미지</string>
+    <string name="original_quality_summary">데이터를 더 많이 사용합니다.</string>
+    <string name="show_posted_date">게시 날짜 표시</string>
+    <string name="posted_on"><xliff:g id="date">%1$s</xliff:g> 게시</string>
+    <string name="hide_surveys">설문 안내 숨기기</string>
+    <string name="download_started">다운로드 중</string>
+    <string name="download_unavailable">다운로드할 항목이 없습니다</string>
+    <plurals name="download_board_started">
+        <item quantity="other">핀 <xliff:g id="count">%1$d</xliff:g>개 다운로드 중</item>
+    </plurals>
+    <string name="download_board_empty">먼저 보드를 스크롤해 핀을 불러오세요</string>
+    <string name="ask_which_media">저장할 미디어 묻기</string>
+    <string name="ask_which_media_summary">핀에 이미지나 동영상이 여러 개 있으면 어떤 것을 저장할지 묻습니다.</string>
+    <string name="save_media_choose">저장할 항목 선택</string>
+    <string name="save_media_image">이미지 <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_video">동영상 <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_all">모두 저장</string>
+    <string name="download_folder">다운로드 폴더</string>
+    <string name="download_folder_summary">저장한 핀이 저장되는 위치입니다. 기본 갤러리를 유지하거나 폴더를 선택하세요.</string>
+    <string name="section_downloads">다운로드</string>
+    <string name="section_feed">피드</string>
+    <string name="section_closeup">확대 보기</string>
+    <string name="section_images">이미지</string>
+    <string name="section_sharing">공유</string>
+    <string name="section_prompts">안내</string>
+    <string name="section_updates">업데이트</string>
+</resources>

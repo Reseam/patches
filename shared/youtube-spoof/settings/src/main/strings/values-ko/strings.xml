@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="spoof_video_streams_client_tv">TV (SABR)</string>
+    <string name="spoof_video_streams_client_web">Web (SABR)</string>
+    <string name="spoof_video_streams_client_tv_simply">TV Simply</string>
+    <string name="spoof_video_streams_stats_for_nerds">통계에 위장한 클라이언트 표시</string>
+    <string name="spoof_video_streams_stats_for_nerds_summary">전문가용 통계에 스트림 클라이언트를 표시합니다.</string>
+    <string name="token_server_credential">토큰 서버 자격 증명</string>
+    <string name="spoof_video_streams">재생 수정</string>
+    <string name="spoof_video_streams_summary">YouTube가 앱을 차단해도 동영상이 재생되게 합니다.</string>
+    <string name="spoof_video_streams_client">선호 클라이언트</string>
+    <string name="spoof_video_streams_client_summary">가장 먼저 시도하는 클라이언트입니다. Android와 Web은 https://mint.reseam.app의 약관에 따라 Reseam 토큰 서버를 사용할 수 있습니다.</string>
+    <string name="user_agent_client_spoof">사용자 에이전트 위장</string>
+    <string name="user_agent_client_spoof_summary">요청에서 원래 앱으로 보고해 YouTube가 받아들이게 합니다.</string>
+    <string name="spoof_client_tv">TV (SABR)</string>
+    <string name="spoof_client_web">Web (SABR)</string>
+    <string name="spoof_client_tv_simply">TV Simply</string>
+    <string name="spoof_client_native">네이티브</string>
+</resources>
