@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_comment_ads">Nascondi gli annunci nei commenti</string>
+    <string name="hide_comment_ads_description">Nasconde gli annunci sotto i post e tra i commenti.</string>
+    <string name="hide_feed_ads">Nascondi gli annunci nel feed</string>
+    <string name="hide_feed_ads_description">Nasconde i post sponsorizzati nei feed e nella ricerca.</string>
+    <string name="color_thread_lines">Colora le linee dei thread</string>
+    <string name="color_thread_lines_description">Dà a ogni livello di risposta un colore di linea diverso.</string>
+    <string name="ignore_suggested_sort">Usa sempre il mio ordinamento dei commenti</string>
+    <string name="ignore_suggested_sort_description">Ignora l’ordinamento suggerito da un post o da una community.</string>
+    <string name="settings_entry">Voce Impostazioni di Reseam</string>
+    <string name="settings_entry_description">Aggiunge Impostazioni di Reseam nelle impostazioni dell’account.</string>
+    <string name="disable_features">Disattiva le funzioni di Reddit</string>
+    <string name="disable_features_description">Disattiva Reddit Answers, i giochi, le offerte, i solleciti e altre funzioni.</string>
+    <string name="default_feed_sort">Ordinamento predefinito dei feed</string>
+    <string name="default_feed_sort_description">Ordina community, feed personalizzati, Popular e All come scegli tu.</string>
+    <string name="hide_feed_units">Nascondi i blocchi del feed</string>
+    <string name="hide_feed_units_description">Nasconde tendenze, caroselli, promozioni, sondaggi e altri inserti nei feed.</string>
+    <string name="hide_recommended_communities">Nascondi le community consigliate</string>
+    <string name="hide_recommended_communities_description">Nasconde i suggerimenti di community nei feed.</string>
+    <string name="hide_recommended_posts">Nascondi i post consigliati</string>
+    <string name="hide_recommended_posts_description">Nasconde nella Home i post delle community che non segui.</string>
+    <string name="hide_drawer_items">Nascondi le voci del pannello delle community</string>
+    <string name="hide_drawer_items_description">Nasconde le righe che scegli nel pannello delle community.</string>
+    <string name="hide_navigation_tabs">Nascondi le schede di navigazione</string>
+    <string name="hide_navigation_tabs_description">Nasconde le schede che scegli nella barra di navigazione.</string>
+    <string name="fix_push_notifications">Ripara le notifiche push</string>
+    <string name="fix_push_notifications_description">Fa arrivare le notifiche push dopo l’applicazione delle patch.</string>
+    <string name="skip_nsfw_warning">Salta l’avviso sulle community NSFW</string>
+    <string name="skip_nsfw_warning_description">Apre le community per adulti senza chiedere.</string>
+    <string name="block_analytics">Blocca le statistiche d’uso</string>
+    <string name="block_analytics_description">Ferma la registrazione degli eventi di Reddit e il tracciamento di AppsFlyer.</string>
+    <string name="disable_app_rate_prompt">Nascondi la richiesta di valutazione</string>
+    <string name="disable_app_rate_prompt_description">Impedisce a Reddit di chiederti una valutazione.</string>
+    <string name="disable_screenshot_banner">Nascondi il banner degli screenshot</string>
+    <string name="disable_screenshot_banner_description">Impedisce a Reddit di accorgersi degli screenshot.</string>
+    <string name="hide_trending_searches">Nascondi le ricerche di tendenza</string>
+    <string name="hide_trending_searches_description">Nasconde le tendenze nella schermata di ricerca.</string>
+    <string name="hide_premium_settings">Nascondi le impostazioni di Premium</string>
+    <string name="hide_premium_settings_description">Nasconde le offerte di Premium e Reddit Pro nelle impostazioni.</string>
+    <string name="vxreddit_links">Condividi link vxreddit</string>
+    <string name="vxreddit_links_description">Condivide i post come link vxreddit.com, che mostrano i contenuti in Discord e in altre app.</string>
+    <string name="block_forced_update">Blocca gli aggiornamenti forzati</string>
+    <string name="block_forced_update_description">Impedisce a Reddit di bloccare questa versione con una schermata di aggiornamento.</string>
+</resources>

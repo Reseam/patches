@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="block_video_ads">Blocca gli annunci video</string>
+    <string name="block_video_ads_summary">Blocca gli annunci che Twitch richiede da sé. Per gli annunci dentro la diretta serve «Blocca gli annunci incorporati».</string>
+    <string name="block_embedded_ads">Blocca gli annunci incorporati</string>
+    <string name="block_embedded_ads_summary">Carica le dirette tramite un proxy di terze parti, che vede il tuo indirizzo IP e i canali che guardi.</string>
+    <string name="embedded_ads_proxy">Proxy senza annunci</string>
+    <string name="embedded_ads_proxy_custom">Personalizzato</string>
+    <string name="custom_embedded_ads_proxy">Proxy personalizzato</string>
+    <string name="custom_embedded_ads_proxy_summary">L’indirizzo di un proxy compatibile con Luminous o TTV LOL, usato quando «Proxy senza annunci» è su Personalizzato.</string>
+    <string name="ignore_ad_events">Ignora gli eventi pubblicitari</string>
+    <string name="ignore_ad_events_summary">Ignora le interruzioni pubblicitarie che Twitch segnala durante una diretta.</string>
+    <string name="block_analytics">Blocca le statistiche d’uso</string>
+    <string name="disable_update_prompts">Disattiva le richieste di aggiornamento</string>
+    <string name="startup_tab">Scheda iniziale</string>
+    <string name="startup_tab_summary">Per Following, Live o Clips scegli Home qui e imposta Settings › Preferences › Default Home Page in Twitch.</string>
+    <string name="startup_tab_home">Home</string>
+    <string name="startup_tab_browse">Sfoglia</string>
+    <string name="startup_tab_profile">Profilo</string>
+    <string name="debug_mode">Modalità debug</string>
+    <string name="section_ads">Annunci</string>
+    <string name="section_privacy">Privacy</string>
+    <string name="section_updates">Aggiornamenti</string>
+    <string name="section_navigation">Navigazione</string>
+    <string name="section_developer">Sviluppatore</string>
+</resources>

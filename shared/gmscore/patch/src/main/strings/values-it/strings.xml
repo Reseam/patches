@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gms_core_support">Supporto di GmsCore</string>
+    <string name="gms_core_support_description">Accede tramite GmsCore invece di Google Play Services. GmsCore si installa a parte.</string>
+    <string name="gms_core_support_gms_core_vendor_group_id">Fornitore di GmsCore</string>
+    <string name="gms_core_support_gms_core_vendor_group_id_description">L’ID di gruppo con cui è stato pubblicato il tuo GmsCore.</string>
+    <string name="gms_core_support_package_name">Nome del pacchetto</string>
+    <string name="gms_core_support_package_name_description">Il nome del pacchetto dell’app con patch.</string>
+</resources>

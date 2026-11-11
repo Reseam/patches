@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="signature_check">Ripara il controllo della firma</string>
+    <string name="signature_check_description">Permette all’app firmata di nuovo di avviarsi.</string>
+</resources>

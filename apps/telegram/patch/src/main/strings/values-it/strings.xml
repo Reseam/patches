@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_sponsored_ads">Nascondi i messaggi sponsorizzati</string>
+    <string name="hide_sponsored_ads_description">Nasconde i messaggi sponsorizzati nei canali.</string>
+    <string name="download_boost">Download più veloci</string>
+    <string name="download_boost_description">Scarica in parti più grandi e più parti alla volta.</string>
+    <string name="bypass_integrity">Aggira il controllo di integrità</string>
+    <string name="bypass_integrity_description">Consente l’accesso sui telefoni con root e su quelli senza servizi Google.</string>
+    <string name="fix_push_notifications">Ripara le notifiche push</string>
+    <string name="fix_push_notifications_description">Fa arrivare le notifiche push dopo l’applicazione delle patch.</string>
+    <string name="allow_screenshots">Consenti gli screenshot dei contenuti segreti</string>
+    <string name="allow_screenshots_description">Consente screenshot e registrazioni dello schermo dei contenuti visualizzabili una sola volta e che si autodistruggono.</string>
+    <string name="anti_delete">Conserva i messaggi eliminati</string>
+    <string name="anti_delete_description">Conserva i messaggi che gli altri eliminano e li mostra nella chat.</string>
+    <string name="bypass_restrictions">Salva dalle chat con restrizioni</string>
+    <string name="bypass_restrictions_description">Consente di copiare, salvare e inoltrare nelle chat protette.</string>
+    <string name="forward_from_restricted">Inoltra dalle chat con restrizioni</string>
+    <string name="forward_from_restricted_description">Invia come nuovi messaggi i messaggi delle chat che bloccano l’inoltro.</string>
+    <string name="hide_typing_indicator">Nascondi l’indicatore di scrittura</string>
+    <string name="hide_typing_indicator_description">Impedisce agli altri di vedere che stai scrivendo o registrando.</string>
+    <string name="play_store_restrictions">Rimuovi le restrizioni del Play Store</string>
+    <string name="play_store_restrictions_description">Mostra le chat e i contenuti che Telegram nasconde solo nella versione del Play Store.</string>
+    <string name="unlock_premium">Sblocca Premium</string>
+    <string name="unlock_premium_description">Sblocca le funzioni Premium che funzionano su questo telefono.</string>
+    <string name="disable_auto_update">Disattiva le richieste di aggiornamento</string>
+    <string name="disable_auto_update_description">Ferma i controlli e le richieste di aggiornamento.</string>
+</resources>

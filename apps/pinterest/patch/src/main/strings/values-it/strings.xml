@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="show_posted_date">Mostra la data di pubblicazione</string>
+    <string name="show_posted_date_description">Mostra quando è stato pubblicato un Pin.</string>
+    <string name="settings_entry">Voce Impostazioni di Reseam</string>
+    <string name="settings_entry_description">Aggiunge Impostazioni di Reseam alle impostazioni di Pinterest.</string>
+    <string name="download_board">Scarica la bacheca</string>
+    <string name="download_board_description">Scarica i Pin che la bacheca ha già caricato.</string>
+    <string name="download_pins">Scarica i Pin</string>
+    <string name="download_pins_description">Scarica i Pin come immagini e video originali.</string>
+    <string name="hide_ads">Nascondi gli annunci</string>
+    <string name="hide_ads_description">Nasconde i Pin sponsorizzati.</string>
+    <string name="hide_shopping">Nascondi i Pin di shopping</string>
+    <string name="hide_shopping_description">Nasconde i Pin con prodotti acquistabili.</string>
+    <string name="original_quality">Immagini in qualità originale</string>
+    <string name="original_quality_description">Carica le immagini in qualità originale.</string>
+    <string name="fix_push_notifications">Ripara le notifiche push</string>
+    <string name="fix_push_notifications_description">Fa arrivare le notifiche push dopo l’applicazione delle patch.</string>
+    <string name="hide_surveys">Nascondi gli inviti ai sondaggi</string>
+    <string name="hide_surveys_description">Nasconde gli inviti ai sondaggi.</string>
+    <string name="hide_screenshot_share">Nascondi il menu di condivisione degli screenshot</string>
+    <string name="hide_screenshot_share_description">Nasconde il menu di condivisione che si apre dopo uno screenshot.</string>
+    <string name="disable_update_prompts">Disattiva le richieste di aggiornamento</string>
+    <string name="disable_update_prompts_description">Ferma le richieste di aggiornamento.</string>
+</resources>

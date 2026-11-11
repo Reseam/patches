@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="hide_ads">Nascondi gli annunci</string>
+    <string name="hide_shopping">Nascondi i Pin di shopping</string>
+    <string name="disable_update_prompts">Disattiva le richieste di aggiornamento</string>
+    <string name="hide_screenshot_share">Nascondi il menu di condivisione degli screenshot</string>
+    <string name="original_quality">Immagini in qualità originale</string>
+    <string name="original_quality_summary">Consuma più dati.</string>
+    <string name="show_posted_date">Mostra la data di pubblicazione</string>
+    <string name="posted_on">Pubblicato il <xliff:g id="date">%1$s</xliff:g></string>
+    <string name="hide_surveys">Nascondi gli inviti ai sondaggi</string>
+    <string name="download_started">Download in corso</string>
+    <string name="download_unavailable">Niente da scaricare</string>
+    <plurals name="download_board_started">
+        <item quantity="one">Download di <xliff:g id="count">%1$d</xliff:g> Pin</item>
+        <item quantity="other">Download di <xliff:g id="count">%1$d</xliff:g> Pin</item>
+    </plurals>
+    <string name="download_board_empty">Scorri prima la bacheca per caricare i suoi Pin</string>
+    <string name="ask_which_media">Chiedi quali contenuti salvare</string>
+    <string name="ask_which_media_summary">Quando un Pin ha più immagini o video, chiede quali salvare.</string>
+    <string name="save_media_choose">Scegli cosa salvare</string>
+    <string name="save_media_image">Immagine <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_video">Video <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_all">Salva tutto</string>
+    <string name="download_folder">Cartella dei download</string>
+    <string name="download_folder_summary">Dove finiscono i Pin salvati. Mantieni la galleria predefinita o scegli una cartella.</string>
+    <string name="section_downloads">Download</string>
+    <string name="section_feed">Feed</string>
+    <string name="section_closeup">Primo piano</string>
+    <string name="section_images">Immagini</string>
+    <string name="section_sharing">Condivisione</string>
+    <string name="section_prompts">Richieste</string>
+    <string name="section_updates">Aggiornamenti</string>
+</resources>

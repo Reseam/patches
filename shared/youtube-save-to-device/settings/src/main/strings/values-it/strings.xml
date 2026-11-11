@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_save_to_device">Salva sul dispositivo</string>
+    <string name="save_folder">Cartella di salvataggio</string>
+    <string name="save_folder_summary">Dove finiscono i file salvati. La scegli la prima volta che salvi.</string>
+    <string name="save_new_downloads">Salva i nuovi download sul dispositivo</string>
+    <string name="save_new_downloads_summary">Salva anche ogni download quando finisce.</string>
+    <string name="save_to_device">Salva sul dispositivo</string>
+    <string name="notification_channel">Download salvati</string>
+    <string name="saving">Salvataggio di <xliff:g id="title">%1$s</xliff:g></string>
+    <string name="saving_progress">Salvataggio di <xliff:g id="done">%1$d</xliff:g> su <xliff:g id="total">%2$d</xliff:g></string>
+    <string name="saved"><xliff:g id="title">%1$s</xliff:g> salvato</string>
+    <plurals name="saved_count">
+        <item quantity="one"><xliff:g id="count">%1$d</xliff:g> download salvato</item>
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> download salvati</item>
+    </plurals>
+    <string name="save_failed">Impossibile salvare <xliff:g id="title">%1$s</xliff:g></string>
+    <string name="save_failed_unsupported">Il formato di questo download non può essere salvato come file.</string>
+    <string name="save_failed_incomplete">Il download non è finito.</string>
+    <string name="save_failed_folder">La cartella di salvataggio non è più disponibile. Sceglila di nuovo in Impostazioni di Reseam.</string>
+    <string name="save_failed_space">Non c’è abbastanza spazio nella cartella di salvataggio.</string>
+    <string name="open">Apri</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_branding">Marchio personalizzato</string>
+    <string name="custom_branding_description">Aggiunge icone per il launcher e nomi dell’app tra cui scegliere, compresi i tuoi.</string>
+    <string name="custom_branding_custom_name">Nome dell’app personalizzato</string>
+    <string name="custom_branding_custom_name_description">Aggiunge questo nome alle scelte del nome dell’app e lo rende quello predefinito.</string>
+    <string name="custom_branding_custom_icon">Icona personalizzata</string>
+    <string name="custom_branding_custom_icon_description">Una cartella con le cartelle da mipmap-mdpi a mipmap-xxxhdpi, ognuna con foreground.png e background.png. Aggiunge l’icona alle scelte e la rende quella predefinita.</string>
+</resources>

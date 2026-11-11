@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_ads">Nascondi gli annunci</string>
+    <string name="hide_ads_description">Nasconde i post sponsorizzati.</string>
+    <string name="settings_entry">Voce Impostazioni di Reseam</string>
+    <string name="settings_entry_description">Aggiunge Impostazioni di Reseam alle impostazioni di Threads.</string>
+</resources>
