@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="show_posted_date">Tampilkan tanggal posting</string>
+    <string name="show_posted_date_description">Menampilkan kapan pin diposting.</string>
+    <string name="settings_entry">Entri setelan Reseam</string>
+    <string name="settings_entry_description">Menambahkan Setelan Reseam ke setelan Pinterest.</string>
+    <string name="download_board">Download papan</string>
+    <string name="download_board_description">Mendownload pin yang sudah dimuat di papan.</string>
+    <string name="download_pins">Download pin</string>
+    <string name="download_pins_description">Mendownload pin sebagai gambar dan video asli.</string>
+    <string name="hide_ads">Sembunyikan iklan</string>
+    <string name="hide_ads_description">Menyembunyikan pin yang dipromosikan.</string>
+    <string name="hide_shopping">Sembunyikan pin belanja</string>
+    <string name="hide_shopping_description">Menyembunyikan pin yang bisa dibeli.</string>
+    <string name="original_quality">Gambar kualitas asli</string>
+    <string name="original_quality_description">Memuat gambar dalam kualitas asli.</string>
+    <string name="fix_push_notifications">Perbaiki notifikasi push</string>
+    <string name="fix_push_notifications_description">Membuat notifikasi push tetap masuk setelah di-patch.</string>
+    <string name="hide_surveys">Sembunyikan ajakan survei</string>
+    <string name="hide_surveys_description">Menyembunyikan ajakan survei.</string>
+    <string name="hide_screenshot_share">Sembunyikan menu berbagi screenshot</string>
+    <string name="hide_screenshot_share_description">Menyembunyikan menu berbagi yang terbuka setelah screenshot.</string>
+    <string name="disable_update_prompts">Nonaktifkan ajakan update</string>
+    <string name="disable_update_prompts_description">Menghentikan ajakan update.</string>
+</resources>

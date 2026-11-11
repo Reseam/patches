@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="recover_deleted_chats_chosen">Chat yang saya aktifkan</string>
+    <string name="recover_deleted_chats_all">Semua chat, kecuali yang saya nonaktifkan</string>
+    <string name="hide_sponsored_ads">Sembunyikan pesan bersponsor</string>
+    <string name="disable_auto_update">Nonaktifkan ajakan update</string>
+    <string name="unlock_premium">Buka Premium</string>
+    <string name="unlock_premium_summary">Fitur yang diperiksa server tetap memerlukan langganan.</string>
+    <string name="hide_typing">Sembunyikan indikator mengetik</string>
+    <string name="boost_downloads">Download lebih cepat</string>
+    <string name="save_from_restricted">Simpan dari chat yang dibatasi</string>
+    <string name="save_from_restricted_summary">Mengizinkan menyalin, menyimpan, dan meneruskan di chat yang dilindungi.</string>
+    <string name="remove_play_store_restrictions">Hapus pembatasan Play Store</string>
+    <string name="remove_play_store_restrictions_summary">Menampilkan chat dan media yang disembunyikan Telegram hanya di versi Play Store.</string>
+    <string name="recover_deleted">Simpan pesan yang dihapus</string>
+    <string name="recover_deleted_summary">Menyimpan pesan yang dihapus orang lain dan menandainya dengan 🗑️.</string>
+    <string name="recover_deleted_chats">Aktif untuk</string>
+    <string name="recover_deleted_chats_summary">Aktifkan atau nonaktifkan untuk sebuah chat di menu ⋮ chat tersebut.</string>
+    <string name="allow_screenshots">Izinkan screenshot media rahasia</string>
+    <string name="allow_screenshots_summary">Termasuk rekaman layar media sekali lihat dan yang menghancurkan diri.</string>
+    <string name="section_ads">Iklan</string>
+    <string name="section_updates">Update</string>
+    <string name="section_downloads">Download</string>
+    <string name="section_premium">Premium</string>
+    <string name="section_privacy">Privasi</string>
+    <string name="anti_delete_recovery_off">Berhenti menyimpan pesan yang dihapus</string>
+    <string name="anti_delete_recovery_on">Simpan pesan yang dihapus</string>
+</resources>

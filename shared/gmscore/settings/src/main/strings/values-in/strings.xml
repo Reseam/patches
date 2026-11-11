@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="gmscore_missing_title">GmsCore tidak terpasang</string>
+    <string name="gmscore_missing_message">Aplikasi ini di-patch untuk login melalui GmsCore (<xliff:g id="packageName">%1$s</xliff:g>), yang belum terpasang. Pasang, buka sekali dan berikan izin yang dimintanya, lalu buka aplikasi ini lagi.</string>
+    <string name="gmscore_get">Dapatkan GmsCore</string>
+    <string name="gmscore_close">Tutup</string>
+    <string name="gmscore_mount_unsupported">Patch dukungan GmsCore merusak instalasi mount</string>
+    <string name="gmscore_battery_optimized_title">GmsCore dioptimalkan baterai</string>
+    <string name="gmscore_battery_optimized_message">Android akan menghentikan GmsCore di latar belakang, yang membuat Anda logout dan merusak notifikasi. Nonaktifkan pengoptimalan baterai untuk GmsCore.</string>
+    <string name="gmscore_open_settings">Buka setelan</string>
+    <string name="gmscore_unavailable_title">GmsCore tidak tersedia</string>
+    <string name="gmscore_unavailable_message">Aplikasi tidak dapat mengakses GmsCore. Buka GmsCore dan periksa izin serta setelan aktivitas latar belakangnya.</string>
+    <string name="gmscore_open_website">Buka situs</string>
+    <string name="gmscore_ignore">Abaikan</string>
+    <string name="gmscore_no_screen_handler">Tidak ada aplikasi untuk membuka layar ini</string>
+</resources>

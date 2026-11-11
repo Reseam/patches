@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gms_core_support">Dukungan GmsCore</string>
+    <string name="gms_core_support_description">Login melalui GmsCore, bukan layanan Google Play, yang Anda pasang terpisah.</string>
+    <string name="gms_core_support_gms_core_vendor_group_id">Vendor GmsCore</string>
+    <string name="gms_core_support_gms_core_vendor_group_id_description">ID grup tempat GmsCore Anda diterbitkan.</string>
+    <string name="gms_core_support_package_name">Nama paket</string>
+    <string name="gms_core_support_package_name_description">Nama paket aplikasi yang di-patch.</string>
+</resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_comment_ads">Sembunyikan iklan komentar</string>
+    <string name="hide_comment_ads_description">Menyembunyikan iklan di bawah postingan dan di antara komentar.</string>
+    <string name="hide_feed_ads">Sembunyikan iklan feed</string>
+    <string name="hide_feed_ads_description">Menyembunyikan postingan yang dipromosikan di feed dan pencarian.</string>
+    <string name="color_thread_lines">Warnai garis thread</string>
+    <string name="color_thread_lines_description">Memberi warna garis sendiri untuk setiap tingkat balasan.</string>
+    <string name="ignore_suggested_sort">Selalu gunakan urutan komentar saya</string>
+    <string name="ignore_suggested_sort_description">Mengabaikan urutan yang disarankan postingan atau komunitas.</string>
+    <string name="settings_entry">Entri setelan Reseam</string>
+    <string name="settings_entry_description">Menambahkan Setelan Reseam di bawah Setelan akun.</string>
+    <string name="disable_features">Nonaktifkan fitur Reddit</string>
+    <string name="disable_features_description">Menonaktifkan Reddit Answers, Game, penawaran upgrade, dorongan, dan fitur lainnya.</string>
+    <string name="default_feed_sort">Urutan feed default</string>
+    <string name="default_feed_sort_description">Mengurutkan komunitas, feed kustom, Popular, dan All sesuai pilihan Anda.</string>
+    <string name="hide_feed_units">Sembunyikan sisipan feed</string>
+    <string name="hide_feed_units_description">Menyembunyikan Trending, carousel, promo, survei, dan sisipan lainnya di feed.</string>
+    <string name="hide_recommended_communities">Sembunyikan komunitas yang direkomendasikan</string>
+    <string name="hide_recommended_communities_description">Menyembunyikan saran komunitas di feed.</string>
+    <string name="hide_recommended_posts">Sembunyikan postingan yang direkomendasikan</string>
+    <string name="hide_recommended_posts_description">Menyembunyikan postingan dari komunitas yang tidak Anda ikuti di Beranda.</string>
+    <string name="hide_drawer_items">Sembunyikan item laci komunitas</string>
+    <string name="hide_drawer_items_description">Menyembunyikan baris yang dipilih di laci komunitas.</string>
+    <string name="hide_navigation_tabs">Sembunyikan tab navigasi</string>
+    <string name="hide_navigation_tabs_description">Menyembunyikan tab yang dipilih di bilah navigasi.</string>
+    <string name="fix_push_notifications">Perbaiki notifikasi push</string>
+    <string name="fix_push_notifications_description">Membuat notifikasi push tetap masuk setelah di-patch.</string>
+    <string name="skip_nsfw_warning">Lewati peringatan komunitas NSFW</string>
+    <string name="skip_nsfw_warning_description">Membuka komunitas dewasa tanpa bertanya.</string>
+    <string name="block_analytics">Blokir analitik</string>
+    <string name="block_analytics_description">Menghentikan pencatatan peristiwa Reddit dan pelacakan AppsFlyer.</string>
+    <string name="disable_app_rate_prompt">Sembunyikan ajakan memberi rating</string>
+    <string name="disable_app_rate_prompt_description">Mencegah Reddit meminta Anda memberi rating.</string>
+    <string name="disable_screenshot_banner">Sembunyikan banner screenshot</string>
+    <string name="disable_screenshot_banner_description">Mencegah Reddit mendeteksi screenshot.</string>
+    <string name="hide_trending_searches">Sembunyikan pencarian trending</string>
+    <string name="hide_trending_searches_description">Menyembunyikan Trending di layar pencarian.</string>
+    <string name="hide_premium_settings">Sembunyikan setelan Premium</string>
+    <string name="hide_premium_settings_description">Menyembunyikan penawaran Premium dan Reddit Pro di setelan.</string>
+    <string name="vxreddit_links">Bagikan link vxreddit</string>
+    <string name="vxreddit_links_description">Membagikan postingan sebagai link vxreddit.com, yang menampilkan medianya di Discord dan aplikasi lain.</string>
+    <string name="block_forced_update">Blokir update paksa</string>
+    <string name="block_forced_update_description">Mencegah Reddit memblokir versi ini dengan layar update.</string>
+</resources>

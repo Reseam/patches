@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_ads">Sembunyikan iklan</string>
+    <string name="hide_ads_description">Menyembunyikan postingan bersponsor.</string>
+    <string name="settings_entry">Entri setelan Reseam</string>
+    <string name="settings_entry_description">Menambahkan Setelan Reseam ke setelan Threads.</string>
+</resources>

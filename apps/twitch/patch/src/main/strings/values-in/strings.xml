@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="block_embedded_ads">Blokir iklan tersemat</string>
+    <string name="block_embedded_ads_description">Memuat siaran live tanpa iklan melalui proxy pihak ketiga, yang dapat melihat alamat IP Anda dan channel yang Anda tonton.</string>
+    <string name="block_video_ads">Blokir iklan video</string>
+    <string name="block_video_ads_description">Memblokir iklan video, audio, dan display yang diminta Twitch sendiri.</string>
+    <string name="ignore_ad_events">Abaikan peristiwa iklan</string>
+    <string name="ignore_ad_events_description">Mengabaikan jeda iklan dan pelacakan iklan yang diumumkan Twitch selama siaran.</string>
+    <string name="settings_entry">Entri setelan Reseam</string>
+    <string name="settings_entry_description">Menambahkan Setelan Reseam di atas Akun di setelan Twitch.</string>
+    <string name="enable_debug_mode">Aktifkan mode debug</string>
+    <string name="enable_debug_mode_description">Menampilkan alat staf Twitch, seperti menu debug dan panel debug video.</string>
+    <string name="fix_login_crash">Perbaiki error saat login</string>
+    <string name="fix_login_crash_description">Mencegah Twitch error tepat setelah Anda login.</string>
+    <string name="startup_tab">Tab awal</string>
+    <string name="startup_tab_description">Membuka Twitch di Jelajahi atau Profil, dan membuka setelan Halaman Beranda Default.</string>
+    <string name="block_analytics">Blokir analitik</string>
+    <string name="block_analytics_description">Menghentikan comScore, Nielsen, Sentry, Crashlytics, Sprig, dan Branch.</string>
+    <string name="disable_update_prompts">Nonaktifkan ajakan update</string>
+    <string name="disable_update_prompts_description">Menghentikan ajakan update.</string>
+</resources>

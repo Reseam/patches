@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="custom_filter">Gunakan filter kustom</string>
+    <string name="custom_filter_strings">Filter kustom</string>
+    <string name="custom_filter_strings_summary">Satu ekspresi per baris, dalam format ^path#accessibility$buffer.</string>
+    <string name="debug_logging">Log debug</string>
+    <string name="debug_logging_summary">Menulis apa yang dilakukan Reseam ke log Android.</string>
+    <string name="sanitize_sharing_links">Bersihkan link berbagi</string>
+    <string name="sanitize_sharing_links_summary">Menghapus pelacakan dari link yang Anda bagikan.</string>
+    <string name="force_original_audio">Paksa audio asli</string>
+    <string name="force_original_audio_summary">Memutar audio asli, bukan trek sulih suara.</string>
+    <string name="custom_branding_icon_custom">Kustom</string>
+    <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g> disimpan ke Download</string>
+    <string name="experiment_flags_failed">Tidak dapat menyimpan flag eksperimen</string>
+    <string name="segment_behaviors_skip">Lewati otomatis</string>
+    <string name="segment_behaviors_skip_once">Lewati sekali</string>
+    <string name="segment_behaviors_manual_skip">Tampilkan tombol lewati</string>
+    <string name="segment_behaviors_seekbar_only">Tampilkan di bilah putar</string>
+    <string name="segment_behaviors_ignore">Abaikan</string>
+    <string name="sb_enabled">SponsorBlock</string>
+    <string name="sb_enabled_summary">Melewati segmen yang ditandai komunitas SponsorBlock, yang dapat melihat video yang Anda buka.</string>
+    <string name="sb_sponsor">Segmen sponsor</string>
+    <string name="sb_selfpromo">Promosi diri</string>
+    <string name="sb_interaction">Pengingat interaksi</string>
+    <string name="sb_poi_highlight">Sorotan</string>
+    <string name="sb_intro">Intro</string>
+    <string name="sb_outro">Outro</string>
+    <string name="sb_preview">Pratinjau</string>
+    <string name="sb_hook">Hook</string>
+    <string name="sb_filler">Pengisi</string>
+    <string name="sb_music_offtopic">Bagian non-musik</string>
+    <string name="sb_toast_on_skip">Tampilkan pesan setelah melewati</string>
+    <string name="sb_toast_on_connection_error">Tampilkan error koneksi SponsorBlock</string>
+    <string name="sb_track_skip_count">Lacak lewatan SponsorBlock</string>
+    <string name="sb_track_skip_count_summary">Menyimpan statistik di ponsel ini dan melaporkan lewatan Anda ke SponsorBlock.</string>
+    <string name="sb_min_segment_duration">Durasi segmen minimum (detik)</string>
+    <string name="section_sponsorblock">SponsorBlock</string>
+    <string name="sponsorblock_category_sponsor">Sponsor</string>
+    <string name="sponsorblock_category_selfpromo">Promosi diri</string>
+    <string name="sponsorblock_category_interaction">Pengingat interaksi</string>
+    <string name="sponsorblock_category_highlight">Sorotan</string>
+    <string name="sponsorblock_category_intro">Intro</string>
+    <string name="sponsorblock_category_outro">Outro</string>
+    <string name="sponsorblock_category_preview">Pratinjau</string>
+    <string name="sponsorblock_category_hook">Hook</string>
+    <string name="sponsorblock_category_filler">Pengisi</string>
+    <string name="sponsorblock_category_music">Bagian non-musik</string>
+    <string name="sponsorblock_skipped"><xliff:g id="segment">%1$s</xliff:g> dilewati</string>
+    <string name="sponsorblock_load_failed">Tidak dapat memuat segmen SponsorBlock</string>
+</resources>

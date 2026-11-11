@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_branding">Branding kustom</string>
+    <string name="custom_branding_description">Menambahkan ikon peluncur dan nama aplikasi untuk dipilih, termasuk milik Anda sendiri.</string>
+    <string name="custom_branding_custom_name">Nama aplikasi kustom</string>
+    <string name="custom_branding_custom_name_description">Menambahkan nama ini ke pilihan nama aplikasi dan menjadikannya default.</string>
+    <string name="custom_branding_custom_icon">Ikon kustom</string>
+    <string name="custom_branding_custom_icon_description">Folder berisi folder mipmap-mdpi sampai mipmap-xxxhdpi, masing-masing dengan foreground.png dan background.png. Menambahkan ikon ke pilihan dan menjadikannya default.</string>
+</resources>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="hide_typing">Sembunyikan indikator mengetik</string>
+    <string name="hide_typing_summary">Orang lain tidak melihat bahwa Anda sedang mengetik. Instagram dapat memblokir akun Anda.</string>
+    <string name="hide_dm_seen">Sembunyikan tanda dibaca DM</string>
+    <string name="hide_dm_seen_summary">Pengirim tidak melihat bahwa Anda sudah membaca pesannya. Instagram dapat memblokir akun Anda.</string>
+    <string name="hide_story_seen">Sembunyikan tontonan cerita</string>
+    <string name="hide_story_seen_summary">Anda tidak muncul di daftar penonton cerita. Instagram dapat memblokir akun Anda.</string>
+    <string name="hide_live_seen">Sembunyikan tontonan live</string>
+    <string name="hide_live_seen_summary">Anda tidak muncul sebagai penonton video live. Instagram dapat memblokir akun Anda.</string>
+    <string name="hide_screenshot_notifications">Sembunyikan notifikasi screenshot</string>
+    <string name="hide_screenshot_notifications_summary">Orang lain tidak diberi tahu saat Anda mengambil screenshot. Instagram dapat memblokir akun Anda.</string>
+    <string name="max_resolution">Foto resolusi penuh</string>
+    <string name="original_quality">Kualitas foto asli</string>
+    <string name="original_quality_summary">Memuat foto seperti saat diupload dengan melaporkan layar yang lebih besar. Instagram dapat memblokir akun Anda.</string>
+    <string name="disable_video_autoplay">Nonaktifkan putar otomatis video</string>
+    <string name="disable_video_autoplay_summary">Video feed hanya diputar saat Anda mengetuknya.</string>
+    <string name="disable_reels_swiping">Nonaktifkan geser Reels</string>
+    <string name="disable_reels_swiping_summary">Tetap di reel yang Anda buka.</string>
+    <string name="disable_auto_advance">Nonaktifkan cerita berlanjut otomatis</string>
+    <string name="disable_auto_advance_summary">Menahan cerita yang selesai di layar sampai Anda mengetuk.</string>
+    <string name="hide_suggested_users">Sembunyikan cerita yang disarankan</string>
+    <string name="hide_suggested_users_summary">Menyembunyikan cerita dan akun yang tidak Anda ikuti di baris cerita.</string>
+    <string name="hide_story_tray">Sembunyikan baris cerita</string>
+    <string name="hide_story_tray_summary">Menyembunyikan cerita di bagian atas Beranda.</string>
+    <string name="ring_size">Ukuran lingkaran cerita</string>
+    <string name="ring_size_summary">Ukuran lingkaran cerita di bagian atas Beranda.</string>
+    <string name="ring_size_small">Kecil (80%)</string>
+    <string name="ring_size_default">Default</string>
+    <string name="ring_size_large">Besar (120%)</string>
+    <string name="ring_size_extra_large">Ekstra besar (140%)</string>
+    <string name="hide_in_explore_search">Sembunyikan Meta AI di pencarian Jelajahi</string>
+    <string name="hide_in_direct">Sembunyikan Meta AI di DM</string>
+    <string name="hide_in_direct_summary">Menyembunyikan Meta AI di kotak masuk, pencarian DM, dan chat.</string>
+    <string name="hide_in_posts">Sembunyikan Meta AI di postingan</string>
+    <string name="hide_in_posts_summary">Menyembunyikan ringkasan postingan dan Tanya Meta AI di menu postingan.</string>
+    <string name="open_externally">Buka link di browser</string>
+    <string name="clean_share_links">Bersihkan link berbagi</string>
+    <string name="clean_share_links_summary">Menghapus bagian link yang dibagikan yang dapat mengidentifikasi Anda.</string>
+    <string name="allow_screenshots">Izinkan screenshot</string>
+    <string name="allow_screenshots_summary">Termasuk chat, media sekali lihat, dan mode menghilang.</string>
+    <string name="unlock_developer_options">Aktifkan menu developer</string>
+    <string name="unlock_developer_options_summary">Menambahkan menu developer Instagram di bagian bawah setelan.</string>
+    <string name="copy_comment">Salin komentar</string>
+    <string name="copy_comment_summary">Menambahkan Salin ke menu tekan lama komentar.</string>
+    <string name="comment_copied">Komentar disalin</string>
+    <string name="follows_you_indicator">Indikator Mengikuti Anda</string>
+    <string name="follows_you_indicator_summary">Menampilkan Mengikuti Anda di profil akun yang mengikuti Anda.</string>
+    <string name="hide_repost_buttons">Sembunyikan tombol posting ulang</string>
+    <string name="hide_engagement_counts">Sembunyikan jumlah interaksi</string>
+    <string name="hide_engagement_counts_summary">Menyembunyikan jumlah suka, komentar, bagikan, dan posting ulang di feed.</string>
+    <string name="hide_home_tab">Sembunyikan tab Beranda</string>
+    <string name="hide_home_tab_summary">Instagram terbuka di tab berikutnya.</string>
+    <string name="hide_reels_tab">Sembunyikan tab Reels</string>
+    <string name="hide_create_tab">Sembunyikan tab Buat</string>
+    <string name="hide_explore_grid">Sembunyikan grid Jelajahi</string>
+    <string name="hide_explore_grid_summary">Hanya menyisakan pencarian di tab Jelajahi.</string>
+    <string name="hide_instants">Sembunyikan Instants</string>
+    <string name="hide_instants_summary">Menyembunyikan tumpukan Instants di kotak masuk.</string>
+    <string name="hide_threads_badge">Sembunyikan lencana Threads</string>
+    <string name="hide_ads">Sembunyikan iklan</string>
+    <string name="following_only">Feed hanya yang diikuti</string>
+    <string name="following_only_summary">Menampilkan postingan dari akun yang Anda ikuti, yang terbaru lebih dulu.</string>
+    <string name="hide_suggested_accounts">Sembunyikan akun yang disarankan</string>
+    <string name="hide_suggested_accounts_summary">Postingan yang disarankan tetap ada. Feed hanya yang diikuti menyembunyikannya.</string>
+    <string name="hide_threads_units">Sembunyikan bagian Threads</string>
+    <string name="hide_threads_units_summary">Bisa menyisakan ruang kosong di Beranda.</string>
+    <string name="hide_shopping_units">Sembunyikan bagian belanja</string>
+    <string name="hide_shopping_units_summary">Bisa menyisakan ruang kosong di Beranda.</string>
+    <string name="hide_suggested_reels">Sembunyikan Reels yang disarankan</string>
+    <string name="folder">Folder download</string>
+    <string name="show_toast">Tampilkan pesan download</string>
+    <string name="section_social">Sosial</string>
+    <string name="section_comments">Komentar</string>
+    <string name="section_appearance">Tampilan</string>
+    <string name="section_playback">Pemutaran</string>
+    <string name="section_media">Media</string>
+    <string name="section_privacy">Privasi</string>
+    <string name="section_ghost_mode">Mode hantu</string>
+    <string name="section_feed">Feed</string>
+    <string name="section_stories">Cerita</string>
+    <string name="section_meta_ai">Meta AI</string>
+    <string name="section_links">Link</string>
+    <string name="section_developer">Developer</string>
+    <string name="section_downloads">Download</string>
+    <string name="download_label">Download</string>
+    <string name="download_instant_description">Download instant</string>
+    <string name="download_carousel_current">Saat ini (<xliff:g id="slide">%1$d</xliff:g>/<xliff:g id="total">%2$d</xliff:g>)</string>
+    <plurals name="download_carousel_all">
+        <item quantity="other">Semua <xliff:g id="count">%1$d</xliff:g> item</item>
+    </plurals>
+    <string name="download_cancel">Batal</string>
+    <string name="download_started">Mendownload</string>
+    <string name="download_media_url_missing">Tidak dapat menemukan media untuk didownload</string>
+    <string name="download_failed">Download gagal</string>
+    <string name="download_slide_started">Mendownload slide <xliff:g id="slide">%1$d</xliff:g></string>
+    <string name="download_slide_url_missing">Tidak dapat mendownload slide <xliff:g id="slide">%1$d</xliff:g></string>
+    <string name="download_story_media_missing">Tidak dapat menemukan cerita untuk didownload</string>
+    <plurals name="download_carousel_started">
+        <item quantity="other">Mendownload <xliff:g id="started">%1$d</xliff:g> dari <xliff:g id="count">%2$d</xliff:g> item</item>
+    </plurals>
+    <string name="download_carousel_urls_missing">Tidak dapat menemukan media carousel</string>
+    <string name="download_notification_description">Mendownload media Instagram</string>
+    <string name="follows_you_label">Mengikuti Anda</string>
+    <string name="follows_you_suffix">\u0020· Mengikuti Anda</string>
+    <string name="follows_you_subtitle"><xliff:g id="subtitle">%1$s</xliff:g> · Mengikuti Anda</string>
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_save_to_device">Simpan ke perangkat</string>
+    <string name="save_folder">Folder penyimpanan</string>
+    <string name="save_folder_summary">Tempat file yang disimpan. Anda memilihnya saat pertama kali menyimpan.</string>
+    <string name="save_new_downloads">Simpan download baru ke perangkat</string>
+    <string name="save_new_downloads_summary">Juga menyimpan setiap download setelah selesai.</string>
+    <string name="save_to_device">Simpan ke perangkat</string>
+    <string name="notification_channel">Download yang disimpan</string>
+    <string name="saving">Menyimpan <xliff:g id="title">%1$s</xliff:g></string>
+    <string name="saving_progress">Menyimpan <xliff:g id="done">%1$d</xliff:g> dari <xliff:g id="total">%2$d</xliff:g></string>
+    <string name="saved"><xliff:g id="title">%1$s</xliff:g> disimpan</string>
+    <plurals name="saved_count">
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> download disimpan</item>
+    </plurals>
+    <string name="save_failed">Tidak dapat menyimpan <xliff:g id="title">%1$s</xliff:g></string>
+    <string name="save_failed_unsupported">Format download ini tidak dapat disimpan sebagai file.</string>
+    <string name="save_failed_incomplete">Download belum selesai.</string>
+    <string name="save_failed_folder">Folder penyimpanan tidak tersedia lagi. Pilih lagi di Setelan Reseam.</string>
+    <string name="save_failed_space">Ruang di folder penyimpanan tidak cukup.</string>
+    <string name="open">Buka</string>
+</resources>

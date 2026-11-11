@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="allow_screenshots">Izinkan screenshot</string>
+    <string name="allow_screenshots_description">Mengizinkan screenshot dan rekaman layar pada layar yang dilindungi.</string>
+    <string name="allow_split_screen">Izinkan layar terpisah</string>
+    <string name="allow_split_screen_description">Memungkinkan aplikasi terbuka di layar terpisah dan bubble.</string>
+    <string name="change_package_name">Ubah nama paket</string>
+    <string name="change_package_name_description">Memasang aplikasi dengan nama paket lain agar bisa berjalan di samping aplikasi aslinya. Beberapa aplikasi tidak berfungsi dengan cara ini.</string>
+    <string name="change_package_name_package_name">Nama paket</string>
+    <string name="change_package_name_package_name_description">Nama paket baru. Jika kosong, .reseam ditambahkan ke nama aslinya.</string>
+    <string name="disable_play_store_updates">Nonaktifkan update Play Store</string>
+    <string name="disable_play_store_updates_description">Menyembunyikan aplikasi dari update Google Play.</string>
+    <string name="enable_debugging">Aktifkan debugging</string>
+    <string name="enable_debugging_description">Menandai aplikasi agar dapat di-debug, sehingga adb dapat memeriksanya tanpa root.</string>
+    <string name="hide_mock_location">Sembunyikan lokasi palsu</string>
+    <string name="hide_mock_location_description">Menyembunyikan bahwa lokasi Anda berasal dari aplikasi lokasi palsu.</string>
+    <string name="override_certificate_pinning">Ganti certificate pinning</string>
+    <string name="override_certificate_pinning_description">Memercayai sertifikat Anda sendiri, sehingga proxy dapat memeriksa lalu lintas aplikasi.</string>
+    <string name="remove_ads">Blokir iklan</string>
+    <string name="remove_ads_description">Mencegah aplikasi memuat iklan dari jaringan iklan umum.</string>
+    <string name="remove_pairip">Hapus Pairip</string>
+    <string name="remove_pairip_description">Menghapus perlindungan integritas otomatis Google Play. Pemeriksaan sisi server tetap berlaku.</string>
+    <string name="remove_pairip_kill_vm">Hentikan VM Pairip</string>
+    <string name="remove_pairip_kill_vm_description">Hanya untuk aplikasi yang VM Pairip-nya hanya memeriksa lisensi. Merusak aplikasi yang menjalankan kodenya sendiri di dalamnya.</string>
+    <string name="remove_pairip_spoof_installer">Palsukan pemeriksaan penginstal</string>
+    <string name="remove_pairip_spoof_installer_description">Membuat sisa pemeriksaan penginstal melaporkan Google Play.</string>
+    <string name="report_play_store_installer">Laporkan Play Store sebagai penginstal</string>
+    <string name="report_play_store_installer_description">Membuat aplikasi menganggap dirinya dipasang dari Google Play.</string>
+    <string name="spoof_signature">Palsukan tanda tangan</string>
+    <string name="spoof_signature_description">Menunjukkan tanda tangan asli kepada aplikasi, sehingga pemeriksaan aplikasi yang dimodifikasi lolos.</string>
+</resources>

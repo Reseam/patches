@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="spoof_video_streams_client_tv">TV (SABR)</string>
+    <string name="spoof_video_streams_client_web">Web (SABR)</string>
+    <string name="spoof_video_streams_client_tv_simply">TV Simply</string>
+    <string name="spoof_video_streams_stats_for_nerds">Tampilkan klien palsu di statistik</string>
+    <string name="spoof_video_streams_stats_for_nerds_summary">Menampilkan klien stream di Statistik untuk nerd.</string>
+    <string name="token_server_credential">Kredensial server token</string>
+    <string name="spoof_video_streams">Perbaiki pemutaran</string>
+    <string name="spoof_video_streams_summary">Membuat video tetap diputar saat YouTube memblokir aplikasi.</string>
+    <string name="spoof_video_streams_client">Klien pilihan</string>
+    <string name="spoof_video_streams_client_summary">Klien yang dicoba pertama. Android dan Web dapat menggunakan server token Reseam, sesuai ketentuannya di https://mint.reseam.app.</string>
+    <string name="user_agent_client_spoof">Palsukan user agent</string>
+    <string name="user_agent_client_spoof_summary">Melaporkan aplikasi asli dalam permintaan, sehingga YouTube menerimanya.</string>
+    <string name="spoof_client_tv">TV (SABR)</string>
+    <string name="spoof_client_web">Web (SABR)</string>
+    <string name="spoof_client_tv_simply">TV Simply</string>
+    <string name="spoof_client_native">Native</string>
+</resources>

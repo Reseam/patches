@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_sponsored_ads">Sembunyikan pesan bersponsor</string>
+    <string name="hide_sponsored_ads_description">Menyembunyikan pesan bersponsor di channel.</string>
+    <string name="download_boost">Download lebih cepat</string>
+    <string name="download_boost_description">Mendownload dalam bagian yang lebih besar, lebih banyak sekaligus.</string>
+    <string name="bypass_integrity">Lewati pemeriksaan integritas</string>
+    <string name="bypass_integrity_description">Memungkinkan login di ponsel yang di-root dan ponsel tanpa layanan Google.</string>
+    <string name="fix_push_notifications">Perbaiki notifikasi push</string>
+    <string name="fix_push_notifications_description">Membuat notifikasi push tetap masuk setelah di-patch.</string>
+    <string name="allow_screenshots">Izinkan screenshot media rahasia</string>
+    <string name="allow_screenshots_description">Mengizinkan screenshot dan rekaman layar media sekali lihat dan yang menghancurkan diri.</string>
+    <string name="anti_delete">Simpan pesan yang dihapus</string>
+    <string name="anti_delete_description">Menyimpan pesan yang dihapus orang lain dan menampilkannya di chat.</string>
+    <string name="bypass_restrictions">Simpan dari chat yang dibatasi</string>
+    <string name="bypass_restrictions_description">Mengizinkan menyalin, menyimpan, dan meneruskan di chat yang dilindungi.</string>
+    <string name="forward_from_restricted">Teruskan dari chat yang dibatasi</string>
+    <string name="forward_from_restricted_description">Mengirim pesan dari chat yang memblokir penerusan sebagai pesan baru.</string>
+    <string name="hide_typing_indicator">Sembunyikan indikator mengetik</string>
+    <string name="hide_typing_indicator_description">Mencegah orang lain melihat bahwa Anda sedang mengetik atau merekam.</string>
+    <string name="play_store_restrictions">Hapus pembatasan Play Store</string>
+    <string name="play_store_restrictions_description">Menampilkan chat dan media yang disembunyikan Telegram hanya di versi Play Store.</string>
+    <string name="unlock_premium">Buka Premium</string>
+    <string name="unlock_premium_description">Membuka fitur Premium yang berfungsi di ponsel ini.</string>
+    <string name="disable_auto_update">Nonaktifkan ajakan update</string>
+    <string name="disable_auto_update_description">Menghentikan pemeriksaan dan ajakan update.</string>
+</resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="hide_ads">Sembunyikan iklan</string>
+    <string name="hide_shopping">Sembunyikan pin belanja</string>
+    <string name="disable_update_prompts">Nonaktifkan ajakan update</string>
+    <string name="hide_screenshot_share">Sembunyikan menu berbagi screenshot</string>
+    <string name="original_quality">Gambar kualitas asli</string>
+    <string name="original_quality_summary">Menggunakan lebih banyak data.</string>
+    <string name="show_posted_date">Tampilkan tanggal posting</string>
+    <string name="posted_on">Diposting <xliff:g id="date">%1$s</xliff:g></string>
+    <string name="hide_surveys">Sembunyikan ajakan survei</string>
+    <string name="download_started">Mendownload</string>
+    <string name="download_unavailable">Tidak ada yang bisa didownload</string>
+    <plurals name="download_board_started">
+        <item quantity="other">Mendownload <xliff:g id="count">%1$d</xliff:g> pin</item>
+    </plurals>
+    <string name="download_board_empty">Gulir papan terlebih dahulu untuk memuat pinnya</string>
+    <string name="ask_which_media">Tanyakan media mana yang disimpan</string>
+    <string name="ask_which_media_summary">Jika sebuah pin memiliki beberapa gambar atau video, menanyakan mana yang akan disimpan.</string>
+    <string name="save_media_choose">Pilih yang akan disimpan</string>
+    <string name="save_media_image">Gambar <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_video">Video <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_all">Simpan semua</string>
+    <string name="download_folder">Folder download</string>
+    <string name="download_folder_summary">Tempat pin yang disimpan. Biarkan galeri default atau pilih folder.</string>
+    <string name="section_downloads">Download</string>
+    <string name="section_feed">Feed</string>
+    <string name="section_closeup">Tampilan dekat</string>
+    <string name="section_images">Gambar</string>
+    <string name="section_sharing">Berbagi</string>
+    <string name="section_prompts">Ajakan</string>
+    <string name="section_updates">Update</string>
+</resources>
