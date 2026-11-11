@@ -108,6 +108,6 @@
     <string name="download_carousel_urls_missing">Не удалось найти медиа карусели</string>
     <string name="download_notification_description">Скачивание медиа из Instagram</string>
     <string name="follows_you_label">Подписан(а) на вас</string>
-    <string name="follows_you_suffix">· Подписан(а) на вас</string>
+    <string name="follows_you_suffix">\u0020· Подписан(а) на вас</string>
     <string name="follows_you_subtitle"><xliff:g id="subtitle">%1$s</xliff:g> · Подписан(а) на вас</string>
 </resources>

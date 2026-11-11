@@ -104,6 +104,6 @@
     <string name="download_carousel_urls_missing">Medien des Karussells nicht gefunden</string>
     <string name="download_notification_description">Instagram-Medien werden heruntergeladen</string>
     <string name="follows_you_label">Folgt dir</string>
-    <string name="follows_you_suffix">· Folgt dir</string>
+    <string name="follows_you_suffix">\u0020· Folgt dir</string>
     <string name="follows_you_subtitle"><xliff:g id="subtitle">%1$s</xliff:g> · Folgt dir</string>
 </resources>

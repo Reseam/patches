@@ -104,6 +104,6 @@
     <string name="download_carousel_urls_missing">Médias du carrousel introuvables</string>
     <string name="download_notification_description">Téléchargement de médias Instagram</string>
     <string name="follows_you_label">Vous suit</string>
-    <string name="follows_you_suffix">· Vous suit</string>
+    <string name="follows_you_suffix">\u0020· Vous suit</string>
     <string name="follows_you_subtitle"><xliff:g id="subtitle">%1$s</xliff:g> · Vous suit</string>
 </resources>

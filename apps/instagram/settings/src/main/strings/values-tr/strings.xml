@@ -104,6 +104,6 @@
     <string name="download_carousel_urls_missing">Kaydırmalı gönderinin medyası bulunamadı</string>
     <string name="download_notification_description">Instagram medyası indiriliyor</string>
     <string name="follows_you_label">Sizi takip ediyor</string>
-    <string name="follows_you_suffix">· Sizi takip ediyor</string>
+    <string name="follows_you_suffix">\u0020· Sizi takip ediyor</string>
     <string name="follows_you_subtitle"><xliff:g id="subtitle">%1$s</xliff:g> · Sizi takip ediyor</string>
 </resources>

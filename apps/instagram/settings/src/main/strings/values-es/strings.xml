@@ -104,6 +104,6 @@
     <string name="download_carousel_urls_missing">No se encontró el contenido del carrusel</string>
     <string name="download_notification_description">Descargando contenido de Instagram</string>
     <string name="follows_you_label">Te sigue</string>
-    <string name="follows_you_suffix">· Te sigue</string>
+    <string name="follows_you_suffix">\u0020· Te sigue</string>
     <string name="follows_you_subtitle"><xliff:g id="subtitle">%1$s</xliff:g> · Te sigue</string>
 </resources>

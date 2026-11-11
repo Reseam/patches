@@ -104,6 +104,6 @@
     <string name="download_carousel_urls_missing">Não foi possível encontrar as mídias do carrossel</string>
     <string name="download_notification_description">Baixando mídia do Instagram</string>
     <string name="follows_you_label">Segue você</string>
-    <string name="follows_you_suffix"> · Segue você</string>
+    <string name="follows_you_suffix">\u0020· Segue você</string>
     <string name="follows_you_subtitle"><xliff:g id="subtitle">%1$s</xliff:g> · Segue você</string>
 </resources>

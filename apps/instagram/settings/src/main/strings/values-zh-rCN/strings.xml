@@ -102,6 +102,6 @@
     <string name="download_carousel_urls_missing">找不到轮播中的媒体</string>
     <string name="download_notification_description">正在下载 Instagram 媒体</string>
     <string name="follows_you_label">关注了你</string>
-    <string name="follows_you_suffix">· 关注了你</string>
+    <string name="follows_you_suffix">\u0020· 关注了你</string>
     <string name="follows_you_subtitle"><xliff:g id="subtitle">%1$s</xliff:g> · 关注了你</string>
 </resources>

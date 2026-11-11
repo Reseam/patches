@@ -102,6 +102,6 @@
     <string name="download_carousel_urls_missing">カルーセルのメディアが見つかりませんでした</string>
     <string name="download_notification_description">Instagram のメディアをダウンロード中</string>
     <string name="follows_you_label">フォローされています</string>
-    <string name="follows_you_suffix">· フォローされています</string>
+    <string name="follows_you_suffix">\u0020· フォローされています</string>
     <string name="follows_you_subtitle"><xliff:g id="subtitle">%1$s</xliff:g> · フォローされています</string>
 </resources>

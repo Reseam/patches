@@ -104,6 +104,6 @@
     <string name="download_carousel_urls_missing">कैरोसेल का मीडिया नहीं मिला</string>
     <string name="download_notification_description">Instagram मीडिया डाउनलोड हो रहा है</string>
     <string name="follows_you_label">आपको फ़ॉलो करते हैं</string>
-    <string name="follows_you_suffix">· आपको फ़ॉलो करते हैं</string>
+    <string name="follows_you_suffix">\u0020· आपको फ़ॉलो करते हैं</string>
     <string name="follows_you_subtitle"><xliff:g id="subtitle">%1$s</xliff:g> · आपको फ़ॉलो करते हैं</string>
 </resources>
