@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_comment_ads">Ẩn quảng cáo trong bình luận</string>
+    <string name="hide_comment_ads_description">Ẩn quảng cáo bên dưới bài viết và giữa các bình luận.</string>
+    <string name="hide_feed_ads">Ẩn quảng cáo trong bảng feed</string>
+    <string name="hide_feed_ads_description">Ẩn bài viết được quảng bá trong bảng feed và tìm kiếm.</string>
+    <string name="color_thread_lines">Tô màu đường chuỗi bình luận</string>
+    <string name="color_thread_lines_description">Mỗi cấp trả lời có màu đường riêng.</string>
+    <string name="ignore_suggested_sort">Luôn dùng cách sắp xếp bình luận của tôi</string>
+    <string name="ignore_suggested_sort_description">Bỏ qua cách sắp xếp mà bài viết hoặc cộng đồng đề xuất.</string>
+    <string name="settings_entry">Mục cài đặt Reseam</string>
+    <string name="settings_entry_description">Thêm Cài đặt Reseam bên dưới Cài đặt tài khoản.</string>
+    <string name="disable_features">Tắt các tính năng của Reddit</string>
+    <string name="disable_features_description">Tắt Reddit Answers, Trò chơi, lời mời nâng cấp, lời nhắc và các tính năng khác.</string>
+    <string name="default_feed_sort">Cách sắp xếp bảng feed mặc định</string>
+    <string name="default_feed_sort_description">Sắp xếp cộng đồng, bảng feed tùy chỉnh, Popular và All theo cách bạn chọn.</string>
+    <string name="hide_feed_units">Ẩn mục chèn trong bảng feed</string>
+    <string name="hide_feed_units_description">Ẩn Thịnh hành, băng chuyền, quảng bá, khảo sát và các mục chèn khác trong bảng feed.</string>
+    <string name="hide_recommended_communities">Ẩn cộng đồng được đề xuất</string>
+    <string name="hide_recommended_communities_description">Ẩn đề xuất cộng đồng trong bảng feed.</string>
+    <string name="hide_recommended_posts">Ẩn bài viết được đề xuất</string>
+    <string name="hide_recommended_posts_description">Ẩn bài viết từ cộng đồng bạn không theo dõi trên Trang chủ.</string>
+    <string name="hide_drawer_items">Ẩn mục trong ngăn cộng đồng</string>
+    <string name="hide_drawer_items_description">Ẩn các hàng đã chọn trong ngăn cộng đồng.</string>
+    <string name="hide_navigation_tabs">Ẩn các tab điều hướng</string>
+    <string name="hide_navigation_tabs_description">Ẩn các tab đã chọn trên thanh điều hướng.</string>
+    <string name="fix_push_notifications">Sửa thông báo đẩy</string>
+    <string name="fix_push_notifications_description">Giúp thông báo đẩy vẫn đến sau khi vá.</string>
+    <string name="skip_nsfw_warning">Bỏ qua cảnh báo cộng đồng NSFW</string>
+    <string name="skip_nsfw_warning_description">Mở cộng đồng người lớn mà không hỏi lại.</string>
+    <string name="block_analytics">Chặn phân tích</string>
+    <string name="block_analytics_description">Ngừng ghi nhật ký sự kiện của Reddit và theo dõi của AppsFlyer.</string>
+    <string name="disable_app_rate_prompt">Ẩn lời mời đánh giá</string>
+    <string name="disable_app_rate_prompt_description">Ngăn Reddit đề nghị bạn đánh giá.</string>
+    <string name="disable_screenshot_banner">Ẩn biểu ngữ chụp màn hình</string>
+    <string name="disable_screenshot_banner_description">Ngăn Reddit phát hiện ảnh chụp màn hình.</string>
+    <string name="hide_trending_searches">Ẩn tìm kiếm thịnh hành</string>
+    <string name="hide_trending_searches_description">Ẩn Thịnh hành trên màn hình tìm kiếm.</string>
+    <string name="hide_premium_settings">Ẩn cài đặt Premium</string>
+    <string name="hide_premium_settings_description">Ẩn ưu đãi Premium và Reddit Pro trong phần cài đặt.</string>
+    <string name="vxreddit_links">Chia sẻ đường liên kết vxreddit</string>
+    <string name="vxreddit_links_description">Chia sẻ bài viết dưới dạng đường liên kết vxreddit.com, hiển thị nội dung nghe nhìn trong Discord và các ứng dụng khác.</string>
+    <string name="block_forced_update">Chặn cập nhật bắt buộc</string>
+    <string name="block_forced_update_description">Ngăn Reddit chặn phiên bản này bằng màn hình cập nhật.</string>
+</resources>

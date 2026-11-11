@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="block_embedded_ads">Chặn quảng cáo nhúng</string>
+    <string name="block_embedded_ads_description">Tải buổi phát trực tiếp không có quảng cáo qua proxy của bên thứ ba, proxy này thấy địa chỉ IP của bạn và các kênh bạn xem.</string>
+    <string name="block_video_ads">Chặn quảng cáo video</string>
+    <string name="block_video_ads_description">Chặn quảng cáo video, âm thanh và hiển thị do chính Twitch yêu cầu.</string>
+    <string name="ignore_ad_events">Bỏ qua sự kiện quảng cáo</string>
+    <string name="ignore_ad_events_description">Bỏ qua các lần nghỉ quảng cáo và theo dõi quảng cáo mà Twitch thông báo trong buổi phát.</string>
+    <string name="settings_entry">Mục cài đặt Reseam</string>
+    <string name="settings_entry_description">Thêm Cài đặt Reseam phía trên Tài khoản trong phần cài đặt của Twitch.</string>
+    <string name="enable_debug_mode">Bật chế độ gỡ lỗi</string>
+    <string name="enable_debug_mode_description">Hiển thị công cụ dành cho nhân viên của Twitch, như trình đơn gỡ lỗi và bảng gỡ lỗi video.</string>
+    <string name="fix_login_crash">Sửa lỗi treo khi đăng nhập</string>
+    <string name="fix_login_crash_description">Ngăn Twitch bị treo ngay sau khi bạn đăng nhập.</string>
+    <string name="startup_tab">Tab khởi động</string>
+    <string name="startup_tab_description">Mở Twitch ở Duyệt hoặc Hồ sơ, và mở khóa cài đặt Trang chủ mặc định.</string>
+    <string name="block_analytics">Chặn phân tích</string>
+    <string name="block_analytics_description">Ngừng comScore, Nielsen, Sentry, Crashlytics, Sprig và Branch.</string>
+    <string name="disable_update_prompts">Tắt lời nhắc cập nhật</string>
+    <string name="disable_update_prompts_description">Ngừng hiện lời nhắc cập nhật.</string>
+</resources>

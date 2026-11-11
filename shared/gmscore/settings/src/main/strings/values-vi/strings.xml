@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="gmscore_missing_title">Chưa cài GmsCore</string>
+    <string name="gmscore_missing_message">Ứng dụng này đã được vá để đăng nhập qua GmsCore (<xliff:g id="packageName">%1$s</xliff:g>), nhưng GmsCore chưa được cài. Hãy cài đặt, mở một lần và cấp các quyền mà nó yêu cầu, sau đó mở lại ứng dụng này.</string>
+    <string name="gmscore_get">Tải GmsCore</string>
+    <string name="gmscore_close">Đóng</string>
+    <string name="gmscore_mount_unsupported">Bản vá hỗ trợ GmsCore làm hỏng bản cài đặt kiểu gắn</string>
+    <string name="gmscore_battery_optimized_title">GmsCore đang bị tối ưu hóa pin</string>
+    <string name="gmscore_battery_optimized_message">Android sẽ dừng GmsCore khi chạy nền, khiến bạn bị đăng xuất và không nhận được thông báo. Hãy tắt tối ưu hóa pin cho GmsCore.</string>
+    <string name="gmscore_open_settings">Mở cài đặt</string>
+    <string name="gmscore_unavailable_title">Không dùng được GmsCore</string>
+    <string name="gmscore_unavailable_message">Ứng dụng không truy cập được GmsCore. Hãy mở GmsCore và kiểm tra quyền cũng như cài đặt hoạt động trong nền.</string>
+    <string name="gmscore_open_website">Mở trang web</string>
+    <string name="gmscore_ignore">Bỏ qua</string>
+    <string name="gmscore_no_screen_handler">Không có ứng dụng nào mở được màn hình này</string>
+</resources>

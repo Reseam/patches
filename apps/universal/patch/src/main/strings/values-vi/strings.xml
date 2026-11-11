@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="allow_screenshots">Cho phép chụp màn hình</string>
+    <string name="allow_screenshots_description">Cho phép chụp và quay màn hình đối với các màn hình được bảo vệ.</string>
+    <string name="allow_split_screen">Cho phép chia đôi màn hình</string>
+    <string name="allow_split_screen_description">Cho phép mở ứng dụng ở chế độ chia đôi màn hình và bong bóng.</string>
+    <string name="change_package_name">Đổi tên gói</string>
+    <string name="change_package_name_description">Cài ứng dụng với tên gói khác để chạy song song với bản gốc. Một số ứng dụng không hoạt động theo cách này.</string>
+    <string name="change_package_name_package_name">Tên gói</string>
+    <string name="change_package_name_package_name_description">Tên gói mới. Để trống thì thêm .reseam vào tên gốc.</string>
+    <string name="disable_play_store_updates">Tắt cập nhật từ Cửa hàng Play</string>
+    <string name="disable_play_store_updates_description">Ẩn ứng dụng khỏi các bản cập nhật của Google Play.</string>
+    <string name="enable_debugging">Bật gỡ lỗi</string>
+    <string name="enable_debugging_description">Đánh dấu ứng dụng có thể gỡ lỗi, để adb có thể kiểm tra mà không cần root.</string>
+    <string name="hide_mock_location">Ẩn vị trí giả</string>
+    <string name="hide_mock_location_description">Ẩn việc vị trí của bạn đến từ ứng dụng giả lập vị trí.</string>
+    <string name="override_certificate_pinning">Ghi đè ghim chứng chỉ</string>
+    <string name="override_certificate_pinning_description">Tin cậy chứng chỉ của riêng bạn, để proxy có thể kiểm tra lưu lượng của ứng dụng.</string>
+    <string name="remove_ads">Chặn quảng cáo</string>
+    <string name="remove_ads_description">Ngăn ứng dụng tải quảng cáo từ các mạng quảng cáo phổ biến.</string>
+    <string name="remove_pairip">Gỡ Pairip</string>
+    <string name="remove_pairip_description">Gỡ tính năng bảo vệ tính toàn vẹn tự động của Google Play. Các bước kiểm tra phía máy chủ vẫn áp dụng.</string>
+    <string name="remove_pairip_kill_vm">Dừng máy ảo Pairip</string>
+    <string name="remove_pairip_kill_vm_description">Chỉ dành cho ứng dụng có máy ảo Pairip chỉ dùng để kiểm tra giấy phép. Làm hỏng các ứng dụng chạy mã riêng trong đó.</string>
+    <string name="remove_pairip_spoof_installer">Giả mạo kiểm tra trình cài đặt</string>
+    <string name="remove_pairip_spoof_installer_description">Khiến các bước kiểm tra trình cài đặt còn lại báo cáo là Google Play.</string>
+    <string name="report_play_store_installer">Báo cáo Cửa hàng Play là trình cài đặt</string>
+    <string name="report_play_store_installer_description">Khiến ứng dụng coi như mình được cài từ Google Play.</string>
+    <string name="spoof_signature">Giả mạo chữ ký</string>
+    <string name="spoof_signature_description">Cho ứng dụng thấy chữ ký gốc của nó, để vượt qua bước kiểm tra ứng dụng bị sửa đổi.</string>
+</resources>

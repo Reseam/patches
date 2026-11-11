@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gms_core_support">Hỗ trợ GmsCore</string>
+    <string name="gms_core_support_description">Đăng nhập qua GmsCore thay vì dịch vụ Google Play, GmsCore được cài đặt riêng.</string>
+    <string name="gms_core_support_gms_core_vendor_group_id">Nhà cung cấp GmsCore</string>
+    <string name="gms_core_support_gms_core_vendor_group_id_description">ID nhóm mà GmsCore của bạn được phát hành.</string>
+    <string name="gms_core_support_package_name">Tên gói</string>
+    <string name="gms_core_support_package_name_description">Tên gói của ứng dụng đã vá.</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reseam_you_tube_music">Reseam YouTube Music</string>
+    <string name="reseam_you_tube_music_description">Dùng YouTube Music của Reseam cho Tự động phát và các dịch vụ được liên kết khi đã cài đặt.</string>
+    <string name="reseam_you_tube_music_you_tube_music_package_name">Tên gói YouTube Music</string>
+    <string name="reseam_you_tube_music_you_tube_music_package_name_description">Tên gói đã dùng khi vá Reseam YouTube Music của bạn.</string>
+</resources>

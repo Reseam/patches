@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="show_posted_date">Hiển thị ngày đăng</string>
+    <string name="show_posted_date_description">Hiển thị thời điểm ghim được đăng.</string>
+    <string name="settings_entry">Mục cài đặt Reseam</string>
+    <string name="settings_entry_description">Thêm Cài đặt Reseam vào phần cài đặt của Pinterest.</string>
+    <string name="download_board">Tải xuống bảng</string>
+    <string name="download_board_description">Tải xuống các ghim mà bảng đã tải.</string>
+    <string name="download_pins">Tải xuống ghim</string>
+    <string name="download_pins_description">Tải xuống ghim dưới dạng hình ảnh và video gốc.</string>
+    <string name="hide_ads">Ẩn quảng cáo</string>
+    <string name="hide_ads_description">Ẩn ghim được quảng bá.</string>
+    <string name="hide_shopping">Ẩn ghim mua sắm</string>
+    <string name="hide_shopping_description">Ẩn ghim có thể mua.</string>
+    <string name="original_quality">Hình ảnh chất lượng gốc</string>
+    <string name="original_quality_description">Tải hình ảnh ở chất lượng gốc.</string>
+    <string name="fix_push_notifications">Sửa thông báo đẩy</string>
+    <string name="fix_push_notifications_description">Giúp thông báo đẩy vẫn đến sau khi vá.</string>
+    <string name="hide_surveys">Ẩn lời mời khảo sát</string>
+    <string name="hide_surveys_description">Ẩn lời mời khảo sát.</string>
+    <string name="hide_screenshot_share">Ẩn trình đơn chia sẻ ảnh chụp màn hình</string>
+    <string name="hide_screenshot_share_description">Ẩn trình đơn chia sẻ mở ra sau khi chụp màn hình.</string>
+    <string name="disable_update_prompts">Tắt lời nhắc cập nhật</string>
+    <string name="disable_update_prompts_description">Ngừng hiện lời nhắc cập nhật.</string>
+</resources>

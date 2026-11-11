@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_ads">Ẩn quảng cáo</string>
+    <string name="hide_ads_description">Ẩn bài viết được tài trợ.</string>
+    <string name="settings_entry">Mục cài đặt Reseam</string>
+    <string name="settings_entry_description">Thêm Cài đặt Reseam vào phần cài đặt của Threads.</string>
+</resources>

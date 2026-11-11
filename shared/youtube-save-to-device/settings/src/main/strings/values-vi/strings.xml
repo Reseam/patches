@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_save_to_device">Lưu vào thiết bị</string>
+    <string name="save_folder">Thư mục lưu</string>
+    <string name="save_folder_summary">Nơi lưu tệp. Bạn chọn thư mục này vào lần lưu đầu tiên.</string>
+    <string name="save_new_downloads">Lưu nội dung tải xuống mới vào thiết bị</string>
+    <string name="save_new_downloads_summary">Lưu cả mọi nội dung tải xuống khi tải xong.</string>
+    <string name="save_to_device">Lưu vào thiết bị</string>
+    <string name="notification_channel">Nội dung tải xuống đã lưu</string>
+    <string name="saving">Đang lưu <xliff:g id="title">%1$s</xliff:g></string>
+    <string name="saving_progress">Đang lưu <xliff:g id="done">%1$d</xliff:g> trong số <xliff:g id="total">%2$d</xliff:g></string>
+    <string name="saved">Đã lưu <xliff:g id="title">%1$s</xliff:g></string>
+    <plurals name="saved_count">
+        <item quantity="other">Đã lưu <xliff:g id="count">%1$d</xliff:g> nội dung tải xuống</item>
+    </plurals>
+    <string name="save_failed">Không lưu được <xliff:g id="title">%1$s</xliff:g></string>
+    <string name="save_failed_unsupported">Định dạng của nội dung tải xuống này không lưu được thành tệp.</string>
+    <string name="save_failed_incomplete">Nội dung chưa tải xuống xong.</string>
+    <string name="save_failed_folder">Thư mục lưu không còn dùng được. Hãy chọn lại trong Cài đặt Reseam.</string>
+    <string name="save_failed_space">Thư mục lưu không đủ dung lượng.</string>
+    <string name="open">Mở</string>
+</resources>

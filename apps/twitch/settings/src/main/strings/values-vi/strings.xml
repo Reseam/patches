@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="block_video_ads">Chặn quảng cáo video</string>
+    <string name="block_video_ads_summary">Chặn quảng cáo do chính Twitch yêu cầu. Quảng cáo bên trong buổi phát cần Chặn quảng cáo nhúng.</string>
+    <string name="block_embedded_ads">Chặn quảng cáo nhúng</string>
+    <string name="block_embedded_ads_summary">Tải buổi phát trực tiếp qua proxy của bên thứ ba, proxy này thấy địa chỉ IP của bạn và các kênh bạn xem.</string>
+    <string name="embedded_ads_proxy">Proxy không quảng cáo</string>
+    <string name="embedded_ads_proxy_custom">Tùy chỉnh</string>
+    <string name="custom_embedded_ads_proxy">Proxy tùy chỉnh</string>
+    <string name="custom_embedded_ads_proxy_summary">Địa chỉ của proxy tương thích với Luminous hoặc TTV LOL, dùng khi Proxy không quảng cáo là Tùy chỉnh.</string>
+    <string name="ignore_ad_events">Bỏ qua sự kiện quảng cáo</string>
+    <string name="ignore_ad_events_summary">Bỏ qua các lần nghỉ quảng cáo mà Twitch thông báo trong buổi phát.</string>
+    <string name="block_analytics">Chặn phân tích</string>
+    <string name="disable_update_prompts">Tắt lời nhắc cập nhật</string>
+    <string name="startup_tab">Tab khởi động</string>
+    <string name="startup_tab_summary">Với Đang theo dõi, Trực tiếp hoặc Clip, hãy chọn Trang chủ ở đây và đặt Cài đặt › Tùy chọn › Trang chủ mặc định trong Twitch.</string>
+    <string name="startup_tab_home">Trang chủ</string>
+    <string name="startup_tab_browse">Duyệt</string>
+    <string name="startup_tab_profile">Hồ sơ</string>
+    <string name="debug_mode">Chế độ gỡ lỗi</string>
+    <string name="section_ads">Quảng cáo</string>
+    <string name="section_privacy">Quyền riêng tư</string>
+    <string name="section_updates">Cập nhật</string>
+    <string name="section_navigation">Điều hướng</string>
+    <string name="section_developer">Nhà phát triển</string>
+</resources>

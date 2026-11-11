@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="hide_ads">Ẩn quảng cáo</string>
+    <string name="hide_shopping">Ẩn ghim mua sắm</string>
+    <string name="disable_update_prompts">Tắt lời nhắc cập nhật</string>
+    <string name="hide_screenshot_share">Ẩn trình đơn chia sẻ ảnh chụp màn hình</string>
+    <string name="original_quality">Hình ảnh chất lượng gốc</string>
+    <string name="original_quality_summary">Dùng nhiều dữ liệu hơn.</string>
+    <string name="show_posted_date">Hiển thị ngày đăng</string>
+    <string name="posted_on">Đã đăng <xliff:g id="date">%1$s</xliff:g></string>
+    <string name="hide_surveys">Ẩn lời mời khảo sát</string>
+    <string name="download_started">Đang tải xuống</string>
+    <string name="download_unavailable">Không có gì để tải xuống</string>
+    <plurals name="download_board_started">
+        <item quantity="other">Đang tải xuống <xliff:g id="count">%1$d</xliff:g> ghim</item>
+    </plurals>
+    <string name="download_board_empty">Hãy cuộn bảng trước để tải các ghim</string>
+    <string name="ask_which_media">Hỏi nên lưu nội dung nào</string>
+    <string name="ask_which_media_summary">Khi một ghim có nhiều hình ảnh hoặc video, hỏi bạn muốn lưu những mục nào.</string>
+    <string name="save_media_choose">Chọn nội dung cần lưu</string>
+    <string name="save_media_image">Hình ảnh <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_video">Video <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_all">Lưu tất cả</string>
+    <string name="download_folder">Thư mục tải xuống</string>
+    <string name="download_folder_summary">Nơi lưu các ghim. Giữ thư viện ảnh mặc định hoặc chọn một thư mục.</string>
+    <string name="section_downloads">Tải xuống</string>
+    <string name="section_feed">Bảng feed</string>
+    <string name="section_closeup">Cận cảnh</string>
+    <string name="section_images">Hình ảnh</string>
+    <string name="section_sharing">Chia sẻ</string>
+    <string name="section_prompts">Lời nhắc</string>
+    <string name="section_updates">Cập nhật</string>
+</resources>

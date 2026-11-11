@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="hide_typing">Ẩn trạng thái đang nhập</string>
+    <string name="hide_typing_summary">Người khác không thấy bạn đang nhập. Instagram có thể cấm tài khoản của bạn.</string>
+    <string name="hide_dm_seen">Ẩn trạng thái đã đọc tin nhắn trực tiếp</string>
+    <string name="hide_dm_seen_summary">Người gửi không thấy bạn đã đọc tin nhắn của họ. Instagram có thể cấm tài khoản của bạn.</string>
+    <string name="hide_story_seen">Ẩn lượt xem tin</string>
+    <string name="hide_story_seen_summary">Bạn không xuất hiện trong danh sách người xem tin. Instagram có thể cấm tài khoản của bạn.</string>
+    <string name="hide_live_seen">Ẩn lượt xem phát trực tiếp</string>
+    <string name="hide_live_seen_summary">Bạn không xuất hiện là người xem video trực tiếp. Instagram có thể cấm tài khoản của bạn.</string>
+    <string name="hide_screenshot_notifications">Ẩn thông báo chụp màn hình</string>
+    <string name="hide_screenshot_notifications_summary">Người khác không được thông báo khi bạn chụp màn hình. Instagram có thể cấm tài khoản của bạn.</string>
+    <string name="max_resolution">Ảnh độ phân giải đầy đủ</string>
+    <string name="original_quality">Chất lượng ảnh gốc</string>
+    <string name="original_quality_summary">Tải ảnh đúng như khi được tải lên bằng cách báo cáo màn hình lớn hơn. Instagram có thể cấm tài khoản của bạn.</string>
+    <string name="disable_video_autoplay">Tắt tự động phát video</string>
+    <string name="disable_video_autoplay_summary">Chỉ phát video trong bảng feed khi bạn nhấn vào.</string>
+    <string name="disable_reels_swiping">Tắt vuốt Reels</string>
+    <string name="disable_reels_swiping_summary">Giữ nguyên thước phim bạn đã mở.</string>
+    <string name="disable_auto_advance">Tắt tự chuyển tin</string>
+    <string name="disable_auto_advance_summary">Giữ tin đã phát xong trên màn hình cho đến khi bạn nhấn.</string>
+    <string name="hide_suggested_users">Ẩn tin đề xuất</string>
+    <string name="hide_suggested_users_summary">Ẩn tin và tài khoản bạn không theo dõi trong khay tin.</string>
+    <string name="hide_story_tray">Ẩn khay tin</string>
+    <string name="hide_story_tray_summary">Ẩn tin ở đầu Trang chủ.</string>
+    <string name="ring_size">Kích thước vòng tin</string>
+    <string name="ring_size_summary">Kích thước các vòng tin ở đầu Trang chủ.</string>
+    <string name="ring_size_small">Nhỏ (80%)</string>
+    <string name="ring_size_default">Mặc định</string>
+    <string name="ring_size_large">Lớn (120%)</string>
+    <string name="ring_size_extra_large">Rất lớn (140%)</string>
+    <string name="hide_in_explore_search">Ẩn Meta AI trong tìm kiếm Khám phá</string>
+    <string name="hide_in_direct">Ẩn Meta AI trong tin nhắn trực tiếp</string>
+    <string name="hide_in_direct_summary">Ẩn Meta AI trong hộp thư, tìm kiếm tin nhắn trực tiếp và cuộc trò chuyện.</string>
+    <string name="hide_in_posts">Ẩn Meta AI trong bài viết</string>
+    <string name="hide_in_posts_summary">Ẩn bản tóm tắt bài viết và Hỏi Meta AI trong trình đơn bài viết.</string>
+    <string name="open_externally">Mở đường liên kết trong trình duyệt</string>
+    <string name="clean_share_links">Làm sạch đường liên kết chia sẻ</string>
+    <string name="clean_share_links_summary">Xóa phần nhận dạng bạn trong đường liên kết được chia sẻ.</string>
+    <string name="allow_screenshots">Cho phép chụp màn hình</string>
+    <string name="allow_screenshots_summary">Bao gồm cuộc trò chuyện, nội dung xem một lần và chế độ tạm thời.</string>
+    <string name="unlock_developer_options">Bật trình đơn nhà phát triển</string>
+    <string name="unlock_developer_options_summary">Thêm trình đơn nhà phát triển của Instagram ở cuối phần cài đặt.</string>
+    <string name="copy_comment">Sao chép bình luận</string>
+    <string name="copy_comment_summary">Thêm Sao chép vào trình đơn nhấn giữ của bình luận.</string>
+    <string name="comment_copied">Đã sao chép bình luận</string>
+    <string name="follows_you_indicator">Chỉ báo Theo dõi bạn</string>
+    <string name="follows_you_indicator_summary">Hiển thị Theo dõi bạn trên hồ sơ của các tài khoản đang theo dõi bạn.</string>
+    <string name="hide_repost_buttons">Ẩn nút đăng lại</string>
+    <string name="hide_engagement_counts">Ẩn số lượt tương tác</string>
+    <string name="hide_engagement_counts_summary">Ẩn số lượt thích, bình luận, chia sẻ và đăng lại trong bảng feed.</string>
+    <string name="hide_home_tab">Ẩn tab Trang chủ</string>
+    <string name="hide_home_tab_summary">Instagram mở ở tab tiếp theo.</string>
+    <string name="hide_reels_tab">Ẩn tab Reels</string>
+    <string name="hide_create_tab">Ẩn tab Tạo</string>
+    <string name="hide_explore_grid">Ẩn lưới Khám phá</string>
+    <string name="hide_explore_grid_summary">Chỉ giữ lại tìm kiếm trên tab Khám phá.</string>
+    <string name="hide_instants">Ẩn Instants</string>
+    <string name="hide_instants_summary">Ẩn ngăn xếp Instants trong hộp thư.</string>
+    <string name="hide_threads_badge">Ẩn huy hiệu Threads</string>
+    <string name="hide_ads">Ẩn quảng cáo</string>
+    <string name="following_only">Bảng feed chỉ người đang theo dõi</string>
+    <string name="following_only_summary">Hiển thị bài viết từ tài khoản bạn theo dõi, mới nhất trước.</string>
+    <string name="hide_suggested_accounts">Ẩn tài khoản đề xuất</string>
+    <string name="hide_suggested_accounts_summary">Bài viết đề xuất vẫn còn. Bảng feed chỉ người đang theo dõi sẽ ẩn chúng.</string>
+    <string name="hide_threads_units">Ẩn mục Threads</string>
+    <string name="hide_threads_units_summary">Có thể để lại khoảng trống trên Trang chủ.</string>
+    <string name="hide_shopping_units">Ẩn mục mua sắm</string>
+    <string name="hide_shopping_units_summary">Có thể để lại khoảng trống trên Trang chủ.</string>
+    <string name="hide_suggested_reels">Ẩn Reels đề xuất</string>
+    <string name="folder">Thư mục tải xuống</string>
+    <string name="show_toast">Hiển thị thông báo tải xuống</string>
+    <string name="section_social">Mạng xã hội</string>
+    <string name="section_comments">Bình luận</string>
+    <string name="section_appearance">Giao diện</string>
+    <string name="section_playback">Phát lại</string>
+    <string name="section_media">Nội dung nghe nhìn</string>
+    <string name="section_privacy">Quyền riêng tư</string>
+    <string name="section_ghost_mode">Chế độ ẩn danh</string>
+    <string name="section_feed">Bảng feed</string>
+    <string name="section_stories">Tin</string>
+    <string name="section_meta_ai">Meta AI</string>
+    <string name="section_links">Đường liên kết</string>
+    <string name="section_developer">Nhà phát triển</string>
+    <string name="section_downloads">Tải xuống</string>
+    <string name="download_label">Tải xuống</string>
+    <string name="download_instant_description">Tải xuống instant</string>
+    <string name="download_carousel_current">Hiện tại (<xliff:g id="slide">%1$d</xliff:g>/<xliff:g id="total">%2$d</xliff:g>)</string>
+    <plurals name="download_carousel_all">
+        <item quantity="other">Tất cả <xliff:g id="count">%1$d</xliff:g> mục</item>
+    </plurals>
+    <string name="download_cancel">Hủy</string>
+    <string name="download_started">Đang tải xuống</string>
+    <string name="download_media_url_missing">Không tìm thấy nội dung để tải xuống</string>
+    <string name="download_failed">Tải xuống không thành công</string>
+    <string name="download_slide_started">Đang tải xuống trang <xliff:g id="slide">%1$d</xliff:g></string>
+    <string name="download_slide_url_missing">Không tải xuống được trang <xliff:g id="slide">%1$d</xliff:g></string>
+    <string name="download_story_media_missing">Không tìm thấy tin để tải xuống</string>
+    <plurals name="download_carousel_started">
+        <item quantity="other">Đang tải xuống mục <xliff:g id="started">%1$d</xliff:g> trong số <xliff:g id="count">%2$d</xliff:g></item>
+    </plurals>
+    <string name="download_carousel_urls_missing">Không tìm thấy nội dung của băng chuyền</string>
+    <string name="download_notification_description">Đang tải xuống nội dung Instagram</string>
+    <string name="follows_you_label">Theo dõi bạn</string>
+    <string name="follows_you_suffix">\u0020· Theo dõi bạn</string>
+    <string name="follows_you_subtitle"><xliff:g id="subtitle">%1$s</xliff:g> · Theo dõi bạn</string>
+</resources>

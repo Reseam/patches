@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_sponsored_ads">Ẩn tin nhắn được tài trợ</string>
+    <string name="hide_sponsored_ads_description">Ẩn tin nhắn được tài trợ trong kênh.</string>
+    <string name="download_boost">Tải xuống nhanh hơn</string>
+    <string name="download_boost_description">Tải xuống theo các phần lớn hơn, nhiều phần cùng lúc hơn.</string>
+    <string name="bypass_integrity">Bỏ qua kiểm tra tính toàn vẹn</string>
+    <string name="bypass_integrity_description">Cho phép đăng nhập trên điện thoại đã root và điện thoại không có dịch vụ của Google.</string>
+    <string name="fix_push_notifications">Sửa thông báo đẩy</string>
+    <string name="fix_push_notifications_description">Giúp thông báo đẩy vẫn đến sau khi vá.</string>
+    <string name="allow_screenshots">Cho phép chụp màn hình nội dung bí mật</string>
+    <string name="allow_screenshots_description">Cho phép chụp và quay màn hình nội dung xem một lần và nội dung tự hủy.</string>
+    <string name="anti_delete">Giữ lại tin nhắn đã xóa</string>
+    <string name="anti_delete_description">Giữ lại tin nhắn người khác đã xóa và hiển thị trong cuộc trò chuyện.</string>
+    <string name="bypass_restrictions">Lưu từ cuộc trò chuyện bị hạn chế</string>
+    <string name="bypass_restrictions_description">Cho phép sao chép, lưu và chuyển tiếp trong cuộc trò chuyện được bảo vệ.</string>
+    <string name="forward_from_restricted">Chuyển tiếp từ cuộc trò chuyện bị hạn chế</string>
+    <string name="forward_from_restricted_description">Gửi tin nhắn từ các cuộc trò chuyện chặn chuyển tiếp dưới dạng tin nhắn mới.</string>
+    <string name="hide_typing_indicator">Ẩn trạng thái đang nhập</string>
+    <string name="hide_typing_indicator_description">Ngăn người khác thấy bạn đang nhập hoặc ghi âm.</string>
+    <string name="play_store_restrictions">Gỡ hạn chế của Cửa hàng Play</string>
+    <string name="play_store_restrictions_description">Hiện các cuộc trò chuyện và nội dung mà Telegram chỉ ẩn trong phiên bản Cửa hàng Play.</string>
+    <string name="unlock_premium">Mở khóa Premium</string>
+    <string name="unlock_premium_description">Mở khóa các tính năng Premium hoạt động trên điện thoại này.</string>
+    <string name="disable_auto_update">Tắt lời nhắc cập nhật</string>
+    <string name="disable_auto_update_description">Ngừng kiểm tra và nhắc cập nhật.</string>
+</resources>

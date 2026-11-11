@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="recover_deleted_chats_chosen">Các cuộc trò chuyện tôi bật</string>
+    <string name="recover_deleted_chats_all">Mọi cuộc trò chuyện, trừ khi tôi tắt</string>
+    <string name="hide_sponsored_ads">Ẩn tin nhắn được tài trợ</string>
+    <string name="disable_auto_update">Tắt lời nhắc cập nhật</string>
+    <string name="unlock_premium">Mở khóa Premium</string>
+    <string name="unlock_premium_summary">Các tính năng do máy chủ kiểm tra vẫn cần gói đăng ký.</string>
+    <string name="hide_typing">Ẩn trạng thái đang nhập</string>
+    <string name="boost_downloads">Tải xuống nhanh hơn</string>
+    <string name="save_from_restricted">Lưu từ cuộc trò chuyện bị hạn chế</string>
+    <string name="save_from_restricted_summary">Cho phép sao chép, lưu và chuyển tiếp trong cuộc trò chuyện được bảo vệ.</string>
+    <string name="remove_play_store_restrictions">Gỡ hạn chế của Cửa hàng Play</string>
+    <string name="remove_play_store_restrictions_summary">Hiện các cuộc trò chuyện và nội dung mà Telegram chỉ ẩn trong phiên bản Cửa hàng Play.</string>
+    <string name="recover_deleted">Giữ lại tin nhắn đã xóa</string>
+    <string name="recover_deleted_summary">Giữ lại tin nhắn người khác đã xóa và đánh dấu bằng 🗑️.</string>
+    <string name="recover_deleted_chats">Bật cho</string>
+    <string name="recover_deleted_chats_summary">Bật hoặc tắt cho một cuộc trò chuyện trong trình đơn ⋮ của cuộc trò chuyện đó.</string>
+    <string name="allow_screenshots">Cho phép chụp màn hình nội dung bí mật</string>
+    <string name="allow_screenshots_summary">Bao gồm quay màn hình nội dung xem một lần và nội dung tự hủy.</string>
+    <string name="section_ads">Quảng cáo</string>
+    <string name="section_updates">Cập nhật</string>
+    <string name="section_downloads">Tải xuống</string>
+    <string name="section_premium">Premium</string>
+    <string name="section_privacy">Quyền riêng tư</string>
+    <string name="anti_delete_recovery_off">Ngừng giữ lại tin nhắn đã xóa</string>
+    <string name="anti_delete_recovery_on">Giữ lại tin nhắn đã xóa</string>
+</resources>

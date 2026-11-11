@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="spoof_video_streams_client_tv">TV (SABR)</string>
+    <string name="spoof_video_streams_client_web">Web (SABR)</string>
+    <string name="spoof_video_streams_client_tv_simply">TV Simply</string>
+    <string name="spoof_video_streams_stats_for_nerds">Hiện ứng dụng khách giả mạo trong thống kê</string>
+    <string name="spoof_video_streams_stats_for_nerds_summary">Hiện ứng dụng khách của luồng phát trong Thống kê chi tiết.</string>
+    <string name="token_server_credential">Thông tin xác thực máy chủ mã thông báo</string>
+    <string name="spoof_video_streams">Sửa lỗi phát</string>
+    <string name="spoof_video_streams_summary">Giúp video vẫn phát khi YouTube chặn ứng dụng.</string>
+    <string name="spoof_video_streams_client">Ứng dụng khách ưu tiên</string>
+    <string name="spoof_video_streams_client_summary">Ứng dụng khách được thử trước. Android và Web có thể dùng máy chủ mã thông báo của Reseam, theo các điều khoản tại https://mint.reseam.app.</string>
+    <string name="user_agent_client_spoof">Giả mạo tác nhân người dùng</string>
+    <string name="user_agent_client_spoof_summary">Báo cáo là ứng dụng gốc trong các yêu cầu, để YouTube chấp nhận.</string>
+    <string name="spoof_client_tv">TV (SABR)</string>
+    <string name="spoof_client_web">Web (SABR)</string>
+    <string name="spoof_client_tv_simply">TV Simply</string>
+    <string name="spoof_client_native">Gốc</string>
+</resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="custom_filter">Dùng bộ lọc tùy chỉnh</string>
+    <string name="custom_filter_strings">Bộ lọc tùy chỉnh</string>
+    <string name="custom_filter_strings_summary">Mỗi dòng một biểu thức, theo dạng ^path#accessibility$buffer.</string>
+    <string name="debug_logging">Ghi nhật ký gỡ lỗi</string>
+    <string name="debug_logging_summary">Ghi lại hoạt động của Reseam vào nhật ký Android.</string>
+    <string name="sanitize_sharing_links">Làm sạch đường liên kết chia sẻ</string>
+    <string name="sanitize_sharing_links_summary">Xóa thông tin theo dõi khỏi đường liên kết bạn chia sẻ.</string>
+    <string name="force_original_audio">Buộc dùng âm thanh gốc</string>
+    <string name="force_original_audio_summary">Phát âm thanh gốc thay vì bản lồng tiếng.</string>
+    <string name="custom_branding_icon_custom">Tùy chỉnh</string>
+    <string name="experiment_flags_saved">Đã lưu <xliff:g id="file_name">%1$s</xliff:g> vào Tệp đã tải xuống</string>
+    <string name="experiment_flags_failed">Không lưu được cờ thử nghiệm</string>
+    <string name="segment_behaviors_skip">Tự động bỏ qua</string>
+    <string name="segment_behaviors_skip_once">Bỏ qua một lần</string>
+    <string name="segment_behaviors_manual_skip">Hiện nút bỏ qua</string>
+    <string name="segment_behaviors_seekbar_only">Hiện trên thanh tiến trình</string>
+    <string name="segment_behaviors_ignore">Bỏ qua</string>
+    <string name="sb_enabled">SponsorBlock</string>
+    <string name="sb_enabled_summary">Bỏ qua các đoạn do cộng đồng SponsorBlock đánh dấu, dịch vụ này thấy những video bạn mở.</string>
+    <string name="sb_sponsor">Đoạn tài trợ</string>
+    <string name="sb_selfpromo">Tự quảng bá</string>
+    <string name="sb_interaction">Lời nhắc tương tác</string>
+    <string name="sb_poi_highlight">Điểm nổi bật</string>
+    <string name="sb_intro">Phần mở đầu</string>
+    <string name="sb_outro">Phần kết</string>
+    <string name="sb_preview">Xem trước</string>
+    <string name="sb_hook">Đoạn mồi</string>
+    <string name="sb_filler">Nội dung đệm</string>
+    <string name="sb_music_offtopic">Phần không phải nhạc</string>
+    <string name="sb_toast_on_skip">Hiện thông báo sau khi bỏ qua</string>
+    <string name="sb_toast_on_connection_error">Hiện lỗi kết nối SponsorBlock</string>
+    <string name="sb_track_skip_count">Theo dõi lượt bỏ qua SponsorBlock</string>
+    <string name="sb_track_skip_count_summary">Lưu thống kê trên điện thoại này và báo cáo lượt bỏ qua của bạn cho SponsorBlock.</string>
+    <string name="sb_min_segment_duration">Thời lượng đoạn tối thiểu (giây)</string>
+    <string name="section_sponsorblock">SponsorBlock</string>
+    <string name="sponsorblock_category_sponsor">Tài trợ</string>
+    <string name="sponsorblock_category_selfpromo">Tự quảng bá</string>
+    <string name="sponsorblock_category_interaction">Lời nhắc tương tác</string>
+    <string name="sponsorblock_category_highlight">Điểm nổi bật</string>
+    <string name="sponsorblock_category_intro">Phần mở đầu</string>
+    <string name="sponsorblock_category_outro">Phần kết</string>
+    <string name="sponsorblock_category_preview">Xem trước</string>
+    <string name="sponsorblock_category_hook">Đoạn mồi</string>
+    <string name="sponsorblock_category_filler">Nội dung đệm</string>
+    <string name="sponsorblock_category_music">Phần không phải nhạc</string>
+    <string name="sponsorblock_skipped">Đã bỏ qua <xliff:g id="segment">%1$s</xliff:g></string>
+    <string name="sponsorblock_load_failed">Không tải được các đoạn SponsorBlock</string>
+</resources>

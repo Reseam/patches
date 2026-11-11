@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_branding">Thương hiệu tùy chỉnh</string>
+    <string name="custom_branding_description">Thêm biểu tượng trình chạy và tên ứng dụng để lựa chọn, kể cả của riêng bạn.</string>
+    <string name="custom_branding_custom_name">Tên ứng dụng tùy chỉnh</string>
+    <string name="custom_branding_custom_name_description">Thêm tên này vào các lựa chọn tên ứng dụng và đặt làm mặc định.</string>
+    <string name="custom_branding_custom_icon">Biểu tượng tùy chỉnh</string>
+    <string name="custom_branding_custom_icon_description">Một thư mục chứa các thư mục mipmap-mdpi đến mipmap-xxxhdpi, mỗi thư mục có foreground.png và background.png. Thêm biểu tượng vào các lựa chọn và đặt làm mặc định.</string>
+</resources>
