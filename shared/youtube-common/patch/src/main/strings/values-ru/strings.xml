@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_branding">Своё оформление</string>
+    <string name="custom_branding_description">Добавляет на выбор значки для лаунчера и названия приложения, включая ваши.</string>
+    <string name="custom_branding_custom_name">Своё название приложения</string>
+    <string name="custom_branding_custom_name_description">Добавляет это название в варианты названия приложения и делает его названием по умолчанию.</string>
+    <string name="custom_branding_custom_icon">Свой значок</string>
+    <string name="custom_branding_custom_icon_description">Папка с папками от mipmap-mdpi до mipmap-xxxhdpi, в каждой foreground.png и background.png. Добавляет значок в варианты и делает его значком по умолчанию.</string>
+</resources>

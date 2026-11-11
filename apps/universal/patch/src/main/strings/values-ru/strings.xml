@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="allow_screenshots">Разрешить скриншоты</string>
+    <string name="allow_screenshots_description">Разрешает скриншоты и запись экрана на защищённых экранах.</string>
+    <string name="allow_split_screen">Разрешить разделение экрана</string>
+    <string name="allow_split_screen_description">Позволяет открывать приложение в режиме разделения экрана и во всплывающих окнах.</string>
+    <string name="change_package_name">Изменить имя пакета</string>
+    <string name="change_package_name_description">Устанавливает приложение под другим именем пакета, чтобы оно работало рядом с оригиналом. Некоторые приложения так не работают.</string>
+    <string name="change_package_name_package_name">Имя пакета</string>
+    <string name="change_package_name_package_name_description">Новое имя пакета. Если пусто, к исходному добавляется .reseam.</string>
+    <string name="disable_play_store_updates">Отключить обновления из Play Маркета</string>
+    <string name="disable_play_store_updates_description">Скрывает приложение от обновлений Google Play.</string>
+    <string name="enable_debugging">Включить отладку</string>
+    <string name="enable_debugging_description">Помечает приложение как отлаживаемое, чтобы adb мог исследовать его без root.</string>
+    <string name="hide_mock_location">Скрыть фиктивное местоположение</string>
+    <string name="hide_mock_location_description">Скрывает, что ваше местоположение задаёт приложение для фиктивных местоположений.</string>
+    <string name="override_certificate_pinning">Обойти привязку сертификатов</string>
+    <string name="override_certificate_pinning_description">Доверяет вашим сертификатам, чтобы прокси мог просматривать трафик приложения.</string>
+    <string name="remove_ads">Блокировать рекламу</string>
+    <string name="remove_ads_description">Не даёт приложению загружать рекламу из распространённых рекламных сетей.</string>
+    <string name="remove_pairip">Удалить Pairip</string>
+    <string name="remove_pairip_description">Удаляет автоматическую защиту целостности Google Play. Проверки на стороне сервера остаются.</string>
+    <string name="remove_pairip_kill_vm">Остановить ВМ Pairip</string>
+    <string name="remove_pairip_kill_vm_description">Только для приложений, в которых ВМ Pairip лишь проверяет лицензию. Ломает приложения, которые выполняют в ней свой код.</string>
+    <string name="remove_pairip_spoof_installer">Подменить проверки установщика</string>
+    <string name="remove_pairip_spoof_installer_description">Оставшиеся проверки установщика сообщают Google Play.</string>
+    <string name="report_play_store_installer">Сообщать Play Маркет как установщик</string>
+    <string name="report_play_store_installer_description">Приложение считает, что установлено из Google Play.</string>
+    <string name="spoof_signature">Подменить подпись</string>
+    <string name="spoof_signature_description">Показывает приложению его исходную подпись, чтобы проверки на изменение проходили.</string>
+</resources>

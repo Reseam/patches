@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_sponsored_ads">Скрыть рекламные сообщения</string>
+    <string name="hide_sponsored_ads_description">Скрывает рекламные сообщения в каналах.</string>
+    <string name="download_boost">Быстрое скачивание</string>
+    <string name="download_boost_description">Скачивает более крупными частями и по нескольку сразу.</string>
+    <string name="bypass_integrity">Обойти проверку целостности</string>
+    <string name="bypass_integrity_description">Позволяет входить на телефонах с root и без сервисов Google.</string>
+    <string name="fix_push_notifications">Исправить push-уведомления</string>
+    <string name="fix_push_notifications_description">Push-уведомления снова приходят после применения патчей.</string>
+    <string name="allow_screenshots">Разрешить скриншоты секретных медиа</string>
+    <string name="allow_screenshots_description">Разрешает скриншоты и запись экрана одноразовых и самоуничтожающихся медиа.</string>
+    <string name="anti_delete">Сохранять удалённые сообщения</string>
+    <string name="anti_delete_description">Сохраняет сообщения, которые удаляют другие, и показывает их в чате.</string>
+    <string name="bypass_restrictions">Сохранять из чатов с ограничениями</string>
+    <string name="bypass_restrictions_description">Разрешает копирование, сохранение и пересылку в защищённых чатах.</string>
+    <string name="forward_from_restricted">Пересылать из чатов с ограничениями</string>
+    <string name="forward_from_restricted_description">Отправляет сообщения из чатов, где пересылка запрещена, как новые сообщения.</string>
+    <string name="hide_typing_indicator">Скрыть индикатор набора</string>
+    <string name="hide_typing_indicator_description">Другие не видят, что вы печатаете или записываете.</string>
+    <string name="play_store_restrictions">Убрать ограничения Play Маркета</string>
+    <string name="play_store_restrictions_description">Показывает чаты и медиа, которые Telegram скрывает только в версии из Play Маркета.</string>
+    <string name="unlock_premium">Разблокировать Premium</string>
+    <string name="unlock_premium_description">Открывает функции Premium, которые работают на этом телефоне.</string>
+    <string name="disable_auto_update">Отключить предложения обновиться</string>
+    <string name="disable_auto_update_description">Останавливает проверку обновлений и предложения обновиться.</string>
+</resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="show_posted_date">Показывать дату публикации</string>
+    <string name="show_posted_date_description">Показывает, когда был опубликован пин.</string>
+    <string name="settings_entry">Пункт «Настройки Reseam»</string>
+    <string name="settings_entry_description">Добавляет «Настройки Reseam» в настройки Pinterest.</string>
+    <string name="download_board">Скачать доску</string>
+    <string name="download_board_description">Скачивает пины, которые доска уже загрузила.</string>
+    <string name="download_pins">Скачивать пины</string>
+    <string name="download_pins_description">Скачивает пины в виде исходных изображений и видео.</string>
+    <string name="hide_ads">Скрыть рекламу</string>
+    <string name="hide_ads_description">Скрывает рекламные пины.</string>
+    <string name="hide_shopping">Скрыть пины с товарами</string>
+    <string name="hide_shopping_description">Скрывает пины с товарами для покупки.</string>
+    <string name="original_quality">Изображения в исходном качестве</string>
+    <string name="original_quality_description">Загружает изображения в исходном качестве.</string>
+    <string name="fix_push_notifications">Исправить push-уведомления</string>
+    <string name="fix_push_notifications_description">Push-уведомления снова приходят после применения патчей.</string>
+    <string name="hide_surveys">Скрыть предложения пройти опрос</string>
+    <string name="hide_surveys_description">Скрывает предложения пройти опрос.</string>
+    <string name="hide_screenshot_share">Скрыть меню отправки скриншота</string>
+    <string name="hide_screenshot_share_description">Скрывает меню «Поделиться», которое открывается после скриншота.</string>
+    <string name="disable_update_prompts">Отключить предложения обновиться</string>
+    <string name="disable_update_prompts_description">Убирает предложения обновиться.</string>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="recover_deleted_chats_chosen">Чаты, для которых я включу</string>
+    <string name="recover_deleted_chats_all">Все чаты, если я не отключу</string>
+    <string name="hide_sponsored_ads">Скрыть рекламные сообщения</string>
+    <string name="disable_auto_update">Отключить предложения обновиться</string>
+    <string name="unlock_premium">Разблокировать Premium</string>
+    <string name="unlock_premium_summary">Функции, которые проверяет сервер, по-прежнему требуют подписки.</string>
+    <string name="hide_typing">Скрыть индикатор набора</string>
+    <string name="boost_downloads">Быстрое скачивание</string>
+    <string name="save_from_restricted">Сохранять из чатов с ограничениями</string>
+    <string name="save_from_restricted_summary">Разрешает копирование, сохранение и пересылку в защищённых чатах.</string>
+    <string name="remove_play_store_restrictions">Убрать ограничения Play Маркета</string>
+    <string name="remove_play_store_restrictions_summary">Показывает чаты и медиа, которые Telegram скрывает только в версии из Play Маркета.</string>
+    <string name="recover_deleted">Сохранять удалённые сообщения</string>
+    <string name="recover_deleted_summary">Сохраняет сообщения, которые удаляют другие, и отмечает их значком 🗑️.</string>
+    <string name="recover_deleted_chats">Включено для</string>
+    <string name="recover_deleted_chats_summary">Включайте и отключайте для чата в его меню ⋮.</string>
+    <string name="allow_screenshots">Разрешить скриншоты секретных медиа</string>
+    <string name="allow_screenshots_summary">Включая запись экрана одноразовых и самоуничтожающихся медиа.</string>
+    <string name="section_ads">Реклама</string>
+    <string name="section_updates">Обновления</string>
+    <string name="section_downloads">Скачивание</string>
+    <string name="section_premium">Premium</string>
+    <string name="section_privacy">Конфиденциальность</string>
+    <string name="anti_delete_recovery_off">Перестать сохранять удалённые сообщения</string>
+    <string name="anti_delete_recovery_on">Сохранять удалённые сообщения</string>
+</resources>

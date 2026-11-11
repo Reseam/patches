@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="hide_ads">Скрыть рекламу</string>
+    <string name="hide_shopping">Скрыть пины с товарами</string>
+    <string name="disable_update_prompts">Отключить предложения обновиться</string>
+    <string name="hide_screenshot_share">Скрыть меню отправки скриншота</string>
+    <string name="original_quality">Изображения в исходном качестве</string>
+    <string name="original_quality_summary">Расходует больше трафика.</string>
+    <string name="show_posted_date">Показывать дату публикации</string>
+    <string name="posted_on">Опубликовано <xliff:g id="date">%1$s</xliff:g></string>
+    <string name="hide_surveys">Скрыть предложения пройти опрос</string>
+    <string name="download_started">Скачивание</string>
+    <string name="download_unavailable">Нечего скачивать</string>
+    <plurals name="download_board_started">
+        <item quantity="one">Скачивается <xliff:g id="count">%1$d</xliff:g> пин</item>
+        <item quantity="few">Скачиваются <xliff:g id="count">%1$d</xliff:g> пина</item>
+        <item quantity="many">Скачиваются <xliff:g id="count">%1$d</xliff:g> пинов</item>
+        <item quantity="other">Скачиваются <xliff:g id="count">%1$d</xliff:g> пина</item>
+    </plurals>
+    <string name="download_board_empty">Сначала прокрутите доску, чтобы загрузить её пины</string>
+    <string name="ask_which_media">Спрашивать, какие медиа сохранять</string>
+    <string name="ask_which_media_summary">Если в пине несколько изображений или видео, спрашивает, какие из них сохранить.</string>
+    <string name="save_media_choose">Выберите, что сохранить</string>
+    <string name="save_media_image">Изображение <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_video">Видео <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_all">Сохранить все</string>
+    <string name="download_folder">Папка для скачивания</string>
+    <string name="download_folder_summary">Куда сохраняются пины. Оставьте галерею по умолчанию или выберите папку.</string>
+    <string name="section_downloads">Скачивание</string>
+    <string name="section_feed">Лента</string>
+    <string name="section_closeup">Крупный план</string>
+    <string name="section_images">Изображения</string>
+    <string name="section_sharing">Отправка</string>
+    <string name="section_prompts">Подсказки</string>
+    <string name="section_updates">Обновления</string>
+</resources>

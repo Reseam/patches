@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_comment_ads">Скрыть рекламу в комментариях</string>
+    <string name="hide_comment_ads_description">Скрывает рекламу под публикациями и между комментариями.</string>
+    <string name="hide_feed_ads">Скрыть рекламу в ленте</string>
+    <string name="hide_feed_ads_description">Скрывает рекламные публикации в лентах и поиске.</string>
+    <string name="color_thread_lines">Цветные линии веток</string>
+    <string name="color_thread_lines_description">Даёт каждому уровню ответов свой цвет линии.</string>
+    <string name="ignore_suggested_sort">Всегда использовать мою сортировку комментариев</string>
+    <string name="ignore_suggested_sort_description">Игнорирует сортировку, которую предлагает публикация или сообщество.</string>
+    <string name="settings_entry">Пункт «Настройки Reseam»</string>
+    <string name="settings_entry_description">Добавляет «Настройки Reseam» в настройки аккаунта.</string>
+    <string name="disable_features">Отключить функции Reddit</string>
+    <string name="disable_features_description">Отключает Reddit Answers, игры, предложения подписки, подсказки и другие функции.</string>
+    <string name="default_feed_sort">Сортировка лент по умолчанию</string>
+    <string name="default_feed_sort_description">Сортирует сообщества, свои ленты, Popular и All так, как вы выберете.</string>
+    <string name="hide_feed_units">Скрыть блоки в ленте</string>
+    <string name="hide_feed_units_description">Скрывает в лентах тренды, карусели, промо, опросы и другие вставки.</string>
+    <string name="hide_recommended_communities">Скрыть рекомендуемые сообщества</string>
+    <string name="hide_recommended_communities_description">Скрывает предложения сообществ в лентах.</string>
+    <string name="hide_recommended_posts">Скрыть рекомендуемые публикации</string>
+    <string name="hide_recommended_posts_description">Скрывает на главной публикации из сообществ, на которые вы не подписаны.</string>
+    <string name="hide_drawer_items">Скрыть пункты панели сообществ</string>
+    <string name="hide_drawer_items_description">Скрывает выбранные строки панели сообществ.</string>
+    <string name="hide_navigation_tabs">Скрыть вкладки навигации</string>
+    <string name="hide_navigation_tabs_description">Скрывает выбранные вкладки панели навигации.</string>
+    <string name="fix_push_notifications">Исправить push-уведомления</string>
+    <string name="fix_push_notifications_description">Push-уведомления снова приходят после применения патчей.</string>
+    <string name="skip_nsfw_warning">Не предупреждать о сообществах 18+</string>
+    <string name="skip_nsfw_warning_description">Открывает сообщества для взрослых, не спрашивая.</string>
+    <string name="block_analytics">Блокировать аналитику</string>
+    <string name="block_analytics_description">Останавливает журналирование событий Reddit и отслеживание AppsFlyer.</string>
+    <string name="disable_app_rate_prompt">Скрыть просьбу об оценке</string>
+    <string name="disable_app_rate_prompt_description">Reddit больше не просит оценить приложение.</string>
+    <string name="disable_screenshot_banner">Скрыть баннер о скриншоте</string>
+    <string name="disable_screenshot_banner_description">Не даёт Reddit замечать скриншоты.</string>
+    <string name="hide_trending_searches">Скрыть популярные запросы</string>
+    <string name="hide_trending_searches_description">Скрывает тренды на экране поиска.</string>
+    <string name="hide_premium_settings">Скрыть настройки Premium</string>
+    <string name="hide_premium_settings_description">Скрывает предложения Premium и Reddit Pro в настройках.</string>
+    <string name="vxreddit_links">Отправлять ссылки vxreddit</string>
+    <string name="vxreddit_links_description">Отправляет публикации как ссылки vxreddit.com, которые показывают медиа в Discord и других приложениях.</string>
+    <string name="block_forced_update">Блокировать принудительные обновления</string>
+    <string name="block_forced_update_description">Не даёт Reddit заблокировать эту версию экраном обновления.</string>
+</resources>

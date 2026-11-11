@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gms_core_support">Поддержка GmsCore</string>
+    <string name="gms_core_support_description">Вход выполняется через GmsCore вместо сервисов Google Play. GmsCore устанавливается отдельно.</string>
+    <string name="gms_core_support_gms_core_vendor_group_id">Поставщик GmsCore</string>
+    <string name="gms_core_support_gms_core_vendor_group_id_description">ID группы, под которым опубликован ваш GmsCore.</string>
+    <string name="gms_core_support_package_name">Имя пакета</string>
+    <string name="gms_core_support_package_name_description">Имя пакета пропатченного приложения.</string>
+</resources>

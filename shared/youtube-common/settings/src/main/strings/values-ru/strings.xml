@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="custom_filter">Использовать свои фильтры</string>
+    <string name="custom_filter_strings">Свои фильтры</string>
+    <string name="custom_filter_strings_summary">По одному выражению в строке, в виде ^path#accessibility$buffer.</string>
+    <string name="debug_logging">Журнал отладки</string>
+    <string name="debug_logging_summary">Записывает действия Reseam в журнал Android.</string>
+    <string name="sanitize_sharing_links">Очищать ссылки при отправке</string>
+    <string name="sanitize_sharing_links_summary">Убирает отслеживание из ссылок, которыми вы делитесь.</string>
+    <string name="force_original_audio">Всегда оригинальная звуковая дорожка</string>
+    <string name="force_original_audio_summary">Воспроизводит оригинальный звук вместо дублированной дорожки.</string>
+    <string name="custom_branding_icon_custom">Свой</string>
+    <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g> сохранён в «Загрузки»</string>
+    <string name="experiment_flags_failed">Не удалось сохранить экспериментальные флаги</string>
+    <string name="segment_behaviors_skip">Пропускать автоматически</string>
+    <string name="segment_behaviors_skip_once">Пропустить один раз</string>
+    <string name="segment_behaviors_manual_skip">Показывать кнопку пропуска</string>
+    <string name="segment_behaviors_seekbar_only">Показывать на полосе перемотки</string>
+    <string name="segment_behaviors_ignore">Игнорировать</string>
+    <string name="sb_enabled">SponsorBlock</string>
+    <string name="sb_enabled_summary">Пропускает сегменты, отмеченные сообществом SponsorBlock, которое видит видео, которые вы открываете.</string>
+    <string name="sb_sponsor">Спонсорские сегменты</string>
+    <string name="sb_selfpromo">Самореклама</string>
+    <string name="sb_interaction">Напоминания о взаимодействии</string>
+    <string name="sb_poi_highlight">Ключевые моменты</string>
+    <string name="sb_intro">Вступления</string>
+    <string name="sb_outro">Концовки</string>
+    <string name="sb_preview">Анонсы</string>
+    <string name="sb_hook">Зацепки</string>
+    <string name="sb_filler">Отступления</string>
+    <string name="sb_music_offtopic">Части без музыки</string>
+    <string name="sb_toast_on_skip">Показывать сообщение после пропуска</string>
+    <string name="sb_toast_on_connection_error">Показывать ошибки подключения к SponsorBlock</string>
+    <string name="sb_track_skip_count">Учитывать пропуски SponsorBlock</string>
+    <string name="sb_track_skip_count_summary">Ведёт статистику на этом телефоне и сообщает о ваших пропусках в SponsorBlock.</string>
+    <string name="sb_min_segment_duration">Минимальная длительность сегмента (секунды)</string>
+    <string name="section_sponsorblock">SponsorBlock</string>
+    <string name="sponsorblock_category_sponsor">Спонсор</string>
+    <string name="sponsorblock_category_selfpromo">Самореклама</string>
+    <string name="sponsorblock_category_interaction">Напоминание о взаимодействии</string>
+    <string name="sponsorblock_category_highlight">Ключевой момент</string>
+    <string name="sponsorblock_category_intro">Вступление</string>
+    <string name="sponsorblock_category_outro">Концовка</string>
+    <string name="sponsorblock_category_preview">Предпросмотр</string>
+    <string name="sponsorblock_category_hook">Зацепка</string>
+    <string name="sponsorblock_category_filler">Отступления</string>
+    <string name="sponsorblock_category_music">Часть без музыки</string>
+    <string name="sponsorblock_skipped">Пропущено: <xliff:g id="segment">%1$s</xliff:g></string>
+    <string name="sponsorblock_load_failed">Не удалось загрузить сегменты SponsorBlock</string>
+</resources>

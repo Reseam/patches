@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="block_video_ads">Блокировать видеорекламу</string>
+    <string name="block_video_ads_summary">Блокирует рекламу, которую Twitch запрашивает сам. Для рекламы внутри трансляции нужна «Блокировать встроенную рекламу».</string>
+    <string name="block_embedded_ads">Блокировать встроенную рекламу</string>
+    <string name="block_embedded_ads_summary">Загружает прямые трансляции через сторонний прокси, который видит ваш IP-адрес и каналы, которые вы смотрите.</string>
+    <string name="embedded_ads_proxy">Прокси без рекламы</string>
+    <string name="embedded_ads_proxy_custom">Свой</string>
+    <string name="custom_embedded_ads_proxy">Свой прокси</string>
+    <string name="custom_embedded_ads_proxy_summary">Адрес прокси, совместимого с Luminous или TTV LOL. Используется, когда для «Прокси без рекламы» выбрано «Свой».</string>
+    <string name="ignore_ad_events">Игнорировать рекламные события</string>
+    <string name="ignore_ad_events_summary">Игнорирует рекламные паузы, о которых Twitch сообщает во время трансляции.</string>
+    <string name="block_analytics">Блокировать аналитику</string>
+    <string name="disable_update_prompts">Отключить предложения обновиться</string>
+    <string name="startup_tab">Начальная вкладка</string>
+    <string name="startup_tab_summary">Для Following, Live или Clips выберите здесь «Главная» и задайте в Twitch Settings › Preferences › Default Home Page.</string>
+    <string name="startup_tab_home">Главная</string>
+    <string name="startup_tab_browse">Просмотр</string>
+    <string name="startup_tab_profile">Профиль</string>
+    <string name="debug_mode">Режим отладки</string>
+    <string name="section_ads">Реклама</string>
+    <string name="section_privacy">Конфиденциальность</string>
+    <string name="section_updates">Обновления</string>
+    <string name="section_navigation">Навигация</string>
+    <string name="section_developer">Для разработчиков</string>
+</resources>

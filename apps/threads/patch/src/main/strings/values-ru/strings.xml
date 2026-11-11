@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_ads">Скрыть рекламу</string>
+    <string name="hide_ads_description">Скрывает рекламные публикации.</string>
+    <string name="settings_entry">Пункт «Настройки Reseam»</string>
+    <string name="settings_entry_description">Добавляет «Настройки Reseam» в настройки Threads.</string>
+</resources>

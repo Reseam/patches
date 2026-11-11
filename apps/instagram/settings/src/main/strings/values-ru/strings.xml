@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="hide_typing">Скрыть индикатор набора</string>
+    <string name="hide_typing_summary">Другие не видят, что вы печатаете. Instagram может заблокировать ваш аккаунт.</string>
+    <string name="hide_dm_seen">Скрыть отметки о прочтении в личных сообщениях</string>
+    <string name="hide_dm_seen_summary">Отправители не видят, что вы прочитали их сообщения. Instagram может заблокировать ваш аккаунт.</string>
+    <string name="hide_story_seen">Скрыть просмотры историй</string>
+    <string name="hide_story_seen_summary">Вы не появляетесь в списках посмотревших историю. Instagram может заблокировать ваш аккаунт.</string>
+    <string name="hide_live_seen">Скрыть просмотры эфиров</string>
+    <string name="hide_live_seen_summary">Вы не отображаетесь как зритель прямых эфиров. Instagram может заблокировать ваш аккаунт.</string>
+    <string name="hide_screenshot_notifications">Скрыть уведомления о скриншотах</string>
+    <string name="hide_screenshot_notifications_summary">Другим не сообщается, когда вы делаете скриншот. Instagram может заблокировать ваш аккаунт.</string>
+    <string name="max_resolution">Фото в полном разрешении</string>
+    <string name="original_quality">Исходное качество фото</string>
+    <string name="original_quality_summary">Загружает фото в том виде, в каком они были загружены, сообщая о большем экране. Instagram может заблокировать ваш аккаунт.</string>
+    <string name="disable_video_autoplay">Отключить автовоспроизведение видео</string>
+    <string name="disable_video_autoplay_summary">Видео в ленте воспроизводятся только по нажатию.</string>
+    <string name="disable_reels_swiping">Отключить пролистывание Reels</string>
+    <string name="disable_reels_swiping_summary">Оставляет Reels на том видео, которое вы открыли.</string>
+    <string name="disable_auto_advance">Отключить автопереход между историями</string>
+    <string name="disable_auto_advance_summary">Оставляет завершённую историю на экране, пока вы не нажмёте.</string>
+    <string name="hide_suggested_users">Скрыть рекомендуемые истории</string>
+    <string name="hide_suggested_users_summary">Скрывает в ленте историй истории и аккаунты, на которые вы не подписаны.</string>
+    <string name="hide_story_tray">Скрыть ленту историй</string>
+    <string name="hide_story_tray_summary">Скрывает истории вверху главной.</string>
+    <string name="ring_size">Размер кружков историй</string>
+    <string name="ring_size_summary">Размер кружков историй вверху главной.</string>
+    <string name="ring_size_small">Маленький (80%)</string>
+    <string name="ring_size_default">По умолчанию</string>
+    <string name="ring_size_large">Большой (120%)</string>
+    <string name="ring_size_extra_large">Очень большой (140%)</string>
+    <string name="hide_in_explore_search">Скрыть Meta AI в поиске «Интересного»</string>
+    <string name="hide_in_direct">Скрыть Meta AI в личных сообщениях</string>
+    <string name="hide_in_direct_summary">Скрывает Meta AI во входящих, поиске по сообщениям и чатах.</string>
+    <string name="hide_in_posts">Скрыть Meta AI в публикациях</string>
+    <string name="hide_in_posts_summary">Скрывает краткое описание публикации и «Спросить Meta AI» в меню публикаций.</string>
+    <string name="open_externally">Открывать ссылки в браузере</string>
+    <string name="clean_share_links">Очищать ссылки при отправке</string>
+    <string name="clean_share_links_summary">Убирает из отправляемых ссылок часть, которая указывает на вас.</string>
+    <string name="allow_screenshots">Разрешить скриншоты</string>
+    <string name="allow_screenshots_summary">Включая чаты, одноразовые медиа и режим исчезающих сообщений.</string>
+    <string name="unlock_developer_options">Включить меню разработчика</string>
+    <string name="unlock_developer_options_summary">Добавляет меню разработчика Instagram внизу настроек.</string>
+    <string name="copy_comment">Копировать комментарий</string>
+    <string name="copy_comment_summary">Добавляет «Копировать» в меню долгого нажатия на комментарии.</string>
+    <string name="comment_copied">Комментарий скопирован</string>
+    <string name="follows_you_indicator">Отметка «Подписан(а) на вас»</string>
+    <string name="follows_you_indicator_summary">Показывает «Подписан(а) на вас» в профилях аккаунтов, которые на вас подписаны.</string>
+    <string name="hide_repost_buttons">Скрыть кнопки репоста</string>
+    <string name="hide_engagement_counts">Скрыть счётчики вовлечённости</string>
+    <string name="hide_engagement_counts_summary">Скрывает в ленте число отметок «Нравится», комментариев, репостов и отправок.</string>
+    <string name="hide_home_tab">Скрыть вкладку «Главная»</string>
+    <string name="hide_home_tab_summary">Instagram открывается на следующей вкладке.</string>
+    <string name="hide_reels_tab">Скрыть вкладку Reels</string>
+    <string name="hide_create_tab">Скрыть вкладку «Создать»</string>
+    <string name="hide_explore_grid">Скрыть сетку «Интересного»</string>
+    <string name="hide_explore_grid_summary">Оставляет на вкладке «Интересное» только поиск.</string>
+    <string name="hide_instants">Скрыть Instants</string>
+    <string name="hide_instants_summary">Скрывает стопку Instants во входящих.</string>
+    <string name="hide_threads_badge">Скрыть значок Threads</string>
+    <string name="hide_ads">Скрыть рекламу</string>
+    <string name="following_only">Лента только из подписок</string>
+    <string name="following_only_summary">Показывает публикации аккаунтов, на которые вы подписаны, сначала новые.</string>
+    <string name="hide_suggested_accounts">Скрыть рекомендуемые аккаунты</string>
+    <string name="hide_suggested_accounts_summary">Рекомендуемые публикации остаются. Их скрывает «Лента только из подписок».</string>
+    <string name="hide_threads_units">Скрыть блоки Threads</string>
+    <string name="hide_threads_units_summary">На главной может остаться пустое место.</string>
+    <string name="hide_shopping_units">Скрыть блоки покупок</string>
+    <string name="hide_shopping_units_summary">На главной может остаться пустое место.</string>
+    <string name="hide_suggested_reels">Скрыть рекомендуемые Reels</string>
+    <string name="folder">Папка для скачивания</string>
+    <string name="show_toast">Показывать сообщение о скачивании</string>
+    <string name="section_social">Общение</string>
+    <string name="section_comments">Комментарии</string>
+    <string name="section_appearance">Внешний вид</string>
+    <string name="section_playback">Воспроизведение</string>
+    <string name="section_media">Медиа</string>
+    <string name="section_privacy">Конфиденциальность</string>
+    <string name="section_ghost_mode">Режим призрака</string>
+    <string name="section_feed">Лента</string>
+    <string name="section_stories">Истории</string>
+    <string name="section_meta_ai">Meta AI</string>
+    <string name="section_links">Ссылки</string>
+    <string name="section_developer">Для разработчиков</string>
+    <string name="section_downloads">Скачивание</string>
+    <string name="download_label">Скачать</string>
+    <string name="download_instant_description">Скачать Instant</string>
+    <string name="download_carousel_current">Текущий (<xliff:g id="slide">%1$d</xliff:g>/<xliff:g id="total">%2$d</xliff:g>)</string>
+    <plurals name="download_carousel_all">
+        <item quantity="one">Весь <xliff:g id="count">%1$d</xliff:g> элемент</item>
+        <item quantity="few">Все <xliff:g id="count">%1$d</xliff:g> элемента</item>
+        <item quantity="many">Все <xliff:g id="count">%1$d</xliff:g> элементов</item>
+        <item quantity="other">Все <xliff:g id="count">%1$d</xliff:g> элемента</item>
+    </plurals>
+    <string name="download_cancel">Отмена</string>
+    <string name="download_started">Скачивание</string>
+    <string name="download_media_url_missing">Не удалось найти медиа для скачивания</string>
+    <string name="download_failed">Не удалось скачать</string>
+    <string name="download_slide_started">Скачивание слайда <xliff:g id="slide">%1$d</xliff:g></string>
+    <string name="download_slide_url_missing">Не удалось скачать слайд <xliff:g id="slide">%1$d</xliff:g></string>
+    <string name="download_story_media_missing">Не удалось найти историю для скачивания</string>
+    <plurals name="download_carousel_started">
+        <item quantity="one">Скачивание: <xliff:g id="started">%1$d</xliff:g> из <xliff:g id="count">%2$d</xliff:g> элемента</item>
+        <item quantity="few">Скачивание: <xliff:g id="started">%1$d</xliff:g> из <xliff:g id="count">%2$d</xliff:g> элементов</item>
+        <item quantity="many">Скачивание: <xliff:g id="started">%1$d</xliff:g> из <xliff:g id="count">%2$d</xliff:g> элементов</item>
+        <item quantity="other">Скачивание: <xliff:g id="started">%1$d</xliff:g> из <xliff:g id="count">%2$d</xliff:g> элементов</item>
+    </plurals>
+    <string name="download_carousel_urls_missing">Не удалось найти медиа карусели</string>
+    <string name="download_notification_description">Скачивание медиа из Instagram</string>
+    <string name="follows_you_label">Подписан(а) на вас</string>
+    <string name="follows_you_suffix">· Подписан(а) на вас</string>
+    <string name="follows_you_subtitle"><xliff:g id="subtitle">%1$s</xliff:g> · Подписан(а) на вас</string>
+</resources>

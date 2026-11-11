@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_save_to_device">Сохранять на устройство</string>
+    <string name="save_folder">Папка сохранения</string>
+    <string name="save_folder_summary">Куда сохраняются файлы. Вы выбираете её при первом сохранении.</string>
+    <string name="save_new_downloads">Сохранять новые загрузки на устройство</string>
+    <string name="save_new_downloads_summary">Также сохраняет каждую загрузку, когда она завершается.</string>
+    <string name="save_to_device">Сохранять на устройство</string>
+    <string name="notification_channel">Сохранённые загрузки</string>
+    <string name="saving">Сохранение: <xliff:g id="title">%1$s</xliff:g></string>
+    <string name="saving_progress">Сохранение <xliff:g id="done">%1$d</xliff:g> из <xliff:g id="total">%2$d</xliff:g></string>
+    <string name="saved">Сохранено: <xliff:g id="title">%1$s</xliff:g></string>
+    <plurals name="saved_count">
+        <item quantity="one">Сохранена <xliff:g id="count">%1$d</xliff:g> загрузка</item>
+        <item quantity="few">Сохранено <xliff:g id="count">%1$d</xliff:g> загрузки</item>
+        <item quantity="many">Сохранено <xliff:g id="count">%1$d</xliff:g> загрузок</item>
+        <item quantity="other">Сохранено <xliff:g id="count">%1$d</xliff:g> загрузки</item>
+    </plurals>
+    <string name="save_failed">Не удалось сохранить: <xliff:g id="title">%1$s</xliff:g></string>
+    <string name="save_failed_unsupported">Формат этой загрузки нельзя сохранить в виде файла.</string>
+    <string name="save_failed_incomplete">Загрузка ещё не завершена.</string>
+    <string name="save_failed_folder">Папка сохранения больше недоступна. Выберите её заново в «Настройках Reseam».</string>
+    <string name="save_failed_space">В папке сохранения недостаточно места.</string>
+    <string name="open">Открыть</string>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="block_embedded_ads">Блокировать встроенную рекламу</string>
+    <string name="block_embedded_ads_description">Загружает прямые трансляции без рекламы через сторонний прокси, который видит ваш IP-адрес и каналы, которые вы смотрите.</string>
+    <string name="block_video_ads">Блокировать видеорекламу</string>
+    <string name="block_video_ads_description">Блокирует видео-, аудио- и баннерную рекламу, которую Twitch запрашивает сам.</string>
+    <string name="ignore_ad_events">Игнорировать рекламные события</string>
+    <string name="ignore_ad_events_description">Игнорирует рекламные паузы и рекламное отслеживание, о которых Twitch сообщает во время трансляции.</string>
+    <string name="settings_entry">Пункт «Настройки Reseam»</string>
+    <string name="settings_entry_description">Добавляет «Настройки Reseam» над разделом аккаунта в настройках Twitch.</string>
+    <string name="enable_debug_mode">Включить режим отладки</string>
+    <string name="enable_debug_mode_description">Показывает служебные инструменты Twitch, например меню отладки и панель отладки видео.</string>
+    <string name="fix_login_crash">Исправить сбой при входе</string>
+    <string name="fix_login_crash_description">Не даёт Twitch вылетать сразу после входа.</string>
+    <string name="startup_tab">Начальная вкладка</string>
+    <string name="startup_tab_description">Открывает Twitch на вкладке «Просмотр» или «Профиль» и открывает настройку Default Home Page.</string>
+    <string name="block_analytics">Блокировать аналитику</string>
+    <string name="block_analytics_description">Останавливает comScore, Nielsen, Sentry, Crashlytics, Sprig и Branch.</string>
+    <string name="disable_update_prompts">Отключить предложения обновиться</string>
+    <string name="disable_update_prompts_description">Убирает предложения обновиться.</string>
+</resources>
