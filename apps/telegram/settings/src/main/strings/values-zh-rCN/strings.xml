@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="recover_deleted_chats_chosen">仅限我开启的聊天</string>
+    <string name="recover_deleted_chats_all">所有聊天，除非我关闭</string>
+    <string name="hide_sponsored_ads">隐藏赞助消息</string>
+    <string name="disable_auto_update">停用更新提示</string>
+    <string name="unlock_premium">解锁 Premium</string>
+    <string name="unlock_premium_summary">服务器会检查的功能仍需订阅。</string>
+    <string name="hide_typing">隐藏正在输入提示</string>
+    <string name="boost_downloads">更快的下载</string>
+    <string name="save_from_restricted">从受限聊天中保存</string>
+    <string name="save_from_restricted_summary">允许在受保护的聊天中复制、保存和转发。</string>
+    <string name="remove_play_store_restrictions">移除 Play 商店限制</string>
+    <string name="remove_play_store_restrictions_summary">显示 Telegram 只在 Play 商店版本中隐藏的聊天和媒体。</string>
+    <string name="recover_deleted">保留已删除的消息</string>
+    <string name="recover_deleted_summary">保留他人删除的消息，并用 🗑️ 标出。</string>
+    <string name="recover_deleted_chats">开启范围</string>
+    <string name="recover_deleted_chats_summary">在聊天的 ⋮ 菜单中为该聊天开启或关闭。</string>
+    <string name="allow_screenshots">允许截取私密媒体</string>
+    <string name="allow_screenshots_summary">包括录制一次性查看及自毁的媒体。</string>
+    <string name="section_ads">广告</string>
+    <string name="section_updates">更新</string>
+    <string name="section_downloads">下载</string>
+    <string name="section_premium">Premium</string>
+    <string name="section_privacy">隐私</string>
+    <string name="anti_delete_recovery_off">不再保留已删除的消息</string>
+    <string name="anti_delete_recovery_on">保留已删除的消息</string>
+</resources>

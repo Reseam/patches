@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="show_posted_date">显示发布日期</string>
+    <string name="show_posted_date_description">显示 Pin 图的发布时间。</string>
+    <string name="settings_entry">Reseam 设置入口</string>
+    <string name="settings_entry_description">在 Pinterest 的设置中添加 Reseam 设置。</string>
+    <string name="download_board">下载图板</string>
+    <string name="download_board_description">下载图板中已加载的 Pin 图。</string>
+    <string name="download_pins">下载 Pin 图</string>
+    <string name="download_pins_description">以原始图片和视频下载 Pin 图。</string>
+    <string name="hide_ads">隐藏广告</string>
+    <string name="hide_ads_description">隐藏推广的 Pin 图。</string>
+    <string name="hide_shopping">隐藏购物 Pin 图</string>
+    <string name="hide_shopping_description">隐藏可购买的 Pin 图。</string>
+    <string name="original_quality">原画质图片</string>
+    <string name="original_quality_description">以原画质加载图片。</string>
+    <string name="fix_push_notifications">修复推送通知</string>
+    <string name="fix_push_notifications_description">让打补丁后的应用也能收到推送通知。</string>
+    <string name="hide_surveys">隐藏问卷提示</string>
+    <string name="hide_surveys_description">隐藏问卷提示。</string>
+    <string name="hide_screenshot_share">隐藏截图分享菜单</string>
+    <string name="hide_screenshot_share_description">隐藏截图后弹出的分享菜单。</string>
+    <string name="disable_update_prompts">停用更新提示</string>
+    <string name="disable_update_prompts_description">不再显示更新提示。</string>
+</resources>

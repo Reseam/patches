@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gms_core_support">GmsCore 支持</string>
+    <string name="gms_core_support_description">通过 GmsCore 而不是 Google Play 服务登录，GmsCore 需另行安装。</string>
+    <string name="gms_core_support_gms_core_vendor_group_id">GmsCore 发布者</string>
+    <string name="gms_core_support_gms_core_vendor_group_id_description">你的 GmsCore 发布时所用的组 ID。</string>
+    <string name="gms_core_support_package_name">包名</string>
+    <string name="gms_core_support_package_name_description">打补丁后应用的包名。</string>
+</resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="hide_ads">隐藏广告</string>
+    <string name="hide_shopping">隐藏购物 Pin 图</string>
+    <string name="disable_update_prompts">停用更新提示</string>
+    <string name="hide_screenshot_share">隐藏截图分享菜单</string>
+    <string name="original_quality">原画质图片</string>
+    <string name="original_quality_summary">会消耗更多流量。</string>
+    <string name="show_posted_date">显示发布日期</string>
+    <string name="posted_on">发布于 <xliff:g id="date">%1$s</xliff:g></string>
+    <string name="hide_surveys">隐藏问卷提示</string>
+    <string name="download_started">正在下载</string>
+    <string name="download_unavailable">没有可下载的内容</string>
+    <plurals name="download_board_started">
+        <item quantity="other">正在下载 <xliff:g id="count">%1$d</xliff:g> 个 Pin 图</item>
+    </plurals>
+    <string name="download_board_empty">请先滚动图板以加载其中的 Pin 图</string>
+    <string name="ask_which_media">询问要保存哪些媒体</string>
+    <string name="ask_which_media_summary">当 Pin 图包含多张图片或多个视频时，询问要保存其中哪些。</string>
+    <string name="save_media_choose">选择要保存的内容</string>
+    <string name="save_media_image">图片 <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_video">视频 <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_all">全部保存</string>
+    <string name="download_folder">下载文件夹</string>
+    <string name="download_folder_summary">保存的 Pin 图存放的位置。可保留默认的相册，或选择一个文件夹。</string>
+    <string name="section_downloads">下载</string>
+    <string name="section_feed">动态</string>
+    <string name="section_closeup">特写</string>
+    <string name="section_images">图片</string>
+    <string name="section_sharing">分享</string>
+    <string name="section_prompts">提示</string>
+    <string name="section_updates">更新</string>
+</resources>

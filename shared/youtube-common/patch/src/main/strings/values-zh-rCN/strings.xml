@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_branding">自定义品牌</string>
+    <string name="custom_branding_description">添加可供选择的启动器图标和应用名称，包括你自己的。</string>
+    <string name="custom_branding_custom_name">自定义应用名称</string>
+    <string name="custom_branding_custom_name_description">将此名称加入应用名称选项，并设为默认。</string>
+    <string name="custom_branding_custom_icon">自定义图标</string>
+    <string name="custom_branding_custom_icon_description">一个包含 mipmap-mdpi 到 mipmap-xxxhdpi 文件夹的文件夹，每个文件夹中都有 foreground.png 和 background.png。会将该图标加入选项并设为默认。</string>
+</resources>

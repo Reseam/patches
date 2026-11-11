@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="signature_check">修复签名校验</string>
+    <string name="signature_check_description">让重新签名的应用能够启动。</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="block_video_ads">阻止视频广告</string>
+    <string name="block_video_ads_summary">阻止 Twitch 自己请求的广告。直播流中的广告需要“阻止嵌入式广告”。</string>
+    <string name="block_embedded_ads">阻止嵌入式广告</string>
+    <string name="block_embedded_ads_summary">通过第三方代理加载直播，该代理能看到你的 IP 地址和你观看的频道。</string>
+    <string name="embedded_ads_proxy">无广告代理</string>
+    <string name="embedded_ads_proxy_custom">自定义</string>
+    <string name="custom_embedded_ads_proxy">自定义代理</string>
+    <string name="custom_embedded_ads_proxy_summary">兼容 Luminous 或 TTV LOL 的代理地址，在“无广告代理”设为“自定义”时使用。</string>
+    <string name="ignore_ad_events">忽略广告事件</string>
+    <string name="ignore_ad_events_summary">忽略 Twitch 在直播期间宣布的广告时段。</string>
+    <string name="block_analytics">阻止分析</string>
+    <string name="disable_update_prompts">停用更新提示</string>
+    <string name="startup_tab">启动标签页</string>
+    <string name="startup_tab_summary">如需打开“关注”、“直播”或“剪辑”，请在此选择“首页”，然后在 Twitch 的“设置 › 偏好设置 › 默认主页”中设置。</string>
+    <string name="startup_tab_home">首页</string>
+    <string name="startup_tab_browse">浏览</string>
+    <string name="startup_tab_profile">个人资料</string>
+    <string name="debug_mode">调试模式</string>
+    <string name="section_ads">广告</string>
+    <string name="section_privacy">隐私</string>
+    <string name="section_updates">更新</string>
+    <string name="section_navigation">导航</string>
+    <string name="section_developer">开发者</string>
+</resources>

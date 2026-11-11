@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="custom_filter">使用自定义过滤器</string>
+    <string name="custom_filter_strings">自定义过滤器</string>
+    <string name="custom_filter_strings_summary">每行一个表达式，格式为 ^path#accessibility$buffer。</string>
+    <string name="debug_logging">调试日志</string>
+    <string name="debug_logging_summary">将 Reseam 的操作写入 Android 日志。</string>
+    <string name="sanitize_sharing_links">清理分享链接</string>
+    <string name="sanitize_sharing_links_summary">移除你分享的链接中的跟踪参数。</string>
+    <string name="force_original_audio">强制原始音频</string>
+    <string name="force_original_audio_summary">播放原始音频，而不是配音音轨。</string>
+    <string name="custom_branding_icon_custom">自定义</string>
+    <string name="experiment_flags_saved">已将 <xliff:g id="file_name">%1$s</xliff:g> 保存到“下载”</string>
+    <string name="experiment_flags_failed">无法保存实验开关</string>
+    <string name="segment_behaviors_skip">自动跳过</string>
+    <string name="segment_behaviors_skip_once">跳过一次</string>
+    <string name="segment_behaviors_manual_skip">显示跳过按钮</string>
+    <string name="segment_behaviors_seekbar_only">在进度条中显示</string>
+    <string name="segment_behaviors_ignore">忽略</string>
+    <string name="sb_enabled">SponsorBlock</string>
+    <string name="sb_enabled_summary">跳过由 SponsorBlock 社区标记的片段，该社区服务能看到你打开的视频。</string>
+    <string name="sb_sponsor">赞助片段</string>
+    <string name="sb_selfpromo">自我推广</string>
+    <string name="sb_interaction">互动提醒</string>
+    <string name="sb_poi_highlight">精彩片段</string>
+    <string name="sb_intro">片头</string>
+    <string name="sb_outro">片尾</string>
+    <string name="sb_preview">预告</string>
+    <string name="sb_hook">钩子</string>
+    <string name="sb_filler">填充内容</string>
+    <string name="sb_music_offtopic">非音乐部分</string>
+    <string name="sb_toast_on_skip">跳过后显示消息</string>
+    <string name="sb_toast_on_connection_error">显示 SponsorBlock 连接错误</string>
+    <string name="sb_track_skip_count">记录 SponsorBlock 跳过次数</string>
+    <string name="sb_track_skip_count_summary">在这部手机上保留统计信息，并向 SponsorBlock 报告你的跳过。</string>
+    <string name="sb_min_segment_duration">最短片段时长 (秒)</string>
+    <string name="section_sponsorblock">SponsorBlock</string>
+    <string name="sponsorblock_category_sponsor">赞助</string>
+    <string name="sponsorblock_category_selfpromo">自我推广</string>
+    <string name="sponsorblock_category_interaction">互动提醒</string>
+    <string name="sponsorblock_category_highlight">精彩片段</string>
+    <string name="sponsorblock_category_intro">片头</string>
+    <string name="sponsorblock_category_outro">片尾</string>
+    <string name="sponsorblock_category_preview">预览</string>
+    <string name="sponsorblock_category_hook">钩子</string>
+    <string name="sponsorblock_category_filler">填充内容</string>
+    <string name="sponsorblock_category_music">非音乐部分</string>
+    <string name="sponsorblock_skipped">已跳过<xliff:g id="segment">%1$s</xliff:g></string>
+    <string name="sponsorblock_load_failed">无法加载 SponsorBlock 片段</string>
+</resources>

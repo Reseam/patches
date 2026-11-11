@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reseam_you_tube_music">Reseam YouTube Music</string>
+    <string name="reseam_you_tube_music_description">安装了 Reseam 的 YouTube Music 时，将其用于自动播放和关联的服务。</string>
+    <string name="reseam_you_tube_music_you_tube_music_package_name">YouTube Music 包名</string>
+    <string name="reseam_you_tube_music_you_tube_music_package_name_description">打补丁时为你的 Reseam YouTube Music 设置的包名。</string>
+</resources>

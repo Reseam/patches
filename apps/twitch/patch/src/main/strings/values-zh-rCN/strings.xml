@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="block_embedded_ads">阻止嵌入式广告</string>
+    <string name="block_embedded_ads_description">通过第三方代理加载无广告的直播，该代理能看到你的 IP 地址和你观看的频道。</string>
+    <string name="block_video_ads">阻止视频广告</string>
+    <string name="block_video_ads_description">阻止 Twitch 自己请求的视频、音频和展示广告。</string>
+    <string name="ignore_ad_events">忽略广告事件</string>
+    <string name="ignore_ad_events_description">忽略 Twitch 在直播期间宣布的广告时段和广告跟踪。</string>
+    <string name="settings_entry">Reseam 设置入口</string>
+    <string name="settings_entry_description">在 Twitch 设置中的“帐户”上方添加 Reseam 设置。</string>
+    <string name="enable_debug_mode">启用调试模式</string>
+    <string name="enable_debug_mode_description">显示 Twitch 的员工工具，例如调试菜单和视频调试面板。</string>
+    <string name="fix_login_crash">修复登录崩溃</string>
+    <string name="fix_login_crash_description">防止 Twitch 在你登录后立即崩溃。</string>
+    <string name="startup_tab">启动标签页</string>
+    <string name="startup_tab_description">让 Twitch 在“浏览”或“个人资料”上打开，并解锁“默认主页”设置。</string>
+    <string name="block_analytics">阻止分析</string>
+    <string name="block_analytics_description">阻止 comScore、Nielsen、Sentry、Crashlytics、Sprig 和 Branch。</string>
+    <string name="disable_update_prompts">停用更新提示</string>
+    <string name="disable_update_prompts_description">不再显示更新提示。</string>
+</resources>

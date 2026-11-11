@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_comment_ads">隐藏评论区广告</string>
+    <string name="hide_comment_ads_description">隐藏帖子下方和评论之间的广告。</string>
+    <string name="hide_feed_ads">隐藏动态广告</string>
+    <string name="hide_feed_ads_description">隐藏动态和搜索中的推广帖子。</string>
+    <string name="color_thread_lines">彩色评论线</string>
+    <string name="color_thread_lines_description">每一层回复使用不同颜色的线。</string>
+    <string name="ignore_suggested_sort">始终使用我的评论排序</string>
+    <string name="ignore_suggested_sort_description">忽略帖子或社区建议的排序方式。</string>
+    <string name="settings_entry">Reseam 设置入口</string>
+    <string name="settings_entry_description">在“帐户设置”下添加 Reseam 设置。</string>
+    <string name="disable_features">停用 Reddit 功能</string>
+    <string name="disable_features_description">关闭 Reddit Answers、游戏、付费推销、提醒及其他功能。</string>
+    <string name="default_feed_sort">默认动态排序</string>
+    <string name="default_feed_sort_description">按你选择的方式排序社区、自定义动态、Popular 和 All。</string>
+    <string name="hide_feed_units">隐藏动态插入内容</string>
+    <string name="hide_feed_units_description">隐藏动态中的热门、轮播、推广、问卷及其他插入内容。</string>
+    <string name="hide_recommended_communities">隐藏推荐社区</string>
+    <string name="hide_recommended_communities_description">隐藏动态中的社区推荐。</string>
+    <string name="hide_recommended_posts">隐藏推荐帖子</string>
+    <string name="hide_recommended_posts_description">隐藏首页中来自你未关注社区的帖子。</string>
+    <string name="hide_drawer_items">隐藏社区抽屉中的项目</string>
+    <string name="hide_drawer_items_description">隐藏社区抽屉中选定的行。</string>
+    <string name="hide_navigation_tabs">隐藏导航标签页</string>
+    <string name="hide_navigation_tabs_description">隐藏导航栏中选定的标签页。</string>
+    <string name="fix_push_notifications">修复推送通知</string>
+    <string name="fix_push_notifications_description">让打补丁后的应用也能收到推送通知。</string>
+    <string name="skip_nsfw_warning">跳过 NSFW 社区警告</string>
+    <string name="skip_nsfw_warning_description">直接打开成人社区，不再询问。</string>
+    <string name="block_analytics">阻止分析</string>
+    <string name="block_analytics_description">阻止 Reddit 的事件记录和 AppsFlyer 跟踪。</string>
+    <string name="disable_app_rate_prompt">隐藏评分提示</string>
+    <string name="disable_app_rate_prompt_description">不再让 Reddit 请你评分。</string>
+    <string name="disable_screenshot_banner">隐藏截图横幅</string>
+    <string name="disable_screenshot_banner_description">不让 Reddit 察觉截图。</string>
+    <string name="hide_trending_searches">隐藏热门搜索</string>
+    <string name="hide_trending_searches_description">隐藏搜索页面上的热门内容。</string>
+    <string name="hide_premium_settings">隐藏 Premium 设置</string>
+    <string name="hide_premium_settings_description">隐藏设置中的 Premium 和 Reddit Pro 推销。</string>
+    <string name="vxreddit_links">分享 vxreddit 链接</string>
+    <string name="vxreddit_links_description">将帖子分享为 vxreddit.com 链接，这样在 Discord 等应用中能直接显示其中的媒体。</string>
+    <string name="block_forced_update">阻止强制更新</string>
+    <string name="block_forced_update_description">不让 Reddit 用更新页面阻止使用此版本。</string>
+</resources>

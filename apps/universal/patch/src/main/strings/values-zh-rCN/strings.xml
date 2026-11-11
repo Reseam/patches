@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="allow_screenshots">允许截图</string>
+    <string name="allow_screenshots_description">允许截图和录制受保护的屏幕。</string>
+    <string name="allow_split_screen">允许分屏</string>
+    <string name="allow_split_screen_description">让应用可以在分屏和气泡中打开。</string>
+    <string name="change_package_name">更改包名</string>
+    <string name="change_package_name_description">以另一个包名安装应用，使其可以与原版并存。有些应用这样会无法正常工作。</string>
+    <string name="change_package_name_package_name">包名</string>
+    <string name="change_package_name_package_name_description">新的包名。留空则在原包名后加上 .reseam。</string>
+    <string name="disable_play_store_updates">停用 Play 商店更新</string>
+    <string name="disable_play_store_updates_description">不让 Google Play 更新此应用。</string>
+    <string name="enable_debugging">启用调试</string>
+    <string name="enable_debugging_description">将应用标为可调试，这样无需 root 即可用 adb 检查它。</string>
+    <string name="hide_mock_location">隐藏模拟位置</string>
+    <string name="hide_mock_location_description">隐藏你的位置来自模拟位置应用这一事实。</string>
+    <string name="override_certificate_pinning">覆盖证书锁定</string>
+    <string name="override_certificate_pinning_description">信任你自己的证书，以便代理可以检查应用的流量。</string>
+    <string name="remove_ads">阻止广告</string>
+    <string name="remove_ads_description">阻止应用从常见广告网络加载广告。</string>
+    <string name="remove_pairip">移除 Pairip</string>
+    <string name="remove_pairip_description">移除 Google Play 的自动完整性保护。服务器端的检查仍然有效。</string>
+    <string name="remove_pairip_kill_vm">停止 Pairip 虚拟机</string>
+    <string name="remove_pairip_kill_vm_description">仅适用于 Pairip 虚拟机只用于检查许可的应用。会导致在其中运行自身代码的应用无法使用。</string>
+    <string name="remove_pairip_spoof_installer">伪装安装来源检查</string>
+    <string name="remove_pairip_spoof_installer_description">让剩余的安装来源检查报告为 Google Play。</string>
+    <string name="report_play_store_installer">将 Play 商店报告为安装来源</string>
+    <string name="report_play_store_installer_description">让应用认为自己是从 Google Play 安装的。</string>
+    <string name="spoof_signature">伪装签名</string>
+    <string name="spoof_signature_description">向应用显示其原始签名，以通过修改检测。</string>
+</resources>

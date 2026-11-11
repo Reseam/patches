@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="gmscore_missing_title">未安装 GmsCore</string>
+    <string name="gmscore_missing_message">此应用已打补丁，需通过 GmsCore (<xliff:g id="packageName">%1$s</xliff:g>) 登录，但 GmsCore 尚未安装。请安装它，打开一次并授予它请求的权限，然后再打开此应用。</string>
+    <string name="gmscore_get">获取 GmsCore</string>
+    <string name="gmscore_close">关闭</string>
+    <string name="gmscore_mount_unsupported">GmsCore 支持补丁会导致挂载安装无法使用</string>
+    <string name="gmscore_battery_optimized_title">GmsCore 受电池优化限制</string>
+    <string name="gmscore_battery_optimized_message">Android 会在后台停止 GmsCore，导致你被退出登录，通知也无法收到。请为 GmsCore 关闭电池优化。</string>
+    <string name="gmscore_open_settings">打开设置</string>
+    <string name="gmscore_unavailable_title">GmsCore 不可用</string>
+    <string name="gmscore_unavailable_message">此应用无法访问 GmsCore。请打开 GmsCore，检查它的权限和后台活动设置。</string>
+    <string name="gmscore_open_website">打开网站</string>
+    <string name="gmscore_ignore">忽略</string>
+    <string name="gmscore_no_screen_handler">没有可打开此页面的应用</string>
+</resources>
