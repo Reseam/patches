@@ -13,14 +13,15 @@ import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
-import app.reseam.patch.settings.whenEnabled
 import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
 import app.reseam.patches.youtube.internal.booleanFeatureReads
+import app.reseam.patches.youtube.internal.playerTypeHook
 import app.reseam.patches.youtubecommon.playableInBackground
 import app.reseam.youtube.settings.VideoSettings
+import app.reseam.youtube.video.bindings.BackgroundPlayback
 import app.reseam.youtube.settings.YouTubeStrings
 
 private val backgroundPlaybackManagerShorts = method("Shorts background playback policy") {
@@ -47,7 +48,7 @@ private val kidsPlaybackPolicy = method("kids background playback policy") {
 val removeBackgroundPlaybackRestrictions = patch(YouTubePatchStrings.removeBackgroundPlaybackRestrictions) {
     description(YouTubePatchStrings.removeBackgroundPlaybackRestrictionsDescription)
     compatibleWith(YOUTUBE)
-    dependsOn(youTubeSettings)
+    dependsOn(playerTypeHook)
     settings(
         youTubeSettings,
         section(YouTubeSettingsPages.Video, YouTubeStrings.sectionBackgroundPlayback, VideoSettings.removeBackgroundPlaybackRestrictions, VideoSettings.allowShortsBackgroundPlayback),
@@ -67,13 +68,11 @@ val removeBackgroundPlaybackRestrictions = patch(YouTubePatchStrings.removeBackg
         }.callee("background setting boolean method")
 
         gate(VideoSettings.removeBackgroundPlaybackRestrictions) {
-            playableInBackground.after {
-                result.assign(bool(true))
-            }
+            playableInBackground.after { result.assign(BackgroundPlayback.isAllowed()) }
         }
-        backgroundPlaybackManagerShorts.after {
-            whenEnabled(VideoSettings.removeBackgroundPlaybackRestrictions) { result.assign(bool(true)) }
-            whenEnabled(VideoSettings.allowShortsBackgroundPlayback) { result.assign(bool(true)) }
+        // YouTube also asks this while a regular video plays over an unclosed Short.
+        gate(VideoSettings.removeBackgroundPlaybackRestrictions) {
+            backgroundPlaybackManagerShorts.after { result.assign(BackgroundPlayback.isAllowed()) }
         }
         gate(VideoSettings.removeBackgroundPlaybackRestrictions) {
             settingsBoolean.alwaysReturn(true)

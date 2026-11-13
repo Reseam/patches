@@ -79,6 +79,6 @@ object VideoSettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
     val playbackSpeedDefault by text(default = "0")
     val rememberPlaybackSpeed by toggle(default = false)
     val removeBackgroundPlaybackRestrictions by toggle(default = true)
-    val allowShortsBackgroundPlayback by toggle(default = true)
+    val allowShortsBackgroundPlayback by toggle(default = false)
     val disableResumingPlaybackOnReturn by toggle(default = false)
 }
