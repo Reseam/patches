@@ -360,6 +360,10 @@
     <string name="player_overlay_opacity_summary">From 0 to 100.</string>
     <string name="disable_auto_captions">Disable auto captions</string>
     <string name="disable_auto_captions_summary">Stops captions from turning on by themselves.</string>
+    <string name="caption_language">Captions language</string>
+    <string name="caption_language_summary">Turns captions on in this language for every video, and translates them when a video has none in it.</string>
+    <string name="caption_language_off">Off</string>
+    <string name="caption_language_app">App language</string>
     <string name="disable_like_subscribe_glow">Disable like and subscribe glow</string>
     <string name="hide_like_dislike_button">Hide like and dislike button</string>
     <string name="hide_download_button">Hide download button</string>

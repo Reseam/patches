@@ -4,6 +4,7 @@
 package app.reseam.youtube.settings
 
 import app.reseam.patch.settings.SettingsGroup
+import app.reseam.patch.settings.choice
 import app.reseam.patch.settings.text
 import app.reseam.patch.settings.toggle
 
@@ -25,6 +26,7 @@ object PlayerOverlaySettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
     val playPauseButtonSize by text(default = "56")
     val playerOverlayOpacity by text(default = "100")
     val disableAutoCaptions by toggle(default = false)
+    val captionLanguage by choice(default = CAPTION_LANGUAGE_OFF, choices = captionLanguageChoices)
     val disableLikeSubscribeGlow by toggle(default = false)
     val hideLikeDislikeButton by toggle(default = false)
     val hideDownloadButton by toggle(default = false)

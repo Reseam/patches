@@ -118,6 +118,8 @@
     <string name="custom_player_overlay_opacity_description">Changes how dark the player gets while its controls show.</string>
     <string name="disable_auto_captions">Disable auto captions</string>
     <string name="disable_auto_captions_description">Stops captions from turning on by themselves.</string>
+    <string name="caption_language">Captions language</string>
+    <string name="caption_language_description">Turns captions on in a language you choose, and translates them when a video has none in it.</string>
     <string name="disable_player_popup_panels">Disable player popup panels</string>
     <string name="disable_player_popup_panels_description">Stops panels such as live chat from opening by themselves.</string>
     <string name="disable_rolling_number_animations">Disable rolling number animations</string>

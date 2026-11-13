@@ -15,7 +15,11 @@ import app.reseam.youtube.settings.PlayerOverlaySettings
 
 @Export
 fun disableAutoCaptions(): Boolean {
-    val disable = PlayerOverlaySettings.disableAutoCaptions.value && !captionsButtonStatus
+    // A chosen captions language turns captions on by design.
+    val disable =
+        PlayerOverlaySettings.disableAutoCaptions.value &&
+            !captionsButtonStatus &&
+            PlayerOverlaySettings.captionLanguage.value == CAPTION_LANGUAGE_OFF
     Logger.debug { "DisableAutoCaptions: $disable status=$captionsButtonStatus" }
     return disable
 }
