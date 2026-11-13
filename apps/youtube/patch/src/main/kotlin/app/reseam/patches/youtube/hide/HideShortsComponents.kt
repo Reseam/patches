@@ -4,8 +4,12 @@
 
 package app.reseam.patches.youtube.hide
 
+import app.reseam.patch.PatchRuntime
 import app.reseam.patch.Type
+import app.reseam.patch.after
 import app.reseam.patch.method
+import app.reseam.patch.methods
+import app.reseam.patch.points
 import app.reseam.patch.patch
 import app.reseam.patch.resourceRef
 import app.reseam.patch.settings.section
@@ -21,6 +25,7 @@ import app.reseam.patches.youtubecommon.registerLithoFilter
 import app.reseam.youtube.settings.ShortsSettings
 import app.reseam.youtube.settings.YouTubeStrings
 import app.reseam.youtube.shorts.bindings.ShortsFilter
+import app.reseam.youtube.shorts.bindings.ShortsGestureHints
 
 val hideShortsComponents = patch(YouTubePatchStrings.hideShortsComponents) {
     description(YouTubePatchStrings.hideShortsComponentsDescription)
@@ -54,6 +59,7 @@ val hideShortsComponents = patch(YouTubePatchStrings.hideShortsComponents) {
             ShortsSettings.hideShortsDislikeButton,
             ShortsSettings.hideShortsFullVideoLinkLabel,
             ShortsSettings.hideShortsEffectButton,
+            ShortsSettings.hideShortsGestureHints,
             ShortsSettings.hideShortsGreenScreenButton,
             ShortsSettings.hideShortsNewPostsButton,
             ShortsSettings.hideShortsHashtagButton,
@@ -69,6 +75,7 @@ val hideShortsComponents = patch(YouTubePatchStrings.hideShortsComponents) {
             ShortsSettings.hideShortsPausedOverlayButtons,
             ShortsSettings.hideShortsPreviewComment,
             ShortsSettings.hideShortsRemixButton,
+            ShortsSettings.hideShortsSaveButton,
             ShortsSettings.hideShortsSaveSoundButton,
             ShortsSettings.hideShortsSearchSuggestions,
             ShortsSettings.hideShortsShareButton,
@@ -109,6 +116,31 @@ val hideShortsComponents = patch(YouTubePatchStrings.hideShortsComponents) {
         }
 
         // Sound controls in this release are Litho components, filtered by ShortsFilter.
+
+        hideSpeedHints()
     }
 }
 
+// The 2x speed hint stub comes from the overlay layout or is built in code, depending on the player.
+private fun PatchRuntime.hideSpeedHints() {
+    // Releases from before the 2x hints have no stub for them.
+    val stubId = resources.id("id", "reel_speedmaster_edu_stub")?.toLong() ?: return
+    val owners = methods("Shorts speed hint stub owners") { literals(stubId) }
+    val built = owners.points("built speed hint stub") {
+        invokeVirtual { owner("android.view.ViewStub"); name("setId") }
+        argument(1) { literal(stubId) }
+    }.all
+    val found = owners.points("found speed hint stub") {
+        invokeVirtual { name("findViewById"); params(Type.Int); returns(Type.View) }
+        argument(1) { literal(stubId) }
+    }.all
+    check(built.isNotEmpty() || found.isNotEmpty()) { "No Shorts speed hint stub" }
+    built.forEach {
+        it.captureArgumentAs("stub", 0, Type.View).after { ShortsGestureHints.hideGestureHints(capture("stub")) }
+    }
+    found.forEach {
+        it.next { resultOf(Type.View) }.captureAs("stub", Type.View).after {
+            ShortsGestureHints.hideGestureHints(capture("stub"))
+        }
+    }
+}

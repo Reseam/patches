@@ -284,6 +284,8 @@
     <string name="hide_shorts_full_video_link_label">Hide Shorts full-video link</string>
     <string name="hide_shorts_full_video_link_label_summary">Hides the link that opens a Short as a regular video.</string>
     <string name="hide_shorts_effect_button">Hide Shorts effect button</string>
+    <string name="hide_shorts_gesture_hints">Hide Shorts gesture hints</string>
+    <string name="hide_shorts_gesture_hints_summary">Hides the pull-down hints while you hold a Short for 2x speed.</string>
     <string name="hide_shorts_green_screen_button">Hide Shorts green-screen button</string>
     <string name="hide_shorts_new_posts_button">Hide Shorts new-posts button</string>
     <string name="hide_shorts_hashtag_button">Hide Shorts hashtag button</string>
@@ -302,6 +304,7 @@
     <string name="hide_shorts_paused_overlay_buttons_summary">Hides the buttons shown when a Short is paused.</string>
     <string name="hide_shorts_preview_comment">Hide Shorts preview comment</string>
     <string name="hide_shorts_remix_button">Hide Shorts remix button</string>
+    <string name="hide_shorts_save_button">Hide Shorts save button</string>
     <string name="hide_shorts_save_sound_button">Hide Shorts save-sound button</string>
     <string name="hide_shorts_search_suggestions">Hide Shorts search suggestions</string>
     <string name="hide_shorts_share_button">Hide Shorts share button</string>

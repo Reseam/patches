@@ -210,6 +210,7 @@ internal class ShortsFilterGroups {
             FilterRule(ShortsSettings.hideShortsRemixButton, "reel_action_button.e") {
                 it.accessibility.contains("id.reel_remix_button")
             },
+            FilterRule(ShortsSettings.hideShortsSaveButton, "reel_save_button.e"),
         )
 }
 
