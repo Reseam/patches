@@ -9,6 +9,7 @@ package app.reseam.youtube.quality
 import android.view.Choreographer
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewTreeObserver
 import android.widget.ListView
 import app.reseam.bundle.Logger
 import app.reseam.runtime.Export
@@ -34,7 +35,24 @@ private fun openAdvancedMenu(list: ViewGroup) {
     if (first.childCount < 4) return
     val advanced = first.getChildAt(3)
     advanced.isSoundEffectsEnabled = false
+    hideUntilWindowHidden(list.rootView)
     clickWhenSettled(list, advanced)
+}
+
+// The quick menu is a dialog window that YouTube hides and shows again for later menus, and the full
+// list opens in another one, so the quick menu window stays transparent only until it is hidden.
+private fun hideUntilWindowHidden(sheet: View) {
+    sheet.alpha = 0f
+    val observer = sheet.viewTreeObserver
+    observer.addOnWindowVisibilityChangeListener(
+        object : ViewTreeObserver.OnWindowVisibilityChangeListener {
+            override fun onWindowVisibilityChanged(visibility: Int) {
+                if (visibility == View.VISIBLE) return
+                sheet.alpha = 1f
+                if (observer.isAlive) observer.removeOnWindowVisibilityChangeListener(this)
+            }
+        }
+    )
 }
 
 // Switching content while the sheet slides in can leave it empty; wait for two stable frames.
