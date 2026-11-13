@@ -72,8 +72,9 @@ fun requestSponsorBlock(
 }
 
 fun fetchSponsorBlockSegments(videoId: String, categories: List<Segment.Category>): List<Segment> {
+    // The API leaves out mute segments unless they are asked for; they are skipped like the rest.
     val actionTypes =
-        listOfNotNull("skip", "poi".takeIf { Segment.Category.HIGHLIGHT in categories })
+        listOfNotNull("skip", "mute", "poi".takeIf { Segment.Category.HIGHLIGHT in categories })
     val response =
         requestSponsorBlock(
             "GET",
