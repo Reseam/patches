@@ -459,8 +459,10 @@
     <string name="video_quality_default_mobile">Default quality on mobile data</string>
     <string name="video_quality_default_mobile_summary">The highest quality YouTube picks by itself on mobile data.</string>
     <string name="video_quality_default_mobile_same_as_wifi">Same as Wi-Fi</string>
+    <string name="shorts_quality_default">Default Shorts quality on Wi-Fi</string>
+    <string name="shorts_quality_default_mobile">Default Shorts quality on mobile data</string>
     <string name="remember_video_quality">Remember video quality</string>
-    <string name="remember_video_quality_summary">Uses the last quality you picked for later videos on the same kind of network.</string>
+    <string name="remember_video_quality_summary">Uses the last quality you picked for later videos of the same kind, Shorts or regular, on the same kind of network.</string>
     <string name="advanced_video_quality_menu">Advanced video quality menu</string>
     <string name="advanced_video_quality_menu_summary">Opens the full quality list instead of the quick menu.</string>
     <string name="hide_premium_video_quality">Hide Premium video quality</string>

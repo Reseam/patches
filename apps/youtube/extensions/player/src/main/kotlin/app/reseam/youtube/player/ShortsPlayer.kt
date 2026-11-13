@@ -15,6 +15,10 @@ object ShortsPlayer {
     var isOpen: Boolean = false
         private set
 
+    /** A Short is playing: its player is open and no regular video is over it. */
+    val isActive: Boolean
+        get() = isOpen && PlayerType.current.isNoneOrHidden
+
     private val observed = Collections.newSetFromMap(WeakHashMap<View, Boolean>())
     private val attached = Collections.newSetFromMap(WeakHashMap<View, Boolean>())
 

@@ -56,6 +56,18 @@ object VideoSettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
                     )
                 ) + videoQualityChoices,
         )
+    val shortsQualityDefault by choice(default = "-2", choices = videoQualityChoices)
+    val shortsQualityDefaultMobile by
+        choice(
+            default = VIDEO_QUALITY_SAME_AS_WIFI,
+            choices =
+                listOf(
+                    Choice(
+                        VIDEO_QUALITY_SAME_AS_WIFI,
+                        YouTubeStrings.videoQualityDefaultMobileSameAsWifi,
+                    )
+                ) + videoQualityChoices,
+        )
     val rememberVideoQuality by toggle(default = false)
     val advancedVideoQualityMenu by toggle(default = true)
     val hidePremiumVideoQuality by toggle(default = false)

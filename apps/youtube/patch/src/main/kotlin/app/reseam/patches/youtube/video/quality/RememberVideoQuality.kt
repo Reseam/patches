@@ -18,6 +18,7 @@ import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
 import app.reseam.patches.youtube.internal.onCreateHook
+import app.reseam.patches.youtube.internal.playerTypeHook
 import app.reseam.patches.youtube.internal.setPlaybackSpeedMethod
 import app.reseam.patches.youtube.internal.videoInformationHook
 import app.reseam.patches.youtube.internal.videoQualityClass
@@ -64,8 +65,8 @@ private val qualityChangedValue = qualityChangedMethod.point("selected video qua
 val rememberVideoQuality = patch(YouTubePatchStrings.rememberVideoQuality) {
     description(YouTubePatchStrings.rememberVideoQualityDescription)
     compatibleWith(YOUTUBE)
-    dependsOn(youTubeSettings, videoInformationHook)
-    settings(youTubeSettings, section(YouTubeSettingsPages.Video, YouTubeStrings.sectionVideoQuality, VideoSettings.videoQualityDefault, VideoSettings.videoQualityDefaultMobile, VideoSettings.rememberVideoQuality))
+    dependsOn(videoInformationHook, playerTypeHook)
+    settings(youTubeSettings, section(YouTubeSettingsPages.Video, YouTubeStrings.sectionVideoQuality, VideoSettings.videoQualityDefault, VideoSettings.videoQualityDefaultMobile, VideoSettings.shortsQualityDefault, VideoSettings.shortsQualityDefaultMobile, VideoSettings.rememberVideoQuality))
 
     execute {
         onCreateHook(RememberVideoQuality.newVideoStarted)

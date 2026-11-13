@@ -13,6 +13,7 @@ import app.reseam.runtime.ChoiceValue
 import app.reseam.runtime.Export
 import app.reseam.youtube.core.YouTubeContext
 import app.reseam.youtube.core.debug
+import app.reseam.youtube.player.ShortsPlayer
 import app.reseam.youtube.settings.VideoSettings
 import app.reseam.youtube.video.VideoInformation
 import app.reseam.youtube.video.VideoQuality
@@ -27,22 +28,28 @@ private val onMobileData: Boolean
             ?.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) == true
     }
 
+private val wifiQualitySetting: ChoiceValue
+    get() = if (ShortsPlayer.isActive) VideoSettings.shortsQualityDefault else VideoSettings.videoQualityDefault
+
 private val networkQualitySetting: ChoiceValue
-    get() = if (onMobileData) VideoSettings.videoQualityDefaultMobile else VideoSettings.videoQualityDefault
+    get() =
+        when {
+            !onMobileData -> wifiQualitySetting
+            ShortsPlayer.isActive -> VideoSettings.shortsQualityDefaultMobile
+            else -> VideoSettings.videoQualityDefaultMobile
+        }
 
 val defaultQualityResolution: Int
     get() {
         val resolution =
             networkQualitySetting.value.takeUnless { it == SAME_AS_WIFI }
-                ?: VideoSettings.videoQualityDefault.value
+                ?: wifiQualitySetting.value
         return resolution.toIntOrNull() ?: VideoQuality.AUTOMATIC
     }
 
 @Export
 fun newVideoStarted(controller: VideoInformation.PlaybackController) {
-    val resolution = defaultQualityResolution
-    VideoQuality.setDesiredResolution(resolution)
-    Logger.debug { "Default video quality applied: $resolution" }
+    VideoQuality.setDesiredResolution { defaultQualityResolution }
 }
 
 @Export

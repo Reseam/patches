@@ -29,7 +29,7 @@ object VideoQuality {
     val onChange = Event<Option?>()
 
     private var menu: Menu? = null
-    private var desiredResolution = AUTOMATIC
+    private var desiredResolution: () -> Int = { AUTOMATIC }
     private var needsUpdating = false
 
     var available: Array<out Option?>? = null
@@ -43,7 +43,7 @@ object VideoQuality {
         }
 
     internal fun reset() {
-        desiredResolution = AUTOMATIC
+        desiredResolution = { AUTOMATIC }
         needsUpdating = false
         available = null
         menu = null
@@ -78,8 +78,10 @@ object VideoQuality {
         }
         val index = originalIndex.coerceIn(qualities.indices)
         qualities[index]?.takeIf { it.patch_getResolution() != AUTOMATIC }?.let { current = it }
-        if (desiredResolution == AUTOMATIC) return index
         if (needsUpdating) needsUpdating = false else if (!changed) return index
+        val desiredResolution = desiredResolution()
+        if (desiredResolution == AUTOMATIC) return index
+        Logger.debug { "Desired video resolution: $desiredResolution" }
 
         val desired =
             qualities.indices.firstOrNull { i ->
@@ -91,10 +93,10 @@ object VideoQuality {
         return desired
     }
 
-    fun setDesiredResolution(resolution: Int) {
+    /** Read when the video's qualities arrive, by then the player shows what kind of video plays. */
+    fun setDesiredResolution(resolution: () -> Int) {
         desiredResolution = resolution
         needsUpdating = true
-        Logger.debug { "Desired video resolution: $resolution" }
     }
 
     fun change(quality: Option?) {
