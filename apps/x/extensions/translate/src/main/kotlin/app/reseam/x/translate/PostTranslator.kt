@@ -3,9 +3,9 @@
 
 package app.reseam.x.translate
 
+import app.reseam.bundle.descendants
 import app.reseam.x.api.GraphqlResponse
 import app.reseam.x.api.GraphqlRewriter
-import app.reseam.x.api.descendants
 import java.util.Locale
 
 /** Fills each post in another language with a translation, the way X fills in Grok's as you scroll. */

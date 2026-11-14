@@ -4,7 +4,7 @@
 package app.reseam.x.withheld
 
 import android.util.Base64
-import app.reseam.x.api.jsonObject
+import app.reseam.bundle.jsonObject
 import org.json.JSONObject
 
 // The shapes match what X sends the Android app, so its Apollo adapters and every screen read a

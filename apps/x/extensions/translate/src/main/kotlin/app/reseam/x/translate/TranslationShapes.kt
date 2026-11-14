@@ -3,7 +3,7 @@
 
 package app.reseam.x.translate
 
-import app.reseam.x.api.jsonObject
+import app.reseam.bundle.jsonObject
 import org.json.JSONObject
 
 // The shapes X uses for Grok's translations, so the app shows them with its own "Show original"

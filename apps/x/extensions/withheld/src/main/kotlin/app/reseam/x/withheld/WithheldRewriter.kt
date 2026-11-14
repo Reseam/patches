@@ -3,11 +3,11 @@
 
 package app.reseam.x.withheld
 
+import app.reseam.bundle.descendants
+import app.reseam.bundle.objects
 import app.reseam.x.api.GraphqlResponse
 import app.reseam.x.api.GraphqlRewriter
 import app.reseam.x.api.RemoteLookup
-import app.reseam.x.api.descendants
-import app.reseam.x.api.objects
 import app.reseam.x.settings.XSettings
 import org.json.JSONObject
 

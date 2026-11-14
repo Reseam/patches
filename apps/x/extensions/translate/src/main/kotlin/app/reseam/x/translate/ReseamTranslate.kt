@@ -7,7 +7,7 @@ import android.os.SystemClock
 import app.reseam.bundle.Logger
 import app.reseam.bundle.openHttp
 import app.reseam.bundle.send
-import app.reseam.x.api.strings
+import app.reseam.bundle.strings
 import java.io.IOException
 import java.net.HttpURLConnection
 import org.json.JSONArray

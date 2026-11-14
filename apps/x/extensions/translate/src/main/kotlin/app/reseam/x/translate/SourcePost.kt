@@ -3,7 +3,7 @@
 
 package app.reseam.x.translate
 
-import app.reseam.x.api.objects
+import app.reseam.bundle.objects
 import java.util.Locale
 import org.json.JSONArray
 import org.json.JSONObject

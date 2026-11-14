@@ -4,10 +4,10 @@
 package app.reseam.x.withheld
 
 import android.content.Context
+import app.reseam.bundle.objects
 import app.reseam.bundle.showToast
 import app.reseam.x.api.GraphqlResponse
 import app.reseam.x.api.GraphqlRewriter
-import app.reseam.x.api.objects
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
 
