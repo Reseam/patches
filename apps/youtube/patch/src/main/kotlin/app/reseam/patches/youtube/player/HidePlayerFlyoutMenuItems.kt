@@ -37,6 +37,7 @@ val hidePlayerFlyoutMenuItems = patch(YouTubePatchStrings.hidePlayerFlyoutMenuIt
             PlayerOverlaySettings.hidePlayerFlyoutStableVolume,
             PlayerOverlaySettings.hidePlayerFlyoutSleepTimer,
             PlayerOverlaySettings.hidePlayerFlyoutWatchInVr,
+            PlayerOverlaySettings.hidePlayerFlyoutOnTheGo,
             PlayerOverlaySettings.hidePlayerFlyoutVideoQuality,
             PlayerOverlaySettings.hidePlayerFlyoutVideoQualityFooter,
         ),

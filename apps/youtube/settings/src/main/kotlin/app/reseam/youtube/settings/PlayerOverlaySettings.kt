@@ -47,6 +47,7 @@ object PlayerOverlaySettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
     val hidePlayerFlyoutStableVolume by toggle(default = false)
     val hidePlayerFlyoutSleepTimer by toggle(default = false)
     val hidePlayerFlyoutWatchInVr by toggle(default = false)
+    val hidePlayerFlyoutOnTheGo by toggle(default = false)
     val hidePlayerFlyoutVideoQuality by toggle(default = false)
     val hidePlayerFlyoutVideoQualityFooter by toggle(default = false)
 }
