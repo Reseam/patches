@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="ai_labels">Yapay zekâ etiketleri</string>
+    <string name="ai_labels_summary">Gönderileri insan veya yapay zekâ olarak etiketler; sonuçlar Reseam üzerinden paylaşılır.</string>
+    <string name="ai_label_images">Resimleri etiketle</string>
+    <string name="ai_label_images_summary">Gönderilerdeki resimleri de kontrol eder.</string>
+    <string name="ai_detector">Algılayıcı</string>
+    <string name="ai_detector_summary">Yeni gönderileri kontrol eder ve metinlerini, yazarlarını ve resim bağlantılarını görür.</string>
+    <string name="ai_detector_account">Algılayıcı hesabı</string>
+    <string name="ai_detector_account_summary">Yeni gönderileri kontrol etmek için giriş yapın.</string>
+    <string name="ai_label_human">İnsan</string>
+    <string name="ai_label_ai">YZ</string>
+    <string name="ai_label_mixed">Karışık</string>
+    <string name="ai_label_ai_assisted">YZ destekli</string>
+    <string name="ai_label_checking">Kontrol ediliyor</string>
+    <string name="ai_label_sign_in">Giriş yap</string>
+    <string name="ai_label_limit">Günlük sınır</string>
+    <string name="ai_label_retry">Yeniden dene</string>
+    <string name="ai_label_allow_images">Resimlere izin ver</string>
+    <string name="ai_label_not_ai">YZ değil</string>
+    <string name="ai_label_unsure">Belirsiz</string>
+    <string name="ai_label_short_text">Kısa metin</string>
+    <string name="ai_label_percent_ai"><xliff:g id="percent">%1$s</xliff:g> YZ</string>
+    <plurals name="ai_label_words">
+        <item quantity="one"><xliff:g id="count">%1$d</xliff:g> kelime</item>
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> kelime</item>
+    </plurals>
+    <string name="ai_label_share_human">bu metnin insan tarafından yazılan kısmı</string>
+    <string name="ai_label_share_ai">bu metnin yapay zekâ tarafından üretilen kısmı</string>
+    <string name="ai_label_confidence_limited">Kısa metinde daha az kesin</string>
+    <string name="ai_label_learn_more">Daha fazla bilgi</string>
+    <string name="ai_label_confidence">Güven: <xliff:g id="level">%1$s</xliff:g></string>
+    <string name="ai_label_share_result">Sonucu paylaş</string>
+    <string name="ai_label_full_analysis">Tam analiz</string>
+    <string name="ai_label_preparing_share">Bağlantı oluşturuluyor…</string>
+    <string name="ai_label_opening_analysis">Açılıyor…</string>
+    <string name="ai_label_link_copied">Bağlantı panoya kopyalandı</string>
+    <string name="ai_label_share_failed">Bağlantı oluşturulamadı</string>
+    <string name="ai_label_analysis_failed">Tam analiz açılamadı</string>
+    <string name="ai_label_session_expired">Oturum kapandı: <xliff:g id="detector">%1$s</xliff:g></string>
+    <string name="ai_label_daily_limit">Günlük sınıra ulaşıldı: <xliff:g id="detector">%1$s</xliff:g></string>
+</resources>

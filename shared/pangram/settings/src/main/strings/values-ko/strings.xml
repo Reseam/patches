@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pangram_sign_in">로그인</string>
+    <string name="pangram_sign_out">로그아웃</string>
+    <string name="pangram_close">닫기</string>
+    <string name="pangram_signed_out_message">새 게시물을 확인하려면 브라우저에서 로그인하세요. Pangram은 유료 요금제나 무료 체험이 필요합니다.</string>
+    <string name="pangram_signed_in">Pangram에 로그인했습니다</string>
+    <string name="pangram_sign_in_failed">로그인을 완료하지 못했습니다</string>
+    <string name="pangram_feed_consent_title">Pangram이 게시물을 확인하도록 허용할까요?</string>
+    <string name="pangram_feed_consent_message">Pangram은 확인한 게시물을 내 스캔 기록에 보관합니다.</string>
+    <string name="pangram_feed_consent_agree">허용</string>
+    <string name="pangram_feed_consent_decline">나중에</string>
+    <string name="pangram_signed_in_as"><xliff:g id="email">%1$s</xliff:g>(으)로 로그인됨</string>
+    <plurals name="pangram_plan">
+        <item quantity="other"><xliff:g id="plan">%1$s</xliff:g>, 크레딧 <xliff:g id="count">%2$d</xliff:g>개 남음</item>
+    </plurals>
+    <string name="pangram_no_plan">활성 요금제가 없습니다. Pangram은 유료 요금제나 무료 체험이 필요합니다.</string>
+    <string name="pangram_unavailable">Pangram에 연결할 수 없습니다</string>
+    <string name="pangram_image_consent_title">Pangram으로 이미지를 확인할까요?</string>
+    <string name="pangram_image_consent_message">약관에 동의하면 Pangram이 이미지를 확인하며, 각 이미지를 링크에서 내려받습니다.</string>
+    <string name="pangram_image_consent_terms">약관 읽기</string>
+    <string name="pangram_image_consent_agree">동의</string>
+</resources>

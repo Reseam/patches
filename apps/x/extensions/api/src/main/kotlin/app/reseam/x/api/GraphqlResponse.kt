@@ -18,3 +18,10 @@ interface GraphqlRewriter {
     /** Edits [GraphqlResponse.json] in place and returns whether it changed anything. */
     fun rewrite(response: GraphqlResponse): Boolean
 }
+
+/** Reads X's GraphQL responses as the app gets them, after every rewriter. Runs on OkHttp's thread. */
+interface GraphqlObserver {
+    val isEnabled: Boolean
+
+    fun observe(response: GraphqlResponse)
+}

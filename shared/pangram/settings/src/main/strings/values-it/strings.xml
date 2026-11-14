@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pangram_sign_in">Accedi</string>
+    <string name="pangram_sign_out">Esci</string>
+    <string name="pangram_close">Chiudi</string>
+    <string name="pangram_signed_out_message">Accedi dal browser per controllare i nuovi post. Pangram richiede un piano a pagamento o una prova gratuita.</string>
+    <string name="pangram_signed_in">Accesso a Pangram effettuato</string>
+    <string name="pangram_sign_in_failed">L’accesso non è stato completato</string>
+    <string name="pangram_feed_consent_title">Consentire a Pangram di controllare i post?</string>
+    <string name="pangram_feed_consent_message">Pangram conserva i post che controlla nella tua cronologia delle scansioni.</string>
+    <string name="pangram_feed_consent_agree">Consenti</string>
+    <string name="pangram_feed_consent_decline">Non ora</string>
+    <string name="pangram_signed_in_as">Accesso effettuato come <xliff:g id="email">%1$s</xliff:g></string>
+    <plurals name="pangram_plan">
+        <item quantity="one"><xliff:g id="plan">%1$s</xliff:g>, <xliff:g id="count">%2$d</xliff:g> credito rimasto</item>
+        <item quantity="other"><xliff:g id="plan">%1$s</xliff:g>, <xliff:g id="count">%2$d</xliff:g> crediti rimasti</item>
+    </plurals>
+    <string name="pangram_no_plan">Nessun piano attivo. Pangram richiede un piano a pagamento o una prova gratuita.</string>
+    <string name="pangram_unavailable">Impossibile raggiungere Pangram</string>
+    <string name="pangram_image_consent_title">Controllare le immagini con Pangram?</string>
+    <string name="pangram_image_consent_message">Pangram controlla le immagini dopo che accetti i suoi termini, e scarica ciascuna dal suo link.</string>
+    <string name="pangram_image_consent_terms">Leggi i termini</string>
+    <string name="pangram_image_consent_agree">Accetto</string>
+</resources>

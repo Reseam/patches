@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="ai_labels">Etykiety AI</string>
+    <string name="ai_labels_summary">Oznacza posty jako napisane przez człowieka lub AI, a wyniki są udostępniane przez Reseam.</string>
+    <string name="ai_label_images">Oznaczaj obrazy</string>
+    <string name="ai_label_images_summary">Sprawdza też obrazy w postach.</string>
+    <string name="ai_detector">Detektor</string>
+    <string name="ai_detector_summary">Sprawdza nowe posty i widzi ich tekst, autora oraz linki do obrazów.</string>
+    <string name="ai_detector_account">Konto detektora</string>
+    <string name="ai_detector_account_summary">Zaloguj się, aby sprawdzać nowe posty.</string>
+    <string name="ai_label_human">Człowiek</string>
+    <string name="ai_label_ai">AI</string>
+    <string name="ai_label_mixed">Mieszany</string>
+    <string name="ai_label_ai_assisted">Wspomagany przez AI</string>
+    <string name="ai_label_checking">Sprawdzanie</string>
+    <string name="ai_label_sign_in">Zaloguj się</string>
+    <string name="ai_label_limit">Limit dzienny</string>
+    <string name="ai_label_retry">Ponów</string>
+    <string name="ai_label_allow_images">Zezwól na obrazy</string>
+    <string name="ai_label_not_ai">Nie AI</string>
+    <string name="ai_label_unsure">Niepewne</string>
+    <string name="ai_label_short_text">Krótki tekst</string>
+    <string name="ai_label_percent_ai"><xliff:g id="percent">%1$s</xliff:g> AI</string>
+    <plurals name="ai_label_words">
+        <item quantity="one"><xliff:g id="count">%1$d</xliff:g> słowo</item>
+        <item quantity="few"><xliff:g id="count">%1$d</xliff:g> słowa</item>
+        <item quantity="many"><xliff:g id="count">%1$d</xliff:g> słów</item>
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> słowa</item>
+    </plurals>
+    <string name="ai_label_share_human">tego tekstu napisał człowiek</string>
+    <string name="ai_label_share_ai">tego tekstu wygenerowała AI</string>
+    <string name="ai_label_confidence_limited">Mniej pewne przy krótkim tekście</string>
+    <string name="ai_label_learn_more">Więcej informacji</string>
+    <string name="ai_label_confidence">Pewność: <xliff:g id="level">%1$s</xliff:g></string>
+    <string name="ai_label_share_result">Udostępnij wynik</string>
+    <string name="ai_label_full_analysis">Pełna analiza</string>
+    <string name="ai_label_preparing_share">Tworzenie linku…</string>
+    <string name="ai_label_opening_analysis">Otwieranie…</string>
+    <string name="ai_label_link_copied">Skopiowano link do schowka</string>
+    <string name="ai_label_share_failed">Nie udało się utworzyć linku</string>
+    <string name="ai_label_analysis_failed">Nie udało się otworzyć pełnej analizy</string>
+    <string name="ai_label_session_expired">Wylogowano z <xliff:g id="detector">%1$s</xliff:g></string>
+    <string name="ai_label_daily_limit">Osiągnięto dzienny limit <xliff:g id="detector">%1$s</xliff:g></string>
+</resources>

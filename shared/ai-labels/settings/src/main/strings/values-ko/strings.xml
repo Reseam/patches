@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="ai_labels">AI 라벨</string>
+    <string name="ai_labels_summary">게시물에 사람이 썼는지 AI가 썼는지 라벨을 붙이고, 결과를 Reseam으로 공유합니다.</string>
+    <string name="ai_label_images">이미지 라벨</string>
+    <string name="ai_label_images_summary">게시물 속 이미지도 확인합니다.</string>
+    <string name="ai_detector">감지 서비스</string>
+    <string name="ai_detector_summary">새 게시물을 확인하며, 게시물의 텍스트, 작성자, 이미지 링크를 볼 수 있습니다.</string>
+    <string name="ai_detector_account">감지 서비스 계정</string>
+    <string name="ai_detector_account_summary">새 게시물을 확인하려면 로그인하세요.</string>
+    <string name="ai_label_human">사람</string>
+    <string name="ai_label_ai">AI</string>
+    <string name="ai_label_mixed">혼합</string>
+    <string name="ai_label_ai_assisted">AI 지원</string>
+    <string name="ai_label_checking">확인 중</string>
+    <string name="ai_label_sign_in">로그인</string>
+    <string name="ai_label_limit">일일 한도</string>
+    <string name="ai_label_retry">다시 시도</string>
+    <string name="ai_label_allow_images">이미지 허용</string>
+    <string name="ai_label_not_ai">AI 아님</string>
+    <string name="ai_label_unsure">불확실</string>
+    <string name="ai_label_short_text">짧은 텍스트</string>
+    <string name="ai_label_percent_ai">AI <xliff:g id="percent">%1$s</xliff:g></string>
+    <plurals name="ai_label_words">
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g>단어</item>
+    </plurals>
+    <string name="ai_label_share_human">이 텍스트 중 사람이 쓴 비율</string>
+    <string name="ai_label_share_ai">이 텍스트 중 AI가 생성한 비율</string>
+    <string name="ai_label_confidence_limited">짧은 텍스트에서는 정확도가 낮음</string>
+    <string name="ai_label_learn_more">자세히 알아보기</string>
+    <string name="ai_label_confidence">신뢰도: <xliff:g id="level">%1$s</xliff:g></string>
+    <string name="ai_label_share_result">결과 공유</string>
+    <string name="ai_label_full_analysis">전체 분석</string>
+    <string name="ai_label_preparing_share">링크 만드는 중…</string>
+    <string name="ai_label_opening_analysis">여는 중…</string>
+    <string name="ai_label_link_copied">링크를 클립보드에 복사했습니다</string>
+    <string name="ai_label_share_failed">링크를 만들 수 없습니다</string>
+    <string name="ai_label_analysis_failed">전체 분석을 열 수 없습니다</string>
+    <string name="ai_label_session_expired"><xliff:g id="detector">%1$s</xliff:g>에서 로그아웃됨</string>
+    <string name="ai_label_daily_limit"><xliff:g id="detector">%1$s</xliff:g> 일일 한도에 도달함</string>
+</resources>

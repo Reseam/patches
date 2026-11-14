@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="ai_labels">AI ラベル</string>
+    <string name="ai_labels_summary">ポストに人間か AI かのラベルを付け、結果を Reseam で共有します。</string>
+    <string name="ai_label_images">画像にラベルを付ける</string>
+    <string name="ai_label_images_summary">ポスト内の画像もチェックします。</string>
+    <string name="ai_detector">検出サービス</string>
+    <string name="ai_detector_summary">新しいポストをチェックし、そのテキスト、投稿者、画像のリンクを参照します。</string>
+    <string name="ai_detector_account">検出サービスのアカウント</string>
+    <string name="ai_detector_account_summary">新しいポストをチェックするにはログインしてください。</string>
+    <string name="ai_label_human">人間</string>
+    <string name="ai_label_ai">AI</string>
+    <string name="ai_label_mixed">混在</string>
+    <string name="ai_label_ai_assisted">AI 支援</string>
+    <string name="ai_label_checking">チェック中</string>
+    <string name="ai_label_sign_in">ログイン</string>
+    <string name="ai_label_limit">1 日の上限</string>
+    <string name="ai_label_retry">再試行</string>
+    <string name="ai_label_allow_images">画像を許可</string>
+    <string name="ai_label_not_ai">AI ではない</string>
+    <string name="ai_label_unsure">不明</string>
+    <string name="ai_label_short_text">短いテキスト</string>
+    <string name="ai_label_percent_ai">AI <xliff:g id="percent">%1$s</xliff:g></string>
+    <plurals name="ai_label_words">
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> 語</item>
+    </plurals>
+    <string name="ai_label_share_human">このテキストのうち人間が書いた割合</string>
+    <string name="ai_label_share_ai">このテキストのうち AI が生成した割合</string>
+    <string name="ai_label_confidence_limited">短いテキストでは精度が下がります</string>
+    <string name="ai_label_learn_more">詳細</string>
+    <string name="ai_label_confidence">信頼度: <xliff:g id="level">%1$s</xliff:g></string>
+    <string name="ai_label_share_result">結果を共有</string>
+    <string name="ai_label_full_analysis">詳細な分析</string>
+    <string name="ai_label_preparing_share">リンクを作成中…</string>
+    <string name="ai_label_opening_analysis">開いています…</string>
+    <string name="ai_label_link_copied">リンクをクリップボードにコピーしました</string>
+    <string name="ai_label_share_failed">リンクを作成できませんでした</string>
+    <string name="ai_label_analysis_failed">詳細な分析を開けませんでした</string>
+    <string name="ai_label_session_expired"><xliff:g id="detector">%1$s</xliff:g> からログアウトしました</string>
+    <string name="ai_label_daily_limit"><xliff:g id="detector">%1$s</xliff:g> の 1 日の上限に達しました</string>
+</resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="ai_labels">Etichette IA</string>
+    <string name="ai_labels_summary">Etichetta i post come umani o IA, con risultati condivisi tramite Reseam.</string>
+    <string name="ai_label_images">Etichetta le immagini</string>
+    <string name="ai_label_images_summary">Controlla anche le immagini nei post.</string>
+    <string name="ai_detector">Rilevatore</string>
+    <string name="ai_detector_summary">Controlla i nuovi post e ne vede testo, autore e link delle immagini.</string>
+    <string name="ai_detector_account">Account del rilevatore</string>
+    <string name="ai_detector_account_summary">Accedi per controllare i nuovi post.</string>
+    <string name="ai_label_human">Umano</string>
+    <string name="ai_label_ai">IA</string>
+    <string name="ai_label_mixed">Misto</string>
+    <string name="ai_label_ai_assisted">Assistito da IA</string>
+    <string name="ai_label_checking">Controllo</string>
+    <string name="ai_label_sign_in">Accedi</string>
+    <string name="ai_label_limit">Limite giornaliero</string>
+    <string name="ai_label_retry">Riprova</string>
+    <string name="ai_label_allow_images">Consenti immagini</string>
+    <string name="ai_label_not_ai">Non IA</string>
+    <string name="ai_label_unsure">Incerto</string>
+    <string name="ai_label_short_text">Testo breve</string>
+    <string name="ai_label_percent_ai"><xliff:g id="percent">%1$s</xliff:g> IA</string>
+    <plurals name="ai_label_words">
+        <item quantity="one"><xliff:g id="count">%1$d</xliff:g> parola</item>
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> parole</item>
+    </plurals>
+    <string name="ai_label_share_human">di questo testo è scritto da umani</string>
+    <string name="ai_label_share_ai">di questo testo è generato da IA</string>
+    <string name="ai_label_confidence_limited">Meno affidabile sui testi brevi</string>
+    <string name="ai_label_learn_more">Scopri di più</string>
+    <string name="ai_label_confidence">Affidabilità: <xliff:g id="level">%1$s</xliff:g></string>
+    <string name="ai_label_share_result">Condividi risultato</string>
+    <string name="ai_label_full_analysis">Analisi completa</string>
+    <string name="ai_label_preparing_share">Creazione del link…</string>
+    <string name="ai_label_opening_analysis">Apertura…</string>
+    <string name="ai_label_link_copied">Link copiato negli appunti</string>
+    <string name="ai_label_share_failed">Impossibile creare un link</string>
+    <string name="ai_label_analysis_failed">Impossibile aprire l’analisi completa</string>
+    <string name="ai_label_session_expired">Disconnesso da <xliff:g id="detector">%1$s</xliff:g></string>
+    <string name="ai_label_daily_limit">Limite giornaliero di <xliff:g id="detector">%1$s</xliff:g> raggiunto</string>
+</resources>

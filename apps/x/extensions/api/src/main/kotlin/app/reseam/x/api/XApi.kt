@@ -21,10 +21,15 @@ import okhttp3.ResponseBody.Companion.toResponseBody
 private const val API_HOST = "api.x.com"
 private val JSON = "application/json".toMediaType()
 private val rewriters = CopyOnWriteArrayList<GraphqlRewriter>()
+private val observers = CopyOnWriteArrayList<GraphqlObserver>()
 private val responders = CopyOnWriteArrayList<ApiResponder>()
 
 fun register(rewriter: GraphqlRewriter) {
     rewriters.addIfAbsent(rewriter)
+}
+
+fun register(observer: GraphqlObserver) {
+    observers.addIfAbsent(observer)
 }
 
 fun register(responder: ApiResponder) {
@@ -65,11 +70,13 @@ private object XApiInterceptor : Interceptor {
 
     private fun rewrite(request: Request, response: Response): Response {
         val enabled = rewriters.filter { it.isEnabled }
-        if (enabled.isEmpty() || !request.url.isGraphql || !response.isJson) return response
+        val watching = observers.filter { it.isEnabled }
+        if (enabled.isEmpty() && watching.isEmpty() || !request.url.isGraphql || !response.isJson) return response
         val type = response.body.contentType()
         val url = request.url
         val graphql = GraphqlResponse(url.pathSegments.last(), url.queryParameter("variables"), response.body.string())
         val changed = enabled.map { rewriter -> rewriter.tryRewrite(graphql) }.any { it }
+        watching.forEach { it.tryObserve(graphql) }
         val body = if (changed) graphql.json.toString() else graphql.body
         return response.newBuilder().body(body.toResponseBody(type)).build()
     }
@@ -78,6 +85,11 @@ private object XApiInterceptor : Interceptor {
         runCatching { rewrite(response) }
             .onFailure { Logger.error(it) { "${this::class.simpleName} failed on ${response.operation}" } }
             .getOrDefault(false)
+
+    private fun GraphqlObserver.tryObserve(response: GraphqlResponse) {
+        runCatching { observe(response) }
+            .onFailure { Logger.error(it) { "${this::class.simpleName} failed on ${response.operation}" } }
+    }
 
     private fun ApiResponder.tryRespond(request: ApiRequest): String? =
         runCatching { respond(request) }

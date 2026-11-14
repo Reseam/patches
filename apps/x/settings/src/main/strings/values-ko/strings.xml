@@ -177,6 +177,7 @@
     <string name="section_media">미디어</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">번역</string>
+    <string name="section_ai_labels">AI 라벨</string>
     <string name="section_privacy">개인정보 보호</string>
     <string name="section_home">홈</string>
     <string name="section_timeline">타임라인</string>

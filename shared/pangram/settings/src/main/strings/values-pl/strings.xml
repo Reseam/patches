@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pangram_sign_in">Zaloguj się</string>
+    <string name="pangram_sign_out">Wyloguj się</string>
+    <string name="pangram_close">Zamknij</string>
+    <string name="pangram_signed_out_message">Zaloguj się w przeglądarce, aby sprawdzać nowe posty. Pangram wymaga płatnego planu lub bezpłatnego okresu próbnego.</string>
+    <string name="pangram_signed_in">Zalogowano do Pangram</string>
+    <string name="pangram_sign_in_failed">Logowanie nie zostało ukończone</string>
+    <string name="pangram_feed_consent_title">Pozwolić Pangram sprawdzać posty?</string>
+    <string name="pangram_feed_consent_message">Pangram przechowuje sprawdzone posty w twojej historii skanów.</string>
+    <string name="pangram_feed_consent_agree">Zezwól</string>
+    <string name="pangram_feed_consent_decline">Nie teraz</string>
+    <string name="pangram_signed_in_as">Zalogowano jako <xliff:g id="email">%1$s</xliff:g></string>
+    <plurals name="pangram_plan">
+        <item quantity="one"><xliff:g id="plan">%1$s</xliff:g>, został <xliff:g id="count">%2$d</xliff:g> kredyt</item>
+        <item quantity="few"><xliff:g id="plan">%1$s</xliff:g>, zostały <xliff:g id="count">%2$d</xliff:g> kredyty</item>
+        <item quantity="many"><xliff:g id="plan">%1$s</xliff:g>, zostało <xliff:g id="count">%2$d</xliff:g> kredytów</item>
+        <item quantity="other"><xliff:g id="plan">%1$s</xliff:g>, zostało <xliff:g id="count">%2$d</xliff:g> kredytu</item>
+    </plurals>
+    <string name="pangram_no_plan">Brak aktywnego planu. Pangram wymaga płatnego planu lub bezpłatnego okresu próbnego.</string>
+    <string name="pangram_unavailable">Nie można połączyć się z Pangram</string>
+    <string name="pangram_image_consent_title">Sprawdzać obrazy przez Pangram?</string>
+    <string name="pangram_image_consent_message">Pangram sprawdza obrazy po zaakceptowaniu jego warunków i pobiera każdy obraz z jego linku.</string>
+    <string name="pangram_image_consent_terms">Przeczytaj warunki</string>
+    <string name="pangram_image_consent_agree">Akceptuję</string>
+</resources>

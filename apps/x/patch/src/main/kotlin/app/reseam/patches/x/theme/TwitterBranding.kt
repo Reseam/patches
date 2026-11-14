@@ -17,6 +17,7 @@ import app.reseam.patches.bundle.LauncherAlias
 import app.reseam.patches.bundle.addLauncherAliases
 import app.reseam.patches.x.core.COMPOSER
 import app.reseam.patches.x.core.MAIN_ACTIVITY
+import app.reseam.patches.x.core.XColors
 import app.reseam.patches.x.core.mainActivityAttachBaseContext
 import app.reseam.patches.x.core.mainActivityOnCreate
 import app.reseam.patches.x.core.composerAtEntry
@@ -112,7 +113,7 @@ private fun PatchRuntime.addTwitterColors() {
     resources.id("raw", "x_refresh_logo")?.let { logo ->
         val homeTopBarLogo = method("homeTopBarLogo") { literals(logo.toLong()) }
         val composer = homeTopBarLogo.composerAtEntry()
-        homeTopBarLogo.point { field { owner(componentColors.descriptor); type(Type.Long) } }
+        homeTopBarLogo.point { field { owner(XColors.colors.descriptor); type(Type.Long) } }
             .captureAs("tint")
             .after { whenTrue(XTheme.twitter()) { capture("tint").assign(XTheme.brandColor(local(composer))) } }
     }
@@ -130,7 +131,7 @@ private val themePrimary = method("defaultTabIndicator") {
 
 private val scrollingTabs = method("scrollingTabs") {
     calls { owner(tabRow.descriptor) }
-    accesses { owner(componentColors.descriptor) }
+    accesses { owner(XColors.colors.descriptor) }
 }
 
 private val currentThemeColors = method("currentThemeColors") {

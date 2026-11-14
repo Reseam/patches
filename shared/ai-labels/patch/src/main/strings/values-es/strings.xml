@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="show_ai_labels">Mostrar etiquetas de IA</string>
+    <string name="show_ai_labels_description">Etiqueta las publicaciones como humanas o de IA con un detector que ve las publicaciones que revisa, y comparte los resultados a través de Reseam.</string>
+</resources>

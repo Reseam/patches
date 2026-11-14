@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="ai_labels">AI 標籤</string>
+    <string name="ai_labels_summary">將貼文標示為人類或 AI 所寫，結果透過 Reseam 共享。</string>
+    <string name="ai_label_images">為圖片加上標籤</string>
+    <string name="ai_label_images_summary">也會檢查貼文中的圖片。</string>
+    <string name="ai_detector">偵測器</string>
+    <string name="ai_detector_summary">檢查新貼文，並能看到其文字、作者和圖片連結。</string>
+    <string name="ai_detector_account">偵測器帳號</string>
+    <string name="ai_detector_account_summary">登入以檢查新貼文。</string>
+    <string name="ai_label_human">人類</string>
+    <string name="ai_label_ai">AI</string>
+    <string name="ai_label_mixed">混合</string>
+    <string name="ai_label_ai_assisted">AI 輔助</string>
+    <string name="ai_label_checking">檢查中</string>
+    <string name="ai_label_sign_in">登入</string>
+    <string name="ai_label_limit">每日上限</string>
+    <string name="ai_label_retry">重試</string>
+    <string name="ai_label_allow_images">允許圖片</string>
+    <string name="ai_label_not_ai">非 AI</string>
+    <string name="ai_label_unsure">不確定</string>
+    <string name="ai_label_short_text">短文字</string>
+    <string name="ai_label_percent_ai">AI <xliff:g id="percent">%1$s</xliff:g></string>
+    <plurals name="ai_label_words">
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> 個字詞</item>
+    </plurals>
+    <string name="ai_label_share_human">的文字由人類撰寫</string>
+    <string name="ai_label_share_ai">的文字由 AI 生成</string>
+    <string name="ai_label_confidence_limited">文字較短時準確度較低</string>
+    <string name="ai_label_learn_more">瞭解詳情</string>
+    <string name="ai_label_confidence">信賴度：<xliff:g id="level">%1$s</xliff:g></string>
+    <string name="ai_label_share_result">分享結果</string>
+    <string name="ai_label_full_analysis">完整分析</string>
+    <string name="ai_label_preparing_share">正在建立連結…</string>
+    <string name="ai_label_opening_analysis">正在開啟…</string>
+    <string name="ai_label_link_copied">已將連結複製到剪貼簿</string>
+    <string name="ai_label_share_failed">無法建立連結</string>
+    <string name="ai_label_analysis_failed">無法開啟完整分析</string>
+    <string name="ai_label_session_expired">已登出 <xliff:g id="detector">%1$s</xliff:g></string>
+    <string name="ai_label_daily_limit">已達 <xliff:g id="detector">%1$s</xliff:g> 每日上限</string>
+</resources>

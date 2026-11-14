@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pangram_sign_in">Giriş yap</string>
+    <string name="pangram_sign_out">Çıkış yap</string>
+    <string name="pangram_close">Kapat</string>
+    <string name="pangram_signed_out_message">Yeni gönderileri kontrol etmek için tarayıcınızda giriş yapın. Pangram için ücretli bir plan veya ücretsiz deneme gerekir.</string>
+    <string name="pangram_signed_in">Pangram\'a giriş yapıldı</string>
+    <string name="pangram_sign_in_failed">Giriş tamamlanmadı</string>
+    <string name="pangram_feed_consent_title">Pangram gönderileri kontrol etsin mi?</string>
+    <string name="pangram_feed_consent_message">Pangram kontrol ettiği gönderileri tarama geçmişinizde saklar.</string>
+    <string name="pangram_feed_consent_agree">İzin ver</string>
+    <string name="pangram_feed_consent_decline">Şimdi değil</string>
+    <string name="pangram_signed_in_as">Giriş yapılan hesap: <xliff:g id="email">%1$s</xliff:g></string>
+    <plurals name="pangram_plan">
+        <item quantity="one"><xliff:g id="plan">%1$s</xliff:g>, <xliff:g id="count">%2$d</xliff:g> kredi kaldı</item>
+        <item quantity="other"><xliff:g id="plan">%1$s</xliff:g>, <xliff:g id="count">%2$d</xliff:g> kredi kaldı</item>
+    </plurals>
+    <string name="pangram_no_plan">Etkin plan yok. Pangram için ücretli bir plan veya ücretsiz deneme gerekir.</string>
+    <string name="pangram_unavailable">Pangram\'a ulaşılamadı</string>
+    <string name="pangram_image_consent_title">Resimler Pangram ile kontrol edilsin mi?</string>
+    <string name="pangram_image_consent_message">Pangram, koşullarını kabul ettiğinizde resimleri kontrol eder ve her birini kendi bağlantısından indirir.</string>
+    <string name="pangram_image_consent_terms">Koşulları oku</string>
+    <string name="pangram_image_consent_agree">Kabul et</string>
+</resources>

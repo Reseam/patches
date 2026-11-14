@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="show_ai_labels">顯示 AI 標籤</string>
+    <string name="show_ai_labels_description">使用偵測器將貼文標示為人類或 AI 所寫，偵測器看得到它檢查的貼文，結果透過 Reseam 共享。</string>
+</resources>

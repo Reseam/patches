@@ -178,6 +178,7 @@
     <string name="section_media">Contenuti multimediali</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">Traduzione</string>
+    <string name="section_ai_labels">Etichette IA</string>
     <string name="section_privacy">Privacy</string>
     <string name="section_home">Home</string>
     <string name="section_timeline">Cronologia</string>

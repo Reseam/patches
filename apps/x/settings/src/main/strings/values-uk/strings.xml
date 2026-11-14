@@ -180,6 +180,7 @@
     <string name="section_media">Медіа</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">Переклад</string>
+    <string name="section_ai_labels">Мітки ШІ</string>
     <string name="section_privacy">Конфіденційність</string>
     <string name="section_home">Головна</string>
     <string name="section_timeline">Стрічка</string>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="show_ai_labels">AI लेबल दिखाएँ</string>
+    <string name="show_ai_labels_description">एक डिटेक्टर से पोस्ट को इंसान या AI का लिखा बताता है, जो जाँची गई पोस्ट देखता है, और नतीजे Reseam के ज़रिए शेयर करता है।</string>
+</resources>

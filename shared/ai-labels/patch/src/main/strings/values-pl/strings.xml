@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="show_ai_labels">Pokaż etykiety AI</string>
+    <string name="show_ai_labels_description">Oznacza posty jako napisane przez człowieka lub AI za pomocą detektora, który widzi sprawdzane posty, i udostępnia wyniki przez Reseam.</string>
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pangram_sign_in">Masuk</string>
+    <string name="pangram_sign_out">Keluar</string>
+    <string name="pangram_close">Tutup</string>
+    <string name="pangram_signed_out_message">Masuk melalui browser Anda untuk memeriksa postingan baru. Pangram memerlukan paket berbayar atau uji coba gratis.</string>
+    <string name="pangram_signed_in">Masuk ke Pangram</string>
+    <string name="pangram_sign_in_failed">Proses masuk tidak selesai</string>
+    <string name="pangram_feed_consent_title">Izinkan Pangram memeriksa postingan?</string>
+    <string name="pangram_feed_consent_message">Pangram menyimpan postingan yang diperiksanya di riwayat pemindaian Anda.</string>
+    <string name="pangram_feed_consent_agree">Izinkan</string>
+    <string name="pangram_feed_consent_decline">Jangan sekarang</string>
+    <string name="pangram_signed_in_as">Masuk sebagai <xliff:g id="email">%1$s</xliff:g></string>
+    <plurals name="pangram_plan">
+        <item quantity="other"><xliff:g id="plan">%1$s</xliff:g>, sisa <xliff:g id="count">%2$d</xliff:g> kredit</item>
+    </plurals>
+    <string name="pangram_no_plan">Tidak ada paket aktif. Pangram memerlukan paket berbayar atau uji coba gratis.</string>
+    <string name="pangram_unavailable">Tidak dapat menghubungi Pangram</string>
+    <string name="pangram_image_consent_title">Periksa gambar dengan Pangram?</string>
+    <string name="pangram_image_consent_message">Pangram memeriksa gambar setelah Anda menyetujui ketentuannya, dan mengunduh setiap gambar dari tautannya.</string>
+    <string name="pangram_image_consent_terms">Baca ketentuan</string>
+    <string name="pangram_image_consent_agree">Setuju</string>
+</resources>

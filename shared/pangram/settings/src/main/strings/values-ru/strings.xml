@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pangram_sign_in">Войти</string>
+    <string name="pangram_sign_out">Выйти</string>
+    <string name="pangram_close">Закрыть</string>
+    <string name="pangram_signed_out_message">Войдите в браузере, чтобы проверять новые посты. Для Pangram нужен платный план или бесплатный пробный период.</string>
+    <string name="pangram_signed_in">Вход в Pangram выполнен</string>
+    <string name="pangram_sign_in_failed">Вход не завершён</string>
+    <string name="pangram_feed_consent_title">Разрешить Pangram проверять посты?</string>
+    <string name="pangram_feed_consent_message">Pangram хранит проверенные посты в вашей истории сканирований.</string>
+    <string name="pangram_feed_consent_agree">Разрешить</string>
+    <string name="pangram_feed_consent_decline">Не сейчас</string>
+    <string name="pangram_signed_in_as">Вход выполнен: <xliff:g id="email">%1$s</xliff:g></string>
+    <plurals name="pangram_plan">
+        <item quantity="one"><xliff:g id="plan">%1$s</xliff:g>, остался <xliff:g id="count">%2$d</xliff:g> кредит</item>
+        <item quantity="few"><xliff:g id="plan">%1$s</xliff:g>, осталось <xliff:g id="count">%2$d</xliff:g> кредита</item>
+        <item quantity="many"><xliff:g id="plan">%1$s</xliff:g>, осталось <xliff:g id="count">%2$d</xliff:g> кредитов</item>
+        <item quantity="other"><xliff:g id="plan">%1$s</xliff:g>, осталось <xliff:g id="count">%2$d</xliff:g> кредита</item>
+    </plurals>
+    <string name="pangram_no_plan">Нет активного плана. Для Pangram нужен платный план или бесплатный пробный период.</string>
+    <string name="pangram_unavailable">Не удалось подключиться к Pangram</string>
+    <string name="pangram_image_consent_title">Проверять изображения через Pangram?</string>
+    <string name="pangram_image_consent_message">Pangram проверяет изображения, когда вы принимаете его условия, и скачивает каждое по ссылке.</string>
+    <string name="pangram_image_consent_terms">Прочитать условия</string>
+    <string name="pangram_image_consent_agree">Принять</string>
+</resources>

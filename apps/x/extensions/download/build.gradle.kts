@@ -3,4 +3,5 @@
 
 dependencies {
     compileOnly(project(":shared:bundle"))
+    compileOnly(project(":apps:x:extensions:posts"))
 }

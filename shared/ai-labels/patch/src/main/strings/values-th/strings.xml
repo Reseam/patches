@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="show_ai_labels">แสดงป้าย AI</string>
+    <string name="show_ai_labels_description">ติดป้ายโพสต์ว่ามนุษย์หรือ AI เขียน โดยใช้ตัวตรวจจับที่เห็นโพสต์ที่ตรวจ และแชร์ผลผ่าน Reseam</string>
+</resources>

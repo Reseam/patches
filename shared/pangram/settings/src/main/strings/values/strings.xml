@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pangram_sign_in">Sign in</string>
+    <string name="pangram_sign_out">Sign out</string>
+    <string name="pangram_close">Close</string>
+    <string name="pangram_signed_out_message">Sign in through your browser to check new posts. Pangram needs a paid plan or a free trial.</string>
+    <string name="pangram_signed_in">Signed in to Pangram</string>
+    <string name="pangram_sign_in_failed">Sign-in did not finish</string>
+    <string name="pangram_feed_consent_title">Let Pangram check posts?</string>
+    <string name="pangram_feed_consent_message">Pangram keeps the posts it checks in your scan history.</string>
+    <string name="pangram_feed_consent_agree">Allow</string>
+    <string name="pangram_feed_consent_decline">Not now</string>
+    <string name="pangram_signed_in_as">Signed in as <xliff:g id="email">%1$s</xliff:g></string>
+    <plurals name="pangram_plan">
+        <item quantity="one"><xliff:g id="plan">%1$s</xliff:g>, <xliff:g id="count">%2$d</xliff:g> credit left</item>
+        <item quantity="other"><xliff:g id="plan">%1$s</xliff:g>, <xliff:g id="count">%2$d</xliff:g> credits left</item>
+    </plurals>
+    <string name="pangram_no_plan">No active plan. Pangram needs a paid plan or a free trial.</string>
+    <string name="pangram_unavailable">Could not reach Pangram</string>
+    <string name="pangram_image_consent_title">Check images with Pangram?</string>
+    <string name="pangram_image_consent_message">Pangram checks images once you agree to its terms, and downloads each one from its link.</string>
+    <string name="pangram_image_consent_terms">Read terms</string>
+    <string name="pangram_image_consent_agree">Agree</string>
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="ai_labels">Nhãn AI</string>
+    <string name="ai_labels_summary">Gắn nhãn bài đăng là do người hay AI viết, với kết quả được chia sẻ qua Reseam.</string>
+    <string name="ai_label_images">Gắn nhãn hình ảnh</string>
+    <string name="ai_label_images_summary">Kiểm tra cả hình ảnh trong bài đăng.</string>
+    <string name="ai_detector">Công cụ phát hiện</string>
+    <string name="ai_detector_summary">Kiểm tra bài đăng mới và thấy văn bản, tác giả cùng liên kết hình ảnh của chúng.</string>
+    <string name="ai_detector_account">Tài khoản công cụ phát hiện</string>
+    <string name="ai_detector_account_summary">Đăng nhập để kiểm tra bài đăng mới.</string>
+    <string name="ai_label_human">Người</string>
+    <string name="ai_label_ai">AI</string>
+    <string name="ai_label_mixed">Hỗn hợp</string>
+    <string name="ai_label_ai_assisted">Có AI hỗ trợ</string>
+    <string name="ai_label_checking">Đang kiểm tra</string>
+    <string name="ai_label_sign_in">Đăng nhập</string>
+    <string name="ai_label_limit">Giới hạn ngày</string>
+    <string name="ai_label_retry">Thử lại</string>
+    <string name="ai_label_allow_images">Cho phép hình ảnh</string>
+    <string name="ai_label_not_ai">Không phải AI</string>
+    <string name="ai_label_unsure">Không chắc</string>
+    <string name="ai_label_short_text">Văn bản ngắn</string>
+    <string name="ai_label_percent_ai">AI <xliff:g id="percent">%1$s</xliff:g></string>
+    <plurals name="ai_label_words">
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> từ</item>
+    </plurals>
+    <string name="ai_label_share_human">văn bản này do người viết</string>
+    <string name="ai_label_share_ai">văn bản này do AI tạo</string>
+    <string name="ai_label_confidence_limited">Kém chắc chắn hơn với văn bản ngắn</string>
+    <string name="ai_label_learn_more">Tìm hiểu thêm</string>
+    <string name="ai_label_confidence">Độ tin cậy: <xliff:g id="level">%1$s</xliff:g></string>
+    <string name="ai_label_share_result">Chia sẻ kết quả</string>
+    <string name="ai_label_full_analysis">Phân tích đầy đủ</string>
+    <string name="ai_label_preparing_share">Đang tạo liên kết…</string>
+    <string name="ai_label_opening_analysis">Đang mở…</string>
+    <string name="ai_label_link_copied">Đã sao chép liên kết vào bộ nhớ đệm</string>
+    <string name="ai_label_share_failed">Không thể tạo liên kết</string>
+    <string name="ai_label_analysis_failed">Không thể mở phân tích đầy đủ</string>
+    <string name="ai_label_session_expired">Đã đăng xuất khỏi <xliff:g id="detector">%1$s</xliff:g></string>
+    <string name="ai_label_daily_limit">Đã đạt giới hạn ngày của <xliff:g id="detector">%1$s</xliff:g></string>
+</resources>

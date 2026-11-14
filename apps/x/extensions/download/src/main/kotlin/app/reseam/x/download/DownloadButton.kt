@@ -14,15 +14,13 @@ import app.reseam.bundle.ReseamPatches
 import app.reseam.bundle.resumedActivity
 import app.reseam.bundle.trackResumedActivity
 import app.reseam.runtime.Export
+import app.reseam.x.posts.photoUrl
+import app.reseam.x.posts.postMedia
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
 import java.util.WeakHashMap
 
-@Export external fun postMedia(post: Any?): List<*>?
-
 @Export external fun optionsKey(options: Any?): Any?
-
-@Export external fun photoUrl(media: Any): String?
 
 @Export external fun isGif(media: Any): Boolean
 

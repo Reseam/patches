@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="ai_labels">ป้าย AI</string>
+    <string name="ai_labels_summary">ติดป้ายโพสต์ว่ามนุษย์หรือ AI เขียน และแชร์ผลผ่าน Reseam</string>
+    <string name="ai_label_images">ติดป้ายรูปภาพ</string>
+    <string name="ai_label_images_summary">ตรวจรูปภาพในโพสต์ด้วย</string>
+    <string name="ai_detector">ตัวตรวจจับ</string>
+    <string name="ai_detector_summary">ตรวจโพสต์ใหม่ และเห็นข้อความ ผู้เขียน และลิงก์รูปภาพของโพสต์</string>
+    <string name="ai_detector_account">บัญชีตัวตรวจจับ</string>
+    <string name="ai_detector_account_summary">ลงชื่อเข้าใช้เพื่อตรวจโพสต์ใหม่</string>
+    <string name="ai_label_human">มนุษย์</string>
+    <string name="ai_label_ai">AI</string>
+    <string name="ai_label_mixed">ผสม</string>
+    <string name="ai_label_ai_assisted">AI ช่วย</string>
+    <string name="ai_label_checking">กำลังตรวจ</string>
+    <string name="ai_label_sign_in">ลงชื่อเข้าใช้</string>
+    <string name="ai_label_limit">ขีดจำกัดรายวัน</string>
+    <string name="ai_label_retry">ลองอีกครั้ง</string>
+    <string name="ai_label_allow_images">อนุญาตรูปภาพ</string>
+    <string name="ai_label_not_ai">ไม่ใช่ AI</string>
+    <string name="ai_label_unsure">ไม่แน่ใจ</string>
+    <string name="ai_label_short_text">ข้อความสั้น</string>
+    <string name="ai_label_percent_ai">AI <xliff:g id="percent">%1$s</xliff:g></string>
+    <plurals name="ai_label_words">
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> คำ</item>
+    </plurals>
+    <string name="ai_label_share_human">ของข้อความนี้มนุษย์เขียน</string>
+    <string name="ai_label_share_ai">ของข้อความนี้ AI สร้าง</string>
+    <string name="ai_label_confidence_limited">แม่นยำน้อยลงกับข้อความสั้น</string>
+    <string name="ai_label_learn_more">ดูข้อมูลเพิ่มเติม</string>
+    <string name="ai_label_confidence">ความมั่นใจ: <xliff:g id="level">%1$s</xliff:g></string>
+    <string name="ai_label_share_result">แชร์ผลลัพธ์</string>
+    <string name="ai_label_full_analysis">การวิเคราะห์ฉบับเต็ม</string>
+    <string name="ai_label_preparing_share">กำลังสร้างลิงก์…</string>
+    <string name="ai_label_opening_analysis">กำลังเปิด…</string>
+    <string name="ai_label_link_copied">คัดลอกลิงก์ไปยังคลิปบอร์ดแล้ว</string>
+    <string name="ai_label_share_failed">สร้างลิงก์ไม่ได้</string>
+    <string name="ai_label_analysis_failed">เปิดการวิเคราะห์ฉบับเต็มไม่ได้</string>
+    <string name="ai_label_session_expired">ออกจากระบบ <xliff:g id="detector">%1$s</xliff:g> แล้ว</string>
+    <string name="ai_label_daily_limit">ถึงขีดจำกัดรายวันของ <xliff:g id="detector">%1$s</xliff:g> แล้ว</string>
+</resources>

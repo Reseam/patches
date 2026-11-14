@@ -183,6 +183,7 @@
     <string name="section_media">Media</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">Translation</string>
+    <string name="section_ai_labels">AI labels</string>
     <string name="section_privacy">Privacy</string>
     <string name="section_home">Home</string>
     <string name="section_timeline">Timeline</string>

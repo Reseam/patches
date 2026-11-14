@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="ai_labels">Label AI</string>
+    <string name="ai_labels_summary">Menandai postingan sebagai buatan manusia atau AI, dengan hasil yang dibagikan melalui Reseam.</string>
+    <string name="ai_label_images">Beri label gambar</string>
+    <string name="ai_label_images_summary">Juga memeriksa gambar di postingan.</string>
+    <string name="ai_detector">Detektor</string>
+    <string name="ai_detector_summary">Memeriksa postingan baru, dan dapat melihat teks, penulis, serta tautan gambarnya.</string>
+    <string name="ai_detector_account">Akun detektor</string>
+    <string name="ai_detector_account_summary">Masuk untuk memeriksa postingan baru.</string>
+    <string name="ai_label_human">Manusia</string>
+    <string name="ai_label_ai">AI</string>
+    <string name="ai_label_mixed">Campuran</string>
+    <string name="ai_label_ai_assisted">Dibantu AI</string>
+    <string name="ai_label_checking">Memeriksa</string>
+    <string name="ai_label_sign_in">Masuk</string>
+    <string name="ai_label_limit">Batas harian</string>
+    <string name="ai_label_retry">Coba lagi</string>
+    <string name="ai_label_allow_images">Izinkan gambar</string>
+    <string name="ai_label_not_ai">Bukan AI</string>
+    <string name="ai_label_unsure">Tidak pasti</string>
+    <string name="ai_label_short_text">Teks pendek</string>
+    <string name="ai_label_percent_ai"><xliff:g id="percent">%1$s</xliff:g> AI</string>
+    <plurals name="ai_label_words">
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> kata</item>
+    </plurals>
+    <string name="ai_label_share_human">dari teks ini ditulis manusia</string>
+    <string name="ai_label_share_ai">dari teks ini dibuat AI</string>
+    <string name="ai_label_confidence_limited">Kurang pasti pada teks pendek</string>
+    <string name="ai_label_learn_more">Pelajari lebih lanjut</string>
+    <string name="ai_label_confidence">Keyakinan: <xliff:g id="level">%1$s</xliff:g></string>
+    <string name="ai_label_share_result">Bagikan hasil</string>
+    <string name="ai_label_full_analysis">Analisis lengkap</string>
+    <string name="ai_label_preparing_share">Membuat tautan…</string>
+    <string name="ai_label_opening_analysis">Membuka…</string>
+    <string name="ai_label_link_copied">Tautan disalin ke papan klip</string>
+    <string name="ai_label_share_failed">Tidak dapat membuat tautan</string>
+    <string name="ai_label_analysis_failed">Tidak dapat membuka analisis lengkap</string>
+    <string name="ai_label_session_expired">Keluar dari <xliff:g id="detector">%1$s</xliff:g></string>
+    <string name="ai_label_daily_limit">Batas harian <xliff:g id="detector">%1$s</xliff:g> tercapai</string>
+</resources>

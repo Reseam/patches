@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pangram_sign_in">ログイン</string>
+    <string name="pangram_sign_out">ログアウト</string>
+    <string name="pangram_close">閉じる</string>
+    <string name="pangram_signed_out_message">新しいポストをチェックするには、ブラウザでログインしてください。Pangram には有料プランか無料トライアルが必要です。</string>
+    <string name="pangram_signed_in">Pangram にログインしました</string>
+    <string name="pangram_sign_in_failed">ログインが完了しませんでした</string>
+    <string name="pangram_feed_consent_title">Pangram にポストのチェックを許可しますか？</string>
+    <string name="pangram_feed_consent_message">Pangram はチェックしたポストをあなたのスキャン履歴に保存します。</string>
+    <string name="pangram_feed_consent_agree">許可</string>
+    <string name="pangram_feed_consent_decline">後で</string>
+    <string name="pangram_signed_in_as"><xliff:g id="email">%1$s</xliff:g> でログイン中</string>
+    <plurals name="pangram_plan">
+        <item quantity="other"><xliff:g id="plan">%1$s</xliff:g>、残り <xliff:g id="count">%2$d</xliff:g> クレジット</item>
+    </plurals>
+    <string name="pangram_no_plan">有効なプランがありません。Pangram には有料プランか無料トライアルが必要です。</string>
+    <string name="pangram_unavailable">Pangram に接続できませんでした</string>
+    <string name="pangram_image_consent_title">Pangram で画像をチェックしますか？</string>
+    <string name="pangram_image_consent_message">規約に同意すると Pangram が画像をチェックし、各画像をそのリンクからダウンロードします。</string>
+    <string name="pangram_image_consent_terms">規約を読む</string>
+    <string name="pangram_image_consent_agree">同意する</string>
+</resources>

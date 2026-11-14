@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="ai_labels">Мітки ШІ</string>
+    <string name="ai_labels_summary">Позначає дописи як написані людиною чи ШІ, а результатами ділиться через Reseam.</string>
+    <string name="ai_label_images">Позначати зображення</string>
+    <string name="ai_label_images_summary">Також перевіряє зображення в дописах.</string>
+    <string name="ai_detector">Детектор</string>
+    <string name="ai_detector_summary">Перевіряє нові дописи й бачить їхній текст, автора та посилання на зображення.</string>
+    <string name="ai_detector_account">Обліковий запис детектора</string>
+    <string name="ai_detector_account_summary">Увійдіть, щоб перевіряти нові дописи.</string>
+    <string name="ai_label_human">Людина</string>
+    <string name="ai_label_ai">ШІ</string>
+    <string name="ai_label_mixed">Змішаний</string>
+    <string name="ai_label_ai_assisted">За допомогою ШІ</string>
+    <string name="ai_label_checking">Перевірка</string>
+    <string name="ai_label_sign_in">Увійти</string>
+    <string name="ai_label_limit">Денний ліміт</string>
+    <string name="ai_label_retry">Повторити</string>
+    <string name="ai_label_allow_images">Дозволити зображення</string>
+    <string name="ai_label_not_ai">Не ШІ</string>
+    <string name="ai_label_unsure">Невідомо</string>
+    <string name="ai_label_short_text">Короткий текст</string>
+    <string name="ai_label_percent_ai">ШІ: <xliff:g id="percent">%1$s</xliff:g></string>
+    <plurals name="ai_label_words">
+        <item quantity="one"><xliff:g id="count">%1$d</xliff:g> слово</item>
+        <item quantity="few"><xliff:g id="count">%1$d</xliff:g> слова</item>
+        <item quantity="many"><xliff:g id="count">%1$d</xliff:g> слів</item>
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> слова</item>
+    </plurals>
+    <string name="ai_label_share_human">цього тексту написала людина</string>
+    <string name="ai_label_share_ai">цього тексту згенерував ШІ</string>
+    <string name="ai_label_confidence_limited">Менш точно на короткому тексті</string>
+    <string name="ai_label_learn_more">Докладніше</string>
+    <string name="ai_label_confidence">Упевненість: <xliff:g id="level">%1$s</xliff:g></string>
+    <string name="ai_label_share_result">Поділитися результатом</string>
+    <string name="ai_label_full_analysis">Повний аналіз</string>
+    <string name="ai_label_preparing_share">Створення посилання…</string>
+    <string name="ai_label_opening_analysis">Відкриття…</string>
+    <string name="ai_label_link_copied">Посилання скопійовано в буфер обміну</string>
+    <string name="ai_label_share_failed">Не вдалося створити посилання</string>
+    <string name="ai_label_analysis_failed">Не вдалося відкрити повний аналіз</string>
+    <string name="ai_label_session_expired">Ви вийшли з <xliff:g id="detector">%1$s</xliff:g></string>
+    <string name="ai_label_daily_limit">Досягнуто денного ліміту <xliff:g id="detector">%1$s</xliff:g></string>
+</resources>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="show_ai_labels">Show AI labels</string>
+    <string name="show_ai_labels_description">Labels posts as human or AI using a detector that sees the posts it checks, and shares results through Reseam.</string>
+</resources>

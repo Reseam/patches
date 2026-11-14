@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pangram_sign_in">Đăng nhập</string>
+    <string name="pangram_sign_out">Đăng xuất</string>
+    <string name="pangram_close">Đóng</string>
+    <string name="pangram_signed_out_message">Đăng nhập qua trình duyệt để kiểm tra bài đăng mới. Pangram cần gói trả phí hoặc bản dùng thử miễn phí.</string>
+    <string name="pangram_signed_in">Đã đăng nhập vào Pangram</string>
+    <string name="pangram_sign_in_failed">Chưa đăng nhập xong</string>
+    <string name="pangram_feed_consent_title">Cho phép Pangram kiểm tra bài đăng?</string>
+    <string name="pangram_feed_consent_message">Pangram lưu các bài đăng đã kiểm tra trong lịch sử quét của bạn.</string>
+    <string name="pangram_feed_consent_agree">Cho phép</string>
+    <string name="pangram_feed_consent_decline">Để sau</string>
+    <string name="pangram_signed_in_as">Đã đăng nhập bằng <xliff:g id="email">%1$s</xliff:g></string>
+    <plurals name="pangram_plan">
+        <item quantity="other"><xliff:g id="plan">%1$s</xliff:g>, còn <xliff:g id="count">%2$d</xliff:g> tín dụng</item>
+    </plurals>
+    <string name="pangram_no_plan">Không có gói nào đang hoạt động. Pangram cần gói trả phí hoặc bản dùng thử miễn phí.</string>
+    <string name="pangram_unavailable">Không thể kết nối với Pangram</string>
+    <string name="pangram_image_consent_title">Kiểm tra hình ảnh bằng Pangram?</string>
+    <string name="pangram_image_consent_message">Pangram kiểm tra hình ảnh sau khi bạn đồng ý với điều khoản, và tải từng hình từ liên kết của nó.</string>
+    <string name="pangram_image_consent_terms">Đọc điều khoản</string>
+    <string name="pangram_image_consent_agree">Đồng ý</string>
+</resources>

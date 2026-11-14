@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="ai_labels">Метки ИИ</string>
+    <string name="ai_labels_summary">Отмечает посты как написанные человеком или ИИ, а результатами делится через Reseam.</string>
+    <string name="ai_label_images">Отмечать изображения</string>
+    <string name="ai_label_images_summary">Также проверяет изображения в постах.</string>
+    <string name="ai_detector">Детектор</string>
+    <string name="ai_detector_summary">Проверяет новые посты и видит их текст, автора и ссылки на изображения.</string>
+    <string name="ai_detector_account">Аккаунт детектора</string>
+    <string name="ai_detector_account_summary">Войдите, чтобы проверять новые посты.</string>
+    <string name="ai_label_human">Человек</string>
+    <string name="ai_label_ai">ИИ</string>
+    <string name="ai_label_mixed">Смешанный</string>
+    <string name="ai_label_ai_assisted">С помощью ИИ</string>
+    <string name="ai_label_checking">Проверка</string>
+    <string name="ai_label_sign_in">Войти</string>
+    <string name="ai_label_limit">Дневной лимит</string>
+    <string name="ai_label_retry">Повторить</string>
+    <string name="ai_label_allow_images">Разрешить изображения</string>
+    <string name="ai_label_not_ai">Не ИИ</string>
+    <string name="ai_label_unsure">Неясно</string>
+    <string name="ai_label_short_text">Короткий текст</string>
+    <string name="ai_label_percent_ai">ИИ: <xliff:g id="percent">%1$s</xliff:g></string>
+    <plurals name="ai_label_words">
+        <item quantity="one"><xliff:g id="count">%1$d</xliff:g> слово</item>
+        <item quantity="few"><xliff:g id="count">%1$d</xliff:g> слова</item>
+        <item quantity="many"><xliff:g id="count">%1$d</xliff:g> слов</item>
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> слова</item>
+    </plurals>
+    <string name="ai_label_share_human">этого текста написано человеком</string>
+    <string name="ai_label_share_ai">этого текста создано ИИ</string>
+    <string name="ai_label_confidence_limited">Менее точно на коротком тексте</string>
+    <string name="ai_label_learn_more">Подробнее</string>
+    <string name="ai_label_confidence">Уверенность: <xliff:g id="level">%1$s</xliff:g></string>
+    <string name="ai_label_share_result">Поделиться результатом</string>
+    <string name="ai_label_full_analysis">Полный анализ</string>
+    <string name="ai_label_preparing_share">Создание ссылки…</string>
+    <string name="ai_label_opening_analysis">Открытие…</string>
+    <string name="ai_label_link_copied">Ссылка скопирована в буфер обмена</string>
+    <string name="ai_label_share_failed">Не удалось создать ссылку</string>
+    <string name="ai_label_analysis_failed">Не удалось открыть полный анализ</string>
+    <string name="ai_label_session_expired">Выполнен выход из <xliff:g id="detector">%1$s</xliff:g></string>
+    <string name="ai_label_daily_limit">Достигнут дневной лимит <xliff:g id="detector">%1$s</xliff:g></string>
+</resources>

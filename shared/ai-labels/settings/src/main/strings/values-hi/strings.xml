@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="ai_labels">AI लेबल</string>
+    <string name="ai_labels_summary">पोस्ट को इंसान या AI का लिखा बताता है, और नतीजे Reseam के ज़रिए शेयर होते हैं।</string>
+    <string name="ai_label_images">तस्वीरों पर लेबल लगाएँ</string>
+    <string name="ai_label_images_summary">पोस्ट में मौजूद तस्वीरें भी जाँचता है।</string>
+    <string name="ai_detector">डिटेक्टर</string>
+    <string name="ai_detector_summary">नई पोस्ट जाँचता है, और उनका टेक्स्ट, लेखक और तस्वीरों के लिंक देखता है।</string>
+    <string name="ai_detector_account">डिटेक्टर खाता</string>
+    <string name="ai_detector_account_summary">नई पोस्ट जाँचने के लिए साइन इन करें।</string>
+    <string name="ai_label_human">इंसान</string>
+    <string name="ai_label_ai">AI</string>
+    <string name="ai_label_mixed">मिला-जुला</string>
+    <string name="ai_label_ai_assisted">AI की मदद से</string>
+    <string name="ai_label_checking">जाँच रहा है</string>
+    <string name="ai_label_sign_in">साइन इन करें</string>
+    <string name="ai_label_limit">रोज़ की सीमा</string>
+    <string name="ai_label_retry">फिर से कोशिश करें</string>
+    <string name="ai_label_allow_images">तस्वीरों की अनुमति दें</string>
+    <string name="ai_label_not_ai">AI नहीं</string>
+    <string name="ai_label_unsure">पक्का नहीं</string>
+    <string name="ai_label_short_text">छोटा टेक्स्ट</string>
+    <string name="ai_label_percent_ai"><xliff:g id="percent">%1$s</xliff:g> AI</string>
+    <plurals name="ai_label_words">
+        <item quantity="one"><xliff:g id="count">%1$d</xliff:g> शब्द</item>
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> शब्द</item>
+    </plurals>
+    <string name="ai_label_share_human">इस टेक्स्ट का इतना हिस्सा इंसान ने लिखा है</string>
+    <string name="ai_label_share_ai">इस टेक्स्ट का इतना हिस्सा AI ने लिखा है</string>
+    <string name="ai_label_confidence_limited">छोटे टेक्स्ट पर कम भरोसेमंद</string>
+    <string name="ai_label_learn_more">और जानें</string>
+    <string name="ai_label_confidence">भरोसा: <xliff:g id="level">%1$s</xliff:g></string>
+    <string name="ai_label_share_result">नतीजा शेयर करें</string>
+    <string name="ai_label_full_analysis">पूरा विश्लेषण</string>
+    <string name="ai_label_preparing_share">लिंक बन रहा है…</string>
+    <string name="ai_label_opening_analysis">खुल रहा है…</string>
+    <string name="ai_label_link_copied">लिंक क्लिपबोर्ड पर कॉपी हो गया</string>
+    <string name="ai_label_share_failed">लिंक नहीं बन सका</string>
+    <string name="ai_label_analysis_failed">पूरा विश्लेषण नहीं खुल सका</string>
+    <string name="ai_label_session_expired"><xliff:g id="detector">%1$s</xliff:g> से साइन आउट हो गया</string>
+    <string name="ai_label_daily_limit"><xliff:g id="detector">%1$s</xliff:g> की रोज़ की सीमा पूरी हो गई</string>
+</resources>

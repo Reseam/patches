@@ -16,6 +16,7 @@ import app.reseam.patch.settings.section
 import app.reseam.patches.x.XPatchStrings
 import app.reseam.patches.x.core.COMPOSER
 import app.reseam.patches.x.core.X
+import app.reseam.patches.x.core.XColors
 import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
 import app.reseam.x.settings.XSettings
@@ -76,8 +77,7 @@ private val themeResolver = method("themeResolver") {
     accesses { owner(themeKind.descriptor); name("LIGHTS_OUT") }
 }
 
-internal val componentColors = klass("componentColors") { strings("XColors(backgroundPrimary=") }
-private val componentColorsInit = componentColors.methods("componentColorsInit") {
+private val componentColorsInit = XColors.colors.methods("componentColorsInit") {
     name("<init>")
     hasParam(Type.Boolean)
 }

@@ -178,6 +178,7 @@
     <string name="section_media">Médias</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">Traduction</string>
+    <string name="section_ai_labels">Étiquettes IA</string>
     <string name="section_privacy">Confidentialité</string>
     <string name="section_home">Accueil</string>
     <string name="section_timeline">Fil d’actualité</string>

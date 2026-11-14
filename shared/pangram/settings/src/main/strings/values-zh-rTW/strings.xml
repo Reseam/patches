@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pangram_sign_in">登入</string>
+    <string name="pangram_sign_out">登出</string>
+    <string name="pangram_close">關閉</string>
+    <string name="pangram_signed_out_message">在瀏覽器中登入以檢查新貼文。Pangram 需要付費方案或免費試用。</string>
+    <string name="pangram_signed_in">已登入 Pangram</string>
+    <string name="pangram_sign_in_failed">登入未完成</string>
+    <string name="pangram_feed_consent_title">要讓 Pangram 檢查貼文嗎？</string>
+    <string name="pangram_feed_consent_message">Pangram 會將檢查過的貼文保存在你的掃描記錄中。</string>
+    <string name="pangram_feed_consent_agree">允許</string>
+    <string name="pangram_feed_consent_decline">稍後再說</string>
+    <string name="pangram_signed_in_as">已登入為 <xliff:g id="email">%1$s</xliff:g></string>
+    <plurals name="pangram_plan">
+        <item quantity="other"><xliff:g id="plan">%1$s</xliff:g>，剩下 <xliff:g id="count">%2$d</xliff:g> 點額度</item>
+    </plurals>
+    <string name="pangram_no_plan">沒有有效方案。Pangram 需要付費方案或免費試用。</string>
+    <string name="pangram_unavailable">無法連線到 Pangram</string>
+    <string name="pangram_image_consent_title">要用 Pangram 檢查圖片嗎？</string>
+    <string name="pangram_image_consent_message">你同意其條款後，Pangram 才會檢查圖片，並從連結下載每張圖片。</string>
+    <string name="pangram_image_consent_terms">閱讀條款</string>
+    <string name="pangram_image_consent_agree">同意</string>
+</resources>

@@ -177,6 +177,7 @@
     <string name="section_media">สื่อ</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">การแปล</string>
+    <string name="section_ai_labels">ป้าย AI</string>
     <string name="section_privacy">ความเป็นส่วนตัว</string>
     <string name="section_home">หน้าแรก</string>
     <string name="section_timeline">ไทม์ไลน์</string>

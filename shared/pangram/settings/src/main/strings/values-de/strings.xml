@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pangram_sign_in">Anmelden</string>
+    <string name="pangram_sign_out">Abmelden</string>
+    <string name="pangram_close">Schließen</string>
+    <string name="pangram_signed_out_message">Melde dich im Browser an, um neue Beiträge zu prüfen. Pangram braucht ein kostenpflichtiges Abo oder eine kostenlose Testphase.</string>
+    <string name="pangram_signed_in">Bei Pangram angemeldet</string>
+    <string name="pangram_sign_in_failed">Anmeldung nicht abgeschlossen</string>
+    <string name="pangram_feed_consent_title">Darf Pangram Beiträge prüfen?</string>
+    <string name="pangram_feed_consent_message">Pangram speichert die geprüften Beiträge in deinem Scanverlauf.</string>
+    <string name="pangram_feed_consent_agree">Erlauben</string>
+    <string name="pangram_feed_consent_decline">Nicht jetzt</string>
+    <string name="pangram_signed_in_as">Angemeldet als <xliff:g id="email">%1$s</xliff:g></string>
+    <plurals name="pangram_plan">
+        <item quantity="one"><xliff:g id="plan">%1$s</xliff:g>, noch <xliff:g id="count">%2$d</xliff:g> Credit</item>
+        <item quantity="other"><xliff:g id="plan">%1$s</xliff:g>, noch <xliff:g id="count">%2$d</xliff:g> Credits</item>
+    </plurals>
+    <string name="pangram_no_plan">Kein aktives Abo. Pangram braucht ein kostenpflichtiges Abo oder eine kostenlose Testphase.</string>
+    <string name="pangram_unavailable">Pangram nicht erreichbar</string>
+    <string name="pangram_image_consent_title">Bilder mit Pangram prüfen?</string>
+    <string name="pangram_image_consent_message">Pangram prüft Bilder, sobald du seinen Bedingungen zustimmst, und lädt jedes Bild über seinen Link herunter.</string>
+    <string name="pangram_image_consent_terms">Bedingungen lesen</string>
+    <string name="pangram_image_consent_agree">Zustimmen</string>
+</resources>

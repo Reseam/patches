@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pangram_sign_in">ลงชื่อเข้าใช้</string>
+    <string name="pangram_sign_out">ออกจากระบบ</string>
+    <string name="pangram_close">ปิด</string>
+    <string name="pangram_signed_out_message">ลงชื่อเข้าใช้ผ่านเบราว์เซอร์เพื่อตรวจโพสต์ใหม่ Pangram ต้องใช้แพ็กเกจแบบชำระเงินหรือช่วงทดลองใช้ฟรี</string>
+    <string name="pangram_signed_in">ลงชื่อเข้าใช้ Pangram แล้ว</string>
+    <string name="pangram_sign_in_failed">ลงชื่อเข้าใช้ไม่สำเร็จ</string>
+    <string name="pangram_feed_consent_title">อนุญาตให้ Pangram ตรวจโพสต์ไหม</string>
+    <string name="pangram_feed_consent_message">Pangram เก็บโพสต์ที่ตรวจไว้ในประวัติการสแกนของคุณ</string>
+    <string name="pangram_feed_consent_agree">อนุญาต</string>
+    <string name="pangram_feed_consent_decline">ไว้ทีหลัง</string>
+    <string name="pangram_signed_in_as">ลงชื่อเข้าใช้เป็น <xliff:g id="email">%1$s</xliff:g></string>
+    <plurals name="pangram_plan">
+        <item quantity="other"><xliff:g id="plan">%1$s</xliff:g> เหลือ <xliff:g id="count">%2$d</xliff:g> เครดิต</item>
+    </plurals>
+    <string name="pangram_no_plan">ไม่มีแพ็กเกจที่ใช้งานอยู่ Pangram ต้องใช้แพ็กเกจแบบชำระเงินหรือช่วงทดลองใช้ฟรี</string>
+    <string name="pangram_unavailable">เชื่อมต่อ Pangram ไม่ได้</string>
+    <string name="pangram_image_consent_title">ตรวจรูปภาพด้วย Pangram ไหม</string>
+    <string name="pangram_image_consent_message">Pangram จะตรวจรูปภาพเมื่อคุณยอมรับข้อกำหนด และดาวน์โหลดแต่ละรูปจากลิงก์ของรูปนั้น</string>
+    <string name="pangram_image_consent_terms">อ่านข้อกำหนด</string>
+    <string name="pangram_image_consent_agree">ยอมรับ</string>
+</resources>
