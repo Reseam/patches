@@ -10,7 +10,6 @@ import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.mainActivityOnCreate
 import app.reseam.patches.youtube.core.youTubeSettings
-import app.reseam.patches.youtube.internal.videoInformationHook
 import app.reseam.youtubecommon.settings.YouTubeCommonSettings
 import app.reseam.patches.youtubecommon.preferOriginalAudio
 import app.reseam.youtube.settings.YouTubeStrings
@@ -18,7 +17,7 @@ import app.reseam.youtube.settings.YouTubeStrings
 val forceOriginalAudio = patch(YouTubePatchStrings.forceOriginalAudio) {
     description(YouTubePatchStrings.forceOriginalAudioDescription)
     compatibleWith(YOUTUBE)
-    dependsOn(youTubeSettings, videoInformationHook)
+    dependsOn(youTubeSettings)
     settings(youTubeSettings, section(YouTubeSettingsPages.Video, YouTubeStrings.sectionAudio, YouTubeCommonSettings.forceOriginalAudio))
 
     execute { preferOriginalAudio(mainActivityOnCreate) }

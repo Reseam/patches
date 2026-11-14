@@ -68,12 +68,11 @@ fun PatchRuntime.preferOriginalAudio(activityOnCreate: MethodTarget) {
         returnValue(selected)
     }
 
-    newVideoId.after { ForceOriginalAudio.newVideo(capture("videoId")) }
     selectOriginalAudioTrack(audioTrackIdMethod)
 }
 
 // The server picks the streamed track from the account's preferred languages, so the original is
-// chosen through the player controller, the same call the audio track menu makes.
+// set as the preferred track on the app-wide player, which serves the regular and the Shorts player.
 private fun PatchRuntime.selectOriginalAudioTrack(formatAudioTrackId: MethodTarget) {
     val trackClass = klass(audioTrackToString.owner)
     trackClass.classDef.addInterface(AUDIO_TRACK_INTERFACE)
@@ -81,11 +80,14 @@ private fun PatchRuntime.selectOriginalAudioTrack(formatAudioTrackId: MethodTarg
         returnValue(thisObject.field(audioTrackIdField))
     }
 
-    val controllerClass = klass(selectAudioTrack.owner)
-    controllerClass.classDef.addInterface(AUDIO_TRACK_SELECTOR_INTERFACE)
-    controllerClass.addMethod("patch_selectAudioTrack", "(Ljava/lang/String;)V") {
-        thisObject.call(selectAudioTrack, param(0))
+    val playerClass = klass(setAudioTrackId.owner)
+    playerClass.classDef.addInterface(AUDIO_TRACK_SELECTOR_INTERFACE)
+    playerClass.addMethod("patch_selectAudioTrack", "(Ljava/lang/String;)V") {
+        thisObject.call(setAudioTrackId, param(0))
         returnVoid()
+    }
+    method("player constructor") { inClass(playerClass); name("<init>") }.after {
+        ForceOriginalAudio.setPlayer(thisObject.cast(AUDIO_TRACK_SELECTOR_INTERFACE))
     }
 
     val qualityAuto = requireNotNull(resources.id("string", "quality_auto")) { "string/quality_auto is missing" }.toLong()
@@ -111,10 +113,8 @@ private fun PatchRuntime.selectOriginalAudioTrack(formatAudioTrackId: MethodTarg
         returnNull()
     }
     val tracksField = eventClass.fieldOfType("[${audioTrackToString.owner}")
-    val controllerField = klass(formatChanged.owner).fieldOfType(selectAudioTrack.owner)
     formatChanged.before {
         ForceOriginalAudio.formatChanged(
-            thisObject.field(controllerField).cast(AUDIO_TRACK_SELECTOR_INTERFACE),
             param(0).field(tracksField).cast("[$AUDIO_TRACK_INTERFACE"),
             param(0).call(currentAudioTrackId),
         )
@@ -168,13 +168,8 @@ private val audioTrackIdField = audioTrackToString
     .point("audio track id") { field { type(Type.String) } }
     .field("audio track id")
 
-private val audioTrackMenuClick = method("audio track menu click") {
-    name("onItemClick")
+private val setAudioTrackId = method("set audio track id") {
+    strings("api", "alang.")
+    params(Type.String)
     returns(Type.Void)
-    accesses { owner(audioTrackToString.owner); type(Type.String) }
 }
-
-private val selectAudioTrack = audioTrackMenuClick
-    .point("chosen audio track id") { field { owner(audioTrackToString.owner); type(Type.String) } }
-    .next { invokeVirtual { params(Type.String); returns(Type.Void) } }
-    .callee("select audio track")

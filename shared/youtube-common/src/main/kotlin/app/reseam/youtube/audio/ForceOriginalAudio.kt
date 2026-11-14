@@ -20,15 +20,15 @@ interface AudioTrack {
     @Export fun patch_getId(): String?
 }
 
-/** Implemented on the player controller by the patch; selects a track as the audio menu does. */
+/** Implemented on the app-wide player by the patch; sets its preferred audio track. */
 @Export
 interface AudioTrackSelector {
     @Export fun patch_selectAudioTrack(id: String)
 }
 
 @Volatile private var enabled = false
-@Volatile private var videoId: String? = null
-private var chosenFor: String? = null
+@Volatile private var player: AudioTrackSelector? = null
+@Volatile private var chosenFor: List<String> = emptyList()
 
 @Export
 fun setEnabled() {
@@ -51,23 +51,23 @@ fun isDefaultAudioStream(
 }
 
 @Export
-fun newVideo(id: String) {
-    videoId = id
+fun setPlayer(selector: AudioTrackSelector) {
+    player = selector
 }
 
 /**
  * The server streams the track it picks for the account's preferred languages and ignores the
- * default flag, so the original is selected once per video. A later choice in the menu stands.
+ * default flag, so the original is selected once per track list. Events carry no video, and one
+ * can arrive before the new video's id does. A later choice in the menu stands.
  */
 @Export
-fun formatChanged(selector: AudioTrackSelector?, tracks: Array<out AudioTrack?>?, currentId: String?) {
-    val video = videoId
-    if (!enabled || selector == null || tracks == null || currentId == null || video == chosenFor) return
-    val original =
-        tracks.firstNotNullOfOrNull { track ->
-            track?.patch_getId()?.takeIf { it.endsWith(ORIGINAL_TRACK_SUFFIX) }
-        } ?: return
-    chosenFor = video
+fun formatChanged(tracks: Array<out AudioTrack?>?, currentId: String?) {
+    val selector = player
+    if (!enabled || selector == null || tracks == null || currentId == null) return
+    val ids = tracks.mapNotNull { it?.patch_getId() }
+    if (ids == chosenFor) return
+    val original = ids.firstOrNull { it.endsWith(ORIGINAL_TRACK_SUFFIX) } ?: return
+    chosenFor = ids
     if (original == currentId) return
     Logger.debug { "Selecting original audio $original over $currentId" }
     postToMainThread { selector.patch_selectAudioTrack(original) }
