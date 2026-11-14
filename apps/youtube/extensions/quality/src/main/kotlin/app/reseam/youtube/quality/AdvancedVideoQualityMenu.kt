@@ -77,6 +77,10 @@ private fun clickWhenSettled(list: View, advanced: View) {
         )
 }
 
+// The resolutions open in a second list that comes through here too; its fifth item is a resolution,
+// not Advanced, so only an item of the kind first clicked is clicked again.
+@Volatile private var shortsQuickOption: Class<*>? = null
+
 @Export
 fun addVideoQualityListMenuListener(view: View) {
     if (!VideoSettings.advancedVideoQualityMenu.value) return
@@ -86,8 +90,11 @@ fun addVideoQualityListMenuListener(view: View) {
             override fun onChildViewAdded(parent: View, child: View) {
                 try {
                     if (list.indexOfChild(child) != 4) return
+                    val option = list.adapter?.getItem(4)?.javaClass ?: return
+                    if (shortsQuickOption.let { it != null && it != option }) return
                     list.isSoundEffectsEnabled = false
                     if (!list.performItemClick(child, 4, list.getItemIdAtPosition(4))) return
+                    shortsQuickOption = option
                     parent.visibility = View.GONE
                 } catch (exception: Exception) {
                     Logger.error(exception) { "Advanced Shorts quality menu failure" }
