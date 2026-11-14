@@ -4,6 +4,7 @@
 package app.reseam.youtube.sponsorblock
 
 import android.os.SystemClock
+import app.reseam.youtube.player.PlayerType
 import app.reseam.youtube.sponsorblock.common.Segment
 import app.reseam.youtube.sponsorblock.common.isTooShort
 
@@ -19,6 +20,12 @@ internal sealed interface PlaybackDecision {
 
 internal val Segment.alreadySkippedOnce: Boolean
     get() = category.mode == "skip-once" && uuid in SponsorBlockSkips.skipped
+
+// The skip button cannot be used in picture-in-picture, so segments it would offer are skipped there.
+private val Segment.skipsAutomatically: Boolean
+    get() =
+        isAutomatic ||
+            category.mode == "manual-skip" && PlayerType.current == PlayerType.WATCH_WHILE_PICTURE_IN_PICTURE
 
 internal fun Segment.playbackDecision(now: Long): PlaybackDecision {
     if (isIgnored || isTooShort) return PlaybackDecision.None
@@ -36,7 +43,7 @@ internal fun Segment.playbackDecision(now: Long): PlaybackDecision {
     val overlapsUndo = undo != null && start < undo.end && end > undo.start
     if (overlapsUndo) return PlaybackDecision.None
     return when {
-        isAutomatic && !alreadySkippedOnce -> {
+        skipsAutomatically && !alreadySkippedOnce -> {
             val seekSettled =
                 SystemClock.elapsedRealtime() - SponsorBlockPlayback.lastSeekClock > 1000
             if (seekSettled) PlaybackDecision.Skip(this) else PlaybackDecision.None
