@@ -96,6 +96,7 @@
     <string name="section_features">Features</string>
     <string name="section_navigation">Navigation</string>
     <string name="section_drawer">Community drawer</string>
+    <string name="section_ai_labels">AI labels</string>
     <string name="section_settings">Settings</string>
     <string name="section_updates">Updates</string>
     <string name="section_privacy">Privacy</string>

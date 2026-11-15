@@ -6,6 +6,7 @@ package app.reseam.pangram
 import android.net.Uri
 import app.reseam.ailabels.DetectorException
 import app.reseam.ailabels.Post
+import app.reseam.ailabels.PostKind
 import app.reseam.bundle.jsonObject
 import app.reseam.bundle.objects
 import app.reseam.bundle.openHttp
@@ -37,8 +38,12 @@ internal object PangramApi {
             "/feed/predict",
             "text" to post.text,
             "domain" to post.domain,
-            "content_type" to "post",
+            "content_type" to when (post.kind) {
+                PostKind.Post -> "post"
+                PostKind.Comment -> "comment"
+            },
             "url" to post.url,
+            "title" to post.title,
             "author_platform_id" to post.authorId,
             "author_name" to post.authorName,
             "source_date" to post.createdAtMillis?.let { Instant.ofEpochMilli(it).toString() },

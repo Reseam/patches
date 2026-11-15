@@ -96,6 +96,7 @@
     <string name="section_features">기능</string>
     <string name="section_navigation">탐색</string>
     <string name="section_drawer">커뮤니티 서랍</string>
+    <string name="section_ai_labels">AI 라벨</string>
     <string name="section_settings">설정</string>
     <string name="section_updates">업데이트</string>
     <string name="section_privacy">개인정보 보호</string>

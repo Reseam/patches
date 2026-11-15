@@ -96,6 +96,7 @@
     <string name="section_features">Fitur</string>
     <string name="section_navigation">Navigasi</string>
     <string name="section_drawer">Laci komunitas</string>
+    <string name="section_ai_labels">Label AI</string>
     <string name="section_settings">Setelan</string>
     <string name="section_updates">Update</string>
     <string name="section_privacy">Privasi</string>

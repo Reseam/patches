@@ -96,6 +96,7 @@
     <string name="section_features">Recursos</string>
     <string name="section_navigation">Navegação</string>
     <string name="section_drawer">Menu de comunidades</string>
+    <string name="section_ai_labels">Rótulos de IA</string>
     <string name="section_settings">Configurações</string>
     <string name="section_updates">Atualizações</string>
     <string name="section_privacy">Privacidade</string>

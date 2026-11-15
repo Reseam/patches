@@ -96,6 +96,7 @@
     <string name="section_features">機能</string>
     <string name="section_navigation">ナビゲーション</string>
     <string name="section_drawer">コミュニティドロワー</string>
+    <string name="section_ai_labels">AI ラベル</string>
     <string name="section_settings">設定</string>
     <string name="section_updates">アップデート</string>
     <string name="section_privacy">プライバシー</string>

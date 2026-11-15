@@ -3,6 +3,7 @@
 
 package app.reseam.patches.reddit.core
 
+import app.reseam.pangram.settings.PangramStrings
 import app.reseam.patch.settings.settingsHost
 import app.reseam.patches.bundle.reseamAbout
 import app.reseam.patches.bundle.reseamBrand
@@ -11,4 +12,5 @@ val redditSettings = settingsHost("reddit") {
     compatibleWith(REDDIT)
     brand(reseamBrand)
     about(reseamAbout)
+    strings(PangramStrings)
 }

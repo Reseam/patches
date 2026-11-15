@@ -96,6 +96,7 @@
     <string name="section_features">फ़ीचर</string>
     <string name="section_navigation">नेविगेशन</string>
     <string name="section_drawer">कम्युनिटी ड्रॉअर</string>
+    <string name="section_ai_labels">AI लेबल</string>
     <string name="section_settings">सेटिंग</string>
     <string name="section_updates">अपडेट</string>
     <string name="section_privacy">निजता</string>

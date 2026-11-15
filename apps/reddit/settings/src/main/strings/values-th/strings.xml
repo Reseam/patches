@@ -96,6 +96,7 @@
     <string name="section_features">ฟีเจอร์</string>
     <string name="section_navigation">การนำทาง</string>
     <string name="section_drawer">ลิ้นชักชุมชน</string>
+    <string name="section_ai_labels">ป้าย AI</string>
     <string name="section_settings">การตั้งค่า</string>
     <string name="section_updates">การอัปเดต</string>
     <string name="section_privacy">ความเป็นส่วนตัว</string>

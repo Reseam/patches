@@ -96,6 +96,7 @@
     <string name="section_features">Özellikler</string>
     <string name="section_navigation">Gezinme</string>
     <string name="section_drawer">Topluluk çekmecesi</string>
+    <string name="section_ai_labels">Yapay zekâ etiketleri</string>
     <string name="section_settings">Ayarlar</string>
     <string name="section_updates">Güncellemeler</string>
     <string name="section_privacy">Gizlilik</string>

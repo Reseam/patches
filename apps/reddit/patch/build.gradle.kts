@@ -6,4 +6,6 @@ reseamStrings { objectName = "app.reseam.patches.reddit.RedditPatchStrings" }
 dependencies {
     compileOnly(project(":shared:bundle:patch"))
     compileOnly(project(":apps:universal:patch"))
+    compileOnly(project(":shared:ai-labels:patch"))
+    compileOnly(project(":shared:pangram:patch"))
 }

@@ -96,6 +96,7 @@
     <string name="section_features">Функції</string>
     <string name="section_navigation">Навігація</string>
     <string name="section_drawer">Панель спільнот</string>
+    <string name="section_ai_labels">Мітки ШІ</string>
     <string name="section_settings">Налаштування</string>
     <string name="section_updates">Оновлення</string>
     <string name="section_privacy">Конфіденційність</string>

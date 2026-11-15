@@ -96,6 +96,7 @@
     <string name="section_features">功能</string>
     <string name="section_navigation">導覽</string>
     <string name="section_drawer">社群側邊選單</string>
+    <string name="section_ai_labels">AI 標籤</string>
     <string name="section_settings">設定</string>
     <string name="section_updates">更新</string>
     <string name="section_privacy">隱私權</string>

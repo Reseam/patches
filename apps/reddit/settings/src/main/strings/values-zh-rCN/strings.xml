@@ -96,6 +96,7 @@
     <string name="section_features">功能</string>
     <string name="section_navigation">导航</string>
     <string name="section_drawer">社区抽屉</string>
+    <string name="section_ai_labels">AI 标签</string>
     <string name="section_settings">设置</string>
     <string name="section_updates">更新</string>
     <string name="section_privacy">隐私</string>

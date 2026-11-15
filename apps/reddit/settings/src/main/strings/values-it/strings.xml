@@ -96,6 +96,7 @@
     <string name="section_features">Funzioni</string>
     <string name="section_navigation">Navigazione</string>
     <string name="section_drawer">Pannello delle community</string>
+    <string name="section_ai_labels">Etichette IA</string>
     <string name="section_settings">Impostazioni</string>
     <string name="section_updates">Aggiornamenti</string>
     <string name="section_privacy">Privacy</string>

@@ -96,6 +96,7 @@
     <string name="section_features">Функции</string>
     <string name="section_navigation">Навигация</string>
     <string name="section_drawer">Панель сообществ</string>
+    <string name="section_ai_labels">Метки ИИ</string>
     <string name="section_settings">Настройки</string>
     <string name="section_updates">Обновления</string>
     <string name="section_privacy">Конфиденциальность</string>

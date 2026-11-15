@@ -96,6 +96,7 @@
     <string name="section_features">Fonctionnalités</string>
     <string name="section_navigation">Navigation</string>
     <string name="section_drawer">Volet des communautés</string>
+    <string name="section_ai_labels">Étiquettes IA</string>
     <string name="section_settings">Paramètres</string>
     <string name="section_updates">Mises à jour</string>
     <string name="section_privacy">Confidentialité</string>

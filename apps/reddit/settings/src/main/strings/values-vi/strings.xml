@@ -96,6 +96,7 @@
     <string name="section_features">Tính năng</string>
     <string name="section_navigation">Điều hướng</string>
     <string name="section_drawer">Ngăn cộng đồng</string>
+    <string name="section_ai_labels">Nhãn AI</string>
     <string name="section_settings">Cài đặt</string>
     <string name="section_updates">Cập nhật</string>
     <string name="section_privacy">Quyền riêng tư</string>
