@@ -68,6 +68,8 @@
     <string name="sb_square_layout">사각형 건너뛰기 버튼</string>
     <string name="sb_auto_hide_skip_button">건너뛰기 버튼 자동 숨기기</string>
     <string name="sb_auto_hide_skip_button_duration">건너뛰기 버튼 표시 시간 (ms)</string>
+    <string name="sb_undo_skip_button">건너뛰기 취소 버튼</string>
+    <string name="sb_undo_skip_button_summary">구간을 건너뛴 후 되돌아갈 수 있게 합니다.</string>
     <string name="sb_video_length_without_segments">구간을 제외한 길이 표시</string>
     <string name="ryd_enabled">Return YouTube Dislike</string>
     <string name="ryd_enabled_summary">returnyoutubedislike.com의 싫어요 수를 표시합니다. 이 서비스는 내가 여는 동영상을 볼 수 있습니다.</string>

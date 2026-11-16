@@ -68,6 +68,8 @@
     <string name="sb_square_layout">Tombol lewati persegi</string>
     <string name="sb_auto_hide_skip_button">Sembunyikan otomatis tombol lewati</string>
     <string name="sb_auto_hide_skip_button_duration">Batas waktu tombol lewati (md)</string>
+    <string name="sb_undo_skip_button">Tombol urungkan lewati</string>
+    <string name="sb_undo_skip_button_summary">Menawarkan untuk kembali setelah segmen dilewati.</string>
     <string name="sb_video_length_without_segments">Tampilkan durasi tanpa segmen</string>
     <string name="ryd_enabled">Return YouTube Dislike</string>
     <string name="ryd_enabled_summary">Menampilkan jumlah tidak suka dari returnyoutubedislike.com, yang dapat melihat video yang Anda buka.</string>

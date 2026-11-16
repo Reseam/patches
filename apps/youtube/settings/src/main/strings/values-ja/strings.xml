@@ -68,6 +68,8 @@
     <string name="sb_square_layout">四角いスキップボタン</string>
     <string name="sb_auto_hide_skip_button">スキップボタンを自動で隠す</string>
     <string name="sb_auto_hide_skip_button_duration">スキップボタンの表示時間 (ms)</string>
+    <string name="sb_undo_skip_button">スキップ取り消しボタン</string>
+    <string name="sb_undo_skip_button_summary">セグメントをスキップした後に戻る操作を表示します。</string>
     <string name="sb_video_length_without_segments">セグメントを除いた長さを表示</string>
     <string name="ryd_enabled">Return YouTube Dislike</string>
     <string name="ryd_enabled_summary">returnyoutubedislike.com の低評価数を表示します。このサービスにはあなたが開いた動画が見えます。</string>

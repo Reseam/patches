@@ -68,6 +68,8 @@
     <string name="sb_square_layout">Botão de pular quadrado</string>
     <string name="sb_auto_hide_skip_button">Ocultar botão de pular automaticamente</string>
     <string name="sb_auto_hide_skip_button_duration">Tempo de exibição do botão de pular (ms)</string>
+    <string name="sb_undo_skip_button">Botão Desfazer pulo</string>
+    <string name="sb_undo_skip_button_summary">Oferece voltar depois que um segmento é pulado.</string>
     <string name="sb_video_length_without_segments">Mostrar duração sem os segmentos</string>
     <string name="ryd_enabled">Return YouTube Dislike</string>
     <string name="ryd_enabled_summary">Mostra as contagens de Não gostei do returnyoutubedislike.com, que vê os vídeos que você abre.</string>

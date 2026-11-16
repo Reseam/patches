@@ -68,6 +68,8 @@
     <string name="sb_square_layout">Pulsante Salta squadrato</string>
     <string name="sb_auto_hide_skip_button">Nascondi automaticamente il pulsante Salta</string>
     <string name="sb_auto_hide_skip_button_duration">Durata del pulsante Salta (ms)</string>
+    <string name="sb_undo_skip_button">Pulsante Annulla il salto</string>
+    <string name="sb_undo_skip_button_summary">Propone di tornare indietro dopo il salto di un segmento.</string>
     <string name="sb_video_length_without_segments">Mostra la durata senza segmenti</string>
     <string name="ryd_enabled">Return YouTube Dislike</string>
     <string name="ryd_enabled_summary">Mostra il numero di Non mi piace da returnyoutubedislike.com, che vede i video che apri.</string>

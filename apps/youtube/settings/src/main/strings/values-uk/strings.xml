@@ -68,6 +68,8 @@
     <string name="sb_square_layout">Квадратна кнопка пропуску</string>
     <string name="sb_auto_hide_skip_button">Автоматично приховувати кнопку пропуску</string>
     <string name="sb_auto_hide_skip_button_duration">Час показу кнопки пропуску (мс)</string>
+    <string name="sb_undo_skip_button">Кнопка «Скасувати пропуск»</string>
+    <string name="sb_undo_skip_button_summary">Дає змогу повернутися після пропуску сегмента.</string>
     <string name="sb_video_length_without_segments">Показувати тривалість без фрагментів</string>
     <string name="ryd_enabled">Return YouTube Dislike</string>
     <string name="ryd_enabled_summary">Показує кількість «Не подобається» з returnyoutubedislike.com, який бачить відео, що ви відкриваєте.</string>

@@ -68,6 +68,8 @@
     <string name="sb_square_layout">Eckige Überspringen-Schaltfläche</string>
     <string name="sb_auto_hide_skip_button">Überspringen-Schaltfläche automatisch ausblenden</string>
     <string name="sb_auto_hide_skip_button_duration">Anzeigedauer der Überspringen-Schaltfläche (ms)</string>
+    <string name="sb_undo_skip_button">Schaltfläche „Überspringen rückgängig machen“</string>
+    <string name="sb_undo_skip_button_summary">Bietet an, nach dem Überspringen eines Segments zurückzuspringen.</string>
     <string name="sb_video_length_without_segments">Dauer ohne Segmente anzeigen</string>
     <string name="ryd_enabled">Return YouTube Dislike</string>
     <string name="ryd_enabled_summary">Zeigt die Zahl der „Mag ich nicht“-Bewertungen von returnyoutubedislike.com, das die Videos sieht, die du öffnest.</string>

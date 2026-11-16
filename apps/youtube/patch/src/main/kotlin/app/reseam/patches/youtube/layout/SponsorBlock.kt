@@ -31,7 +31,7 @@ val sponsorBlock = patch(YouTubePatchStrings.sponsorBlock) {
             SponsorBlockSettings.sbMusicOfftopic,
             VideoSettings.sbVotingButton, VideoSettings.sbCreateNewSegment,
             VideoSettings.sbCompactSkipButton, VideoSettings.sbSquareLayout,
-            VideoSettings.sbAutoHideSkipButton, VideoSettings.sbAutoHideSkipButtonDuration,
+            VideoSettings.sbAutoHideSkipButton, VideoSettings.sbAutoHideSkipButtonDuration, VideoSettings.sbUndoSkipButton,
             SponsorBlockSettings.sbToastOnSkip, SponsorBlockSettings.sbToastOnConnectionError,
             SponsorBlockSettings.sbTrackSkipCount, SponsorBlockSettings.sbMinSegmentDuration,
             VideoSettings.sbVideoLengthWithoutSegments, SponsorBlockSettings.sbApiUrl),

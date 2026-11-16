@@ -31,6 +31,7 @@ object VideoSettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
     val sbSquareLayout by toggle(default = false)
     val sbAutoHideSkipButton by toggle(default = true)
     val sbAutoHideSkipButtonDuration by text(default = "4000")
+    val sbUndoSkipButton by toggle(default = true)
     val sbVideoLengthWithoutSegments by toggle(default = false)
     val rydEnabled by toggle(default = true)
     val rydShorts by toggle(default = true)

@@ -124,7 +124,7 @@ internal class SponsorBlockOverlay(activity: Activity) : FrameLayout(activity) {
     }
 
     fun offerUndo(segment: Segment, time: Long, skippedTo: Long) {
-        if (!PlayerType.current.isMaximizedOrFullscreen) return
+        if (!VideoSettings.sbUndoSkipButton.value || !PlayerType.current.isMaximizedOrFullscreen) return
         buttonState =
             ButtonState.Undo(
                 buttonState as? ButtonState.Skipping ?: (buttonState as? ButtonState.Undo)?.previous

@@ -68,6 +68,8 @@
     <string name="sb_square_layout">चौकोर स्किप बटन</string>
     <string name="sb_auto_hide_skip_button">स्किप बटन अपने-आप छिपाएँ</string>
     <string name="sb_auto_hide_skip_button_duration">स्किप बटन का टाइमआउट (ms)</string>
+    <string name="sb_undo_skip_button">छोड़ना वापस लें बटन</string>
+    <string name="sb_undo_skip_button_summary">किसी सेगमेंट को छोड़ने के बाद वापस जाने का विकल्प देता है।</string>
     <string name="sb_video_length_without_segments">बिना हिस्सों वाली अवधि दिखाएँ</string>
     <string name="ryd_enabled">Return YouTube Dislike</string>
     <string name="ryd_enabled_summary">returnyoutubedislike.com से नापसंद की गिनती दिखाता है, जिसे आपके खोले गए वीडियो दिखते हैं।</string>

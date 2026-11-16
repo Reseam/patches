@@ -68,6 +68,8 @@
     <string name="sb_square_layout">مربع اسکپ بٹن</string>
     <string name="sb_auto_hide_skip_button">اسکپ بٹن خود چھپائیں</string>
     <string name="sb_auto_hide_skip_button_duration">اسکپ بٹن کا ٹائم آؤٹ (ms)</string>
+    <string name="sb_undo_skip_button">اسکِپ واپس لینے کا بٹن</string>
+    <string name="sb_undo_skip_button_summary">کسی حصے کے اسکِپ ہونے کے بعد واپس جانے کا اختیار دیتا ہے۔</string>
     <string name="sb_video_length_without_segments">حصوں کے بغیر دورانیہ دکھائیں</string>
     <string name="ryd_enabled">Return YouTube Dislike</string>
     <string name="ryd_enabled_summary">returnyoutubedislike.com سے ناپسند کی تعداد دکھاتا ہے، جو آپ کی کھولی ہوئی ویڈیوز دیکھتا ہے۔</string>
