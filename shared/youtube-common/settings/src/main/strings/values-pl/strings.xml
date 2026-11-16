@@ -13,6 +13,8 @@
     <string name="disable_hdr_video_summary">Informuje YouTube, że twój ekran nie obsługuje HDR.</string>
     <string name="force_vp9_codec">Wymuś kodek VP9</string>
     <string name="force_vp9_codec_summary">Wyłącza AV1, przez który niektóre telefony się nagrzewają i szybciej zużywają baterię.</string>
+    <string name="force_avc_codec">Wymuś kodek AVC</string>
+    <string name="force_avc_codec_summary">Wyłącza VP9 i AV1, co oszczędza baterię i ogranicza filmy do 1080p.</string>
     <string name="custom_branding_icon_custom">Własne</string>
     <string name="experiment_flags_saved">Zapisano <xliff:g id="file_name">%1$s</xliff:g> w folderze Pobrane</string>
     <string name="experiment_flags_failed">Nie udało się zapisać flag eksperymentów</string>

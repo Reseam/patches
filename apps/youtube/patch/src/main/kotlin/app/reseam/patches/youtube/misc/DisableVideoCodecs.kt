@@ -7,15 +7,13 @@ import app.reseam.patch.Type
 import app.reseam.patch.after
 import app.reseam.patch.method
 import app.reseam.patch.patch
-import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
 import app.reseam.youtube.core.bindings.DisplayHdr
-import app.reseam.youtube.misc.bindings.VideoCodecs
-import app.reseam.youtube.settings.VideoSettings
+import app.reseam.youtube.core.bindings.VideoCodecs
 import app.reseam.youtube.settings.YouTubeStrings
 import app.reseam.youtubecommon.settings.YouTubeCommonSettings
 
@@ -29,7 +27,7 @@ val disableVideoCodecs = patch(YouTubePatchStrings.disableVideoCodecs) {
             YouTubeStrings.sectionCodecs,
             YouTubeCommonSettings.disableHdrVideo,
             YouTubeCommonSettings.forceVp9Codec,
-            VideoSettings.forceAvcCodec,
+            YouTubeCommonSettings.forceAvcCodec,
         ),
     )
 
@@ -39,14 +37,11 @@ val disableVideoCodecs = patch(YouTubePatchStrings.disableVideoCodecs) {
         codecSupported.after {
             result.assign(VideoCodecs.codecSupported(param(1), result))
         }
-        gate(VideoSettings.forceAvcCodec) {
-            vp9Supported.alwaysReturn(false)
-        }
     }
 }
 
 // One capability check names both the flag and the mime type it decides.
-val vp9Supported = method("vp9Supported") {
+private val vp9Supported = method("vp9Supported") {
     strings("vp9_supported", "video/x-vnd.on2.vp9")
     returns(Type.Boolean)
 }

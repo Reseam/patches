@@ -41,7 +41,6 @@ object VideoSettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
     val rydToastOnConnectionError by toggle(default = true)
     val pauseOnAudioInterrupt by toggle(default = false)
     val removeViewerDiscretionDialog by toggle(default = false)
-    val forceAvcCodec by toggle(default = false)
     val unlockQueue by toggle(default = true)
     val restoreCastQueue by toggle(default = true)
     val videoQualityDefault by choice(default = "-2", choices = videoQualityChoices)

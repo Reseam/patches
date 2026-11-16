@@ -115,8 +115,6 @@
     <string name="remove_viewer_discretion_dialog_summary">I video con limiti di età restano limitati.</string>
     <string name="check_watch_history_dns">Controlla la cronologia delle visualizzazioni</string>
     <string name="check_watch_history_dns_summary">Avvisa quando il tuo DNS blocca il dominio che salva la cronologia delle visualizzazioni.</string>
-    <string name="force_avc_codec">Forza il codec AVC</string>
-    <string name="force_avc_codec_summary">Disattiva VP9, risparmiando batteria e limitando i video a 1080p.</string>
     <string name="change_start_page">Pagina iniziale</string>
     <string name="change_start_page_summary">La pagina che YouTube apre al posto della Home.</string>
     <string name="change_start_page_always">Usa sempre la pagina iniziale</string>

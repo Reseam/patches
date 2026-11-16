@@ -16,4 +16,5 @@ object YouTubeCommonSettings : SettingsGroup(YouTubeCommonStrings, "you_tube_set
     val forceOriginalAudio by toggle(default = true)
     val disableHdrVideo by toggle(default = false)
     val forceVp9Codec by toggle(default = false)
+    val forceAvcCodec by toggle(default = false)
 }

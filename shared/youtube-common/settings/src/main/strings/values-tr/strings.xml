@@ -13,6 +13,8 @@
     <string name="disable_hdr_video_summary">YouTube\'a ekranınızın HDR desteklemediğini söyler.</string>
     <string name="force_vp9_codec">VP9 kodekini zorla</string>
     <string name="force_vp9_codec_summary">Bazı telefonları ısıtan ve pili tüketen AV1\'i kapatır.</string>
+    <string name="force_avc_codec">AVC kodekini zorla</string>
+    <string name="force_avc_codec_summary">VP9 ve AV1\'i kapatır; bu pil tasarrufu sağlar ve videoları 1080p ile sınırlar.</string>
     <string name="custom_branding_icon_custom">Özel</string>
     <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g> İndirilenler\'e kaydedildi</string>
     <string name="experiment_flags_failed">Deney bayrakları kaydedilemedi</string>

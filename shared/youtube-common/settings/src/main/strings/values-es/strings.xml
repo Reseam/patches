@@ -13,6 +13,8 @@
     <string name="disable_hdr_video_summary">Le dice a YouTube que tu pantalla no tiene HDR.</string>
     <string name="force_vp9_codec">Forzar códec VP9</string>
     <string name="force_vp9_codec_summary">Desactiva AV1, que hace que algunos teléfonos se calienten y gasten batería.</string>
+    <string name="force_avc_codec">Forzar códec AVC</string>
+    <string name="force_avc_codec_summary">Desactiva VP9 y AV1, lo que ahorra batería y limita los videos a 1080p.</string>
     <string name="custom_branding_icon_custom">Personalizado</string>
     <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g> guardado en Descargas</string>
     <string name="experiment_flags_failed">No se pudieron guardar los indicadores de experimentos</string>

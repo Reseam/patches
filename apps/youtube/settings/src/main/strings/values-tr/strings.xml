@@ -115,8 +115,6 @@
     <string name="remove_viewer_discretion_dialog_summary">Yaş kısıtlamalı videolar kısıtlı kalır.</string>
     <string name="check_watch_history_dns">İzleme geçmişini denetle</string>
     <string name="check_watch_history_dns_summary">DNS\'iniz izleme geçmişinizi kaydeden alan adını engellediğinde uyarır.</string>
-    <string name="force_avc_codec">AVC kodekini zorla</string>
-    <string name="force_avc_codec_summary">VP9\'u kapatır; bu pil tasarrufu sağlar ve videoları 1080p ile sınırlar.</string>
     <string name="change_start_page">Başlangıç sayfası</string>
     <string name="change_start_page_summary">YouTube\'un Ana Sayfa yerine açtığı sayfa.</string>
     <string name="change_start_page_always">Her zaman başlangıç sayfasını kullan</string>

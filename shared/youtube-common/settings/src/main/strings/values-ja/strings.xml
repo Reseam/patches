@@ -13,6 +13,8 @@
     <string name="disable_hdr_video_summary">画面が HDR に対応していないと YouTube に伝えます。</string>
     <string name="force_vp9_codec">VP9 コーデックを強制</string>
     <string name="force_vp9_codec_summary">AV1 をオフにします。AV1 は一部のスマートフォンを発熱させ、バッテリーを消耗させます。</string>
+    <string name="force_avc_codec">AVC コーデックを強制</string>
+    <string name="force_avc_codec_summary">VP9 と AV1 をオフにします。バッテリーを節約できますが、動画は 1080p までになります。</string>
     <string name="custom_branding_icon_custom">カスタム</string>
     <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g> をダウンロードフォルダに保存しました</string>
     <string name="experiment_flags_failed">実験フラグを保存できませんでした</string>

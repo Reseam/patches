@@ -115,8 +115,6 @@
     <string name="remove_viewer_discretion_dialog_summary">Filmy z ograniczeniem wiekowym pozostają ograniczone.</string>
     <string name="check_watch_history_dns">Sprawdzaj historię oglądania</string>
     <string name="check_watch_history_dns_summary">Ostrzega, gdy twój DNS blokuje domenę zapisującą historię oglądania.</string>
-    <string name="force_avc_codec">Wymuś kodek AVC</string>
-    <string name="force_avc_codec_summary">Wyłącza VP9, co oszczędza baterię i ogranicza filmy do 1080p.</string>
     <string name="change_start_page">Strona startowa</string>
     <string name="change_start_page_summary">Strona, którą YouTube otwiera zamiast strony głównej.</string>
     <string name="change_start_page_always">Zawsze używaj strony startowej</string>

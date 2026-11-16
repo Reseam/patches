@@ -13,6 +13,8 @@
     <string name="disable_hdr_video_summary">บอก YouTube ว่าหน้าจอของคุณไม่รองรับ HDR</string>
     <string name="force_vp9_codec">บังคับตัวแปลงรหัส VP9</string>
     <string name="force_vp9_codec_summary">ปิด AV1 ซึ่งทำให้โทรศัพท์บางรุ่นร้อนและเปลืองแบตเตอรี่</string>
+    <string name="force_avc_codec">บังคับตัวแปลงรหัส AVC</string>
+    <string name="force_avc_codec_summary">ปิด VP9 และ AV1 ซึ่งช่วยประหยัดแบตเตอรี่และจำกัดวิดีโอไว้ที่ 1080p</string>
     <string name="custom_branding_icon_custom">กำหนดเอง</string>
     <string name="experiment_flags_saved">บันทึก <xliff:g id="file_name">%1$s</xliff:g> ไปยังดาวน์โหลดแล้ว</string>
     <string name="experiment_flags_failed">บันทึกแฟล็กการทดลองไม่ได้</string>

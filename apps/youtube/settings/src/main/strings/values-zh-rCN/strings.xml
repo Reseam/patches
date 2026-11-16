@@ -115,8 +115,6 @@
     <string name="remove_viewer_discretion_dialog_summary">有年龄限制的视频仍受限制。</string>
     <string name="check_watch_history_dns">检查观看记录</string>
     <string name="check_watch_history_dns_summary">当你的 DNS 屏蔽了保存观看记录的域名时发出警告。</string>
-    <string name="force_avc_codec">强制使用 AVC 编解码器</string>
-    <string name="force_avc_codec_summary">关闭 VP9，可以省电，但视频最高只有 1080p。</string>
     <string name="change_start_page">起始页面</string>
     <string name="change_start_page_summary">YouTube 代替首页打开的页面。</string>
     <string name="change_start_page_always">始终使用起始页面</string>

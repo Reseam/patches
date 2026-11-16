@@ -115,8 +115,6 @@
     <string name="remove_viewer_discretion_dialog_summary">Видео с возрастными ограничениями остаются ограниченными.</string>
     <string name="check_watch_history_dns">Проверять историю просмотра</string>
     <string name="check_watch_history_dns_summary">Предупреждает, когда ваш DNS блокирует домен, сохраняющий историю просмотра.</string>
-    <string name="force_avc_codec">Всегда кодек AVC</string>
-    <string name="force_avc_codec_summary">Отключает VP9, что экономит заряд и ограничивает видео до 1080p.</string>
     <string name="change_start_page">Начальная страница</string>
     <string name="change_start_page_summary">Страница, которую YouTube открывает вместо главной.</string>
     <string name="change_start_page_always">Всегда использовать начальную страницу</string>

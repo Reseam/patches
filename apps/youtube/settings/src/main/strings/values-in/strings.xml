@@ -115,8 +115,6 @@
     <string name="remove_viewer_discretion_dialog_summary">Video yang dibatasi usia tetap dibatasi.</string>
     <string name="check_watch_history_dns">Periksa histori tontonan</string>
     <string name="check_watch_history_dns_summary">Memperingatkan saat DNS Anda memblokir domain yang menyimpan histori tontonan Anda.</string>
-    <string name="force_avc_codec">Paksa codec AVC</string>
-    <string name="force_avc_codec_summary">Menonaktifkan VP9, yang menghemat baterai dan membatasi video hingga 1080p.</string>
     <string name="change_start_page">Halaman awal</string>
     <string name="change_start_page_summary">Halaman yang dibuka YouTube sebagai pengganti Beranda.</string>
     <string name="change_start_page_always">Selalu gunakan halaman awal</string>

@@ -13,6 +13,8 @@
     <string name="disable_hdr_video_summary">Повідомляє YouTube, що ваш екран не підтримує HDR.</string>
     <string name="force_vp9_codec">Примусово кодек VP9</string>
     <string name="force_vp9_codec_summary">Вимикає AV1, через який деякі телефони гріються й швидше розряджаються.</string>
+    <string name="force_avc_codec">Примусово кодек AVC</string>
+    <string name="force_avc_codec_summary">Вимикає VP9 і AV1, що заощаджує батарею й обмежує відео до 1080p.</string>
     <string name="custom_branding_icon_custom">Власний</string>
     <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g> збережено в «Завантаження»</string>
     <string name="experiment_flags_failed">Не вдалося зберегти прапорці експериментів</string>

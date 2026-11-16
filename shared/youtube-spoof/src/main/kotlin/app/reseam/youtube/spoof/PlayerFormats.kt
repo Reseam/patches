@@ -5,6 +5,7 @@ package app.reseam.youtube.spoof
 
 import android.view.Display
 import app.reseam.youtube.core.Proto
+import app.reseam.youtube.core.VideoCodec
 import app.reseam.youtube.core.string
 
 internal fun hasAdaptiveStreams(streamingData: ByteArray): Boolean {
@@ -47,21 +48,28 @@ private val hdrTypesByTransfer =
     )
 
 // The app's own player request reports the codecs and HDR types it plays; other clients get every format.
-internal fun PlayerResponse.withoutUnplayableFormats(hdrTypes: IntArray, av1: Boolean): PlayerResponse =
+internal fun PlayerResponse.withoutUnplayableFormats(hdrTypes: IntArray): PlayerResponse =
     copy(
         streamingData =
             streamingData?.let { data ->
                 Proto.rewriteLength(data) { number, format ->
-                    format.takeUnless { number in 2..3 && !playable(format, hdrTypes, av1) }
+                    format.takeUnless { number in 2..3 && !playable(format, hdrTypes) }
                 }
             }
     )
 
-private fun playable(format: ByteArray, hdrTypes: IntArray, av1: Boolean): Boolean {
-    if (!av1 && "av01" in Proto.string(format, MIME_TYPE).orEmpty()) return false
+private fun playable(format: ByteArray, hdrTypes: IntArray): Boolean {
+    if (videoCodec(Proto.string(format, MIME_TYPE).orEmpty())?.enabled == false) return false
     val transfer = Proto.bytes(format, COLOR_INFO)?.let { Proto.number(it, TRANSFER_CHARACTERISTICS, 0) }
     return hdrTypesByTransfer[transfer]?.let { it in hdrTypes } ?: true
 }
+
+private fun videoCodec(mimeType: String): VideoCodec? =
+    when {
+        "av01" in mimeType -> VideoCodec.AV1
+        "vp9" in mimeType || "vp09" in mimeType -> VideoCodec.VP9
+        else -> null
+    }
 
 private enum class Codec {
     AVC,

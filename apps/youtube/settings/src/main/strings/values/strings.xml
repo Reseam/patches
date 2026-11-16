@@ -118,8 +118,6 @@
     <string name="remove_viewer_discretion_dialog_summary">Age-restricted videos stay restricted.</string>
     <string name="check_watch_history_dns">Check watch history</string>
     <string name="check_watch_history_dns_summary">Warns when your DNS blocks the domain that saves your watch history.</string>
-    <string name="force_avc_codec">Force AVC codec</string>
-    <string name="force_avc_codec_summary">Turns off VP9, which saves battery and limits videos to 1080p.</string>
     <string name="change_start_page">Start page</string>
     <string name="change_start_page_summary">The page YouTube opens instead of Home.</string>
     <string name="change_start_page_always">Always use the start page</string>

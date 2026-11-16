@@ -13,6 +13,8 @@
     <string name="disable_hdr_video_summary">Memberi tahu YouTube bahwa layar Anda tidak mendukung HDR.</string>
     <string name="force_vp9_codec">Paksa codec VP9</string>
     <string name="force_vp9_codec_summary">Menonaktifkan AV1, yang membuat sebagian ponsel panas dan boros baterai.</string>
+    <string name="force_avc_codec">Paksa codec AVC</string>
+    <string name="force_avc_codec_summary">Menonaktifkan VP9 dan AV1, yang menghemat baterai dan membatasi video hingga 1080p.</string>
     <string name="custom_branding_icon_custom">Kustom</string>
     <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g> disimpan ke Download</string>
     <string name="experiment_flags_failed">Tidak dapat menyimpan flag eksperimen</string>
