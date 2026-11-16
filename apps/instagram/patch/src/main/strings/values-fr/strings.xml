@@ -42,8 +42,8 @@
     <string name="hide_meta_ai_description">Masque Meta AI dans la recherche, les discussions et le menu des publications.</string>
     <string name="enable_developer_menu">Activer le menu développeur</string>
     <string name="enable_developer_menu_description">Ajoute le menu développeur d’Instagram en bas des paramètres.</string>
-    <string name="hide_navigation_tabs">Masquer des onglets de navigation</string>
-    <string name="hide_navigation_tabs_description">Masque les onglets de votre choix dans la barre de navigation.</string>
+    <string name="customize_navigation_bar">Personnaliser la barre de navigation</string>
+    <string name="customize_navigation_bar_description">Réordonne, masque et ajoute des onglets de la barre de navigation. Profil reste toujours, car les paramètres Reseam s’ouvrent depuis celui-ci.</string>
     <string name="allow_screenshots">Autoriser les captures d’écran dans les discussions</string>
     <string name="allow_screenshots_description">Autorise les captures d’écran des discussions, des médias à vue unique et du mode éphémère.</string>
     <string name="ghost_mode">Mode fantôme</string>

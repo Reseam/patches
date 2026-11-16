@@ -42,8 +42,8 @@
     <string name="hide_meta_ai_description">खोज, चैट और पोस्ट के मेन्यू में Meta AI छिपाता है।</string>
     <string name="enable_developer_menu">डेवलपर मेन्यू चालू करें</string>
     <string name="enable_developer_menu_description">सेटिंग में सबसे नीचे Instagram का डेवलपर मेन्यू जोड़ता है।</string>
-    <string name="hide_navigation_tabs">नेविगेशन टैब छिपाएँ</string>
-    <string name="hide_navigation_tabs_description">नेविगेशन बार के चुने हुए टैब छिपाता है।</string>
+    <string name="customize_navigation_bar">नेविगेशन बार कस्टमाइज़ करें</string>
+    <string name="customize_navigation_bar_description">नेविगेशन बार के टैब का क्रम बदलता है, उन्हें छिपाता है और जोड़ता है। प्रोफ़ाइल हमेशा रहती है, क्योंकि Reseam सेटिंग उसी से खुलती हैं।</string>
     <string name="allow_screenshots">चैट में स्क्रीनशॉट की अनुमति दें</string>
     <string name="allow_screenshots_description">चैट, एक बार देखे जाने वाले मीडिया और वैनिश मोड के स्क्रीनशॉट लेने देता है।</string>
     <string name="ghost_mode">घोस्ट मोड</string>

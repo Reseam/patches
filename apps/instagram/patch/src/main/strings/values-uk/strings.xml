@@ -42,8 +42,8 @@
     <string name="hide_meta_ai_description">Приховує Meta AI в пошуку, чатах і меню допису.</string>
     <string name="enable_developer_menu">Увімкнути меню розробника</string>
     <string name="enable_developer_menu_description">Додає меню розробника Instagram унизу налаштувань.</string>
-    <string name="hide_navigation_tabs">Приховати вкладки навігації</string>
-    <string name="hide_navigation_tabs_description">Приховує вибрані вкладки панелі навігації.</string>
+    <string name="customize_navigation_bar">Налаштувати панель навігації</string>
+    <string name="customize_navigation_bar_description">Змінює порядок вкладок панелі навігації, приховує й додає їх. Профіль лишається завжди, бо з нього відкриваються налаштування Reseam.</string>
     <string name="allow_screenshots">Дозволити знімки екрана в чатах</string>
     <string name="allow_screenshots_description">Дозволяє робити знімки екрана чатів, одноразових медіа й режиму зникнення.</string>
     <string name="ghost_mode">Режим привида</string>

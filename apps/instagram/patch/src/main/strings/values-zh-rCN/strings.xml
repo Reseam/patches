@@ -42,8 +42,8 @@
     <string name="hide_meta_ai_description">隐藏搜索、聊天和帖子菜单中的 Meta AI。</string>
     <string name="enable_developer_menu">启用开发者菜单</string>
     <string name="enable_developer_menu_description">在设置底部添加 Instagram 的开发者菜单。</string>
-    <string name="hide_navigation_tabs">隐藏导航标签页</string>
-    <string name="hide_navigation_tabs_description">隐藏导航栏中选定的标签页。</string>
+    <string name="customize_navigation_bar">自定义导航栏</string>
+    <string name="customize_navigation_bar_description">重新排列、隐藏和添加导航栏中的标签页。主页始终保留，因为 Reseam 设置从这里打开。</string>
     <string name="allow_screenshots">允许在聊天中截图</string>
     <string name="allow_screenshots_description">允许截取聊天、一次性查看的媒体和阅后即焚模式。</string>
     <string name="ghost_mode">隐身模式</string>

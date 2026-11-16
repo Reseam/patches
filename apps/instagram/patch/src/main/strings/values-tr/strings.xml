@@ -42,8 +42,8 @@
     <string name="hide_meta_ai_description">Aramadaki, sohbetlerdeki ve gönderi menüsündeki Meta AI\'ı gizler.</string>
     <string name="enable_developer_menu">Geliştirici menüsünü etkinleştir</string>
     <string name="enable_developer_menu_description">Instagram\'ın geliştirici menüsünü ayarların en altına ekler.</string>
-    <string name="hide_navigation_tabs">Gezinme sekmelerini gizle</string>
-    <string name="hide_navigation_tabs_description">Gezinme çubuğunda seçilen sekmeleri gizler.</string>
+    <string name="customize_navigation_bar">Gezinme çubuğunu özelleştir</string>
+    <string name="customize_navigation_bar_description">Gezinme çubuğundaki sekmeleri yeniden sıralar, gizler ve ekler. Reseam ayarları Profil sekmesinden açıldığı için Profil her zaman kalır.</string>
     <string name="allow_screenshots">Sohbetlerde ekran görüntüsüne izin ver</string>
     <string name="allow_screenshots_description">Sohbetlerin, bir kez görüntülenen medyanın ve kaybolan mod içeriğinin ekran görüntüsünü almaya izin verir.</string>
     <string name="ghost_mode">Hayalet modu</string>

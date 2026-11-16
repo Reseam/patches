@@ -42,8 +42,8 @@
     <string name="hide_meta_ai_description">Oculta a Meta AI na busca, nas conversas e no menu dos posts.</string>
     <string name="enable_developer_menu">Ativar menu de desenvolvedor</string>
     <string name="enable_developer_menu_description">Adiciona o menu de desenvolvedor do Instagram ao final das configurações.</string>
-    <string name="hide_navigation_tabs">Ocultar abas de navegação</string>
-    <string name="hide_navigation_tabs_description">Oculta as abas escolhidas da barra de navegação.</string>
+    <string name="customize_navigation_bar">Personalizar barra de navegação</string>
+    <string name="customize_navigation_bar_description">Reordena, oculta e adiciona abas da barra de navegação. O Perfil sempre fica, porque as configurações do Reseam abrem a partir dele.</string>
     <string name="allow_screenshots">Permitir capturas de tela nas conversas</string>
     <string name="allow_screenshots_description">Permite capturas de tela de conversas, de mídias de visualização única e do modo temporário.</string>
     <string name="ghost_mode">Modo fantasma</string>

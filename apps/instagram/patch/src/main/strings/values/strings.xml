@@ -42,8 +42,8 @@
     <string name="hide_meta_ai_description">Hides Meta AI in search, chats and the post menu.</string>
     <string name="enable_developer_menu">Enable developer menu</string>
     <string name="enable_developer_menu_description">Adds Instagram\'s developer menu at the bottom of settings.</string>
-    <string name="hide_navigation_tabs">Hide navigation tabs</string>
-    <string name="hide_navigation_tabs_description">Hides chosen tabs of the navigation bar.</string>
+    <string name="customize_navigation_bar">Customize navigation bar</string>
+    <string name="customize_navigation_bar_description">Reorders, hides and adds tabs of the navigation bar. Profile always stays, since Reseam settings open from it.</string>
     <string name="allow_screenshots">Allow screenshots in chats</string>
     <string name="allow_screenshots_description">Allows screenshots of chats, view-once media and vanish mode.</string>
     <string name="ghost_mode">Ghost mode</string>

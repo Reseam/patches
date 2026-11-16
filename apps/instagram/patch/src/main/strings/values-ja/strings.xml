@@ -42,8 +42,8 @@
     <string name="hide_meta_ai_description">検索、チャット、投稿メニューの Meta AI を非表示にします。</string>
     <string name="enable_developer_menu">開発者メニューを有効にする</string>
     <string name="enable_developer_menu_description">設定の一番下に Instagram の開発者メニューを追加します。</string>
-    <string name="hide_navigation_tabs">ナビゲーションタブを非表示</string>
-    <string name="hide_navigation_tabs_description">ナビゲーションバーの選んだタブを非表示にします。</string>
+    <string name="customize_navigation_bar">ナビゲーションバーをカスタマイズ</string>
+    <string name="customize_navigation_bar_description">ナビゲーションバーのタブを並べ替え、非表示にし、追加します。Reseam の設定はプロフィールから開くため、プロフィールは常に残ります。</string>
     <string name="allow_screenshots">チャットのスクリーンショットを許可</string>
     <string name="allow_screenshots_description">チャット、1 回表示のメディア、消えるメッセージモードのスクリーンショットを許可します。</string>
     <string name="ghost_mode">ゴーストモード</string>

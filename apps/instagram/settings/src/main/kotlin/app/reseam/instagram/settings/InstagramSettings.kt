@@ -78,13 +78,30 @@ object FollowSettings : SettingsGroup(InstagramStrings) {
 object AppearanceSettings : SettingsGroup(InstagramStrings) {
     val hideRepostButtons by toggle(default = false, icon = Vector.lucide("repeat-2"))
     val hideEngagementCounts by toggle(default = false, icon = Vector.lucide("heart-off"))
-    val hideHomeTab by toggle(default = false, icon = Vector.lucide("house"))
-    val hideReelsTab by toggle(default = false, icon = Vector.lucide("clapperboard"))
-    val hideCreateTab by toggle(default = false, icon = Vector.lucide("square-plus"))
     val hideExploreGrid by toggle(default = false, icon = Vector.lucide("compass"))
     val hideInstants by toggle(default = false, icon = Vector.lucide("layers"))
     val hideThreadsBadge by toggle(default = true, icon = Vector.lucide("at-sign"))
 }
+
+object NavigationSettings : SettingsGroup(InstagramStrings) {
+    val firstTab by choice(default = "home", choices = navigationTabs, icon = Vector.lucide("panel-bottom"))
+    val secondTab by choice(default = "reels", choices = navigationTabs, icon = Vector.lucide("panel-bottom"))
+    val thirdTab by choice(default = "messages", choices = navigationTabs, icon = Vector.lucide("panel-bottom"))
+    val fourthTab by choice(default = "search", choices = navigationTabs, icon = Vector.lucide("panel-bottom"))
+    val fifthTab by choice(default = "profile", choices = navigationTabs, icon = Vector.lucide("panel-bottom"))
+}
+
+private val navigationTabs =
+    listOf(
+        Choice("home", InstagramStrings.navigationTabHome),
+        Choice("reels", InstagramStrings.navigationTabReels),
+        Choice("messages", InstagramStrings.navigationTabMessages),
+        Choice("search", InstagramStrings.navigationTabSearch),
+        Choice("notifications", InstagramStrings.navigationTabNotifications),
+        Choice("create", InstagramStrings.navigationTabCreate),
+        Choice("profile", InstagramStrings.navigationTabProfile),
+        Choice("none", InstagramStrings.navigationTabNone),
+    )
 
 object FeedSettings : SettingsGroup(InstagramStrings) {
     val hideAds by toggle(default = true, icon = Vector.lucide("megaphone-off"))

@@ -42,8 +42,8 @@
     <string name="hide_meta_ai_description">Menyembunyikan Meta AI di pencarian, chat, dan menu postingan.</string>
     <string name="enable_developer_menu">Aktifkan menu developer</string>
     <string name="enable_developer_menu_description">Menambahkan menu developer Instagram di bagian bawah setelan.</string>
-    <string name="hide_navigation_tabs">Sembunyikan tab navigasi</string>
-    <string name="hide_navigation_tabs_description">Menyembunyikan tab yang dipilih di bilah navigasi.</string>
+    <string name="customize_navigation_bar">Sesuaikan bilah navigasi</string>
+    <string name="customize_navigation_bar_description">Mengurutkan ulang, menyembunyikan, dan menambahkan tab bilah navigasi. Profil selalu ada, karena pengaturan Reseam dibuka dari sana.</string>
     <string name="allow_screenshots">Izinkan screenshot di chat</string>
     <string name="allow_screenshots_description">Mengizinkan screenshot chat, media sekali lihat, dan mode menghilang.</string>
     <string name="ghost_mode">Mode hantu</string>

@@ -42,8 +42,8 @@
     <string name="hide_meta_ai_description">Ẩn Meta AI trong tìm kiếm, cuộc trò chuyện và trình đơn bài viết.</string>
     <string name="enable_developer_menu">Bật trình đơn nhà phát triển</string>
     <string name="enable_developer_menu_description">Thêm trình đơn nhà phát triển của Instagram ở cuối phần cài đặt.</string>
-    <string name="hide_navigation_tabs">Ẩn các tab điều hướng</string>
-    <string name="hide_navigation_tabs_description">Ẩn các tab đã chọn trên thanh điều hướng.</string>
+    <string name="customize_navigation_bar">Tùy chỉnh thanh điều hướng</string>
+    <string name="customize_navigation_bar_description">Sắp xếp lại, ẩn và thêm tab trên thanh điều hướng. Trang cá nhân luôn được giữ, vì cài đặt Reseam mở từ đó.</string>
     <string name="allow_screenshots">Cho phép chụp màn hình trong cuộc trò chuyện</string>
     <string name="allow_screenshots_description">Cho phép chụp màn hình cuộc trò chuyện, nội dung xem một lần và chế độ tạm thời.</string>
     <string name="ghost_mode">Chế độ ẩn danh</string>

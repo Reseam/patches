@@ -42,8 +42,8 @@
     <string name="hide_meta_ai_description">Ukrywa Meta AI w wyszukiwaniu, czatach i menu postów.</string>
     <string name="enable_developer_menu">Włącz menu dewelopera</string>
     <string name="enable_developer_menu_description">Dodaje menu dewelopera Instagrama na dole ustawień.</string>
-    <string name="hide_navigation_tabs">Ukryj karty nawigacji</string>
-    <string name="hide_navigation_tabs_description">Ukrywa wybrane karty paska nawigacji.</string>
+    <string name="customize_navigation_bar">Dostosuj pasek nawigacji</string>
+    <string name="customize_navigation_bar_description">Zmienia kolejność kart paska nawigacji, ukrywa je i dodaje. Profil zawsze zostaje, bo z niego otwierają się ustawienia Reseam.</string>
     <string name="allow_screenshots">Zezwalaj na zrzuty ekranu w czatach</string>
     <string name="allow_screenshots_description">Pozwala robić zrzuty ekranu czatów, multimediów do jednorazowego wyświetlenia i trybu znikania.</string>
     <string name="ghost_mode">Tryb ducha</string>

@@ -42,8 +42,8 @@
     <string name="hide_meta_ai_description">隱藏搜尋、聊天和貼文選單中的 Meta AI。</string>
     <string name="enable_developer_menu">啟用開發人員選單</string>
     <string name="enable_developer_menu_description">在設定底部新增 Instagram 的開發人員選單。</string>
-    <string name="hide_navigation_tabs">隱藏導覽分頁</string>
-    <string name="hide_navigation_tabs_description">隱藏導覽列中選取的分頁。</string>
+    <string name="customize_navigation_bar">自訂導覽列</string>
+    <string name="customize_navigation_bar_description">重新排列、隱藏和新增導覽列中的分頁。個人檔案會一直保留，因為 Reseam 設定從這裡開啟。</string>
     <string name="allow_screenshots">允許在聊天中截圖</string>
     <string name="allow_screenshots_description">允許擷取聊天、單次檢視的媒體和閱後即焚模式。</string>
     <string name="ghost_mode">隱身模式</string>

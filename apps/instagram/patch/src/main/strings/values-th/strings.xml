@@ -42,8 +42,8 @@
     <string name="hide_meta_ai_description">ซ่อน Meta AI ในการค้นหา แชท และเมนูโพสต์</string>
     <string name="enable_developer_menu">เปิดเมนูนักพัฒนาซอฟต์แวร์</string>
     <string name="enable_developer_menu_description">เพิ่มเมนูนักพัฒนาซอฟต์แวร์ของ Instagram ที่ด้านล่างของการตั้งค่า</string>
-    <string name="hide_navigation_tabs">ซ่อนแท็บการนำทาง</string>
-    <string name="hide_navigation_tabs_description">ซ่อนแท็บที่เลือกในแถบนำทาง</string>
+    <string name="customize_navigation_bar">ปรับแต่งแถบนำทาง</string>
+    <string name="customize_navigation_bar_description">จัดลำดับ ซ่อน และเพิ่มแท็บของแถบนำทาง โปรไฟล์จะอยู่เสมอ เพราะการตั้งค่า Reseam เปิดจากที่นั่น</string>
     <string name="allow_screenshots">อนุญาตให้จับภาพหน้าจอในแชท</string>
     <string name="allow_screenshots_description">อนุญาตให้จับภาพหน้าจอแชท สื่อแบบดูครั้งเดียว และโหมดหายไป</string>
     <string name="ghost_mode">โหมดล่องหน</string>

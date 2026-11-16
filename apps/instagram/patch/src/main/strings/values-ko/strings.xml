@@ -42,8 +42,8 @@
     <string name="hide_meta_ai_description">검색, 채팅, 게시물 메뉴의 Meta AI를 숨깁니다.</string>
     <string name="enable_developer_menu">개발자 메뉴 사용</string>
     <string name="enable_developer_menu_description">설정 맨 아래에 Instagram의 개발자 메뉴를 추가합니다.</string>
-    <string name="hide_navigation_tabs">내비게이션 탭 숨기기</string>
-    <string name="hide_navigation_tabs_description">내비게이션 바에서 선택한 탭을 숨깁니다.</string>
+    <string name="customize_navigation_bar">내비게이션 바 맞춤 설정</string>
+    <string name="customize_navigation_bar_description">내비게이션 바의 탭 순서를 바꾸고, 숨기고, 추가합니다. Reseam 설정이 프로필에서 열리므로 프로필은 항상 남습니다.</string>
     <string name="allow_screenshots">채팅 스크린샷 허용</string>
     <string name="allow_screenshots_description">채팅, 한 번만 볼 수 있는 미디어, 사라지는 메시지 모드의 스크린샷을 허용합니다.</string>
     <string name="ghost_mode">고스트 모드</string>

@@ -42,8 +42,8 @@
     <string name="hide_meta_ai_description">Blendet Meta AI in der Suche, in Chats und im Beitragsmenü aus.</string>
     <string name="enable_developer_menu">Entwicklermenü aktivieren</string>
     <string name="enable_developer_menu_description">Fügt das Entwicklermenü von Instagram unten in den Einstellungen hinzu.</string>
-    <string name="hide_navigation_tabs">Navigationstabs ausblenden</string>
-    <string name="hide_navigation_tabs_description">Blendet ausgewählte Tabs der Navigationsleiste aus.</string>
+    <string name="customize_navigation_bar">Navigationsleiste anpassen</string>
+    <string name="customize_navigation_bar_description">Ordnet Tabs der Navigationsleiste neu an, blendet sie aus oder fügt sie hinzu. Profil bleibt immer, da sich dort die Reseam-Einstellungen öffnen.</string>
     <string name="allow_screenshots">Screenshots in Chats erlauben</string>
     <string name="allow_screenshots_description">Erlaubt Screenshots von Chats, einmalig ansehbaren Medien und dem Verschwinden-Modus.</string>
     <string name="ghost_mode">Ghost-Modus</string>
