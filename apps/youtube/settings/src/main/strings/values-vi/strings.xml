@@ -235,6 +235,7 @@
     <string name="hide_view_count">Ẩn số lượt xem</string>
     <string name="hide_view_count_summary">Ẩn số lượt xem bên dưới video trong bảng feed.</string>
     <string name="hide_visual_spacer">Ẩn khoảng cách trình bày</string>
+    <string name="hide_search_ask_button">Ẩn Hỏi trong tìm kiếm</string>
     <string name="hide_web_search_results">Ẩn kết quả tìm kiếm trên web</string>
     <string name="hide_you_may_like_section">Ẩn Có thể bạn thích</string>
     <string name="hide_you_may_like_section_summary">Ẩn gợi ý thịnh hành trong ô tìm kiếm trống.</string>

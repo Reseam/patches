@@ -235,6 +235,7 @@
     <string name="hide_view_count">Görüntülenme sayılarını gizle</string>
     <string name="hide_view_count_summary">Akışlarda videoların altındaki görüntülenme sayılarını gizler.</string>
     <string name="hide_visual_spacer">Görsel boşlukları gizle</string>
+    <string name="hide_search_ask_button">Aramada Sor\'u gizle</string>
     <string name="hide_web_search_results">Web arama sonuçlarını gizle</string>
     <string name="hide_you_may_like_section">Hoşunuza gidebilir\'i gizle</string>
     <string name="hide_you_may_like_section_summary">Boş arama kutusundaki trend önerilerini gizler.</string>

@@ -238,6 +238,7 @@
     <string name="hide_view_count">Hide view counts</string>
     <string name="hide_view_count_summary">Hides view counts under videos in feeds.</string>
     <string name="hide_visual_spacer">Hide visual spacers</string>
+    <string name="hide_search_ask_button">Hide Ask in search</string>
     <string name="hide_web_search_results">Hide web search results</string>
     <string name="hide_you_may_like_section">Hide You may like</string>
     <string name="hide_you_may_like_section_summary">Hides trending suggestions in an empty search box.</string>

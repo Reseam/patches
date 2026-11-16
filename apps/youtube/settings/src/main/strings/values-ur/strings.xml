@@ -231,6 +231,7 @@
     <string name="hide_view_count">ویوز کی تعداد چھپائیں</string>
     <string name="hide_view_count_summary">فیڈز میں ویڈیوز کے نیچے ویوز کی تعداد چھپاتا ہے۔</string>
     <string name="hide_visual_spacer">بصری خالی جگہیں چھپائیں</string>
+    <string name="hide_search_ask_button">تلاش میں Ask چھپائیں</string>
     <string name="hide_web_search_results">ویب تلاش کے نتائج چھپائیں</string>
     <string name="hide_you_may_like_section">“آپ کو پسند آ سکتا ہے” چھپائیں</string>
     <string name="hide_you_may_like_section_summary">تلاش کے خالی باکس میں ٹرینڈنگ تجاویز چھپاتا ہے۔</string>

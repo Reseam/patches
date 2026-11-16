@@ -235,6 +235,7 @@
     <string name="hide_view_count">व्यू की गिनती छिपाएँ</string>
     <string name="hide_view_count_summary">फ़ीड में वीडियो के नीचे व्यू की गिनती छिपाता है।</string>
     <string name="hide_visual_spacer">खाली जगह वाले स्पेसर छिपाएँ</string>
+    <string name="hide_search_ask_button">खोज में Ask छिपाएँ</string>
     <string name="hide_web_search_results">वेब खोज के नतीजे छिपाएँ</string>
     <string name="hide_you_may_like_section">You may like छिपाएँ</string>
     <string name="hide_you_may_like_section_summary">खाली खोज बॉक्स में ट्रेंडिंग सुझाव छिपाता है।</string>

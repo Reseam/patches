@@ -36,6 +36,7 @@ object FeedSettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
     val hideMixPlaylists by toggle(default = true)
     val hideMoviesSection by toggle(default = true)
     val hidePlayables by toggle(default = true)
+    val hideSearchAskButton by toggle(default = false)
     val hideShowMoreButton by toggle(default = true)
     val hideSubscribedChannelsBar by toggle(default = false)
     val hideSurveys by toggle(default = true)

@@ -21,6 +21,8 @@ interface SearchSuggestionAccessor {
     @Export fun patch_isSearchHistory(): Boolean
 }
 
+@Export fun searchAskEnabled(original: Boolean) = original && !FeedSettings.hideSearchAskButton.value
+
 @Export fun hideAlbumCard(view: View?) = collapse(view, FeedSettings.hideAlbumCards)
 
 @Export fun hideCrowdfundingBox(view: View?) = collapse(view, FeedSettings.hideCrowdfundingBox)

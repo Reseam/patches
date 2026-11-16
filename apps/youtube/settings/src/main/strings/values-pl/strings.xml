@@ -235,6 +235,7 @@
     <string name="hide_view_count">Ukryj liczbę wyświetleń</string>
     <string name="hide_view_count_summary">Ukrywa liczbę wyświetleń pod filmami w kanałach.</string>
     <string name="hide_visual_spacer">Ukryj odstępy wizualne</string>
+    <string name="hide_search_ask_button">Ukryj Zapytaj w wyszukiwaniu</string>
     <string name="hide_web_search_results">Ukryj wyniki wyszukiwania w sieci</string>
     <string name="hide_you_may_like_section">Ukryj Może ci się spodobać</string>
     <string name="hide_you_may_like_section_summary">Ukrywa popularne sugestie w pustym polu wyszukiwania.</string>

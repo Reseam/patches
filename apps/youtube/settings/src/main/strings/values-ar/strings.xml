@@ -231,6 +231,7 @@
     <string name="hide_view_count">إخفاء عدد المشاهدات</string>
     <string name="hide_view_count_summary">يُخفي عدد المشاهدات أسفل الفيديوهات في الخلاصات.</string>
     <string name="hide_visual_spacer">إخفاء الفواصل المرئية</string>
+    <string name="hide_search_ask_button">إخفاء «اسأل» في البحث</string>
     <string name="hide_web_search_results">إخفاء نتائج البحث على الويب</string>
     <string name="hide_you_may_like_section">إخفاء «قد يعجبك»</string>
     <string name="hide_you_may_like_section_summary">يُخفي الاقتراحات الرائجة عندما يكون مربع البحث فارغًا.</string>

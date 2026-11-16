@@ -235,6 +235,7 @@
     <string name="hide_view_count">Ocultar contagens de visualizações</string>
     <string name="hide_view_count_summary">Oculta as contagens de visualizações abaixo dos vídeos nos feeds.</string>
     <string name="hide_visual_spacer">Ocultar espaçadores visuais</string>
+    <string name="hide_search_ask_button">Ocultar Perguntar na pesquisa</string>
     <string name="hide_web_search_results">Ocultar resultados de pesquisa na web</string>
     <string name="hide_you_may_like_section">Ocultar Talvez você goste</string>
     <string name="hide_you_may_like_section_summary">Oculta as sugestões em alta em uma caixa de pesquisa vazia.</string>

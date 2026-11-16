@@ -63,6 +63,7 @@ val hideLayoutComponents = patch(YouTubePatchStrings.hideLayoutComponents) {
             FeedSettings.hideMixPlaylists,
             FeedSettings.hideMoviesSection,
             FeedSettings.hidePlayables,
+            FeedSettings.hideSearchAskButton,
             FeedSettings.hideShowMoreButton,
             FeedSettings.hideSurveys,
             FeedSettings.hideSubscribedChannelsBar,
@@ -166,6 +167,7 @@ val hideLayoutComponents = patch(YouTubePatchStrings.hideLayoutComponents) {
         hideFeedSubtitle()
         hideFeedFilterBars()
         hideSearchSuggestions()
+        hideSearchAskButton()
         hideFeedFlyoutMenu()
         hideChannelTabs()
     }

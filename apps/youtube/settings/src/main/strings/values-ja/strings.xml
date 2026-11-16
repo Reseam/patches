@@ -235,6 +235,7 @@
     <string name="hide_view_count">表示回数を非表示</string>
     <string name="hide_view_count_summary">フィードの動画の下の視聴回数を非表示にします。</string>
     <string name="hide_visual_spacer">余白用のスペーサーを非表示</string>
+    <string name="hide_search_ask_button">検索の質問を非表示</string>
     <string name="hide_web_search_results">ウェブ検索の結果を非表示</string>
     <string name="hide_you_may_like_section">「おすすめ」を非表示</string>
     <string name="hide_you_may_like_section_summary">空の検索ボックスに出る急上昇の候補を非表示にします。</string>

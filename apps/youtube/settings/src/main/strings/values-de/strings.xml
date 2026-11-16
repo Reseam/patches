@@ -235,6 +235,7 @@
     <string name="hide_view_count">Aufrufzahlen ausblenden</string>
     <string name="hide_view_count_summary">Blendet in Feeds die Aufrufzahlen unter Videos aus.</string>
     <string name="hide_visual_spacer">Abstandhalter ausblenden</string>
+    <string name="hide_search_ask_button">Fragen in der Suche ausblenden</string>
     <string name="hide_web_search_results">Websuche-Ergebnisse ausblenden</string>
     <string name="hide_you_may_like_section">„Das könnte dir gefallen“ ausblenden</string>
     <string name="hide_you_may_like_section_summary">Blendet Trendvorschläge im leeren Suchfeld aus.</string>

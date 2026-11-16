@@ -235,6 +235,7 @@
     <string name="hide_view_count">Скрыть число просмотров</string>
     <string name="hide_view_count_summary">Скрывает число просмотров под видео в лентах.</string>
     <string name="hide_visual_spacer">Скрыть разделители</string>
+    <string name="hide_search_ask_button">Скрыть «Спросить» в поиске</string>
     <string name="hide_web_search_results">Скрыть результаты веб-поиска</string>
     <string name="hide_you_may_like_section">Скрыть «Вам может понравиться»</string>
     <string name="hide_you_may_like_section_summary">Скрывает популярные подсказки в пустой строке поиска.</string>

@@ -235,6 +235,7 @@
     <string name="hide_view_count">隐藏浏览量</string>
     <string name="hide_view_count_summary">隐藏推荐流中视频下方的观看次数。</string>
     <string name="hide_visual_spacer">隐藏视觉间隔</string>
+    <string name="hide_search_ask_button">隐藏搜索中的“提问”</string>
     <string name="hide_web_search_results">隐藏网页搜索结果</string>
     <string name="hide_you_may_like_section">隐藏“猜你喜欢”</string>
     <string name="hide_you_may_like_section_summary">隐藏空白搜索框中的热门建议。</string>

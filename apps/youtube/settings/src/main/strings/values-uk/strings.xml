@@ -235,6 +235,7 @@
     <string name="hide_view_count">Приховати кількість переглядів</string>
     <string name="hide_view_count_summary">Приховує кількість переглядів під відео в стрічках.</string>
     <string name="hide_visual_spacer">Приховати візуальні відступи</string>
+    <string name="hide_search_ask_button">Приховати «Запитати» в пошуку</string>
     <string name="hide_web_search_results">Приховати результати вебпошуку</string>
     <string name="hide_you_may_like_section">Приховати «Вам може сподобатися»</string>
     <string name="hide_you_may_like_section_summary">Приховує популярні підказки в порожньому полі пошуку.</string>

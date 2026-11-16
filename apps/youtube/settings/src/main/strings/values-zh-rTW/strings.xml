@@ -235,6 +235,7 @@
     <string name="hide_view_count">隱藏觀看次數</string>
     <string name="hide_view_count_summary">隱藏動態中影片下方的觀看次數。</string>
     <string name="hide_visual_spacer">隱藏視覺間隔</string>
+    <string name="hide_search_ask_button">隱藏搜尋中的「提問」</string>
     <string name="hide_web_search_results">隱藏網頁搜尋結果</string>
     <string name="hide_you_may_like_section">隱藏「你可能會喜歡」</string>
     <string name="hide_you_may_like_section_summary">隱藏空白搜尋框中的熱門建議。</string>

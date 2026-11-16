@@ -30,8 +30,13 @@ internal fun optionalBooleanFeatureReads(flag: Long): List<PointTarget> {
 private fun booleanFeatureResults(reads: List<PointTarget>) =
     reads.map { it.next { resultOf(Type.Boolean) }.captureAs("enabled", Type.Boolean) }
 
-internal fun overrideBooleanFeature(flag: Long, hook: ExtMethod) {
-    booleanFeatureResults(booleanFeatureReads(flag)).forEach { it.after { capture("enabled").assign(call(hook, capture("enabled"))) } }
+internal fun overrideBooleanFeature(flag: Long, hook: ExtMethod) = overrideReads(booleanFeatureReads(flag), hook)
+
+/** Like [overrideBooleanFeature], for an experiment that only some supported releases have. */
+internal fun overrideOptionalBooleanFeature(flag: Long, hook: ExtMethod) = overrideReads(optionalBooleanFeatureReads(flag), hook)
+
+private fun overrideReads(reads: List<PointTarget>, hook: ExtMethod) {
+    booleanFeatureResults(reads).forEach { it.after { capture("enabled").assign(call(hook, capture("enabled"))) } }
 }
 
 /** Turns on [flag] wherever the release reads it. */

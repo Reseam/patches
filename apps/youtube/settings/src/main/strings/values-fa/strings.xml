@@ -231,6 +231,7 @@
     <string name="hide_view_count">پنهان کردن تعداد بازدید</string>
     <string name="hide_view_count_summary">تعداد بازدید زیر ویدیوهای فیدها را پنهان می‌کند.</string>
     <string name="hide_visual_spacer">پنهان کردن فاصله‌گذارهای بصری</string>
+    <string name="hide_search_ask_button">پنهان کردن «پرسیدن» در جستجو</string>
     <string name="hide_web_search_results">پنهان کردن نتایج جستجوی وب</string>
     <string name="hide_you_may_like_section">پنهان کردن «شاید بپسندید»</string>
     <string name="hide_you_may_like_section_summary">پیشنهادهای پرطرفدار را در کادر جستجوی خالی پنهان می‌کند.</string>

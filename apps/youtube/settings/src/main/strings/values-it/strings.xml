@@ -235,6 +235,7 @@
     <string name="hide_view_count">Nascondi il numero di visualizzazioni</string>
     <string name="hide_view_count_summary">Nasconde nei feed il numero di visualizzazioni sotto i video.</string>
     <string name="hide_visual_spacer">Nascondi gli spaziatori</string>
+    <string name="hide_search_ask_button">Nascondi Chiedi nella ricerca</string>
     <string name="hide_web_search_results">Nascondi i risultati di ricerca web</string>
     <string name="hide_you_may_like_section">Nascondi Potrebbe piacerti</string>
     <string name="hide_you_may_like_section_summary">Nasconde i suggerimenti di tendenza nella casella di ricerca vuota.</string>

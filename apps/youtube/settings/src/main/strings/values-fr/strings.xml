@@ -235,6 +235,7 @@
     <string name="hide_view_count">Masquer le nombre de vues</string>
     <string name="hide_view_count_summary">Masque le nombre de vues sous les vidéos dans les fils.</string>
     <string name="hide_visual_spacer">Masquer les espaces de séparation</string>
+    <string name="hide_search_ask_button">Masquer Demander dans la recherche</string>
     <string name="hide_web_search_results">Masquer les résultats de recherche Web</string>
     <string name="hide_you_may_like_section">Masquer Vous aimerez peut-être</string>
     <string name="hide_you_may_like_section_summary">Masque les suggestions de tendances dans un champ de recherche vide.</string>

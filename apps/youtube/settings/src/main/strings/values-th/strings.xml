@@ -235,6 +235,7 @@
     <string name="hide_view_count">ซ่อนยอดดู</string>
     <string name="hide_view_count_summary">ซ่อนยอดดูใต้วิดีโอในฟีด</string>
     <string name="hide_visual_spacer">ซ่อนระยะห่างตกแต่ง</string>
+    <string name="hide_search_ask_button">ซ่อน \"ถาม\" ในการค้นหา</string>
     <string name="hide_web_search_results">ซ่อนผลการค้นหาเว็บ</string>
     <string name="hide_you_may_like_section">ซ่อน \"คุณอาจชอบ\"</string>
     <string name="hide_you_may_like_section_summary">ซ่อนคำแนะนำที่มาแรงในช่องค้นหาที่ว่างอยู่</string>

@@ -235,6 +235,7 @@
     <string name="hide_view_count">Sembunyikan jumlah tayangan</string>
     <string name="hide_view_count_summary">Menyembunyikan jumlah penayangan di bawah video di feed.</string>
     <string name="hide_visual_spacer">Sembunyikan pemisah visual</string>
+    <string name="hide_search_ask_button">Sembunyikan Tanya di pencarian</string>
     <string name="hide_web_search_results">Sembunyikan hasil penelusuran web</string>
     <string name="hide_you_may_like_section">Sembunyikan Anda mungkin suka</string>
     <string name="hide_you_may_like_section_summary">Menyembunyikan saran trending di kotak pencarian yang kosong.</string>
