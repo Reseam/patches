@@ -360,6 +360,8 @@
     <string name="hide_end_screen_cards">Bitiş ekranı kartlarını gizle</string>
     <string name="hide_end_screen_suggested_video">Bitiş ekranında önerilen videoyu gizle</string>
     <string name="hide_end_screen_suggested_video_summary">Otomatik oynatma kapalıyken sonda önerilen videoyu gizler.</string>
+    <string name="hide_related_videos">İlgili videoları gizle</string>
+    <string name="hide_related_videos_summary">Oynatıcının ve yorumların altında listelenen videoları gizler.</string>
     <string name="hide_related_video_overlay">İlgili video kaplamasını gizle</string>
     <string name="hide_timestamp">Zaman göstergesini gizle</string>
     <string name="disable_player_popup_panels">Oynatıcı açılır panellerini kapat</string>

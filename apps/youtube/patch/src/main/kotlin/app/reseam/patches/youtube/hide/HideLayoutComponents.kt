@@ -85,6 +85,7 @@ val hideLayoutComponents = patch(YouTubePatchStrings.hideLayoutComponents) {
             PlayerSettings.hideJoinMembershipButton,
             PlayerSettings.hideMoreVideosButton,
             PlayerSettings.hideNotifyMeButton,
+            PlayerSettings.hideRelatedVideos,
             PlayerSettings.hideSubscribersCommunityGuidelines,
             PlayerSettings.hideUploadTime,
             PlayerSettings.hideVideoTitle,

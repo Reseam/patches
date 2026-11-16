@@ -360,6 +360,8 @@
     <string name="hide_end_screen_cards">Скрыть карточки конечной заставки</string>
     <string name="hide_end_screen_suggested_video">Скрыть рекомендуемое видео на конечной заставке</string>
     <string name="hide_end_screen_suggested_video_summary">Скрывает видео, которое предлагается в конце, когда автовоспроизведение отключено.</string>
+    <string name="hide_related_videos">Скрыть похожие видео</string>
+    <string name="hide_related_videos_summary">Скрывает видео под плеером и комментариями.</string>
     <string name="hide_related_video_overlay">Скрыть похожие видео поверх плеера</string>
     <string name="hide_timestamp">Скрыть время</string>
     <string name="disable_player_popup_panels">Отключить всплывающие панели плеера</string>

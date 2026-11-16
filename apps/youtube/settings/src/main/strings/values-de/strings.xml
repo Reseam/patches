@@ -360,6 +360,8 @@
     <string name="hide_end_screen_cards">Abspann-Karten ausblenden</string>
     <string name="hide_end_screen_suggested_video">Vorgeschlagenes Video im Abspann ausblenden</string>
     <string name="hide_end_screen_suggested_video_summary">Blendet das Video aus, das am Ende vorgeschlagen wird, wenn Autoplay aus ist.</string>
+    <string name="hide_related_videos">Ähnliche Videos ausblenden</string>
+    <string name="hide_related_videos_summary">Blendet die Videos unter dem Player und den Kommentaren aus.</string>
     <string name="hide_related_video_overlay">Overlay mit ähnlichen Videos ausblenden</string>
     <string name="hide_timestamp">Zeitanzeige ausblenden</string>
     <string name="disable_player_popup_panels">Pop-up-Panels im Player deaktivieren</string>

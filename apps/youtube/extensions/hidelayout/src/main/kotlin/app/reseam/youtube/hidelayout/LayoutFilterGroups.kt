@@ -12,6 +12,7 @@ import app.reseam.youtube.litho.FilterGroupList.StringFilterGroupList
 import app.reseam.youtube.litho.FilterRule
 import app.reseam.youtube.litho.LithoComponent
 import app.reseam.youtube.navigation.NavigationBar
+import app.reseam.youtube.player.EngagementPanel
 import app.reseam.youtube.player.PlayerType
 import app.reseam.youtube.settings.AdsSettings
 import app.reseam.youtube.settings.ChannelSettings
@@ -127,6 +128,12 @@ internal class LayoutFilterGroups(private val filtering: LayoutFiltering) {
                 }
             },
             FilterRule(PlayerSettings.hideNotifyMeButton, "set_reminder_button"),
+            // Related videos use the feeds' components; only the open watch page tells them apart.
+            FilterRule(PlayerSettings.hideRelatedVideos, "video_lockup_with_attachment.e", "compact_video.e") {
+                it.index == 0 &&
+                    PlayerType.current == PlayerType.WATCH_WHILE_MAXIMIZED &&
+                    EngagementPanel.openPanelId.isEmpty()
+            },
             feedRule(AdsSettings.hidePaidPromotionLabel, "paid_content_overlay"),
             feedRule(FeedSettings.hidePlayables, "horizontal_gaming_shelf.e", "mini_game_card.e"),
             feedRule(PlayerSettings.hideFullscreenQuickActions, "quick_actions"),

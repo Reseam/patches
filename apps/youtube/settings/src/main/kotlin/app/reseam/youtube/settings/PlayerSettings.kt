@@ -19,6 +19,7 @@ object PlayerSettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
     val hideJoinMembershipButton by toggle(default = true)
     val hideMoreVideosButton by toggle(default = false)
     val hideNotifyMeButton by toggle(default = true)
+    val hideRelatedVideos by toggle(default = false)
     val hideSubscribersCommunityGuidelines by toggle(default = true)
     val hideUploadTime by toggle(default = false)
     val hideVideoTitle by toggle(default = false)

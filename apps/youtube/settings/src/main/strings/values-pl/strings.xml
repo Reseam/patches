@@ -360,6 +360,8 @@
     <string name="hide_end_screen_cards">Ukryj karty ekranu końcowego</string>
     <string name="hide_end_screen_suggested_video">Ukryj proponowany film na ekranie końcowym</string>
     <string name="hide_end_screen_suggested_video_summary">Ukrywa film proponowany na końcu, gdy autoodtwarzanie jest wyłączone.</string>
+    <string name="hide_related_videos">Ukryj powiązane filmy</string>
+    <string name="hide_related_videos_summary">Ukrywa filmy wyświetlane pod odtwarzaczem i komentarzami.</string>
     <string name="hide_related_video_overlay">Ukryj nakładkę powiązanych filmów</string>
     <string name="hide_timestamp">Ukryj znacznik czasu</string>
     <string name="disable_player_popup_panels">Wyłącz wyskakujące panele odtwarzacza</string>

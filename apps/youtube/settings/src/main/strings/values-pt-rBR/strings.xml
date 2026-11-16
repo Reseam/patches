@@ -360,6 +360,8 @@
     <string name="hide_end_screen_cards">Ocultar cartões da tela final</string>
     <string name="hide_end_screen_suggested_video">Ocultar vídeo sugerido na tela final</string>
     <string name="hide_end_screen_suggested_video_summary">Oculta o vídeo sugerido no final quando a reprodução automática está desativada.</string>
+    <string name="hide_related_videos">Ocultar vídeos relacionados</string>
+    <string name="hide_related_videos_summary">Oculta os vídeos listados abaixo do player e dos comentários.</string>
     <string name="hide_related_video_overlay">Ocultar sobreposição de vídeos relacionados</string>
     <string name="hide_timestamp">Ocultar tempo do vídeo</string>
     <string name="disable_player_popup_panels">Desativar painéis pop-up do player</string>

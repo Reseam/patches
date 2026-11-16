@@ -360,6 +360,8 @@
     <string name="hide_end_screen_cards">Sembunyikan kartu layar akhir</string>
     <string name="hide_end_screen_suggested_video">Sembunyikan video yang disarankan di layar akhir</string>
     <string name="hide_end_screen_suggested_video_summary">Menyembunyikan video yang disarankan di akhir saat putar otomatis nonaktif.</string>
+    <string name="hide_related_videos">Sembunyikan video terkait</string>
+    <string name="hide_related_videos_summary">Menyembunyikan video yang tercantum di bawah pemutar dan komentar.</string>
     <string name="hide_related_video_overlay">Sembunyikan overlay video terkait</string>
     <string name="hide_timestamp">Sembunyikan stempel waktu</string>
     <string name="disable_player_popup_panels">Nonaktifkan panel pop-up pemutar</string>

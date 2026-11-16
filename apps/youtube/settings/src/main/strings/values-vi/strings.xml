@@ -360,6 +360,8 @@
     <string name="hide_end_screen_cards">Ẩn thẻ màn hình kết thúc</string>
     <string name="hide_end_screen_suggested_video">Ẩn video đề xuất ở màn hình kết thúc</string>
     <string name="hide_end_screen_suggested_video_summary">Ẩn video được đề xuất ở cuối khi tự động phát đang tắt.</string>
+    <string name="hide_related_videos">Ẩn video liên quan</string>
+    <string name="hide_related_videos_summary">Ẩn các video hiển thị bên dưới trình phát và bình luận.</string>
     <string name="hide_related_video_overlay">Ẩn lớp phủ video liên quan</string>
     <string name="hide_timestamp">Ẩn thời gian</string>
     <string name="disable_player_popup_panels">Tắt bảng bật lên trên trình phát</string>

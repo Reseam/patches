@@ -360,6 +360,8 @@
     <string name="hide_end_screen_cards">Nascondi le schede della schermata finale</string>
     <string name="hide_end_screen_suggested_video">Nascondi il video suggerito della schermata finale</string>
     <string name="hide_end_screen_suggested_video_summary">Nasconde il video suggerito alla fine quando la riproduzione automatica è disattivata.</string>
+    <string name="hide_related_videos">Nascondi i video correlati</string>
+    <string name="hide_related_videos_summary">Nasconde i video elencati sotto il player e i commenti.</string>
     <string name="hide_related_video_overlay">Nascondi i video correlati sopra il player</string>
     <string name="hide_timestamp">Nascondi il tempo</string>
     <string name="disable_player_popup_panels">Disattiva i pannelli a comparsa del player</string>

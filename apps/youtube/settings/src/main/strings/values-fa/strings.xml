@@ -356,6 +356,8 @@
     <string name="hide_end_screen_cards">پنهان کردن کارت‌های صفحهٔ پایانی</string>
     <string name="hide_end_screen_suggested_video">پنهان کردن ویدیوی پیشنهادی صفحهٔ پایانی</string>
     <string name="hide_end_screen_suggested_video_summary">ویدیویی را که وقتی پخش خودکار خاموش است در پایان پیشنهاد می‌شود پنهان می‌کند.</string>
+    <string name="hide_related_videos">پنهان کردن ویدیوهای مرتبط</string>
+    <string name="hide_related_videos_summary">ویدیوهای فهرست‌شده زیر پخش‌کننده و نظرها را پنهان می‌کند.</string>
     <string name="hide_related_video_overlay">پنهان کردن روکش ویدیوهای مرتبط</string>
     <string name="hide_timestamp">پنهان کردن زمان</string>
     <string name="disable_player_popup_panels">غیرفعال کردن پانل‌های بازشوی پخش‌کننده</string>

@@ -360,6 +360,8 @@
     <string name="hide_end_screen_cards">終了画面のカードを非表示</string>
     <string name="hide_end_screen_suggested_video">終了画面のおすすめ動画を非表示</string>
     <string name="hide_end_screen_suggested_video_summary">自動再生がオフのとき、最後におすすめされる動画を非表示にします。</string>
+    <string name="hide_related_videos">関連動画を非表示</string>
+    <string name="hide_related_videos_summary">プレーヤーとコメントの下に表示される動画を非表示にします。</string>
     <string name="hide_related_video_overlay">関連動画のオーバーレイを非表示</string>
     <string name="hide_timestamp">時間表示を非表示</string>
     <string name="disable_player_popup_panels">プレーヤーのポップアップパネルを無効にする</string>

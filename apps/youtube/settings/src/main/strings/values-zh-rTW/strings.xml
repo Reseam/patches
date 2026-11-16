@@ -360,6 +360,8 @@
     <string name="hide_end_screen_cards">隱藏片尾卡片</string>
     <string name="hide_end_screen_suggested_video">隱藏片尾推薦的影片</string>
     <string name="hide_end_screen_suggested_video_summary">關閉自動播放時，隱藏結尾推薦的影片。</string>
+    <string name="hide_related_videos">隱藏相關影片</string>
+    <string name="hide_related_videos_summary">隱藏播放器和留言下方列出的影片。</string>
     <string name="hide_related_video_overlay">隱藏相關影片疊加層</string>
     <string name="hide_timestamp">隱藏時間</string>
     <string name="disable_player_popup_panels">停用播放器彈出面板</string>

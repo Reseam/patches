@@ -356,6 +356,8 @@
     <string name="hide_end_screen_cards">اینڈ اسکرین کارڈز چھپائیں</string>
     <string name="hide_end_screen_suggested_video">اینڈ اسکرین پر تجویز کردہ ویڈیو چھپائیں</string>
     <string name="hide_end_screen_suggested_video_summary">آٹو پلے آف ہونے پر آخر میں تجویز کردہ ویڈیو چھپاتا ہے۔</string>
+    <string name="hide_related_videos">متعلقہ ویڈیوز چھپائیں</string>
+    <string name="hide_related_videos_summary">پلیئر اور تبصروں کے نیچے دکھائی گئی ویڈیوز چھپاتا ہے۔</string>
     <string name="hide_related_video_overlay">متعلقہ ویڈیوز کا اوورلے چھپائیں</string>
     <string name="hide_timestamp">ٹائم اسٹیمپ چھپائیں</string>
     <string name="disable_player_popup_panels">پلیئر کے پاپ اپ پینلز غیر فعال کریں</string>

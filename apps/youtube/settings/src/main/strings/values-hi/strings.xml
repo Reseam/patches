@@ -360,6 +360,8 @@
     <string name="hide_end_screen_cards">एंड स्क्रीन कार्ड छिपाएँ</string>
     <string name="hide_end_screen_suggested_video">एंड स्क्रीन का सुझाया गया वीडियो छिपाएँ</string>
     <string name="hide_end_screen_suggested_video_summary">ऑटोप्ले बंद होने पर अंत में सुझाया गया वीडियो छिपाता है।</string>
+    <string name="hide_related_videos">मिलते-जुलते वीडियो छिपाएँ</string>
+    <string name="hide_related_videos_summary">प्लेयर और कमेंट के नीचे दिखने वाले वीडियो छिपाता है।</string>
     <string name="hide_related_video_overlay">मिलते-जुलते वीडियो का ओवरले छिपाएँ</string>
     <string name="hide_timestamp">समय छिपाएँ</string>
     <string name="disable_player_popup_panels">प्लेयर के पॉप-अप पैनल बंद करें</string>

@@ -360,6 +360,8 @@
     <string name="hide_end_screen_cards">최종 화면 카드 숨기기</string>
     <string name="hide_end_screen_suggested_video">최종 화면 추천 동영상 숨기기</string>
     <string name="hide_end_screen_suggested_video_summary">자동 재생이 꺼져 있을 때 끝에 추천되는 동영상을 숨깁니다.</string>
+    <string name="hide_related_videos">관련 동영상 숨기기</string>
+    <string name="hide_related_videos_summary">플레이어와 댓글 아래에 표시되는 동영상을 숨깁니다.</string>
     <string name="hide_related_video_overlay">관련 동영상 오버레이 숨기기</string>
     <string name="hide_timestamp">시간 숨기기</string>
     <string name="disable_player_popup_panels">플레이어 팝업 패널 사용 중지</string>

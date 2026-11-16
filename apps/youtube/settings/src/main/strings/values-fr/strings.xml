@@ -360,6 +360,8 @@
     <string name="hide_end_screen_cards">Masquer les fiches de l’écran de fin</string>
     <string name="hide_end_screen_suggested_video">Masquer la vidéo suggérée de l’écran de fin</string>
     <string name="hide_end_screen_suggested_video_summary">Masque la vidéo suggérée à la fin quand la lecture automatique est désactivée.</string>
+    <string name="hide_related_videos">Masquer les vidéos similaires</string>
+    <string name="hide_related_videos_summary">Masque les vidéos listées sous le lecteur et les commentaires.</string>
     <string name="hide_related_video_overlay">Masquer la superposition des vidéos similaires</string>
     <string name="hide_timestamp">Masquer le temps</string>
     <string name="disable_player_popup_panels">Désactiver les panneaux contextuels du lecteur</string>

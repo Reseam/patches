@@ -360,6 +360,8 @@
     <string name="hide_end_screen_cards">ซ่อนการ์ดหน้าจอตอนจบ</string>
     <string name="hide_end_screen_suggested_video">ซ่อนวิดีโอแนะนำในหน้าจอตอนจบ</string>
     <string name="hide_end_screen_suggested_video_summary">ซ่อนวิดีโอที่แนะนำตอนจบเมื่อปิดการเล่นอัตโนมัติ</string>
+    <string name="hide_related_videos">ซ่อนวิดีโอที่เกี่ยวข้อง</string>
+    <string name="hide_related_videos_summary">ซ่อนวิดีโอที่แสดงอยู่ใต้โปรแกรมเล่นและความคิดเห็น</string>
     <string name="hide_related_video_overlay">ซ่อนโอเวอร์เลย์วิดีโอที่เกี่ยวข้อง</string>
     <string name="hide_timestamp">ซ่อนเวลา</string>
     <string name="disable_player_popup_panels">ปิดแผงป๊อปอัปของโปรแกรมเล่น</string>

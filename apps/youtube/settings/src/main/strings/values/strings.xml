@@ -363,6 +363,8 @@
     <string name="hide_end_screen_cards">Hide end-screen cards</string>
     <string name="hide_end_screen_suggested_video">Hide end-screen suggested video</string>
     <string name="hide_end_screen_suggested_video_summary">Hides the video suggested at the end when autoplay is off.</string>
+    <string name="hide_related_videos">Hide related videos</string>
+    <string name="hide_related_videos_summary">Hides the videos listed below the player and comments.</string>
     <string name="hide_related_video_overlay">Hide related-video overlay</string>
     <string name="hide_timestamp">Hide timestamp</string>
     <string name="disable_player_popup_panels">Disable player popup panels</string>

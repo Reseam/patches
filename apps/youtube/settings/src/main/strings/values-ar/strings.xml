@@ -356,6 +356,8 @@
     <string name="hide_end_screen_cards">إخفاء بطاقات الشاشة النهائية</string>
     <string name="hide_end_screen_suggested_video">إخفاء الفيديو المقترح في الشاشة النهائية</string>
     <string name="hide_end_screen_suggested_video_summary">يُخفي الفيديو المقترح في النهاية عند إيقاف التشغيل التلقائي.</string>
+    <string name="hide_related_videos">إخفاء الفيديوهات ذات الصلة</string>
+    <string name="hide_related_videos_summary">يُخفي الفيديوهات المعروضة أسفل المشغّل والتعليقات.</string>
     <string name="hide_related_video_overlay">إخفاء الطبقة العلوية للفيديوهات ذات الصلة</string>
     <string name="hide_timestamp">إخفاء الوقت</string>
     <string name="disable_player_popup_panels">تعطيل اللوحات المنبثقة في المشغّل</string>
