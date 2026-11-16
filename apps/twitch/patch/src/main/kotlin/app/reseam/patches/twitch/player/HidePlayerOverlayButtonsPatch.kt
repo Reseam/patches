@@ -18,6 +18,7 @@ import app.reseam.twitch.settings.TwitchStrings
 
 private const val CAST_BUTTON = "player-controls-cast"
 private const val SHARE_BUTTON = "player-controls-share"
+private const val ROTATE_SCREEN_BUTTON = "player-controls-rotate"
 
 val hidePlayerOverlayButtons = patch(TwitchPatchStrings.hidePlayerOverlayButtons) {
     description(TwitchPatchStrings.hidePlayerOverlayButtonsDescription)
@@ -31,6 +32,7 @@ val hidePlayerOverlayButtons = patch(TwitchPatchStrings.hidePlayerOverlayButtons
             PlayerOverlaySettings.hideClipButton,
             PlayerOverlaySettings.hideCastButton,
             PlayerOverlaySettings.hideShareButton,
+            PlayerOverlaySettings.hideRotateScreenButton,
         ),
     )
 
@@ -38,5 +40,6 @@ val hidePlayerOverlayButtons = patch(TwitchPatchStrings.hidePlayerOverlayButtons
         gate(PlayerOverlaySettings.hideClipButton) { controlsOverlay.before { param(0).assign(TheatreButtons.withoutClipAction(param(0))) } }
         gate(PlayerOverlaySettings.hideCastButton) { controlsOverlay.after { returnValue(TheatreButtons.withoutButton(result, string(CAST_BUTTON))) } }
         gate(PlayerOverlaySettings.hideShareButton) { controlsOverlay.after { returnValue(TheatreButtons.withoutButton(result, string(SHARE_BUTTON))) } }
+        gate(PlayerOverlaySettings.hideRotateScreenButton) { controlsOverlay.after { returnValue(TheatreButtons.withoutButton(result, string(ROTATE_SCREEN_BUTTON))) } }
     }
 }

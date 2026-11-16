@@ -98,6 +98,7 @@ object PlayerOverlaySettings : SettingsGroup(TwitchStrings) {
     val hideClipButton by toggle(default = false, icon = Vector.lucide("clapperboard"))
     val hideCastButton by toggle(default = false, icon = Vector.lucide("cast"))
     val hideShareButton by toggle(default = false, icon = Vector.lucide("share-2"))
+    val hideRotateScreenButton by toggle(default = false, icon = Vector.lucide("tablet-smartphone"))
 }
 
 object SubscriptionSettings : SettingsGroup(TwitchStrings) {

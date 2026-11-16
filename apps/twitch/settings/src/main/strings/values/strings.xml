@@ -53,6 +53,7 @@
     <string name="hide_clip_button">Hide clip button</string>
     <string name="hide_cast_button">Hide cast button</string>
     <string name="hide_share_button">Hide share button</string>
+    <string name="hide_rotate_screen_button">Hide rotate screen button</string>
     <string name="hide_subscription_upsells">Hide subscription upsells</string>
     <string name="debug_mode">Debug mode</string>
     <string name="page_video">Video</string>
@@ -76,8 +77,10 @@
     <string name="section_embedded_ads">Embedded ads</string>
     <string name="section_promotions">Promotions</string>
     <string name="section_start_page">Start page</string>
+    <string name="section_ads">Ads</string>
     <string name="section_privacy">Privacy</string>
     <string name="section_account_status">Account status</string>
     <string name="section_updates">Updates</string>
+    <string name="section_navigation">Navigation</string>
     <string name="section_developer">Developer</string>
 </resources>
