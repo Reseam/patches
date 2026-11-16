@@ -68,6 +68,8 @@
     <string name="hide_compose_button_description">떠 있는 작성 버튼을 숨깁니다.</string>
     <string name="hide_new_posts_banner">새 게시물 배너 숨기기</string>
     <string name="hide_new_posts_banner_description">타임라인 상단의 새 게시물 배너를 숨깁니다.</string>
+    <string name="disable_auto_refresh">자동 새로고침 사용 중지</string>
+    <string name="disable_auto_refresh_description">X로 돌아왔을 때 타임라인이 새 게시물을 스스로 불러오지 않게 합니다.</string>
     <string name="restore_timeline_position">타임라인 위치 복원</string>
     <string name="restore_timeline_position_description">홈을 X를 다시 시작한 후에도 마지막으로 보던 위치에서 엽니다.</string>
     <string name="hide_post_metrics">게시물 지표 숨기기</string>

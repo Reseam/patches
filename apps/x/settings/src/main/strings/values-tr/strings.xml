@@ -78,6 +78,8 @@
     <string name="show_poll_results">Anket sonuçlarını göster</string>
     <string name="show_poll_results_summary">Bir anketin sonuçlarını oy vermeden önce gösterir. Bu açıkken oy verilemez.</string>
     <string name="hide_new_posts_banner">Yeni gönderiler bannerını gizle</string>
+    <string name="disable_auto_refresh">Otomatik yenilemeyi kapat</string>
+    <string name="disable_auto_refresh_summary">X uygulamasına döndüğünüzde zaman akışları yeni gönderi yüklemez. Yenilemek için aşağı çekin.</string>
     <string name="restore_timeline_position">Zaman akışı konumunu geri yükle</string>
     <string name="restore_timeline_position_summary">Ana Sayfa, X yeniden başladıktan sonra da kaldığınız yerde açılır.</string>
     <string name="hide_compose_button">Yazma düğmesini gizle</string>

@@ -80,6 +80,8 @@
     <string name="show_poll_results">Показывать результаты опросов</string>
     <string name="show_poll_results_summary">Показывает результаты опроса до вашего голоса. Пока это включено, голосовать нельзя.</string>
     <string name="hide_new_posts_banner">Скрыть баннер новых постов</string>
+    <string name="disable_auto_refresh">Отключить автообновление</string>
+    <string name="disable_auto_refresh_summary">Ленты не загружают новые посты, когда вы возвращаетесь в X. Потяните вниз, чтобы обновить.</string>
     <string name="restore_timeline_position">Восстанавливать позицию в ленте</string>
     <string name="restore_timeline_position_summary">Главная открывается там, где вы остановились, даже после перезапуска X.</string>
     <string name="hide_compose_button">Скрыть кнопку создания поста</string>

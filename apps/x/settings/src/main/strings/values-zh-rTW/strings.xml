@@ -77,6 +77,8 @@
     <string name="show_poll_results">顯示投票結果</string>
     <string name="show_poll_results_summary">在你投票前就顯示投票結果。開啟這項功能時無法投票。</string>
     <string name="hide_new_posts_banner">隱藏新貼文橫幅</string>
+    <string name="disable_auto_refresh">停用自動重新整理</string>
+    <string name="disable_auto_refresh_summary">回到 X 時，時間軸不會載入新貼文。向下拉即可重新整理。</string>
     <string name="restore_timeline_position">還原時間軸位置</string>
     <string name="restore_timeline_position_summary">首頁會在你上次離開的位置開啟，即使 X 重新啟動後也一樣。</string>
     <string name="hide_compose_button">隱藏撰寫按鈕</string>

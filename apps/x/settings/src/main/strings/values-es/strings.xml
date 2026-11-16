@@ -78,6 +78,8 @@
     <string name="show_poll_results">Mostrar resultados de encuestas</string>
     <string name="show_poll_results_summary">Muestra los resultados de una encuesta antes de que votes. No se puede votar mientras esto esté activado.</string>
     <string name="hide_new_posts_banner">Ocultar aviso de publicaciones nuevas</string>
+    <string name="disable_auto_refresh">Desactivar actualización automática</string>
+    <string name="disable_auto_refresh_summary">Las cronologías no cargan publicaciones nuevas cuando vuelves a X. Desliza hacia abajo para actualizar.</string>
     <string name="restore_timeline_position">Restaurar posición de la cronología</string>
     <string name="restore_timeline_position_summary">Inicio se abre donde lo dejaste, incluso después de reiniciar X.</string>
     <string name="hide_compose_button">Ocultar botón de redactar</string>

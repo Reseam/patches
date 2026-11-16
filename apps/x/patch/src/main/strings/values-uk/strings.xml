@@ -68,6 +68,8 @@
     <string name="hide_compose_button_description">Приховує плаваючу кнопку створення допису.</string>
     <string name="hide_new_posts_banner">Приховати банер нових дописів</string>
     <string name="hide_new_posts_banner_description">Приховує банер нових дописів угорі стрічок.</string>
+    <string name="disable_auto_refresh">Вимкнути автооновлення</string>
+    <string name="disable_auto_refresh_description">Не дає стрічкам самостійно завантажувати нові дописи, коли ви повертаєтеся в X.</string>
     <string name="restore_timeline_position">Відновлювати позицію в стрічці</string>
     <string name="restore_timeline_position_description">Відкриває Головну там, де ви зупинилися, навіть після перезапуску X.</string>
     <string name="hide_post_metrics">Приховати показники дописів</string>

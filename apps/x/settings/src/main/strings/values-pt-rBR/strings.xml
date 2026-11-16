@@ -78,6 +78,8 @@
     <string name="show_poll_results">Mostrar resultados de enquetes</string>
     <string name="show_poll_results_summary">Mostra os resultados de uma enquete antes de você votar. A votação fica fechada enquanto isto estiver ativado.</string>
     <string name="hide_new_posts_banner">Ocultar banner de novos posts</string>
+    <string name="disable_auto_refresh">Desativar atualização automática</string>
+    <string name="disable_auto_refresh_summary">As timelines não carregam posts novos quando você volta ao X. Puxe para baixo para atualizar.</string>
     <string name="restore_timeline_position">Restaurar posição da timeline</string>
     <string name="restore_timeline_position_summary">A Página Inicial abre onde você parou, mesmo depois de o X reiniciar.</string>
     <string name="hide_compose_button">Ocultar botão de escrever</string>

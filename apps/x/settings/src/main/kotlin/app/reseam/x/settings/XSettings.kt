@@ -57,6 +57,7 @@ object XSettings : SettingsGroup(XStrings) {
     val hideLikeCounts by toggle(default = false, icon = Vector.lucide("heart"))
     val hideBookmarkCounts by toggle(default = false, icon = Vector.lucide("bookmark"))
     val hideNewPostsBanner by toggle(default = false, icon = Vector.lucide("arrow-up-to-line"))
+    val disableAutoRefresh by toggle(default = false, icon = Vector.lucide("refresh-cw-off"))
     val restoreTimelinePosition by toggle(default = false, icon = Vector.lucide("bookmark-check"))
     val hideComposeButton by toggle(default = false, icon = Vector.lucide("square-plus"))
     val hideDrawerPremium by toggle(default = false, icon = Vector.lucide("crown"))

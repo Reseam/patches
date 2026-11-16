@@ -68,6 +68,8 @@
     <string name="hide_compose_button_description">Ukrywa pływający przycisk tworzenia posta.</string>
     <string name="hide_new_posts_banner">Ukryj baner nowych postów</string>
     <string name="hide_new_posts_banner_description">Ukrywa baner nowych postów u góry osi czasu.</string>
+    <string name="disable_auto_refresh">Wyłącz automatyczne odświeżanie</string>
+    <string name="disable_auto_refresh_description">Nie pozwala osiom czasu samodzielnie wczytywać nowych postów po powrocie do X.</string>
     <string name="restore_timeline_position">Przywracaj pozycję na osi czasu</string>
     <string name="restore_timeline_position_description">Otwiera stronę główną tam, gdzie skończyłeś, także po ponownym uruchomieniu X.</string>
     <string name="hide_post_metrics">Ukryj statystyki postów</string>

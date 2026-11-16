@@ -78,6 +78,8 @@
     <string name="show_poll_results">Umfrageergebnisse anzeigen</string>
     <string name="show_poll_results_summary">Zeigt die Ergebnisse einer Umfrage, bevor du abstimmst. Solange das an ist, kannst du nicht abstimmen.</string>
     <string name="hide_new_posts_banner">Banner für neue Beiträge ausblenden</string>
+    <string name="disable_auto_refresh">Automatische Aktualisierung deaktivieren</string>
+    <string name="disable_auto_refresh_summary">Timelines laden keine neuen Beiträge, wenn du zu X zurückkehrst. Zum Aktualisieren nach unten ziehen.</string>
     <string name="restore_timeline_position">Timeline-Position wiederherstellen</string>
     <string name="restore_timeline_position_summary">Die Startseite öffnet sich dort, wo du aufgehört hast, auch nach einem Neustart von X.</string>
     <string name="hide_compose_button">Verfassen-Schaltfläche ausblenden</string>

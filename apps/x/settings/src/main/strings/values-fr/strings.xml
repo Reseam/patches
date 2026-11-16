@@ -78,6 +78,8 @@
     <string name="show_poll_results">Afficher les résultats des sondages</string>
     <string name="show_poll_results_summary">Affiche les résultats d’un sondage avant votre vote. Le vote reste fermé tant que cette option est activée.</string>
     <string name="hide_new_posts_banner">Masquer la bannière des nouveaux posts</string>
+    <string name="disable_auto_refresh">Désactiver l’actualisation automatique</string>
+    <string name="disable_auto_refresh_summary">Les fils ne chargent pas de nouveaux posts quand vous revenez sur X. Tirez vers le bas pour actualiser.</string>
     <string name="restore_timeline_position">Restaurer la position dans le fil</string>
     <string name="restore_timeline_position_summary">L’Accueil s’ouvre là où vous vous étiez arrêté, même après un redémarrage de X.</string>
     <string name="hide_compose_button">Masquer le bouton de rédaction</string>

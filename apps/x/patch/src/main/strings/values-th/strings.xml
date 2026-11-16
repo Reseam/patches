@@ -68,6 +68,8 @@
     <string name="hide_compose_button_description">ซ่อนปุ่มเขียนโพสต์แบบลอย</string>
     <string name="hide_new_posts_banner">ซ่อนแบนเนอร์โพสต์ใหม่</string>
     <string name="hide_new_posts_banner_description">ซ่อนแบนเนอร์โพสต์ใหม่ที่ด้านบนของไทม์ไลน์</string>
+    <string name="disable_auto_refresh">ปิดการรีเฟรชอัตโนมัติ</string>
+    <string name="disable_auto_refresh_description">ป้องกันไม่ให้ไทม์ไลน์โหลดโพสต์ใหม่เองเมื่อคุณกลับมาที่ X</string>
     <string name="restore_timeline_position">คืนตำแหน่งไทม์ไลน์</string>
     <string name="restore_timeline_position_description">เปิดหน้าแรกที่ตำแหน่งที่คุณดูค้างไว้ แม้หลังจาก X เริ่มใหม่</string>
     <string name="hide_post_metrics">ซ่อนเมตริกของโพสต์</string>

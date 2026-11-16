@@ -80,6 +80,8 @@
     <string name="show_poll_results">Pokazuj wyniki ankiet</string>
     <string name="show_poll_results_summary">Pokazuje wyniki ankiety, zanim zagłosujesz. Gdy ta opcja jest włączona, głosowanie jest zamknięte.</string>
     <string name="hide_new_posts_banner">Ukryj baner nowych postów</string>
+    <string name="disable_auto_refresh">Wyłącz automatyczne odświeżanie</string>
+    <string name="disable_auto_refresh_summary">Osie czasu nie wczytują nowych postów po powrocie do X. Przeciągnij w dół, aby odświeżyć.</string>
     <string name="restore_timeline_position">Przywracaj pozycję na osi czasu</string>
     <string name="restore_timeline_position_summary">Strona główna otwiera się tam, gdzie skończyłeś, także po ponownym uruchomieniu X.</string>
     <string name="hide_compose_button">Ukryj przycisk tworzenia</string>
