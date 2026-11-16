@@ -5,6 +5,7 @@ package app.reseam.youtube.spoof
 
 import android.os.SystemClock
 import app.reseam.bundle.Logger
+import app.reseam.youtube.core.defaultDisplayHdrTypes
 import app.reseam.youtube.core.debug
 import app.reseam.youtube.web.WebPlayer
 import java.io.IOException
@@ -104,7 +105,7 @@ internal class StreamRequest(
             }
             val response = send(client, visitor, web, attestation, attemptDeadline)
             remaining(attemptDeadline)
-            val parsed = parsePlayerResponse(response)
+            val parsed = parsePlayerResponse(response).withoutUnsupportedHdr(defaultDisplayHdrTypes())
             val streamingData = parsed.streamingData
             if (parsed.status != PLAYER_STATUS_OK || streamingData == null) {
                 Logger.info {

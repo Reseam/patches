@@ -9,6 +9,8 @@
     <string name="sanitize_sharing_links_summary">Menghapus pelacakan dari link yang Anda bagikan.</string>
     <string name="force_original_audio">Paksa audio asli</string>
     <string name="force_original_audio_summary">Memutar audio asli, bukan trek sulih suara.</string>
+    <string name="disable_hdr_video">Nonaktifkan video HDR</string>
+    <string name="disable_hdr_video_summary">Memberi tahu YouTube bahwa layar Anda tidak mendukung HDR.</string>
     <string name="custom_branding_icon_custom">Kustom</string>
     <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g> disimpan ke Download</string>
     <string name="experiment_flags_failed">Tidak dapat menyimpan flag eksperimen</string>

@@ -9,6 +9,8 @@
     <string name="sanitize_sharing_links_summary">يزيل التتبع من الروابط التي تشاركها.</string>
     <string name="force_original_audio">فرض الصوت الأصلي</string>
     <string name="force_original_audio_summary">يشغّل الصوت الأصلي بدلًا من المسار المدبلج.</string>
+    <string name="disable_hdr_video">تعطيل فيديو HDR</string>
+    <string name="disable_hdr_video_summary">يُخبر YouTube أن شاشتك لا تدعم HDR.</string>
     <string name="custom_branding_icon_custom">مخصص</string>
     <string name="experiment_flags_saved">تم حفظ <xliff:g id="file_name">%1$s</xliff:g> في «التنزيلات»</string>
     <string name="experiment_flags_failed">تعذّر حفظ علامات التجارب</string>

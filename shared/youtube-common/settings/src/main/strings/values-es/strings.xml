@@ -9,6 +9,8 @@
     <string name="sanitize_sharing_links_summary">Quita el rastreo de los enlaces que compartes.</string>
     <string name="force_original_audio">Forzar audio original</string>
     <string name="force_original_audio_summary">Reproduce el audio original en lugar de una pista doblada.</string>
+    <string name="disable_hdr_video">Desactivar video HDR</string>
+    <string name="disable_hdr_video_summary">Le dice a YouTube que tu pantalla no tiene HDR.</string>
     <string name="custom_branding_icon_custom">Personalizado</string>
     <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g> guardado en Descargas</string>
     <string name="experiment_flags_failed">No se pudieron guardar los indicadores de experimentos</string>

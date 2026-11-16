@@ -9,6 +9,8 @@
     <string name="sanitize_sharing_links_summary">Убирает отслеживание из ссылок, которыми вы делитесь.</string>
     <string name="force_original_audio">Всегда оригинальная звуковая дорожка</string>
     <string name="force_original_audio_summary">Воспроизводит оригинальный звук вместо дублированной дорожки.</string>
+    <string name="disable_hdr_video">Отключить HDR-видео</string>
+    <string name="disable_hdr_video_summary">Сообщает YouTube, что ваш экран не поддерживает HDR.</string>
     <string name="custom_branding_icon_custom">Свой</string>
     <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g> сохранён в «Загрузки»</string>
     <string name="experiment_flags_failed">Не удалось сохранить экспериментальные флаги</string>

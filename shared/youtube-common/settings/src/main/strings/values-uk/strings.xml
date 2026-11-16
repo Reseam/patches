@@ -9,6 +9,8 @@
     <string name="sanitize_sharing_links_summary">Видаляє відстеження з посилань, якими ви ділитеся.</string>
     <string name="force_original_audio">Примусово оригінальне аудіо</string>
     <string name="force_original_audio_summary">Відтворює оригінальне аудіо замість дубляжу.</string>
+    <string name="disable_hdr_video">Вимкнути HDR-відео</string>
+    <string name="disable_hdr_video_summary">Повідомляє YouTube, що ваш екран не підтримує HDR.</string>
     <string name="custom_branding_icon_custom">Власний</string>
     <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g> збережено в «Завантаження»</string>
     <string name="experiment_flags_failed">Не вдалося зберегти прапорці експериментів</string>

@@ -115,8 +115,6 @@
     <string name="remove_viewer_discretion_dialog_summary">設有年齡限制的影片仍受限制。</string>
     <string name="check_watch_history_dns">檢查觀看記錄</string>
     <string name="check_watch_history_dns_summary">當你的 DNS 封鎖了儲存觀看記錄的網域時發出警告。</string>
-    <string name="disable_hdr_video">停用 HDR 影片</string>
-    <string name="disable_hdr_video_summary">告訴 YouTube 你的螢幕不支援 HDR。</string>
     <string name="force_avc_codec">強制使用 AVC 轉碼器</string>
     <string name="force_avc_codec_summary">關閉 VP9，可以省電，但影片最高只有 1080p。</string>
     <string name="change_start_page">起始頁面</string>

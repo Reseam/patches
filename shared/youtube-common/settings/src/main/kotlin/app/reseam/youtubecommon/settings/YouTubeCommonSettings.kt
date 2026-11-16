@@ -14,4 +14,5 @@ object YouTubeCommonSettings : SettingsGroup(YouTubeCommonStrings, "you_tube_set
     val debugLogging by toggle(default = false)
     val sanitizeSharingLinks by toggle(default = true)
     val forceOriginalAudio by toggle(default = true)
+    val disableHdrVideo by toggle(default = false)
 }

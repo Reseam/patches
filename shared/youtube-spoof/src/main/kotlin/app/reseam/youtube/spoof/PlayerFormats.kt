@@ -3,6 +3,7 @@
 
 package app.reseam.youtube.spoof
 
+import android.view.Display
 import app.reseam.youtube.core.Proto
 import app.reseam.youtube.core.string
 
@@ -34,6 +35,30 @@ internal fun preferMultipleAvcQualities(streamingData: ByteArray): ByteArray {
     return Proto.rewriteLength(streamingData) { number, bytes ->
         bytes.takeUnless { number == 3 && "vp9" in format(it).mimeType }
     }
+}
+
+private const val COLOR_INFO = 33
+private const val TRANSFER_CHARACTERISTICS = 2
+private val hdrTypesByTransfer =
+    mapOf(
+        16L to Display.HdrCapabilities.HDR_TYPE_HDR10,
+        18L to Display.HdrCapabilities.HDR_TYPE_HLG,
+    )
+
+// The app's own player request reports the display's HDR types; other clients get every format.
+internal fun PlayerResponse.withoutUnsupportedHdr(hdrTypes: IntArray): PlayerResponse =
+    copy(
+        streamingData =
+            streamingData?.let { data ->
+                Proto.rewriteLength(data) { number, format ->
+                    format.takeUnless { number in 2..3 && !playable(format, hdrTypes) }
+                }
+            }
+    )
+
+private fun playable(format: ByteArray, hdrTypes: IntArray): Boolean {
+    val transfer = Proto.bytes(format, COLOR_INFO)?.let { Proto.number(it, TRANSFER_CHARACTERISTICS, 0) }
+    return hdrTypesByTransfer[transfer]?.let { it in hdrTypes } ?: true
 }
 
 private enum class Codec {

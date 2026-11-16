@@ -9,6 +9,8 @@
     <string name="sanitize_sharing_links_summary">Usuwa śledzenie z udostępnianych linków.</string>
     <string name="force_original_audio">Wymuś oryginalny dźwięk</string>
     <string name="force_original_audio_summary">Odtwarza oryginalny dźwięk zamiast ścieżki z dubbingiem.</string>
+    <string name="disable_hdr_video">Wyłącz wideo HDR</string>
+    <string name="disable_hdr_video_summary">Informuje YouTube, że twój ekran nie obsługuje HDR.</string>
     <string name="custom_branding_icon_custom">Własne</string>
     <string name="experiment_flags_saved">Zapisano <xliff:g id="file_name">%1$s</xliff:g> w folderze Pobrane</string>
     <string name="experiment_flags_failed">Nie udało się zapisać flag eksperymentów</string>

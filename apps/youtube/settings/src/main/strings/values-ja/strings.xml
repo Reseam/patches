@@ -115,8 +115,6 @@
     <string name="remove_viewer_discretion_dialog_summary">年齢制限のある動画は制限されたままです。</string>
     <string name="check_watch_history_dns">再生履歴を確認</string>
     <string name="check_watch_history_dns_summary">再生履歴を保存するドメインを DNS がブロックしているときに警告します。</string>
-    <string name="disable_hdr_video">HDR 動画を無効にする</string>
-    <string name="disable_hdr_video_summary">画面が HDR に対応していないと YouTube に伝えます。</string>
     <string name="force_avc_codec">AVC コーデックを強制</string>
     <string name="force_avc_codec_summary">VP9 をオフにします。バッテリーを節約できますが、動画は 1080p までになります。</string>
     <string name="change_start_page">開始ページ</string>

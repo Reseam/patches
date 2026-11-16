@@ -9,6 +9,8 @@
     <string name="sanitize_sharing_links_summary">移除你分享的链接中的跟踪参数。</string>
     <string name="force_original_audio">强制原始音频</string>
     <string name="force_original_audio_summary">播放原始音频，而不是配音音轨。</string>
+    <string name="disable_hdr_video">停用 HDR 视频</string>
+    <string name="disable_hdr_video_summary">告诉 YouTube 你的屏幕不支持 HDR。</string>
     <string name="custom_branding_icon_custom">自定义</string>
     <string name="experiment_flags_saved">已将 <xliff:g id="file_name">%1$s</xliff:g> 保存到“下载”</string>
     <string name="experiment_flags_failed">无法保存实验开关</string>

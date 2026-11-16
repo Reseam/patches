@@ -115,8 +115,6 @@
     <string name="remove_viewer_discretion_dialog_summary">Videos mit Altersbeschränkung bleiben beschränkt.</string>
     <string name="check_watch_history_dns">Wiedergabeverlauf prüfen</string>
     <string name="check_watch_history_dns_summary">Warnt, wenn dein DNS die Domain blockiert, die deinen Wiedergabeverlauf speichert.</string>
-    <string name="disable_hdr_video">HDR-Video deaktivieren</string>
-    <string name="disable_hdr_video_summary">Teilt YouTube mit, dass dein Bildschirm kein HDR hat.</string>
     <string name="force_avc_codec">AVC-Codec erzwingen</string>
     <string name="force_avc_codec_summary">Schaltet VP9 ab, was Akku spart und Videos auf 1080p begrenzt.</string>
     <string name="change_start_page">Startseite festlegen</string>

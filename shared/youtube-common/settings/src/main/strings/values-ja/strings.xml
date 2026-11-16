@@ -9,6 +9,8 @@
     <string name="sanitize_sharing_links_summary">共有するリンクからトラッキングを取り除きます。</string>
     <string name="force_original_audio">元の音声を強制</string>
     <string name="force_original_audio_summary">吹き替えトラックではなく元の音声を再生します。</string>
+    <string name="disable_hdr_video">HDR 動画を無効にする</string>
+    <string name="disable_hdr_video_summary">画面が HDR に対応していないと YouTube に伝えます。</string>
     <string name="custom_branding_icon_custom">カスタム</string>
     <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g> をダウンロードフォルダに保存しました</string>
     <string name="experiment_flags_failed">実験フラグを保存できませんでした</string>

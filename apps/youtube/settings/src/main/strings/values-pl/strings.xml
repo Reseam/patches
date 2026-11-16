@@ -115,8 +115,6 @@
     <string name="remove_viewer_discretion_dialog_summary">Filmy z ograniczeniem wiekowym pozostają ograniczone.</string>
     <string name="check_watch_history_dns">Sprawdzaj historię oglądania</string>
     <string name="check_watch_history_dns_summary">Ostrzega, gdy twój DNS blokuje domenę zapisującą historię oglądania.</string>
-    <string name="disable_hdr_video">Wyłącz wideo HDR</string>
-    <string name="disable_hdr_video_summary">Informuje YouTube, że twój ekran nie obsługuje HDR.</string>
     <string name="force_avc_codec">Wymuś kodek AVC</string>
     <string name="force_avc_codec_summary">Wyłącza VP9, co oszczędza baterię i ogranicza filmy do 1080p.</string>
     <string name="change_start_page">Strona startowa</string>

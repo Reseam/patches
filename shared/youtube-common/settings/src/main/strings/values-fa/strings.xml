@@ -9,6 +9,8 @@
     <string name="sanitize_sharing_links_summary">ردیاب‌ها را از پیوندهایی که هم‌رسانی می‌کنید حذف می‌کند.</string>
     <string name="force_original_audio">استفادهٔ اجباری از صدای اصلی</string>
     <string name="force_original_audio_summary">به‌جای صدای دوبله‌شده، صدای اصلی را پخش می‌کند.</string>
+    <string name="disable_hdr_video">غیرفعال کردن ویدیوی HDR</string>
+    <string name="disable_hdr_video_summary">به YouTube می‌گوید صفحه‌نمایش شما HDR ندارد.</string>
     <string name="custom_branding_icon_custom">سفارشی</string>
     <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g> در «بارگیری‌ها» ذخیره شد</string>
     <string name="experiment_flags_failed">پرچم‌های آزمایش ذخیره نشد</string>

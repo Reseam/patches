@@ -115,8 +115,6 @@
     <string name="remove_viewer_discretion_dialog_summary">วิดีโอที่จำกัดอายุยังคงถูกจำกัด</string>
     <string name="check_watch_history_dns">ตรวจสอบประวัติการดู</string>
     <string name="check_watch_history_dns_summary">เตือนเมื่อ DNS ของคุณบล็อกโดเมนที่บันทึกประวัติการดู</string>
-    <string name="disable_hdr_video">ปิดวิดีโอ HDR</string>
-    <string name="disable_hdr_video_summary">บอก YouTube ว่าหน้าจอของคุณไม่รองรับ HDR</string>
     <string name="force_avc_codec">บังคับตัวแปลงรหัส AVC</string>
     <string name="force_avc_codec_summary">ปิด VP9 ซึ่งช่วยประหยัดแบตเตอรี่และจำกัดวิดีโอไว้ที่ 1080p</string>
     <string name="change_start_page">หน้าเริ่มต้น</string>

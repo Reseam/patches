@@ -115,8 +115,6 @@
     <string name="remove_viewer_discretion_dialog_summary">Відео з віковим обмеженням залишаються обмеженими.</string>
     <string name="check_watch_history_dns">Перевіряти історію переглядів</string>
     <string name="check_watch_history_dns_summary">Попереджає, коли ваш DNS блокує домен, що зберігає історію переглядів.</string>
-    <string name="disable_hdr_video">Вимкнути HDR-відео</string>
-    <string name="disable_hdr_video_summary">Повідомляє YouTube, що ваш екран не підтримує HDR.</string>
     <string name="force_avc_codec">Примусово кодек AVC</string>
     <string name="force_avc_codec_summary">Вимикає VP9, що заощаджує батарею й обмежує відео до 1080p.</string>
     <string name="change_start_page">Початкова сторінка</string>

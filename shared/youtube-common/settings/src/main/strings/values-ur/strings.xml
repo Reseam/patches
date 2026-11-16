@@ -9,6 +9,8 @@
     <string name="sanitize_sharing_links_summary">آپ کے شیئر کردہ لنکس سے ٹریکنگ ہٹاتا ہے۔</string>
     <string name="force_original_audio">ہمیشہ اصل آڈیو</string>
     <string name="force_original_audio_summary">ڈب شدہ ٹریک کے بجائے اصل آڈیو چلاتا ہے۔</string>
+    <string name="disable_hdr_video">HDR ویڈیو غیر فعال کریں</string>
+    <string name="disable_hdr_video_summary">YouTube کو بتاتا ہے کہ آپ کی اسکرین HDR نہیں رکھتی۔</string>
     <string name="custom_branding_icon_custom">حسب ضرورت</string>
     <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g> ڈاؤن لوڈز میں محفوظ ہو گیا</string>
     <string name="experiment_flags_failed">تجرباتی فلیگز محفوظ نہیں ہو سکے</string>

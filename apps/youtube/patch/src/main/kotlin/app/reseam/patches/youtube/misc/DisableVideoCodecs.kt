@@ -12,21 +12,22 @@ import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
-import app.reseam.youtube.misc.bindings.VideoCodecs
+import app.reseam.youtube.core.bindings.DisplayHdr
 import app.reseam.youtube.settings.VideoSettings
 import app.reseam.youtube.settings.YouTubeStrings
+import app.reseam.youtubecommon.settings.YouTubeCommonSettings
 
 val disableVideoCodecs = patch(YouTubePatchStrings.disableVideoCodecs) {
     description(YouTubePatchStrings.disableVideoCodecsDescription)
     compatibleWith(YOUTUBE)
     settings(
         youTubeSettings,
-        section(YouTubeSettingsPages.Video, YouTubeStrings.sectionCodecs, VideoSettings.disableHdrVideo, VideoSettings.forceAvcCodec),
+        section(YouTubeSettingsPages.Video, YouTubeStrings.sectionCodecs, YouTubeCommonSettings.disableHdrVideo, VideoSettings.forceAvcCodec),
     )
 
     execute {
         // HDR is decided from the display's own capability list, wherever the app asks for it.
-        bytecode.redirectCalls("android.view.Display\$HdrCapabilities", "getSupportedHdrTypes", VideoCodecs.supportedHdrTypes)
+        bytecode.redirectCalls("android.view.Display\$HdrCapabilities", "getSupportedHdrTypes", DisplayHdr.supportedHdrTypes)
         gate(VideoSettings.forceAvcCodec) {
             vp9Supported.alwaysReturn(false)
         }

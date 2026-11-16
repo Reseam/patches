@@ -115,8 +115,6 @@
     <string name="remove_viewer_discretion_dialog_summary">Video bị giới hạn độ tuổi vẫn bị giới hạn.</string>
     <string name="check_watch_history_dns">Kiểm tra nhật ký xem</string>
     <string name="check_watch_history_dns_summary">Cảnh báo khi DNS của bạn chặn tên miền lưu nhật ký xem.</string>
-    <string name="disable_hdr_video">Tắt video HDR</string>
-    <string name="disable_hdr_video_summary">Cho YouTube biết màn hình của bạn không hỗ trợ HDR.</string>
     <string name="force_avc_codec">Buộc dùng bộ mã hóa AVC</string>
     <string name="force_avc_codec_summary">Tắt VP9, giúp tiết kiệm pin và giới hạn video ở 1080p.</string>
     <string name="change_start_page">Trang bắt đầu</string>

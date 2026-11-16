@@ -115,8 +115,6 @@
     <string name="remove_viewer_discretion_dialog_summary">Los videos con restricción de edad siguen restringidos.</string>
     <string name="check_watch_history_dns">Comprobar historial de reproducciones</string>
     <string name="check_watch_history_dns_summary">Avisa cuando tu DNS bloquea el dominio que guarda tu historial de reproducciones.</string>
-    <string name="disable_hdr_video">Desactivar video HDR</string>
-    <string name="disable_hdr_video_summary">Le dice a YouTube que tu pantalla no tiene HDR.</string>
     <string name="force_avc_codec">Forzar códec AVC</string>
     <string name="force_avc_codec_summary">Desactiva VP9, lo que ahorra batería y limita los videos a 1080p.</string>
     <string name="change_start_page">Página de inicio</string>

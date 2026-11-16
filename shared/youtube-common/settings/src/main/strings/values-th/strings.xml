@@ -9,6 +9,8 @@
     <string name="sanitize_sharing_links_summary">นำการติดตามออกจากลิงก์ที่คุณแชร์</string>
     <string name="force_original_audio">บังคับเสียงต้นฉบับ</string>
     <string name="force_original_audio_summary">เล่นเสียงต้นฉบับแทนแทร็กพากย์</string>
+    <string name="disable_hdr_video">ปิดวิดีโอ HDR</string>
+    <string name="disable_hdr_video_summary">บอก YouTube ว่าหน้าจอของคุณไม่รองรับ HDR</string>
     <string name="custom_branding_icon_custom">กำหนดเอง</string>
     <string name="experiment_flags_saved">บันทึก <xliff:g id="file_name">%1$s</xliff:g> ไปยังดาวน์โหลดแล้ว</string>
     <string name="experiment_flags_failed">บันทึกแฟล็กการทดลองไม่ได้</string>

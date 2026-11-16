@@ -115,8 +115,6 @@
     <string name="remove_viewer_discretion_dialog_summary">उम्र की पाबंदी वाले वीडियो पर पाबंदी बनी रहती है।</string>
     <string name="check_watch_history_dns">देखने के इतिहास की जाँच करें</string>
     <string name="check_watch_history_dns_summary">जब आपका DNS उस डोमेन को ब्लॉक करता है जो आपका देखने का इतिहास सेव करता है, तो चेतावनी देता है।</string>
-    <string name="disable_hdr_video">HDR वीडियो बंद करें</string>
-    <string name="disable_hdr_video_summary">YouTube को बताता है कि आपकी स्क्रीन में HDR नहीं है।</string>
     <string name="force_avc_codec">हमेशा AVC कोडेक इस्तेमाल करें</string>
     <string name="force_avc_codec_summary">VP9 बंद करता है, जिससे बैटरी बचती है और वीडियो 1080p तक सीमित रहते हैं।</string>
     <string name="change_start_page">शुरुआती पेज</string>
