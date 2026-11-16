@@ -14,6 +14,8 @@ import app.reseam.youtube.settings.CommentsSettings
 @Export
 class CommentsFilter : Filter() {
     private val aiSummaryIcon = ByteArrayFilterGroup(null, "yt_fill_spark_")
+    private val quickEmoji = ByteArrayFilterGroup(null, "id.comment.quick_emoji.button")
+    private val composerInput = ByteArrayFilterGroup(null, "composer_input", "composer_timestamp_button")
 
     init {
         addPathCallbacks(
@@ -45,9 +47,12 @@ class CommentsFilter : Filter() {
             ),
             FilterRule(
                 CommentsSettings.hideCommentsEmojiAndTimestampButtons,
-                "|CellType|ContainerType|ContainerType|ContainerType|ContainerType|ContainerType|",
-            ) {
-                it.path.startsWith("comment_composer.e")
+                "composer_timestamp_button.e",
+            ),
+            // Only the quick emoji row holds emoji buttons without the input; its parents hold both.
+            FilterRule(CommentsSettings.hideCommentsEmojiAndTimestampButtons, "comment_composer.e") {
+                quickEmoji.check(it.elementBuffer).isFiltered &&
+                    !composerInput.check(it.elementBuffer).isFiltered
             },
             FilterRule(
                 CommentsSettings.hideCommentsPreviewComment,
