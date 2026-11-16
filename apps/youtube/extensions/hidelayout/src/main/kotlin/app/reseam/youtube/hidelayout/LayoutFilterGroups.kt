@@ -5,6 +5,7 @@
 package app.reseam.youtube.hidelayout
 
 import app.reseam.runtime.ToggleValue
+import app.reseam.youtube.core.Proto
 import app.reseam.youtube.litho.FilterGroup.ByteArrayFilterGroup
 import app.reseam.youtube.litho.FilterGroup.StringFilterGroup
 import app.reseam.youtube.litho.FilterGroupList.StringFilterGroupList
@@ -91,6 +92,9 @@ internal class LayoutFilterGroups(private val filtering: LayoutFiltering) {
             feedRule(FeedSettings.hideEmergencyBox, "emergency_onebox"),
             FilterRule(FeedSettings.hideExpandableCard, "inline_expander"),
             feedRule(FeedSettings.hideForYouShelf, "mixed_content_shelf"),
+            feedRule(ChannelSettings.hideChannelForYouShelf, "horizontal_shelf.e") {
+                isChannelBrowsePage() && hasUnlinkedHeader(it.elementBuffer)
+            },
             feedRule(
                 null,
                 "horizontal_video_shelf.e",
@@ -163,6 +167,24 @@ private fun hideHeaderActionButton(content: LithoComponent): Boolean {
         headerActions.asSequence().filter { it.marker.check(content.buffer).isFiltered }.iterator()
     return present.hasNext() && present.asSequence().all { it.setting.value }
 }
+
+private val shelfHeaderPath = intArrayOf(1, 168777401, 5, 312131490, 20, 1)
+private const val SHELF_HEADER_COMMAND = 4
+private const val SHELF_HEADER_TITLE = 20
+
+// On channel pages only the For You shelf has a header that leads nowhere; store and playlist shelves link to
+// their page.
+private fun hasUnlinkedHeader(element: ByteArray): Boolean =
+    runCatching {
+            val header =
+                shelfHeaderPath.fold(element) { message, field ->
+                    Proto.bytes(message, field) ?: return false
+                }
+            val fields = Proto.fields(header)
+            fields.any { it.number == SHELF_HEADER_TITLE } &&
+                fields.none { it.number == SHELF_HEADER_COMMAND }
+        }
+        .getOrDefault(false)
 
 private fun isChannelBrowsePage(): Boolean =
     NavigationBar.isBackButtonVisible &&

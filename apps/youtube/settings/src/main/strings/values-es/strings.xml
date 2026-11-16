@@ -159,6 +159,7 @@
     <string name="hide_attributes_section">Ocultar atributos del video</string>
     <string name="hide_attributes_section_summary">Oculta las filas de atributos en descripciones y secciones.</string>
     <string name="hide_channel_bar">Ocultar barra del canal</string>
+    <string name="hide_channel_for_you_shelf">Ocultar sección Para ti</string>
     <string name="hide_channel_tab">Ocultar pestañas de canal</string>
     <string name="hide_channel_tab_summary">Oculta las pestañas de canal cuyos nombres están en la lista de abajo.</string>
     <string name="hide_channel_tab_filter_strings">Nombres de pestañas de canal</string>

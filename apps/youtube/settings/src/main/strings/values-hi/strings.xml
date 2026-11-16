@@ -159,6 +159,7 @@
     <string name="hide_attributes_section">वीडियो के एट्रिब्यूट छिपाएँ</string>
     <string name="hide_attributes_section_summary">विवरण और शेल्फ़ में एट्रिब्यूट की पंक्तियाँ छिपाता है।</string>
     <string name="hide_channel_bar">चैनल बार छिपाएँ</string>
+    <string name="hide_channel_for_you_shelf">For You शेल्फ़ छिपाएँ</string>
     <string name="hide_channel_tab">चैनल के टैब छिपाएँ</string>
     <string name="hide_channel_tab_summary">चैनल के वे टैब छिपाता है जिनके नाम नीचे की सूची में हैं।</string>
     <string name="hide_channel_tab_filter_strings">चैनल टैब के नाम</string>

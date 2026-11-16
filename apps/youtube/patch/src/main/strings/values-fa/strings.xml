@@ -95,6 +95,7 @@
     <string name="disable_autoplay_in_playlists">غیرفعال کردن پخش خودکار در فهرست‌های پخش</string>
     <string name="disable_autoplay_in_playlists_description">در پایان هر ویدیوی فهرست پخش متوقف می‌شود.</string>
     <string name="disable_video_codecs">غیرفعال کردن کدک‌های ویدیو</string>
+    <string name="disable_video_codecs_description">HDR، AV1 و VP9 را خاموش می‌کند که باتری را صرفه‌جویی و کیفیت را کم می‌کند.</string>
     <string name="feature_flag_overrides">بازنویسی پرچم‌های ویژگی</string>
     <string name="feature_flag_overrides_description">پرچم‌های آزمایشی YouTube را با شناسه روشن یا خاموش می‌کند.</string>
     <string name="loop_video">تکرار ویدیو</string>

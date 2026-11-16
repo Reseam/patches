@@ -95,6 +95,7 @@
     <string name="disable_autoplay_in_playlists">پلے لسٹس میں آٹو پلے غیر فعال کریں</string>
     <string name="disable_autoplay_in_playlists_description">پلے لسٹ میں ہر ویڈیو کے آخر میں رک جاتا ہے۔</string>
     <string name="disable_video_codecs">ویڈیو کوڈیکس غیر فعال کریں</string>
+    <string name="disable_video_codecs_description">HDR، AV1 اور VP9 بند کرتا ہے، جس سے بیٹری بچتی ہے اور کوالٹی کم ہوتی ہے۔</string>
     <string name="feature_flag_overrides">فیچر فلیگ اوور رائیڈز</string>
     <string name="feature_flag_overrides_description">YouTube کے تجرباتی فلیگز کو ID کے ذریعے آن یا آف کرتا ہے۔</string>
     <string name="loop_video">ویڈیو لوپ کریں</string>

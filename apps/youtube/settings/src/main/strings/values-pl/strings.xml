@@ -159,6 +159,7 @@
     <string name="hide_attributes_section">Ukryj atrybuty filmu</string>
     <string name="hide_attributes_section_summary">Ukrywa wiersze atrybutów w opisach i na półkach.</string>
     <string name="hide_channel_bar">Ukryj pasek kanału</string>
+    <string name="hide_channel_for_you_shelf">Ukryj półkę Dla Ciebie</string>
     <string name="hide_channel_tab">Ukryj karty kanału</string>
     <string name="hide_channel_tab_summary">Ukrywa karty kanału, których nazwy są na liście poniżej.</string>
     <string name="hide_channel_tab_filter_strings">Nazwy kart kanału</string>

@@ -159,6 +159,7 @@
     <string name="hide_attributes_section">隱藏影片屬性</string>
     <string name="hide_attributes_section_summary">隱藏說明和區塊中的屬性列。</string>
     <string name="hide_channel_bar">隱藏頻道列</string>
+    <string name="hide_channel_for_you_shelf">隱藏「為你推薦」區塊</string>
     <string name="hide_channel_tab">隱藏頻道分頁</string>
     <string name="hide_channel_tab_summary">隱藏名稱在下方清單中的頻道分頁。</string>
     <string name="hide_channel_tab_filter_strings">頻道分頁名稱</string>

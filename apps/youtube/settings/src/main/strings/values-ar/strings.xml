@@ -155,6 +155,7 @@
     <string name="hide_attributes_section">إخفاء سمات الفيديو</string>
     <string name="hide_attributes_section_summary">يُخفي صفوف السمات في الأوصاف والرفوف.</string>
     <string name="hide_channel_bar">إخفاء شريط القناة</string>
+    <string name="hide_channel_for_you_shelf">إخفاء رف «لك»</string>
     <string name="hide_channel_tab">إخفاء علامات تبويب القناة</string>
     <string name="hide_channel_tab_summary">يُخفي علامات تبويب القناة التي ترد أسماؤها في القائمة أدناه.</string>
     <string name="hide_channel_tab_filter_strings">أسماء علامات تبويب القناة</string>

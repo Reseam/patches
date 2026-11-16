@@ -159,6 +159,7 @@
     <string name="hide_attributes_section">Приховати атрибути відео</string>
     <string name="hide_attributes_section_summary">Приховує рядки атрибутів в описах і на полицях.</string>
     <string name="hide_channel_bar">Приховати панель каналу</string>
+    <string name="hide_channel_for_you_shelf">Приховати полицю «Для вас»</string>
     <string name="hide_channel_tab">Приховати вкладки каналу</string>
     <string name="hide_channel_tab_summary">Приховує вкладки каналу, назви яких є в списку нижче.</string>
     <string name="hide_channel_tab_filter_strings">Назви вкладок каналу</string>

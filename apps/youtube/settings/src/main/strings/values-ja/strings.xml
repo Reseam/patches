@@ -159,6 +159,7 @@
     <string name="hide_attributes_section">動画の属性を非表示</string>
     <string name="hide_attributes_section_summary">概要欄と棚の属性の行を非表示にします。</string>
     <string name="hide_channel_bar">チャンネルバーを非表示</string>
+    <string name="hide_channel_for_you_shelf">「あなたへのおすすめ」の棚を非表示</string>
     <string name="hide_channel_tab">チャンネルのタブを非表示</string>
     <string name="hide_channel_tab_summary">下のリストに名前があるチャンネルのタブを非表示にします。</string>
     <string name="hide_channel_tab_filter_strings">チャンネルのタブ名</string>

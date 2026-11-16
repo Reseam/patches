@@ -95,6 +95,7 @@
     <string name="disable_autoplay_in_playlists">تعطيل التشغيل التلقائي في قوائم التشغيل</string>
     <string name="disable_autoplay_in_playlists_description">يتوقف عند نهاية كل فيديو في قائمة التشغيل.</string>
     <string name="disable_video_codecs">تعطيل برامج ترميز الفيديو</string>
+    <string name="disable_video_codecs_description">يُوقف HDR وAV1 وVP9، ما يوفّر البطارية ويخفض الجودة.</string>
     <string name="feature_flag_overrides">تجاوزات علامات الميزات</string>
     <string name="feature_flag_overrides_description">يشغّل علامات تجارب YouTube أو يوقفها حسب المعرّف.</string>
     <string name="loop_video">تكرار الفيديو</string>

@@ -155,6 +155,7 @@
     <string name="hide_attributes_section">ویڈیو کی خصوصیات چھپائیں</string>
     <string name="hide_attributes_section_summary">تفصیلات اور شیلفز میں خصوصیات کی قطاریں چھپاتا ہے۔</string>
     <string name="hide_channel_bar">چینل بار چھپائیں</string>
+    <string name="hide_channel_for_you_shelf">“آپ کے لیے” شیلف چھپائیں</string>
     <string name="hide_channel_tab">چینل ٹیبز چھپائیں</string>
     <string name="hide_channel_tab_summary">وہ چینل ٹیبز چھپاتا ہے جن کے نام نیچے کی فہرست میں ہیں۔</string>
     <string name="hide_channel_tab_filter_strings">چینل ٹیبز کے نام</string>

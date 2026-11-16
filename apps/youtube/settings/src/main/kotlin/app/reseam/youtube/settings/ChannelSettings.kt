@@ -8,6 +8,7 @@ import app.reseam.patch.settings.text
 import app.reseam.patch.settings.toggle
 
 object ChannelSettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
+    val hideChannelForYouShelf by toggle(default = false)
     val hideChannelTab by toggle(default = false)
     val hideChannelTabFilterStrings by text(default = "", multiline = true)
     val hideCommunityButton by toggle(default = true)

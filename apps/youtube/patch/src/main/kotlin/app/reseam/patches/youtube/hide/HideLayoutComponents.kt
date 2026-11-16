@@ -130,6 +130,7 @@ val hideLayoutComponents = patch(YouTubePatchStrings.hideLayoutComponents) {
         section(
             YouTubeSettingsPages.Channel,
             YouTubeStrings.sectionChannel,
+            ChannelSettings.hideChannelForYouShelf,
             ChannelSettings.hideChannelTab,
             ChannelSettings.hideChannelTabFilterStrings,
             ChannelSettings.hideCommunityButton,

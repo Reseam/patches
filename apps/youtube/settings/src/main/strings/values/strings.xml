@@ -162,6 +162,7 @@
     <string name="hide_attributes_section">Hide video attributes</string>
     <string name="hide_attributes_section_summary">Hides attribute rows in descriptions and shelves.</string>
     <string name="hide_channel_bar">Hide channel bar</string>
+    <string name="hide_channel_for_you_shelf">Hide For You shelf</string>
     <string name="hide_channel_tab">Hide channel tabs</string>
     <string name="hide_channel_tab_summary">Hides channel tabs whose names are in the list below.</string>
     <string name="hide_channel_tab_filter_strings">Channel tab names</string>

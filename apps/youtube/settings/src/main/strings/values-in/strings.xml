@@ -159,6 +159,7 @@
     <string name="hide_attributes_section">Sembunyikan atribut video</string>
     <string name="hide_attributes_section_summary">Menyembunyikan baris atribut di deskripsi dan rak.</string>
     <string name="hide_channel_bar">Sembunyikan bilah channel</string>
+    <string name="hide_channel_for_you_shelf">Sembunyikan rak Untuk Anda</string>
     <string name="hide_channel_tab">Sembunyikan tab channel</string>
     <string name="hide_channel_tab_summary">Menyembunyikan tab channel yang namanya ada di daftar di bawah.</string>
     <string name="hide_channel_tab_filter_strings">Nama tab channel</string>

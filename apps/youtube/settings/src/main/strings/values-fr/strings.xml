@@ -159,6 +159,7 @@
     <string name="hide_attributes_section">Masquer les attributs de la vidéo</string>
     <string name="hide_attributes_section_summary">Masque les lignes d’attributs dans les descriptions et les étagères.</string>
     <string name="hide_channel_bar">Masquer la barre de la chaîne</string>
+    <string name="hide_channel_for_you_shelf">Masquer l’étagère Pour vous</string>
     <string name="hide_channel_tab">Masquer des onglets de chaîne</string>
     <string name="hide_channel_tab_summary">Masque les onglets de chaîne dont le nom figure dans la liste ci-dessous.</string>
     <string name="hide_channel_tab_filter_strings">Noms des onglets de chaîne</string>

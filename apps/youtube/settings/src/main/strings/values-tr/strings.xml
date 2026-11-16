@@ -159,6 +159,7 @@
     <string name="hide_attributes_section">Video özelliklerini gizle</string>
     <string name="hide_attributes_section_summary">Açıklamalardaki ve raflardaki özellik satırlarını gizler.</string>
     <string name="hide_channel_bar">Kanal çubuğunu gizle</string>
+    <string name="hide_channel_for_you_shelf">Sizin için rafını gizle</string>
     <string name="hide_channel_tab">Kanal sekmelerini gizle</string>
     <string name="hide_channel_tab_summary">Adları aşağıdaki listede bulunan kanal sekmelerini gizler.</string>
     <string name="hide_channel_tab_filter_strings">Kanal sekmesi adları</string>
