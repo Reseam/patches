@@ -68,6 +68,8 @@
     <string name="hide_compose_button_description">Nasconde il pulsante mobile per scrivere un post.</string>
     <string name="hide_new_posts_banner">Nascondi il banner dei nuovi post</string>
     <string name="hide_new_posts_banner_description">Nasconde il banner dei nuovi post in cima alle cronologie.</string>
+    <string name="restore_timeline_position">Ripristina la posizione nella cronologia</string>
+    <string name="restore_timeline_position_description">Apre la Home dove eri rimasto, anche dopo il riavvio di X.</string>
     <string name="hide_post_metrics">Nascondi le statistiche dei post</string>
     <string name="hide_post_metrics_description">Nasconde i conteggi sui post. I pulsanti continuano a funzionare.</string>
     <string name="hide_recommendations">Nascondi i consigli</string>

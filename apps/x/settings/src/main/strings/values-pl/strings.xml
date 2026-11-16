@@ -80,6 +80,8 @@
     <string name="show_poll_results">Pokazuj wyniki ankiet</string>
     <string name="show_poll_results_summary">Pokazuje wyniki ankiety, zanim zagłosujesz. Gdy ta opcja jest włączona, głosowanie jest zamknięte.</string>
     <string name="hide_new_posts_banner">Ukryj baner nowych postów</string>
+    <string name="restore_timeline_position">Przywracaj pozycję na osi czasu</string>
+    <string name="restore_timeline_position_summary">Strona główna otwiera się tam, gdzie skończyłeś, także po ponownym uruchomieniu X.</string>
     <string name="hide_compose_button">Ukryj przycisk tworzenia</string>
     <string name="hide_view_counts_summary">Ukrywa wyświetlenia na pasku akcji i w szczegółach posta.</string>
     <string name="hide_reply_counts">Ukryj liczbę odpowiedzi</string>

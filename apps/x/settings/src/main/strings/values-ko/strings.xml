@@ -77,6 +77,8 @@
     <string name="show_poll_results">투표 결과 표시</string>
     <string name="show_poll_results_summary">투표하기 전에 투표 결과를 표시합니다. 이 기능이 켜져 있으면 투표할 수 없습니다.</string>
     <string name="hide_new_posts_banner">새 게시물 배너 숨기기</string>
+    <string name="restore_timeline_position">타임라인 위치 복원</string>
+    <string name="restore_timeline_position_summary">홈이 X를 다시 시작한 후에도 마지막으로 보던 위치에서 열립니다.</string>
     <string name="hide_compose_button">작성 버튼 숨기기</string>
     <string name="hide_view_counts_summary">작업 바와 게시물 세부정보의 조회수를 숨깁니다.</string>
     <string name="hide_reply_counts">답글 수 숨기기</string>

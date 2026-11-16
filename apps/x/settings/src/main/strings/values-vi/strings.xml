@@ -77,6 +77,8 @@
     <string name="show_poll_results">Hiển thị kết quả thăm dò</string>
     <string name="show_poll_results_summary">Hiển thị kết quả thăm dò trước khi bạn bình chọn. Không thể bình chọn khi tính năng này bật.</string>
     <string name="hide_new_posts_banner">Ẩn biểu ngữ bài đăng mới</string>
+    <string name="restore_timeline_position">Khôi phục vị trí dòng thời gian</string>
+    <string name="restore_timeline_position_summary">Trang chủ mở ở chỗ bạn đã dừng, kể cả sau khi X khởi động lại.</string>
     <string name="hide_compose_button">Ẩn nút soạn bài</string>
     <string name="hide_view_counts_summary">Ẩn lượt xem trên thanh thao tác và trong chi tiết bài đăng.</string>
     <string name="hide_reply_counts">Ẩn số câu trả lời</string>

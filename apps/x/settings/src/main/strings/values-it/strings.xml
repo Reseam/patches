@@ -78,6 +78,8 @@
     <string name="show_poll_results">Mostra i risultati dei sondaggi</string>
     <string name="show_poll_results_summary">Mostra i risultati di un sondaggio prima che tu voti. Finché è attivo non si può votare.</string>
     <string name="hide_new_posts_banner">Nascondi il banner dei nuovi post</string>
+    <string name="restore_timeline_position">Ripristina la posizione nella cronologia</string>
+    <string name="restore_timeline_position_summary">La Home si apre dove eri rimasto, anche dopo il riavvio di X.</string>
     <string name="hide_compose_button">Nascondi il pulsante di scrittura</string>
     <string name="hide_view_counts_summary">Nasconde le visualizzazioni nella barra delle azioni e nei dettagli del post.</string>
     <string name="hide_reply_counts">Nascondi il numero di risposte</string>

@@ -68,6 +68,8 @@
     <string name="hide_compose_button_description">隐藏悬浮的发帖按钮。</string>
     <string name="hide_new_posts_banner">隐藏新帖子横幅</string>
     <string name="hide_new_posts_banner_description">隐藏时间线顶部的新帖子横幅。</string>
+    <string name="restore_timeline_position">恢复时间线位置</string>
+    <string name="restore_timeline_position_description">在你上次离开的位置打开首页，即使 X 重新启动后也是如此。</string>
     <string name="hide_post_metrics">隐藏帖子数据</string>
     <string name="hide_post_metrics_description">隐藏帖子上的数字。按钮仍可正常使用。</string>
     <string name="hide_recommendations">隐藏推荐</string>

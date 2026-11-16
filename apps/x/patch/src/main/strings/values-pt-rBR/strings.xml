@@ -68,6 +68,8 @@
     <string name="hide_compose_button_description">Oculta o botão flutuante de escrever.</string>
     <string name="hide_new_posts_banner">Ocultar banner de novos posts</string>
     <string name="hide_new_posts_banner_description">Oculta o banner de novos posts no topo das timelines.</string>
+    <string name="restore_timeline_position">Restaurar posição da timeline</string>
+    <string name="restore_timeline_position_description">Abre a Página Inicial onde você parou, mesmo depois de o X reiniciar.</string>
     <string name="hide_post_metrics">Ocultar métricas dos posts</string>
     <string name="hide_post_metrics_description">Oculta as contagens nos posts. Os botões continuam funcionando.</string>
     <string name="hide_recommendations">Ocultar recomendações</string>

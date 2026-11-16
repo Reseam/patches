@@ -80,6 +80,8 @@
     <string name="show_poll_results">Показувати результати опитувань</string>
     <string name="show_poll_results_summary">Показує результати опитування ще до вашого голосу. Поки це ввімкнено, голосування закрите.</string>
     <string name="hide_new_posts_banner">Приховати банер нових дописів</string>
+    <string name="restore_timeline_position">Відновлювати позицію в стрічці</string>
+    <string name="restore_timeline_position_summary">Головна відкривається там, де ви зупинилися, навіть після перезапуску X.</string>
     <string name="hide_compose_button">Приховати кнопку створення</string>
     <string name="hide_view_counts_summary">Приховує перегляди на панелі дій і в подробицях допису.</string>
     <string name="hide_reply_counts">Приховати кількість відповідей</string>

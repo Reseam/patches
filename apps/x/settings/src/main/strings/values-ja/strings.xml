@@ -77,6 +77,8 @@
     <string name="show_poll_results">投票結果を表示</string>
     <string name="show_poll_results_summary">投票する前に投票結果を表示します。オンの間は投票できません。</string>
     <string name="hide_new_posts_banner">新着ポストのバナーを非表示</string>
+    <string name="restore_timeline_position">タイムラインの位置を復元</string>
+    <string name="restore_timeline_position_summary">ホームが、X の再起動後も前回の位置で開きます。</string>
     <string name="hide_compose_button">作成ボタンを非表示</string>
     <string name="hide_view_counts_summary">アクションバーとポストの詳細の表示回数を非表示にします。</string>
     <string name="hide_reply_counts">返信数を非表示</string>

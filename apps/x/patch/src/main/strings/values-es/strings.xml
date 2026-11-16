@@ -68,6 +68,8 @@
     <string name="hide_compose_button_description">Oculta el botón flotante de redactar.</string>
     <string name="hide_new_posts_banner">Ocultar aviso de publicaciones nuevas</string>
     <string name="hide_new_posts_banner_description">Oculta el aviso de publicaciones nuevas en la parte superior de las cronologías.</string>
+    <string name="restore_timeline_position">Restaurar posición de la cronología</string>
+    <string name="restore_timeline_position_description">Abre Inicio donde lo dejaste, incluso después de reiniciar X.</string>
     <string name="hide_post_metrics">Ocultar métricas de publicaciones</string>
     <string name="hide_post_metrics_description">Oculta los contadores de las publicaciones. Los botones siguen funcionando.</string>
     <string name="hide_recommendations">Ocultar recomendaciones</string>

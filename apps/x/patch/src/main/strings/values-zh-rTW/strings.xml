@@ -68,6 +68,8 @@
     <string name="hide_compose_button_description">隱藏浮動的撰寫按鈕。</string>
     <string name="hide_new_posts_banner">隱藏新貼文橫幅</string>
     <string name="hide_new_posts_banner_description">隱藏時間軸頂端的新貼文橫幅。</string>
+    <string name="restore_timeline_position">還原時間軸位置</string>
+    <string name="restore_timeline_position_description">在你上次離開的位置開啟首頁，即使 X 重新啟動後也一樣。</string>
     <string name="hide_post_metrics">隱藏貼文數據</string>
     <string name="hide_post_metrics_description">隱藏貼文上的數字。按鈕仍可正常使用。</string>
     <string name="hide_recommendations">隱藏推薦</string>

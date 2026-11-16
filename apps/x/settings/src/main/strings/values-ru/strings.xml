@@ -80,6 +80,8 @@
     <string name="show_poll_results">Показывать результаты опросов</string>
     <string name="show_poll_results_summary">Показывает результаты опроса до вашего голоса. Пока это включено, голосовать нельзя.</string>
     <string name="hide_new_posts_banner">Скрыть баннер новых постов</string>
+    <string name="restore_timeline_position">Восстанавливать позицию в ленте</string>
+    <string name="restore_timeline_position_summary">Главная открывается там, где вы остановились, даже после перезапуска X.</string>
     <string name="hide_compose_button">Скрыть кнопку создания поста</string>
     <string name="hide_view_counts_summary">Скрывает просмотры на панели действий и в сведениях о посте.</string>
     <string name="hide_reply_counts">Скрыть число ответов</string>

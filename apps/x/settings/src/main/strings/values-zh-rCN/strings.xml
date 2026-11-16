@@ -77,6 +77,8 @@
     <string name="show_poll_results">显示投票结果</string>
     <string name="show_poll_results_summary">在你投票前就显示投票结果。开启此功能时无法投票。</string>
     <string name="hide_new_posts_banner">隐藏新帖子横幅</string>
+    <string name="restore_timeline_position">恢复时间线位置</string>
+    <string name="restore_timeline_position_summary">首页会在你上次离开的位置打开，即使 X 重新启动后也是如此。</string>
     <string name="hide_compose_button">隐藏发帖按钮</string>
     <string name="hide_view_counts_summary">隐藏操作栏和帖子详情中的浏览量。</string>
     <string name="hide_reply_counts">隐藏回复数</string>

@@ -68,6 +68,8 @@
     <string name="hide_compose_button_description">Menyembunyikan tombol tulis mengambang.</string>
     <string name="hide_new_posts_banner">Sembunyikan banner postingan baru</string>
     <string name="hide_new_posts_banner_description">Menyembunyikan banner postingan baru di bagian atas timeline.</string>
+    <string name="restore_timeline_position">Pulihkan posisi timeline</string>
+    <string name="restore_timeline_position_description">Membuka Beranda di tempat terakhir Anda, bahkan setelah X dimulai ulang.</string>
     <string name="hide_post_metrics">Sembunyikan metrik postingan</string>
     <string name="hide_post_metrics_description">Menyembunyikan angka di postingan. Tombolnya tetap berfungsi.</string>
     <string name="hide_recommendations">Sembunyikan rekomendasi</string>

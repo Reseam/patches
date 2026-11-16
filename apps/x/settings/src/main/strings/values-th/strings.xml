@@ -77,6 +77,8 @@
     <string name="show_poll_results">แสดงผลโพล</string>
     <string name="show_poll_results_summary">แสดงผลโพลก่อนที่คุณจะโหวต ขณะเปิดตัวเลือกนี้จะโหวตไม่ได้</string>
     <string name="hide_new_posts_banner">ซ่อนแบนเนอร์โพสต์ใหม่</string>
+    <string name="restore_timeline_position">คืนตำแหน่งไทม์ไลน์</string>
+    <string name="restore_timeline_position_summary">หน้าแรกจะเปิดที่ตำแหน่งที่คุณดูค้างไว้ แม้หลังจาก X เริ่มใหม่</string>
     <string name="hide_compose_button">ซ่อนปุ่มเขียนโพสต์</string>
     <string name="hide_view_counts_summary">ซ่อนยอดดูในแถบการทำงานและรายละเอียดโพสต์</string>
     <string name="hide_reply_counts">ซ่อนจำนวนการตอบกลับ</string>

@@ -68,6 +68,8 @@
     <string name="hide_compose_button_description">तैरता हुआ लिखने का बटन छिपाता है।</string>
     <string name="hide_new_posts_banner">नई पोस्ट का बैनर छिपाएँ</string>
     <string name="hide_new_posts_banner_description">टाइमलाइन में सबसे ऊपर नई पोस्ट का बैनर छिपाता है।</string>
+    <string name="restore_timeline_position">टाइमलाइन की जगह याद रखें</string>
+    <string name="restore_timeline_position_description">होम वहीं खोलता है जहाँ आपने छोड़ा था, X दोबारा शुरू होने के बाद भी।</string>
     <string name="hide_post_metrics">पोस्ट के आँकड़े छिपाएँ</string>
     <string name="hide_post_metrics_description">पोस्ट पर गिनती छिपाता है। बटन काम करते रहते हैं।</string>
     <string name="hide_recommendations">सुझाव छिपाएँ</string>

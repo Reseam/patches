@@ -12,18 +12,20 @@ import app.reseam.runtime.ToggleValue
 import app.reseam.x.settings.XSettings
 import java.util.concurrent.ConcurrentHashMap
 
-private val overrides = ConcurrentHashMap<String, () -> Boolean>()
+private val overrides = ConcurrentHashMap<String, () -> Any?>()
 @Volatile private var userOverrides = emptyMap<String, Any>()
 
+/** Forces the switch [key] to [value], written as in the user overrides, while the toggle is on. */
 @Export
-fun disable(key: String, toggleKey: String, toggleDefault: Boolean) {
+fun force(key: String, value: String, toggleKey: String, toggleDefault: Boolean) {
     val toggle = ToggleValue(ReseamPatches.NAME, toggleKey, toggleDefault)
-    disableWhile(key) { toggle.value }
+    val forced = typed(value)
+    overrides[key] = { forced.takeIf { toggle.value } }
 }
 
 /** Forces the switch [key] off while [condition] holds. */
 fun disableWhile(key: String, condition: () -> Boolean) {
-    overrides[key] = condition
+    overrides[key] = { false.takeIf { condition() } }
 }
 
 @Export
@@ -33,7 +35,7 @@ fun applyUserOverrides() {
 
 /** Null keeps the app's own value. The user's overrides win over the ones patches set. */
 @Export
-fun lookup(key: String): Any? = userOverrides[key] ?: false.takeIf { overrides[key]?.invoke() == true }
+fun lookup(key: String): Any? = userOverrides[key] ?: overrides[key]?.invoke()
 
 private fun typed(value: String): Any = when {
     value.equals("true", ignoreCase = true) -> true

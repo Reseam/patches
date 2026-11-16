@@ -68,6 +68,8 @@
     <string name="hide_compose_button_description">Скрывает плавающую кнопку создания поста.</string>
     <string name="hide_new_posts_banner">Скрыть баннер новых постов</string>
     <string name="hide_new_posts_banner_description">Скрывает баннер новых постов вверху лент.</string>
+    <string name="restore_timeline_position">Восстанавливать позицию в ленте</string>
+    <string name="restore_timeline_position_description">Открывает Главную там, где вы остановились, даже после перезапуска X.</string>
     <string name="hide_post_metrics">Скрыть статистику постов</string>
     <string name="hide_post_metrics_description">Скрывает счётчики на постах. Кнопки продолжают работать.</string>
     <string name="hide_recommendations">Скрыть рекомендации</string>

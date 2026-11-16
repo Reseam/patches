@@ -78,6 +78,8 @@
     <string name="show_poll_results">Umfrageergebnisse anzeigen</string>
     <string name="show_poll_results_summary">Zeigt die Ergebnisse einer Umfrage, bevor du abstimmst. Solange das an ist, kannst du nicht abstimmen.</string>
     <string name="hide_new_posts_banner">Banner für neue Beiträge ausblenden</string>
+    <string name="restore_timeline_position">Timeline-Position wiederherstellen</string>
+    <string name="restore_timeline_position_summary">Die Startseite öffnet sich dort, wo du aufgehört hast, auch nach einem Neustart von X.</string>
     <string name="hide_compose_button">Verfassen-Schaltfläche ausblenden</string>
     <string name="hide_view_counts_summary">Blendet Aufrufe in der Aktionsleiste und in den Beitragsdetails aus.</string>
     <string name="hide_reply_counts">Anzahl der Antworten ausblenden</string>

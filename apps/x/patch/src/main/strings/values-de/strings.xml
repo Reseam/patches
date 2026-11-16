@@ -68,6 +68,8 @@
     <string name="hide_compose_button_description">Blendet die schwebende Verfassen-Schaltfläche aus.</string>
     <string name="hide_new_posts_banner">Banner für neue Beiträge ausblenden</string>
     <string name="hide_new_posts_banner_description">Blendet das Banner für neue Beiträge oben in Timelines aus.</string>
+    <string name="restore_timeline_position">Timeline-Position wiederherstellen</string>
+    <string name="restore_timeline_position_description">Öffnet die Startseite dort, wo du aufgehört hast, auch nach einem Neustart von X.</string>
     <string name="hide_post_metrics">Beitragsstatistiken ausblenden</string>
     <string name="hide_post_metrics_description">Blendet die Zahlen an Beiträgen aus. Die Schaltflächen funktionieren weiter.</string>
     <string name="hide_recommendations">Empfehlungen ausblenden</string>

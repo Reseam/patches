@@ -78,6 +78,8 @@
     <string name="show_poll_results">पोल के नतीजे दिखाएँ</string>
     <string name="show_poll_results_summary">पोल के नतीजे आपके वोट देने से पहले दिखाता है। इसके चालू रहने पर वोट नहीं दिया जा सकता।</string>
     <string name="hide_new_posts_banner">नई पोस्ट का बैनर छिपाएँ</string>
+    <string name="restore_timeline_position">टाइमलाइन की जगह याद रखें</string>
+    <string name="restore_timeline_position_summary">होम वहीं खुलता है जहाँ आपने छोड़ा था, X दोबारा शुरू होने के बाद भी।</string>
     <string name="hide_compose_button">लिखने का बटन छिपाएँ</string>
     <string name="hide_view_counts_summary">एक्शन बार और पोस्ट की जानकारी में व्यू छिपाता है।</string>
     <string name="hide_reply_counts">जवाबों की गिनती छिपाएँ</string>

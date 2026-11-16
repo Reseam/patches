@@ -44,9 +44,13 @@ val userFeatureSwitches = patch(XPatchStrings.userFeatureSwitches) {
 }
 
 /** Forces the given feature switches off while [toggle] is on. Requires [featureSwitchOverrides]. */
-fun PatchRuntime.disableFeatureSwitches(toggle: ToggleSetting, vararg keys: String) {
+fun PatchRuntime.disableFeatureSwitches(toggle: ToggleSetting, vararg keys: String) =
+    forceFeatureSwitches(toggle, *keys.map { it to "false" }.toTypedArray())
+
+/** Forces each feature switch to its value, written as in the user overrides, while [toggle] is on. Requires [featureSwitchOverrides]. */
+fun PatchRuntime.forceFeatureSwitches(toggle: ToggleSetting, vararg values: Pair<String, String>) {
     appEntry {
-        for (key in keys) FeatureSwitchOverrides.disable(string(key), string(toggle.key), bool(toggle.default))
+        for ((key, value) in values) FeatureSwitchOverrides.force(string(key), string(value), string(toggle.key), bool(toggle.default))
     }
 }
 

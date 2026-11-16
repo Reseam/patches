@@ -68,6 +68,8 @@
     <string name="hide_compose_button_description">Kayan yazma düğmesini gizler.</string>
     <string name="hide_new_posts_banner">Yeni gönderiler bannerını gizle</string>
     <string name="hide_new_posts_banner_description">Zaman akışlarının üstündeki yeni gönderiler bannerını gizler.</string>
+    <string name="restore_timeline_position">Zaman akışı konumunu geri yükle</string>
+    <string name="restore_timeline_position_description">Ana Sayfa\'yı, X yeniden başladıktan sonra da kaldığınız yerde açar.</string>
     <string name="hide_post_metrics">Gönderi metriklerini gizle</string>
     <string name="hide_post_metrics_description">Gönderilerdeki sayıları gizler. Düğmeler çalışmaya devam eder.</string>
     <string name="hide_recommendations">Önerileri gizle</string>
