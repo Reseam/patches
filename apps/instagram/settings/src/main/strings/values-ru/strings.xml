@@ -54,6 +54,8 @@
     <string name="comment_copied">Комментарий скопирован</string>
     <string name="follows_you_indicator">Отметка «Подписан(а) на вас»</string>
     <string name="follows_you_indicator_summary">Показывает «Подписан(а) на вас» в профилях аккаунтов, которые на вас подписаны.</string>
+    <string name="disable_double_tap_like">Отключить лайк двойным касанием</string>
+    <string name="disable_double_tap_like_summary">Действует для публикаций, Reels, комментариев и сообщений.</string>
     <string name="hide_repost_buttons">Скрыть кнопки репоста</string>
     <string name="hide_engagement_counts">Скрыть счётчики вовлечённости</string>
     <string name="hide_engagement_counts_summary">Скрывает в ленте число отметок «Нравится», комментариев, репостов и отправок.</string>

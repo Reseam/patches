@@ -93,6 +93,10 @@ object FollowSettings : SettingsGroup(InstagramStrings) {
     val followsYouIndicator by toggle(default = false, icon = Vector.lucide("user-check"))
 }
 
+object InteractionSettings : SettingsGroup(InstagramStrings) {
+    val disableDoubleTapLike by toggle(default = false, icon = Vector.lucide("heart-off"))
+}
+
 object AppearanceSettings : SettingsGroup(InstagramStrings) {
     val hideRepostButtons by toggle(default = false, icon = Vector.lucide("repeat-2"))
     val hideEngagementCounts by toggle(default = false, icon = Vector.lucide("heart-off"))

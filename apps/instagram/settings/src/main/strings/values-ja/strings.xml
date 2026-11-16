@@ -54,6 +54,8 @@
     <string name="comment_copied">コメントをコピーしました</string>
     <string name="follows_you_indicator">「フォローされています」の表示</string>
     <string name="follows_you_indicator_summary">あなたをフォローしているアカウントのプロフィールに「フォローされています」を表示します。</string>
+    <string name="disable_double_tap_like">ダブルタップでのいいねを無効にする</string>
+    <string name="disable_double_tap_like_summary">投稿、リール、コメント、メッセージに適用されます。</string>
     <string name="hide_repost_buttons">リポストボタンを非表示</string>
     <string name="hide_engagement_counts">反応の数を非表示</string>
     <string name="hide_engagement_counts_summary">フィードのいいね、コメント、シェア、リポストの数を非表示にします。</string>

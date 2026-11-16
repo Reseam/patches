@@ -54,6 +54,8 @@
     <string name="comment_copied">Коментар скопійовано</string>
     <string name="follows_you_indicator">Позначка «Стежить за вами»</string>
     <string name="follows_you_indicator_summary">Показує «Стежить за вами» в профілях акаунтів, які на вас підписані.</string>
+    <string name="disable_double_tap_like">Вимкнути вподобання подвійним дотиком</string>
+    <string name="disable_double_tap_like_summary">Діє для дописів, Reels, коментарів і повідомлень.</string>
     <string name="hide_repost_buttons">Приховати кнопки репосту</string>
     <string name="hide_engagement_counts">Приховати лічильники взаємодій</string>
     <string name="hide_engagement_counts_summary">Приховує кількість вподобань, коментарів, поширень і репостів у стрічці.</string>

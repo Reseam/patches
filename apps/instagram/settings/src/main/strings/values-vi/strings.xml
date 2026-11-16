@@ -54,6 +54,8 @@
     <string name="comment_copied">Đã sao chép bình luận</string>
     <string name="follows_you_indicator">Chỉ báo Theo dõi bạn</string>
     <string name="follows_you_indicator_summary">Hiển thị Theo dõi bạn trên hồ sơ của các tài khoản đang theo dõi bạn.</string>
+    <string name="disable_double_tap_like">Tắt nhấn đúp để thích</string>
+    <string name="disable_double_tap_like_summary">Áp dụng cho bài viết, thước phim, bình luận và tin nhắn.</string>
     <string name="hide_repost_buttons">Ẩn nút đăng lại</string>
     <string name="hide_engagement_counts">Ẩn số lượt tương tác</string>
     <string name="hide_engagement_counts_summary">Ẩn số lượt thích, bình luận, chia sẻ và đăng lại trong bảng feed.</string>

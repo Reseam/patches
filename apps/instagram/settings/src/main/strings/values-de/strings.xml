@@ -54,6 +54,8 @@
     <string name="comment_copied">Kommentar kopiert</string>
     <string name="follows_you_indicator">Anzeige „Folgt dir“</string>
     <string name="follows_you_indicator_summary">Zeigt „Folgt dir“ in den Profilen von Konten, die dir folgen.</string>
+    <string name="disable_double_tap_like">Doppeltippen zum Liken deaktivieren</string>
+    <string name="disable_double_tap_like_summary">Gilt für Beiträge, Reels, Kommentare und Nachrichten.</string>
     <string name="hide_repost_buttons">Repost-Schaltflächen ausblenden</string>
     <string name="hide_engagement_counts">Interaktionszahlen ausblenden</string>
     <string name="hide_engagement_counts_summary">Blendet die Anzahl der Likes, Kommentare, geteilten Inhalte und Reposts im Feed aus.</string>

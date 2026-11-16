@@ -54,6 +54,8 @@
     <string name="comment_copied">Skopiowano komentarz</string>
     <string name="follows_you_indicator">Wskaźnik Obserwuje cię</string>
     <string name="follows_you_indicator_summary">Pokazuje Obserwuje cię w profilach kont, które cię obserwują.</string>
+    <string name="disable_double_tap_like">Wyłącz polubienie podwójnym dotknięciem</string>
+    <string name="disable_double_tap_like_summary">Dotyczy postów, Rolek, komentarzy i wiadomości.</string>
     <string name="hide_repost_buttons">Ukryj przyciski ponownej publikacji</string>
     <string name="hide_engagement_counts">Ukryj liczniki interakcji</string>
     <string name="hide_engagement_counts_summary">Ukrywa liczbę polubień, komentarzy, udostępnień i ponownych publikacji w aktualnościach.</string>

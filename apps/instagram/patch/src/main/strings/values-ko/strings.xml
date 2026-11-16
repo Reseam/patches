@@ -50,6 +50,8 @@
     <string name="ghost_mode_description">입력 중, 읽음, 스토리 조회, 스크린샷을 다른 사람에게 숨깁니다. Instagram이 이 기능을 사용하는 계정을 정지할 수 있습니다.</string>
     <string name="hide_threads_badge">Threads 배지 숨기기</string>
     <string name="hide_threads_badge_description">프로필의 Threads 배지와 링크를 숨깁니다.</string>
+    <string name="disable_double_tap_like">두 번 탭하여 좋아요 사용 중지</string>
+    <string name="disable_double_tap_like_description">두 번 탭해도 게시물, 릴스, 댓글, 메시지에 좋아요가 눌리지 않게 합니다.</string>
     <string name="disable_reels_swiping">릴스 스와이프 사용 중지</string>
     <string name="disable_reels_swiping_description">연 릴스에 계속 머뭅니다.</string>
     <string name="disable_story_auto_advance">스토리 자동 넘김 사용 중지</string>

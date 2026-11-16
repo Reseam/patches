@@ -54,6 +54,8 @@
     <string name="comment_copied">评论已复制</string>
     <string name="follows_you_indicator">“关注了你”标记</string>
     <string name="follows_you_indicator_summary">在关注你的帐户主页上显示“关注了你”。</string>
+    <string name="disable_double_tap_like">停用双击点赞</string>
+    <string name="disable_double_tap_like_summary">适用于帖子、Reels、评论和消息。</string>
     <string name="hide_repost_buttons">隐藏转发按钮</string>
     <string name="hide_engagement_counts">隐藏互动数</string>
     <string name="hide_engagement_counts_summary">隐藏动态中赞、评论、分享和转发的数量。</string>

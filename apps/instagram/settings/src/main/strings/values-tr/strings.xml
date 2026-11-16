@@ -54,6 +54,8 @@
     <string name="comment_copied">Yorum kopyalandı</string>
     <string name="follows_you_indicator">Sizi takip ediyor göstergesi</string>
     <string name="follows_you_indicator_summary">Sizi takip eden hesapların profillerinde Sizi takip ediyor yazısını gösterir.</string>
+    <string name="disable_double_tap_like">Beğenmek için çift dokunmayı kapat</string>
+    <string name="disable_double_tap_like_summary">Gönderiler, Reels, yorumlar ve mesajlar için geçerlidir.</string>
     <string name="hide_repost_buttons">Yeniden paylaşma düğmelerini gizle</string>
     <string name="hide_engagement_counts">Etkileşim sayılarını gizle</string>
     <string name="hide_engagement_counts_summary">Akıştaki beğeni, yorum, paylaşım ve yeniden paylaşım sayılarını gizler.</string>

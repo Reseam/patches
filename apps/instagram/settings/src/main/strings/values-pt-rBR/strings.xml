@@ -54,6 +54,8 @@
     <string name="comment_copied">Comentário copiado</string>
     <string name="follows_you_indicator">Indicador Segue você</string>
     <string name="follows_you_indicator_summary">Mostra Segue você no perfil das contas que seguem você.</string>
+    <string name="disable_double_tap_like">Desativar toque duplo para curtir</string>
+    <string name="disable_double_tap_like_summary">Vale para posts, Reels, comentários e mensagens.</string>
     <string name="hide_repost_buttons">Ocultar botões de repostar</string>
     <string name="hide_engagement_counts">Ocultar contagens de engajamento</string>
     <string name="hide_engagement_counts_summary">Oculta no feed as contagens de curtidas, comentários, compartilhamentos e reposts.</string>

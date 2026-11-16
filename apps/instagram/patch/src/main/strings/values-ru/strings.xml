@@ -50,6 +50,8 @@
     <string name="ghost_mode_description">Скрывает от других, что вы печатаете, читаете сообщения, смотрите истории и делаете скриншоты. Instagram может заблокировать аккаунты, которые этим пользуются.</string>
     <string name="hide_threads_badge">Скрыть значок Threads</string>
     <string name="hide_threads_badge_description">Скрывает значок и ссылку Threads в профилях.</string>
+    <string name="disable_double_tap_like">Отключить лайк двойным касанием</string>
+    <string name="disable_double_tap_like_description">Двойное касание больше не ставит лайк публикациям, Reels, комментариям и сообщениям.</string>
     <string name="disable_reels_swiping">Отключить пролистывание Reels</string>
     <string name="disable_reels_swiping_description">Оставляет Reels на том видео, которое вы открыли.</string>
     <string name="disable_story_auto_advance">Отключить автопереход между историями</string>

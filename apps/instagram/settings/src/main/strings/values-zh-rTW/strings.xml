@@ -54,6 +54,8 @@
     <string name="comment_copied">已複製留言</string>
     <string name="follows_you_indicator">「追蹤你」標示</string>
     <string name="follows_you_indicator_summary">在追蹤你的帳號個人檔案上顯示「追蹤你」。</string>
+    <string name="disable_double_tap_like">停用點兩下說讚</string>
+    <string name="disable_double_tap_like_summary">適用於貼文、Reels、留言和訊息。</string>
     <string name="hide_repost_buttons">隱藏轉發按鈕</string>
     <string name="hide_engagement_counts">隱藏互動數</string>
     <string name="hide_engagement_counts_summary">隱藏動態消息中讚、留言、分享和轉發的數量。</string>

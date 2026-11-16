@@ -54,6 +54,8 @@
     <string name="comment_copied">Comentario copiado</string>
     <string name="follows_you_indicator">Indicador \"Te sigue\"</string>
     <string name="follows_you_indicator_summary">Muestra \"Te sigue\" en el perfil de las cuentas que te siguen.</string>
+    <string name="disable_double_tap_like">Desactivar doble toque para dar Me gusta</string>
+    <string name="disable_double_tap_like_summary">Se aplica a publicaciones, Reels, comentarios y mensajes.</string>
     <string name="hide_repost_buttons">Ocultar botones de repost</string>
     <string name="hide_engagement_counts">Ocultar contadores de interacción</string>
     <string name="hide_engagement_counts_summary">Oculta los contadores de Me gusta, comentarios, compartidos y reposts en el feed.</string>

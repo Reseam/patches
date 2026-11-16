@@ -50,6 +50,8 @@
     <string name="ghost_mode_description">Menyembunyikan aktivitas mengetik, status dibaca, tontonan cerita, dan screenshot Anda dari orang lain. Instagram dapat memblokir akun yang menggunakannya.</string>
     <string name="hide_threads_badge">Sembunyikan lencana Threads</string>
     <string name="hide_threads_badge_description">Menyembunyikan lencana dan link Threads di profil.</string>
+    <string name="disable_double_tap_like">Nonaktifkan ketuk dua kali untuk menyukai</string>
+    <string name="disable_double_tap_like_description">Mencegah ketuk dua kali menyukai postingan, Reels, komentar, dan pesan.</string>
     <string name="disable_reels_swiping">Nonaktifkan geser Reels</string>
     <string name="disable_reels_swiping_description">Tetap di reel yang Anda buka.</string>
     <string name="disable_story_auto_advance">Nonaktifkan cerita berlanjut otomatis</string>

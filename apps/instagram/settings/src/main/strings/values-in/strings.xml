@@ -54,6 +54,8 @@
     <string name="comment_copied">Komentar disalin</string>
     <string name="follows_you_indicator">Indikator Mengikuti Anda</string>
     <string name="follows_you_indicator_summary">Menampilkan Mengikuti Anda di profil akun yang mengikuti Anda.</string>
+    <string name="disable_double_tap_like">Nonaktifkan ketuk dua kali untuk menyukai</string>
+    <string name="disable_double_tap_like_summary">Berlaku untuk postingan, Reels, komentar, dan pesan.</string>
     <string name="hide_repost_buttons">Sembunyikan tombol posting ulang</string>
     <string name="hide_engagement_counts">Sembunyikan jumlah interaksi</string>
     <string name="hide_engagement_counts_summary">Menyembunyikan jumlah suka, komentar, bagikan, dan posting ulang di feed.</string>

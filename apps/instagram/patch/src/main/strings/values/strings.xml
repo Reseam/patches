@@ -50,6 +50,8 @@
     <string name="ghost_mode_description">Hides your typing, reads, story views and screenshots from others. Instagram may ban accounts that use it.</string>
     <string name="hide_threads_badge">Hide Threads badge</string>
     <string name="hide_threads_badge_description">Hides the Threads badge and link on profiles.</string>
+    <string name="disable_double_tap_like">Disable double tap to like</string>
+    <string name="disable_double_tap_like_description">Stops a double tap from liking posts, Reels, comments and messages.</string>
     <string name="disable_reels_swiping">Disable Reels swiping</string>
     <string name="disable_reels_swiping_description">Keeps Reels on the reel you opened.</string>
     <string name="disable_story_auto_advance">Disable story auto-advance</string>

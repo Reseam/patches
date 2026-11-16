@@ -54,6 +54,8 @@
     <string name="comment_copied">댓글을 복사했습니다</string>
     <string name="follows_you_indicator">나를 팔로우함 표시</string>
     <string name="follows_you_indicator_summary">나를 팔로우하는 계정의 프로필에 \'나를 팔로우함\'을 표시합니다.</string>
+    <string name="disable_double_tap_like">두 번 탭하여 좋아요 사용 중지</string>
+    <string name="disable_double_tap_like_summary">게시물, 릴스, 댓글, 메시지에 적용됩니다.</string>
     <string name="hide_repost_buttons">리포스트 버튼 숨기기</string>
     <string name="hide_engagement_counts">참여 수 숨기기</string>
     <string name="hide_engagement_counts_summary">피드의 좋아요, 댓글, 공유, 리포스트 수를 숨깁니다.</string>

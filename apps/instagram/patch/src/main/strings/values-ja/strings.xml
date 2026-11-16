@@ -50,6 +50,8 @@
     <string name="ghost_mode_description">入力中、既読、ストーリーズの閲覧、スクリーンショットを他の人から隠します。使用しているアカウントは Instagram に停止されることがあります。</string>
     <string name="hide_threads_badge">Threads バッジを非表示</string>
     <string name="hide_threads_badge_description">プロフィールの Threads バッジとリンクを非表示にします。</string>
+    <string name="disable_double_tap_like">ダブルタップでのいいねを無効にする</string>
+    <string name="disable_double_tap_like_description">ダブルタップで投稿、リール、コメント、メッセージにいいねしないようにします。</string>
     <string name="disable_reels_swiping">リールのスワイプを無効にする</string>
     <string name="disable_reels_swiping_description">開いたリールのままにします。</string>
     <string name="disable_story_auto_advance">ストーリーズの自動送りを無効にする</string>

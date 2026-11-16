@@ -50,6 +50,8 @@
     <string name="ghost_mode_description">不让他人知道你正在输入、已读、看过快拍或截了图。Instagram 可能会封禁使用此功能的帐户。</string>
     <string name="hide_threads_badge">隐藏 Threads 徽章</string>
     <string name="hide_threads_badge_description">隐藏个人主页上的 Threads 徽章和链接。</string>
+    <string name="disable_double_tap_like">停用双击点赞</string>
+    <string name="disable_double_tap_like_description">双击不再为帖子、Reels、评论和消息点赞。</string>
     <string name="disable_reels_swiping">停用 Reels 滑动</string>
     <string name="disable_reels_swiping_description">停留在你打开的那条 Reels 上。</string>
     <string name="disable_story_auto_advance">停用快拍自动切换</string>

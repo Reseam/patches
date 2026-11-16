@@ -54,6 +54,8 @@
     <string name="comment_copied">कमेंट कॉपी हो गया</string>
     <string name="follows_you_indicator">\"आपको फ़ॉलो करते हैं\" का संकेत</string>
     <string name="follows_you_indicator_summary">जो अकाउंट आपको फ़ॉलो करते हैं, उनकी प्रोफ़ाइल पर \"आपको फ़ॉलो करते हैं\" दिखाता है।</string>
+    <string name="disable_double_tap_like">डबल टैप से लाइक बंद करें</string>
+    <string name="disable_double_tap_like_summary">पोस्ट, Reels, कमेंट और मैसेज पर लागू होता है।</string>
     <string name="hide_repost_buttons">रीपोस्ट बटन छिपाएँ</string>
     <string name="hide_engagement_counts">एंगेजमेंट की गिनती छिपाएँ</string>
     <string name="hide_engagement_counts_summary">फ़ीड में लाइक, कमेंट, शेयर और रीपोस्ट की गिनती छिपाता है।</string>

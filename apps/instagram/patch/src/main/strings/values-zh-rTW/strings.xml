@@ -50,6 +50,8 @@
     <string name="ghost_mode_description">不讓別人知道你正在輸入、已讀、看過限時動態或截圖。Instagram 可能會將使用此功能的帳號停權。</string>
     <string name="hide_threads_badge">隱藏 Threads 徽章</string>
     <string name="hide_threads_badge_description">隱藏個人檔案上的 Threads 徽章和連結。</string>
+    <string name="disable_double_tap_like">停用點兩下說讚</string>
+    <string name="disable_double_tap_like_description">點兩下不再對貼文、Reels、留言和訊息說讚。</string>
     <string name="disable_reels_swiping">停用 Reels 滑動</string>
     <string name="disable_reels_swiping_description">停留在你開啟的那則 Reels。</string>
     <string name="disable_story_auto_advance">停用限時動態自動切換</string>

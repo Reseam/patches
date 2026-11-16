@@ -54,6 +54,8 @@
     <string name="comment_copied">Commentaire copié</string>
     <string name="follows_you_indicator">Indicateur « Vous suit »</string>
     <string name="follows_you_indicator_summary">Affiche « Vous suit » sur le profil des comptes qui vous suivent.</string>
+    <string name="disable_double_tap_like">Désactiver le double appui pour aimer</string>
+    <string name="disable_double_tap_like_summary">S’applique aux publications, aux Reels, aux commentaires et aux messages.</string>
     <string name="hide_repost_buttons">Masquer les boutons de republication</string>
     <string name="hide_engagement_counts">Masquer les compteurs d’engagement</string>
     <string name="hide_engagement_counts_summary">Masque les nombres de J’aime, de commentaires, de partages et de republications dans le fil.</string>

@@ -54,6 +54,8 @@
     <string name="comment_copied">คัดลอกความคิดเห็นแล้ว</string>
     <string name="follows_you_indicator">ตัวบ่งชี้ \"ติดตามคุณ\"</string>
     <string name="follows_you_indicator_summary">แสดง \"ติดตามคุณ\" ในโปรไฟล์ของบัญชีที่ติดตามคุณ</string>
+    <string name="disable_double_tap_like">ปิดการแตะสองครั้งเพื่อถูกใจ</string>
+    <string name="disable_double_tap_like_summary">มีผลกับโพสต์ Reels ความคิดเห็น และข้อความ</string>
     <string name="hide_repost_buttons">ซ่อนปุ่มรีโพสต์</string>
     <string name="hide_engagement_counts">ซ่อนจำนวนการมีส่วนร่วม</string>
     <string name="hide_engagement_counts_summary">ซ่อนจำนวนถูกใจ ความคิดเห็น การแชร์ และการรีโพสต์ในฟีด</string>

@@ -50,6 +50,8 @@
     <string name="ghost_mode_description">Nasconde agli altri che stai scrivendo, che leggi i messaggi, che guardi le storie e che fai screenshot. Instagram può bloccare gli account che la usano.</string>
     <string name="hide_threads_badge">Nascondi il badge di Threads</string>
     <string name="hide_threads_badge_description">Nasconde il badge e il link di Threads nei profili.</string>
+    <string name="disable_double_tap_like">Disattiva il doppio tocco per mettere Mi piace</string>
+    <string name="disable_double_tap_like_description">Impedisce che un doppio tocco metta Mi piace a post, Reels, commenti e messaggi.</string>
     <string name="disable_reels_swiping">Disattiva lo scorrimento dei Reels</string>
     <string name="disable_reels_swiping_description">Mantiene i Reels sul reel che hai aperto.</string>
     <string name="disable_story_auto_advance">Disattiva l’avanzamento automatico delle storie</string>

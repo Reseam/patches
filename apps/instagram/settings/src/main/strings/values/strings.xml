@@ -58,6 +58,8 @@
     <string name="comment_copied">Comment copied</string>
     <string name="follows_you_indicator">Follows you indicator</string>
     <string name="follows_you_indicator_summary">Shows Follows you on the profiles of accounts that follow you.</string>
+    <string name="disable_double_tap_like">Disable double tap to like</string>
+    <string name="disable_double_tap_like_summary">Applies to posts, Reels, comments and messages.</string>
     <string name="hide_repost_buttons">Hide repost buttons</string>
     <string name="hide_engagement_counts">Hide engagement counts</string>
     <string name="hide_engagement_counts_summary">Hides like, comment, share and repost counts in the feed.</string>
