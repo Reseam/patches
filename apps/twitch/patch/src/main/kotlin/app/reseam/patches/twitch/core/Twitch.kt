@@ -26,3 +26,17 @@ val controlsOverlay = function("controlsOverlay") {
     strings("rightActionGroup", "IconNavSettings")
     paramCount(1)
 }
+
+// Draws the chat input row under the portrait theater, with the channel points button left of the field and the Bits button right of it.
+val chatComposerBar = function("chatComposerBar") {
+    name("ChatComposerBar")
+    strings("showBitsButton", "bitsChatMode")
+    paramCount(1)
+}
+
+// Draws the round buttons of the landscape chat overlay, such as Subscribe, Cheer and channel points.
+val overlayActionButtons = function("overlayActionButtons") {
+    name("OverlayActionButtons")
+    strings("showCheerButton", "onEnterBits")
+    paramCount(1)
+}

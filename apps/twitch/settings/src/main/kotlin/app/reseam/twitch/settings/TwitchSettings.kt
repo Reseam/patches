@@ -65,6 +65,11 @@ object NavigationSettings : SettingsGroup(TwitchStrings) {
 object ChatSettings : SettingsGroup(TwitchStrings) {
     val autoClaimRewards by toggle(default = true, icon = Vector.lucide("gift"))
     val hideLeaderboards by toggle(default = false, icon = Vector.lucide("trophy"))
+    val hideBitsButtons by toggle(default = false, icon = Vector.lucide("gem"))
+    val hideChannelPointsButtons by toggle(default = false, icon = Vector.lucide("coins"))
+    val hideCommunityHighlights by toggle(default = false, icon = Vector.lucide("pin-off"))
+    val hideChatBadges by toggle(default = false, icon = Vector.lucide("badge-x"))
+    val hideWelcomeMessage by toggle(default = true, icon = Vector.lucide("message-square-off"))
 }
 
 object LinkSettings : SettingsGroup(TwitchStrings) {
@@ -99,6 +104,8 @@ object PlayerOverlaySettings : SettingsGroup(TwitchStrings) {
     val hideCastButton by toggle(default = false, icon = Vector.lucide("cast"))
     val hideShareButton by toggle(default = false, icon = Vector.lucide("share-2"))
     val hideRotateScreenButton by toggle(default = false, icon = Vector.lucide("tablet-smartphone"))
+    val hideViewerCount by toggle(default = false, icon = Vector.lucide("eye-off"))
+    val hideContentClassificationLabel by toggle(default = true, icon = Vector.lucide("tag"))
 }
 
 object SubscriptionSettings : SettingsGroup(TwitchStrings) {

@@ -32,4 +32,18 @@
     <string name="hide_player_overlay_buttons_description">Hides the clip, cast and share buttons on live streams.</string>
     <string name="hide_leaderboards">Hide leaderboards</string>
     <string name="hide_leaderboards_description">Hides the gifter, cheerer and clip leaderboards above chat.</string>
+    <string name="hide_bits_buttons">Hide bits buttons</string>
+    <string name="hide_bits_buttons_description">Hides the Bits button next to the chat field and the Cheer button in landscape chat.</string>
+    <string name="hide_channel_points_buttons">Hide channel points buttons</string>
+    <string name="hide_channel_points_buttons_description">Hides the Channel Points button next to the chat field and in landscape chat.</string>
+    <string name="hide_community_highlights">Hide community highlights</string>
+    <string name="hide_community_highlights_description">Hides pinned messages, hype trains, polls, predictions and the other highlights above chat.</string>
+    <string name="hide_chat_badges">Hide chat badges</string>
+    <string name="hide_chat_badges_description">Hides the badges next to names in chat.</string>
+    <string name="hide_welcome_message">Hide welcome message</string>
+    <string name="hide_welcome_message_description">Hides the Welcome to the chat room line that chat shows when it connects.</string>
+    <string name="hide_viewer_count">Hide viewer count</string>
+    <string name="hide_viewer_count_description">Hides the number of viewers on the player.</string>
+    <string name="hide_content_classification_label">Hide content classification label</string>
+    <string name="hide_content_classification_label_description">Hides labels such as Intended for certain audiences at the top of the player.</string>
 </resources>
