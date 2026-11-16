@@ -18,6 +18,8 @@
     <string name="following_feed_description">होम में सिर्फ़ उन अकाउंट की पोस्ट दिखाता है जिन्हें आप फ़ॉलो करते हैं।</string>
     <string name="hide_feed_units">सुझाए गए कैरोसेल छिपाएँ</string>
     <string name="hide_feed_units_description">होम में सुझाए गए अकाउंट, Threads, शॉपिंग और Reels के कैरोसेल छिपाता है।</string>
+    <string name="liked_posts_feed">लाइक की गई पोस्ट स्क्रॉल करें</string>
+    <string name="liked_posts_feed_description">आपकी गतिविधि › लाइक से पोस्ट और Reels को आपकी लाइक की गई हर चीज़ की फ़ीड में खोलता है।</string>
     <string name="follows_you">\"आपको फ़ॉलो करते हैं\" का संकेत</string>
     <string name="follows_you_description">जो अकाउंट आपको फ़ॉलो करते हैं, उनकी प्रोफ़ाइल पर \"आपको फ़ॉलो करते हैं\" दिखाता है।</string>
     <string name="hide_engagement_counts">एंगेजमेंट की गिनती छिपाएँ</string>

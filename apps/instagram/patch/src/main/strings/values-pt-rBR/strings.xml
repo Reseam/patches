@@ -18,6 +18,8 @@
     <string name="following_feed_description">Mostra na Página inicial apenas posts das contas que você segue.</string>
     <string name="hide_feed_units">Ocultar carrosséis de sugestões</string>
     <string name="hide_feed_units_description">Oculta na Página inicial os carrosséis de contas sugeridas, Threads, compras e Reels.</string>
+    <string name="liked_posts_feed">Rolar pelos posts curtidos</string>
+    <string name="liked_posts_feed_description">Abre posts e Reels de Sua atividade › Curtidas em um feed com tudo o que você curtiu.</string>
     <string name="follows_you">Indicador Segue você</string>
     <string name="follows_you_description">Mostra Segue você no perfil das contas que seguem você.</string>
     <string name="hide_engagement_counts">Ocultar contagens de engajamento</string>

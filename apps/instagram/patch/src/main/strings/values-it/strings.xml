@@ -18,6 +18,8 @@
     <string name="following_feed_description">Mostra nella Home solo i post degli account che segui.</string>
     <string name="hide_feed_units">Nascondi i caroselli suggeriti</string>
     <string name="hide_feed_units_description">Nasconde nella Home i caroselli di account suggeriti, Threads, shopping e Reels.</string>
+    <string name="liked_posts_feed">Scorri i post che ti sono piaciuti</string>
+    <string name="liked_posts_feed_description">Apre post e Reels da La tua attività › Mi piace in un feed con tutto ciò che ti è piaciuto.</string>
     <string name="follows_you">Indicatore «Ti segue»</string>
     <string name="follows_you_description">Mostra «Ti segue» nei profili degli account che ti seguono.</string>
     <string name="hide_engagement_counts">Nascondi i conteggi delle interazioni</string>

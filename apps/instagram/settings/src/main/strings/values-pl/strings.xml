@@ -89,6 +89,8 @@
     <string name="hide_shopping_units">Ukryj sekcje zakupów</string>
     <string name="hide_shopping_units_summary">Może pozostawić puste miejsce na stronie głównej.</string>
     <string name="hide_suggested_reels">Ukryj proponowane Rolki</string>
+    <string name="liked_posts_feed">Przewijaj polubione posty</string>
+    <string name="liked_posts_feed_summary">Posty i Rolki z Twoja aktywność › Polubienia otwierają się w aktualnościach ze wszystkim, co polubiłeś.</string>
     <string name="folder">Folder pobranych</string>
     <string name="show_toast">Pokazuj komunikat o pobieraniu</string>
     <string name="section_social">Społeczność</string>

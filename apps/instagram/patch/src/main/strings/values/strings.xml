@@ -18,6 +18,8 @@
     <string name="following_feed_description">Shows only posts from accounts you follow in Home.</string>
     <string name="hide_feed_units">Hide suggested carousels</string>
     <string name="hide_feed_units_description">Hides suggested accounts, Threads, shopping and Reels carousels in Home.</string>
+    <string name="liked_posts_feed">Scroll through liked posts</string>
+    <string name="liked_posts_feed_description">Opens posts and Reels from Your activity › Likes in a feed of everything you liked.</string>
     <string name="follows_you">Follows you indicator</string>
     <string name="follows_you_description">Shows Follows you on the profiles of accounts that follow you.</string>
     <string name="hide_engagement_counts">Hide engagement counts</string>

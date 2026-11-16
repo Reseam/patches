@@ -18,6 +18,8 @@
     <string name="following_feed_description">N’affiche dans l’Accueil que les publications des comptes que vous suivez.</string>
     <string name="hide_feed_units">Masquer les carrousels suggérés</string>
     <string name="hide_feed_units_description">Masque les carrousels de comptes suggérés, Threads, shopping et Reels dans l’Accueil.</string>
+    <string name="liked_posts_feed">Parcourir les publications aimées</string>
+    <string name="liked_posts_feed_description">Ouvre les publications et Reels de Votre activité › J’aime dans un fil de tout ce que vous avez aimé.</string>
     <string name="follows_you">Indicateur « Vous suit »</string>
     <string name="follows_you_description">Affiche « Vous suit » sur le profil des comptes qui vous suivent.</string>
     <string name="hide_engagement_counts">Masquer les compteurs d’engagement</string>

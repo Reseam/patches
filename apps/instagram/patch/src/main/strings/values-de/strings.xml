@@ -18,6 +18,8 @@
     <string name="following_feed_description">Zeigt auf der Startseite nur Beiträge von Konten, denen du folgst.</string>
     <string name="hide_feed_units">Vorgeschlagene Karussells ausblenden</string>
     <string name="hide_feed_units_description">Blendet Karussells mit vorgeschlagenen Konten, Threads, Shopping und Reels auf der Startseite aus.</string>
+    <string name="liked_posts_feed">Durch gelikte Beiträge scrollen</string>
+    <string name="liked_posts_feed_description">Öffnet Beiträge und Reels aus Deine Aktivität › Likes in einem Feed mit allem, was du gelikt hast.</string>
     <string name="follows_you">Anzeige „Folgt dir“</string>
     <string name="follows_you_description">Zeigt „Folgt dir“ in den Profilen von Konten, die dir folgen.</string>
     <string name="hide_engagement_counts">Interaktionszahlen ausblenden</string>

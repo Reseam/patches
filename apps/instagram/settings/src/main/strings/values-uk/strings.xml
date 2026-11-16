@@ -89,6 +89,8 @@
     <string name="hide_shopping_units">Приховати блоки покупок</string>
     <string name="hide_shopping_units_summary">Може залишати порожнє місце на головній.</string>
     <string name="hide_suggested_reels">Приховати рекомендовані Reels</string>
+    <string name="liked_posts_feed">Гортати вподобані дописи</string>
+    <string name="liked_posts_feed_summary">Дописи й Reels із «Ваші дії» › «Вподобання» відкриваються в стрічці всього, що ви вподобали.</string>
     <string name="folder">Папка завантажень</string>
     <string name="show_toast">Показувати повідомлення про завантаження</string>
     <string name="section_social">Соціальне</string>

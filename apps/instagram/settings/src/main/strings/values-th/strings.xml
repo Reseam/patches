@@ -89,6 +89,8 @@
     <string name="hide_shopping_units">ซ่อนส่วนช้อปปิ้ง</string>
     <string name="hide_shopping_units_summary">อาจเหลือพื้นที่ว่างในหน้าหลัก</string>
     <string name="hide_suggested_reels">ซ่อน Reels แนะนำ</string>
+    <string name="liked_posts_feed">เลื่อนดูโพสต์ที่ถูกใจ</string>
+    <string name="liked_posts_feed_summary">โพสต์และ Reels ใน กิจกรรมของคุณ › ถูกใจ จะเปิดในฟีดของทุกอย่างที่คุณถูกใจ</string>
     <string name="folder">โฟลเดอร์ดาวน์โหลด</string>
     <string name="show_toast">แสดงข้อความการดาวน์โหลด</string>
     <string name="section_social">โซเชียล</string>

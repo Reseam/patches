@@ -93,6 +93,8 @@
     <string name="hide_shopping_units">Hide shopping units</string>
     <string name="hide_shopping_units_summary">Can leave an empty space in Home.</string>
     <string name="hide_suggested_reels">Hide suggested Reels</string>
+    <string name="liked_posts_feed">Scroll through liked posts</string>
+    <string name="liked_posts_feed_summary">Posts and Reels in Your activity › Likes open in a feed of everything you liked.</string>
     <string name="folder">Download folder</string>
     <string name="show_toast">Show download message</string>
     <string name="section_social">Social</string>

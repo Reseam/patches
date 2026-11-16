@@ -89,6 +89,8 @@
     <string name="hide_shopping_units">Ocultar bloques de compras</string>
     <string name="hide_shopping_units_summary">Puede dejar un espacio vacío en Inicio.</string>
     <string name="hide_suggested_reels">Ocultar Reels sugeridos</string>
+    <string name="liked_posts_feed">Recorrer publicaciones que te gustaron</string>
+    <string name="liked_posts_feed_summary">Las publicaciones y los Reels de Tu actividad › Me gusta se abren en un feed con todo lo que te gustó.</string>
     <string name="folder">Carpeta de descargas</string>
     <string name="show_toast">Mostrar mensaje de descarga</string>
     <string name="section_social">Social</string>

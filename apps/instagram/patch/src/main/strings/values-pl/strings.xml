@@ -18,6 +18,8 @@
     <string name="following_feed_description">Pokazuje na stronie głównej tylko posty od obserwowanych kont.</string>
     <string name="hide_feed_units">Ukryj proponowane karuzele</string>
     <string name="hide_feed_units_description">Ukrywa karuzele proponowanych kont, Threads, zakupów i Rolek na stronie głównej.</string>
+    <string name="liked_posts_feed">Przewijaj polubione posty</string>
+    <string name="liked_posts_feed_description">Otwiera posty i Rolki z Twoja aktywność › Polubienia w aktualnościach ze wszystkim, co polubiłeś.</string>
     <string name="follows_you">Wskaźnik Obserwuje cię</string>
     <string name="follows_you_description">Pokazuje Obserwuje cię w profilach kont, które cię obserwują.</string>
     <string name="hide_engagement_counts">Ukryj liczniki interakcji</string>

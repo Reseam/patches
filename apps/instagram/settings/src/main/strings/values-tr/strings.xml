@@ -89,6 +89,8 @@
     <string name="hide_shopping_units">Alışveriş bölümlerini gizle</string>
     <string name="hide_shopping_units_summary">Ana Sayfa\'da boş bir alan bırakabilir.</string>
     <string name="hide_suggested_reels">Önerilen Reels\'ı gizle</string>
+    <string name="liked_posts_feed">Beğenilen gönderilerde gezin</string>
+    <string name="liked_posts_feed_summary">Hareketlerin › Beğenmeler bölümündeki gönderiler ve Reels videoları, beğendiğiniz her şeyin akışında açılır.</string>
     <string name="folder">İndirme klasörü</string>
     <string name="show_toast">İndirme mesajını göster</string>
     <string name="section_social">Sosyal</string>

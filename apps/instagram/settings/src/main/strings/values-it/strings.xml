@@ -89,6 +89,8 @@
     <string name="hide_shopping_units">Nascondi i blocchi dello shopping</string>
     <string name="hide_shopping_units_summary">Può lasciare uno spazio vuoto nella Home.</string>
     <string name="hide_suggested_reels">Nascondi i Reels suggeriti</string>
+    <string name="liked_posts_feed">Scorri i post che ti sono piaciuti</string>
+    <string name="liked_posts_feed_summary">Post e Reels in La tua attività › Mi piace si aprono in un feed con tutto ciò che ti è piaciuto.</string>
     <string name="folder">Cartella dei download</string>
     <string name="show_toast">Mostra il messaggio di download</string>
     <string name="section_social">Social</string>

@@ -18,6 +18,8 @@
     <string name="following_feed_description">Показує на головній лише дописи акаунтів, на які ви підписані.</string>
     <string name="hide_feed_units">Приховати каруселі рекомендацій</string>
     <string name="hide_feed_units_description">Приховує каруселі рекомендованих акаунтів, Threads, покупок і Reels на головній.</string>
+    <string name="liked_posts_feed">Гортати вподобані дописи</string>
+    <string name="liked_posts_feed_description">Відкриває дописи й Reels із «Ваші дії» › «Вподобання» в стрічці всього, що ви вподобали.</string>
     <string name="follows_you">Позначка «Стежить за вами»</string>
     <string name="follows_you_description">Показує «Стежить за вами» в профілях акаунтів, які на вас підписані.</string>
     <string name="hide_engagement_counts">Приховати лічильники взаємодій</string>

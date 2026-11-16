@@ -89,6 +89,8 @@
     <string name="hide_shopping_units">Ẩn mục mua sắm</string>
     <string name="hide_shopping_units_summary">Có thể để lại khoảng trống trên Trang chủ.</string>
     <string name="hide_suggested_reels">Ẩn Reels đề xuất</string>
+    <string name="liked_posts_feed">Lướt các bài viết đã thích</string>
+    <string name="liked_posts_feed_summary">Bài viết và thước phim trong Hoạt động của bạn › Lượt thích mở trong bảng feed gồm mọi thứ bạn đã thích.</string>
     <string name="folder">Thư mục tải xuống</string>
     <string name="show_toast">Hiển thị thông báo tải xuống</string>
     <string name="section_social">Mạng xã hội</string>

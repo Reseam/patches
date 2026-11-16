@@ -18,6 +18,8 @@
     <string name="following_feed_description">首頁只顯示你追蹤的帳號的貼文。</string>
     <string name="hide_feed_units">隱藏推薦輪播</string>
     <string name="hide_feed_units_description">隱藏首頁中推薦帳號、Threads、購物和 Reels 的輪播。</string>
+    <string name="liked_posts_feed">瀏覽說過讚的貼文</string>
+    <string name="liked_posts_feed_description">在包含你說過讚的所有內容的動態消息中開啟你的活動 › 讚裡的貼文和 Reels。</string>
     <string name="follows_you">「追蹤你」標示</string>
     <string name="follows_you_description">在追蹤你的帳號個人檔案上顯示「追蹤你」。</string>
     <string name="hide_engagement_counts">隱藏互動數</string>

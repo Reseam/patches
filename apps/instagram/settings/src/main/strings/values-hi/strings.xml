@@ -89,6 +89,8 @@
     <string name="hide_shopping_units">शॉपिंग यूनिट छिपाएँ</string>
     <string name="hide_shopping_units_summary">होम में खाली जगह रह सकती है।</string>
     <string name="hide_suggested_reels">सुझाई गई Reels छिपाएँ</string>
+    <string name="liked_posts_feed">लाइक की गई पोस्ट स्क्रॉल करें</string>
+    <string name="liked_posts_feed_summary">आपकी गतिविधि › लाइक में पोस्ट और Reels आपकी लाइक की गई हर चीज़ की फ़ीड में खुलते हैं।</string>
     <string name="folder">डाउनलोड फ़ोल्डर</string>
     <string name="show_toast">डाउनलोड का मैसेज दिखाएँ</string>
     <string name="section_social">सोशल</string>

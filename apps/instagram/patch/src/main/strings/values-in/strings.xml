@@ -18,6 +18,8 @@
     <string name="following_feed_description">Hanya menampilkan postingan dari akun yang Anda ikuti di Beranda.</string>
     <string name="hide_feed_units">Sembunyikan carousel saran</string>
     <string name="hide_feed_units_description">Menyembunyikan carousel akun yang disarankan, Threads, belanja, dan Reels di Beranda.</string>
+    <string name="liked_posts_feed">Gulir postingan yang disukai</string>
+    <string name="liked_posts_feed_description">Membuka postingan dan Reels dari Aktivitas Anda › Suka dalam feed berisi semua yang Anda sukai.</string>
     <string name="follows_you">Indikator Mengikuti Anda</string>
     <string name="follows_you_description">Menampilkan Mengikuti Anda di profil akun yang mengikuti Anda.</string>
     <string name="hide_engagement_counts">Sembunyikan jumlah interaksi</string>

@@ -89,6 +89,8 @@
     <string name="hide_shopping_units">Sembunyikan bagian belanja</string>
     <string name="hide_shopping_units_summary">Bisa menyisakan ruang kosong di Beranda.</string>
     <string name="hide_suggested_reels">Sembunyikan Reels yang disarankan</string>
+    <string name="liked_posts_feed">Gulir postingan yang disukai</string>
+    <string name="liked_posts_feed_summary">Postingan dan Reels di Aktivitas Anda › Suka terbuka dalam feed berisi semua yang Anda sukai.</string>
     <string name="folder">Folder download</string>
     <string name="show_toast">Tampilkan pesan download</string>
     <string name="section_social">Sosial</string>

@@ -18,6 +18,8 @@
     <string name="following_feed_description">Показывает на главной только публикации аккаунтов, на которые вы подписаны.</string>
     <string name="hide_feed_units">Скрыть рекомендуемые карусели</string>
     <string name="hide_feed_units_description">Скрывает на главной карусели с рекомендуемыми аккаунтами, Threads, покупками и Reels.</string>
+    <string name="liked_posts_feed">Листать понравившиеся публикации</string>
+    <string name="liked_posts_feed_description">Открывает публикации и Reels из «Ваши действия» › «Нравится» в ленте всего, что вам понравилось.</string>
     <string name="follows_you">Отметка «Подписан(а) на вас»</string>
     <string name="follows_you_description">Показывает «Подписан(а) на вас» в профилях аккаунтов, которые на вас подписаны.</string>
     <string name="hide_engagement_counts">Скрыть счётчики вовлечённости</string>

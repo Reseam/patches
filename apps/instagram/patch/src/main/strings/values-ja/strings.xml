@@ -18,6 +18,8 @@
     <string name="following_feed_description">ホームにフォロー中のアカウントの投稿だけを表示します。</string>
     <string name="hide_feed_units">おすすめのカルーセルを非表示</string>
     <string name="hide_feed_units_description">ホームのおすすめアカウント、Threads、ショッピング、リールのカルーセルを非表示にします。</string>
+    <string name="liked_posts_feed">いいねした投稿をスクロール</string>
+    <string name="liked_posts_feed_description">アクティビティ › いいね！の投稿とリールを、いいねしたすべての投稿のフィードで開きます。</string>
     <string name="follows_you">「フォローされています」の表示</string>
     <string name="follows_you_description">あなたをフォローしているアカウントのプロフィールに「フォローされています」を表示します。</string>
     <string name="hide_engagement_counts">反応の数を非表示</string>

@@ -89,6 +89,8 @@
     <string name="hide_shopping_units">隱藏購物區塊</string>
     <string name="hide_shopping_units_summary">可能會在首頁留下空白。</string>
     <string name="hide_suggested_reels">隱藏推薦的 Reels</string>
+    <string name="liked_posts_feed">瀏覽說過讚的貼文</string>
+    <string name="liked_posts_feed_summary">你的活動 › 讚中的貼文和 Reels 會在包含你說過讚的所有內容的動態消息中開啟。</string>
     <string name="folder">下載資料夾</string>
     <string name="show_toast">顯示下載訊息</string>
     <string name="section_social">社交</string>

@@ -18,6 +18,8 @@
     <string name="following_feed_description">홈에 내가 팔로우하는 계정의 게시물만 표시합니다.</string>
     <string name="hide_feed_units">추천 캐러셀 숨기기</string>
     <string name="hide_feed_units_description">홈의 추천 계정, Threads, 쇼핑, 릴스 캐러셀을 숨깁니다.</string>
+    <string name="liked_posts_feed">좋아요한 게시물 스크롤</string>
+    <string name="liked_posts_feed_description">내 활동 › 좋아요의 게시물과 릴스를 좋아요한 모든 항목의 피드에서 엽니다.</string>
     <string name="follows_you">나를 팔로우함 표시</string>
     <string name="follows_you_description">나를 팔로우하는 계정의 프로필에 \'나를 팔로우함\'을 표시합니다.</string>
     <string name="hide_engagement_counts">참여 수 숨기기</string>

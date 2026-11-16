@@ -89,6 +89,8 @@
     <string name="hide_shopping_units">Скрыть блоки покупок</string>
     <string name="hide_shopping_units_summary">На главной может остаться пустое место.</string>
     <string name="hide_suggested_reels">Скрыть рекомендуемые Reels</string>
+    <string name="liked_posts_feed">Листать понравившиеся публикации</string>
+    <string name="liked_posts_feed_summary">Публикации и Reels из «Ваши действия» › «Нравится» открываются в ленте всего, что вам понравилось.</string>
     <string name="folder">Папка для скачивания</string>
     <string name="show_toast">Показывать сообщение о скачивании</string>
     <string name="section_social">Общение</string>

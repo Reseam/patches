@@ -18,6 +18,8 @@
     <string name="following_feed_description">Chỉ hiển thị bài viết từ tài khoản bạn theo dõi trên Trang chủ.</string>
     <string name="hide_feed_units">Ẩn băng chuyền đề xuất</string>
     <string name="hide_feed_units_description">Ẩn băng chuyền tài khoản đề xuất, Threads, mua sắm và Reels trên Trang chủ.</string>
+    <string name="liked_posts_feed">Lướt các bài viết đã thích</string>
+    <string name="liked_posts_feed_description">Mở bài viết và thước phim từ Hoạt động của bạn › Lượt thích trong bảng feed gồm mọi thứ bạn đã thích.</string>
     <string name="follows_you">Chỉ báo Theo dõi bạn</string>
     <string name="follows_you_description">Hiển thị Theo dõi bạn trên hồ sơ của các tài khoản đang theo dõi bạn.</string>
     <string name="hide_engagement_counts">Ẩn số lượt tương tác</string>

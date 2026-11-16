@@ -18,6 +18,8 @@
     <string name="following_feed_description">首页只显示你关注的帐户的帖子。</string>
     <string name="hide_feed_units">隐藏推荐轮播</string>
     <string name="hide_feed_units_description">隐藏首页中推荐帐户、Threads、购物和 Reels 的轮播。</string>
+    <string name="liked_posts_feed">浏览赞过的帖子</string>
+    <string name="liked_posts_feed_description">在包含你赞过的全部内容的动态中打开你的活动 › 赞里的帖子和 Reels。</string>
     <string name="follows_you">“关注了你”标记</string>
     <string name="follows_you_description">在关注你的帐户主页上显示“关注了你”。</string>
     <string name="hide_engagement_counts">隐藏互动数</string>

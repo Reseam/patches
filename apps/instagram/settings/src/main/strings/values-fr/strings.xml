@@ -89,6 +89,8 @@
     <string name="hide_shopping_units">Masquer les blocs shopping</string>
     <string name="hide_shopping_units_summary">Peut laisser un espace vide dans l’Accueil.</string>
     <string name="hide_suggested_reels">Masquer les Reels suggérés</string>
+    <string name="liked_posts_feed">Parcourir les publications aimées</string>
+    <string name="liked_posts_feed_summary">Les publications et Reels de Votre activité › J’aime s’ouvrent dans un fil de tout ce que vous avez aimé.</string>
     <string name="folder">Dossier de téléchargement</string>
     <string name="show_toast">Afficher le message de téléchargement</string>
     <string name="section_social">Social</string>

@@ -18,6 +18,8 @@
     <string name="following_feed_description">Muestra en Inicio solo publicaciones de las cuentas que sigues.</string>
     <string name="hide_feed_units">Ocultar carruseles sugeridos</string>
     <string name="hide_feed_units_description">Oculta los carruseles de cuentas sugeridas, Threads, compras y Reels en Inicio.</string>
+    <string name="liked_posts_feed">Recorrer publicaciones que te gustaron</string>
+    <string name="liked_posts_feed_description">Abre las publicaciones y los Reels de Tu actividad › Me gusta en un feed con todo lo que te gustó.</string>
     <string name="follows_you">Indicador \"Te sigue\"</string>
     <string name="follows_you_description">Muestra \"Te sigue\" en el perfil de las cuentas que te siguen.</string>
     <string name="hide_engagement_counts">Ocultar contadores de interacción</string>

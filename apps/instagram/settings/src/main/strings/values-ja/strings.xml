@@ -89,6 +89,8 @@
     <string name="hide_shopping_units">ショッピングのユニットを非表示</string>
     <string name="hide_shopping_units_summary">ホームに空白が残ることがあります。</string>
     <string name="hide_suggested_reels">おすすめのリールを非表示</string>
+    <string name="liked_posts_feed">いいねした投稿をスクロール</string>
+    <string name="liked_posts_feed_summary">アクティビティ › いいね！の投稿とリールが、いいねしたすべての投稿のフィードで開きます。</string>
     <string name="folder">ダウンロードフォルダ</string>
     <string name="show_toast">ダウンロードのメッセージを表示</string>
     <string name="section_social">ソーシャル</string>

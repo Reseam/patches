@@ -89,6 +89,8 @@
     <string name="hide_shopping_units">隐藏购物版块</string>
     <string name="hide_shopping_units_summary">可能会在首页留下空白。</string>
     <string name="hide_suggested_reels">隐藏推荐 Reels</string>
+    <string name="liked_posts_feed">浏览赞过的帖子</string>
+    <string name="liked_posts_feed_summary">你的活动 › 赞中的帖子和 Reels 会在包含你赞过的全部内容的动态中打开。</string>
     <string name="folder">下载文件夹</string>
     <string name="show_toast">显示下载消息</string>
     <string name="section_social">社交</string>

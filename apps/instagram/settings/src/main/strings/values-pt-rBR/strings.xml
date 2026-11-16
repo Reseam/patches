@@ -89,6 +89,8 @@
     <string name="hide_shopping_units">Ocultar blocos de compras</string>
     <string name="hide_shopping_units_summary">Pode deixar um espaço vazio na Página inicial.</string>
     <string name="hide_suggested_reels">Ocultar Reels sugeridos</string>
+    <string name="liked_posts_feed">Rolar pelos posts curtidos</string>
+    <string name="liked_posts_feed_summary">Posts e Reels em Sua atividade › Curtidas abrem em um feed com tudo o que você curtiu.</string>
     <string name="folder">Pasta de downloads</string>
     <string name="show_toast">Mostrar mensagem de download</string>
     <string name="section_social">Social</string>

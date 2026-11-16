@@ -89,6 +89,8 @@
     <string name="hide_shopping_units">Shopping-Blöcke ausblenden</string>
     <string name="hide_shopping_units_summary">Kann eine leere Fläche auf der Startseite hinterlassen.</string>
     <string name="hide_suggested_reels">Vorgeschlagene Reels ausblenden</string>
+    <string name="liked_posts_feed">Durch gelikte Beiträge scrollen</string>
+    <string name="liked_posts_feed_summary">Beiträge und Reels unter Deine Aktivität › Likes öffnen sich in einem Feed mit allem, was du gelikt hast.</string>
     <string name="folder">Download-Ordner</string>
     <string name="show_toast">Download-Meldung anzeigen</string>
     <string name="section_social">Soziales</string>

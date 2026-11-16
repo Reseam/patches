@@ -18,6 +18,8 @@
     <string name="following_feed_description">แสดงเฉพาะโพสต์จากบัญชีที่คุณติดตามในหน้าหลัก</string>
     <string name="hide_feed_units">ซ่อนภาพสไลด์แนะนำ</string>
     <string name="hide_feed_units_description">ซ่อนภาพสไลด์บัญชีแนะนำ Threads การช้อปปิ้ง และ Reels ในหน้าหลัก</string>
+    <string name="liked_posts_feed">เลื่อนดูโพสต์ที่ถูกใจ</string>
+    <string name="liked_posts_feed_description">เปิดโพสต์และ Reels จาก กิจกรรมของคุณ › ถูกใจ ในฟีดของทุกอย่างที่คุณถูกใจ</string>
     <string name="follows_you">ตัวบ่งชี้ \"ติดตามคุณ\"</string>
     <string name="follows_you_description">แสดง \"ติดตามคุณ\" ในโปรไฟล์ของบัญชีที่ติดตามคุณ</string>
     <string name="hide_engagement_counts">ซ่อนจำนวนการมีส่วนร่วม</string>

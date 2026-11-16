@@ -18,6 +18,8 @@
     <string name="following_feed_description">Ana Sayfa\'da yalnızca takip ettiğiniz hesapların gönderilerini gösterir.</string>
     <string name="hide_feed_units">Önerilen kaydırmalı alanları gizle</string>
     <string name="hide_feed_units_description">Ana Sayfa\'daki önerilen hesap, Threads, alışveriş ve Reels kaydırmalı alanlarını gizler.</string>
+    <string name="liked_posts_feed">Beğenilen gönderilerde gezin</string>
+    <string name="liked_posts_feed_description">Hareketlerin › Beğenmeler bölümündeki gönderileri ve Reels videolarını, beğendiğiniz her şeyin akışında açar.</string>
     <string name="follows_you">Sizi takip ediyor göstergesi</string>
     <string name="follows_you_description">Sizi takip eden hesapların profillerinde Sizi takip ediyor yazısını gösterir.</string>
     <string name="hide_engagement_counts">Etkileşim sayılarını gizle</string>

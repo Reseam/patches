@@ -133,6 +133,7 @@ object FeedSettings : SettingsGroup(InstagramStrings) {
     val hideThreadsUnits by toggle(default = true, icon = Vector.lucide("list-x"))
     val hideShoppingUnits by toggle(default = true, icon = Vector.lucide("shopping-bag"))
     val hideSuggestedReels by toggle(default = true, icon = Vector.lucide("clapperboard"))
+    val likedPostsFeed by toggle(default = false, icon = Vector.lucide("heart"))
 }
 
 object DownloadSettings : SettingsGroup(InstagramStrings) {
