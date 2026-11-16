@@ -13,6 +13,7 @@ import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.twitch.TwitchPatchStrings
 import app.reseam.patches.twitch.core.TWITCH
+import app.reseam.patches.twitch.core.TwitchSettingsPages
 import app.reseam.patches.twitch.core.forceTrue
 import app.reseam.patches.twitch.core.isStaff
 import app.reseam.patches.twitch.core.twitchSettings
@@ -26,7 +27,7 @@ val enableDebugMode = patch(TwitchPatchStrings.enableDebugMode) {
     description(TwitchPatchStrings.enableDebugModeDescription)
     compatibleWith(TWITCH)
     enabledByDefault(false)
-    settings(twitchSettings, section(TwitchStrings.sectionDeveloper, DeveloperSettings.debugMode))
+    settings(twitchSettings, section(TwitchSettingsPages.Advanced, TwitchStrings.sectionDeveloper, DeveloperSettings.debugMode))
 
     execute {
         // Each staff tool checks the staff flag itself.

@@ -12,7 +12,7 @@ import app.reseam.patch.settings.toggle
 
 object AdsSettings : SettingsGroup(TwitchStrings) {
     val blockVideoAds by toggle(default = true, icon = Vector.lucide("megaphone-off"))
-    val blockEmbeddedAds by toggle(default = true, icon = Vector.lucide("monitor-off"))
+    val blockEmbeddedAds by toggle(default = false, icon = Vector.lucide("monitor-off"))
     val embeddedAdsProxy by
         choice(
             default = "https://eu.luminous.dev",
@@ -64,6 +64,44 @@ object NavigationSettings : SettingsGroup(TwitchStrings) {
 
 object ChatSettings : SettingsGroup(TwitchStrings) {
     val autoClaimRewards by toggle(default = true, icon = Vector.lucide("gift"))
+    val hideLeaderboards by toggle(default = false, icon = Vector.lucide("trophy"))
+}
+
+object LinkSettings : SettingsGroup(TwitchStrings) {
+    val cleanShareLinks by toggle(default = true, icon = Vector.lucide("link-2-off"))
+}
+
+private val videoQualities =
+    listOf(
+        Choice("source", TwitchStrings.videoQualitySource),
+        Choice("1080", TwitchStrings.videoQuality1080),
+        Choice("720", TwitchStrings.videoQuality720),
+        Choice("480", TwitchStrings.videoQuality480),
+        Choice("360", TwitchStrings.videoQuality360),
+        Choice("160", TwitchStrings.videoQuality160),
+        Choice("auto", TwitchStrings.videoQualityAuto),
+    )
+
+object PlaybackSettings : SettingsGroup(TwitchStrings) {
+    val defaultVideoQuality by choice(default = "source", choices = videoQualities, icon = Vector.lucide("monitor-play"))
+    val mobileDataQuality by
+        choice(
+            default = "same",
+            choices = listOf(Choice("same", TwitchStrings.videoQualitySameAsWifi)) + videoQualities,
+            icon = Vector.lucide("signal"),
+        )
+    val rememberVideoQuality by toggle(default = true, icon = Vector.lucide("bookmark-check"))
+    val refreshStream by toggle(default = true, icon = Vector.lucide("refresh-cw"))
+}
+
+object PlayerOverlaySettings : SettingsGroup(TwitchStrings) {
+    val hideClipButton by toggle(default = false, icon = Vector.lucide("clapperboard"))
+    val hideCastButton by toggle(default = false, icon = Vector.lucide("cast"))
+    val hideShareButton by toggle(default = false, icon = Vector.lucide("share-2"))
+}
+
+object SubscriptionSettings : SettingsGroup(TwitchStrings) {
+    val hideSubscriptionUpsells by toggle(default = true, icon = Vector.lucide("star-off"))
 }
 
 object DeveloperSettings : SettingsGroup(TwitchStrings) {

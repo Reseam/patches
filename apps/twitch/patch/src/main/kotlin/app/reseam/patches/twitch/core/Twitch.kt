@@ -5,6 +5,7 @@ package app.reseam.patches.twitch.core
 
 import app.reseam.patch.CompatiblePackage
 import app.reseam.patch.Type
+import app.reseam.patch.function
 import app.reseam.patch.invoke
 import app.reseam.patch.method
 
@@ -17,4 +18,11 @@ val isStaff = method("isStaff") {
     strings("user_type", "staff")
     returns(Type.Boolean)
     paramCount(0)
+}
+
+// Draws the React Native theater's top-right buttons, with the settings gear last.
+val controlsOverlay = function("controlsOverlay") {
+    name("PlayerControlsOverlay")
+    strings("rightActionGroup", "IconNavSettings")
+    paramCount(1)
 }

@@ -62,7 +62,7 @@ private fun PatchRuntime.accountRow(): PointTarget {
     val accountIcon = resources.id("drawable", "account")?.toLong() ?: error("The app has no drawable/account")
     return method("accountSection") { literals(accountDescription, accountIcon) }
         .point("accountIcon") { literal(accountIcon) }
-        .next { invokeStatic { returns(Type.Void); paramCount(8); hasParam(Type.String); hasParam(Type.Int) } }
+        .settingsRowCall()
 }
 
 private object Resources

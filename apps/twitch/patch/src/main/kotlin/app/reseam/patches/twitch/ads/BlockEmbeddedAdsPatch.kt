@@ -14,6 +14,7 @@ import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.twitch.TwitchPatchStrings
 import app.reseam.patches.twitch.core.TWITCH
+import app.reseam.patches.twitch.core.TwitchSettingsPages
 import app.reseam.patches.twitch.core.twitchSettings
 import app.reseam.twitch.embeddedads.bindings.EmbeddedAds
 import app.reseam.twitch.settings.AdsSettings
@@ -22,8 +23,16 @@ import app.reseam.twitch.settings.TwitchStrings
 val blockEmbeddedAds = patch(TwitchPatchStrings.blockEmbeddedAds) {
     description(TwitchPatchStrings.blockEmbeddedAdsDescription)
     compatibleWith(TWITCH)
-    enabledByDefault(false)
-    settings(twitchSettings, section(TwitchStrings.sectionAds, AdsSettings.blockEmbeddedAds, AdsSettings.embeddedAdsProxy, AdsSettings.customEmbeddedAdsProxy))
+    settings(
+        twitchSettings,
+        section(
+            TwitchSettingsPages.Ads,
+            TwitchStrings.sectionEmbeddedAds,
+            AdsSettings.blockEmbeddedAds,
+            AdsSettings.embeddedAdsProxy,
+            AdsSettings.customEmbeddedAdsProxy,
+        ),
+    )
 
     execute {
         gate(AdsSettings.blockEmbeddedAds) {

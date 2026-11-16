@@ -9,7 +9,9 @@ import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.twitch.TwitchPatchStrings
 import app.reseam.patches.twitch.core.TWITCH
+import app.reseam.patches.twitch.core.TwitchSettingsPages
 import app.reseam.patches.twitch.core.twitchSettings
 import app.reseam.twitch.chat.bindings.AutoClaim
 import app.reseam.twitch.settings.ChatSettings
@@ -34,10 +36,10 @@ private val pointsUpdate = method("pointsUpdate") {
 
 private val activeClaim = klass(COMMUNITY_POINTS_MODEL).method("getClaim")
 
-val autoClaimRewards = patch("Auto-claim rewards") {
-    description("Claims bonus Channel Points in the background as you watch.")
+val autoClaimRewards = patch(TwitchPatchStrings.autoClaimRewards) {
+    description(TwitchPatchStrings.autoClaimRewardsDescription)
     compatibleWith(TWITCH)
-    settings(twitchSettings, section(TwitchStrings.sectionChat, ChatSettings.autoClaimRewards))
+    settings(twitchSettings, section(TwitchSettingsPages.Chat, TwitchStrings.sectionChannelPoints, ChatSettings.autoClaimRewards))
 
     execute {
         gate(ChatSettings.autoClaimRewards) {

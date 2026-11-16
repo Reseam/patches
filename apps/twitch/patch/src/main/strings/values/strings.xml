@@ -18,4 +18,18 @@
     <string name="block_analytics_description">Stops comScore, Nielsen, Sentry, Crashlytics, Sprig and Branch.</string>
     <string name="disable_update_prompts">Disable update prompts</string>
     <string name="disable_update_prompts_description">Stops update prompts.</string>
+    <string name="auto_claim_rewards">Auto-claim rewards</string>
+    <string name="auto_claim_rewards_description">Claims bonus Channel Points in the background as you watch.</string>
+    <string name="clean_share_links">Clean share links</string>
+    <string name="clean_share_links_description">Removes tracking from the links you share and copy.</string>
+    <string name="default_video_quality">Default video quality</string>
+    <string name="default_video_quality_description">Starts streams and videos in the quality you choose, Source by default.</string>
+    <string name="refresh_stream">Refresh stream</string>
+    <string name="refresh_stream_description">Reloads a stuck stream the way Twitch\'s Retry button does.</string>
+    <string name="hide_subscription_upsells">Hide subscription upsells</string>
+    <string name="hide_subscription_upsells_description">Hides Subscribe and Gift a Sub buttons and Turbo offers.</string>
+    <string name="hide_player_overlay_buttons">Hide player overlay buttons</string>
+    <string name="hide_player_overlay_buttons_description">Hides the clip, cast and share buttons on live streams.</string>
+    <string name="hide_leaderboards">Hide leaderboards</string>
+    <string name="hide_leaderboards_description">Hides the gifter, cheerer and clip leaderboards above chat.</string>
 </resources>
