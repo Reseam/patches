@@ -275,6 +275,7 @@
     <string name="hide_keyword_content_phrases">키워드 문구</string>
     <string name="hide_keyword_content_phrases_summary">한 줄에 문구 하나씩 입력합니다. 따옴표로 묶으면 단어 전체가 일치할 때만 숨깁니다.</string>
     <string name="hide_shorts_ai_button">Shorts AI 버튼 숨기기</string>
+    <string name="hide_shorts_ask_button">Shorts 질문하기 버튼 숨기기</string>
     <string name="hide_shorts_auto_dubbed_label">Shorts 자동 더빙 라벨 숨기기</string>
     <string name="hide_shorts_channel">채널 페이지의 Shorts 숨기기</string>
     <string name="hide_shorts_channel_bar">Shorts 채널 바 숨기기</string>

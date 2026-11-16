@@ -275,6 +275,7 @@
     <string name="hide_keyword_content_phrases">Schlagwort-Phrasen</string>
     <string name="hide_keyword_content_phrases_summary">Eine Phrase pro Zeile. Setze eine Phrase in Anführungszeichen, damit nur ganze Wörter passen.</string>
     <string name="hide_shorts_ai_button">KI-Schaltfläche in Shorts ausblenden</string>
+    <string name="hide_shorts_ask_button">Fragen-Schaltfläche in Shorts ausblenden</string>
     <string name="hide_shorts_auto_dubbed_label">Hinweis auf automatische Synchronisation in Shorts ausblenden</string>
     <string name="hide_shorts_channel">Shorts auf Kanalseiten ausblenden</string>
     <string name="hide_shorts_channel_bar">Kanalleiste in Shorts ausblenden</string>

@@ -34,6 +34,8 @@ internal class ShortsFilterGroups {
     private val compactVideoBuffer = ByteArrayFilterGroup(null, "/frame0.jpg")
     private val shortsShelfHeader = ByteArrayFilterGroup(null, "ic_youtube_shorts")
     private val useSoundBuffer = ByteArrayFilterGroup(null, "yt_outline_camera_")
+    // A button's element holds the panel it opens; Ask opens YouTube's chat panel.
+    private val askPanel = ByteArrayFilterGroup(null, "youchat", "you-chat")
     private val reelCarouselBuffer =
         ByteArrayFilterGroupList().apply {
             addAll(
@@ -209,6 +211,9 @@ internal class ShortsFilterGroups {
             },
             FilterRule(ShortsSettings.hideShortsRemixButton, "reel_action_button.e") {
                 it.accessibility.contains("id.reel_remix_button")
+            },
+            FilterRule(ShortsSettings.hideShortsAskButton, "reel_action_button.e") {
+                askPanel.check(it.elementBuffer).isFiltered
             },
             FilterRule(ShortsSettings.hideShortsSaveButton, "reel_save_button.e"),
         )

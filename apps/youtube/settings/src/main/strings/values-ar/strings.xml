@@ -271,6 +271,7 @@
     <string name="hide_keyword_content_phrases">العبارات المفتاحية</string>
     <string name="hide_keyword_content_phrases_summary">عبارة واحدة في كل سطر. ضع العبارة بين علامتي اقتباس لمطابقة الكلمات الكاملة فقط.</string>
     <string name="hide_shorts_ai_button">إخفاء زر الذكاء الاصطناعي في Shorts</string>
+    <string name="hide_shorts_ask_button">إخفاء زر «اسأل» في Shorts</string>
     <string name="hide_shorts_auto_dubbed_label">إخفاء تصنيف الدبلجة التلقائية في Shorts</string>
     <string name="hide_shorts_channel">إخفاء Shorts في صفحات القنوات</string>
     <string name="hide_shorts_channel_bar">إخفاء شريط القناة في Shorts</string>

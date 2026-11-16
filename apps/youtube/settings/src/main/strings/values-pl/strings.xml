@@ -275,6 +275,7 @@
     <string name="hide_keyword_content_phrases">Wyrażenia kluczowe</string>
     <string name="hide_keyword_content_phrases_summary">Jedno wyrażenie w wierszu. Ujmij wyrażenie w cudzysłów, aby dopasowywać tylko całe słowa.</string>
     <string name="hide_shorts_ai_button">Ukryj przycisk AI w Shorts</string>
+    <string name="hide_shorts_ask_button">Ukryj przycisk Zapytaj w Shorts</string>
     <string name="hide_shorts_auto_dubbed_label">Ukryj etykietę automatycznego dubbingu w Shorts</string>
     <string name="hide_shorts_channel">Ukryj Shorts na stronach kanałów</string>
     <string name="hide_shorts_channel_bar">Ukryj pasek kanału w Shorts</string>

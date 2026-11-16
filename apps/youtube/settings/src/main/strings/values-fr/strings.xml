@@ -275,6 +275,7 @@
     <string name="hide_keyword_content_phrases">Expressions à filtrer</string>
     <string name="hide_keyword_content_phrases_summary">Une expression par ligne. Mettez une expression entre guillemets pour ne faire correspondre que des mots entiers.</string>
     <string name="hide_shorts_ai_button">Masquer le bouton IA des Shorts</string>
+    <string name="hide_shorts_ask_button">Masquer le bouton Demander des Shorts</string>
     <string name="hide_shorts_auto_dubbed_label">Masquer la mention de doublage automatique des Shorts</string>
     <string name="hide_shorts_channel">Masquer les Shorts sur les pages de chaîne</string>
     <string name="hide_shorts_channel_bar">Masquer la barre de la chaîne des Shorts</string>

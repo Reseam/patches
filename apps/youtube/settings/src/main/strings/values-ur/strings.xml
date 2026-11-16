@@ -271,6 +271,7 @@
     <string name="hide_keyword_content_phrases">کلیدی جملے</string>
     <string name="hide_keyword_content_phrases_summary">ہر لائن میں ایک جملہ۔ صرف پورے الفاظ سے ملانے کے لیے جملے کو کوٹیشن مارکس میں لکھیں۔</string>
     <string name="hide_shorts_ai_button">Shorts میں AI بٹن چھپائیں</string>
+    <string name="hide_shorts_ask_button">Shorts میں Ask بٹن چھپائیں</string>
     <string name="hide_shorts_auto_dubbed_label">Shorts میں آٹو ڈب کا لیبل چھپائیں</string>
     <string name="hide_shorts_channel">چینل صفحات پر Shorts چھپائیں</string>
     <string name="hide_shorts_channel_bar">Shorts میں چینل بار چھپائیں</string>

@@ -9,6 +9,7 @@ import app.reseam.patch.settings.toggle
 
 object ShortsSettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
     val hideShortsAiButton by toggle(default = false)
+    val hideShortsAskButton by toggle(default = false)
     val hideShortsAutoDubbedLabel by toggle(default = false)
     val hideShortsChannel by toggle(default = false)
     val hideShortsChannelBar by toggle(default = false)

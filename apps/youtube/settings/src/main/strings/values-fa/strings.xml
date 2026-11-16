@@ -271,6 +271,7 @@
     <string name="hide_keyword_content_phrases">عبارت‌های کلیدی</string>
     <string name="hide_keyword_content_phrases_summary">در هر خط یک عبارت. برای تطبیق فقط کلمه‌های کامل، عبارت را داخل گیومه بگذارید.</string>
     <string name="hide_shorts_ai_button">پنهان کردن دکمهٔ هوش مصنوعی در Shorts</string>
+    <string name="hide_shorts_ask_button">پنهان کردن دکمهٔ «پرسیدن» در Shorts</string>
     <string name="hide_shorts_auto_dubbed_label">پنهان کردن برچسب «دوبلهٔ خودکار» در Shorts</string>
     <string name="hide_shorts_channel">پنهان کردن Shorts در صفحه‌های کانال</string>
     <string name="hide_shorts_channel_bar">پنهان کردن نوار کانال در Shorts</string>

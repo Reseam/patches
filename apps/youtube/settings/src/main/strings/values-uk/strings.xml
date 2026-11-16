@@ -275,6 +275,7 @@
     <string name="hide_keyword_content_phrases">Ключові фрази</string>
     <string name="hide_keyword_content_phrases_summary">Одна фраза в рядку. Візьміть фразу в лапки, щоб шукати лише цілі слова.</string>
     <string name="hide_shorts_ai_button">Приховати кнопку ШІ в Shorts</string>
+    <string name="hide_shorts_ask_button">Приховати кнопку «Запитати» в Shorts</string>
     <string name="hide_shorts_auto_dubbed_label">Приховати позначку автодубляжу в Shorts</string>
     <string name="hide_shorts_channel">Приховати Shorts на сторінках каналів</string>
     <string name="hide_shorts_channel_bar">Приховати панель каналу в Shorts</string>

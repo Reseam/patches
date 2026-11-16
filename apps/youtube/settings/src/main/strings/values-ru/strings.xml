@@ -275,6 +275,7 @@
     <string name="hide_keyword_content_phrases">Ключевые фразы</string>
     <string name="hide_keyword_content_phrases_summary">По одной фразе в строке. Возьмите фразу в кавычки, чтобы совпадали только целые слова.</string>
     <string name="hide_shorts_ai_button">Скрыть кнопку ИИ в Shorts</string>
+    <string name="hide_shorts_ask_button">Скрыть кнопку «Спросить» в Shorts</string>
     <string name="hide_shorts_auto_dubbed_label">Скрыть пометку автодубляжа в Shorts</string>
     <string name="hide_shorts_channel">Скрыть Shorts на страницах каналов</string>
     <string name="hide_shorts_channel_bar">Скрыть панель канала в Shorts</string>

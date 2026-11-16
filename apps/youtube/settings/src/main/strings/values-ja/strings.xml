@@ -275,6 +275,7 @@
     <string name="hide_keyword_content_phrases">キーワードのフレーズ</string>
     <string name="hide_keyword_content_phrases_summary">フレーズを 1 行に 1 つ入力します。単語全体だけに一致させるには、フレーズを引用符で囲みます。</string>
     <string name="hide_shorts_ai_button">ショートの AI ボタンを非表示</string>
+    <string name="hide_shorts_ask_button">ショートの質問ボタンを非表示</string>
     <string name="hide_shorts_auto_dubbed_label">ショートの自動吹き替えラベルを非表示</string>
     <string name="hide_shorts_channel">チャンネルページのショートを非表示</string>
     <string name="hide_shorts_channel_bar">ショートのチャンネルバーを非表示</string>

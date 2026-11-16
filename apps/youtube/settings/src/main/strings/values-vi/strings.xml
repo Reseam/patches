@@ -275,6 +275,7 @@
     <string name="hide_keyword_content_phrases">Cụm từ khóa</string>
     <string name="hide_keyword_content_phrases_summary">Mỗi dòng một cụm từ. Đặt cụm từ trong dấu ngoặc kép để chỉ khớp nguyên từ.</string>
     <string name="hide_shorts_ai_button">Ẩn nút AI của Shorts</string>
+    <string name="hide_shorts_ask_button">Ẩn nút Hỏi của Shorts</string>
     <string name="hide_shorts_auto_dubbed_label">Ẩn nhãn tự động lồng tiếng của Shorts</string>
     <string name="hide_shorts_channel">Ẩn Shorts trên trang kênh</string>
     <string name="hide_shorts_channel_bar">Ẩn thanh kênh của Shorts</string>

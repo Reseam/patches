@@ -275,6 +275,7 @@
     <string name="hide_keyword_content_phrases">Frases de palavras-chave</string>
     <string name="hide_keyword_content_phrases_summary">Uma frase por linha. Coloque uma frase entre aspas para corresponder apenas a palavras inteiras.</string>
     <string name="hide_shorts_ai_button">Ocultar botão de IA do Shorts</string>
+    <string name="hide_shorts_ask_button">Ocultar botão Perguntar do Shorts</string>
     <string name="hide_shorts_auto_dubbed_label">Ocultar rótulo de dublagem automática do Shorts</string>
     <string name="hide_shorts_channel">Ocultar Shorts nas páginas de canal</string>
     <string name="hide_shorts_channel_bar">Ocultar barra do canal no Shorts</string>

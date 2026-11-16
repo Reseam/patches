@@ -275,6 +275,7 @@
     <string name="hide_keyword_content_phrases">關鍵字詞組</string>
     <string name="hide_keyword_content_phrases_summary">每行一個詞組。將詞組放在引號中則只比對完整的字詞。</string>
     <string name="hide_shorts_ai_button">隱藏 Shorts AI 按鈕</string>
+    <string name="hide_shorts_ask_button">隱藏 Shorts「提問」按鈕</string>
     <string name="hide_shorts_auto_dubbed_label">隱藏 Shorts 自動配音標籤</string>
     <string name="hide_shorts_channel">隱藏頻道頁面中的 Shorts</string>
     <string name="hide_shorts_channel_bar">隱藏 Shorts 頻道列</string>

@@ -275,6 +275,7 @@
     <string name="hide_keyword_content_phrases">कीवर्ड वाक्यांश</string>
     <string name="hide_keyword_content_phrases_summary">हर लाइन में एक वाक्यांश। सिर्फ़ पूरे शब्दों से मिलान के लिए वाक्यांश को कोट में रखें।</string>
     <string name="hide_shorts_ai_button">Shorts का AI बटन छिपाएँ</string>
+    <string name="hide_shorts_ask_button">Shorts का Ask बटन छिपाएँ</string>
     <string name="hide_shorts_auto_dubbed_label">Shorts का ऑटो-डब लेबल छिपाएँ</string>
     <string name="hide_shorts_channel">चैनल पेज पर Shorts छिपाएँ</string>
     <string name="hide_shorts_channel_bar">Shorts का चैनल बार छिपाएँ</string>

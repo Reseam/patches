@@ -275,6 +275,7 @@
     <string name="hide_keyword_content_phrases">Frasa kata kunci</string>
     <string name="hide_keyword_content_phrases_summary">Satu frasa per baris. Beri tanda kutip pada frasa agar hanya cocok dengan kata utuh.</string>
     <string name="hide_shorts_ai_button">Sembunyikan tombol AI Shorts</string>
+    <string name="hide_shorts_ask_button">Sembunyikan tombol Tanya Shorts</string>
     <string name="hide_shorts_auto_dubbed_label">Sembunyikan label sulih suara otomatis Shorts</string>
     <string name="hide_shorts_channel">Sembunyikan Shorts di halaman channel</string>
     <string name="hide_shorts_channel_bar">Sembunyikan bilah channel Shorts</string>

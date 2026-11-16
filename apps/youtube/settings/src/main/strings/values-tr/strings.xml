@@ -275,6 +275,7 @@
     <string name="hide_keyword_content_phrases">Anahtar ifadeler</string>
     <string name="hide_keyword_content_phrases_summary">Her satıra bir ifade. Yalnızca tam kelimelerle eşleşmesi için ifadeyi tırnak içine alın.</string>
     <string name="hide_shorts_ai_button">Shorts yapay zeka düğmesini gizle</string>
+    <string name="hide_shorts_ask_button">Shorts Sor düğmesini gizle</string>
     <string name="hide_shorts_auto_dubbed_label">Shorts otomatik dublaj etiketini gizle</string>
     <string name="hide_shorts_channel">Kanal sayfalarında Shorts\'u gizle</string>
     <string name="hide_shorts_channel_bar">Shorts kanal çubuğunu gizle</string>

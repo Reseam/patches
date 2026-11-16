@@ -275,6 +275,7 @@
     <string name="hide_keyword_content_phrases">关键词短语</string>
     <string name="hide_keyword_content_phrases_summary">每行一个短语。将短语放在引号中则只匹配完整的词。</string>
     <string name="hide_shorts_ai_button">隐藏 Shorts AI 按钮</string>
+    <string name="hide_shorts_ask_button">隐藏 Shorts“提问”按钮</string>
     <string name="hide_shorts_auto_dubbed_label">隐藏 Shorts 自动配音标签</string>
     <string name="hide_shorts_channel">隐藏频道页面中的 Shorts</string>
     <string name="hide_shorts_channel_bar">隐藏 Shorts 频道栏</string>

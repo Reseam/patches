@@ -278,6 +278,7 @@
     <string name="hide_keyword_content_phrases">Keyword phrases</string>
     <string name="hide_keyword_content_phrases_summary">One phrase per line. Put a phrase in quotes to match whole words only.</string>
     <string name="hide_shorts_ai_button">Hide Shorts AI button</string>
+    <string name="hide_shorts_ask_button">Hide Shorts Ask button</string>
     <string name="hide_shorts_auto_dubbed_label">Hide Shorts auto-dubbed label</string>
     <string name="hide_shorts_channel">Hide Shorts on channel pages</string>
     <string name="hide_shorts_channel_bar">Hide Shorts channel bar</string>
