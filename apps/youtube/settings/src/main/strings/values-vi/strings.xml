@@ -136,6 +136,15 @@
     <string name="bypass_image_region_restrictions_summary">Tải ảnh đại diện và hình ảnh kênh từ máy chủ không bị chặn ở quốc gia của bạn.</string>
     <string name="disable_chapter_skip_double_tap">Tắt bỏ qua chương khi nhấn đúp</string>
     <string name="disable_chapter_skip_double_tap_summary">Nhấn đúp sẽ tua thay vì chuyển sang chương tiếp theo.</string>
+    <string name="double_tap_seek_forward">Nhấn đúp để tua tới</string>
+    <string name="double_tap_seek_back">Nhấn đúp để tua lại</string>
+    <string name="double_tap_seek_youtube">Cài đặt của YouTube</string>
+    <string name="double_tap_seek_5">5 giây</string>
+    <string name="double_tap_seek_10">10 giây</string>
+    <string name="double_tap_seek_15">15 giây</string>
+    <string name="double_tap_seek_20">20 giây</string>
+    <string name="double_tap_seek_30">30 giây</string>
+    <string name="double_tap_seek_60">60 giây</string>
     <string name="haptics_chapters">Không rung khi chuyển chương</string>
     <string name="haptics_precise_seeking">Không rung khi tua chính xác</string>
     <string name="haptics_seek_undo">Không rung khi hoàn tác tua</string>

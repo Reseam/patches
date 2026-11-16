@@ -136,6 +136,15 @@
     <string name="bypass_image_region_restrictions_summary">从在你所在国家/地区未被封锁的域名加载头像和频道图片。</string>
     <string name="disable_chapter_skip_double_tap">停用双击跳过章节</string>
     <string name="disable_chapter_skip_double_tap_summary">双击时快进或快退，而不是跳到下一章节。</string>
+    <string name="double_tap_seek_forward">双击快进</string>
+    <string name="double_tap_seek_back">双击快退</string>
+    <string name="double_tap_seek_youtube">YouTube 的设置</string>
+    <string name="double_tap_seek_5">5 秒</string>
+    <string name="double_tap_seek_10">10 秒</string>
+    <string name="double_tap_seek_15">15 秒</string>
+    <string name="double_tap_seek_20">20 秒</string>
+    <string name="double_tap_seek_30">30 秒</string>
+    <string name="double_tap_seek_60">60 秒</string>
     <string name="haptics_chapters">章节不振动</string>
     <string name="haptics_precise_seeking">精确跳转不振动</string>
     <string name="haptics_seek_undo">撤销跳转不振动</string>

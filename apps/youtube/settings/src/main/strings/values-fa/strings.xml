@@ -132,6 +132,15 @@
     <string name="bypass_image_region_restrictions_summary">آواتارها و تصاویر کانال را از میزبانی بار می‌کند که در کشور شما مسدود نیست.</string>
     <string name="disable_chapter_skip_double_tap">غیرفعال کردن پرش فصل با دو ضربه</string>
     <string name="disable_chapter_skip_double_tap_summary">دو ضربه به‌جای رفتن به فصل بعدی، ویدیو را جلو یا عقب می‌برد.</string>
+    <string name="double_tap_seek_forward">دو ضربه به جلو</string>
+    <string name="double_tap_seek_back">دو ضربه به عقب</string>
+    <string name="double_tap_seek_youtube">تنظیم YouTube</string>
+    <string name="double_tap_seek_5">۵ ثانیه</string>
+    <string name="double_tap_seek_10">۱۰ ثانیه</string>
+    <string name="double_tap_seek_15">۱۵ ثانیه</string>
+    <string name="double_tap_seek_20">۲۰ ثانیه</string>
+    <string name="double_tap_seek_30">۳۰ ثانیه</string>
+    <string name="double_tap_seek_60">۶۰ ثانیه</string>
     <string name="haptics_chapters">بدون لرزش برای فصل‌ها</string>
     <string name="haptics_precise_seeking">بدون لرزش برای جابه‌جایی دقیق</string>
     <string name="haptics_seek_undo">بدون لرزش برای لغو جابه‌جایی</string>

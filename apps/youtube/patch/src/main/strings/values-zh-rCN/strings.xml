@@ -24,6 +24,8 @@
     <string name="disable_double_tap_actions_description">双击播放器时快进或快退，而不是跳到下一章节。</string>
     <string name="disable_haptic_feedback">停用触感反馈</string>
     <string name="disable_haptic_feedback_description">在章节、跳转和缩放时不再让播放器振动。</string>
+    <string name="double_tap_seek_length">双击跳转时长</string>
+    <string name="double_tap_seek_length_description">分别设置双击快进和快退的时长。</string>
     <string name="download_shorts">下载 Shorts</string>
     <string name="download_shorts_description">在 Shorts 的菜单中添加“下载”。</string>
     <string name="external_downloader">外部下载器</string>

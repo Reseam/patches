@@ -24,6 +24,8 @@
     <string name="disable_double_tap_actions_description">Dwukrotne kliknięcie odtwarzacza przewija zamiast przechodzić do następnego rozdziału.</string>
     <string name="disable_haptic_feedback">Wyłącz wibracje</string>
     <string name="disable_haptic_feedback_description">Odtwarzacz nie wibruje już przy rozdziałach, przewijaniu i powiększaniu.</string>
+    <string name="double_tap_seek_length">Długość przewijania dwukrotnym kliknięciem</string>
+    <string name="double_tap_seek_length_description">Osobno ustawia, jak daleko dwukrotne kliknięcie przewija do przodu i do tyłu.</string>
     <string name="download_shorts">Pobieraj Shorts</string>
     <string name="download_shorts_description">Dodaje opcję Pobierz do menu Shorts.</string>
     <string name="external_downloader">Zewnętrzny program do pobierania</string>

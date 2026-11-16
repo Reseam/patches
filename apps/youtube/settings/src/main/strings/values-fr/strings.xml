@@ -136,6 +136,15 @@
     <string name="bypass_image_region_restrictions_summary">Charge les avatars et les images de chaîne depuis un hôte qui n’est pas bloqué dans votre pays.</string>
     <string name="disable_chapter_skip_double_tap">Désactiver le saut de chapitre au double appui</string>
     <string name="disable_chapter_skip_double_tap_summary">Un double appui avance ou recule au lieu de passer au chapitre suivant.</string>
+    <string name="double_tap_seek_forward">Double appui en avant</string>
+    <string name="double_tap_seek_back">Double appui en arrière</string>
+    <string name="double_tap_seek_youtube">Réglage de YouTube</string>
+    <string name="double_tap_seek_5">5 secondes</string>
+    <string name="double_tap_seek_10">10 secondes</string>
+    <string name="double_tap_seek_15">15 secondes</string>
+    <string name="double_tap_seek_20">20 secondes</string>
+    <string name="double_tap_seek_30">30 secondes</string>
+    <string name="double_tap_seek_60">60 secondes</string>
     <string name="haptics_chapters">Pas de vibration aux chapitres</string>
     <string name="haptics_precise_seeking">Pas de vibration pour l’avance précise</string>
     <string name="haptics_seek_undo">Pas de vibration à l’annulation d’une avance</string>

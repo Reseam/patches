@@ -24,6 +24,8 @@
     <string name="disable_double_tap_actions_description">Un double appui sur le lecteur avance ou recule au lieu de passer au chapitre suivant.</string>
     <string name="disable_haptic_feedback">Désactiver le retour haptique</string>
     <string name="disable_haptic_feedback_description">Empêche le lecteur de vibrer aux chapitres, pendant l’avance et le zoom.</string>
+    <string name="double_tap_seek_length">Durée du saut au double appui</string>
+    <string name="double_tap_seek_length_description">Règle séparément la durée du saut en avant et en arrière au double appui.</string>
     <string name="download_shorts">Télécharger les Shorts</string>
     <string name="download_shorts_description">Ajoute Télécharger aux menus des Shorts.</string>
     <string name="external_downloader">Téléchargeur externe</string>

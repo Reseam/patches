@@ -136,6 +136,15 @@
     <string name="bypass_image_region_restrictions_summary">アバターとチャンネル画像を、あなたの国でブロックされていないホストから読み込みます。</string>
     <string name="disable_chapter_skip_double_tap">ダブルタップのチャプタースキップを無効にする</string>
     <string name="disable_chapter_skip_double_tap_summary">ダブルタップすると、次のチャプターへ移動せずにシークします。</string>
+    <string name="double_tap_seek_forward">ダブルタップで進む</string>
+    <string name="double_tap_seek_back">ダブルタップで戻る</string>
+    <string name="double_tap_seek_youtube">YouTube の設定</string>
+    <string name="double_tap_seek_5">5 秒</string>
+    <string name="double_tap_seek_10">10 秒</string>
+    <string name="double_tap_seek_15">15 秒</string>
+    <string name="double_tap_seek_20">20 秒</string>
+    <string name="double_tap_seek_30">30 秒</string>
+    <string name="double_tap_seek_60">60 秒</string>
     <string name="haptics_chapters">チャプターで振動しない</string>
     <string name="haptics_precise_seeking">精密なシークで振動しない</string>
     <string name="haptics_seek_undo">シークの取り消しで振動しない</string>

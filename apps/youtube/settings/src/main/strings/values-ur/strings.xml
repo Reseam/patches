@@ -132,6 +132,15 @@
     <string name="bypass_image_region_restrictions_summary">اوتار اور چینل کی تصاویر ایسے ہوسٹ سے لوڈ کرتا ہے جو آپ کے ملک میں بلاک نہیں ہے۔</string>
     <string name="disable_chapter_skip_double_tap">ڈبل ٹیپ پر چیپٹر اسکپ غیر فعال کریں</string>
     <string name="disable_chapter_skip_double_tap_summary">ڈبل ٹیپ کرنے سے اگلے چیپٹر پر جانے کے بجائے سیک ہوتا ہے۔</string>
+    <string name="double_tap_seek_forward">ڈبل ٹیپ آگے</string>
+    <string name="double_tap_seek_back">ڈبل ٹیپ پیچھے</string>
+    <string name="double_tap_seek_youtube">YouTube کی ترتیب</string>
+    <string name="double_tap_seek_5">5 سیکنڈ</string>
+    <string name="double_tap_seek_10">10 سیکنڈ</string>
+    <string name="double_tap_seek_15">15 سیکنڈ</string>
+    <string name="double_tap_seek_20">20 سیکنڈ</string>
+    <string name="double_tap_seek_30">30 سیکنڈ</string>
+    <string name="double_tap_seek_60">60 سیکنڈ</string>
     <string name="haptics_chapters">چیپٹرز پر ہیپٹکس نہیں</string>
     <string name="haptics_precise_seeking">درست سیک پر ہیپٹکس نہیں</string>
     <string name="haptics_seek_undo">سیک واپس لینے پر ہیپٹکس نہیں</string>

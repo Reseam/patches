@@ -24,6 +24,8 @@
     <string name="disable_double_tap_actions_description">Подвійне торкання плеєра перемотує замість переходу до наступного розділу.</string>
     <string name="disable_haptic_feedback">Вимкнути тактильний відгук</string>
     <string name="disable_haptic_feedback_description">Плеєр більше не вібрує на розділах, під час перемотування й масштабування.</string>
+    <string name="double_tap_seek_length">Крок перемотування подвійним торканням</string>
+    <string name="double_tap_seek_length_description">Окремо задає, наскільки подвійне торкання перемотує вперед і назад.</string>
     <string name="download_shorts">Завантажувати Shorts</string>
     <string name="download_shorts_description">Додає «Завантажити» в меню Shorts.</string>
     <string name="external_downloader">Зовнішній завантажувач</string>

@@ -24,6 +24,8 @@
     <string name="disable_double_tap_actions_description">Oynatıcıya çift dokunmak sonraki bölüme atlamak yerine ileri veya geri sarar.</string>
     <string name="disable_haptic_feedback">Dokunsal geri bildirimi kapat</string>
     <string name="disable_haptic_feedback_description">Oynatıcının bölümlerde, sarmada ve yakınlaştırmada titremesini durdurur.</string>
+    <string name="double_tap_seek_length">Çift dokunma atlama süresi</string>
+    <string name="double_tap_seek_length_description">Çift dokunmanın ileri ve geri ne kadar atlayacağını ayrı ayrı belirler.</string>
     <string name="download_shorts">Shorts\'u indir</string>
     <string name="download_shorts_description">Shorts\'un menülerine İndir seçeneğini ekler.</string>
     <string name="external_downloader">Harici indirici</string>

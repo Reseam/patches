@@ -24,6 +24,8 @@
     <string name="disable_double_tap_actions_description">Двойное нажатие на плеер перематывает, а не переходит к следующей главе.</string>
     <string name="disable_haptic_feedback">Отключить вибрацию</string>
     <string name="disable_haptic_feedback_description">Плеер не вибрирует на главах, при перемотке и масштабировании.</string>
+    <string name="double_tap_seek_length">Шаг перемотки двойным нажатием</string>
+    <string name="double_tap_seek_length_description">Отдельно задаёт, насколько двойное нажатие перематывает вперёд и назад.</string>
     <string name="download_shorts">Скачивать Shorts</string>
     <string name="download_shorts_description">Добавляет «Скачать» в меню Shorts.</string>
     <string name="external_downloader">Внешний загрузчик</string>

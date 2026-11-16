@@ -136,6 +136,15 @@
     <string name="bypass_image_region_restrictions_summary">Wczytuje awatary i obrazy kanałów z hosta, który nie jest zablokowany w twoim kraju.</string>
     <string name="disable_chapter_skip_double_tap">Wyłącz pomijanie rozdziałów dwukrotnym kliknięciem</string>
     <string name="disable_chapter_skip_double_tap_summary">Dwukrotne kliknięcie przewija zamiast przechodzić do następnego rozdziału.</string>
+    <string name="double_tap_seek_forward">Dwukrotne kliknięcie do przodu</string>
+    <string name="double_tap_seek_back">Dwukrotne kliknięcie do tyłu</string>
+    <string name="double_tap_seek_youtube">Ustawienie YouTube</string>
+    <string name="double_tap_seek_5">5 sekund</string>
+    <string name="double_tap_seek_10">10 sekund</string>
+    <string name="double_tap_seek_15">15 sekund</string>
+    <string name="double_tap_seek_20">20 sekund</string>
+    <string name="double_tap_seek_30">30 sekund</string>
+    <string name="double_tap_seek_60">60 sekund</string>
     <string name="haptics_chapters">Bez wibracji dla rozdziałów</string>
     <string name="haptics_precise_seeking">Bez wibracji przy precyzyjnym przewijaniu</string>
     <string name="haptics_seek_undo">Bez wibracji przy cofaniu przewinięcia</string>

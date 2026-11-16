@@ -132,6 +132,15 @@
     <string name="bypass_image_region_restrictions_summary">يحمّل الصور الرمزية وصور القنوات من مضيف غير محظور في بلدك.</string>
     <string name="disable_chapter_skip_double_tap">تعطيل تخطي الفصول بالنقر مرتين</string>
     <string name="disable_chapter_skip_double_tap_summary">النقر مرتين يقدّم الفيديو أو يرجعه بدلًا من الانتقال إلى الفصل التالي.</string>
+    <string name="double_tap_seek_forward">النقر مرتين للأمام</string>
+    <string name="double_tap_seek_back">النقر مرتين للخلف</string>
+    <string name="double_tap_seek_youtube">إعداد YouTube</string>
+    <string name="double_tap_seek_5">٥ ثوانٍ</string>
+    <string name="double_tap_seek_10">١٠ ثوانٍ</string>
+    <string name="double_tap_seek_15">١٥ ثانية</string>
+    <string name="double_tap_seek_20">٢٠ ثانية</string>
+    <string name="double_tap_seek_30">٣٠ ثانية</string>
+    <string name="double_tap_seek_60">٦٠ ثانية</string>
     <string name="haptics_chapters">بدون اهتزاز عند الفصول</string>
     <string name="haptics_precise_seeking">بدون اهتزاز عند التنقل الدقيق</string>
     <string name="haptics_seek_undo">بدون اهتزاز عند التراجع عن التنقل</string>

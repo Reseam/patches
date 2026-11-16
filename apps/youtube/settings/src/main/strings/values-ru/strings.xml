@@ -136,6 +136,15 @@
     <string name="bypass_image_region_restrictions_summary">Загружает аватары и изображения каналов с хоста, который не заблокирован в вашей стране.</string>
     <string name="disable_chapter_skip_double_tap">Отключить пропуск глав двойным нажатием</string>
     <string name="disable_chapter_skip_double_tap_summary">Двойное нажатие перематывает, а не переходит к следующей главе.</string>
+    <string name="double_tap_seek_forward">Двойное нажатие вперёд</string>
+    <string name="double_tap_seek_back">Двойное нажатие назад</string>
+    <string name="double_tap_seek_youtube">Настройка YouTube</string>
+    <string name="double_tap_seek_5">5 секунд</string>
+    <string name="double_tap_seek_10">10 секунд</string>
+    <string name="double_tap_seek_15">15 секунд</string>
+    <string name="double_tap_seek_20">20 секунд</string>
+    <string name="double_tap_seek_30">30 секунд</string>
+    <string name="double_tap_seek_60">60 секунд</string>
     <string name="haptics_chapters">Без вибрации на главах</string>
     <string name="haptics_precise_seeking">Без вибрации при точной перемотке</string>
     <string name="haptics_seek_undo">Без вибрации при отмене перемотки</string>

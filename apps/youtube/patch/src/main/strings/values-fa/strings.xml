@@ -24,6 +24,8 @@
     <string name="disable_double_tap_actions_description">دو ضربه روی پخش‌کننده به‌جای رفتن به فصل بعدی، ویدیو را جلو یا عقب می‌برد.</string>
     <string name="disable_haptic_feedback">غیرفعال کردن بازخورد لمسی</string>
     <string name="disable_haptic_feedback_description">لرزش پخش‌کننده هنگام فصل‌ها، جابه‌جایی و بزرگ‌نمایی را متوقف می‌کند.</string>
+    <string name="double_tap_seek_length">مقدار پرش با دو ضربه</string>
+    <string name="double_tap_seek_length_description">مقدار پرش جلو و عقب با دو ضربه را جداگانه تعیین می‌کند.</string>
     <string name="download_shorts">بارگیری Shorts</string>
     <string name="download_shorts_description">گزینهٔ «بارگیری» را به منوهای Shorts اضافه می‌کند.</string>
     <string name="external_downloader">بارگیرندهٔ خارجی</string>

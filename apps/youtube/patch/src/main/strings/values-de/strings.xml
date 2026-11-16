@@ -24,6 +24,8 @@
     <string name="disable_double_tap_actions_description">Doppeltippen auf den Player spult, statt zum nächsten Kapitel zu springen.</string>
     <string name="disable_haptic_feedback">Haptisches Feedback deaktivieren</string>
     <string name="disable_haptic_feedback_description">Verhindert, dass der Player bei Kapiteln, beim Spulen und beim Zoomen vibriert.</string>
+    <string name="double_tap_seek_length">Sprungweite beim Doppeltippen</string>
+    <string name="double_tap_seek_length_description">Legt getrennt fest, wie weit Doppeltippen vor- und zurückspringt.</string>
     <string name="download_shorts">Shorts herunterladen</string>
     <string name="download_shorts_description">Fügt den Menüs von Shorts „Herunterladen“ hinzu.</string>
     <string name="external_downloader">Externer Downloader</string>

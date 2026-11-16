@@ -136,6 +136,15 @@
     <string name="bypass_image_region_restrictions_summary">โหลดรูปโปรไฟล์และรูปภาพช่องจากโฮสต์ที่ไม่ถูกบล็อกในประเทศของคุณ</string>
     <string name="disable_chapter_skip_double_tap">ปิดการข้ามบทด้วยการแตะสองครั้ง</string>
     <string name="disable_chapter_skip_double_tap_summary">การแตะสองครั้งจะเลื่อนเวลาแทนการข้ามไปบทถัดไป</string>
+    <string name="double_tap_seek_forward">แตะสองครั้งเพื่อไปข้างหน้า</string>
+    <string name="double_tap_seek_back">แตะสองครั้งเพื่อย้อนกลับ</string>
+    <string name="double_tap_seek_youtube">การตั้งค่าของ YouTube</string>
+    <string name="double_tap_seek_5">5 วินาที</string>
+    <string name="double_tap_seek_10">10 วินาที</string>
+    <string name="double_tap_seek_15">15 วินาที</string>
+    <string name="double_tap_seek_20">20 วินาที</string>
+    <string name="double_tap_seek_30">30 วินาที</string>
+    <string name="double_tap_seek_60">60 วินาที</string>
     <string name="haptics_chapters">ไม่สั่นเมื่อเปลี่ยนบท</string>
     <string name="haptics_precise_seeking">ไม่สั่นเมื่อเลื่อนเวลาแบบละเอียด</string>
     <string name="haptics_seek_undo">ไม่สั่นเมื่อเลิกทำการเลื่อนเวลา</string>

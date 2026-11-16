@@ -9,6 +9,19 @@ import app.reseam.patch.settings.choice
 import app.reseam.patch.settings.text
 import app.reseam.patch.settings.toggle
 
+private const val DOUBLE_TAP_SEEK_YOUTUBE = "youtube"
+
+private val doubleTapSeekChoices =
+    listOf(
+        Choice(DOUBLE_TAP_SEEK_YOUTUBE, YouTubeStrings.doubleTapSeekYoutube),
+        Choice("5", YouTubeStrings.doubleTapSeek5),
+        Choice("10", YouTubeStrings.doubleTapSeek10),
+        Choice("15", YouTubeStrings.doubleTapSeek15),
+        Choice("20", YouTubeStrings.doubleTapSeek20),
+        Choice("30", YouTubeStrings.doubleTapSeek30),
+        Choice("60", YouTubeStrings.doubleTapSeek60),
+    )
+
 object PlayerControlsSettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
     val swipeBrightness by toggle(default = true)
     val swipeVolume by toggle(default = true)
@@ -35,6 +48,8 @@ object PlayerControlsSettings : SettingsGroup(YouTubeStrings, YOUTUBE_KEYS) {
     val swipeThreshold by text(default = "30")
     val swipeVolumeSensitivity by text(default = "1")
     val disableChapterSkipDoubleTap by toggle(default = false)
+    val doubleTapSeekForward by choice(default = DOUBLE_TAP_SEEK_YOUTUBE, choices = doubleTapSeekChoices)
+    val doubleTapSeekBack by choice(default = DOUBLE_TAP_SEEK_YOUTUBE, choices = doubleTapSeekChoices)
     val hapticsChapters by toggle(default = false)
     val hapticsPreciseSeeking by toggle(default = false)
     val hapticsSeekUndo by toggle(default = false)

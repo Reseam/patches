@@ -139,6 +139,15 @@
     <string name="bypass_image_region_restrictions_summary">Loads avatars and channel images from a host that is not blocked in your country.</string>
     <string name="disable_chapter_skip_double_tap">Disable chapter skip on double tap</string>
     <string name="disable_chapter_skip_double_tap_summary">Double-tapping seeks instead of jumping to the next chapter.</string>
+    <string name="double_tap_seek_forward">Double-tap forward</string>
+    <string name="double_tap_seek_back">Double-tap back</string>
+    <string name="double_tap_seek_youtube">YouTube\'s setting</string>
+    <string name="double_tap_seek_5">5 seconds</string>
+    <string name="double_tap_seek_10">10 seconds</string>
+    <string name="double_tap_seek_15">15 seconds</string>
+    <string name="double_tap_seek_20">20 seconds</string>
+    <string name="double_tap_seek_30">30 seconds</string>
+    <string name="double_tap_seek_60">60 seconds</string>
     <string name="haptics_chapters">No haptics for chapters</string>
     <string name="haptics_precise_seeking">No haptics for precise seeking</string>
     <string name="haptics_seek_undo">No haptics for seek undo</string>

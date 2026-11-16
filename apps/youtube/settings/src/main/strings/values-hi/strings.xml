@@ -136,6 +136,15 @@
     <string name="bypass_image_region_restrictions_summary">अवतार और चैनल की तस्वीरें ऐसे होस्ट से लोड करता है जो आपके देश में ब्लॉक नहीं है।</string>
     <string name="disable_chapter_skip_double_tap">दो बार टैप पर चैप्टर छोड़ना बंद करें</string>
     <string name="disable_chapter_skip_double_tap_summary">दो बार टैप करने से वीडियो अगले चैप्टर पर जाने के बजाय आगे-पीछे होता है।</string>
+    <string name="double_tap_seek_forward">दो बार टैप से आगे</string>
+    <string name="double_tap_seek_back">दो बार टैप से पीछे</string>
+    <string name="double_tap_seek_youtube">YouTube की सेटिंग</string>
+    <string name="double_tap_seek_5">5 सेकंड</string>
+    <string name="double_tap_seek_10">10 सेकंड</string>
+    <string name="double_tap_seek_15">15 सेकंड</string>
+    <string name="double_tap_seek_20">20 सेकंड</string>
+    <string name="double_tap_seek_30">30 सेकंड</string>
+    <string name="double_tap_seek_60">60 सेकंड</string>
     <string name="haptics_chapters">चैप्टर पर वाइब्रेशन नहीं</string>
     <string name="haptics_precise_seeking">बारीक आगे-पीछे करने पर वाइब्रेशन नहीं</string>
     <string name="haptics_seek_undo">आगे-पीछे करना वापस लेने पर वाइब्रेशन नहीं</string>

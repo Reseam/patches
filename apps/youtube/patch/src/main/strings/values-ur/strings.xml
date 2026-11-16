@@ -24,6 +24,8 @@
     <string name="disable_double_tap_actions_description">پلیئر پر ڈبل ٹیپ کرنے سے اگلے چیپٹر پر جانے کے بجائے سیک ہوتا ہے۔</string>
     <string name="disable_haptic_feedback">ہیپٹک فیڈبیک غیر فعال کریں</string>
     <string name="disable_haptic_feedback_description">چیپٹرز، سیک اور زوم پر پلیئر کو وائبریٹ ہونے سے روکتا ہے۔</string>
+    <string name="double_tap_seek_length">ڈبل ٹیپ سیک کی مدت</string>
+    <string name="double_tap_seek_length_description">ڈبل ٹیپ پر آگے اور پیچھے جانے کی مدت الگ الگ طے کرتا ہے۔</string>
     <string name="download_shorts">Shorts ڈاؤن لوڈ کریں</string>
     <string name="download_shorts_description">Shorts کے مینوز میں ڈاؤن لوڈ شامل کرتا ہے۔</string>
     <string name="external_downloader">بیرونی ڈاؤن لوڈر</string>

@@ -136,6 +136,15 @@
     <string name="bypass_image_region_restrictions_summary">내 국가에서 차단되지 않은 호스트에서 프로필 사진과 채널 이미지를 불러옵니다.</string>
     <string name="disable_chapter_skip_double_tap">두 번 탭 챕터 건너뛰기 사용 중지</string>
     <string name="disable_chapter_skip_double_tap_summary">두 번 탭하면 다음 챕터로 이동하지 않고 탐색합니다.</string>
+    <string name="double_tap_seek_forward">두 번 탭 앞으로</string>
+    <string name="double_tap_seek_back">두 번 탭 뒤로</string>
+    <string name="double_tap_seek_youtube">YouTube 설정</string>
+    <string name="double_tap_seek_5">5초</string>
+    <string name="double_tap_seek_10">10초</string>
+    <string name="double_tap_seek_15">15초</string>
+    <string name="double_tap_seek_20">20초</string>
+    <string name="double_tap_seek_30">30초</string>
+    <string name="double_tap_seek_60">60초</string>
     <string name="haptics_chapters">챕터 진동 끄기</string>
     <string name="haptics_precise_seeking">정밀 탐색 진동 끄기</string>
     <string name="haptics_seek_undo">탐색 취소 진동 끄기</string>

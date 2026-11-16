@@ -136,6 +136,15 @@
     <string name="bypass_image_region_restrictions_summary">Carga los avatares y las imágenes de canal desde un servidor que no está bloqueado en tu país.</string>
     <string name="disable_chapter_skip_double_tap">Desactivar salto de capítulo con doble toque</string>
     <string name="disable_chapter_skip_double_tap_summary">Tocar dos veces avanza o retrocede en lugar de saltar al capítulo siguiente.</string>
+    <string name="double_tap_seek_forward">Doble toque hacia adelante</string>
+    <string name="double_tap_seek_back">Doble toque hacia atrás</string>
+    <string name="double_tap_seek_youtube">Ajuste de YouTube</string>
+    <string name="double_tap_seek_5">5 segundos</string>
+    <string name="double_tap_seek_10">10 segundos</string>
+    <string name="double_tap_seek_15">15 segundos</string>
+    <string name="double_tap_seek_20">20 segundos</string>
+    <string name="double_tap_seek_30">30 segundos</string>
+    <string name="double_tap_seek_60">60 segundos</string>
     <string name="haptics_chapters">Sin vibración en capítulos</string>
     <string name="haptics_precise_seeking">Sin vibración al buscar con precisión</string>
     <string name="haptics_seek_undo">Sin vibración al deshacer un salto</string>

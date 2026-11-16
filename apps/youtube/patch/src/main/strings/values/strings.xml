@@ -24,6 +24,8 @@
     <string name="disable_double_tap_actions_description">Double-tapping the player seeks instead of jumping to the next chapter.</string>
     <string name="disable_haptic_feedback">Disable haptic feedback</string>
     <string name="disable_haptic_feedback_description">Stops the player from vibrating on chapters, seeking and zoom.</string>
+    <string name="double_tap_seek_length">Double-tap seek length</string>
+    <string name="double_tap_seek_length_description">Sets how far a double tap skips forward and back, each on its own.</string>
     <string name="download_shorts">Download Shorts</string>
     <string name="download_shorts_description">Adds Download to the menus of Shorts.</string>
     <string name="external_downloader">External downloader</string>

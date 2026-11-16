@@ -24,6 +24,8 @@
     <string name="disable_double_tap_actions_description">O toque duplo no player avança o vídeo em vez de pular para o próximo capítulo.</string>
     <string name="disable_haptic_feedback">Desativar resposta tátil</string>
     <string name="disable_haptic_feedback_description">Impede que o player vibre nos capítulos, ao avançar e no zoom.</string>
+    <string name="double_tap_seek_length">Duração do pulo com toque duplo</string>
+    <string name="double_tap_seek_length_description">Define separadamente quanto o toque duplo avança e volta.</string>
     <string name="download_shorts">Baixar Shorts</string>
     <string name="download_shorts_description">Adiciona Baixar aos menus dos Shorts.</string>
     <string name="external_downloader">App de download externo</string>

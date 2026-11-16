@@ -24,6 +24,8 @@
     <string name="disable_double_tap_actions_description">플레이어를 두 번 탭하면 다음 챕터로 이동하지 않고 탐색합니다.</string>
     <string name="disable_haptic_feedback">햅틱 반응 사용 중지</string>
     <string name="disable_haptic_feedback_description">챕터, 탐색, 확대/축소 때 플레이어가 진동하지 않게 합니다.</string>
+    <string name="double_tap_seek_length">두 번 탭 이동 길이</string>
+    <string name="double_tap_seek_length_description">두 번 탭으로 앞으로 및 뒤로 이동하는 길이를 각각 설정합니다.</string>
     <string name="download_shorts">Shorts 다운로드</string>
     <string name="download_shorts_description">Shorts 메뉴에 \'다운로드\'를 추가합니다.</string>
     <string name="external_downloader">외부 다운로더</string>

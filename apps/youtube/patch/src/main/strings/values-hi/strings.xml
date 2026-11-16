@@ -24,6 +24,8 @@
     <string name="disable_double_tap_actions_description">प्लेयर पर दो बार टैप करने से वीडियो अगले चैप्टर पर जाने के बजाय आगे-पीछे होता है।</string>
     <string name="disable_haptic_feedback">वाइब्रेशन बंद करें</string>
     <string name="disable_haptic_feedback_description">चैप्टर, आगे-पीछे करने और ज़ूम पर प्लेयर का वाइब्रेट होना रोकता है।</string>
+    <string name="double_tap_seek_length">दो बार टैप पर सीक की दूरी</string>
+    <string name="double_tap_seek_length_description">दो बार टैप करने पर आगे और पीछे कितना जाना है, अलग-अलग तय करता है।</string>
     <string name="download_shorts">Shorts डाउनलोड करें</string>
     <string name="download_shorts_description">Shorts के मेन्यू में डाउनलोड जोड़ता है।</string>
     <string name="external_downloader">बाहरी डाउनलोडर</string>

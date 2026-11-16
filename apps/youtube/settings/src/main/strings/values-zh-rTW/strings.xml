@@ -136,6 +136,15 @@
     <string name="bypass_image_region_restrictions_summary">從在你所在國家/地區未遭封鎖的網域載入頭像和頻道圖片。</string>
     <string name="disable_chapter_skip_double_tap">停用輕觸兩下略過章節</string>
     <string name="disable_chapter_skip_double_tap_summary">輕觸兩下時快轉或倒轉，而不是跳到下一章節。</string>
+    <string name="double_tap_seek_forward">輕觸兩下快轉</string>
+    <string name="double_tap_seek_back">輕觸兩下倒轉</string>
+    <string name="double_tap_seek_youtube">YouTube 的設定</string>
+    <string name="double_tap_seek_5">5 秒</string>
+    <string name="double_tap_seek_10">10 秒</string>
+    <string name="double_tap_seek_15">15 秒</string>
+    <string name="double_tap_seek_20">20 秒</string>
+    <string name="double_tap_seek_30">30 秒</string>
+    <string name="double_tap_seek_60">60 秒</string>
     <string name="haptics_chapters">章節不震動</string>
     <string name="haptics_precise_seeking">精確跳轉不震動</string>
     <string name="haptics_seek_undo">復原跳轉不震動</string>

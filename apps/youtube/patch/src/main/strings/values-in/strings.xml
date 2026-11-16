@@ -24,6 +24,8 @@
     <string name="disable_double_tap_actions_description">Mengetuk dua kali pemutar akan melompat maju atau mundur, bukan ke bab berikutnya.</string>
     <string name="disable_haptic_feedback">Nonaktifkan respons haptik</string>
     <string name="disable_haptic_feedback_description">Mencegah pemutar bergetar pada bab, saat melompat, dan saat zoom.</string>
+    <string name="double_tap_seek_length">Jarak lompat ketuk dua kali</string>
+    <string name="double_tap_seek_length_description">Mengatur seberapa jauh ketuk dua kali melompat maju dan mundur, masing-masing terpisah.</string>
     <string name="download_shorts">Download Shorts</string>
     <string name="download_shorts_description">Menambahkan Download ke menu Shorts.</string>
     <string name="external_downloader">Downloader eksternal</string>

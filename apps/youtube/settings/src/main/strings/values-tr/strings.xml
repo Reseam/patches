@@ -136,6 +136,15 @@
     <string name="bypass_image_region_restrictions_summary">Profil resimlerini ve kanal görsellerini ülkenizde engellenmemiş bir sunucudan yükler.</string>
     <string name="disable_chapter_skip_double_tap">Çift dokunmada bölüm atlamayı kapat</string>
     <string name="disable_chapter_skip_double_tap_summary">Çift dokunmak sonraki bölüme atlamak yerine ileri veya geri sarar.</string>
+    <string name="double_tap_seek_forward">Çift dokunarak ileri</string>
+    <string name="double_tap_seek_back">Çift dokunarak geri</string>
+    <string name="double_tap_seek_youtube">YouTube ayarı</string>
+    <string name="double_tap_seek_5">5 saniye</string>
+    <string name="double_tap_seek_10">10 saniye</string>
+    <string name="double_tap_seek_15">15 saniye</string>
+    <string name="double_tap_seek_20">20 saniye</string>
+    <string name="double_tap_seek_30">30 saniye</string>
+    <string name="double_tap_seek_60">60 saniye</string>
     <string name="haptics_chapters">Bölümler için titreşim yok</string>
     <string name="haptics_precise_seeking">Hassas sarma için titreşim yok</string>
     <string name="haptics_seek_undo">Sarmayı geri alma için titreşim yok</string>

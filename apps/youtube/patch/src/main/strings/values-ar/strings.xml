@@ -24,6 +24,8 @@
     <string name="disable_double_tap_actions_description">النقر مرتين على المشغّل يقدّم الفيديو أو يرجعه بدلًا من الانتقال إلى الفصل التالي.</string>
     <string name="disable_haptic_feedback">تعطيل الاهتزاز عند اللمس</string>
     <string name="disable_haptic_feedback_description">يمنع المشغّل من الاهتزاز عند الفصول والتنقل والتكبير.</string>
+    <string name="double_tap_seek_length">مدة القفز بالنقر مرتين</string>
+    <string name="double_tap_seek_length_description">يحدد مقدار القفز للأمام وللخلف عند النقر مرتين، كلٌّ على حدة.</string>
     <string name="download_shorts">تنزيل Shorts</string>
     <string name="download_shorts_description">يضيف «تنزيل» إلى قوائم Shorts.</string>
     <string name="external_downloader">أداة تنزيل خارجية</string>

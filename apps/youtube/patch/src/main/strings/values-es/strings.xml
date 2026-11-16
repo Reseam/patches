@@ -24,6 +24,8 @@
     <string name="disable_double_tap_actions_description">Tocar dos veces el reproductor avanza o retrocede en lugar de saltar al capítulo siguiente.</string>
     <string name="disable_haptic_feedback">Desactivar vibración</string>
     <string name="disable_haptic_feedback_description">Evita que el reproductor vibre en los capítulos, al avanzar o retroceder y al hacer zoom.</string>
+    <string name="double_tap_seek_length">Duración del salto con doble toque</string>
+    <string name="double_tap_seek_length_description">Define por separado cuánto avanza y retrocede un doble toque.</string>
     <string name="download_shorts">Descargar Shorts</string>
     <string name="download_shorts_description">Añade Descargar a los menús de los Shorts.</string>
     <string name="external_downloader">Descargador externo</string>

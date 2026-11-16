@@ -136,6 +136,15 @@
     <string name="bypass_image_region_restrictions_summary">Lädt Avatare und Kanalbilder von einem Host, der in deinem Land nicht gesperrt ist.</string>
     <string name="disable_chapter_skip_double_tap">Kapitel-Überspringen beim Doppeltippen deaktivieren</string>
     <string name="disable_chapter_skip_double_tap_summary">Doppeltippen spult, statt zum nächsten Kapitel zu springen.</string>
+    <string name="double_tap_seek_forward">Doppeltippen vorwärts</string>
+    <string name="double_tap_seek_back">Doppeltippen zurück</string>
+    <string name="double_tap_seek_youtube">YouTube-Einstellung</string>
+    <string name="double_tap_seek_5">5 Sekunden</string>
+    <string name="double_tap_seek_10">10 Sekunden</string>
+    <string name="double_tap_seek_15">15 Sekunden</string>
+    <string name="double_tap_seek_20">20 Sekunden</string>
+    <string name="double_tap_seek_30">30 Sekunden</string>
+    <string name="double_tap_seek_60">60 Sekunden</string>
     <string name="haptics_chapters">Keine Haptik bei Kapiteln</string>
     <string name="haptics_precise_seeking">Keine Haptik beim genauen Spulen</string>
     <string name="haptics_seek_undo">Keine Haptik beim Rückgängigmachen eines Sprungs</string>

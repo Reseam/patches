@@ -24,6 +24,8 @@
     <string name="disable_double_tap_actions_description">プレーヤーをダブルタップすると、次のチャプターへ移動せずにシークします。</string>
     <string name="disable_haptic_feedback">触覚フィードバックを無効にする</string>
     <string name="disable_haptic_feedback_description">チャプター、シーク、ズームでプレーヤーが振動しないようにします。</string>
+    <string name="double_tap_seek_length">ダブルタップのシーク幅</string>
+    <string name="double_tap_seek_length_description">ダブルタップで進む秒数と戻る秒数を別々に設定します。</string>
     <string name="download_shorts">ショートをダウンロード</string>
     <string name="download_shorts_description">ショートのメニューに「ダウンロード」を追加します。</string>
     <string name="external_downloader">外部ダウンローダー</string>

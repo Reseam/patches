@@ -136,6 +136,15 @@
     <string name="bypass_image_region_restrictions_summary">Memuat avatar dan gambar channel dari host yang tidak diblokir di negara Anda.</string>
     <string name="disable_chapter_skip_double_tap">Nonaktifkan lewati bab dengan ketuk dua kali</string>
     <string name="disable_chapter_skip_double_tap_summary">Mengetuk dua kali akan melompat maju atau mundur, bukan ke bab berikutnya.</string>
+    <string name="double_tap_seek_forward">Ketuk dua kali maju</string>
+    <string name="double_tap_seek_back">Ketuk dua kali mundur</string>
+    <string name="double_tap_seek_youtube">Setelan YouTube</string>
+    <string name="double_tap_seek_5">5 detik</string>
+    <string name="double_tap_seek_10">10 detik</string>
+    <string name="double_tap_seek_15">15 detik</string>
+    <string name="double_tap_seek_20">20 detik</string>
+    <string name="double_tap_seek_30">30 detik</string>
+    <string name="double_tap_seek_60">60 detik</string>
     <string name="haptics_chapters">Tanpa haptik untuk bab</string>
     <string name="haptics_precise_seeking">Tanpa haptik untuk lompat presisi</string>
     <string name="haptics_seek_undo">Tanpa haptik untuk urungkan lompatan</string>

@@ -136,6 +136,15 @@
     <string name="bypass_image_region_restrictions_summary">Carica avatar e immagini dei canali da un host non bloccato nel tuo paese.</string>
     <string name="disable_chapter_skip_double_tap">Disattiva il salto di capitolo al doppio tocco</string>
     <string name="disable_chapter_skip_double_tap_summary">Il doppio tocco va avanti o indietro invece di passare al capitolo successivo.</string>
+    <string name="double_tap_seek_forward">Doppio tocco in avanti</string>
+    <string name="double_tap_seek_back">Doppio tocco indietro</string>
+    <string name="double_tap_seek_youtube">Impostazione di YouTube</string>
+    <string name="double_tap_seek_5">5 secondi</string>
+    <string name="double_tap_seek_10">10 secondi</string>
+    <string name="double_tap_seek_15">15 secondi</string>
+    <string name="double_tap_seek_20">20 secondi</string>
+    <string name="double_tap_seek_30">30 secondi</string>
+    <string name="double_tap_seek_60">60 secondi</string>
     <string name="haptics_chapters">Nessuna vibrazione sui capitoli</string>
     <string name="haptics_precise_seeking">Nessuna vibrazione nello scorrimento preciso</string>
     <string name="haptics_seek_undo">Nessuna vibrazione quando annulli un salto</string>

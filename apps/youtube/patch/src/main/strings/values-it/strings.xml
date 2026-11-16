@@ -24,6 +24,8 @@
     <string name="disable_double_tap_actions_description">Il doppio tocco sul player va avanti o indietro invece di passare al capitolo successivo.</string>
     <string name="disable_haptic_feedback">Disattiva il feedback aptico</string>
     <string name="disable_haptic_feedback_description">Impedisce al player di vibrare sui capitoli, durante lo scorrimento del video e lo zoom.</string>
+    <string name="double_tap_seek_length">Durata del salto al doppio tocco</string>
+    <string name="double_tap_seek_length_description">Imposta separatamente di quanto il doppio tocco salta avanti e indietro.</string>
     <string name="download_shorts">Scarica gli Shorts</string>
     <string name="download_shorts_description">Aggiunge Scarica ai menu degli Shorts.</string>
     <string name="external_downloader">Downloader esterno</string>

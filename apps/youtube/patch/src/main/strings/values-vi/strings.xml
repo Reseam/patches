@@ -24,6 +24,8 @@
     <string name="disable_double_tap_actions_description">Nhấn đúp vào trình phát sẽ tua thay vì chuyển sang chương tiếp theo.</string>
     <string name="disable_haptic_feedback">Tắt phản hồi xúc giác</string>
     <string name="disable_haptic_feedback_description">Ngăn trình phát rung khi chuyển chương, tua và thu phóng.</string>
+    <string name="double_tap_seek_length">Độ dài tua khi nhấn đúp</string>
+    <string name="double_tap_seek_length_description">Đặt riêng mức tua tới và tua lại khi nhấn đúp.</string>
     <string name="download_shorts">Tải xuống Shorts</string>
     <string name="download_shorts_description">Thêm Tải xuống vào trình đơn của Shorts.</string>
     <string name="external_downloader">Trình tải xuống bên ngoài</string>

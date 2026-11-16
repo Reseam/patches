@@ -136,6 +136,15 @@
     <string name="bypass_image_region_restrictions_summary">Carrega os avatares e as imagens de canais de um host que não é bloqueado no seu país.</string>
     <string name="disable_chapter_skip_double_tap">Desativar pulo de capítulo com toque duplo</string>
     <string name="disable_chapter_skip_double_tap_summary">O toque duplo avança o vídeo em vez de pular para o próximo capítulo.</string>
+    <string name="double_tap_seek_forward">Toque duplo para avançar</string>
+    <string name="double_tap_seek_back">Toque duplo para voltar</string>
+    <string name="double_tap_seek_youtube">Configuração do YouTube</string>
+    <string name="double_tap_seek_5">5 segundos</string>
+    <string name="double_tap_seek_10">10 segundos</string>
+    <string name="double_tap_seek_15">15 segundos</string>
+    <string name="double_tap_seek_20">20 segundos</string>
+    <string name="double_tap_seek_30">30 segundos</string>
+    <string name="double_tap_seek_60">60 segundos</string>
     <string name="haptics_chapters">Sem resposta tátil nos capítulos</string>
     <string name="haptics_precise_seeking">Sem resposta tátil no avanço preciso</string>
     <string name="haptics_seek_undo">Sem resposta tátil ao desfazer o avanço</string>

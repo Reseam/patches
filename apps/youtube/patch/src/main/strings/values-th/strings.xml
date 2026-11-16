@@ -24,6 +24,8 @@
     <string name="disable_double_tap_actions_description">การแตะโปรแกรมเล่นสองครั้งจะเลื่อนเวลาแทนการข้ามไปบทถัดไป</string>
     <string name="disable_haptic_feedback">ปิดการสั่นตอบสนอง</string>
     <string name="disable_haptic_feedback_description">หยุดโปรแกรมเล่นไม่ให้สั่นเมื่อเปลี่ยนบท เลื่อนเวลา และซูม</string>
+    <string name="double_tap_seek_length">ระยะการข้ามเมื่อแตะสองครั้ง</string>
+    <string name="double_tap_seek_length_description">กำหนดแยกกันว่าการแตะสองครั้งจะข้ามไปข้างหน้าและย้อนกลับเท่าใด</string>
     <string name="download_shorts">ดาวน์โหลด Shorts</string>
     <string name="download_shorts_description">เพิ่ม \"ดาวน์โหลด\" ในเมนูของ Shorts</string>
     <string name="external_downloader">ตัวดาวน์โหลดภายนอก</string>
