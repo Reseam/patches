@@ -21,6 +21,7 @@ import app.reseam.patch.skipWhen
 import app.reseam.patches.twitch.TwitchPatchStrings
 import app.reseam.patches.twitch.core.TWITCH
 import app.reseam.patches.twitch.core.TwitchSettingsPages
+import app.reseam.patches.twitch.core.overlayActionButtons
 import app.reseam.patches.twitch.core.settingsRowCall
 import app.reseam.patches.twitch.core.twitchSettings
 import app.reseam.twitch.bindings.Upsells
@@ -61,6 +62,8 @@ val hideSubscriptionUpsells = patch(TwitchPatchStrings.hideSubscriptionUpsells) 
             giftButton.alwaysReturnNull()
             listOf(subscribeButton, promoSubscribeButton).forEach { it.before { whenFalse(Upsells.isSubscribed(param(0))) { returnNull() } } }
             ownProfileActions.setArgument(0, "profile.turboStatus.hasActiveTurbo", true)
+            // The landscape chat overlay shows its Subscribe, Gift a Sub and Upgrade Sub buttons only for channels with sub products.
+            overlayActionButtons.setArgument(0, "hasSubProducts", false)
             log.info("Hid Subscribe, Gift a Sub, the Turbo offers at app start and in settings, and ${turboButtons.size} native Turbo buttons")
         }
     }
