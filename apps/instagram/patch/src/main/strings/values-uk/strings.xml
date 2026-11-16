@@ -50,6 +50,8 @@
     <string name="ghost_mode_description">Приховує від інших, що ви друкуєте, читаєте, переглядаєте історії й робите знімки екрана. Instagram може блокувати акаунти, які цим користуються.</string>
     <string name="hide_threads_badge">Приховати значок Threads</string>
     <string name="hide_threads_badge_description">Приховує значок і посилання Threads у профілях.</string>
+    <string name="hide_profile_suggestions">Приховати рекомендовані акаунти в профілях</string>
+    <string name="hide_profile_suggestions_description">Приховує «Знайти людей» у вашому профілі та «Рекомендовано для вас» в інших.</string>
     <string name="disable_double_tap_like">Вимкнути вподобання подвійним дотиком</string>
     <string name="disable_double_tap_like_description">Подвійний дотик більше не вподобає дописи, Reels, коментарі й повідомлення.</string>
     <string name="disable_reels_swiping">Вимкнути гортання Reels</string>

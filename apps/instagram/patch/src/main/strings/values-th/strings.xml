@@ -50,6 +50,8 @@
     <string name="ghost_mode_description">ซ่อนการพิมพ์ การอ่าน การดูสตอรี่ และการจับภาพหน้าจอของคุณจากผู้อื่น Instagram อาจแบนบัญชีที่ใช้ฟีเจอร์นี้</string>
     <string name="hide_threads_badge">ซ่อนป้าย Threads</string>
     <string name="hide_threads_badge_description">ซ่อนป้ายและลิงก์ Threads ในโปรไฟล์</string>
+    <string name="hide_profile_suggestions">ซ่อนบัญชีแนะนำบนโปรไฟล์</string>
+    <string name="hide_profile_suggestions_description">ซ่อน ค้นพบผู้คน บนโปรไฟล์ของคุณ และ แนะนำสำหรับคุณ บนโปรไฟล์อื่น</string>
     <string name="disable_double_tap_like">ปิดการแตะสองครั้งเพื่อถูกใจ</string>
     <string name="disable_double_tap_like_description">ป้องกันไม่ให้การแตะสองครั้งกดถูกใจโพสต์ Reels ความคิดเห็น และข้อความ</string>
     <string name="disable_reels_swiping">ปิดการปัด Reels</string>

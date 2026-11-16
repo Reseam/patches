@@ -64,6 +64,8 @@
     <string name="hide_instants">Masquer les Instants</string>
     <string name="hide_instants_summary">Masque la pile d’Instants dans la boîte de réception.</string>
     <string name="hide_threads_badge">Masquer le badge Threads</string>
+    <string name="hide_profile_suggestions">Masquer les comptes suggérés sur les profils</string>
+    <string name="hide_profile_suggestions_summary">Masque Découvrir des personnes sur votre profil et Suggestions pour vous sur les autres.</string>
     <string name="first_tab">Premier onglet</string>
     <string name="second_tab">Deuxième onglet</string>
     <string name="third_tab">Troisième onglet</string>

@@ -64,6 +64,8 @@
     <string name="hide_instants">Instants\'ı gizle</string>
     <string name="hide_instants_summary">Gelen kutusundaki Instants yığınını gizler.</string>
     <string name="hide_threads_badge">Threads rozetini gizle</string>
+    <string name="hide_profile_suggestions">Profillerde önerilen hesapları gizle</string>
+    <string name="hide_profile_suggestions_summary">Profilinizdeki Kişileri keşfet ve diğer profillerdeki Senin için öneriler bölümlerini gizler.</string>
     <string name="first_tab">Birinci sekme</string>
     <string name="second_tab">İkinci sekme</string>
     <string name="third_tab">Üçüncü sekme</string>

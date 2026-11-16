@@ -64,6 +64,8 @@
     <string name="hide_instants">Приховати Instants</string>
     <string name="hide_instants_summary">Приховує стос Instants у вхідних.</string>
     <string name="hide_threads_badge">Приховати значок Threads</string>
+    <string name="hide_profile_suggestions">Приховати рекомендовані акаунти в профілях</string>
+    <string name="hide_profile_suggestions_summary">Приховує «Знайти людей» у вашому профілі та «Рекомендовано для вас» в інших.</string>
     <string name="first_tab">Перша вкладка</string>
     <string name="second_tab">Друга вкладка</string>
     <string name="third_tab">Третя вкладка</string>

@@ -50,6 +50,8 @@
     <string name="ghost_mode_description">Cache aux autres votre saisie, vos lectures, vos vues de stories et vos captures d’écran. Instagram peut bannir les comptes qui l’utilisent.</string>
     <string name="hide_threads_badge">Masquer le badge Threads</string>
     <string name="hide_threads_badge_description">Masque le badge et le lien Threads sur les profils.</string>
+    <string name="hide_profile_suggestions">Masquer les comptes suggérés sur les profils</string>
+    <string name="hide_profile_suggestions_description">Masque Découvrir des personnes sur votre profil et Suggestions pour vous sur les autres.</string>
     <string name="disable_double_tap_like">Désactiver le double appui pour aimer</string>
     <string name="disable_double_tap_like_description">Empêche un double appui d’aimer les publications, les Reels, les commentaires et les messages.</string>
     <string name="disable_reels_swiping">Désactiver le balayage des Reels</string>

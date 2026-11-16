@@ -64,6 +64,8 @@
     <string name="hide_instants">Ocultar Instants</string>
     <string name="hide_instants_summary">Oculta la pila de Instants en la bandeja de entrada.</string>
     <string name="hide_threads_badge">Ocultar insignia de Threads</string>
+    <string name="hide_profile_suggestions">Ocultar cuentas sugeridas en perfiles</string>
+    <string name="hide_profile_suggestions_summary">Oculta Descubrir personas en tu perfil y Sugerencias para ti en los demás.</string>
     <string name="first_tab">Primera pestaña</string>
     <string name="second_tab">Segunda pestaña</string>
     <string name="third_tab">Tercera pestaña</string>

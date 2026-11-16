@@ -103,6 +103,7 @@ object AppearanceSettings : SettingsGroup(InstagramStrings) {
     val hideExploreGrid by toggle(default = false, icon = Vector.lucide("compass"))
     val hideInstants by toggle(default = false, icon = Vector.lucide("layers"))
     val hideThreadsBadge by toggle(default = true, icon = Vector.lucide("at-sign"))
+    val hideProfileSuggestions by toggle(default = false, icon = Vector.lucide("user-x"))
 }
 
 object NavigationSettings : SettingsGroup(InstagramStrings) {

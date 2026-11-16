@@ -64,6 +64,8 @@
     <string name="hide_instants">Ukryj Instants</string>
     <string name="hide_instants_summary">Ukrywa stos Instants w skrzynce odbiorczej.</string>
     <string name="hide_threads_badge">Ukryj odznakę Threads</string>
+    <string name="hide_profile_suggestions">Ukryj proponowane konta na profilach</string>
+    <string name="hide_profile_suggestions_summary">Ukrywa Odkrywaj osoby na twoim profilu i Propozycje dla ciebie na innych.</string>
     <string name="first_tab">Pierwsza karta</string>
     <string name="second_tab">Druga karta</string>
     <string name="third_tab">Trzecia karta</string>

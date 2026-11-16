@@ -64,6 +64,8 @@
     <string name="hide_instants">Instants 숨기기</string>
     <string name="hide_instants_summary">받은 메시지함의 Instants 묶음을 숨깁니다.</string>
     <string name="hide_threads_badge">Threads 배지 숨기기</string>
+    <string name="hide_profile_suggestions">프로필의 추천 계정 숨기기</string>
+    <string name="hide_profile_suggestions_summary">내 프로필의 사람 찾아보기와 다른 프로필의 회원님을 위한 추천을 숨깁니다.</string>
     <string name="first_tab">첫 번째 탭</string>
     <string name="second_tab">두 번째 탭</string>
     <string name="third_tab">세 번째 탭</string>

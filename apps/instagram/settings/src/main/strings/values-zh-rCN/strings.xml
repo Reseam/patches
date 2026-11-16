@@ -64,6 +64,8 @@
     <string name="hide_instants">隐藏 Instants</string>
     <string name="hide_instants_summary">隐藏收件箱中的 Instants 堆叠。</string>
     <string name="hide_threads_badge">隐藏 Threads 徽章</string>
+    <string name="hide_profile_suggestions">隐藏主页上的推荐帐户</string>
+    <string name="hide_profile_suggestions_summary">隐藏你主页上的发现用户和他人主页上的为你推荐。</string>
     <string name="first_tab">第一个标签页</string>
     <string name="second_tab">第二个标签页</string>
     <string name="third_tab">第三个标签页</string>

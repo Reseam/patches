@@ -64,6 +64,8 @@
     <string name="hide_instants">Скрыть Instants</string>
     <string name="hide_instants_summary">Скрывает стопку Instants во входящих.</string>
     <string name="hide_threads_badge">Скрыть значок Threads</string>
+    <string name="hide_profile_suggestions">Скрыть рекомендуемые аккаунты в профилях</string>
+    <string name="hide_profile_suggestions_summary">Скрывает «Интересные люди» в вашем профиле и «Рекомендации для вас» в других.</string>
     <string name="first_tab">Первая вкладка</string>
     <string name="second_tab">Вторая вкладка</string>
     <string name="third_tab">Третья вкладка</string>

@@ -64,6 +64,8 @@
     <string name="hide_instants">Instants を非表示</string>
     <string name="hide_instants_summary">受信箱の Instants の重なりを非表示にします。</string>
     <string name="hide_threads_badge">Threads バッジを非表示</string>
+    <string name="hide_profile_suggestions">プロフィールのおすすめアカウントを非表示</string>
+    <string name="hide_profile_suggestions_summary">自分のプロフィールの「人を見つける」と、他の人のプロフィールの「おすすめ」を非表示にします。</string>
     <string name="first_tab">1 番目のタブ</string>
     <string name="second_tab">2 番目のタブ</string>
     <string name="third_tab">3 番目のタブ</string>

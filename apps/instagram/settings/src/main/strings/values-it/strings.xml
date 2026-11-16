@@ -64,6 +64,8 @@
     <string name="hide_instants">Nascondi gli Instants</string>
     <string name="hide_instants_summary">Nasconde la pila di Instants nella posta.</string>
     <string name="hide_threads_badge">Nascondi il badge di Threads</string>
+    <string name="hide_profile_suggestions">Nascondi gli account suggeriti nei profili</string>
+    <string name="hide_profile_suggestions_summary">Nasconde Scopri persone sul tuo profilo e Suggeriti per te sugli altri.</string>
     <string name="first_tab">Prima scheda</string>
     <string name="second_tab">Seconda scheda</string>
     <string name="third_tab">Terza scheda</string>

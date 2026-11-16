@@ -64,6 +64,8 @@
     <string name="hide_instants">隱藏 Instants</string>
     <string name="hide_instants_summary">隱藏收件匣中的 Instants 堆疊。</string>
     <string name="hide_threads_badge">隱藏 Threads 徽章</string>
+    <string name="hide_profile_suggestions">隱藏個人檔案上的推薦帳號</string>
+    <string name="hide_profile_suggestions_summary">隱藏你個人檔案上的探索用戶和他人個人檔案上的為你推薦。</string>
     <string name="first_tab">第一個分頁</string>
     <string name="second_tab">第二個分頁</string>
     <string name="third_tab">第三個分頁</string>

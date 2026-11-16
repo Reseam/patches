@@ -64,6 +64,8 @@
     <string name="hide_instants">Instants छिपाएँ</string>
     <string name="hide_instants_summary">इनबॉक्स में Instants का ढेर छिपाता है।</string>
     <string name="hide_threads_badge">Threads बैज छिपाएँ</string>
+    <string name="hide_profile_suggestions">प्रोफ़ाइल पर सुझाए गए अकाउंट छिपाएँ</string>
+    <string name="hide_profile_suggestions_summary">आपकी प्रोफ़ाइल पर लोगों को खोजें और दूसरों की प्रोफ़ाइल पर आपके लिए सुझाव छिपाता है।</string>
     <string name="first_tab">पहला टैब</string>
     <string name="second_tab">दूसरा टैब</string>
     <string name="third_tab">तीसरा टैब</string>

@@ -64,6 +64,8 @@
     <string name="hide_instants">Ẩn Instants</string>
     <string name="hide_instants_summary">Ẩn ngăn xếp Instants trong hộp thư.</string>
     <string name="hide_threads_badge">Ẩn huy hiệu Threads</string>
+    <string name="hide_profile_suggestions">Ẩn tài khoản đề xuất trên trang cá nhân</string>
+    <string name="hide_profile_suggestions_summary">Ẩn Khám phá mọi người trên trang cá nhân của bạn và Gợi ý cho bạn trên trang của người khác.</string>
     <string name="first_tab">Tab thứ nhất</string>
     <string name="second_tab">Tab thứ hai</string>
     <string name="third_tab">Tab thứ ba</string>

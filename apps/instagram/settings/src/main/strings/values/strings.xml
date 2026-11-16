@@ -68,6 +68,8 @@
     <string name="hide_instants">Hide Instants</string>
     <string name="hide_instants_summary">Hides the Instants stack in the inbox.</string>
     <string name="hide_threads_badge">Hide Threads badge</string>
+    <string name="hide_profile_suggestions">Hide suggested accounts on profiles</string>
+    <string name="hide_profile_suggestions_summary">Hides Discover people on your profile and Suggested for you on others.</string>
     <string name="first_tab">First tab</string>
     <string name="second_tab">Second tab</string>
     <string name="third_tab">Third tab</string>

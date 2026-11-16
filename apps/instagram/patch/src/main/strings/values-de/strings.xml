@@ -50,6 +50,8 @@
     <string name="ghost_mode_description">Verbirgt vor anderen, dass du tippst, liest, Stories ansiehst und Screenshots machst. Instagram kann Konten sperren, die das nutzen.</string>
     <string name="hide_threads_badge">Threads-Abzeichen ausblenden</string>
     <string name="hide_threads_badge_description">Blendet das Threads-Abzeichen und den Link in Profilen aus.</string>
+    <string name="hide_profile_suggestions">Vorgeschlagene Konten auf Profilen ausblenden</string>
+    <string name="hide_profile_suggestions_description">Blendet Personen entdecken auf deinem Profil und Vorschläge für dich auf anderen Profilen aus.</string>
     <string name="disable_double_tap_like">Doppeltippen zum Liken deaktivieren</string>
     <string name="disable_double_tap_like_description">Verhindert, dass Doppeltippen Beiträge, Reels, Kommentare und Nachrichten liket.</string>
     <string name="disable_reels_swiping">Wischen in Reels deaktivieren</string>

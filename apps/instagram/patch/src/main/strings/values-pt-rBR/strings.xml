@@ -50,6 +50,8 @@
     <string name="ghost_mode_description">Oculta dos outros sua digitação, suas leituras, suas visualizações de stories e suas capturas de tela. O Instagram pode banir contas que usam isso.</string>
     <string name="hide_threads_badge">Ocultar selo do Threads</string>
     <string name="hide_threads_badge_description">Oculta o selo e o link do Threads nos perfis.</string>
+    <string name="hide_profile_suggestions">Ocultar contas sugeridas nos perfis</string>
+    <string name="hide_profile_suggestions_description">Oculta Descubra pessoas no seu perfil e Sugestões para você nos outros.</string>
     <string name="disable_double_tap_like">Desativar toque duplo para curtir</string>
     <string name="disable_double_tap_like_description">Impede que um toque duplo curta posts, Reels, comentários e mensagens.</string>
     <string name="disable_reels_swiping">Desativar deslizar no Reels</string>

@@ -64,6 +64,8 @@
     <string name="hide_instants">Sembunyikan Instants</string>
     <string name="hide_instants_summary">Menyembunyikan tumpukan Instants di kotak masuk.</string>
     <string name="hide_threads_badge">Sembunyikan lencana Threads</string>
+    <string name="hide_profile_suggestions">Sembunyikan akun yang disarankan di profil</string>
+    <string name="hide_profile_suggestions_summary">Menyembunyikan Temukan orang di profil Anda dan Disarankan untuk Anda di profil lain.</string>
     <string name="first_tab">Tab pertama</string>
     <string name="second_tab">Tab kedua</string>
     <string name="third_tab">Tab ketiga</string>

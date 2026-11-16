@@ -64,6 +64,8 @@
     <string name="hide_instants">Instants ausblenden</string>
     <string name="hide_instants_summary">Blendet den Instants-Stapel im Postfach aus.</string>
     <string name="hide_threads_badge">Threads-Abzeichen ausblenden</string>
+    <string name="hide_profile_suggestions">Vorgeschlagene Konten auf Profilen ausblenden</string>
+    <string name="hide_profile_suggestions_summary">Blendet Personen entdecken auf deinem Profil und Vorschläge für dich auf anderen Profilen aus.</string>
     <string name="first_tab">Erster Tab</string>
     <string name="second_tab">Zweiter Tab</string>
     <string name="third_tab">Dritter Tab</string>

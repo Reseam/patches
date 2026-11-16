@@ -50,6 +50,8 @@
     <string name="ghost_mode_description">Ẩn trạng thái đang nhập, đã đọc, lượt xem tin và ảnh chụp màn hình của bạn với người khác. Instagram có thể cấm tài khoản sử dụng tính năng này.</string>
     <string name="hide_threads_badge">Ẩn huy hiệu Threads</string>
     <string name="hide_threads_badge_description">Ẩn huy hiệu và đường liên kết Threads trên hồ sơ.</string>
+    <string name="hide_profile_suggestions">Ẩn tài khoản đề xuất trên trang cá nhân</string>
+    <string name="hide_profile_suggestions_description">Ẩn Khám phá mọi người trên trang cá nhân của bạn và Gợi ý cho bạn trên trang của người khác.</string>
     <string name="disable_double_tap_like">Tắt nhấn đúp để thích</string>
     <string name="disable_double_tap_like_description">Ngăn nhấn đúp thích bài viết, thước phim, bình luận và tin nhắn.</string>
     <string name="disable_reels_swiping">Tắt vuốt Reels</string>

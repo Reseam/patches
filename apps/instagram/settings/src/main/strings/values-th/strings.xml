@@ -64,6 +64,8 @@
     <string name="hide_instants">ซ่อน Instants</string>
     <string name="hide_instants_summary">ซ่อนกอง Instants ในกล่องข้อความ</string>
     <string name="hide_threads_badge">ซ่อนป้าย Threads</string>
+    <string name="hide_profile_suggestions">ซ่อนบัญชีแนะนำบนโปรไฟล์</string>
+    <string name="hide_profile_suggestions_summary">ซ่อน ค้นพบผู้คน บนโปรไฟล์ของคุณ และ แนะนำสำหรับคุณ บนโปรไฟล์อื่น</string>
     <string name="first_tab">แท็บแรก</string>
     <string name="second_tab">แท็บที่สอง</string>
     <string name="third_tab">แท็บที่สาม</string>

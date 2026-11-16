@@ -50,6 +50,8 @@
     <string name="ghost_mode_description">Ukrywa przed innymi pisanie, odczytanie wiadomości, wyświetlenia relacji i zrzuty ekranu. Instagram może blokować konta, które z tego korzystają.</string>
     <string name="hide_threads_badge">Ukryj odznakę Threads</string>
     <string name="hide_threads_badge_description">Ukrywa odznakę i link Threads w profilach.</string>
+    <string name="hide_profile_suggestions">Ukryj proponowane konta na profilach</string>
+    <string name="hide_profile_suggestions_description">Ukrywa Odkrywaj osoby na twoim profilu i Propozycje dla ciebie na innych.</string>
     <string name="disable_double_tap_like">Wyłącz polubienie podwójnym dotknięciem</string>
     <string name="disable_double_tap_like_description">Zapobiega polubieniu postów, Rolek, komentarzy i wiadomości podwójnym dotknięciem.</string>
     <string name="disable_reels_swiping">Wyłącz przesuwanie Rolek</string>

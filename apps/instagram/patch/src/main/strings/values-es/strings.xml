@@ -50,6 +50,8 @@
     <string name="ghost_mode_description">Oculta a los demás que escribes, que lees, que ves historias y que haces capturas. Instagram puede suspender las cuentas que lo usan.</string>
     <string name="hide_threads_badge">Ocultar insignia de Threads</string>
     <string name="hide_threads_badge_description">Oculta la insignia y el enlace de Threads en los perfiles.</string>
+    <string name="hide_profile_suggestions">Ocultar cuentas sugeridas en perfiles</string>
+    <string name="hide_profile_suggestions_description">Oculta Descubrir personas en tu perfil y Sugerencias para ti en los demás.</string>
     <string name="disable_double_tap_like">Desactivar doble toque para dar Me gusta</string>
     <string name="disable_double_tap_like_description">Evita que un doble toque dé Me gusta a publicaciones, Reels, comentarios y mensajes.</string>
     <string name="disable_reels_swiping">Desactivar deslizamiento en Reels</string>
