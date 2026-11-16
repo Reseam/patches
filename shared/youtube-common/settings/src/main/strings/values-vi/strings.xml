@@ -11,6 +11,8 @@
     <string name="force_original_audio_summary">Phát âm thanh gốc thay vì bản lồng tiếng.</string>
     <string name="disable_hdr_video">Tắt video HDR</string>
     <string name="disable_hdr_video_summary">Cho YouTube biết màn hình của bạn không hỗ trợ HDR.</string>
+    <string name="force_vp9_codec">Buộc dùng bộ mã hóa VP9</string>
+    <string name="force_vp9_codec_summary">Tắt AV1, thứ khiến một số điện thoại nóng máy và hao pin.</string>
     <string name="custom_branding_icon_custom">Tùy chỉnh</string>
     <string name="experiment_flags_saved">Đã lưu <xliff:g id="file_name">%1$s</xliff:g> vào Tệp đã tải xuống</string>
     <string name="experiment_flags_failed">Không lưu được cờ thử nghiệm</string>

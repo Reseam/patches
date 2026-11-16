@@ -97,7 +97,7 @@
     <string name="disable_autoplay_in_playlists">Désactiver la lecture automatique dans les playlists</string>
     <string name="disable_autoplay_in_playlists_description">S’arrête à la fin de chaque vidéo d’une playlist.</string>
     <string name="disable_video_codecs">Désactiver des codecs vidéo</string>
-    <string name="disable_video_codecs_description">Désactive le HDR et VP9, ce qui économise la batterie et baisse la qualité.</string>
+    <string name="disable_video_codecs_description">Désactive le HDR, AV1 et VP9, ce qui économise la batterie et baisse la qualité.</string>
     <string name="feature_flag_overrides">Remplacement des indicateurs de fonctionnalités</string>
     <string name="feature_flag_overrides_description">Active ou désactive par ID les indicateurs d’expérience de YouTube.</string>
     <string name="loop_video">Lire la vidéo en boucle</string>

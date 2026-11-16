@@ -97,7 +97,7 @@
     <string name="disable_autoplay_in_playlists">停用播放列表自动播放</string>
     <string name="disable_autoplay_in_playlists_description">播放列表中的每个视频播放完后都停止。</string>
     <string name="disable_video_codecs">停用视频编解码器</string>
-    <string name="disable_video_codecs_description">关闭 HDR 和 VP9，可以省电，但会降低画质。</string>
+    <string name="disable_video_codecs_description">关闭 HDR、AV1 和 VP9，可以省电，但会降低画质。</string>
     <string name="feature_flag_overrides">功能开关覆盖</string>
     <string name="feature_flag_overrides_description">按 ID 开启或关闭 YouTube 的实验开关。</string>
     <string name="loop_video">循环播放视频</string>

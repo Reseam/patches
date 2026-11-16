@@ -11,6 +11,8 @@
     <string name="force_original_audio_summary">डब किए गए ट्रैक की जगह मूल ऑडियो चलाता है।</string>
     <string name="disable_hdr_video">HDR वीडियो बंद करें</string>
     <string name="disable_hdr_video_summary">YouTube को बताता है कि आपकी स्क्रीन में HDR नहीं है।</string>
+    <string name="force_vp9_codec">हमेशा VP9 कोडेक इस्तेमाल करें</string>
+    <string name="force_vp9_codec_summary">AV1 बंद करता है, जिससे कुछ फ़ोन गर्म होते हैं और बैटरी जल्दी खत्म होती है।</string>
     <string name="custom_branding_icon_custom">कस्टम</string>
     <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g> को Downloads में सेव किया गया</string>
     <string name="experiment_flags_failed">एक्सपेरिमेंट फ़्लैग सेव नहीं हो सके</string>

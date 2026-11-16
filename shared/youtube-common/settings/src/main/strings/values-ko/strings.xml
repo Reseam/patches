@@ -11,6 +11,8 @@
     <string name="force_original_audio_summary">더빙 트랙 대신 원래 오디오를 재생합니다.</string>
     <string name="disable_hdr_video">HDR 동영상 사용 중지</string>
     <string name="disable_hdr_video_summary">내 화면이 HDR을 지원하지 않는다고 YouTube에 알립니다.</string>
+    <string name="force_vp9_codec">VP9 코덱 강제</string>
+    <string name="force_vp9_codec_summary">일부 휴대전화를 뜨겁게 하고 배터리를 소모시키는 AV1을 끕니다.</string>
     <string name="custom_branding_icon_custom">사용자 지정</string>
     <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g>을(를) 다운로드에 저장했습니다</string>
     <string name="experiment_flags_failed">실험 플래그를 저장할 수 없습니다</string>

@@ -97,7 +97,7 @@
     <string name="disable_autoplay_in_playlists">プレイリストの自動再生を無効にする</string>
     <string name="disable_autoplay_in_playlists_description">プレイリストの各動画の最後で止まります。</string>
     <string name="disable_video_codecs">動画コーデックを無効にする</string>
-    <string name="disable_video_codecs_description">HDR と VP9 をオフにします。バッテリーを節約できますが、画質は下がります。</string>
+    <string name="disable_video_codecs_description">HDR、AV1、VP9 をオフにします。バッテリーを節約できますが、画質は下がります。</string>
     <string name="feature_flag_overrides">機能フラグの上書き</string>
     <string name="feature_flag_overrides_description">YouTube の実験フラグを ID でオン・オフします。</string>
     <string name="loop_video">動画をループ再生</string>

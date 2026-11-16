@@ -11,6 +11,8 @@
     <string name="force_original_audio_summary">يشغّل الصوت الأصلي بدلًا من المسار المدبلج.</string>
     <string name="disable_hdr_video">تعطيل فيديو HDR</string>
     <string name="disable_hdr_video_summary">يُخبر YouTube أن شاشتك لا تدعم HDR.</string>
+    <string name="force_vp9_codec">فرض برنامج الترميز VP9</string>
+    <string name="force_vp9_codec_summary">يُوقف AV1 الذي يجعل بعض الهواتف تسخن ويستنزف البطارية.</string>
     <string name="custom_branding_icon_custom">مخصص</string>
     <string name="experiment_flags_saved">تم حفظ <xliff:g id="file_name">%1$s</xliff:g> في «التنزيلات»</string>
     <string name="experiment_flags_failed">تعذّر حفظ علامات التجارب</string>

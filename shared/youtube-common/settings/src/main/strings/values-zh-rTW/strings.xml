@@ -11,6 +11,8 @@
     <string name="force_original_audio_summary">播放原始音訊，而不是配音音軌。</string>
     <string name="disable_hdr_video">停用 HDR 影片</string>
     <string name="disable_hdr_video_summary">告訴 YouTube 你的螢幕不支援 HDR。</string>
+    <string name="force_vp9_codec">強制使用 VP9 轉碼器</string>
+    <string name="force_vp9_codec_summary">關閉 AV1，它會讓部分手機發熱、耗電。</string>
     <string name="custom_branding_icon_custom">自訂</string>
     <string name="experiment_flags_saved">已將 <xliff:g id="file_name">%1$s</xliff:g> 儲存到「下載」</string>
     <string name="experiment_flags_failed">無法儲存實驗旗標</string>

@@ -97,7 +97,7 @@
     <string name="disable_autoplay_in_playlists">Отключить автовоспроизведение в плейлистах</string>
     <string name="disable_autoplay_in_playlists_description">Останавливается в конце каждого видео плейлиста.</string>
     <string name="disable_video_codecs">Отключить видеокодеки</string>
-    <string name="disable_video_codecs_description">Отключает HDR и VP9, что экономит заряд и снижает качество.</string>
+    <string name="disable_video_codecs_description">Отключает HDR, AV1 и VP9, что экономит заряд и снижает качество.</string>
     <string name="feature_flag_overrides">Переопределение флагов функций</string>
     <string name="feature_flag_overrides_description">Включает и отключает экспериментальные флаги YouTube по ID.</string>
     <string name="loop_video">Повтор видео</string>

@@ -97,7 +97,7 @@
     <string name="disable_autoplay_in_playlists">Disattiva la riproduzione automatica nelle playlist</string>
     <string name="disable_autoplay_in_playlists_description">Si ferma alla fine di ogni video di una playlist.</string>
     <string name="disable_video_codecs">Disattiva i codec video</string>
-    <string name="disable_video_codecs_description">Disattiva HDR e VP9, risparmiando batteria e abbassando la qualità.</string>
+    <string name="disable_video_codecs_description">Disattiva HDR, AV1 e VP9, risparmiando batteria e abbassando la qualità.</string>
     <string name="feature_flag_overrides">Sostituzione dei flag delle funzioni</string>
     <string name="feature_flag_overrides_description">Attiva o disattiva per ID i flag sperimentali di YouTube.</string>
     <string name="loop_video">Ripeti il video</string>

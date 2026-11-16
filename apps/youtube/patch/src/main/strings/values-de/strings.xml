@@ -97,7 +97,7 @@
     <string name="disable_autoplay_in_playlists">Autoplay in Playlists deaktivieren</string>
     <string name="disable_autoplay_in_playlists_description">Stoppt am Ende jedes Videos in einer Playlist.</string>
     <string name="disable_video_codecs">Videocodecs deaktivieren</string>
-    <string name="disable_video_codecs_description">Schaltet HDR und VP9 ab, was Akku spart und die Qualität senkt.</string>
+    <string name="disable_video_codecs_description">Schaltet HDR, AV1 und VP9 ab, was Akku spart und die Qualität senkt.</string>
     <string name="feature_flag_overrides">Feature-Flags überschreiben</string>
     <string name="feature_flag_overrides_description">Schaltet die Experiment-Flags von YouTube per ID ein oder aus.</string>
     <string name="loop_video">Video wiederholen</string>

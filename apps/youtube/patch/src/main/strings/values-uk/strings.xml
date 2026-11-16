@@ -97,7 +97,7 @@
     <string name="disable_autoplay_in_playlists">Вимкнути автовідтворення в плейлистах</string>
     <string name="disable_autoplay_in_playlists_description">Зупиняється наприкінці кожного відео в плейлисті.</string>
     <string name="disable_video_codecs">Вимкнути відеокодеки</string>
-    <string name="disable_video_codecs_description">Вимикає HDR і VP9, що заощаджує батарею й знижує якість.</string>
+    <string name="disable_video_codecs_description">Вимикає HDR, AV1 і VP9, що заощаджує батарею й знижує якість.</string>
     <string name="feature_flag_overrides">Перевизначення прапорців функцій</string>
     <string name="feature_flag_overrides_description">Вмикає або вимикає прапорці експериментів YouTube за ідентифікатором.</string>
     <string name="loop_video">Повторювати відео</string>

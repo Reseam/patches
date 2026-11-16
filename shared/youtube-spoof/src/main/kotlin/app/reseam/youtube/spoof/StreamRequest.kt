@@ -8,6 +8,7 @@ import app.reseam.bundle.Logger
 import app.reseam.youtube.core.defaultDisplayHdrTypes
 import app.reseam.youtube.core.debug
 import app.reseam.youtube.web.WebPlayer
+import app.reseam.youtubecommon.settings.YouTubeCommonSettings
 import java.io.IOException
 import java.util.Locale
 import java.util.UUID
@@ -105,7 +106,9 @@ internal class StreamRequest(
             }
             val response = send(client, visitor, web, attestation, attemptDeadline)
             remaining(attemptDeadline)
-            val parsed = parsePlayerResponse(response).withoutUnsupportedHdr(defaultDisplayHdrTypes())
+            val parsed =
+                parsePlayerResponse(response)
+                    .withoutUnplayableFormats(defaultDisplayHdrTypes(), !YouTubeCommonSettings.forceVp9Codec.value)
             val streamingData = parsed.streamingData
             if (parsed.status != PLAYER_STATUS_OK || streamingData == null) {
                 Logger.info {

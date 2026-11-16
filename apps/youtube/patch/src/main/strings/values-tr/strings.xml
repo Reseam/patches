@@ -97,7 +97,7 @@
     <string name="disable_autoplay_in_playlists">Oynatma listelerinde otomatik oynatmayı kapat</string>
     <string name="disable_autoplay_in_playlists_description">Oynatma listesindeki her videonun sonunda durur.</string>
     <string name="disable_video_codecs">Video kodeklerini kapat</string>
-    <string name="disable_video_codecs_description">HDR ve VP9\'u kapatır; bu pil tasarrufu sağlar ve kaliteyi düşürür.</string>
+    <string name="disable_video_codecs_description">HDR, AV1 ve VP9\'u kapatır; bu pil tasarrufu sağlar ve kaliteyi düşürür.</string>
     <string name="feature_flag_overrides">Özellik bayrağı geçersiz kılmaları</string>
     <string name="feature_flag_overrides_description">YouTube\'un deney bayraklarını kimliğe göre açar veya kapatır.</string>
     <string name="loop_video">Videoyu döngüye al</string>

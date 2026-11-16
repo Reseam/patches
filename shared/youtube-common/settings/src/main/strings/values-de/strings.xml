@@ -11,6 +11,8 @@
     <string name="force_original_audio_summary">Spielt den Originalton statt einer synchronisierten Tonspur.</string>
     <string name="disable_hdr_video">HDR-Video deaktivieren</string>
     <string name="disable_hdr_video_summary">Teilt YouTube mit, dass dein Bildschirm kein HDR hat.</string>
+    <string name="force_vp9_codec">VP9-Codec erzwingen</string>
+    <string name="force_vp9_codec_summary">Schaltet AV1 ab, das manche Handys heiß werden lässt und den Akku leert.</string>
     <string name="custom_branding_icon_custom">Benutzerdefiniert</string>
     <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g> in Downloads gespeichert</string>
     <string name="experiment_flags_failed">Die Experiment-Flags konnten nicht gespeichert werden</string>

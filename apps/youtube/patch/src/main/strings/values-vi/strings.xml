@@ -97,7 +97,7 @@
     <string name="disable_autoplay_in_playlists">Tắt tự động phát trong danh sách phát</string>
     <string name="disable_autoplay_in_playlists_description">Dừng lại ở cuối mỗi video trong danh sách phát.</string>
     <string name="disable_video_codecs">Tắt bộ mã hóa video</string>
-    <string name="disable_video_codecs_description">Tắt HDR và VP9, giúp tiết kiệm pin nhưng giảm chất lượng.</string>
+    <string name="disable_video_codecs_description">Tắt HDR, AV1 và VP9, giúp tiết kiệm pin nhưng giảm chất lượng.</string>
     <string name="feature_flag_overrides">Ghi đè cờ tính năng</string>
     <string name="feature_flag_overrides_description">Bật hoặc tắt các cờ thử nghiệm của YouTube theo ID.</string>
     <string name="loop_video">Lặp lại video</string>

@@ -15,4 +15,5 @@ object YouTubeCommonSettings : SettingsGroup(YouTubeCommonStrings, "you_tube_set
     val sanitizeSharingLinks by toggle(default = true)
     val forceOriginalAudio by toggle(default = true)
     val disableHdrVideo by toggle(default = false)
+    val forceVp9Codec by toggle(default = false)
 }

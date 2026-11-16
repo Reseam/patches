@@ -97,7 +97,7 @@
     <string name="disable_autoplay_in_playlists">Wyłącz autoodtwarzanie na playlistach</string>
     <string name="disable_autoplay_in_playlists_description">Zatrzymuje się na końcu każdego filmu na playliście.</string>
     <string name="disable_video_codecs">Wyłącz kodeki wideo</string>
-    <string name="disable_video_codecs_description">Wyłącza HDR i VP9, co oszczędza baterię i obniża jakość.</string>
+    <string name="disable_video_codecs_description">Wyłącza HDR, AV1 i VP9, co oszczędza baterię i obniża jakość.</string>
     <string name="feature_flag_overrides">Nadpisywanie flag funkcji</string>
     <string name="feature_flag_overrides_description">Włącza lub wyłącza flagi eksperymentów YouTube według identyfikatora.</string>
     <string name="loop_video">Zapętlaj film</string>

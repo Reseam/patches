@@ -37,6 +37,7 @@ internal fun preferMultipleAvcQualities(streamingData: ByteArray): ByteArray {
     }
 }
 
+private const val MIME_TYPE = 5
 private const val COLOR_INFO = 33
 private const val TRANSFER_CHARACTERISTICS = 2
 private val hdrTypesByTransfer =
@@ -45,18 +46,19 @@ private val hdrTypesByTransfer =
         18L to Display.HdrCapabilities.HDR_TYPE_HLG,
     )
 
-// The app's own player request reports the display's HDR types; other clients get every format.
-internal fun PlayerResponse.withoutUnsupportedHdr(hdrTypes: IntArray): PlayerResponse =
+// The app's own player request reports the codecs and HDR types it plays; other clients get every format.
+internal fun PlayerResponse.withoutUnplayableFormats(hdrTypes: IntArray, av1: Boolean): PlayerResponse =
     copy(
         streamingData =
             streamingData?.let { data ->
                 Proto.rewriteLength(data) { number, format ->
-                    format.takeUnless { number in 2..3 && !playable(format, hdrTypes) }
+                    format.takeUnless { number in 2..3 && !playable(format, hdrTypes, av1) }
                 }
             }
     )
 
-private fun playable(format: ByteArray, hdrTypes: IntArray): Boolean {
+private fun playable(format: ByteArray, hdrTypes: IntArray, av1: Boolean): Boolean {
+    if (!av1 && "av01" in Proto.string(format, MIME_TYPE).orEmpty()) return false
     val transfer = Proto.bytes(format, COLOR_INFO)?.let { Proto.number(it, TRANSFER_CHARACTERISTICS, 0) }
     return hdrTypesByTransfer[transfer]?.let { it in hdrTypes } ?: true
 }
@@ -78,4 +80,4 @@ private data class Format(val mimeType: String, val qualityLabel: String?) {
 }
 
 private fun format(bytes: ByteArray): Format =
-    Proto.fields(bytes).let { Format(it.string(5).orEmpty(), it.string(26)) }
+    Proto.fields(bytes).let { Format(it.string(MIME_TYPE).orEmpty(), it.string(26)) }

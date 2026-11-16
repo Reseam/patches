@@ -11,6 +11,8 @@
     <string name="force_original_audio_summary">ڈب شدہ ٹریک کے بجائے اصل آڈیو چلاتا ہے۔</string>
     <string name="disable_hdr_video">HDR ویڈیو غیر فعال کریں</string>
     <string name="disable_hdr_video_summary">YouTube کو بتاتا ہے کہ آپ کی اسکرین HDR نہیں رکھتی۔</string>
+    <string name="force_vp9_codec">VP9 کوڈیک لازمی کریں</string>
+    <string name="force_vp9_codec_summary">AV1 بند کرتا ہے، جس سے کچھ فون گرم ہوتے ہیں اور بیٹری جلد ختم ہوتی ہے۔</string>
     <string name="custom_branding_icon_custom">حسب ضرورت</string>
     <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g> ڈاؤن لوڈز میں محفوظ ہو گیا</string>
     <string name="experiment_flags_failed">تجرباتی فلیگز محفوظ نہیں ہو سکے</string>

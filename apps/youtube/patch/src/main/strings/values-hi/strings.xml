@@ -97,7 +97,7 @@
     <string name="disable_autoplay_in_playlists">प्लेलिस्ट में अपने-आप चलना बंद करें</string>
     <string name="disable_autoplay_in_playlists_description">प्लेलिस्ट में हर वीडियो के अंत में रुक जाता है।</string>
     <string name="disable_video_codecs">वीडियो कोडेक बंद करें</string>
-    <string name="disable_video_codecs_description">HDR और VP9 बंद करता है, जिससे बैटरी बचती है और क्वालिटी घटती है।</string>
+    <string name="disable_video_codecs_description">HDR, AV1 और VP9 बंद करता है, जिससे बैटरी बचती है और क्वालिटी घटती है।</string>
     <string name="feature_flag_overrides">फ़ीचर फ़्लैग बदलें</string>
     <string name="feature_flag_overrides_description">YouTube के एक्सपेरिमेंट फ़्लैग को ID के हिसाब से चालू या बंद करता है।</string>
     <string name="loop_video">वीडियो लूप करें</string>

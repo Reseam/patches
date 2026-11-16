@@ -11,6 +11,8 @@
     <string name="force_original_audio_summary">Plays the original audio instead of a dubbed track.</string>
     <string name="disable_hdr_video">Disable HDR video</string>
     <string name="disable_hdr_video_summary">Tells YouTube your screen has no HDR.</string>
+    <string name="force_vp9_codec">Force VP9 codec</string>
+    <string name="force_vp9_codec_summary">Turns off AV1, which makes some phones run hot and drain battery.</string>
     <string name="custom_branding_icon_custom">Custom</string>
     <string name="experiment_flags_saved">Saved <xliff:g id="file_name">%1$s</xliff:g> to Downloads</string>
     <string name="experiment_flags_failed">Could not save the experiment flags</string>

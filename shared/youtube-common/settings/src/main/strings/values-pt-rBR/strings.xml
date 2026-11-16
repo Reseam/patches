@@ -11,6 +11,8 @@
     <string name="force_original_audio_summary">Toca o áudio original em vez de uma faixa dublada.</string>
     <string name="disable_hdr_video">Desativar vídeo HDR</string>
     <string name="disable_hdr_video_summary">Informa ao YouTube que sua tela não tem HDR.</string>
+    <string name="force_vp9_codec">Forçar codec VP9</string>
+    <string name="force_vp9_codec_summary">Desativa o AV1, que faz alguns celulares esquentarem e gastarem bateria.</string>
     <string name="custom_branding_icon_custom">Personalizado</string>
     <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g> foi salvo em Downloads</string>
     <string name="experiment_flags_failed">Não foi possível salvar as flags de experimentos</string>
