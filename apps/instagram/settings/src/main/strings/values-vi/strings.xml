@@ -3,7 +3,7 @@
     <string name="hide_typing">Ẩn trạng thái đang nhập</string>
     <string name="hide_typing_summary">Người khác không thấy bạn đang nhập. Instagram có thể cấm tài khoản của bạn.</string>
     <string name="hide_dm_seen">Ẩn trạng thái đã đọc tin nhắn trực tiếp</string>
-    <string name="hide_dm_seen_summary">Người gửi không thấy bạn đã đọc tin nhắn của họ. Instagram có thể cấm tài khoản của bạn.</string>
+    <string name="hide_dm_seen_summary">Người gửi không thấy bạn đã đọc tin nhắn của họ cho đến khi bạn chọn Đánh dấu là đã đọc trong Chọn đoạn chat. Instagram có thể cấm tài khoản của bạn.</string>
     <string name="hide_story_seen">Ẩn lượt xem tin</string>
     <string name="hide_story_seen_summary">Bạn không xuất hiện trong danh sách người xem tin. Instagram có thể cấm tài khoản của bạn.</string>
     <string name="hide_live_seen">Ẩn lượt xem phát trực tiếp</string>

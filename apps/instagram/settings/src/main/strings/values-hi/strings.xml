@@ -3,7 +3,7 @@
     <string name="hide_typing">टाइपिंग का संकेत छिपाएँ</string>
     <string name="hide_typing_summary">दूसरों को नहीं दिखता कि आप टाइप कर रहे हैं। Instagram आपका अकाउंट बैन कर सकता है।</string>
     <string name="hide_dm_seen">DM पढ़े जाने की सूचना छिपाएँ</string>
-    <string name="hide_dm_seen_summary">भेजने वालों को नहीं दिखता कि आपने उनके मैसेज पढ़ लिए। Instagram आपका अकाउंट बैन कर सकता है।</string>
+    <string name="hide_dm_seen_summary">जब तक आप चैट चुनें में पढ़ा गया मार्क करें नहीं चुनते, भेजने वालों को नहीं दिखता कि आपने उनके मैसेज पढ़ लिए। Instagram आपका अकाउंट बैन कर सकता है।</string>
     <string name="hide_story_seen">स्टोरी देखना छिपाएँ</string>
     <string name="hide_story_seen_summary">आप स्टोरी देखने वालों की सूची में नहीं दिखते। Instagram आपका अकाउंट बैन कर सकता है।</string>
     <string name="hide_live_seen">लाइव देखना छिपाएँ</string>

@@ -3,7 +3,7 @@
     <string name="hide_typing">隱藏正在輸入提示</string>
     <string name="hide_typing_summary">別人看不到你正在輸入。Instagram 可能會將你的帳號停權。</string>
     <string name="hide_dm_seen">隱藏私訊已讀回條</string>
-    <string name="hide_dm_seen_summary">傳送者看不到你已讀他們的訊息。Instagram 可能會將你的帳號停權。</string>
+    <string name="hide_dm_seen_summary">在選取聊天室中選擇標示為已讀之前，傳送者看不到你已讀他們的訊息。Instagram 可能會將你的帳號停權。</string>
     <string name="hide_story_seen">隱藏限時動態觀看記錄</string>
     <string name="hide_story_seen_summary">你不會出現在限時動態的觀看者清單中。Instagram 可能會將你的帳號停權。</string>
     <string name="hide_live_seen">隱藏直播觀看記錄</string>

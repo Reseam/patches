@@ -3,7 +3,7 @@
     <string name="hide_typing">Ocultar indicador de escritura</string>
     <string name="hide_typing_summary">Los demás no ven que estás escribiendo. Instagram puede suspender tu cuenta.</string>
     <string name="hide_dm_seen">Ocultar confirmaciones de lectura de MD</string>
-    <string name="hide_dm_seen_summary">Quienes te escriben no ven que leíste sus mensajes. Instagram puede suspender tu cuenta.</string>
+    <string name="hide_dm_seen_summary">Quienes te escriben no ven que leíste sus mensajes hasta que eliges Marcar como leído en Seleccionar chats. Instagram puede suspender tu cuenta.</string>
     <string name="hide_story_seen">Ocultar que ves historias</string>
     <string name="hide_story_seen_summary">No apareces en la lista de quienes vieron una historia. Instagram puede suspender tu cuenta.</string>
     <string name="hide_live_seen">Ocultar que ves transmisiones en vivo</string>

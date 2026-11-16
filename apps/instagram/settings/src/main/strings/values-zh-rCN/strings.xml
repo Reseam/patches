@@ -3,7 +3,7 @@
     <string name="hide_typing">隐藏正在输入提示</string>
     <string name="hide_typing_summary">他人看不到你正在输入。Instagram 可能会封禁你的帐户。</string>
     <string name="hide_dm_seen">隐藏私信已读回执</string>
-    <string name="hide_dm_seen_summary">发送者看不到你已读他们的消息。Instagram 可能会封禁你的帐户。</string>
+    <string name="hide_dm_seen_summary">在选择聊天中选择标为已读之前，发送者看不到你已读他们的消息。Instagram 可能会封禁你的帐户。</string>
     <string name="hide_story_seen">隐藏快拍浏览记录</string>
     <string name="hide_story_seen_summary">你不会出现在快拍的浏览者列表中。Instagram 可能会封禁你的帐户。</string>
     <string name="hide_live_seen">隐藏直播观看记录</string>

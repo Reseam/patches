@@ -3,7 +3,7 @@
     <string name="hide_typing">Приховати індикатор набору</string>
     <string name="hide_typing_summary">Інші не бачать, що ви друкуєте. Instagram може заблокувати ваш акаунт.</string>
     <string name="hide_dm_seen">Приховати сповіщення про прочитання в Direct</string>
-    <string name="hide_dm_seen_summary">Відправники не бачать, що ви прочитали їхні повідомлення. Instagram може заблокувати ваш акаунт.</string>
+    <string name="hide_dm_seen_summary">Відправники не бачать, що ви прочитали їхні повідомлення, доки ви не виберете «Позначити як прочитане» у «Вибрати чати». Instagram може заблокувати ваш акаунт.</string>
     <string name="hide_story_seen">Приховати перегляди історій</string>
     <string name="hide_story_seen_summary">Ви не з’являєтеся у списках глядачів історій. Instagram може заблокувати ваш акаунт.</string>
     <string name="hide_live_seen">Приховати перегляди ефірів</string>

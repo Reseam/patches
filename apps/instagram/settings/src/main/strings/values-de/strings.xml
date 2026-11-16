@@ -3,7 +3,7 @@
     <string name="hide_typing">Tippanzeige ausblenden</string>
     <string name="hide_typing_summary">Andere sehen nicht, dass du tippst. Instagram kann dein Konto sperren.</string>
     <string name="hide_dm_seen">Lesebestätigungen in DMs ausblenden</string>
-    <string name="hide_dm_seen_summary">Absender sehen nicht, dass du ihre Nachrichten gelesen hast. Instagram kann dein Konto sperren.</string>
+    <string name="hide_dm_seen_summary">Absender sehen nicht, dass du ihre Nachrichten gelesen hast, bis du unter Chats auswählen auf Als gelesen markieren tippst. Instagram kann dein Konto sperren.</string>
     <string name="hide_story_seen">Story-Aufrufe verbergen</string>
     <string name="hide_story_seen_summary">Du erscheinst nicht in den Zuschauerlisten von Stories. Instagram kann dein Konto sperren.</string>
     <string name="hide_live_seen">Live-Aufrufe verbergen</string>

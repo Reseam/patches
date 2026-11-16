@@ -3,7 +3,7 @@
     <string name="hide_typing">Hide typing indicator</string>
     <string name="hide_typing_summary">Others don\'t see that you\'re typing. Instagram may ban your account.</string>
     <string name="hide_dm_seen">Hide DM read receipts</string>
-    <string name="hide_dm_seen_summary">Senders don\'t see that you read their messages. Instagram may ban your account.</string>
+    <string name="hide_dm_seen_summary">Senders don\'t see that you read their messages until you choose Mark as read in Select chats. Instagram may ban your account.</string>
     <string name="hide_story_seen">Hide story views</string>
     <string name="hide_story_seen_summary">You don\'t appear in story viewer lists. Instagram may ban your account.</string>
     <string name="hide_live_seen">Hide live views</string>

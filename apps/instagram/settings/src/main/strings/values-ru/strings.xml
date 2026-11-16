@@ -3,7 +3,7 @@
     <string name="hide_typing">Скрыть индикатор набора</string>
     <string name="hide_typing_summary">Другие не видят, что вы печатаете. Instagram может заблокировать ваш аккаунт.</string>
     <string name="hide_dm_seen">Скрыть отметки о прочтении в личных сообщениях</string>
-    <string name="hide_dm_seen_summary">Отправители не видят, что вы прочитали их сообщения. Instagram может заблокировать ваш аккаунт.</string>
+    <string name="hide_dm_seen_summary">Отправители не видят, что вы прочитали их сообщения, пока вы не выберете «Отметить как прочитанное» в «Выбрать чаты». Instagram может заблокировать ваш аккаунт.</string>
     <string name="hide_story_seen">Скрыть просмотры историй</string>
     <string name="hide_story_seen_summary">Вы не появляетесь в списках посмотревших историю. Instagram может заблокировать ваш аккаунт.</string>
     <string name="hide_live_seen">Скрыть просмотры эфиров</string>

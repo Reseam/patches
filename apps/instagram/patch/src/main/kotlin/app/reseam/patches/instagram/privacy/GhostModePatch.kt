@@ -3,12 +3,14 @@
 
 package app.reseam.patches.instagram.privacy
 
+import app.reseam.instagram.ghost.bindings.GhostMode
 import app.reseam.instagram.settings.InstagramStrings
 import app.reseam.patch.Type
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.methods
 import app.reseam.patch.patch
+import app.reseam.patch.points
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.instagram.settings.GhostSettings
@@ -38,8 +40,10 @@ val ghostMode = patch(InstagramPatchStrings.ghostMode) {
         gate(GhostSettings.hideTyping) {
             typingIndicator.alwaysReturn()
         }
+        // Mark as read in Select chats still sends the receipt.
         gate(GhostSettings.hideDmSeen) {
-            dmSeen.alwaysReturn()
+            markReadOption.points { calls(dmSeen) }.forEach { before { GhostMode.allowMarkRead() } }
+            dmSeen.before { whenFalse(GhostMode.takeMarkRead()) { returnVoid() } }
         }
         gate(GhostSettings.hideStorySeen) {
             storySeen.forEach { alwaysReturn() }
@@ -62,6 +66,13 @@ val typingIndicator = method("typingIndicator") {
 val dmSeen = method("dmSeen") {
     strings("mark_thread_seen-")
     returns(Type.Void)
+}
+
+// Select chats › More in the inbox.
+val markReadOption = method("markReadOption") {
+    name("onClick")
+    strings("multiple_thread_mark_read")
+    calls(dmSeen)
 }
 
 val storySeenRequest = method("storySeenRequest") {

@@ -3,7 +3,7 @@
     <string name="hide_typing">Yazıyor göstergesini gizle</string>
     <string name="hide_typing_summary">Başkaları yazdığınızı görmez. Instagram hesabınızı yasaklayabilir.</string>
     <string name="hide_dm_seen">DM okundu bilgisini gizle</string>
-    <string name="hide_dm_seen_summary">Gönderenler mesajlarını okuduğunuzu görmez. Instagram hesabınızı yasaklayabilir.</string>
+    <string name="hide_dm_seen_summary">Sohbetleri seç bölümünde Okundu olarak işaretle seçeneğini seçene kadar gönderenler mesajlarını okuduğunuzu görmez. Instagram hesabınızı yasaklayabilir.</string>
     <string name="hide_story_seen">Hikaye görüntülemelerini gizle</string>
     <string name="hide_story_seen_summary">Hikaye izleyenler listelerinde görünmezsiniz. Instagram hesabınızı yasaklayabilir.</string>
     <string name="hide_live_seen">Canlı yayın izlemelerini gizle</string>

@@ -3,7 +3,7 @@
     <string name="hide_typing">입력 중 표시 숨기기</string>
     <string name="hide_typing_summary">다른 사람이 내가 입력 중인 것을 볼 수 없습니다. Instagram이 계정을 정지할 수 있습니다.</string>
     <string name="hide_dm_seen">DM 읽음 확인 숨기기</string>
-    <string name="hide_dm_seen_summary">보낸 사람이 내가 메시지를 읽은 것을 볼 수 없습니다. Instagram이 계정을 정지할 수 있습니다.</string>
+    <string name="hide_dm_seen_summary">채팅 선택에서 읽음으로 표시를 선택하기 전까지 보낸 사람이 내가 메시지를 읽은 것을 볼 수 없습니다. Instagram이 계정을 정지할 수 있습니다.</string>
     <string name="hide_story_seen">스토리 조회 숨기기</string>
     <string name="hide_story_seen_summary">스토리 조회자 목록에 내가 표시되지 않습니다. Instagram이 계정을 정지할 수 있습니다.</string>
     <string name="hide_live_seen">라이브 조회 숨기기</string>

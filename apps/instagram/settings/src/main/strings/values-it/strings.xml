@@ -3,7 +3,7 @@
     <string name="hide_typing">Nascondi l’indicatore di scrittura</string>
     <string name="hide_typing_summary">Gli altri non vedono che stai scrivendo. Instagram può bloccare il tuo account.</string>
     <string name="hide_dm_seen">Nascondi le conferme di lettura dei messaggi</string>
-    <string name="hide_dm_seen_summary">Chi ti scrive non vede che hai letto i suoi messaggi. Instagram può bloccare il tuo account.</string>
+    <string name="hide_dm_seen_summary">Chi ti scrive non vede che hai letto i suoi messaggi finché non scegli Segna come già letto in Seleziona chat. Instagram può bloccare il tuo account.</string>
     <string name="hide_story_seen">Nascondi le visualizzazioni delle storie</string>
     <string name="hide_story_seen_summary">Non compari negli elenchi di chi ha visto una storia. Instagram può bloccare il tuo account.</string>
     <string name="hide_live_seen">Nascondi le visualizzazioni delle dirette</string>

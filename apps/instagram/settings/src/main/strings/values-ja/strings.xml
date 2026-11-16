@@ -3,7 +3,7 @@
     <string name="hide_typing">入力中の表示を隠す</string>
     <string name="hide_typing_summary">入力中であることが他の人に見えません。Instagram にアカウントを停止されることがあります。</string>
     <string name="hide_dm_seen">DM の既読を隠す</string>
-    <string name="hide_dm_seen_summary">メッセージを読んだことが送信者に見えません。Instagram にアカウントを停止されることがあります。</string>
+    <string name="hide_dm_seen_summary">チャットを選択で既読にするを選ぶまで、メッセージを読んだことが送信者に見えません。Instagram にアカウントを停止されることがあります。</string>
     <string name="hide_story_seen">ストーリーズの閲覧を隠す</string>
     <string name="hide_story_seen_summary">ストーリーズの閲覧者リストに表示されません。Instagram にアカウントを停止されることがあります。</string>
     <string name="hide_live_seen">ライブの視聴を隠す</string>

@@ -3,7 +3,7 @@
     <string name="hide_typing">Sembunyikan indikator mengetik</string>
     <string name="hide_typing_summary">Orang lain tidak melihat bahwa Anda sedang mengetik. Instagram dapat memblokir akun Anda.</string>
     <string name="hide_dm_seen">Sembunyikan tanda dibaca DM</string>
-    <string name="hide_dm_seen_summary">Pengirim tidak melihat bahwa Anda sudah membaca pesannya. Instagram dapat memblokir akun Anda.</string>
+    <string name="hide_dm_seen_summary">Pengirim tidak melihat bahwa Anda sudah membaca pesannya sampai Anda memilih Tandai sudah dibaca di Pilih chat. Instagram dapat memblokir akun Anda.</string>
     <string name="hide_story_seen">Sembunyikan tontonan cerita</string>
     <string name="hide_story_seen_summary">Anda tidak muncul di daftar penonton cerita. Instagram dapat memblokir akun Anda.</string>
     <string name="hide_live_seen">Sembunyikan tontonan live</string>

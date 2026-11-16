@@ -3,7 +3,7 @@
     <string name="hide_typing">ซ่อนสถานะกำลังพิมพ์</string>
     <string name="hide_typing_summary">ผู้อื่นจะไม่เห็นว่าคุณกำลังพิมพ์ Instagram อาจแบนบัญชีของคุณ</string>
     <string name="hide_dm_seen">ซ่อนสถานะอ่านแล้วใน DM</string>
-    <string name="hide_dm_seen_summary">ผู้ส่งจะไม่เห็นว่าคุณอ่านข้อความแล้ว Instagram อาจแบนบัญชีของคุณ</string>
+    <string name="hide_dm_seen_summary">ผู้ส่งจะไม่เห็นว่าคุณอ่านข้อความแล้ว จนกว่าคุณจะเลือก ทำเครื่องหมายว่าอ่านแล้ว ใน เลือกแชท Instagram อาจแบนบัญชีของคุณ</string>
     <string name="hide_story_seen">ซ่อนการดูสตอรี่</string>
     <string name="hide_story_seen_summary">คุณจะไม่ปรากฏในรายชื่อผู้ดูสตอรี่ Instagram อาจแบนบัญชีของคุณ</string>
     <string name="hide_live_seen">ซ่อนการดูไลฟ์</string>

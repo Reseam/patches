@@ -3,7 +3,7 @@
     <string name="hide_typing">Ocultar indicador de digitação</string>
     <string name="hide_typing_summary">Os outros não veem que você está digitando. O Instagram pode banir sua conta.</string>
     <string name="hide_dm_seen">Ocultar confirmações de leitura das DMs</string>
-    <string name="hide_dm_seen_summary">Quem enviou não vê que você leu as mensagens. O Instagram pode banir sua conta.</string>
+    <string name="hide_dm_seen_summary">Quem enviou não vê que você leu as mensagens até você escolher Marcar como lida em Selecionar conversas. O Instagram pode banir sua conta.</string>
     <string name="hide_story_seen">Ocultar visualizações de stories</string>
     <string name="hide_story_seen_summary">Você não aparece nas listas de quem viu os stories. O Instagram pode banir sua conta.</string>
     <string name="hide_live_seen">Ocultar visualizações de lives</string>

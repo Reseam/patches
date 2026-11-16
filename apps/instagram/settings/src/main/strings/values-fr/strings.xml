@@ -3,7 +3,7 @@
     <string name="hide_typing">Masquer l’indicateur de saisie</string>
     <string name="hide_typing_summary">Les autres ne voient pas que vous écrivez. Instagram peut bannir votre compte.</string>
     <string name="hide_dm_seen">Masquer les confirmations de lecture des messages</string>
-    <string name="hide_dm_seen_summary">Les expéditeurs ne voient pas que vous avez lu leurs messages. Instagram peut bannir votre compte.</string>
+    <string name="hide_dm_seen_summary">Les expéditeurs ne voient pas que vous avez lu leurs messages tant que vous ne choisissez pas Marquer comme lu dans Sélectionner des discussions. Instagram peut bannir votre compte.</string>
     <string name="hide_story_seen">Masquer les vues de stories</string>
     <string name="hide_story_seen_summary">Vous n’apparaissez pas dans la liste des personnes ayant vu une story. Instagram peut bannir votre compte.</string>
     <string name="hide_live_seen">Masquer les vues de directs</string>
