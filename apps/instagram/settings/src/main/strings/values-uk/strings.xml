@@ -37,6 +37,12 @@
     <string name="open_externally">Відкривати посилання в браузері</string>
     <string name="clean_share_links">Очищати посилання для поширення</string>
     <string name="clean_share_links_summary">Видаляє з поширених посилань частину, що вас ідентифікує.</string>
+    <string name="share_link_provider">Постачальник посилань для поширення</string>
+    <string name="share_link_provider_summary">Хост посилань на дописи й Reels, якими ви ділитеся. Ці хости показують відео в Discord і Telegram.</string>
+    <string name="share_link_provider_custom">Власний</string>
+    <string name="share_link_provider_off">Вимкнено (instagram.com)</string>
+    <string name="custom_share_link_host">Власний хост посилань</string>
+    <string name="custom_share_link_host_summary">Використовується, коли вибрано постачальника «Власний», наприклад kkinstagram.com.</string>
     <string name="allow_screenshots">Дозволити знімки екрана</string>
     <string name="allow_screenshots_summary">Зокрема чати, одноразові медіа й режим зникнення.</string>
     <string name="unlock_developer_options">Увімкнути меню розробника</string>

@@ -37,6 +37,12 @@
     <string name="open_externally">Buka link di browser</string>
     <string name="clean_share_links">Bersihkan link berbagi</string>
     <string name="clean_share_links_summary">Menghapus bagian link yang dibagikan yang dapat mengidentifikasi Anda.</string>
+    <string name="share_link_provider">Penyedia link berbagi</string>
+    <string name="share_link_provider_summary">Host link postingan dan Reel yang dibagikan. Host ini menampilkan video di Discord dan Telegram.</string>
+    <string name="share_link_provider_custom">Kustom</string>
+    <string name="share_link_provider_off">Nonaktif (instagram.com)</string>
+    <string name="custom_share_link_host">Host link berbagi kustom</string>
+    <string name="custom_share_link_host_summary">Digunakan saat penyedianya Kustom, misalnya kkinstagram.com.</string>
     <string name="allow_screenshots">Izinkan screenshot</string>
     <string name="allow_screenshots_summary">Termasuk chat, media sekali lihat, dan mode menghilang.</string>
     <string name="unlock_developer_options">Aktifkan menu developer</string>

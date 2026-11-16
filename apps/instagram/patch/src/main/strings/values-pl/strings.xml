@@ -25,7 +25,7 @@
     <string name="hide_repost_buttons">Ukryj przyciski ponownej publikacji</string>
     <string name="hide_repost_buttons_description">Ukrywa przyciski ponownej publikacji w aktualnościach i Rolkach.</string>
     <string name="clean_share_links">Czyść udostępniane linki</string>
-    <string name="clean_share_links_description">Usuwa z udostępnianych linków część, która cię identyfikuje.</string>
+    <string name="clean_share_links_description">Usuwa z udostępnianych linków część, która cię identyfikuje, i może udostępniać posty przez host z podglądem osadzenia.</string>
     <string name="open_links_externally">Otwieraj linki w przeglądarce</string>
     <string name="open_links_externally_description">Otwiera linki w twojej przeglądarce zamiast w przeglądarce Instagrama.</string>
     <string name="disable_autoplay">Wyłącz autoodtwarzanie filmów</string>

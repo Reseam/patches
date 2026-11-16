@@ -37,6 +37,12 @@
     <string name="open_externally">Bağlantıları tarayıcıda aç</string>
     <string name="clean_share_links">Paylaşım bağlantılarını temizle</string>
     <string name="clean_share_links_summary">Paylaşılan bağlantıların sizi tanımlayan kısmını kaldırır.</string>
+    <string name="share_link_provider">Paylaşım bağlantısı sağlayıcısı</string>
+    <string name="share_link_provider_summary">Paylaşılan gönderi ve Reels bağlantılarının sunucusu. Bu sunucular videoyu Discord ve Telegram içinde gösterir.</string>
+    <string name="share_link_provider_custom">Özel</string>
+    <string name="share_link_provider_off">Kapalı (instagram.com)</string>
+    <string name="custom_share_link_host">Özel paylaşım bağlantısı sunucusu</string>
+    <string name="custom_share_link_host_summary">Sağlayıcı Özel olduğunda kullanılır, örneğin kkinstagram.com.</string>
     <string name="allow_screenshots">Ekran görüntüsüne izin ver</string>
     <string name="allow_screenshots_summary">Sohbetler, bir kez görüntülenen medya ve kaybolan mod dahil.</string>
     <string name="unlock_developer_options">Geliştirici menüsünü etkinleştir</string>

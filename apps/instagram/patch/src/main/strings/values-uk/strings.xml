@@ -25,7 +25,7 @@
     <string name="hide_repost_buttons">Приховати кнопки репосту</string>
     <string name="hide_repost_buttons_description">Приховує кнопки репосту в стрічці й Reels.</string>
     <string name="clean_share_links">Очищати посилання для поширення</string>
-    <string name="clean_share_links_description">Видаляє з поширених посилань частину, що вас ідентифікує.</string>
+    <string name="clean_share_links_description">Видаляє з поширених посилань частину, що вас ідентифікує, і може поширювати дописи через хост із попереднім переглядом.</string>
     <string name="open_links_externally">Відкривати посилання в браузері</string>
     <string name="open_links_externally_description">Відкриває посилання у вашому браузері замість браузера Instagram.</string>
     <string name="disable_autoplay">Вимкнути автовідтворення відео</string>

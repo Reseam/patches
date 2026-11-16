@@ -37,6 +37,12 @@
     <string name="open_externally">在浏览器中打开链接</string>
     <string name="clean_share_links">清理分享链接</string>
     <string name="clean_share_links_summary">移除分享链接中能识别你身份的部分。</string>
+    <string name="share_link_provider">分享链接提供方</string>
+    <string name="share_link_provider_summary">分享的帖子和 Reels 链接所用的主机。这些主机会在 Discord 和 Telegram 中显示视频。</string>
+    <string name="share_link_provider_custom">自定义</string>
+    <string name="share_link_provider_off">关闭 (instagram.com)</string>
+    <string name="custom_share_link_host">自定义分享链接主机</string>
+    <string name="custom_share_link_host_summary">提供方为自定义时使用，例如 kkinstagram.com。</string>
     <string name="allow_screenshots">允许截图</string>
     <string name="allow_screenshots_summary">包括聊天、一次性查看的媒体和阅后即焚模式。</string>
     <string name="unlock_developer_options">启用开发者菜单</string>

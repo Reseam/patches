@@ -25,7 +25,7 @@
     <string name="hide_repost_buttons">ซ่อนปุ่มรีโพสต์</string>
     <string name="hide_repost_buttons_description">ซ่อนปุ่มรีโพสต์ในฟีดและ Reels</string>
     <string name="clean_share_links">ล้างลิงก์ที่แชร์</string>
-    <string name="clean_share_links_description">นำส่วนที่ระบุตัวคุณออกจากลิงก์ที่แชร์</string>
+    <string name="clean_share_links_description">นำส่วนที่ระบุตัวคุณออกจากลิงก์ที่แชร์ และแชร์โพสต์ผ่านโฮสต์ที่แสดงตัวอย่างแบบฝังได้</string>
     <string name="open_links_externally">เปิดลิงก์ในเบราว์เซอร์</string>
     <string name="open_links_externally_description">เปิดลิงก์ในเบราว์เซอร์ของคุณแทนเบราว์เซอร์ของ Instagram</string>
     <string name="disable_autoplay">ปิดการเล่นวิดีโออัตโนมัติ</string>

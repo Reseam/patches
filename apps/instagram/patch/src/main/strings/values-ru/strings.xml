@@ -25,7 +25,7 @@
     <string name="hide_repost_buttons">Скрыть кнопки репоста</string>
     <string name="hide_repost_buttons_description">Скрывает кнопки репоста в ленте и Reels.</string>
     <string name="clean_share_links">Очищать ссылки при отправке</string>
-    <string name="clean_share_links_description">Убирает из отправляемых ссылок часть, которая указывает на вас.</string>
+    <string name="clean_share_links_description">Убирает из отправляемых ссылок часть, которая указывает на вас, и может отправлять публикации через хост с превью при встраивании.</string>
     <string name="open_links_externally">Открывать ссылки в браузере</string>
     <string name="open_links_externally_description">Открывает ссылки в вашем браузере, а не в браузере Instagram.</string>
     <string name="disable_autoplay">Отключить автовоспроизведение видео</string>

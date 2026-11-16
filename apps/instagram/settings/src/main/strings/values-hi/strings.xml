@@ -37,6 +37,12 @@
     <string name="open_externally">लिंक ब्राउज़र में खोलें</string>
     <string name="clean_share_links">शेयर किए गए लिंक साफ़ करें</string>
     <string name="clean_share_links_summary">शेयर किए गए लिंक से वह हिस्सा हटाता है जो आपकी पहचान बताता है।</string>
+    <string name="share_link_provider">शेयर लिंक का प्रोवाइडर</string>
+    <string name="share_link_provider_summary">शेयर की गई पोस्ट और Reel लिंक का होस्ट। ये होस्ट Discord और Telegram में वीडियो दिखाते हैं।</string>
+    <string name="share_link_provider_custom">कस्टम</string>
+    <string name="share_link_provider_off">बंद (instagram.com)</string>
+    <string name="custom_share_link_host">कस्टम शेयर लिंक होस्ट</string>
+    <string name="custom_share_link_host_summary">प्रोवाइडर कस्टम होने पर इस्तेमाल होता है, जैसे kkinstagram.com।</string>
     <string name="allow_screenshots">स्क्रीनशॉट की अनुमति दें</string>
     <string name="allow_screenshots_summary">इसमें चैट, एक बार देखे जाने वाला मीडिया और वैनिश मोड शामिल हैं।</string>
     <string name="unlock_developer_options">डेवलपर मेन्यू चालू करें</string>

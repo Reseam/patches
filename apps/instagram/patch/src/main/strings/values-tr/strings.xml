@@ -25,7 +25,7 @@
     <string name="hide_repost_buttons">Yeniden paylaşma düğmelerini gizle</string>
     <string name="hide_repost_buttons_description">Akıştaki ve Reels\'taki yeniden paylaşma düğmelerini gizler.</string>
     <string name="clean_share_links">Paylaşım bağlantılarını temizle</string>
-    <string name="clean_share_links_description">Paylaşılan bağlantıların sizi tanımlayan kısmını kaldırır.</string>
+    <string name="clean_share_links_description">Paylaşılan bağlantıların sizi tanımlayan kısmını kaldırır ve gönderileri yerleştirme önizlemesi gösteren bir sunucu üzerinden paylaşabilir.</string>
     <string name="open_links_externally">Bağlantıları tarayıcıda aç</string>
     <string name="open_links_externally_description">Bağlantıları Instagram\'ın tarayıcısı yerine kendi tarayıcınızda açar.</string>
     <string name="disable_autoplay">Video otomatik oynatmayı kapat</string>

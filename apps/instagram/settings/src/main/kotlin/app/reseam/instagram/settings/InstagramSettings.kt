@@ -9,6 +9,7 @@ import app.reseam.patch.settings.TakesEffect
 import app.reseam.patch.settings.Vector
 import app.reseam.patch.settings.choice
 import app.reseam.patch.settings.folder
+import app.reseam.patch.settings.text
 import app.reseam.patch.settings.toggle
 
 object GhostSettings : SettingsGroup(InstagramStrings) {
@@ -57,6 +58,22 @@ object MetaAiSettings : SettingsGroup(InstagramStrings) {
 object LinkSettings : SettingsGroup(InstagramStrings) {
     val openExternally by toggle(default = false, icon = Vector.lucide("external-link"))
     val cleanShareLinks by toggle(default = true, icon = Vector.lucide("link-2-off"))
+
+    val shareLinkProvider by
+        choice(
+            default = "off",
+            choices =
+                listOf(
+                    Choice("kkinstagram.com", InstagramStrings.shareLinkProviderKkinstagramCom),
+                    Choice("vxinstagram.com", InstagramStrings.shareLinkProviderVxinstagramCom),
+                    Choice("kirkstagram.com", InstagramStrings.shareLinkProviderKirkstagramCom),
+                    Choice("eeinstagram.com", InstagramStrings.shareLinkProviderEeinstagramCom),
+                    Choice("custom", InstagramStrings.shareLinkProviderCustom),
+                    Choice("off", InstagramStrings.shareLinkProviderOff),
+                ),
+            icon = Vector.lucide("share-2"),
+        )
+    val customShareLinkHost by text(default = "", icon = Vector.lucide("globe"))
 }
 
 object PrivacySettings : SettingsGroup(InstagramStrings) {

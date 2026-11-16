@@ -25,7 +25,7 @@
     <string name="hide_repost_buttons">Ocultar botões de repostar</string>
     <string name="hide_repost_buttons_description">Oculta os botões de repostar no feed e no Reels.</string>
     <string name="clean_share_links">Limpar links compartilhados</string>
-    <string name="clean_share_links_description">Remove dos links compartilhados a parte que identifica você.</string>
+    <string name="clean_share_links_description">Remove dos links compartilhados a parte que identifica você e pode compartilhar posts por um host com prévia incorporada.</string>
     <string name="open_links_externally">Abrir links no navegador</string>
     <string name="open_links_externally_description">Abre os links no seu navegador em vez do navegador do Instagram.</string>
     <string name="disable_autoplay">Desativar reprodução automática de vídeos</string>

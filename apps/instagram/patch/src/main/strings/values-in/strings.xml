@@ -25,7 +25,7 @@
     <string name="hide_repost_buttons">Sembunyikan tombol posting ulang</string>
     <string name="hide_repost_buttons_description">Menyembunyikan tombol posting ulang di feed dan Reels.</string>
     <string name="clean_share_links">Bersihkan link berbagi</string>
-    <string name="clean_share_links_description">Menghapus bagian link yang dibagikan yang dapat mengidentifikasi Anda.</string>
+    <string name="clean_share_links_description">Menghapus bagian link yang dibagikan yang dapat mengidentifikasi Anda, dan dapat membagikan postingan lewat host dengan pratinjau sematan.</string>
     <string name="open_links_externally">Buka link di browser</string>
     <string name="open_links_externally_description">Membuka link di browser Anda, bukan di browser Instagram.</string>
     <string name="disable_autoplay">Nonaktifkan putar otomatis video</string>

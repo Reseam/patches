@@ -37,6 +37,12 @@
     <string name="open_externally">リンクをブラウザで開く</string>
     <string name="clean_share_links">共有リンクをクリーンにする</string>
     <string name="clean_share_links_summary">共有するリンクから、あなたを特定する部分を取り除きます。</string>
+    <string name="share_link_provider">共有リンクのサービス</string>
+    <string name="share_link_provider_summary">共有する投稿とリールのリンクのホストです。これらのホストは Discord と Telegram で動画を表示します。</string>
+    <string name="share_link_provider_custom">カスタム</string>
+    <string name="share_link_provider_off">オフ (instagram.com)</string>
+    <string name="custom_share_link_host">共有リンクのカスタムホスト</string>
+    <string name="custom_share_link_host_summary">サービスがカスタムのときに使います。例: kkinstagram.com</string>
     <string name="allow_screenshots">スクリーンショットを許可</string>
     <string name="allow_screenshots_summary">チャット、1 回表示のメディア、消えるメッセージモードを含みます。</string>
     <string name="unlock_developer_options">開発者メニューを有効にする</string>

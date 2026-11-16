@@ -25,7 +25,7 @@
     <string name="hide_repost_buttons">隱藏轉發按鈕</string>
     <string name="hide_repost_buttons_description">隱藏動態消息和 Reels 中的轉發按鈕。</string>
     <string name="clean_share_links">清理分享連結</string>
-    <string name="clean_share_links_description">移除分享連結中可識別你身分的部分。</string>
+    <string name="clean_share_links_description">移除分享連結中可識別你身分的部分，並可透過支援嵌入預覽的主機分享貼文。</string>
     <string name="open_links_externally">在瀏覽器中開啟連結</string>
     <string name="open_links_externally_description">以你的瀏覽器開啟連結，而不是 Instagram 內建的瀏覽器。</string>
     <string name="disable_autoplay">停用影片自動播放</string>

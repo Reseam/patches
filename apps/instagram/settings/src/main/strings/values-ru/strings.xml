@@ -37,6 +37,12 @@
     <string name="open_externally">Открывать ссылки в браузере</string>
     <string name="clean_share_links">Очищать ссылки при отправке</string>
     <string name="clean_share_links_summary">Убирает из отправляемых ссылок часть, которая указывает на вас.</string>
+    <string name="share_link_provider">Сервис для ссылок</string>
+    <string name="share_link_provider_summary">Хост ссылок на публикации и Reels. Эти хосты показывают видео в Discord и Telegram.</string>
+    <string name="share_link_provider_custom">Свой</string>
+    <string name="share_link_provider_off">Выкл. (instagram.com)</string>
+    <string name="custom_share_link_host">Свой хост для ссылок</string>
+    <string name="custom_share_link_host_summary">Используется, если выбран сервис «Свой», например kkinstagram.com.</string>
     <string name="allow_screenshots">Разрешить скриншоты</string>
     <string name="allow_screenshots_summary">Включая чаты, одноразовые медиа и режим исчезающих сообщений.</string>
     <string name="unlock_developer_options">Включить меню разработчика</string>

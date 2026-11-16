@@ -37,6 +37,12 @@
     <string name="open_externally">Otwieraj linki w przeglądarce</string>
     <string name="clean_share_links">Czyść udostępniane linki</string>
     <string name="clean_share_links_summary">Usuwa z udostępnianych linków część, która cię identyfikuje.</string>
+    <string name="share_link_provider">Dostawca linków udostępniania</string>
+    <string name="share_link_provider_summary">Host udostępnianych linków do postów i Rolek. Te hosty pokazują film w Discordzie i Telegramie.</string>
+    <string name="share_link_provider_custom">Własny</string>
+    <string name="share_link_provider_off">Wyłączone (instagram.com)</string>
+    <string name="custom_share_link_host">Własny host linków udostępniania</string>
+    <string name="custom_share_link_host_summary">Używany, gdy dostawca to Własny, na przykład kkinstagram.com.</string>
     <string name="allow_screenshots">Zezwalaj na zrzuty ekranu</string>
     <string name="allow_screenshots_summary">Obejmuje czaty, multimedia do jednorazowego wyświetlenia i tryb znikania.</string>
     <string name="unlock_developer_options">Włącz menu dewelopera</string>

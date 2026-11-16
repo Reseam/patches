@@ -37,6 +37,12 @@
     <string name="open_externally">Abrir enlaces en el navegador</string>
     <string name="clean_share_links">Limpiar enlaces compartidos</string>
     <string name="clean_share_links_summary">Quita la parte de los enlaces compartidos que te identifica.</string>
+    <string name="share_link_provider">Proveedor de enlaces para compartir</string>
+    <string name="share_link_provider_summary">El host de los enlaces de publicaciones y Reels que compartes. Estos hosts muestran el video en Discord y Telegram.</string>
+    <string name="share_link_provider_custom">Personalizado</string>
+    <string name="share_link_provider_off">Desactivado (instagram.com)</string>
+    <string name="custom_share_link_host">Host personalizado para enlaces</string>
+    <string name="custom_share_link_host_summary">Se usa cuando el proveedor es Personalizado, por ejemplo kkinstagram.com.</string>
     <string name="allow_screenshots">Permitir capturas de pantalla</string>
     <string name="allow_screenshots_summary">Incluye chats, contenido de una sola visualización y modo efímero.</string>
     <string name="unlock_developer_options">Activar menú de desarrollador</string>

@@ -25,7 +25,7 @@
     <string name="hide_repost_buttons">リポストボタンを非表示</string>
     <string name="hide_repost_buttons_description">フィードとリールのリポストボタンを非表示にします。</string>
     <string name="clean_share_links">共有リンクをクリーンにする</string>
-    <string name="clean_share_links_description">共有するリンクから、あなたを特定する部分を取り除きます。</string>
+    <string name="clean_share_links_description">共有するリンクから、あなたを特定する部分を取り除きます。埋め込みプレビューに対応したホストで投稿を共有することもできます。</string>
     <string name="open_links_externally">リンクをブラウザで開く</string>
     <string name="open_links_externally_description">Instagram のブラウザではなく、お使いのブラウザでリンクを開きます。</string>
     <string name="disable_autoplay">動画の自動再生を無効にする</string>

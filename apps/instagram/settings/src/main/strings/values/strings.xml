@@ -37,6 +37,16 @@
     <string name="open_externally">Open links in browser</string>
     <string name="clean_share_links">Clean share links</string>
     <string name="clean_share_links_summary">Removes the part of shared links that identifies you.</string>
+    <string name="share_link_provider">Share link provider</string>
+    <string name="share_link_provider_summary">The host of shared post and Reel links. These hosts show the video in Discord and Telegram.</string>
+    <string name="share_link_provider_kkinstagram_com" translatable="false">kkinstagram.com</string>
+    <string name="share_link_provider_vxinstagram_com" translatable="false">vxinstagram.com</string>
+    <string name="share_link_provider_kirkstagram_com" translatable="false">kirkstagram.com</string>
+    <string name="share_link_provider_eeinstagram_com" translatable="false">eeinstagram.com</string>
+    <string name="share_link_provider_custom">Custom</string>
+    <string name="share_link_provider_off">Off (instagram.com)</string>
+    <string name="custom_share_link_host">Custom share link host</string>
+    <string name="custom_share_link_host_summary">Used when the provider is Custom, for example kkinstagram.com.</string>
     <string name="allow_screenshots">Allow screenshots</string>
     <string name="allow_screenshots_summary">Includes chats, view-once media and vanish mode.</string>
     <string name="unlock_developer_options">Enable developer menu</string>

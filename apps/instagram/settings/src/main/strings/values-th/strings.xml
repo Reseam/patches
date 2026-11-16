@@ -37,6 +37,12 @@
     <string name="open_externally">เปิดลิงก์ในเบราว์เซอร์</string>
     <string name="clean_share_links">ล้างลิงก์ที่แชร์</string>
     <string name="clean_share_links_summary">นำส่วนที่ระบุตัวคุณออกจากลิงก์ที่แชร์</string>
+    <string name="share_link_provider">ผู้ให้บริการลิงก์แชร์</string>
+    <string name="share_link_provider_summary">โฮสต์ของลิงก์โพสต์และ Reel ที่แชร์ โฮสต์เหล่านี้แสดงวิดีโอใน Discord และ Telegram</string>
+    <string name="share_link_provider_custom">กำหนดเอง</string>
+    <string name="share_link_provider_off">ปิด (instagram.com)</string>
+    <string name="custom_share_link_host">โฮสต์ลิงก์แชร์ที่กำหนดเอง</string>
+    <string name="custom_share_link_host_summary">ใช้เมื่อผู้ให้บริการเป็น กำหนดเอง เช่น kkinstagram.com</string>
     <string name="allow_screenshots">อนุญาตให้จับภาพหน้าจอ</string>
     <string name="allow_screenshots_summary">รวมถึงแชท สื่อแบบดูครั้งเดียว และโหมดหายไป</string>
     <string name="unlock_developer_options">เปิดเมนูนักพัฒนาซอฟต์แวร์</string>

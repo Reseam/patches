@@ -25,7 +25,7 @@
     <string name="hide_repost_buttons">रीपोस्ट बटन छिपाएँ</string>
     <string name="hide_repost_buttons_description">फ़ीड और Reels में रीपोस्ट के बटन छिपाता है।</string>
     <string name="clean_share_links">शेयर किए गए लिंक साफ़ करें</string>
-    <string name="clean_share_links_description">शेयर किए गए लिंक से वह हिस्सा हटाता है जो आपकी पहचान बताता है।</string>
+    <string name="clean_share_links_description">शेयर किए गए लिंक से वह हिस्सा हटाता है जो आपकी पहचान बताता है, और पोस्ट को एम्बेड प्रीव्यू वाले होस्ट से शेयर कर सकता है।</string>
     <string name="open_links_externally">लिंक ब्राउज़र में खोलें</string>
     <string name="open_links_externally_description">लिंक Instagram के ब्राउज़र के बजाय आपके ब्राउज़र में खोलता है।</string>
     <string name="disable_autoplay">वीडियो का अपने-आप चलना बंद करें</string>

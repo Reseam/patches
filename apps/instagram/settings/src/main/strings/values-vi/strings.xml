@@ -37,6 +37,12 @@
     <string name="open_externally">Mở đường liên kết trong trình duyệt</string>
     <string name="clean_share_links">Làm sạch đường liên kết chia sẻ</string>
     <string name="clean_share_links_summary">Xóa phần nhận dạng bạn trong đường liên kết được chia sẻ.</string>
+    <string name="share_link_provider">Nhà cung cấp đường liên kết chia sẻ</string>
+    <string name="share_link_provider_summary">Máy chủ của đường liên kết bài viết và thước phim được chia sẻ. Các máy chủ này hiển thị video trong Discord và Telegram.</string>
+    <string name="share_link_provider_custom">Tùy chỉnh</string>
+    <string name="share_link_provider_off">Tắt (instagram.com)</string>
+    <string name="custom_share_link_host">Máy chủ liên kết chia sẻ tùy chỉnh</string>
+    <string name="custom_share_link_host_summary">Dùng khi nhà cung cấp là Tùy chỉnh, ví dụ kkinstagram.com.</string>
     <string name="allow_screenshots">Cho phép chụp màn hình</string>
     <string name="allow_screenshots_summary">Bao gồm cuộc trò chuyện, nội dung xem một lần và chế độ tạm thời.</string>
     <string name="unlock_developer_options">Bật trình đơn nhà phát triển</string>

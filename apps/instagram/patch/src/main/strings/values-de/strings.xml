@@ -25,7 +25,7 @@
     <string name="hide_repost_buttons">Repost-Schaltflächen ausblenden</string>
     <string name="hide_repost_buttons_description">Blendet Repost-Schaltflächen im Feed und in Reels aus.</string>
     <string name="clean_share_links">Geteilte Links bereinigen</string>
-    <string name="clean_share_links_description">Entfernt den Teil geteilter Links, der dich identifiziert.</string>
+    <string name="clean_share_links_description">Entfernt den Teil geteilter Links, der dich identifiziert, und kann Beiträge über einen Host mit Einbettungsvorschau teilen.</string>
     <string name="open_links_externally">Links im Browser öffnen</string>
     <string name="open_links_externally_description">Öffnet Links in deinem Browser statt in dem von Instagram.</string>
     <string name="disable_autoplay">Automatische Videowiedergabe deaktivieren</string>

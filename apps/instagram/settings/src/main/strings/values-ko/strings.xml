@@ -37,6 +37,12 @@
     <string name="open_externally">브라우저에서 링크 열기</string>
     <string name="clean_share_links">공유 링크 정리</string>
     <string name="clean_share_links_summary">공유 링크에서 나를 식별하는 부분을 제거합니다.</string>
+    <string name="share_link_provider">공유 링크 제공자</string>
+    <string name="share_link_provider_summary">공유하는 게시물과 릴스 링크의 호스트입니다. 이 호스트는 Discord와 Telegram에서 동영상을 보여줍니다.</string>
+    <string name="share_link_provider_custom">사용자 지정</string>
+    <string name="share_link_provider_off">사용 안 함 (instagram.com)</string>
+    <string name="custom_share_link_host">사용자 지정 공유 링크 호스트</string>
+    <string name="custom_share_link_host_summary">제공자가 사용자 지정일 때 사용됩니다. 예: kkinstagram.com</string>
     <string name="allow_screenshots">스크린샷 허용</string>
     <string name="allow_screenshots_summary">채팅, 한 번만 볼 수 있는 미디어, 사라지는 메시지 모드를 포함합니다.</string>
     <string name="unlock_developer_options">개발자 메뉴 사용</string>

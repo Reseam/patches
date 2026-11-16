@@ -37,6 +37,12 @@
     <string name="open_externally">在瀏覽器中開啟連結</string>
     <string name="clean_share_links">清理分享連結</string>
     <string name="clean_share_links_summary">移除分享連結中可識別你身分的部分。</string>
+    <string name="share_link_provider">分享連結提供者</string>
+    <string name="share_link_provider_summary">分享的貼文和 Reels 連結所用的主機。這些主機會在 Discord 和 Telegram 中顯示影片。</string>
+    <string name="share_link_provider_custom">自訂</string>
+    <string name="share_link_provider_off">關閉 (instagram.com)</string>
+    <string name="custom_share_link_host">自訂分享連結主機</string>
+    <string name="custom_share_link_host_summary">提供者為自訂時使用，例如 kkinstagram.com。</string>
     <string name="allow_screenshots">允許截圖</string>
     <string name="allow_screenshots_summary">包括聊天、單次檢視的媒體和閱後即焚模式。</string>
     <string name="unlock_developer_options">啟用開發人員選單</string>

@@ -25,7 +25,7 @@
     <string name="hide_repost_buttons">Masquer les boutons de republication</string>
     <string name="hide_repost_buttons_description">Masque les boutons de republication dans le fil et les Reels.</string>
     <string name="clean_share_links">Nettoyer les liens partagés</string>
-    <string name="clean_share_links_description">Retire la partie des liens partagés qui vous identifie.</string>
+    <string name="clean_share_links_description">Retire la partie des liens partagés qui vous identifie, et peut partager les publications via un hôte avec aperçu intégré.</string>
     <string name="open_links_externally">Ouvrir les liens dans le navigateur</string>
     <string name="open_links_externally_description">Ouvre les liens dans votre navigateur plutôt que dans celui d’Instagram.</string>
     <string name="disable_autoplay">Désactiver la lecture automatique des vidéos</string>

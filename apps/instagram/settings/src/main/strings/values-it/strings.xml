@@ -37,6 +37,12 @@
     <string name="open_externally">Apri i link nel browser</string>
     <string name="clean_share_links">Pulisci i link condivisi</string>
     <string name="clean_share_links_summary">Rimuove dai link condivisi la parte che ti identifica.</string>
+    <string name="share_link_provider">Servizio per i link condivisi</string>
+    <string name="share_link_provider_summary">L’host dei link condivisi di post e Reel. Questi host mostrano il video in Discord e Telegram.</string>
+    <string name="share_link_provider_custom">Personalizzato</string>
+    <string name="share_link_provider_off">Disattivato (instagram.com)</string>
+    <string name="custom_share_link_host">Host personalizzato per i link condivisi</string>
+    <string name="custom_share_link_host_summary">Usato quando il servizio è Personalizzato, ad esempio kkinstagram.com.</string>
     <string name="allow_screenshots">Consenti gli screenshot</string>
     <string name="allow_screenshots_summary">Include chat, contenuti visualizzabili una sola volta e modalità temporanea.</string>
     <string name="unlock_developer_options">Attiva il menu sviluppatore</string>
