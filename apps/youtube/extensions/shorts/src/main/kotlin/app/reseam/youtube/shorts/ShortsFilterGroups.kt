@@ -72,6 +72,7 @@ internal class ShortsFilterGroups {
                 ByteArrayFilterGroup(
                     ShortsSettings.hideShortsSaveSoundButton,
                     "yt_outline_bookmark_",
+                    "yt_outline_experimental_bookmark_",
                     "yt_outline_list_add_",
                     "yt_outline_experimental_list_add_",
                 ),
