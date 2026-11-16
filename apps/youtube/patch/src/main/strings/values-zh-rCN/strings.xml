@@ -120,6 +120,8 @@
     <string name="custom_player_overlay_opacity_description">更改显示播放器控件时画面变暗的程度。</string>
     <string name="disable_auto_captions">停用自动字幕</string>
     <string name="disable_auto_captions_description">不让字幕自动开启。</string>
+    <string name="caption_language">字幕语言</string>
+    <string name="caption_language_description">以你选择的语言开启字幕，视频没有该语言字幕时自动翻译。</string>
     <string name="disable_player_popup_panels">停用播放器弹出面板</string>
     <string name="disable_player_popup_panels_description">不让直播聊天等面板自动打开。</string>
     <string name="disable_rolling_number_animations">停用数字滚动动画</string>

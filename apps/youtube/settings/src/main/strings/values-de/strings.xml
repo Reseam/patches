@@ -295,6 +295,8 @@
     <string name="hide_shorts_full_video_link_label">Link zum vollständigen Video in Shorts ausblenden</string>
     <string name="hide_shorts_full_video_link_label_summary">Blendet den Link aus, der einen Short als normales Video öffnet.</string>
     <string name="hide_shorts_effect_button">Effekt-Schaltfläche in Shorts ausblenden</string>
+    <string name="hide_shorts_gesture_hints">Gesten-Hinweise in Shorts ausblenden</string>
+    <string name="hide_shorts_gesture_hints_summary">Blendet die Hinweise zum Herunterziehen aus, während du einen Short für 2-fache Geschwindigkeit hältst.</string>
     <string name="hide_shorts_green_screen_button">Greenscreen-Schaltfläche in Shorts ausblenden</string>
     <string name="hide_shorts_new_posts_button">Schaltfläche für neue Beiträge in Shorts ausblenden</string>
     <string name="hide_shorts_hashtag_button">Hashtag-Schaltfläche in Shorts ausblenden</string>
@@ -313,6 +315,7 @@
     <string name="hide_shorts_paused_overlay_buttons_summary">Blendet die Schaltflächen aus, die bei einem pausierten Short erscheinen.</string>
     <string name="hide_shorts_preview_comment">Kommentarvorschau in Shorts ausblenden</string>
     <string name="hide_shorts_remix_button">Remix-Schaltfläche in Shorts ausblenden</string>
+    <string name="hide_shorts_save_button">Speichern-Schaltfläche in Shorts ausblenden</string>
     <string name="hide_shorts_save_sound_button">Schaltfläche „Sound speichern“ in Shorts ausblenden</string>
     <string name="hide_shorts_search_suggestions">Suchvorschläge in Shorts ausblenden</string>
     <string name="hide_shorts_share_button">Teilen-Schaltfläche in Shorts ausblenden</string>
@@ -368,6 +371,10 @@
     <string name="player_overlay_opacity_summary">Von 0 bis 100.</string>
     <string name="disable_auto_captions">Automatische Untertitel deaktivieren</string>
     <string name="disable_auto_captions_summary">Verhindert, dass Untertitel sich von selbst einschalten.</string>
+    <string name="caption_language">Untertitelsprache</string>
+    <string name="caption_language_summary">Schaltet Untertitel in dieser Sprache für jedes Video ein und übersetzt sie, wenn ein Video keine in dieser Sprache hat.</string>
+    <string name="caption_language_off">Aus</string>
+    <string name="caption_language_app">App-Sprache</string>
     <string name="disable_like_subscribe_glow">Leuchten bei „Mag ich“ und Abonnieren deaktivieren</string>
     <string name="hide_like_dislike_button">Schaltfläche „Mag ich“ und „Mag ich nicht“ ausblenden</string>
     <string name="hide_download_button">Download-Schaltfläche ausblenden</string>
@@ -389,6 +396,7 @@
     <string name="hide_player_flyout_stable_volume">Stabile Lautstärke ausblenden</string>
     <string name="hide_player_flyout_sleep_timer">Schlaftimer ausblenden</string>
     <string name="hide_player_flyout_watch_in_vr">„In VR ansehen“ ausblenden</string>
+    <string name="hide_player_flyout_on_the_go">On-the-go ausblenden</string>
     <string name="hide_player_flyout_video_quality">Videoqualität ausblenden</string>
     <string name="hide_player_flyout_video_quality_footer">Fußzeile des Qualitätsmenüs ausblenden</string>
     <string name="hide_home_button">Start-Schaltfläche ausblenden</string>
@@ -467,6 +475,8 @@
     <string name="video_quality_default_mobile">Standardqualität mit mobilen Daten</string>
     <string name="video_quality_default_mobile_summary">Die höchste Qualität, die YouTube mit mobilen Daten von selbst wählt.</string>
     <string name="video_quality_default_mobile_same_as_wifi">Wie im WLAN</string>
+    <string name="shorts_quality_default">Shorts-Standardqualität im WLAN</string>
+    <string name="shorts_quality_default_mobile">Shorts-Standardqualität mit mobilen Daten</string>
     <string name="remember_video_quality">Videoqualität merken</string>
     <string name="remember_video_quality_summary">Verwendet die Qualität, die du zuletzt gewählt hast, für spätere Videos im gleichen Netzwerktyp.</string>
     <string name="advanced_video_quality_menu">Erweitertes Menü für Videoqualität</string>

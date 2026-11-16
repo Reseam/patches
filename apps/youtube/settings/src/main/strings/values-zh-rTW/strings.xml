@@ -295,6 +295,8 @@
     <string name="hide_shorts_full_video_link_label">隱藏 Shorts 完整影片連結</string>
     <string name="hide_shorts_full_video_link_label_summary">隱藏將 Short 以一般影片開啟的連結。</string>
     <string name="hide_shorts_effect_button">隱藏 Shorts 特效按鈕</string>
+    <string name="hide_shorts_gesture_hints">隱藏 Shorts 手勢提示</string>
+    <string name="hide_shorts_gesture_hints_summary">按住 Short 以 2 倍速播放時，隱藏下拉提示。</string>
     <string name="hide_shorts_green_screen_button">隱藏 Shorts 綠幕按鈕</string>
     <string name="hide_shorts_new_posts_button">隱藏 Shorts 新貼文按鈕</string>
     <string name="hide_shorts_hashtag_button">隱藏 Shorts 主題標籤按鈕</string>
@@ -313,6 +315,7 @@
     <string name="hide_shorts_paused_overlay_buttons_summary">隱藏 Short 暫停時顯示的按鈕。</string>
     <string name="hide_shorts_preview_comment">隱藏 Shorts 預覽留言</string>
     <string name="hide_shorts_remix_button">隱藏 Shorts 重混按鈕</string>
+    <string name="hide_shorts_save_button">隱藏 Shorts 儲存按鈕</string>
     <string name="hide_shorts_save_sound_button">隱藏 Shorts 儲存音訊按鈕</string>
     <string name="hide_shorts_search_suggestions">隱藏 Shorts 搜尋建議</string>
     <string name="hide_shorts_share_button">隱藏 Shorts 分享按鈕</string>
@@ -368,6 +371,10 @@
     <string name="player_overlay_opacity_summary">從 0 到 100。</string>
     <string name="disable_auto_captions">停用自動字幕</string>
     <string name="disable_auto_captions_summary">不讓字幕自動開啟。</string>
+    <string name="caption_language">字幕語言</string>
+    <string name="caption_language_summary">為每部影片開啟這個語言的字幕，影片沒有這個語言的字幕時自動翻譯。</string>
+    <string name="caption_language_off">關閉</string>
+    <string name="caption_language_app">應用程式語言</string>
     <string name="disable_like_subscribe_glow">停用喜歡和訂閱光暈</string>
     <string name="hide_like_dislike_button">隱藏喜歡和不喜歡按鈕</string>
     <string name="hide_download_button">隱藏下載按鈕</string>
@@ -389,6 +396,7 @@
     <string name="hide_player_flyout_stable_volume">隱藏穩定音量</string>
     <string name="hide_player_flyout_sleep_timer">隱藏睡眠定時器</string>
     <string name="hide_player_flyout_watch_in_vr">隱藏「在 VR 中觀看」</string>
+    <string name="hide_player_flyout_on_the_go">隱藏 On-the-go</string>
     <string name="hide_player_flyout_video_quality">隱藏影片畫質</string>
     <string name="hide_player_flyout_video_quality_footer">隱藏影片畫質頁尾</string>
     <string name="hide_home_button">隱藏首頁按鈕</string>
@@ -467,6 +475,8 @@
     <string name="video_quality_default_mobile">行動數據的預設畫質</string>
     <string name="video_quality_default_mobile_summary">在行動數據網路上，YouTube 自行選擇的最高畫質。</string>
     <string name="video_quality_default_mobile_same_as_wifi">與 Wi-Fi 相同</string>
+    <string name="shorts_quality_default">Wi-Fi 的 Shorts 預設畫質</string>
+    <string name="shorts_quality_default_mobile">行動數據的 Shorts 預設畫質</string>
     <string name="remember_video_quality">記住影片畫質</string>
     <string name="remember_video_quality_summary">在同類型網路上，之後的影片使用你上次選擇的畫質。</string>
     <string name="advanced_video_quality_menu">進階影片畫質選單</string>

@@ -120,6 +120,8 @@
     <string name="custom_player_overlay_opacity_description">เปลี่ยนระดับความมืดของโปรแกรมเล่นขณะแสดงตัวควบคุม</string>
     <string name="disable_auto_captions">ปิดคำบรรยายอัตโนมัติ</string>
     <string name="disable_auto_captions_description">หยุดคำบรรยายไม่ให้เปิดเอง</string>
+    <string name="caption_language">ภาษาคำบรรยาย</string>
+    <string name="caption_language_description">เปิดคำบรรยายในภาษาที่คุณเลือก และแปลให้เมื่อวิดีโอไม่มีคำบรรยายภาษานั้น</string>
     <string name="disable_player_popup_panels">ปิดแผงป๊อปอัปของโปรแกรมเล่น</string>
     <string name="disable_player_popup_panels_description">หยุดแผงต่างๆ เช่น แชทสด ไม่ให้เปิดเอง</string>
     <string name="disable_rolling_number_animations">ปิดภาพเคลื่อนไหวตัวเลขหมุน</string>

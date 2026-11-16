@@ -295,6 +295,8 @@
     <string name="hide_shorts_full_video_link_label">Nascondi il link al video completo di Shorts</string>
     <string name="hide_shorts_full_video_link_label_summary">Nasconde il link che apre uno Short come un video normale.</string>
     <string name="hide_shorts_effect_button">Nascondi il pulsante degli effetti di Shorts</string>
+    <string name="hide_shorts_gesture_hints">Nascondi i suggerimenti dei gesti di Shorts</string>
+    <string name="hide_shorts_gesture_hints_summary">Nasconde i suggerimenti per trascinare verso il basso mentre tieni premuto uno Short per la velocità 2x.</string>
     <string name="hide_shorts_green_screen_button">Nascondi il pulsante dello schermo verde di Shorts</string>
     <string name="hide_shorts_new_posts_button">Nascondi il pulsante dei nuovi post di Shorts</string>
     <string name="hide_shorts_hashtag_button">Nascondi il pulsante hashtag di Shorts</string>
@@ -313,6 +315,7 @@
     <string name="hide_shorts_paused_overlay_buttons_summary">Nasconde i pulsanti mostrati quando uno Short è in pausa.</string>
     <string name="hide_shorts_preview_comment">Nascondi l’anteprima del commento di Shorts</string>
     <string name="hide_shorts_remix_button">Nascondi il pulsante Remix di Shorts</string>
+    <string name="hide_shorts_save_button">Nascondi il pulsante Salva di Shorts</string>
     <string name="hide_shorts_save_sound_button">Nascondi il pulsante Salva audio di Shorts</string>
     <string name="hide_shorts_search_suggestions">Nascondi i suggerimenti di ricerca di Shorts</string>
     <string name="hide_shorts_share_button">Nascondi il pulsante Condividi di Shorts</string>
@@ -368,6 +371,10 @@
     <string name="player_overlay_opacity_summary">Da 0 a 100.</string>
     <string name="disable_auto_captions">Disattiva i sottotitoli automatici</string>
     <string name="disable_auto_captions_summary">Impedisce ai sottotitoli di attivarsi da soli.</string>
+    <string name="caption_language">Lingua dei sottotitoli</string>
+    <string name="caption_language_summary">Attiva i sottotitoli in questa lingua per ogni video e li traduce quando un video non li ha in questa lingua.</string>
+    <string name="caption_language_off">Disattivati</string>
+    <string name="caption_language_app">Lingua dell’app</string>
     <string name="disable_like_subscribe_glow">Disattiva il bagliore di Mi piace e Iscriviti</string>
     <string name="hide_like_dislike_button">Nascondi il pulsante Mi piace e Non mi piace</string>
     <string name="hide_download_button">Nascondi il pulsante di download</string>
@@ -389,6 +396,7 @@
     <string name="hide_player_flyout_stable_volume">Nascondi il volume stabile</string>
     <string name="hide_player_flyout_sleep_timer">Nascondi il timer di spegnimento</string>
     <string name="hide_player_flyout_watch_in_vr">Nascondi Guarda in VR</string>
+    <string name="hide_player_flyout_on_the_go">Nascondi On-the-go</string>
     <string name="hide_player_flyout_video_quality">Nascondi la qualità video</string>
     <string name="hide_player_flyout_video_quality_footer">Nascondi il piè di pagina del menu della qualità</string>
     <string name="hide_home_button">Nascondi il pulsante Home</string>
@@ -467,6 +475,8 @@
     <string name="video_quality_default_mobile">Qualità predefinita con i dati mobili</string>
     <string name="video_quality_default_mobile_summary">La qualità più alta che YouTube sceglie da sé con i dati mobili.</string>
     <string name="video_quality_default_mobile_same_as_wifi">Come con il Wi-Fi</string>
+    <string name="shorts_quality_default">Qualità predefinita di Shorts con il Wi-Fi</string>
+    <string name="shorts_quality_default_mobile">Qualità predefinita di Shorts con i dati mobili</string>
     <string name="remember_video_quality">Ricorda la qualità video</string>
     <string name="remember_video_quality_summary">Usa l’ultima qualità che hai scelto per i video successivi sullo stesso tipo di rete.</string>
     <string name="advanced_video_quality_menu">Menu avanzato della qualità video</string>

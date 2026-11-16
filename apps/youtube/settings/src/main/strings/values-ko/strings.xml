@@ -295,6 +295,8 @@
     <string name="hide_shorts_full_video_link_label">Shorts 전체 동영상 링크 숨기기</string>
     <string name="hide_shorts_full_video_link_label_summary">Short를 일반 동영상으로 여는 링크를 숨깁니다.</string>
     <string name="hide_shorts_effect_button">Shorts 효과 버튼 숨기기</string>
+    <string name="hide_shorts_gesture_hints">Shorts 동작 힌트 숨기기</string>
+    <string name="hide_shorts_gesture_hints_summary">Shorts를 길게 눌러 2배속으로 볼 때 아래로 당기기 힌트를 숨깁니다.</string>
     <string name="hide_shorts_green_screen_button">Shorts 그린 스크린 버튼 숨기기</string>
     <string name="hide_shorts_new_posts_button">Shorts 새 게시물 버튼 숨기기</string>
     <string name="hide_shorts_hashtag_button">Shorts 해시태그 버튼 숨기기</string>
@@ -313,6 +315,7 @@
     <string name="hide_shorts_paused_overlay_buttons_summary">Short를 일시중지하면 표시되는 버튼을 숨깁니다.</string>
     <string name="hide_shorts_preview_comment">Shorts 미리보기 댓글 숨기기</string>
     <string name="hide_shorts_remix_button">Shorts 리믹스 버튼 숨기기</string>
+    <string name="hide_shorts_save_button">Shorts 저장 버튼 숨기기</string>
     <string name="hide_shorts_save_sound_button">Shorts 사운드 저장 버튼 숨기기</string>
     <string name="hide_shorts_search_suggestions">Shorts 검색 추천 숨기기</string>
     <string name="hide_shorts_share_button">Shorts 공유 버튼 숨기기</string>
@@ -368,6 +371,10 @@
     <string name="player_overlay_opacity_summary">0부터 100까지.</string>
     <string name="disable_auto_captions">자동 자막 사용 중지</string>
     <string name="disable_auto_captions_summary">자막이 저절로 켜지지 않게 합니다.</string>
+    <string name="caption_language">자막 언어</string>
+    <string name="caption_language_summary">모든 동영상에서 이 언어로 자막을 켜고, 이 언어 자막이 없는 동영상은 번역합니다.</string>
+    <string name="caption_language_off">사용 안함</string>
+    <string name="caption_language_app">앱 언어</string>
     <string name="disable_like_subscribe_glow">좋아요 및 구독 빛 효과 사용 중지</string>
     <string name="hide_like_dislike_button">좋아요 및 싫어요 버튼 숨기기</string>
     <string name="hide_download_button">오프라인 저장 버튼 숨기기</string>
@@ -389,6 +396,7 @@
     <string name="hide_player_flyout_stable_volume">안정적인 볼륨 숨기기</string>
     <string name="hide_player_flyout_sleep_timer">수면 타이머 숨기기</string>
     <string name="hide_player_flyout_watch_in_vr">VR로 보기 숨기기</string>
+    <string name="hide_player_flyout_on_the_go">On-the-go 숨기기</string>
     <string name="hide_player_flyout_video_quality">동영상 화질 숨기기</string>
     <string name="hide_player_flyout_video_quality_footer">동영상 화질 하단 문구 숨기기</string>
     <string name="hide_home_button">홈 버튼 숨기기</string>
@@ -467,6 +475,8 @@
     <string name="video_quality_default_mobile">모바일 데이터 기본 화질</string>
     <string name="video_quality_default_mobile_summary">모바일 데이터에서 YouTube가 스스로 선택하는 최고 화질입니다.</string>
     <string name="video_quality_default_mobile_same_as_wifi">Wi-Fi와 동일</string>
+    <string name="shorts_quality_default">Wi-Fi Shorts 기본 화질</string>
+    <string name="shorts_quality_default_mobile">모바일 데이터 Shorts 기본 화질</string>
     <string name="remember_video_quality">동영상 화질 기억</string>
     <string name="remember_video_quality_summary">같은 종류의 네트워크에서 이후 동영상에 마지막으로 선택한 화질을 사용합니다.</string>
     <string name="advanced_video_quality_menu">고급 동영상 화질 메뉴</string>

@@ -120,6 +120,8 @@
     <string name="custom_player_overlay_opacity_description">Kontroller görünürken oynatıcının ne kadar karardığını değiştirir.</string>
     <string name="disable_auto_captions">Otomatik altyazıları kapat</string>
     <string name="disable_auto_captions_description">Altyazıların kendiliğinden açılmasını durdurur.</string>
+    <string name="caption_language">Altyazı dili</string>
+    <string name="caption_language_description">Altyazıyı seçtiğiniz dilde açar ve videoda o dilde altyazı yoksa çevirir.</string>
     <string name="disable_player_popup_panels">Oynatıcı açılır panellerini kapat</string>
     <string name="disable_player_popup_panels_description">Canlı sohbet gibi panellerin kendiliğinden açılmasını durdurur.</string>
     <string name="disable_rolling_number_animations">Dönen sayı animasyonlarını kapat</string>

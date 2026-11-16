@@ -120,6 +120,8 @@
     <string name="custom_player_overlay_opacity_description">Cambia cuánto se oscurece el reproductor mientras se ven sus controles.</string>
     <string name="disable_auto_captions">Desactivar subtítulos automáticos</string>
     <string name="disable_auto_captions_description">Evita que los subtítulos se activen solos.</string>
+    <string name="caption_language">Idioma de los subtítulos</string>
+    <string name="caption_language_description">Activa los subtítulos en el idioma que elijas y los traduce cuando un video no los tiene en él.</string>
     <string name="disable_player_popup_panels">Desactivar paneles emergentes del reproductor</string>
     <string name="disable_player_popup_panels_description">Evita que paneles como el chat en vivo se abran solos.</string>
     <string name="disable_rolling_number_animations">Desactivar animación de números</string>

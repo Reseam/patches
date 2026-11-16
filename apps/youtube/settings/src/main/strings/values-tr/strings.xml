@@ -295,6 +295,8 @@
     <string name="hide_shorts_full_video_link_label">Shorts tam video bağlantısını gizle</string>
     <string name="hide_shorts_full_video_link_label_summary">Bir Short\'u normal video olarak açan bağlantıyı gizler.</string>
     <string name="hide_shorts_effect_button">Shorts efekt düğmesini gizle</string>
+    <string name="hide_shorts_gesture_hints">Shorts hareket ipuçlarını gizle</string>
+    <string name="hide_shorts_gesture_hints_summary">2x hız için bir Short\'u basılı tutarken aşağı çekme ipuçlarını gizler.</string>
     <string name="hide_shorts_green_screen_button">Shorts yeşil ekran düğmesini gizle</string>
     <string name="hide_shorts_new_posts_button">Shorts yeni gönderiler düğmesini gizle</string>
     <string name="hide_shorts_hashtag_button">Shorts hashtag düğmesini gizle</string>
@@ -313,6 +315,7 @@
     <string name="hide_shorts_paused_overlay_buttons_summary">Bir Short duraklatıldığında gösterilen düğmeleri gizler.</string>
     <string name="hide_shorts_preview_comment">Shorts önizleme yorumunu gizle</string>
     <string name="hide_shorts_remix_button">Shorts remiks düğmesini gizle</string>
+    <string name="hide_shorts_save_button">Shorts kaydet düğmesini gizle</string>
     <string name="hide_shorts_save_sound_button">Shorts sesi kaydet düğmesini gizle</string>
     <string name="hide_shorts_search_suggestions">Shorts arama önerilerini gizle</string>
     <string name="hide_shorts_share_button">Shorts paylaş düğmesini gizle</string>
@@ -368,6 +371,10 @@
     <string name="player_overlay_opacity_summary">0 ile 100 arası.</string>
     <string name="disable_auto_captions">Otomatik altyazıları kapat</string>
     <string name="disable_auto_captions_summary">Altyazıların kendiliğinden açılmasını durdurur.</string>
+    <string name="caption_language">Altyazı dili</string>
+    <string name="caption_language_summary">Her videoda altyazıyı bu dilde açar ve videoda bu dilde altyazı yoksa çevirir.</string>
+    <string name="caption_language_off">Kapalı</string>
+    <string name="caption_language_app">Uygulama dili</string>
     <string name="disable_like_subscribe_glow">Beğen ve abone ol parıltısını kapat</string>
     <string name="hide_like_dislike_button">Beğen ve beğenme düğmesini gizle</string>
     <string name="hide_download_button">İndir düğmesini gizle</string>
@@ -389,6 +396,7 @@
     <string name="hide_player_flyout_stable_volume">Sabit ses düzeyini gizle</string>
     <string name="hide_player_flyout_sleep_timer">Uyku zamanlayıcısını gizle</string>
     <string name="hide_player_flyout_watch_in_vr">VR\'de izle\'yi gizle</string>
+    <string name="hide_player_flyout_on_the_go">On-the-go\'yu gizle</string>
     <string name="hide_player_flyout_video_quality">Video kalitesini gizle</string>
     <string name="hide_player_flyout_video_quality_footer">Video kalitesi alt bilgisini gizle</string>
     <string name="hide_home_button">Ana Sayfa düğmesini gizle</string>
@@ -467,6 +475,8 @@
     <string name="video_quality_default_mobile">Mobil veride varsayılan kalite</string>
     <string name="video_quality_default_mobile_summary">YouTube\'un mobil veride kendisinin seçtiği en yüksek kalite.</string>
     <string name="video_quality_default_mobile_same_as_wifi">Kablosuz ağ ile aynı</string>
+    <string name="shorts_quality_default">Kablosuz ağda varsayılan Shorts kalitesi</string>
+    <string name="shorts_quality_default_mobile">Mobil veride varsayılan Shorts kalitesi</string>
     <string name="remember_video_quality">Video kalitesini hatırla</string>
     <string name="remember_video_quality_summary">Aynı türde ağda sonraki videolar için seçtiğiniz son kaliteyi kullanır.</string>
     <string name="advanced_video_quality_menu">Gelişmiş video kalitesi menüsü</string>

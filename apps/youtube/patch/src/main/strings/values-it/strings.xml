@@ -120,6 +120,8 @@
     <string name="custom_player_overlay_opacity_description">Cambia quanto si scurisce il player mentre i controlli sono visibili.</string>
     <string name="disable_auto_captions">Disattiva i sottotitoli automatici</string>
     <string name="disable_auto_captions_description">Impedisce ai sottotitoli di attivarsi da soli.</string>
+    <string name="caption_language">Lingua dei sottotitoli</string>
+    <string name="caption_language_description">Attiva i sottotitoli nella lingua che scegli e li traduce quando un video non li ha in quella lingua.</string>
     <string name="disable_player_popup_panels">Disattiva i pannelli a comparsa del player</string>
     <string name="disable_player_popup_panels_description">Impedisce a pannelli come la chat live di aprirsi da soli.</string>
     <string name="disable_rolling_number_animations">Disattiva l’animazione dei numeri</string>

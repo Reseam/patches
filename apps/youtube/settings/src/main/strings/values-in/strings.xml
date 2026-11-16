@@ -295,6 +295,8 @@
     <string name="hide_shorts_full_video_link_label">Sembunyikan link video lengkap Shorts</string>
     <string name="hide_shorts_full_video_link_label_summary">Menyembunyikan link yang membuka Short sebagai video biasa.</string>
     <string name="hide_shorts_effect_button">Sembunyikan tombol efek Shorts</string>
+    <string name="hide_shorts_gesture_hints">Sembunyikan petunjuk gestur Shorts</string>
+    <string name="hide_shorts_gesture_hints_summary">Menyembunyikan petunjuk tarik ke bawah saat Anda menahan Short untuk kecepatan 2x.</string>
     <string name="hide_shorts_green_screen_button">Sembunyikan tombol layar hijau Shorts</string>
     <string name="hide_shorts_new_posts_button">Sembunyikan tombol postingan baru Shorts</string>
     <string name="hide_shorts_hashtag_button">Sembunyikan tombol hashtag Shorts</string>
@@ -313,6 +315,7 @@
     <string name="hide_shorts_paused_overlay_buttons_summary">Menyembunyikan tombol yang muncul saat Short dijeda.</string>
     <string name="hide_shorts_preview_comment">Sembunyikan komentar pratinjau Shorts</string>
     <string name="hide_shorts_remix_button">Sembunyikan tombol remix Shorts</string>
+    <string name="hide_shorts_save_button">Sembunyikan tombol simpan Shorts</string>
     <string name="hide_shorts_save_sound_button">Sembunyikan tombol simpan suara Shorts</string>
     <string name="hide_shorts_search_suggestions">Sembunyikan saran penelusuran Shorts</string>
     <string name="hide_shorts_share_button">Sembunyikan tombol bagikan Shorts</string>
@@ -368,6 +371,10 @@
     <string name="player_overlay_opacity_summary">Dari 0 sampai 100.</string>
     <string name="disable_auto_captions">Nonaktifkan teks otomatis</string>
     <string name="disable_auto_captions_summary">Mencegah teks aktif dengan sendirinya.</string>
+    <string name="caption_language">Bahasa teks</string>
+    <string name="caption_language_summary">Mengaktifkan teks dalam bahasa ini untuk setiap video, dan menerjemahkannya jika video tidak memilikinya dalam bahasa ini.</string>
+    <string name="caption_language_off">Nonaktif</string>
+    <string name="caption_language_app">Bahasa aplikasi</string>
     <string name="disable_like_subscribe_glow">Nonaktifkan efek cahaya suka dan subscribe</string>
     <string name="hide_like_dislike_button">Sembunyikan tombol suka dan tidak suka</string>
     <string name="hide_download_button">Sembunyikan tombol download</string>
@@ -389,6 +396,7 @@
     <string name="hide_player_flyout_stable_volume">Sembunyikan volume stabil</string>
     <string name="hide_player_flyout_sleep_timer">Sembunyikan timer tidur</string>
     <string name="hide_player_flyout_watch_in_vr">Sembunyikan tonton dalam VR</string>
+    <string name="hide_player_flyout_on_the_go">Sembunyikan On-the-go</string>
     <string name="hide_player_flyout_video_quality">Sembunyikan kualitas video</string>
     <string name="hide_player_flyout_video_quality_footer">Sembunyikan footer kualitas video</string>
     <string name="hide_home_button">Sembunyikan tombol beranda</string>
@@ -467,6 +475,8 @@
     <string name="video_quality_default_mobile">Kualitas default di data seluler</string>
     <string name="video_quality_default_mobile_summary">Kualitas tertinggi yang dipilih YouTube sendiri di data seluler.</string>
     <string name="video_quality_default_mobile_same_as_wifi">Sama seperti Wi-Fi</string>
+    <string name="shorts_quality_default">Kualitas default Shorts di Wi-Fi</string>
+    <string name="shorts_quality_default_mobile">Kualitas default Shorts di data seluler</string>
     <string name="remember_video_quality">Ingat kualitas video</string>
     <string name="remember_video_quality_summary">Menggunakan kualitas terakhir yang Anda pilih untuk video berikutnya di jenis jaringan yang sama.</string>
     <string name="advanced_video_quality_menu">Menu kualitas video lanjutan</string>

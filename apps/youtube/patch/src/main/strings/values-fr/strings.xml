@@ -120,6 +120,8 @@
     <string name="custom_player_overlay_opacity_description">Change à quel point le lecteur s’assombrit quand ses commandes sont affichées.</string>
     <string name="disable_auto_captions">Désactiver les sous-titres automatiques</string>
     <string name="disable_auto_captions_description">Empêche les sous-titres de s’activer tout seuls.</string>
+    <string name="caption_language">Langue des sous-titres</string>
+    <string name="caption_language_description">Active les sous-titres dans la langue de votre choix et les traduit quand une vidéo n’en a pas dans cette langue.</string>
     <string name="disable_player_popup_panels">Désactiver les panneaux contextuels du lecteur</string>
     <string name="disable_player_popup_panels_description">Empêche les panneaux comme le chat en direct de s’ouvrir tout seuls.</string>
     <string name="disable_rolling_number_animations">Désactiver l’animation des nombres</string>

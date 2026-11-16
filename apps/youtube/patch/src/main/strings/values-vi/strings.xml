@@ -120,6 +120,8 @@
     <string name="custom_player_overlay_opacity_description">Thay đổi độ tối của trình phát khi hiện các nút điều khiển.</string>
     <string name="disable_auto_captions">Tắt phụ đề tự động</string>
     <string name="disable_auto_captions_description">Ngăn phụ đề tự bật.</string>
+    <string name="caption_language">Ngôn ngữ phụ đề</string>
+    <string name="caption_language_description">Bật phụ đề bằng ngôn ngữ bạn chọn và dịch khi video không có phụ đề bằng ngôn ngữ đó.</string>
     <string name="disable_player_popup_panels">Tắt bảng bật lên trên trình phát</string>
     <string name="disable_player_popup_panels_description">Ngăn các bảng như trò chuyện trực tiếp tự mở.</string>
     <string name="disable_rolling_number_animations">Tắt hiệu ứng số chạy</string>

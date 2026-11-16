@@ -295,6 +295,8 @@
     <string name="hide_shorts_full_video_link_label">Ẩn đường liên kết video đầy đủ của Shorts</string>
     <string name="hide_shorts_full_video_link_label_summary">Ẩn đường liên kết mở Short như video thông thường.</string>
     <string name="hide_shorts_effect_button">Ẩn nút hiệu ứng của Shorts</string>
+    <string name="hide_shorts_gesture_hints">Ẩn gợi ý cử chỉ của Shorts</string>
+    <string name="hide_shorts_gesture_hints_summary">Ẩn gợi ý kéo xuống khi bạn giữ một Short để xem ở tốc độ 2x.</string>
     <string name="hide_shorts_green_screen_button">Ẩn nút phông xanh của Shorts</string>
     <string name="hide_shorts_new_posts_button">Ẩn nút bài đăng mới của Shorts</string>
     <string name="hide_shorts_hashtag_button">Ẩn nút hashtag của Shorts</string>
@@ -313,6 +315,7 @@
     <string name="hide_shorts_paused_overlay_buttons_summary">Ẩn các nút hiện ra khi một Short tạm dừng.</string>
     <string name="hide_shorts_preview_comment">Ẩn bình luận xem trước của Shorts</string>
     <string name="hide_shorts_remix_button">Ẩn nút phối lại của Shorts</string>
+    <string name="hide_shorts_save_button">Ẩn nút lưu của Shorts</string>
     <string name="hide_shorts_save_sound_button">Ẩn nút lưu âm thanh của Shorts</string>
     <string name="hide_shorts_search_suggestions">Ẩn gợi ý tìm kiếm của Shorts</string>
     <string name="hide_shorts_share_button">Ẩn nút chia sẻ của Shorts</string>
@@ -368,6 +371,10 @@
     <string name="player_overlay_opacity_summary">Từ 0 đến 100.</string>
     <string name="disable_auto_captions">Tắt phụ đề tự động</string>
     <string name="disable_auto_captions_summary">Ngăn phụ đề tự bật.</string>
+    <string name="caption_language">Ngôn ngữ phụ đề</string>
+    <string name="caption_language_summary">Bật phụ đề bằng ngôn ngữ này cho mọi video và dịch khi video không có phụ đề bằng ngôn ngữ đó.</string>
+    <string name="caption_language_off">Tắt</string>
+    <string name="caption_language_app">Ngôn ngữ ứng dụng</string>
     <string name="disable_like_subscribe_glow">Tắt hiệu ứng phát sáng của nút thích và đăng ký</string>
     <string name="hide_like_dislike_button">Ẩn nút thích và không thích</string>
     <string name="hide_download_button">Ẩn nút tải xuống</string>
@@ -389,6 +396,7 @@
     <string name="hide_player_flyout_stable_volume">Ẩn âm lượng ổn định</string>
     <string name="hide_player_flyout_sleep_timer">Ẩn hẹn giờ đi ngủ</string>
     <string name="hide_player_flyout_watch_in_vr">Ẩn xem ở chế độ VR</string>
+    <string name="hide_player_flyout_on_the_go">Ẩn On-the-go</string>
     <string name="hide_player_flyout_video_quality">Ẩn chất lượng video</string>
     <string name="hide_player_flyout_video_quality_footer">Ẩn chân trang chất lượng video</string>
     <string name="hide_home_button">Ẩn nút trang chủ</string>
@@ -467,6 +475,8 @@
     <string name="video_quality_default_mobile">Chất lượng mặc định khi dùng dữ liệu di động</string>
     <string name="video_quality_default_mobile_summary">Chất lượng cao nhất mà YouTube tự chọn khi dùng dữ liệu di động.</string>
     <string name="video_quality_default_mobile_same_as_wifi">Giống Wi-Fi</string>
+    <string name="shorts_quality_default">Chất lượng mặc định của Shorts khi dùng Wi-Fi</string>
+    <string name="shorts_quality_default_mobile">Chất lượng mặc định của Shorts khi dùng dữ liệu di động</string>
     <string name="remember_video_quality">Ghi nhớ chất lượng video</string>
     <string name="remember_video_quality_summary">Dùng chất lượng bạn chọn gần nhất cho các video tiếp theo trên cùng loại mạng.</string>
     <string name="advanced_video_quality_menu">Trình đơn chất lượng video nâng cao</string>

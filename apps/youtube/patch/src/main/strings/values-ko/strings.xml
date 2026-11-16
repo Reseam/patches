@@ -120,6 +120,8 @@
     <string name="custom_player_overlay_opacity_description">컨트롤이 표시될 때 플레이어가 어두워지는 정도를 변경합니다.</string>
     <string name="disable_auto_captions">자동 자막 사용 중지</string>
     <string name="disable_auto_captions_description">자막이 저절로 켜지지 않게 합니다.</string>
+    <string name="caption_language">자막 언어</string>
+    <string name="caption_language_description">선택한 언어로 자막을 켜고, 그 언어 자막이 없는 동영상은 번역합니다.</string>
     <string name="disable_player_popup_panels">플레이어 팝업 패널 사용 중지</string>
     <string name="disable_player_popup_panels_description">실시간 채팅 같은 패널이 저절로 열리지 않게 합니다.</string>
     <string name="disable_rolling_number_animations">숫자 롤링 애니메이션 사용 중지</string>

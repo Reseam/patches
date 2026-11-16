@@ -295,6 +295,8 @@
     <string name="hide_shorts_full_video_link_label">Ukryj link do pełnego filmu w Shorts</string>
     <string name="hide_shorts_full_video_link_label_summary">Ukrywa link otwierający Shorta jako zwykły film.</string>
     <string name="hide_shorts_effect_button">Ukryj przycisk efektów w Shorts</string>
+    <string name="hide_shorts_gesture_hints">Ukryj podpowiedzi gestów w Shorts</string>
+    <string name="hide_shorts_gesture_hints_summary">Ukrywa podpowiedzi przeciągania w dół, gdy przytrzymujesz Shorta dla prędkości 2x.</string>
     <string name="hide_shorts_green_screen_button">Ukryj przycisk green screen w Shorts</string>
     <string name="hide_shorts_new_posts_button">Ukryj przycisk nowych postów w Shorts</string>
     <string name="hide_shorts_hashtag_button">Ukryj przycisk hashtagu w Shorts</string>
@@ -313,6 +315,7 @@
     <string name="hide_shorts_paused_overlay_buttons_summary">Ukrywa przyciski widoczne po wstrzymaniu Shorta.</string>
     <string name="hide_shorts_preview_comment">Ukryj podgląd komentarza w Shorts</string>
     <string name="hide_shorts_remix_button">Ukryj przycisk remiksu w Shorts</string>
+    <string name="hide_shorts_save_button">Ukryj przycisk zapisywania w Shorts</string>
     <string name="hide_shorts_save_sound_button">Ukryj przycisk zapisu dźwięku w Shorts</string>
     <string name="hide_shorts_search_suggestions">Ukryj sugestie wyszukiwania w Shorts</string>
     <string name="hide_shorts_share_button">Ukryj przycisk udostępniania w Shorts</string>
@@ -368,6 +371,10 @@
     <string name="player_overlay_opacity_summary">Od 0 do 100.</string>
     <string name="disable_auto_captions">Wyłącz automatyczne napisy</string>
     <string name="disable_auto_captions_summary">Napisy nie włączają się już same.</string>
+    <string name="caption_language">Język napisów</string>
+    <string name="caption_language_summary">Włącza napisy w tym języku w każdym filmie i tłumaczy je, gdy film nie ma ich w tym języku.</string>
+    <string name="caption_language_off">Wyłączone</string>
+    <string name="caption_language_app">Język aplikacji</string>
     <string name="disable_like_subscribe_glow">Wyłącz poświatę łapki w górę i subskrypcji</string>
     <string name="hide_like_dislike_button">Ukryj przyciski łapki w górę i w dół</string>
     <string name="hide_download_button">Ukryj przycisk pobierania</string>
@@ -389,6 +396,7 @@
     <string name="hide_player_flyout_stable_volume">Ukryj stabilną głośność</string>
     <string name="hide_player_flyout_sleep_timer">Ukryj wyłącznik czasowy</string>
     <string name="hide_player_flyout_watch_in_vr">Ukryj Oglądaj w VR</string>
+    <string name="hide_player_flyout_on_the_go">Ukryj On-the-go</string>
     <string name="hide_player_flyout_video_quality">Ukryj jakość wideo</string>
     <string name="hide_player_flyout_video_quality_footer">Ukryj stopkę jakości wideo</string>
     <string name="hide_home_button">Ukryj przycisk strony głównej</string>
@@ -467,6 +475,8 @@
     <string name="video_quality_default_mobile">Domyślna jakość w danych mobilnych</string>
     <string name="video_quality_default_mobile_summary">Najwyższa jakość, jaką YouTube sam wybiera w danych mobilnych.</string>
     <string name="video_quality_default_mobile_same_as_wifi">Tak jak w Wi-Fi</string>
+    <string name="shorts_quality_default">Domyślna jakość Shorts w Wi-Fi</string>
+    <string name="shorts_quality_default_mobile">Domyślna jakość Shorts w danych mobilnych</string>
     <string name="remember_video_quality">Zapamiętuj jakość wideo</string>
     <string name="remember_video_quality_summary">Używa ostatnio wybranej jakości dla kolejnych filmów w tym samym typie sieci.</string>
     <string name="advanced_video_quality_menu">Zaawansowane menu jakości wideo</string>

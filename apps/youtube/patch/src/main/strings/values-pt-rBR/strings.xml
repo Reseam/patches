@@ -120,6 +120,8 @@
     <string name="custom_player_overlay_opacity_description">Altera o quanto o player escurece enquanto os controles aparecem.</string>
     <string name="disable_auto_captions">Desativar legendas automáticas</string>
     <string name="disable_auto_captions_description">Impede que as legendas sejam ativadas sozinhas.</string>
+    <string name="caption_language">Idioma das legendas</string>
+    <string name="caption_language_description">Ativa as legendas no idioma que você escolher e as traduz quando um vídeo não tem legendas nele.</string>
     <string name="disable_player_popup_panels">Desativar painéis pop-up do player</string>
     <string name="disable_player_popup_panels_description">Impede que painéis como o chat ao vivo abram sozinhos.</string>
     <string name="disable_rolling_number_animations">Desativar animações de números</string>

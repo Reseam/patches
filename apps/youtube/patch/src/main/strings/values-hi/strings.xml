@@ -120,6 +120,8 @@
     <string name="custom_player_overlay_opacity_description">बदलता है कि कंट्रोल दिखते समय प्लेयर कितना गहरा हो।</string>
     <string name="disable_auto_captions">अपने-आप कैप्शन बंद करें</string>
     <string name="disable_auto_captions_description">कैप्शन को अपने-आप चालू होने से रोकता है।</string>
+    <string name="caption_language">कैप्शन की भाषा</string>
+    <string name="caption_language_description">आपकी चुनी भाषा में कैप्शन चालू करता है, और जिस वीडियो में उस भाषा के कैप्शन नहीं हैं उनमें अनुवाद करता है।</string>
     <string name="disable_player_popup_panels">प्लेयर के पॉप-अप पैनल बंद करें</string>
     <string name="disable_player_popup_panels_description">लाइव चैट जैसे पैनल को अपने-आप खुलने से रोकता है।</string>
     <string name="disable_rolling_number_animations">घूमती संख्याओं का ऐनिमेशन बंद करें</string>

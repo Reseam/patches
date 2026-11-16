@@ -295,6 +295,8 @@
     <string name="hide_shorts_full_video_link_label">ซ่อนลิงก์วิดีโอเต็มของ Shorts</string>
     <string name="hide_shorts_full_video_link_label_summary">ซ่อนลิงก์ที่เปิด Short เป็นวิดีโอปกติ</string>
     <string name="hide_shorts_effect_button">ซ่อนปุ่มเอฟเฟกต์ของ Shorts</string>
+    <string name="hide_shorts_gesture_hints">ซ่อนคำแนะนำท่าทางของ Shorts</string>
+    <string name="hide_shorts_gesture_hints_summary">ซ่อนคำแนะนำให้ดึงลงขณะกด Short ค้างไว้เพื่อดูที่ความเร็ว 2x</string>
     <string name="hide_shorts_green_screen_button">ซ่อนปุ่มกรีนสกรีนของ Shorts</string>
     <string name="hide_shorts_new_posts_button">ซ่อนปุ่มโพสต์ใหม่ของ Shorts</string>
     <string name="hide_shorts_hashtag_button">ซ่อนปุ่มแฮชแท็กของ Shorts</string>
@@ -313,6 +315,7 @@
     <string name="hide_shorts_paused_overlay_buttons_summary">ซ่อนปุ่มที่แสดงเมื่อหยุด Short ชั่วคราว</string>
     <string name="hide_shorts_preview_comment">ซ่อนความคิดเห็นตัวอย่างของ Shorts</string>
     <string name="hide_shorts_remix_button">ซ่อนปุ่มรีมิกซ์ของ Shorts</string>
+    <string name="hide_shorts_save_button">ซ่อนปุ่มบันทึกของ Shorts</string>
     <string name="hide_shorts_save_sound_button">ซ่อนปุ่มบันทึกเสียงของ Shorts</string>
     <string name="hide_shorts_search_suggestions">ซ่อนคำแนะนำในการค้นหาของ Shorts</string>
     <string name="hide_shorts_share_button">ซ่อนปุ่มแชร์ของ Shorts</string>
@@ -368,6 +371,10 @@
     <string name="player_overlay_opacity_summary">ตั้งแต่ 0 ถึง 100</string>
     <string name="disable_auto_captions">ปิดคำบรรยายอัตโนมัติ</string>
     <string name="disable_auto_captions_summary">หยุดคำบรรยายไม่ให้เปิดเอง</string>
+    <string name="caption_language">ภาษาคำบรรยาย</string>
+    <string name="caption_language_summary">เปิดคำบรรยายภาษานี้ในทุกวิดีโอ และแปลให้เมื่อวิดีโอไม่มีคำบรรยายภาษานี้</string>
+    <string name="caption_language_off">ปิด</string>
+    <string name="caption_language_app">ภาษาของแอป</string>
     <string name="disable_like_subscribe_glow">ปิดแสงเรืองของปุ่มชอบและติดตาม</string>
     <string name="hide_like_dislike_button">ซ่อนปุ่มชอบและไม่ชอบ</string>
     <string name="hide_download_button">ซ่อนปุ่มดาวน์โหลด</string>
@@ -389,6 +396,7 @@
     <string name="hide_player_flyout_stable_volume">ซ่อนระดับเสียงคงที่</string>
     <string name="hide_player_flyout_sleep_timer">ซ่อนตั้งเวลาปิด</string>
     <string name="hide_player_flyout_watch_in_vr">ซ่อนดูใน VR</string>
+    <string name="hide_player_flyout_on_the_go">ซ่อน On-the-go</string>
     <string name="hide_player_flyout_video_quality">ซ่อนคุณภาพวิดีโอ</string>
     <string name="hide_player_flyout_video_quality_footer">ซ่อนส่วนท้ายของคุณภาพวิดีโอ</string>
     <string name="hide_home_button">ซ่อนปุ่มหน้าแรก</string>
@@ -467,6 +475,8 @@
     <string name="video_quality_default_mobile">คุณภาพเริ่มต้นเมื่อใช้อินเทอร์เน็ตมือถือ</string>
     <string name="video_quality_default_mobile_summary">คุณภาพสูงสุดที่ YouTube เลือกเองเมื่อใช้อินเทอร์เน็ตมือถือ</string>
     <string name="video_quality_default_mobile_same_as_wifi">เหมือนกับ Wi-Fi</string>
+    <string name="shorts_quality_default">คุณภาพเริ่มต้นของ Shorts เมื่อใช้ Wi-Fi</string>
+    <string name="shorts_quality_default_mobile">คุณภาพเริ่มต้นของ Shorts เมื่อใช้อินเทอร์เน็ตมือถือ</string>
     <string name="remember_video_quality">จดจำคุณภาพวิดีโอ</string>
     <string name="remember_video_quality_summary">ใช้คุณภาพที่คุณเลือกล่าสุดกับวิดีโอถัดไปบนเครือข่ายประเภทเดียวกัน</string>
     <string name="advanced_video_quality_menu">เมนูคุณภาพวิดีโอขั้นสูง</string>

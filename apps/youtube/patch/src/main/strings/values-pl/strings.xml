@@ -120,6 +120,8 @@
     <string name="custom_player_overlay_opacity_description">Zmienia, jak bardzo odtwarzacz ciemnieje, gdy widać sterowanie.</string>
     <string name="disable_auto_captions">Wyłącz automatyczne napisy</string>
     <string name="disable_auto_captions_description">Napisy nie włączają się już same.</string>
+    <string name="caption_language">Język napisów</string>
+    <string name="caption_language_description">Włącza napisy w wybranym języku i tłumaczy je, gdy film nie ma ich w tym języku.</string>
     <string name="disable_player_popup_panels">Wyłącz wyskakujące panele odtwarzacza</string>
     <string name="disable_player_popup_panels_description">Panele takie jak czat na żywo nie otwierają się już same.</string>
     <string name="disable_rolling_number_animations">Wyłącz animacje przewijanych liczb</string>

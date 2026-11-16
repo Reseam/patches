@@ -120,6 +120,8 @@
     <string name="custom_player_overlay_opacity_description">コントロールの表示中にプレーヤーがどれだけ暗くなるかを変更します。</string>
     <string name="disable_auto_captions">自動字幕を無効にする</string>
     <string name="disable_auto_captions_description">字幕が自動でオンにならないようにします。</string>
+    <string name="caption_language">字幕の言語</string>
+    <string name="caption_language_description">選んだ言語で字幕をオンにし、その言語の字幕がない動画では翻訳します。</string>
     <string name="disable_player_popup_panels">プレーヤーのポップアップパネルを無効にする</string>
     <string name="disable_player_popup_panels_description">チャットなどのパネルが自動で開かないようにします。</string>
     <string name="disable_rolling_number_animations">数字のアニメーションを無効にする</string>

@@ -120,6 +120,8 @@
     <string name="custom_player_overlay_opacity_description">Ändert, wie dunkel der Player wird, während seine Steuerelemente sichtbar sind.</string>
     <string name="disable_auto_captions">Automatische Untertitel deaktivieren</string>
     <string name="disable_auto_captions_description">Verhindert, dass Untertitel sich von selbst einschalten.</string>
+    <string name="caption_language">Untertitelsprache</string>
+    <string name="caption_language_description">Schaltet Untertitel in einer Sprache deiner Wahl ein und übersetzt sie, wenn ein Video keine in dieser Sprache hat.</string>
     <string name="disable_player_popup_panels">Pop-up-Panels im Player deaktivieren</string>
     <string name="disable_player_popup_panels_description">Verhindert, dass Panels wie der Livechat sich von selbst öffnen.</string>
     <string name="disable_rolling_number_animations">Rollende Zahlen deaktivieren</string>

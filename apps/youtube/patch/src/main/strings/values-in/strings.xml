@@ -120,6 +120,8 @@
     <string name="custom_player_overlay_opacity_description">Mengubah seberapa gelap pemutar saat kontrolnya ditampilkan.</string>
     <string name="disable_auto_captions">Nonaktifkan teks otomatis</string>
     <string name="disable_auto_captions_description">Mencegah teks aktif dengan sendirinya.</string>
+    <string name="caption_language">Bahasa teks</string>
+    <string name="caption_language_description">Mengaktifkan teks dalam bahasa pilihan Anda, dan menerjemahkannya jika video tidak memilikinya dalam bahasa itu.</string>
     <string name="disable_player_popup_panels">Nonaktifkan panel pop-up pemutar</string>
     <string name="disable_player_popup_panels_description">Mencegah panel seperti live chat terbuka dengan sendirinya.</string>
     <string name="disable_rolling_number_animations">Nonaktifkan animasi angka bergulir</string>

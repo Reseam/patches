@@ -295,6 +295,8 @@
     <string name="hide_shorts_full_video_link_label">Masquer le lien vers la vidéo complète des Shorts</string>
     <string name="hide_shorts_full_video_link_label_summary">Masque le lien qui ouvre un Short comme une vidéo normale.</string>
     <string name="hide_shorts_effect_button">Masquer le bouton d’effets des Shorts</string>
+    <string name="hide_shorts_gesture_hints">Masquer les indications de gestes des Shorts</string>
+    <string name="hide_shorts_gesture_hints_summary">Masque les indications de glissement vers le bas quand vous maintenez un Short appuyé pour la vitesse 2x.</string>
     <string name="hide_shorts_green_screen_button">Masquer le bouton fond vert des Shorts</string>
     <string name="hide_shorts_new_posts_button">Masquer le bouton des nouveaux posts des Shorts</string>
     <string name="hide_shorts_hashtag_button">Masquer le bouton hashtag des Shorts</string>
@@ -313,6 +315,7 @@
     <string name="hide_shorts_paused_overlay_buttons_summary">Masque les boutons affichés quand un Short est en pause.</string>
     <string name="hide_shorts_preview_comment">Masquer l’aperçu de commentaire des Shorts</string>
     <string name="hide_shorts_remix_button">Masquer le bouton Remixer des Shorts</string>
+    <string name="hide_shorts_save_button">Masquer le bouton Enregistrer des Shorts</string>
     <string name="hide_shorts_save_sound_button">Masquer le bouton Enregistrer le son des Shorts</string>
     <string name="hide_shorts_search_suggestions">Masquer les suggestions de recherche des Shorts</string>
     <string name="hide_shorts_share_button">Masquer le bouton Partager des Shorts</string>
@@ -368,6 +371,10 @@
     <string name="player_overlay_opacity_summary">De 0 à 100.</string>
     <string name="disable_auto_captions">Désactiver les sous-titres automatiques</string>
     <string name="disable_auto_captions_summary">Empêche les sous-titres de s’activer tout seuls.</string>
+    <string name="caption_language">Langue des sous-titres</string>
+    <string name="caption_language_summary">Active les sous-titres dans cette langue pour chaque vidéo et les traduit quand une vidéo n’en a pas dans cette langue.</string>
+    <string name="caption_language_off">Désactivé</string>
+    <string name="caption_language_app">Langue de l’app</string>
     <string name="disable_like_subscribe_glow">Désactiver le halo de J’aime et S’abonner</string>
     <string name="hide_like_dislike_button">Masquer le bouton J’aime et Je n’aime pas</string>
     <string name="hide_download_button">Masquer le bouton Télécharger</string>
@@ -389,6 +396,7 @@
     <string name="hide_player_flyout_stable_volume">Masquer le volume stable</string>
     <string name="hide_player_flyout_sleep_timer">Masquer le minuteur de mise en veille</string>
     <string name="hide_player_flyout_watch_in_vr">Masquer Regarder en VR</string>
+    <string name="hide_player_flyout_on_the_go">Masquer On-the-go</string>
     <string name="hide_player_flyout_video_quality">Masquer la qualité vidéo</string>
     <string name="hide_player_flyout_video_quality_footer">Masquer le pied du menu de qualité vidéo</string>
     <string name="hide_home_button">Masquer le bouton Accueil</string>
@@ -467,6 +475,8 @@
     <string name="video_quality_default_mobile">Qualité par défaut en données mobiles</string>
     <string name="video_quality_default_mobile_summary">La qualité la plus élevée que YouTube choisit de lui-même en données mobiles.</string>
     <string name="video_quality_default_mobile_same_as_wifi">Comme en Wi-Fi</string>
+    <string name="shorts_quality_default">Qualité par défaut des Shorts en Wi-Fi</string>
+    <string name="shorts_quality_default_mobile">Qualité par défaut des Shorts en données mobiles</string>
     <string name="remember_video_quality">Mémoriser la qualité vidéo</string>
     <string name="remember_video_quality_summary">Utilise la dernière qualité que vous avez choisie pour les vidéos suivantes sur le même type de réseau.</string>
     <string name="advanced_video_quality_menu">Menu avancé de qualité vidéo</string>

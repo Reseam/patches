@@ -120,6 +120,8 @@
     <string name="custom_player_overlay_opacity_description">Змінює, наскільки темнішає плеєр, коли видно елементи керування.</string>
     <string name="disable_auto_captions">Вимкнути автоматичні субтитри</string>
     <string name="disable_auto_captions_description">Субтитри більше не вмикаються самі.</string>
+    <string name="caption_language">Мова субтитрів</string>
+    <string name="caption_language_description">Вмикає субтитри вибраною мовою й перекладає їх, якщо у відео немає субтитрів цією мовою.</string>
     <string name="disable_player_popup_panels">Вимкнути спливні панелі плеєра</string>
     <string name="disable_player_popup_panels_description">Панелі на кшталт чату трансляції більше не відкриваються самі.</string>
     <string name="disable_rolling_number_animations">Вимкнути анімацію прокручування чисел</string>
