@@ -17,6 +17,8 @@
     <string name="disable_video_autoplay_summary">Видео в ленте воспроизводятся только по нажатию.</string>
     <string name="disable_reels_swiping">Отключить пролистывание Reels</string>
     <string name="disable_reels_swiping_summary">Оставляет Reels на том видео, которое вы открыли.</string>
+    <string name="swipe_in_reels_tab">Листать во вкладке Reels</string>
+    <string name="swipe_in_reels_tab_summary">Тогда «Отключить пролистывание Reels» действует только на Reels, открытые из публикаций, чатов и «Интересного».</string>
     <string name="disable_auto_advance">Отключить автопереход между историями</string>
     <string name="disable_auto_advance_summary">Оставляет завершённую историю на экране, пока вы не нажмёте.</string>
     <string name="hide_suggested_users">Скрыть рекомендуемые истории</string>

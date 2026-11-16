@@ -17,6 +17,8 @@
     <string name="disable_video_autoplay_summary">Chỉ phát video trong bảng feed khi bạn nhấn vào.</string>
     <string name="disable_reels_swiping">Tắt vuốt Reels</string>
     <string name="disable_reels_swiping_summary">Giữ nguyên thước phim bạn đã mở.</string>
+    <string name="swipe_in_reels_tab">Vẫn vuốt trong tab Reels</string>
+    <string name="swipe_in_reels_tab_summary">Khi đó, Tắt vuốt Reels chỉ áp dụng cho thước phim bạn mở từ bài viết, đoạn chat và Khám phá.</string>
     <string name="disable_auto_advance">Tắt tự chuyển tin</string>
     <string name="disable_auto_advance_summary">Giữ tin đã phát xong trên màn hình cho đến khi bạn nhấn.</string>
     <string name="hide_suggested_users">Ẩn tin đề xuất</string>

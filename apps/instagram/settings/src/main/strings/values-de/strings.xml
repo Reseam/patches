@@ -17,6 +17,8 @@
     <string name="disable_video_autoplay_summary">Spielt Feed-Videos nur ab, wenn du sie antippst.</string>
     <string name="disable_reels_swiping">Wischen in Reels deaktivieren</string>
     <string name="disable_reels_swiping_summary">Lässt Reels auf dem Reel, das du geöffnet hast.</string>
+    <string name="swipe_in_reels_tab">Im Reels-Tab weiter wischen</string>
+    <string name="swipe_in_reels_tab_summary">Wischen in Reels deaktivieren gilt dann nur für Reels, die du aus Beiträgen, Chats und Entdecken öffnest.</string>
     <string name="disable_auto_advance">Automatisches Weiterschalten von Stories deaktivieren</string>
     <string name="disable_auto_advance_summary">Lässt eine beendete Story auf dem Bildschirm, bis du tippst.</string>
     <string name="hide_suggested_users">Vorgeschlagene Stories ausblenden</string>

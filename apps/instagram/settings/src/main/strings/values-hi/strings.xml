@@ -17,6 +17,8 @@
     <string name="disable_video_autoplay_summary">फ़ीड के वीडियो सिर्फ़ टैप करने पर चलते हैं।</string>
     <string name="disable_reels_swiping">Reels में स्वाइप बंद करें</string>
     <string name="disable_reels_swiping_summary">Reels को उसी रील पर रखता है जो आपने खोली थी।</string>
+    <string name="swipe_in_reels_tab">Reels टैब में स्वाइप चालू रखें</string>
+    <string name="swipe_in_reels_tab_summary">तब Reels में स्वाइप बंद करें सिर्फ़ उन Reels पर लागू होता है जिन्हें आप पोस्ट, चैट और Explore से खोलते हैं।</string>
     <string name="disable_auto_advance">स्टोरी का अपने-आप आगे बढ़ना बंद करें</string>
     <string name="disable_auto_advance_summary">पूरी हो चुकी स्टोरी को तब तक स्क्रीन पर रखता है जब तक आप टैप न करें।</string>
     <string name="hide_suggested_users">सुझाई गई स्टोरी छिपाएँ</string>

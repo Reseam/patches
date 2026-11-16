@@ -17,6 +17,8 @@
     <string name="disable_video_autoplay_summary">피드 동영상은 탭할 때만 재생됩니다.</string>
     <string name="disable_reels_swiping">릴스 스와이프 사용 중지</string>
     <string name="disable_reels_swiping_summary">연 릴스에 계속 머뭅니다.</string>
+    <string name="swipe_in_reels_tab">릴스 탭에서는 계속 스와이프</string>
+    <string name="swipe_in_reels_tab_summary">그러면 릴스 스와이프 사용 중지가 게시물, 채팅, 탐색에서 연 릴스에만 적용됩니다.</string>
     <string name="disable_auto_advance">스토리 자동 넘김 사용 중지</string>
     <string name="disable_auto_advance_summary">끝난 스토리를 탭할 때까지 화면에 둡니다.</string>
     <string name="hide_suggested_users">추천 스토리 숨기기</string>

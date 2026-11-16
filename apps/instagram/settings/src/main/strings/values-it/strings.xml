@@ -17,6 +17,8 @@
     <string name="disable_video_autoplay_summary">Riproduce i video del feed solo quando li tocchi.</string>
     <string name="disable_reels_swiping">Disattiva lo scorrimento dei Reels</string>
     <string name="disable_reels_swiping_summary">Mantiene i Reels sul reel che hai aperto.</string>
+    <string name="swipe_in_reels_tab">Continua a scorrere nella scheda Reels</string>
+    <string name="swipe_in_reels_tab_summary">Disattiva lo scorrimento dei Reels vale allora solo per i Reels che apri da post, chat ed Esplora.</string>
     <string name="disable_auto_advance">Disattiva l’avanzamento automatico delle storie</string>
     <string name="disable_auto_advance_summary">Mantiene una storia finita sullo schermo finché non tocchi.</string>
     <string name="hide_suggested_users">Nascondi le storie suggerite</string>

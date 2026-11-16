@@ -17,6 +17,8 @@
     <string name="disable_video_autoplay_summary">Reproduce los videos del feed solo cuando los tocas.</string>
     <string name="disable_reels_swiping">Desactivar deslizamiento en Reels</string>
     <string name="disable_reels_swiping_summary">Mantiene Reels en el reel que abriste.</string>
+    <string name="swipe_in_reels_tab">Seguir deslizando en la pestaña Reels</string>
+    <string name="swipe_in_reels_tab_summary">Así, Desactivar deslizamiento en Reels solo se aplica a los Reels que abres desde publicaciones, chats y Explorar.</string>
     <string name="disable_auto_advance">Desactivar avance automático de historias</string>
     <string name="disable_auto_advance_summary">Mantiene en pantalla una historia terminada hasta que tocas.</string>
     <string name="hide_suggested_users">Ocultar historias sugeridas</string>

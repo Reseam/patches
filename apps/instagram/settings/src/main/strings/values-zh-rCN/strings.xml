@@ -17,6 +17,8 @@
     <string name="disable_video_autoplay_summary">动态中的视频只在你点击时播放。</string>
     <string name="disable_reels_swiping">停用 Reels 滑动</string>
     <string name="disable_reels_swiping_summary">停留在你打开的那条 Reels 上。</string>
+    <string name="swipe_in_reels_tab">在 Reels 标签页中保留滑动</string>
+    <string name="swipe_in_reels_tab_summary">停用 Reels 滑动将只对你从帖子、聊天和探索打开的 Reels 生效。</string>
     <string name="disable_auto_advance">停用快拍自动切换</string>
     <string name="disable_auto_advance_summary">快拍播放完后停留在屏幕上，直到你点击。</string>
     <string name="hide_suggested_users">隐藏推荐快拍</string>

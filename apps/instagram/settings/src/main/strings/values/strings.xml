@@ -17,6 +17,8 @@
     <string name="disable_video_autoplay_summary">Plays feed videos only when you tap them.</string>
     <string name="disable_reels_swiping">Disable Reels swiping</string>
     <string name="disable_reels_swiping_summary">Keeps Reels on the reel you opened.</string>
+    <string name="swipe_in_reels_tab">Keep swiping in the Reels tab</string>
+    <string name="swipe_in_reels_tab_summary">Disable Reels swiping then applies only to Reels you open from posts, chats and Explore.</string>
     <string name="disable_auto_advance">Disable story auto-advance</string>
     <string name="disable_auto_advance_summary">Keeps a finished story on screen until you tap.</string>
     <string name="hide_suggested_users">Hide suggested stories</string>

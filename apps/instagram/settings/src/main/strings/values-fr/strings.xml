@@ -17,6 +17,8 @@
     <string name="disable_video_autoplay_summary">Ne lit les vidéos du fil que lorsque vous les touchez.</string>
     <string name="disable_reels_swiping">Désactiver le balayage des Reels</string>
     <string name="disable_reels_swiping_summary">Garde les Reels sur le reel que vous avez ouvert.</string>
+    <string name="swipe_in_reels_tab">Garder le balayage dans l’onglet Reels</string>
+    <string name="swipe_in_reels_tab_summary">Désactiver le balayage des Reels ne s’applique alors qu’aux Reels ouverts depuis les publications, les discussions et Explorer.</string>
     <string name="disable_auto_advance">Désactiver l’avance automatique des stories</string>
     <string name="disable_auto_advance_summary">Garde une story terminée à l’écran jusqu’à ce que vous touchiez.</string>
     <string name="hide_suggested_users">Masquer les stories suggérées</string>

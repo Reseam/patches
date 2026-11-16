@@ -28,6 +28,7 @@ object MediaSettings : SettingsGroup(InstagramStrings) {
 object PlaybackSettings : SettingsGroup(InstagramStrings) {
     val disableVideoAutoplay by toggle(default = false, icon = Vector.lucide("circle-pause"))
     val disableReelsSwiping by toggle(default = false, icon = Vector.lucide("gallery-vertical-end"))
+    val swipeInReelsTab by toggle(default = false, icon = Vector.lucide("clapperboard"))
 }
 
 object StorySettings : SettingsGroup(InstagramStrings) {

@@ -17,6 +17,8 @@
     <string name="disable_video_autoplay_summary">フィードの動画をタップしたときだけ再生します。</string>
     <string name="disable_reels_swiping">リールのスワイプを無効にする</string>
     <string name="disable_reels_swiping_summary">開いたリールのままにします。</string>
+    <string name="swipe_in_reels_tab">リールタブではスワイプを続ける</string>
+    <string name="swipe_in_reels_tab_summary">リールのスワイプを無効にする設定は、投稿、チャット、発見から開いたリールにだけ適用されます。</string>
     <string name="disable_auto_advance">ストーリーズの自動送りを無効にする</string>
     <string name="disable_auto_advance_summary">終わったストーリーズを、タップするまで画面に残します。</string>
     <string name="hide_suggested_users">おすすめのストーリーズを非表示</string>

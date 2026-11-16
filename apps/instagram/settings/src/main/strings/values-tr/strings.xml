@@ -17,6 +17,8 @@
     <string name="disable_video_autoplay_summary">Akıştaki videolar yalnızca dokunduğunuzda oynar.</string>
     <string name="disable_reels_swiping">Reels kaydırmayı kapat</string>
     <string name="disable_reels_swiping_summary">Açtığınız Reels videosunda kalır.</string>
+    <string name="swipe_in_reels_tab">Reels sekmesinde kaydırmaya devam et</string>
+    <string name="swipe_in_reels_tab_summary">Bu durumda Reels kaydırmayı kapat yalnızca gönderilerden, sohbetlerden ve Keşfet bölümünden açtığınız Reels videolarına uygulanır.</string>
     <string name="disable_auto_advance">Hikayelerin otomatik geçişini kapat</string>
     <string name="disable_auto_advance_summary">Biten bir hikayeyi siz dokunana kadar ekranda tutar.</string>
     <string name="hide_suggested_users">Önerilen hikayeleri gizle</string>

@@ -17,6 +17,8 @@
     <string name="disable_video_autoplay_summary">動態消息中的影片只在你輕觸時播放。</string>
     <string name="disable_reels_swiping">停用 Reels 滑動</string>
     <string name="disable_reels_swiping_summary">停留在你開啟的那則 Reels。</string>
+    <string name="swipe_in_reels_tab">在 Reels 分頁中保留滑動</string>
+    <string name="swipe_in_reels_tab_summary">停用 Reels 滑動將只對你從貼文、聊天室和探索開啟的 Reels 生效。</string>
     <string name="disable_auto_advance">停用限時動態自動切換</string>
     <string name="disable_auto_advance_summary">限時動態播完後停留在畫面上，直到你輕觸。</string>
     <string name="hide_suggested_users">隱藏推薦的限時動態</string>

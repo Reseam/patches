@@ -17,6 +17,8 @@
     <string name="disable_video_autoplay_summary">Video feed hanya diputar saat Anda mengetuknya.</string>
     <string name="disable_reels_swiping">Nonaktifkan geser Reels</string>
     <string name="disable_reels_swiping_summary">Tetap di reel yang Anda buka.</string>
+    <string name="swipe_in_reels_tab">Tetap geser di tab Reels</string>
+    <string name="swipe_in_reels_tab_summary">Nonaktifkan geser Reels lalu hanya berlaku untuk Reels yang Anda buka dari postingan, chat, dan Jelajahi.</string>
     <string name="disable_auto_advance">Nonaktifkan cerita berlanjut otomatis</string>
     <string name="disable_auto_advance_summary">Menahan cerita yang selesai di layar sampai Anda mengetuk.</string>
     <string name="hide_suggested_users">Sembunyikan cerita yang disarankan</string>

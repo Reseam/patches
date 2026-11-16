@@ -17,6 +17,8 @@
     <string name="disable_video_autoplay_summary">Filmy w aktualnościach są odtwarzane dopiero po dotknięciu.</string>
     <string name="disable_reels_swiping">Wyłącz przesuwanie Rolek</string>
     <string name="disable_reels_swiping_summary">Pozostaje przy otwartej rolce.</string>
+    <string name="swipe_in_reels_tab">Przesuwaj dalej na karcie Rolki</string>
+    <string name="swipe_in_reels_tab_summary">Wyłącz przesuwanie Rolek dotyczy wtedy tylko Rolek otwieranych z postów, czatów i Odkrywaj.</string>
     <string name="disable_auto_advance">Wyłącz automatyczne przechodzenie relacji</string>
     <string name="disable_auto_advance_summary">Zatrzymuje zakończoną relację na ekranie, dopóki jej nie dotkniesz.</string>
     <string name="hide_suggested_users">Ukryj proponowane relacje</string>

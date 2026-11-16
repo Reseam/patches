@@ -17,6 +17,8 @@
     <string name="disable_video_autoplay_summary">วิดีโอในฟีดจะเล่นเมื่อคุณแตะเท่านั้น</string>
     <string name="disable_reels_swiping">ปิดการปัด Reels</string>
     <string name="disable_reels_swiping_summary">อยู่ที่ Reel ที่คุณเปิดไว้</string>
+    <string name="swipe_in_reels_tab">ปัดต่อได้ในแท็บ Reels</string>
+    <string name="swipe_in_reels_tab_summary">จากนั้น ปิดการปัด Reels จะมีผลกับ Reels ที่คุณเปิดจากโพสต์ แชท และสำรวจเท่านั้น</string>
     <string name="disable_auto_advance">ปิดการเลื่อนสตอรี่อัตโนมัติ</string>
     <string name="disable_auto_advance_summary">ค้างสตอรี่ที่เล่นจบไว้บนหน้าจอจนกว่าคุณจะแตะ</string>
     <string name="hide_suggested_users">ซ่อนสตอรี่แนะนำ</string>
