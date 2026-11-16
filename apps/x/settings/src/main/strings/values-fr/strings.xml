@@ -7,6 +7,8 @@
     <string name="disable_home_tab_swipe_summary">Toucher un onglet change toujours d’onglet.</string>
     <string name="hide_for_you_tab">Masquer l’onglet Pour vous</string>
     <string name="hide_for_you_tab_summary">L’Accueil s’ouvre sur Abonnements.</string>
+    <string name="hide_following_tab">Masquer l’onglet Abonnements</string>
+    <string name="hide_following_tab_summary">L’Accueil n’affiche que Pour vous. Sans effet tant que Masquer l’onglet Pour vous est activé.</string>
     <string name="hide_add_tab">Masquer l’onglet d’ajout</string>
     <string name="hide_add_tab_summary">Masque aussi le bouton + à côté des onglets d’Accueil.</string>
     <string name="hide_promotion_prompts">Masquer les invites de promotion</string>

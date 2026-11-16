@@ -7,6 +7,8 @@
     <string name="disable_home_tab_swipe_summary">Торкання вкладки й далі її перемикає.</string>
     <string name="hide_for_you_tab">Приховати вкладку «Для вас»</string>
     <string name="hide_for_you_tab_summary">Головна відкривається на «Відстежуваних».</string>
+    <string name="hide_following_tab">Приховати вкладку «Відстежувані»</string>
+    <string name="hide_following_tab_summary">Головна показує лише «Для вас». Не діє, поки ввімкнено «Приховати вкладку «Для вас»».</string>
     <string name="hide_add_tab">Приховати вкладку «Додати»</string>
     <string name="hide_add_tab_summary">Також приховує кнопку + поруч із вкладками головної.</string>
     <string name="hide_promotion_prompts">Приховати запити просування</string>

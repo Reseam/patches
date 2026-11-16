@@ -6,8 +6,16 @@
 package app.reseam.x.home
 
 import app.reseam.runtime.Export
+import app.reseam.x.settings.XSettings
 
 @Export external fun isForYou(tab: Any): Boolean
 
+@Export external fun isFollowing(tab: Any): Boolean
+
+/** Home needs one of the two fixed tabs, so hiding For You wins over hiding Following. */
 @Export
-fun withoutForYou(tabs: Array<Any>): Array<Any> = tabs.filterNot(::isForYou).toTypedArray()
+fun visible(tabs: Array<Any>): Array<Any> = when {
+    XSettings.hideForYouTab.value -> tabs.filterNot(::isForYou).toTypedArray()
+    XSettings.hideFollowingTab.value -> tabs.filterNot(::isFollowing).toTypedArray()
+    else -> tabs
+}

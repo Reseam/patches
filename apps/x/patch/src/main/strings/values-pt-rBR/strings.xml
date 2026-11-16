@@ -13,7 +13,7 @@
     <string name="grok">Ocultar Grok</string>
     <string name="grok_description">Oculta a aba do Grok e os botões do Grok em todo o app.</string>
     <string name="customize_home_tabs">Personalizar abas da Página Inicial</string>
-    <string name="customize_home_tabs_description">Oculta a aba Para você e a aba de adicionar.</string>
+    <string name="customize_home_tabs_description">Oculta as abas Para você, Seguindo e a de adicionar.</string>
     <string name="default_to_following">Abrir em Seguindo</string>
     <string name="default_to_following_description">Abre em Seguindo e permanece lá.</string>
     <string name="disable_home_tab_swipe">Desativar deslizar entre abas da Página Inicial</string>

@@ -7,6 +7,8 @@
     <string name="disable_home_tab_swipe_summary">Tocar una pestaña sigue cambiando de pestaña.</string>
     <string name="hide_for_you_tab">Ocultar pestaña Para ti</string>
     <string name="hide_for_you_tab_summary">Inicio se abre en Siguiendo.</string>
+    <string name="hide_following_tab">Ocultar pestaña Siguiendo</string>
+    <string name="hide_following_tab_summary">Inicio muestra solo Para ti. No hace nada mientras Ocultar pestaña Para ti esté activado.</string>
     <string name="hide_add_tab">Ocultar pestaña de añadir</string>
     <string name="hide_add_tab_summary">También oculta el botón + junto a las pestañas de Inicio.</string>
     <string name="hide_promotion_prompts">Ocultar avisos promocionales</string>

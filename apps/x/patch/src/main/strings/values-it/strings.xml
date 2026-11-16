@@ -13,7 +13,7 @@
     <string name="grok">Nascondi Grok</string>
     <string name="grok_description">Nasconde la scheda Grok e i pulsanti Grok in tutta l’app.</string>
     <string name="customize_home_tabs">Personalizza le schede della Home</string>
-    <string name="customize_home_tabs_description">Nasconde la scheda Per te e la scheda di aggiunta.</string>
+    <string name="customize_home_tabs_description">Nasconde le schede Per te, Seguiti e la scheda di aggiunta.</string>
     <string name="default_to_following">Apri su Seguiti</string>
     <string name="default_to_following_description">Apre Seguiti e resta lì.</string>
     <string name="disable_home_tab_swipe">Disattiva lo scorrimento tra le schede della Home</string>

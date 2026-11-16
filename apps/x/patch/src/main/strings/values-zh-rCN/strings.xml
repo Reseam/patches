@@ -13,7 +13,7 @@
     <string name="grok">隐藏 Grok</string>
     <string name="grok_description">隐藏整个应用中的 Grok 标签页和 Grok 按钮。</string>
     <string name="customize_home_tabs">自定义首页标签页</string>
-    <string name="customize_home_tabs_description">隐藏“为你推荐”标签页和“添加”标签页。</string>
+    <string name="customize_home_tabs_description">隐藏“为你推荐”“正在关注”和“添加”标签页。</string>
     <string name="default_to_following">默认打开“正在关注”</string>
     <string name="default_to_following_description">打开“正在关注”并停留在那里。</string>
     <string name="disable_home_tab_swipe">停用首页标签页滑动</string>

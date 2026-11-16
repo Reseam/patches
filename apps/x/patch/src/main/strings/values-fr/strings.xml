@@ -13,7 +13,7 @@
     <string name="grok">Masquer Grok</string>
     <string name="grok_description">Masque l’onglet Grok et les boutons Grok dans toute l’application.</string>
     <string name="customize_home_tabs">Personnaliser les onglets d’Accueil</string>
-    <string name="customize_home_tabs_description">Masque l’onglet Pour vous et l’onglet d’ajout.</string>
+    <string name="customize_home_tabs_description">Masque les onglets Pour vous, Abonnements et l’onglet d’ajout.</string>
     <string name="default_to_following">Ouvrir sur Abonnements</string>
     <string name="default_to_following_description">Ouvre Abonnements et y reste.</string>
     <string name="disable_home_tab_swipe">Désactiver le balayage entre onglets d’Accueil</string>

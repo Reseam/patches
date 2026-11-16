@@ -17,6 +17,7 @@ object XSettings : SettingsGroup(XStrings) {
     val defaultToFollowing by toggle(default = false, icon = Vector.lucide("users"))
     val disableHomeTabSwipe by toggle(default = false, icon = Vector.lucide("move-horizontal"))
     val hideForYouTab by toggle(default = false, icon = Vector.lucide("list-x"))
+    val hideFollowingTab by toggle(default = false, icon = Vector.lucide("list-minus"))
     val hideAddTab by toggle(default = false, icon = Vector.lucide("plus"))
     val hidePromotionPrompts by toggle(default = true, icon = Vector.lucide("rocket"))
     val hideAds by toggle(default = true, icon = Vector.lucide("megaphone-off"))

@@ -7,6 +7,8 @@
     <string name="disable_home_tab_swipe_summary">点击标签页仍可切换。</string>
     <string name="hide_for_you_tab">隐藏“为你推荐”标签页</string>
     <string name="hide_for_you_tab_summary">首页在“正在关注”上打开。</string>
+    <string name="hide_following_tab">隐藏“正在关注”标签页</string>
+    <string name="hide_following_tab_summary">首页只显示“为你推荐”。开启“隐藏‘为你推荐’标签页”时无效。</string>
     <string name="hide_add_tab">隐藏“添加”标签页</string>
     <string name="hide_add_tab_summary">同时隐藏首页标签页旁的 + 按钮。</string>
     <string name="hide_promotion_prompts">隐藏推广提示</string>

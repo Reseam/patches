@@ -13,7 +13,7 @@
     <string name="grok">Grok\'u gizle</string>
     <string name="grok_description">Uygulamanın her yerindeki Grok sekmesini ve Grok düğmelerini gizler.</string>
     <string name="customize_home_tabs">Ana Sayfa sekmelerini özelleştir</string>
-    <string name="customize_home_tabs_description">Sana özel sekmesini ve Ekle sekmesini gizler.</string>
+    <string name="customize_home_tabs_description">Sana özel, Takip edilenler ve Ekle sekmelerini gizler.</string>
     <string name="default_to_following">Varsayılan olarak Takip edilenler</string>
     <string name="default_to_following_description">Takip edilenler\'i açar ve orada kalır.</string>
     <string name="disable_home_tab_swipe">Ana Sayfa sekme kaydırmayı kapat</string>

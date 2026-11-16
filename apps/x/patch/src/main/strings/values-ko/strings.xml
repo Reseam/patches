@@ -13,7 +13,7 @@
     <string name="grok">Grok 숨기기</string>
     <string name="grok_description">앱 전체에서 Grok 탭과 Grok 버튼을 숨깁니다.</string>
     <string name="customize_home_tabs">홈 탭 맞춤설정</string>
-    <string name="customize_home_tabs_description">추천 탭과 추가 탭을 숨깁니다.</string>
+    <string name="customize_home_tabs_description">추천, 팔로잉, 추가 탭을 숨깁니다.</string>
     <string name="default_to_following">기본으로 팔로잉 열기</string>
     <string name="default_to_following_description">팔로잉을 열고 그대로 머뭅니다.</string>
     <string name="disable_home_tab_swipe">홈 탭 스와이프 사용 중지</string>

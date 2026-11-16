@@ -7,6 +7,8 @@
     <string name="disable_home_tab_swipe_summary">Nhấn vào tab vẫn chuyển tab.</string>
     <string name="hide_for_you_tab">Ẩn tab Dành cho bạn</string>
     <string name="hide_for_you_tab_summary">Trang chủ mở ở Đang theo dõi.</string>
+    <string name="hide_following_tab">Ẩn tab Đang theo dõi</string>
+    <string name="hide_following_tab_summary">Trang chủ chỉ hiển thị Dành cho bạn. Không có tác dụng khi Ẩn tab Dành cho bạn đang bật.</string>
     <string name="hide_add_tab">Ẩn tab Thêm</string>
     <string name="hide_add_tab_summary">Ẩn cả nút + bên cạnh các tab Trang chủ.</string>
     <string name="hide_promotion_prompts">Ẩn lời nhắc quảng bá</string>

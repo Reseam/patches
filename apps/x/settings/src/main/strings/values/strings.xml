@@ -11,6 +11,8 @@
     <string name="disable_home_tab_swipe_summary">Tapping a tab still switches.</string>
     <string name="hide_for_you_tab">Hide For You tab</string>
     <string name="hide_for_you_tab_summary">Home opens on Following.</string>
+    <string name="hide_following_tab">Hide Following tab</string>
+    <string name="hide_following_tab_summary">Home shows For You only. Does nothing while Hide For You tab is on.</string>
     <string name="hide_add_tab">Hide Add tab</string>
     <string name="hide_add_tab_summary">Also hides the + button next to the Home tabs.</string>
     <string name="hide_promotion_prompts">Hide promotion prompts</string>

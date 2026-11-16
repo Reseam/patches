@@ -7,6 +7,8 @@
     <string name="disable_home_tab_swipe_summary">Dotknięcie karty nadal ją przełącza.</string>
     <string name="hide_for_you_tab">Ukryj kartę Dla Ciebie</string>
     <string name="hide_for_you_tab_summary">Strona główna otwiera się na Obserwowanych.</string>
+    <string name="hide_following_tab">Ukryj kartę Obserwowani</string>
+    <string name="hide_following_tab_summary">Strona główna pokazuje tylko Dla Ciebie. Nie działa, gdy włączone jest Ukryj kartę Dla Ciebie.</string>
     <string name="hide_add_tab">Ukryj kartę Dodaj</string>
     <string name="hide_add_tab_summary">Ukrywa też przycisk + obok kart strony głównej.</string>
     <string name="hide_promotion_prompts">Ukryj zachęty do promowania</string>

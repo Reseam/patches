@@ -3,7 +3,10 @@
 
 package app.reseam.patches.x.home
 
+import app.reseam.patch.ClassTarget
+import app.reseam.patch.CodeScope
 import app.reseam.patch.Type
+import app.reseam.patch.before
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
@@ -21,22 +24,17 @@ import app.reseam.x.settings.XStrings
 val customizeHomeTabs = patch(XPatchStrings.customizeHomeTabs) {
     description(XPatchStrings.customizeHomeTabsDescription)
     compatibleWith(X)
-    settings(xSettings, section(XSettingsPages.Home, XStrings.sectionHome, XSettings.hideForYouTab, XSettings.hideAddTab))
+    settings(xSettings, section(XSettingsPages.Home, XStrings.sectionHome, XSettings.hideForYouTab, XSettings.hideFollowingTab, XSettings.hideAddTab))
 
     execute {
-        HomeTabs.isForYou.implement {
-            val type = param(0).cast(homeTab.descriptor).fieldOfType(initialHomeTab.returnType)
-            whenInstanceOf(type, forYouHomeTab.descriptor) { returnValue(bool(true)) }
-            returnValue(bool(false))
-        }
+        HomeTabs.isForYou.implement { returnWhetherTabIs(forYouHomeTab) }
+        HomeTabs.isFollowing.implement { returnWhetherTabIs(followingHomeTab) }
         // For You and Following are the fixed tabs every page list starts from: the first pages, the
         // start tab lookup and each rebuild with pinned tabs.
-        gate(XSettings.hideForYouTab) {
-            homeTabbed.point { type("[${homeTab.descriptor}") }
-                .next { invokeStatic { params("[${Type.Object}") } }
-                .captureArgumentAs("tabs", 0)
-                .before { capture("tabs").assign(HomeTabs.withoutForYou(capture("tabs"))) }
-        }
+        homeTabbed.point { type("[${homeTab.descriptor}") }
+            .next { invokeStatic { params("[${Type.Object}") } }
+            .captureArgumentAs("tabs", 0)
+            .before { capture("tabs").assign(HomeTabs.visible(capture("tabs"))) }
         gate(XSettings.hideAddTab) {
             homeTabsUpdate.point { field { type(topicsUpsellHomeTab.descriptor) } }
                 .next { invokeInterface { name("add") } }
@@ -66,4 +64,9 @@ private val homeTabbed = method("homeTabbed") { calls(homeFeatures) }
 private val homeTabsUpdate = method("homeTabsUpdate") {
     calls { owner(homeTab.descriptor); name("<init>") }
     accesses { type(topicsUpsellHomeTab.descriptor) }
+}
+
+private fun CodeScope.returnWhetherTabIs(tabType: ClassTarget) {
+    whenInstanceOf(param(0).cast(homeTab.descriptor).fieldOfType(initialHomeTab.returnType), tabType.descriptor) { returnValue(bool(true)) }
+    returnValue(bool(false))
 }

@@ -13,7 +13,7 @@
     <string name="grok">Grok छिपाएँ</string>
     <string name="grok_description">पूरे ऐप में Grok टैब और Grok के बटन छिपाता है।</string>
     <string name="customize_home_tabs">होम टैब अपने हिसाब से बदलें</string>
-    <string name="customize_home_tabs_description">For You टैब और टैब जोड़ने का बटन छिपाता है।</string>
+    <string name="customize_home_tabs_description">For You, Following और टैब जोड़ने का बटन छिपाता है।</string>
     <string name="default_to_following">डिफ़ॉल्ट रूप से Following</string>
     <string name="default_to_following_description">Following खोलता है और वहीं रहता है।</string>
     <string name="disable_home_tab_swipe">होम टैब का स्वाइप बंद करें</string>

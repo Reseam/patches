@@ -13,7 +13,7 @@
     <string name="grok">Ẩn Grok</string>
     <string name="grok_description">Ẩn tab Grok và các nút Grok trong toàn bộ ứng dụng.</string>
     <string name="customize_home_tabs">Tùy chỉnh các tab Trang chủ</string>
-    <string name="customize_home_tabs_description">Ẩn tab Dành cho bạn và tab Thêm.</string>
+    <string name="customize_home_tabs_description">Ẩn tab Dành cho bạn, Đang theo dõi và tab Thêm.</string>
     <string name="default_to_following">Mặc định mở Đang theo dõi</string>
     <string name="default_to_following_description">Mở Đang theo dõi và giữ ở đó.</string>
     <string name="disable_home_tab_swipe">Tắt vuốt tab Trang chủ</string>

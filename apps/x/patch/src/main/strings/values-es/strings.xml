@@ -13,7 +13,7 @@
     <string name="grok">Ocultar Grok</string>
     <string name="grok_description">Oculta la pestaña Grok y los botones de Grok en toda la app.</string>
     <string name="customize_home_tabs">Personalizar pestañas de Inicio</string>
-    <string name="customize_home_tabs_description">Oculta la pestaña Para ti y la de añadir pestaña.</string>
+    <string name="customize_home_tabs_description">Oculta las pestañas Para ti, Siguiendo y la de añadir pestaña.</string>
     <string name="default_to_following">Abrir en Siguiendo</string>
     <string name="default_to_following_description">Abre Siguiendo y se queda ahí.</string>
     <string name="disable_home_tab_swipe">Desactivar deslizamiento entre pestañas de Inicio</string>

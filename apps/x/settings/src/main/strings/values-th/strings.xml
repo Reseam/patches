@@ -7,6 +7,8 @@
     <string name="disable_home_tab_swipe_summary">การแตะแท็บยังสลับแท็บได้</string>
     <string name="hide_for_you_tab">ซ่อนแท็บสำหรับคุณ</string>
     <string name="hide_for_you_tab_summary">หน้าแรกจะเปิดที่กำลังติดตาม</string>
+    <string name="hide_following_tab">ซ่อนแท็บกำลังติดตาม</string>
+    <string name="hide_following_tab_summary">หน้าแรกจะแสดงเฉพาะสำหรับคุณ ไม่มีผลขณะที่เปิดซ่อนแท็บสำหรับคุณอยู่</string>
     <string name="hide_add_tab">ซ่อนแท็บเพิ่ม</string>
     <string name="hide_add_tab_summary">ซ่อนปุ่ม + ข้างแท็บหน้าแรกด้วย</string>
     <string name="hide_promotion_prompts">ซ่อนข้อความชวนโปรโมต</string>

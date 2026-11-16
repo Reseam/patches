@@ -13,7 +13,7 @@
     <string name="grok">隱藏 Grok</string>
     <string name="grok_description">隱藏整個應用程式中的 Grok 分頁和 Grok 按鈕。</string>
     <string name="customize_home_tabs">自訂首頁分頁</string>
-    <string name="customize_home_tabs_description">隱藏「為你推薦」分頁和「新增」分頁。</string>
+    <string name="customize_home_tabs_description">隱藏「為你推薦」、「跟隨中」和「新增」分頁。</string>
     <string name="default_to_following">預設開啟「跟隨中」</string>
     <string name="default_to_following_description">開啟「跟隨中」並停留在那裡。</string>
     <string name="disable_home_tab_swipe">停用首頁分頁滑動</string>

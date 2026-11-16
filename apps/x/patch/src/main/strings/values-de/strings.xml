@@ -13,7 +13,7 @@
     <string name="grok">Grok ausblenden</string>
     <string name="grok_description">Blendet den Grok-Tab und die Grok-Schaltflächen in der ganzen App aus.</string>
     <string name="customize_home_tabs">Tabs der Startseite anpassen</string>
-    <string name="customize_home_tabs_description">Blendet den Tab Für dich und den Tab zum Hinzufügen aus.</string>
+    <string name="customize_home_tabs_description">Blendet die Tabs Für dich, „Folge ich“ und Hinzufügen aus.</string>
     <string name="default_to_following">Standardmäßig „Folge ich“</string>
     <string name="default_to_following_description">Öffnet „Folge ich“ und bleibt dort.</string>
     <string name="disable_home_tab_swipe">Wischen zwischen Startseiten-Tabs deaktivieren</string>

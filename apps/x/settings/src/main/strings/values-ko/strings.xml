@@ -7,6 +7,8 @@
     <string name="disable_home_tab_swipe_summary">탭을 탭하면 여전히 전환됩니다.</string>
     <string name="hide_for_you_tab">추천 탭 숨기기</string>
     <string name="hide_for_you_tab_summary">홈이 팔로잉에서 열립니다.</string>
+    <string name="hide_following_tab">팔로잉 탭 숨기기</string>
+    <string name="hide_following_tab_summary">홈에 추천만 표시됩니다. 추천 탭 숨기기가 켜져 있으면 적용되지 않습니다.</string>
     <string name="hide_add_tab">추가 탭 숨기기</string>
     <string name="hide_add_tab_summary">홈 탭 옆의 + 버튼도 숨깁니다.</string>
     <string name="hide_promotion_prompts">홍보 안내 숨기기</string>

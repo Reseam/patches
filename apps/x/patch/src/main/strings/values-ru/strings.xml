@@ -13,7 +13,7 @@
     <string name="grok">Скрыть Grok</string>
     <string name="grok_description">Скрывает вкладку Grok и кнопки Grok во всём приложении.</string>
     <string name="customize_home_tabs">Настроить вкладки главной</string>
-    <string name="customize_home_tabs_description">Скрывает вкладку «Для вас» и вкладку добавления.</string>
+    <string name="customize_home_tabs_description">Скрывает вкладки «Для вас», «Читаемые» и вкладку добавления.</string>
     <string name="default_to_following">По умолчанию «Читаемые»</string>
     <string name="default_to_following_description">Открывает «Читаемые» и остаётся там.</string>
     <string name="disable_home_tab_swipe">Отключить свайп между вкладками главной</string>

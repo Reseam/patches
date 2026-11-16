@@ -13,7 +13,7 @@
     <string name="grok">Grok を非表示</string>
     <string name="grok_description">アプリ全体の Grok タブと Grok ボタンを非表示にします。</string>
     <string name="customize_home_tabs">ホームのタブをカスタマイズ</string>
-    <string name="customize_home_tabs_description">「おすすめ」タブとタブの追加を非表示にします。</string>
+    <string name="customize_home_tabs_description">「おすすめ」タブ、「フォロー中」タブ、タブの追加を非表示にします。</string>
     <string name="default_to_following">「フォロー中」を既定にする</string>
     <string name="default_to_following_description">「フォロー中」を開き、そのままにします。</string>
     <string name="disable_home_tab_swipe">ホームタブのスワイプを無効にする</string>

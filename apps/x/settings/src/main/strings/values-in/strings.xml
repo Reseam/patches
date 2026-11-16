@@ -7,6 +7,8 @@
     <string name="disable_home_tab_swipe_summary">Mengetuk tab tetap berpindah tab.</string>
     <string name="hide_for_you_tab">Sembunyikan tab Untuk Anda</string>
     <string name="hide_for_you_tab_summary">Beranda terbuka di Mengikuti.</string>
+    <string name="hide_following_tab">Sembunyikan tab Mengikuti</string>
+    <string name="hide_following_tab_summary">Beranda hanya menampilkan Untuk Anda. Tidak berpengaruh selama Sembunyikan tab Untuk Anda aktif.</string>
     <string name="hide_add_tab">Sembunyikan tab Tambah</string>
     <string name="hide_add_tab_summary">Juga menyembunyikan tombol + di samping tab Beranda.</string>
     <string name="hide_promotion_prompts">Sembunyikan ajakan promosi</string>

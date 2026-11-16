@@ -7,6 +7,8 @@
     <string name="disable_home_tab_swipe_summary">टैब पर टैप करने से अब भी टैब बदलता है।</string>
     <string name="hide_for_you_tab">For You टैब छिपाएँ</string>
     <string name="hide_for_you_tab_summary">होम Following पर खुलता है।</string>
+    <string name="hide_following_tab">Following टैब छिपाएँ</string>
+    <string name="hide_following_tab_summary">होम में सिर्फ़ For You दिखता है। For You टैब छिपाएँ चालू रहने पर इसका कोई असर नहीं होता।</string>
     <string name="hide_add_tab">टैब जोड़ने का बटन छिपाएँ</string>
     <string name="hide_add_tab_summary">होम के टैब के पास वाला + बटन भी छिपाता है।</string>
     <string name="hide_promotion_prompts">प्रचार के सुझाव छिपाएँ</string>

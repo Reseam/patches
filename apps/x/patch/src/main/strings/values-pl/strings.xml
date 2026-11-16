@@ -13,7 +13,7 @@
     <string name="grok">Ukryj Groka</string>
     <string name="grok_description">Ukrywa kartę Grok i przyciski Groka w całej aplikacji.</string>
     <string name="customize_home_tabs">Dostosuj karty strony głównej</string>
-    <string name="customize_home_tabs_description">Ukrywa karty Dla Ciebie i Dodaj.</string>
+    <string name="customize_home_tabs_description">Ukrywa karty Dla Ciebie, Obserwowani i Dodaj.</string>
     <string name="default_to_following">Domyślnie Obserwowani</string>
     <string name="default_to_following_description">Otwiera Obserwowanych i na nich pozostaje.</string>
     <string name="disable_home_tab_swipe">Wyłącz przesuwanie kart strony głównej</string>

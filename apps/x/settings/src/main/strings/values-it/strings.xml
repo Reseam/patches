@@ -7,6 +7,8 @@
     <string name="disable_home_tab_swipe_summary">Toccare una scheda la cambia comunque.</string>
     <string name="hide_for_you_tab">Nascondi la scheda Per te</string>
     <string name="hide_for_you_tab_summary">La Home si apre su Seguiti.</string>
+    <string name="hide_following_tab">Nascondi la scheda Seguiti</string>
+    <string name="hide_following_tab_summary">La Home mostra solo Per te. Non ha effetto finché Nascondi la scheda Per te è attivo.</string>
     <string name="hide_add_tab">Nascondi la scheda di aggiunta</string>
     <string name="hide_add_tab_summary">Nasconde anche il pulsante + accanto alle schede della Home.</string>
     <string name="hide_promotion_prompts">Nascondi gli inviti alla promozione</string>

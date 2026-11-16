@@ -7,6 +7,8 @@
     <string name="disable_home_tab_swipe_summary">タブをタップすれば切り替えられます。</string>
     <string name="hide_for_you_tab">「おすすめ」タブを非表示</string>
     <string name="hide_for_you_tab_summary">ホームは「フォロー中」で開きます。</string>
+    <string name="hide_following_tab">「フォロー中」タブを非表示</string>
+    <string name="hide_following_tab_summary">ホームには「おすすめ」だけが表示されます。「おすすめ」タブを非表示がオンの間は無効です。</string>
     <string name="hide_add_tab">タブの追加を非表示</string>
     <string name="hide_add_tab_summary">ホームのタブの横にある + ボタンも非表示にします。</string>
     <string name="hide_promotion_prompts">プロモーションの案内を非表示</string>

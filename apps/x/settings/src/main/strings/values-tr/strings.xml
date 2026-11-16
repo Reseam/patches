@@ -7,6 +7,8 @@
     <string name="disable_home_tab_swipe_summary">Bir sekmeye dokunmak yine sekmeyi değiştirir.</string>
     <string name="hide_for_you_tab">Sana özel sekmesini gizle</string>
     <string name="hide_for_you_tab_summary">Ana Sayfa, Takip edilenler\'de açılır.</string>
+    <string name="hide_following_tab">Takip edilenler sekmesini gizle</string>
+    <string name="hide_following_tab_summary">Ana Sayfa yalnızca Sana özel sekmesini gösterir. Sana özel sekmesini gizle açıkken etkisi yoktur.</string>
     <string name="hide_add_tab">Ekle sekmesini gizle</string>
     <string name="hide_add_tab_summary">Ana Sayfa sekmelerinin yanındaki + düğmesini de gizler.</string>
     <string name="hide_promotion_prompts">Tanıtım istemlerini gizle</string>

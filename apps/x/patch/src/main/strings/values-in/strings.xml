@@ -13,7 +13,7 @@
     <string name="grok">Sembunyikan Grok</string>
     <string name="grok_description">Menyembunyikan tab Grok dan tombol Grok di seluruh aplikasi.</string>
     <string name="customize_home_tabs">Sesuaikan tab Beranda</string>
-    <string name="customize_home_tabs_description">Menyembunyikan tab Untuk Anda dan tab Tambah.</string>
+    <string name="customize_home_tabs_description">Menyembunyikan tab Untuk Anda, Mengikuti, dan Tambah.</string>
     <string name="default_to_following">Default ke Mengikuti</string>
     <string name="default_to_following_description">Membuka Mengikuti dan tetap di sana.</string>
     <string name="disable_home_tab_swipe">Nonaktifkan geser tab Beranda</string>

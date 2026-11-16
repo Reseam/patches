@@ -7,6 +7,8 @@
     <string name="disable_home_tab_swipe_summary">Нажатие на вкладку по-прежнему переключает её.</string>
     <string name="hide_for_you_tab">Скрыть вкладку «Для вас»</string>
     <string name="hide_for_you_tab_summary">Главная открывается на «Читаемых».</string>
+    <string name="hide_following_tab">Скрыть вкладку «Читаемые»</string>
+    <string name="hide_following_tab_summary">Главная показывает только «Для вас». Не действует, пока включено «Скрыть вкладку «Для вас»».</string>
     <string name="hide_add_tab">Скрыть вкладку добавления</string>
     <string name="hide_add_tab_summary">Также скрывает кнопку + рядом с вкладками главной.</string>
     <string name="hide_promotion_prompts">Скрыть предложения продвижения</string>

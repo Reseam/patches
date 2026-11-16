@@ -7,6 +7,8 @@
     <string name="disable_home_tab_swipe_summary">Tocar em uma aba ainda troca de aba.</string>
     <string name="hide_for_you_tab">Ocultar aba Para você</string>
     <string name="hide_for_you_tab_summary">A Página Inicial abre em Seguindo.</string>
+    <string name="hide_following_tab">Ocultar aba Seguindo</string>
+    <string name="hide_following_tab_summary">A Página Inicial mostra só Para você. Não faz nada enquanto Ocultar aba Para você estiver ativado.</string>
     <string name="hide_add_tab">Ocultar aba de adicionar</string>
     <string name="hide_add_tab_summary">Também oculta o botão + ao lado das abas da Página Inicial.</string>
     <string name="hide_promotion_prompts">Ocultar sugestões de promoção</string>

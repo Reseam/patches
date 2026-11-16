@@ -13,7 +13,7 @@
     <string name="grok">Приховати Grok</string>
     <string name="grok_description">Приховує вкладку Grok і кнопки Grok у всьому застосунку.</string>
     <string name="customize_home_tabs">Налаштувати вкладки головної</string>
-    <string name="customize_home_tabs_description">Приховує вкладки «Для вас» і «Додати».</string>
+    <string name="customize_home_tabs_description">Приховує вкладки «Для вас», «Відстежувані» і «Додати».</string>
     <string name="default_to_following">За замовчуванням «Відстежувані»</string>
     <string name="default_to_following_description">Відкриває «Відстежувані» й залишається там.</string>
     <string name="disable_home_tab_swipe">Вимкнути гортання вкладок головної</string>

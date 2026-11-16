@@ -7,6 +7,8 @@
     <string name="disable_home_tab_swipe_summary">Antippen eines Tabs wechselt weiterhin.</string>
     <string name="hide_for_you_tab">Tab Für dich ausblenden</string>
     <string name="hide_for_you_tab_summary">Die Startseite öffnet sich auf „Folge ich“.</string>
+    <string name="hide_following_tab">Tab „Folge ich“ ausblenden</string>
+    <string name="hide_following_tab_summary">Die Startseite zeigt nur Für dich. Wirkt nicht, solange Tab Für dich ausblenden an ist.</string>
     <string name="hide_add_tab">Tab zum Hinzufügen ausblenden</string>
     <string name="hide_add_tab_summary">Blendet auch die Schaltfläche + neben den Startseiten-Tabs aus.</string>
     <string name="hide_promotion_prompts">Werbehinweise ausblenden</string>

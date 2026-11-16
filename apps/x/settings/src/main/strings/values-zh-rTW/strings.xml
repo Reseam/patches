@@ -7,6 +7,8 @@
     <string name="disable_home_tab_swipe_summary">輕觸分頁仍可切換。</string>
     <string name="hide_for_you_tab">隱藏「為你推薦」分頁</string>
     <string name="hide_for_you_tab_summary">首頁會在「跟隨中」開啟。</string>
+    <string name="hide_following_tab">隱藏「跟隨中」分頁</string>
+    <string name="hide_following_tab_summary">首頁只顯示「為你推薦」。開啟「隱藏「為你推薦」分頁」時無效。</string>
     <string name="hide_add_tab">隱藏「新增」分頁</string>
     <string name="hide_add_tab_summary">同時隱藏首頁分頁旁的 + 按鈕。</string>
     <string name="hide_promotion_prompts">隱藏推廣提示</string>
