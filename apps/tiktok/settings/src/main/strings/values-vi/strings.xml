@@ -80,6 +80,8 @@
     <string name="spoof_sim_country">Quốc gia</string>
     <string name="spoof_sim_country_summary">Khớp với VPN của bạn.</string>
     <string name="hide_live_button">Ẩn nút LIVE</string>
+    <string name="hide_tako_button">Ẩn nút Tako</string>
+    <string name="hide_tako_button_summary">Ẩn nút trợ lý AI phía trên ảnh của tác giả.</string>
     <string name="disable_like_long_press">Tắt nhấn giữ nút thích</string>
     <string name="disable_like_long_press_summary">Nhấn giữ nút Thích không còn mở các lựa chọn biểu cảm.</string>
     <string name="show_poll_results">Hiển thị kết quả thăm dò</string>

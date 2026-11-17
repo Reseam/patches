@@ -86,6 +86,8 @@
     <string name="spoof_sim_country_summary">Use o mesmo país da sua VPN.</string>
 
     <string name="hide_live_button">Ocultar botão LIVE</string>
+    <string name="hide_tako_button">Ocultar botão do Tako</string>
+    <string name="hide_tako_button_summary">Oculta o botão do assistente de IA acima da foto do autor.</string>
     <string name="disable_like_long_press">Desativar toque longo em Curtir</string>
     <string name="disable_like_long_press_summary">Segurar Curtir não abre mais as opções de reação.</string>
     <string name="show_poll_results">Mostrar resultados de enquetes</string>

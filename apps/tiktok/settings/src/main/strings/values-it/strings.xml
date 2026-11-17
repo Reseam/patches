@@ -80,6 +80,8 @@
     <string name="spoof_sim_country">Paese</string>
     <string name="spoof_sim_country_summary">Fallo corrispondere alla tua VPN.</string>
     <string name="hide_live_button">Nascondi il pulsante LIVE</string>
+    <string name="hide_tako_button">Nascondi il pulsante Tako</string>
+    <string name="hide_tako_button_summary">Nasconde il pulsante dell’assistente IA sopra la foto dell’autore.</string>
     <string name="disable_like_long_press">Disattiva la pressione prolungata su Mi piace</string>
     <string name="disable_like_long_press_summary">Tenere premuto Mi piace non apre più le opzioni di reazione.</string>
     <string name="show_poll_results">Mostra i risultati dei sondaggi</string>

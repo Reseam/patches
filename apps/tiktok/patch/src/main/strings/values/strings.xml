@@ -28,6 +28,8 @@
     <string name="hide_follow_button_description">Hides the follow button under the author\'s picture.</string>
     <string name="hide_live_button">Hide LIVE button</string>
     <string name="hide_live_button_description">Hides the LIVE button at the top of the feed.</string>
+    <string name="hide_tako_button">Hide Tako button</string>
+    <string name="hide_tako_button_description">Hides the Tako AI assistant button above the author\'s picture.</string>
     <string name="hide_quick_comments">Hide quick comments</string>
     <string name="hide_quick_comments_description">Hides the emoji bar under videos.</string>
     <string name="hide_story_ring">Hide story rings</string>

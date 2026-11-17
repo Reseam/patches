@@ -28,6 +28,8 @@
     <string name="hide_follow_button_description">投稿者の写真の下のフォローボタンを非表示にします。</string>
     <string name="hide_live_button">LIVE ボタンを非表示</string>
     <string name="hide_live_button_description">フィード上部の LIVE ボタンを非表示にします。</string>
+    <string name="hide_tako_button">Tako ボタンを非表示</string>
+    <string name="hide_tako_button_description">投稿者の写真の上の AI アシスタント Tako のボタンを非表示にします。</string>
     <string name="hide_quick_comments">クイックコメントを非表示</string>
     <string name="hide_quick_comments_description">動画の下の絵文字バーを非表示にします。</string>
     <string name="hide_story_ring">ストーリーズリングを非表示</string>

@@ -28,6 +28,8 @@
     <string name="hide_follow_button_description">Yazarın resminin altındaki takip et düğmesini gizler.</string>
     <string name="hide_live_button">CANLI düğmesini gizle</string>
     <string name="hide_live_button_description">Akışın üstündeki CANLI düğmesini gizler.</string>
+    <string name="hide_tako_button">Tako düğmesini gizle</string>
+    <string name="hide_tako_button_description">Yazarın resminin üstündeki yapay zeka asistanı Tako düğmesini gizler.</string>
     <string name="hide_quick_comments">Hızlı yorumları gizle</string>
     <string name="hide_quick_comments_description">Videoların altındaki emoji çubuğunu gizler.</string>
     <string name="hide_story_ring">Hikaye halkalarını gizle</string>

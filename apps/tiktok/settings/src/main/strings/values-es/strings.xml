@@ -80,6 +80,8 @@
     <string name="spoof_sim_country">País</string>
     <string name="spoof_sim_country_summary">Haz que coincida con tu VPN.</string>
     <string name="hide_live_button">Ocultar botón LIVE</string>
+    <string name="hide_tako_button">Ocultar botón de Tako</string>
+    <string name="hide_tako_button_summary">Oculta el botón del asistente de IA sobre la foto del autor.</string>
     <string name="disable_like_long_press">Desactivar pulsación larga de Me gusta</string>
     <string name="disable_like_long_press_summary">Mantener pulsado Me gusta ya no abre las opciones de reacción.</string>
     <string name="show_poll_results">Mostrar resultados de encuestas</string>

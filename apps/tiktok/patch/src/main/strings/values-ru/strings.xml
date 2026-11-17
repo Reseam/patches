@@ -28,6 +28,8 @@
     <string name="hide_follow_button_description">Скрывает кнопку подписки под фото автора.</string>
     <string name="hide_live_button">Скрыть кнопку LIVE</string>
     <string name="hide_live_button_description">Скрывает кнопку LIVE вверху ленты.</string>
+    <string name="hide_tako_button">Скрыть кнопку Tako</string>
+    <string name="hide_tako_button_description">Скрывает кнопку ИИ-помощника Tako над фото автора.</string>
     <string name="hide_quick_comments">Скрыть быстрые комментарии</string>
     <string name="hide_quick_comments_description">Скрывает панель эмодзи под видео.</string>
     <string name="hide_story_ring">Скрыть кольца историй</string>

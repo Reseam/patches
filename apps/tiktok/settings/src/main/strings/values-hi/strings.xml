@@ -80,6 +80,8 @@
     <string name="spoof_sim_country">देश</string>
     <string name="spoof_sim_country_summary">इसे अपने VPN से मिलाएँ।</string>
     <string name="hide_live_button">LIVE बटन छिपाएँ</string>
+    <string name="hide_tako_button">Tako बटन छिपाएँ</string>
+    <string name="hide_tako_button_summary">बनाने वाले की तस्वीर के ऊपर का AI असिस्टेंट बटन छिपाता है।</string>
     <string name="disable_like_long_press">लाइक को देर तक दबाना बंद करें</string>
     <string name="disable_like_long_press_summary">लाइक को दबाए रखने पर अब रिएक्शन के विकल्प नहीं खुलते।</string>
     <string name="show_poll_results">पोल के नतीजे दिखाएँ</string>

@@ -80,6 +80,8 @@
     <string name="spoof_sim_country">Ülke</string>
     <string name="spoof_sim_country_summary">VPN\'inizle eşleştirin.</string>
     <string name="hide_live_button">CANLI düğmesini gizle</string>
+    <string name="hide_tako_button">Tako düğmesini gizle</string>
+    <string name="hide_tako_button_summary">Yazarın resminin üstündeki yapay zeka asistanı düğmesini gizler.</string>
     <string name="disable_like_long_press">Beğeniye uzun basmayı kapat</string>
     <string name="disable_like_long_press_summary">Beğen\'e basılı tutmak artık tepki seçeneklerini açmaz.</string>
     <string name="show_poll_results">Anket sonuçlarını göster</string>

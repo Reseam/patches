@@ -80,6 +80,8 @@
     <string name="spoof_sim_country">Kraj</string>
     <string name="spoof_sim_country_summary">Dopasuj do swojego VPN.</string>
     <string name="hide_live_button">Ukryj przycisk LIVE</string>
+    <string name="hide_tako_button">Ukryj przycisk Tako</string>
+    <string name="hide_tako_button_summary">Ukrywa przycisk asystenta AI nad zdjęciem autora.</string>
     <string name="disable_like_long_press">Wyłącz przytrzymanie polubienia</string>
     <string name="disable_like_long_press_summary">Przytrzymanie przycisku Lubię nie otwiera już opcji reakcji.</string>
     <string name="show_poll_results">Pokazuj wyniki ankiet</string>

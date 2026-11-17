@@ -28,6 +28,8 @@
     <string name="hide_follow_button_description">隐藏作者头像下方的关注按钮。</string>
     <string name="hide_live_button">隐藏直播按钮</string>
     <string name="hide_live_button_description">隐藏推荐流顶部的直播按钮。</string>
+    <string name="hide_tako_button">隐藏 Tako 按钮</string>
+    <string name="hide_tako_button_description">隐藏作者头像上方的 AI 助手 Tako 按钮。</string>
     <string name="hide_quick_comments">隐藏快捷评论</string>
     <string name="hide_quick_comments_description">隐藏视频下方的表情栏。</string>
     <string name="hide_story_ring">隐藏快拍光圈</string>

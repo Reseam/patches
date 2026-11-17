@@ -28,6 +28,8 @@
     <string name="hide_follow_button_description">Oculta o botão de seguir abaixo da foto do autor.</string>
     <string name="hide_live_button">Ocultar botão LIVE</string>
     <string name="hide_live_button_description">Oculta o botão LIVE no topo do feed.</string>
+    <string name="hide_tako_button">Ocultar botão do Tako</string>
+    <string name="hide_tako_button_description">Oculta o botão do assistente de IA Tako acima da foto do autor.</string>
     <string name="hide_quick_comments">Ocultar comentários rápidos</string>
     <string name="hide_quick_comments_description">Oculta a barra de emojis abaixo dos vídeos.</string>
     <string name="hide_story_ring">Ocultar anéis de stories</string>

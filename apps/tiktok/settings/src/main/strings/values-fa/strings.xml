@@ -80,6 +80,8 @@
     <string name="spoof_sim_country">کشور</string>
     <string name="spoof_sim_country_summary">آن را با VPN خود یکی کنید.</string>
     <string name="hide_live_button">پنهان کردن دکمهٔ LIVE</string>
+    <string name="hide_tako_button">پنهان کردن دکمهٔ Tako</string>
+    <string name="hide_tako_button_summary">دکمهٔ دستیار هوش مصنوعی بالای تصویر سازنده را پنهان می‌کند.</string>
     <string name="disable_like_long_press">غیرفعال کردن لمس طولانی پسند</string>
     <string name="disable_like_long_press_summary">نگه داشتن دکمهٔ پسند دیگر گزینه‌های واکنش را باز نمی‌کند.</string>
     <string name="show_poll_results">نمایش نتایج نظرسنجی</string>

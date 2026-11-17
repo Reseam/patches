@@ -80,6 +80,8 @@
     <string name="spoof_sim_country">Країна</string>
     <string name="spoof_sim_country_summary">Має збігатися з вашим VPN.</string>
     <string name="hide_live_button">Приховати кнопку LIVE</string>
+    <string name="hide_tako_button">Приховати кнопку Tako</string>
+    <string name="hide_tako_button_summary">Приховує кнопку ШІ-помічника над фото автора.</string>
     <string name="disable_like_long_press">Вимкнути довге натискання вподобання</string>
     <string name="disable_like_long_press_summary">Утримання «Подобається» більше не відкриває варіанти реакцій.</string>
     <string name="show_poll_results">Показувати результати опитувань</string>

@@ -28,6 +28,8 @@
     <string name="hide_follow_button_description">बनाने वाले की तस्वीर के नीचे का फ़ॉलो बटन छिपाता है।</string>
     <string name="hide_live_button">LIVE बटन छिपाएँ</string>
     <string name="hide_live_button_description">फ़ीड में सबसे ऊपर का LIVE बटन छिपाता है।</string>
+    <string name="hide_tako_button">Tako बटन छिपाएँ</string>
+    <string name="hide_tako_button_description">बनाने वाले की तस्वीर के ऊपर का Tako AI असिस्टेंट बटन छिपाता है।</string>
     <string name="hide_quick_comments">झटपट कमेंट छिपाएँ</string>
     <string name="hide_quick_comments_description">वीडियो के नीचे की इमोजी बार छिपाता है।</string>
     <string name="hide_story_ring">स्टोरी रिंग छिपाएँ</string>

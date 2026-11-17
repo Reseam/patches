@@ -28,6 +28,8 @@
     <string name="hide_follow_button_description">دکمهٔ دنبال کردن زیر تصویر سازنده را پنهان می‌کند.</string>
     <string name="hide_live_button">پنهان کردن دکمهٔ LIVE</string>
     <string name="hide_live_button_description">دکمهٔ LIVE بالای فید را پنهان می‌کند.</string>
+    <string name="hide_tako_button">پنهان کردن دکمهٔ Tako</string>
+    <string name="hide_tako_button_description">دکمهٔ دستیار هوش مصنوعی Tako بالای تصویر سازنده را پنهان می‌کند.</string>
     <string name="hide_quick_comments">پنهان کردن نظرهای سریع</string>
     <string name="hide_quick_comments_description">نوار ایموجی زیر ویدیوها را پنهان می‌کند.</string>
     <string name="hide_story_ring">پنهان کردن حلقه‌های استوری</string>

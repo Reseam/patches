@@ -28,6 +28,8 @@
     <string name="hide_follow_button_description">Nasconde il pulsante Segui sotto la foto dell’autore.</string>
     <string name="hide_live_button">Nascondi il pulsante LIVE</string>
     <string name="hide_live_button_description">Nasconde il pulsante LIVE in cima al feed.</string>
+    <string name="hide_tako_button">Nascondi il pulsante Tako</string>
+    <string name="hide_tako_button_description">Nasconde il pulsante dell’assistente IA Tako sopra la foto dell’autore.</string>
     <string name="hide_quick_comments">Nascondi i commenti rapidi</string>
     <string name="hide_quick_comments_description">Nasconde la barra delle emoji sotto i video.</string>
     <string name="hide_story_ring">Nascondi i cerchi delle storie</string>

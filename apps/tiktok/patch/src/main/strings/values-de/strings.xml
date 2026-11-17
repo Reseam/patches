@@ -28,6 +28,8 @@
     <string name="hide_follow_button_description">Blendet die Folgen-Schaltfläche unter dem Bild des Erstellers aus.</string>
     <string name="hide_live_button">LIVE-Schaltfläche ausblenden</string>
     <string name="hide_live_button_description">Blendet die LIVE-Schaltfläche oben im Feed aus.</string>
+    <string name="hide_tako_button">Tako-Schaltfläche ausblenden</string>
+    <string name="hide_tako_button_description">Blendet die Schaltfläche des KI-Assistenten Tako über dem Bild des Erstellers aus.</string>
     <string name="hide_quick_comments">Schnellkommentare ausblenden</string>
     <string name="hide_quick_comments_description">Blendet die Emoji-Leiste unter Videos aus.</string>
     <string name="hide_story_ring">Story-Ringe ausblenden</string>

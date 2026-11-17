@@ -80,6 +80,8 @@
     <string name="spoof_sim_country">Land</string>
     <string name="spoof_sim_country_summary">Passe es an dein VPN an.</string>
     <string name="hide_live_button">LIVE-Schaltfläche ausblenden</string>
+    <string name="hide_tako_button">Tako-Schaltfläche ausblenden</string>
+    <string name="hide_tako_button_summary">Blendet die KI-Assistent-Schaltfläche über dem Bild des Erstellers aus.</string>
     <string name="disable_like_long_press">Langes Drücken auf „Gefällt mir“ deaktivieren</string>
     <string name="disable_like_long_press_summary">Langes Drücken auf „Gefällt mir“ öffnet die Reaktionsoptionen nicht mehr.</string>
     <string name="show_poll_results">Umfrageergebnisse anzeigen</string>

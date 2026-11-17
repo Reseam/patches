@@ -80,6 +80,8 @@
     <string name="spoof_sim_country">Negara</string>
     <string name="spoof_sim_country_summary">Sesuaikan dengan VPN Anda.</string>
     <string name="hide_live_button">Sembunyikan tombol LIVE</string>
+    <string name="hide_tako_button">Sembunyikan tombol Tako</string>
+    <string name="hide_tako_button_summary">Menyembunyikan tombol asisten AI di atas foto pembuat.</string>
     <string name="disable_like_long_press">Nonaktifkan tekan lama suka</string>
     <string name="disable_like_long_press_summary">Menahan Suka tidak lagi membuka pilihan reaksi.</string>
     <string name="show_poll_results">Tampilkan hasil polling</string>
