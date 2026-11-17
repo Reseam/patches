@@ -30,6 +30,8 @@
     <string name="hide_live_button_description">ซ่อนปุ่ม LIVE ที่ด้านบนของฟีด</string>
     <string name="hide_tako_button">ซ่อนปุ่ม Tako</string>
     <string name="hide_tako_button_description">ซ่อนปุ่มผู้ช่วย AI Tako เหนือรูปของผู้สร้าง</string>
+    <string name="hide_video_search_bar">ซ่อนแถบค้นหาใต้วิดีโอ</string>
+    <string name="hide_video_search_bar_description">ซ่อนแถบค้นหาแนะนำใต้วิดีโอ</string>
     <string name="hide_quick_comments">ซ่อนความคิดเห็นด่วน</string>
     <string name="hide_quick_comments_description">ซ่อนแถบอีโมจิใต้วิดีโอ</string>
     <string name="hide_story_ring">ซ่อนวงสตอรี่</string>

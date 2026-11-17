@@ -82,6 +82,8 @@
     <string name="hide_live_button">LIVE ボタンを非表示</string>
     <string name="hide_tako_button">Tako ボタンを非表示</string>
     <string name="hide_tako_button_summary">投稿者の写真の上の AI アシスタントボタンを非表示にします。</string>
+    <string name="hide_video_search_bar">動画の下の検索バーを非表示</string>
+    <string name="hide_video_search_bar_summary">動画のキャプションとナビゲーションバーの間のおすすめ検索を非表示にします。</string>
     <string name="disable_like_long_press">いいねの長押しを無効にする</string>
     <string name="disable_like_long_press_summary">いいねを長押ししてもリアクションの選択肢が開かなくなります。</string>
     <string name="show_poll_results">投票結果を表示</string>

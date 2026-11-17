@@ -30,6 +30,8 @@
     <string name="hide_live_button_description">فیڈ کے اوپر LIVE بٹن چھپاتا ہے۔</string>
     <string name="hide_tako_button">Tako بٹن چھپائیں</string>
     <string name="hide_tako_button_description">تخلیق کار کی تصویر کے اوپر Tako AI اسسٹنٹ بٹن چھپاتا ہے۔</string>
+    <string name="hide_video_search_bar">ویڈیوز کے نیچے سرچ بار چھپائیں</string>
+    <string name="hide_video_search_bar_description">ویڈیوز کے نیچے تجویز کردہ سرچ بار چھپاتا ہے۔</string>
     <string name="hide_quick_comments">فوری تبصرے چھپائیں</string>
     <string name="hide_quick_comments_description">ویڈیوز کے نیچے ایموجی بار چھپاتا ہے۔</string>
     <string name="hide_story_ring">اسٹوری کے دائرے چھپائیں</string>

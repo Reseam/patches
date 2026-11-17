@@ -30,6 +30,8 @@
     <string name="hide_live_button_description">Oculta el botón LIVE de la parte superior del feed.</string>
     <string name="hide_tako_button">Ocultar botón de Tako</string>
     <string name="hide_tako_button_description">Oculta el botón del asistente de IA Tako sobre la foto del autor.</string>
+    <string name="hide_video_search_bar">Ocultar barra de búsqueda bajo los videos</string>
+    <string name="hide_video_search_bar_description">Oculta la barra de búsqueda sugerida debajo de los videos.</string>
     <string name="hide_quick_comments">Ocultar comentarios rápidos</string>
     <string name="hide_quick_comments_description">Oculta la barra de emojis debajo de los videos.</string>
     <string name="hide_story_ring">Ocultar círculos de historias</string>

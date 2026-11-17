@@ -82,6 +82,8 @@
     <string name="hide_live_button">LIVE بٹن چھپائیں</string>
     <string name="hide_tako_button">Tako بٹن چھپائیں</string>
     <string name="hide_tako_button_summary">تخلیق کار کی تصویر کے اوپر AI اسسٹنٹ بٹن چھپاتا ہے۔</string>
+    <string name="hide_video_search_bar">ویڈیوز کے نیچے سرچ بار چھپائیں</string>
+    <string name="hide_video_search_bar_summary">ویڈیو کی کیپشن اور نیویگیشن بار کے درمیان تجویز کردہ تلاش چھپاتا ہے۔</string>
     <string name="disable_like_long_press">پسند کو دیر تک دبانا غیر فعال کریں</string>
     <string name="disable_like_long_press_summary">پسند کو دبائے رکھنے سے اب ری ایکشن کے اختیارات نہیں کھلتے۔</string>
     <string name="show_poll_results">پول کے نتائج دکھائیں</string>

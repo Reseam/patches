@@ -82,6 +82,8 @@
     <string name="hide_live_button">Nascondi il pulsante LIVE</string>
     <string name="hide_tako_button">Nascondi il pulsante Tako</string>
     <string name="hide_tako_button_summary">Nasconde il pulsante dell’assistente IA sopra la foto dell’autore.</string>
+    <string name="hide_video_search_bar">Nascondi la barra di ricerca sotto i video</string>
+    <string name="hide_video_search_bar_summary">Nasconde la ricerca suggerita tra la didascalia del video e la barra di navigazione.</string>
     <string name="disable_like_long_press">Disattiva la pressione prolungata su Mi piace</string>
     <string name="disable_like_long_press_summary">Tenere premuto Mi piace non apre più le opzioni di reazione.</string>
     <string name="show_poll_results">Mostra i risultati dei sondaggi</string>

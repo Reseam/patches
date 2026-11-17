@@ -82,6 +82,8 @@
     <string name="hide_live_button">Скрыть кнопку LIVE</string>
     <string name="hide_tako_button">Скрыть кнопку Tako</string>
     <string name="hide_tako_button_summary">Скрывает кнопку ИИ-помощника над фото автора.</string>
+    <string name="hide_video_search_bar">Скрыть строку поиска под видео</string>
+    <string name="hide_video_search_bar_summary">Скрывает предлагаемый поиск между описанием видео и панелью навигации.</string>
     <string name="disable_like_long_press">Отключить долгое нажатие на «Нравится»</string>
     <string name="disable_like_long_press_summary">Удержание «Нравится» больше не открывает варианты реакций.</string>
     <string name="show_poll_results">Показывать результаты опросов</string>

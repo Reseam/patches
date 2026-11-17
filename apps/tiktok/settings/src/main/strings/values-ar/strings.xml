@@ -82,6 +82,8 @@
     <string name="hide_live_button">إخفاء زر LIVE</string>
     <string name="hide_tako_button">إخفاء زر Tako</string>
     <string name="hide_tako_button_summary">يُخفي زر مساعد الذكاء الاصطناعي فوق صورة صاحب الفيديو.</string>
+    <string name="hide_video_search_bar">إخفاء شريط البحث أسفل الفيديوهات</string>
+    <string name="hide_video_search_bar_summary">يُخفي البحث المقترح بين وصف الفيديو وشريط التنقل.</string>
     <string name="disable_like_long_press">تعطيل الضغط مع الاستمرار على الإعجاب</string>
     <string name="disable_like_long_press_summary">لم يعد الضغط مع الاستمرار على «إعجاب» يفتح خيارات التفاعل.</string>
     <string name="show_poll_results">إظهار نتائج الاستطلاعات</string>

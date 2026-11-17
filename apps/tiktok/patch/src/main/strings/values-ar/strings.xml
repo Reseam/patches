@@ -30,6 +30,8 @@
     <string name="hide_live_button_description">يُخفي زر LIVE في أعلى الخلاصة.</string>
     <string name="hide_tako_button">إخفاء زر Tako</string>
     <string name="hide_tako_button_description">يُخفي زر مساعد الذكاء الاصطناعي Tako فوق صورة صاحب الفيديو.</string>
+    <string name="hide_video_search_bar">إخفاء شريط البحث أسفل الفيديوهات</string>
+    <string name="hide_video_search_bar_description">يُخفي شريط البحث المقترح أسفل الفيديوهات.</string>
     <string name="hide_quick_comments">إخفاء التعليقات السريعة</string>
     <string name="hide_quick_comments_description">يُخفي شريط الرموز التعبيرية أسفل الفيديوهات.</string>
     <string name="hide_story_ring">إخفاء حلقات القصص</string>

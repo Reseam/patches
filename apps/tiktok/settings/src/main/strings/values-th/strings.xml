@@ -82,6 +82,8 @@
     <string name="hide_live_button">ซ่อนปุ่ม LIVE</string>
     <string name="hide_tako_button">ซ่อนปุ่ม Tako</string>
     <string name="hide_tako_button_summary">ซ่อนปุ่มผู้ช่วย AI เหนือรูปของผู้สร้าง</string>
+    <string name="hide_video_search_bar">ซ่อนแถบค้นหาใต้วิดีโอ</string>
+    <string name="hide_video_search_bar_summary">ซ่อนคำค้นหาแนะนำระหว่างคำบรรยายวิดีโอกับแถบนำทาง</string>
     <string name="disable_like_long_press">ปิดการกดถูกใจค้าง</string>
     <string name="disable_like_long_press_summary">การกดถูกใจค้างไว้จะไม่เปิดตัวเลือกรีแอคชันอีก</string>
     <string name="show_poll_results">แสดงผลโพล</string>

@@ -82,6 +82,8 @@
     <string name="hide_live_button">Приховати кнопку LIVE</string>
     <string name="hide_tako_button">Приховати кнопку Tako</string>
     <string name="hide_tako_button_summary">Приховує кнопку ШІ-помічника над фото автора.</string>
+    <string name="hide_video_search_bar">Приховати рядок пошуку під відео</string>
+    <string name="hide_video_search_bar_summary">Приховує запропонований пошук між описом відео та панеллю навігації.</string>
     <string name="disable_like_long_press">Вимкнути довге натискання вподобання</string>
     <string name="disable_like_long_press_summary">Утримання «Подобається» більше не відкриває варіанти реакцій.</string>
     <string name="show_poll_results">Показувати результати опитувань</string>

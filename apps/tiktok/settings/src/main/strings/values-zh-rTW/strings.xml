@@ -82,6 +82,8 @@
     <string name="hide_live_button">隱藏直播按鈕</string>
     <string name="hide_tako_button">隱藏 Tako 按鈕</string>
     <string name="hide_tako_button_summary">隱藏作者頭像上方的 AI 助理按鈕。</string>
+    <string name="hide_video_search_bar">隱藏影片下方的搜尋列</string>
+    <string name="hide_video_search_bar_summary">隱藏影片說明與導覽列之間的建議搜尋。</string>
     <string name="disable_like_long_press">停用長按按讚</string>
     <string name="disable_like_long_press_summary">長按「讚」不再開啟反應選項。</string>
     <string name="show_poll_results">顯示投票結果</string>

@@ -30,6 +30,8 @@
     <string name="hide_live_button_description">Masque le bouton LIVE en haut du fil.</string>
     <string name="hide_tako_button">Masquer le bouton Tako</string>
     <string name="hide_tako_button_description">Masque le bouton de l’assistant IA Tako au-dessus de la photo de l’auteur.</string>
+    <string name="hide_video_search_bar">Masquer la barre de recherche sous les vidéos</string>
+    <string name="hide_video_search_bar_description">Masque la barre de recherche suggérée sous les vidéos.</string>
     <string name="hide_quick_comments">Masquer les commentaires rapides</string>
     <string name="hide_quick_comments_description">Masque la barre d’émojis sous les vidéos.</string>
     <string name="hide_story_ring">Masquer les cercles de stories</string>

@@ -30,6 +30,8 @@
     <string name="hide_live_button_description">Ukrywa przycisk LIVE u góry kanału.</string>
     <string name="hide_tako_button">Ukryj przycisk Tako</string>
     <string name="hide_tako_button_description">Ukrywa przycisk asystenta AI Tako nad zdjęciem autora.</string>
+    <string name="hide_video_search_bar">Ukryj pasek wyszukiwania pod filmami</string>
+    <string name="hide_video_search_bar_description">Ukrywa proponowany pasek wyszukiwania pod filmami.</string>
     <string name="hide_quick_comments">Ukryj szybkie komentarze</string>
     <string name="hide_quick_comments_description">Ukrywa pasek emoji pod filmami.</string>
     <string name="hide_story_ring">Ukryj kółka relacji</string>
