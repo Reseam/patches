@@ -70,6 +70,7 @@ object ChatSettings : SettingsGroup(TwitchStrings) {
     val hideCommunityHighlights by toggle(default = false, icon = Vector.lucide("pin-off"))
     val hideChatBadges by toggle(default = false, icon = Vector.lucide("badge-x"))
     val hideWelcomeMessage by toggle(default = true, icon = Vector.lucide("message-square-off"))
+    val keepDeletedMessages by toggle(default = true, icon = Vector.lucide("message-square-x"))
 }
 
 object LinkSettings : SettingsGroup(TwitchStrings) {
