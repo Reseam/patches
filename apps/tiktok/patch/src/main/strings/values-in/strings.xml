@@ -32,6 +32,8 @@
     <string name="hide_tako_button_description">Menyembunyikan tombol asisten AI Tako di atas foto pembuat.</string>
     <string name="hide_video_search_bar">Sembunyikan bilah pencarian di bawah video</string>
     <string name="hide_video_search_bar_description">Menyembunyikan bilah pencarian yang disarankan di bawah video.</string>
+    <string name="hide_rewards_icon">Sembunyikan ikon hadiah</string>
+    <string name="hide_rewards_icon_description">Menyembunyikan ikon hadiah dan imbalan yang melayang di feed.</string>
     <string name="hide_quick_comments">Sembunyikan komentar cepat</string>
     <string name="hide_quick_comments_description">Menyembunyikan bilah emoji di bawah video.</string>
     <string name="hide_story_ring">Sembunyikan lingkaran cerita</string>

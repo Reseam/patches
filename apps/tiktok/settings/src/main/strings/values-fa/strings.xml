@@ -84,6 +84,8 @@
     <string name="hide_tako_button_summary">دکمهٔ دستیار هوش مصنوعی بالای تصویر سازنده را پنهان می‌کند.</string>
     <string name="hide_video_search_bar">پنهان کردن نوار جستجو زیر ویدیوها</string>
     <string name="hide_video_search_bar_summary">جستجوی پیشنهادی بین توضیح ویدیو و نوار پیمایش را پنهان می‌کند.</string>
+    <string name="hide_rewards_icon">پنهان کردن نماد جایزه</string>
+    <string name="hide_rewards_icon_summary">نماد شناور جایزه و هدیه را در گوشهٔ فید پنهان می‌کند.</string>
     <string name="disable_like_long_press">غیرفعال کردن لمس طولانی پسند</string>
     <string name="disable_like_long_press_summary">نگه داشتن دکمهٔ پسند دیگر گزینه‌های واکنش را باز نمی‌کند.</string>
     <string name="show_poll_results">نمایش نتایج نظرسنجی</string>

@@ -32,6 +32,8 @@
     <string name="hide_tako_button_description">隱藏作者頭像上方的 AI 助理 Tako 按鈕。</string>
     <string name="hide_video_search_bar">隱藏影片下方的搜尋列</string>
     <string name="hide_video_search_bar_description">隱藏影片下方的建議搜尋列。</string>
+    <string name="hide_rewards_icon">隱藏獎勵圖示</string>
+    <string name="hide_rewards_icon_description">隱藏動態上浮動的獎勵與禮物圖示。</string>
     <string name="hide_quick_comments">隱藏快速留言</string>
     <string name="hide_quick_comments_description">隱藏影片下方的表情符號列。</string>
     <string name="hide_story_ring">隱藏限時動態光環</string>

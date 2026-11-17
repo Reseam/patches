@@ -32,6 +32,8 @@
     <string name="hide_tako_button_description">Oculta o botão do assistente de IA Tako acima da foto do autor.</string>
     <string name="hide_video_search_bar">Ocultar barra de busca abaixo dos vídeos</string>
     <string name="hide_video_search_bar_description">Oculta a barra de busca sugerida abaixo dos vídeos.</string>
+    <string name="hide_rewards_icon">Ocultar ícone de recompensas</string>
+    <string name="hide_rewards_icon_description">Oculta o ícone flutuante de recompensas e presentes no feed.</string>
     <string name="hide_quick_comments">Ocultar comentários rápidos</string>
     <string name="hide_quick_comments_description">Oculta a barra de emojis abaixo dos vídeos.</string>
     <string name="hide_story_ring">Ocultar anéis de stories</string>

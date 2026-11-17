@@ -84,6 +84,8 @@
     <string name="hide_tako_button_summary">Blendet die KI-Assistent-Schaltfläche über dem Bild des Erstellers aus.</string>
     <string name="hide_video_search_bar">Suchleiste unter Videos ausblenden</string>
     <string name="hide_video_search_bar_summary">Blendet die vorgeschlagene Suche zwischen der Videobeschreibung und der Navigationsleiste aus.</string>
+    <string name="hide_rewards_icon">Belohnungssymbol ausblenden</string>
+    <string name="hide_rewards_icon_summary">Blendet das schwebende Belohnungs- und Geschenksymbol in der Ecke des Feeds aus.</string>
     <string name="disable_like_long_press">Langes Drücken auf „Gefällt mir“ deaktivieren</string>
     <string name="disable_like_long_press_summary">Langes Drücken auf „Gefällt mir“ öffnet die Reaktionsoptionen nicht mehr.</string>
     <string name="show_poll_results">Umfrageergebnisse anzeigen</string>

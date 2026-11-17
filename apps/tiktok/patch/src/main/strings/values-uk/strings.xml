@@ -32,6 +32,8 @@
     <string name="hide_tako_button_description">Приховує кнопку ШІ-помічника Tako над фото автора.</string>
     <string name="hide_video_search_bar">Приховати рядок пошуку під відео</string>
     <string name="hide_video_search_bar_description">Приховує запропонований рядок пошуку під відео.</string>
+    <string name="hide_rewards_icon">Приховати значок нагород</string>
+    <string name="hide_rewards_icon_description">Приховує плаваючий значок нагород і подарунків у стрічці.</string>
     <string name="hide_quick_comments">Приховати швидкі коментарі</string>
     <string name="hide_quick_comments_description">Приховує панель емодзі під відео.</string>
     <string name="hide_story_ring">Приховати кільця історій</string>

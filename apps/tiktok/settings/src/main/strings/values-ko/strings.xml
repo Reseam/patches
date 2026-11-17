@@ -84,6 +84,8 @@
     <string name="hide_tako_button_summary">작성자 사진 위의 AI 어시스턴트 버튼을 숨깁니다.</string>
     <string name="hide_video_search_bar">동영상 아래 검색창 숨기기</string>
     <string name="hide_video_search_bar_summary">동영상 설명과 탐색 바 사이의 추천 검색어를 숨깁니다.</string>
+    <string name="hide_rewards_icon">리워드 아이콘 숨기기</string>
+    <string name="hide_rewards_icon_summary">피드 모서리에 떠 있는 리워드 및 선물 아이콘을 숨깁니다.</string>
     <string name="disable_like_long_press">좋아요 길게 누르기 사용 중지</string>
     <string name="disable_like_long_press_summary">좋아요를 길게 눌러도 반응 옵션이 열리지 않습니다.</string>
     <string name="show_poll_results">투표 결과 표시</string>

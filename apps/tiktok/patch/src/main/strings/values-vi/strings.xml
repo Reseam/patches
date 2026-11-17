@@ -32,6 +32,8 @@
     <string name="hide_tako_button_description">Ẩn nút trợ lý AI Tako phía trên ảnh của tác giả.</string>
     <string name="hide_video_search_bar">Ẩn thanh tìm kiếm dưới video</string>
     <string name="hide_video_search_bar_description">Ẩn thanh tìm kiếm gợi ý bên dưới video.</string>
+    <string name="hide_rewards_icon">Ẩn biểu tượng phần thưởng</string>
+    <string name="hide_rewards_icon_description">Ẩn biểu tượng phần thưởng và quà tặng nổi trên bảng tin.</string>
     <string name="hide_quick_comments">Ẩn bình luận nhanh</string>
     <string name="hide_quick_comments_description">Ẩn thanh biểu tượng cảm xúc bên dưới video.</string>
     <string name="hide_story_ring">Ẩn vòng tin</string>

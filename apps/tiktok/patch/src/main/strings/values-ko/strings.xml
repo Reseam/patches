@@ -32,6 +32,8 @@
     <string name="hide_tako_button_description">작성자 사진 위의 AI 어시스턴트 Tako 버튼을 숨깁니다.</string>
     <string name="hide_video_search_bar">동영상 아래 검색창 숨기기</string>
     <string name="hide_video_search_bar_description">동영상 아래의 추천 검색창을 숨깁니다.</string>
+    <string name="hide_rewards_icon">리워드 아이콘 숨기기</string>
+    <string name="hide_rewards_icon_description">피드에 떠 있는 리워드 및 선물 아이콘을 숨깁니다.</string>
     <string name="hide_quick_comments">빠른 댓글 숨기기</string>
     <string name="hide_quick_comments_description">동영상 아래의 이모지 바를 숨깁니다.</string>
     <string name="hide_story_ring">스토리 링 숨기기</string>

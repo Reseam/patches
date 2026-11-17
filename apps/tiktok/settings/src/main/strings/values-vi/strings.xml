@@ -84,6 +84,8 @@
     <string name="hide_tako_button_summary">Ẩn nút trợ lý AI phía trên ảnh của tác giả.</string>
     <string name="hide_video_search_bar">Ẩn thanh tìm kiếm dưới video</string>
     <string name="hide_video_search_bar_summary">Ẩn nội dung tìm kiếm gợi ý giữa chú thích video và thanh điều hướng.</string>
+    <string name="hide_rewards_icon">Ẩn biểu tượng phần thưởng</string>
+    <string name="hide_rewards_icon_summary">Ẩn biểu tượng phần thưởng và quà tặng nổi ở góc bảng tin.</string>
     <string name="disable_like_long_press">Tắt nhấn giữ nút thích</string>
     <string name="disable_like_long_press_summary">Nhấn giữ nút Thích không còn mở các lựa chọn biểu cảm.</string>
     <string name="show_poll_results">Hiển thị kết quả thăm dò</string>

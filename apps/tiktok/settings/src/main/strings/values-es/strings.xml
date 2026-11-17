@@ -84,6 +84,8 @@
     <string name="hide_tako_button_summary">Oculta el botón del asistente de IA sobre la foto del autor.</string>
     <string name="hide_video_search_bar">Ocultar barra de búsqueda bajo los videos</string>
     <string name="hide_video_search_bar_summary">Oculta la búsqueda sugerida entre la descripción del video y la barra de navegación.</string>
+    <string name="hide_rewards_icon">Ocultar icono de recompensas</string>
+    <string name="hide_rewards_icon_summary">Oculta el icono flotante de recompensas y regalos en la esquina del feed.</string>
     <string name="disable_like_long_press">Desactivar pulsación larga de Me gusta</string>
     <string name="disable_like_long_press_summary">Mantener pulsado Me gusta ya no abre las opciones de reacción.</string>
     <string name="show_poll_results">Mostrar resultados de encuestas</string>

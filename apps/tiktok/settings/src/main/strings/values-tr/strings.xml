@@ -84,6 +84,8 @@
     <string name="hide_tako_button_summary">Yazarın resminin üstündeki yapay zeka asistanı düğmesini gizler.</string>
     <string name="hide_video_search_bar">Videoların altındaki arama çubuğunu gizle</string>
     <string name="hide_video_search_bar_summary">Video açıklaması ile gezinme çubuğu arasındaki önerilen aramayı gizler.</string>
+    <string name="hide_rewards_icon">Ödül simgesini gizle</string>
+    <string name="hide_rewards_icon_summary">Akışın köşesinde yüzen ödül ve hediye simgesini gizler.</string>
     <string name="disable_like_long_press">Beğeniye uzun basmayı kapat</string>
     <string name="disable_like_long_press_summary">Beğen\'e basılı tutmak artık tepki seçeneklerini açmaz.</string>
     <string name="show_poll_results">Anket sonuçlarını göster</string>

@@ -32,6 +32,8 @@
     <string name="hide_tako_button_description">تخلیق کار کی تصویر کے اوپر Tako AI اسسٹنٹ بٹن چھپاتا ہے۔</string>
     <string name="hide_video_search_bar">ویڈیوز کے نیچے سرچ بار چھپائیں</string>
     <string name="hide_video_search_bar_description">ویڈیوز کے نیچے تجویز کردہ سرچ بار چھپاتا ہے۔</string>
+    <string name="hide_rewards_icon">انعامات کا آئیکن چھپائیں</string>
+    <string name="hide_rewards_icon_description">فیڈ پر تیرتا انعامات اور تحفے کا آئیکن چھپاتا ہے۔</string>
     <string name="hide_quick_comments">فوری تبصرے چھپائیں</string>
     <string name="hide_quick_comments_description">ویڈیوز کے نیچے ایموجی بار چھپاتا ہے۔</string>
     <string name="hide_story_ring">اسٹوری کے دائرے چھپائیں</string>

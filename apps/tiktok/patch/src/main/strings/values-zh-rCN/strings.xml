@@ -32,6 +32,8 @@
     <string name="hide_tako_button_description">隐藏作者头像上方的 AI 助手 Tako 按钮。</string>
     <string name="hide_video_search_bar">隐藏视频下方的搜索栏</string>
     <string name="hide_video_search_bar_description">隐藏视频下方的推荐搜索栏。</string>
+    <string name="hide_rewards_icon">隐藏奖励图标</string>
+    <string name="hide_rewards_icon_description">隐藏信息流上悬浮的奖励和礼物图标。</string>
     <string name="hide_quick_comments">隐藏快捷评论</string>
     <string name="hide_quick_comments_description">隐藏视频下方的表情栏。</string>
     <string name="hide_story_ring">隐藏快拍光圈</string>

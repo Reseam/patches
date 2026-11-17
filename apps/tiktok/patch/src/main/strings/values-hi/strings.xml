@@ -32,6 +32,8 @@
     <string name="hide_tako_button_description">बनाने वाले की तस्वीर के ऊपर का Tako AI असिस्टेंट बटन छिपाता है।</string>
     <string name="hide_video_search_bar">वीडियो के नीचे की सर्च बार छिपाएँ</string>
     <string name="hide_video_search_bar_description">वीडियो के नीचे सुझाई गई सर्च बार छिपाता है।</string>
+    <string name="hide_rewards_icon">रिवॉर्ड आइकन छिपाएँ</string>
+    <string name="hide_rewards_icon_description">फ़ीड पर तैरता रिवॉर्ड और गिफ़्ट आइकन छिपाता है।</string>
     <string name="hide_quick_comments">झटपट कमेंट छिपाएँ</string>
     <string name="hide_quick_comments_description">वीडियो के नीचे की इमोजी बार छिपाता है।</string>
     <string name="hide_story_ring">स्टोरी रिंग छिपाएँ</string>

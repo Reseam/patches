@@ -84,6 +84,8 @@
     <string name="hide_tako_button_summary">Ukrywa przycisk asystenta AI nad zdjęciem autora.</string>
     <string name="hide_video_search_bar">Ukryj pasek wyszukiwania pod filmami</string>
     <string name="hide_video_search_bar_summary">Ukrywa proponowane wyszukiwanie między opisem filmu a paskiem nawigacji.</string>
+    <string name="hide_rewards_icon">Ukryj ikonę nagród</string>
+    <string name="hide_rewards_icon_summary">Ukrywa pływającą ikonę nagród i prezentów w rogu kanału.</string>
     <string name="disable_like_long_press">Wyłącz przytrzymanie polubienia</string>
     <string name="disable_like_long_press_summary">Przytrzymanie przycisku Lubię nie otwiera już opcji reakcji.</string>
     <string name="show_poll_results">Pokazuj wyniki ankiet</string>

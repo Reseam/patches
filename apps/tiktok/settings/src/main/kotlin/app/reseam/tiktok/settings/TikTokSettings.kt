@@ -94,6 +94,7 @@ object InterfaceSettings : SettingsGroup(TikTokStrings) {
     val hideLiveButton by toggle(default = false, icon = Vector.lucide("radio"))
     val hideTakoButton by toggle(default = false, icon = Vector.lucide("bot-off"))
     val hideVideoSearchBar by toggle(default = false, icon = Vector.lucide("search-x"))
+    val hideRewardsIcon by toggle(default = false, icon = Vector.lucide("gift"))
     val disableLikeLongPress by toggle(default = false, icon = Vector.lucide("hand"))
     val showPollResults by toggle(default = false, icon = Vector.lucide("chart-no-axes-column"))
     val hideNotificationPrompts by toggle(default = true, icon = Vector.lucide("bell-off"))

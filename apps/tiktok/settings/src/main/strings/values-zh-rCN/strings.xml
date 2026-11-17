@@ -84,6 +84,8 @@
     <string name="hide_tako_button_summary">隐藏作者头像上方的 AI 助手按钮。</string>
     <string name="hide_video_search_bar">隐藏视频下方的搜索栏</string>
     <string name="hide_video_search_bar_summary">隐藏视频文案与导航栏之间的推荐搜索。</string>
+    <string name="hide_rewards_icon">隐藏奖励图标</string>
+    <string name="hide_rewards_icon_summary">隐藏信息流角落悬浮的奖励和礼物图标。</string>
     <string name="disable_like_long_press">停用长按点赞</string>
     <string name="disable_like_long_press_summary">长按点赞不再打开表情回应选项。</string>
     <string name="show_poll_results">显示投票结果</string>

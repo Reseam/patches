@@ -32,6 +32,8 @@
     <string name="hide_tako_button_description">Yazarın resminin üstündeki yapay zeka asistanı Tako düğmesini gizler.</string>
     <string name="hide_video_search_bar">Videoların altındaki arama çubuğunu gizle</string>
     <string name="hide_video_search_bar_description">Videoların altındaki önerilen arama çubuğunu gizler.</string>
+    <string name="hide_rewards_icon">Ödül simgesini gizle</string>
+    <string name="hide_rewards_icon_description">Akışta yüzen ödül ve hediye simgesini gizler.</string>
     <string name="hide_quick_comments">Hızlı yorumları gizle</string>
     <string name="hide_quick_comments_description">Videoların altındaki emoji çubuğunu gizler.</string>
     <string name="hide_story_ring">Hikaye halkalarını gizle</string>
