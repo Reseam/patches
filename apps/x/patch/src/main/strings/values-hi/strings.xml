@@ -38,6 +38,8 @@
     <string name="save_media_description">फ़ोटो, वीडियो और GIF आपके चुने फ़ोल्डर में सेव करता है।</string>
     <string name="show_sensitive_media">संवेदनशील मीडिया दिखाएँ</string>
     <string name="show_sensitive_media_description">संवेदनशील मीडिया बिना धुंधलेपन या चेतावनी के दिखाता है।</string>
+    <string name="double_tap_seek">दो बार टैप पर सीक</string>
+    <string name="double_tap_seek_description">वीडियो पर दो बार टैप करने से कितना आगे-पीछे जाना है, यह तय करता है।</string>
     <string name="customize_navigation_bar">नेविगेशन बार अपने हिसाब से बदलें</string>
     <string name="customize_navigation_bar_description">नेविगेशन बार के टैब का क्रम बदलता है, उन्हें छिपाता है और बदलता है।</string>
     <string name="hide_drawer_items">ड्रॉअर के आइटम छिपाएँ</string>

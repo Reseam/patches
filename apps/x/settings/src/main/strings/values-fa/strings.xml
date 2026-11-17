@@ -126,6 +126,13 @@
     <string name="remove_share_tracking_summary">پارامترهایی را که X برای ردیابی هم‌رسانی‌کنندهٔ پیوند اضافه می‌کند حذف می‌کند.</string>
     <string name="share_link_provider">ارائه‌دهندهٔ پیوند هم‌رسانی</string>
     <string name="share_link_provider_summary">میزبان پیوندهای هم‌رسانی‌شدهٔ پست‌ها.</string>
+    <string name="double_tap_seek">پرش با دو ضربه</string>
+    <string name="double_tap_seek_summary">مقدار پرش با دو ضربه روی ویدیو.</string>
+    <string name="double_tap_seek_3">۳ ثانیه</string>
+    <string name="double_tap_seek_5">۵ ثانیه</string>
+    <string name="double_tap_seek_10">۱۰ ثانیه (پیش‌فرض)</string>
+    <string name="double_tap_seek_15">۱۵ ثانیه</string>
+    <string name="double_tap_seek_30">۳۰ ثانیه</string>
     <string name="post_translator">مترجم</string>
     <string name="post_translator_summary">مترجم پست‌ها. «هیچ‌کدام» ترجمهٔ پست‌ها، بیوگرافی‌ها و «یادداشت‌های جامعه» را خاموش می‌کند. Reseam Translate متنی را که ترجمه می‌کند دریافت می‌کند.</string>
     <string name="post_translator_none">هیچ‌کدام</string>
@@ -186,6 +193,7 @@
     <string name="section_premium">Premium</string>
     <string name="section_ads">تبلیغات</string>
     <string name="section_media">رسانه</string>
+    <string name="section_video">ویدیو</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">ترجمه</string>
     <string name="section_ai_labels">برچسب‌های هوش مصنوعی</string>

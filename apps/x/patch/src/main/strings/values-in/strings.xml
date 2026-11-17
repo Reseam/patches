@@ -38,6 +38,8 @@
     <string name="save_media_description">Menyimpan foto, video, dan GIF ke folder pilihan Anda.</string>
     <string name="show_sensitive_media">Tampilkan media sensitif</string>
     <string name="show_sensitive_media_description">Menampilkan media sensitif tanpa buram atau peringatan.</string>
+    <string name="double_tap_seek">Lompat ketuk dua kali</string>
+    <string name="double_tap_seek_description">Mengatur seberapa jauh ketuk dua kali melompat di video.</string>
     <string name="customize_navigation_bar">Sesuaikan bilah navigasi</string>
     <string name="customize_navigation_bar_description">Mengurutkan ulang, menyembunyikan, dan mengganti tab bilah navigasi.</string>
     <string name="hide_drawer_items">Sembunyikan item laci</string>

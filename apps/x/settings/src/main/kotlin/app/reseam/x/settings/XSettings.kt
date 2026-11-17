@@ -117,6 +117,20 @@ object XSettings : SettingsGroup(XStrings) {
             icon = Vector.lucide("share-2"),
         )
 
+    val doubleTapSeek by
+        choice(
+            default = "10",
+            choices =
+                listOf(
+                    Choice("3", XStrings.doubleTapSeek3),
+                    Choice("5", XStrings.doubleTapSeek5),
+                    Choice("10", XStrings.doubleTapSeek10),
+                    Choice("15", XStrings.doubleTapSeek15),
+                    Choice("30", XStrings.doubleTapSeek30),
+                ),
+            icon = Vector.lucide("fast-forward"),
+        )
+
     val postTranslator by
         choice(
             default = "grok",

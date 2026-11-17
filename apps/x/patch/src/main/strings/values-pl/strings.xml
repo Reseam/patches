@@ -38,6 +38,8 @@
     <string name="save_media_description">Zapisuje zdjęcia, filmy i GIF-y w wybranym folderze.</string>
     <string name="show_sensitive_media">Pokazuj multimedia poufne</string>
     <string name="show_sensitive_media_description">Pokazuje multimedia poufne bez rozmycia i ostrzeżenia.</string>
+    <string name="double_tap_seek">Przewijanie dwukrotnym kliknięciem</string>
+    <string name="double_tap_seek_description">Ustawia, jak daleko przewija dwukrotne kliknięcie w filmie.</string>
     <string name="customize_navigation_bar">Dostosuj pasek nawigacji</string>
     <string name="customize_navigation_bar_description">Zmienia kolejność, ukrywa i zastępuje karty paska nawigacji.</string>
     <string name="hide_drawer_items">Ukryj elementy panelu bocznego</string>

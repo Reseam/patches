@@ -38,6 +38,8 @@
     <string name="save_media_description">Saves photos, videos and GIFs to a folder you choose.</string>
     <string name="show_sensitive_media">Show sensitive media</string>
     <string name="show_sensitive_media_description">Shows sensitive media without the blur or warning.</string>
+    <string name="double_tap_seek">Double-tap seek</string>
+    <string name="double_tap_seek_description">Sets how far a double tap on a video jumps.</string>
     <string name="customize_navigation_bar">Customize navigation bar</string>
     <string name="customize_navigation_bar_description">Reorders, hides and replaces the tabs of the navigation bar.</string>
     <string name="hide_drawer_items">Hide drawer items</string>

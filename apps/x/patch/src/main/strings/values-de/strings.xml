@@ -38,6 +38,8 @@
     <string name="save_media_description">Speichert Fotos, Videos und GIFs in einem Ordner deiner Wahl.</string>
     <string name="show_sensitive_media">Sensible Medien anzeigen</string>
     <string name="show_sensitive_media_description">Zeigt sensible Medien ohne Unschärfe oder Warnung.</string>
+    <string name="double_tap_seek">Sprungweite beim Doppeltippen</string>
+    <string name="double_tap_seek_description">Legt fest, wie weit Doppeltippen in einem Video springt.</string>
     <string name="customize_navigation_bar">Navigationsleiste anpassen</string>
     <string name="customize_navigation_bar_description">Ordnet die Tabs der Navigationsleiste neu, blendet sie aus und ersetzt sie.</string>
     <string name="hide_drawer_items">Einträge im Seitenmenü ausblenden</string>

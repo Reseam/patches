@@ -125,6 +125,13 @@
     <string name="remove_share_tracking_summary">Menghapus parameter yang ditambahkan X untuk melacak siapa yang membagikan link.</string>
     <string name="share_link_provider">Penyedia link berbagi</string>
     <string name="share_link_provider_summary">Host link postingan yang dibagikan.</string>
+    <string name="double_tap_seek">Lompat ketuk dua kali</string>
+    <string name="double_tap_seek_summary">Seberapa jauh ketuk dua kali melompat di video.</string>
+    <string name="double_tap_seek_3">3 detik</string>
+    <string name="double_tap_seek_5">5 detik</string>
+    <string name="double_tap_seek_10">10 detik (default)</string>
+    <string name="double_tap_seek_15">15 detik</string>
+    <string name="double_tap_seek_30">30 detik</string>
     <string name="post_translator">Penerjemah</string>
     <string name="post_translator_summary">Siapa yang menerjemahkan postingan. Tidak ada menonaktifkan terjemahan postingan, bio, dan Catatan Komunitas. Reseam Translate menerima teks yang diterjemahkannya.</string>
     <string name="post_translator_none">Tidak ada</string>
@@ -185,6 +192,7 @@
     <string name="section_premium">Premium</string>
     <string name="section_ads">Iklan</string>
     <string name="section_media">Media</string>
+    <string name="section_video">Video</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">Terjemahan</string>
     <string name="section_ai_labels">Label AI</string>

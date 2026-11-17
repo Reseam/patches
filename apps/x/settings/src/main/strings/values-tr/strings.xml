@@ -126,6 +126,13 @@
     <string name="remove_share_tracking_summary">X\'in bağlantıyı kimin paylaştığını izlemek için eklediği parametreleri kaldırır.</string>
     <string name="share_link_provider">Paylaşım bağlantısı sağlayıcısı</string>
     <string name="share_link_provider_summary">Paylaşılan gönderi bağlantılarının sunucusu.</string>
+    <string name="double_tap_seek">Çift dokunarak atlama</string>
+    <string name="double_tap_seek_summary">Videoya çift dokunduğunuzda ne kadar atlanacağı.</string>
+    <string name="double_tap_seek_3">3 saniye</string>
+    <string name="double_tap_seek_5">5 saniye</string>
+    <string name="double_tap_seek_10">10 saniye (varsayılan)</string>
+    <string name="double_tap_seek_15">15 saniye</string>
+    <string name="double_tap_seek_30">30 saniye</string>
     <string name="post_translator">Çevirmen</string>
     <string name="post_translator_summary">Gönderileri kimin çevireceği. Hiçbiri seçeneği gönderilerin, biyografilerin ve Topluluk Notları\'nın çevirisini kapatır. Reseam Translate çevirdiği metni alır.</string>
     <string name="post_translator_none">Hiçbiri</string>
@@ -186,6 +193,7 @@
     <string name="section_premium">Premium</string>
     <string name="section_ads">Reklamlar</string>
     <string name="section_media">Medya</string>
+    <string name="section_video">Video</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">Çeviri</string>
     <string name="section_ai_labels">Yapay zekâ etiketleri</string>

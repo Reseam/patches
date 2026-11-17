@@ -38,6 +38,8 @@
     <string name="save_media_description">Guarda fotos, videos y GIF en la carpeta que elijas.</string>
     <string name="show_sensitive_media">Mostrar contenido sensible</string>
     <string name="show_sensitive_media_description">Muestra el contenido sensible sin el desenfoque ni el aviso.</string>
+    <string name="double_tap_seek">Salto con doble toque</string>
+    <string name="double_tap_seek_description">Define cuánto salta un doble toque en un video.</string>
     <string name="customize_navigation_bar">Personalizar barra de navegación</string>
     <string name="customize_navigation_bar_description">Reordena, oculta y sustituye las pestañas de la barra de navegación.</string>
     <string name="hide_drawer_items">Ocultar elementos del menú lateral</string>

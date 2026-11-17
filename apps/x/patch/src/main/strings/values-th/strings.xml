@@ -38,6 +38,8 @@
     <string name="save_media_description">บันทึกรูปภาพ วิดีโอ และ GIF ลงในโฟลเดอร์ที่คุณเลือก</string>
     <string name="show_sensitive_media">แสดงสื่อที่ละเอียดอ่อน</string>
     <string name="show_sensitive_media_description">แสดงสื่อที่ละเอียดอ่อนโดยไม่เบลอหรือแสดงคำเตือน</string>
+    <string name="double_tap_seek">ข้ามด้วยการแตะสองครั้ง</string>
+    <string name="double_tap_seek_description">กำหนดระยะที่ข้ามเมื่อแตะวิดีโอสองครั้ง</string>
     <string name="customize_navigation_bar">ปรับแต่งแถบนำทาง</string>
     <string name="customize_navigation_bar_description">จัดลำดับ ซ่อน และแทนที่แท็บของแถบนำทาง</string>
     <string name="hide_drawer_items">ซ่อนรายการในลิ้นชัก</string>

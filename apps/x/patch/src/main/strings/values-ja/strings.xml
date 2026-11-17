@@ -38,6 +38,8 @@
     <string name="save_media_description">写真、動画、GIF を選んだフォルダに保存します。</string>
     <string name="show_sensitive_media">センシティブなメディアを表示</string>
     <string name="show_sensitive_media_description">センシティブなメディアを、ぼかしや警告なしで表示します。</string>
+    <string name="double_tap_seek">ダブルタップのシーク幅</string>
+    <string name="double_tap_seek_description">動画をダブルタップしたときに移動する秒数を設定します。</string>
     <string name="customize_navigation_bar">ナビゲーションバーをカスタマイズ</string>
     <string name="customize_navigation_bar_description">ナビゲーションバーのタブを並べ替え、非表示、置き換えできます。</string>
     <string name="hide_drawer_items">ドロワーの項目を非表示</string>

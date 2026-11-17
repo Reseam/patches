@@ -128,6 +128,13 @@
     <string name="remove_share_tracking_summary">Убирает параметры, которые X добавляет, чтобы отслеживать, кто поделился ссылкой.</string>
     <string name="share_link_provider">Сервис для ссылок</string>
     <string name="share_link_provider_summary">Хост ссылок на посты, которыми вы делитесь.</string>
+    <string name="double_tap_seek">Перемотка двойным касанием</string>
+    <string name="double_tap_seek_summary">На сколько перематывает двойное касание в видео.</string>
+    <string name="double_tap_seek_3">3 секунды</string>
+    <string name="double_tap_seek_5">5 секунд</string>
+    <string name="double_tap_seek_10">10 секунд (по умолчанию)</string>
+    <string name="double_tap_seek_15">15 секунд</string>
+    <string name="double_tap_seek_30">30 секунд</string>
     <string name="post_translator">Переводчик</string>
     <string name="post_translator_summary">Кто переводит посты. «Никто» отключает переводы постов, описаний профиля и заметок сообщества. Reseam Translate получает текст, который переводит.</string>
     <string name="post_translator_none">Никто</string>
@@ -188,6 +195,7 @@
     <string name="section_premium">Premium</string>
     <string name="section_ads">Реклама</string>
     <string name="section_media">Медиа</string>
+    <string name="section_video">Видео</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">Перевод</string>
     <string name="section_ai_labels">Метки ИИ</string>

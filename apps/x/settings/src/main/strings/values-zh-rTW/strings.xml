@@ -125,6 +125,13 @@
     <string name="remove_share_tracking_summary">移除 X 為追蹤連結分享者而加入的參數。</string>
     <string name="share_link_provider">分享連結提供者</string>
     <string name="share_link_provider_summary">分享的貼文連結所用的網域。</string>
+    <string name="double_tap_seek">雙擊快轉/倒轉</string>
+    <string name="double_tap_seek_summary">在影片上雙擊時跳轉的秒數。</string>
+    <string name="double_tap_seek_3">3 秒</string>
+    <string name="double_tap_seek_5">5 秒</string>
+    <string name="double_tap_seek_10">10 秒（預設）</string>
+    <string name="double_tap_seek_15">15 秒</string>
+    <string name="double_tap_seek_30">30 秒</string>
     <string name="post_translator">翻譯服務</string>
     <string name="post_translator_summary">由誰翻譯貼文。選擇「無」會關閉貼文、簡介和社群備註的翻譯。Reseam Translate 會收到它翻譯的文字。</string>
     <string name="post_translator_none">無</string>
@@ -185,6 +192,7 @@
     <string name="section_premium">Premium</string>
     <string name="section_ads">廣告</string>
     <string name="section_media">媒體</string>
+    <string name="section_video">影片</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">翻譯</string>
     <string name="section_ai_labels">AI 標籤</string>

@@ -38,6 +38,8 @@
     <string name="save_media_description">يحفظ الصور والفيديوهات وصور GIF في مجلد تختاره.</string>
     <string name="show_sensitive_media">إظهار الوسائط الحساسة</string>
     <string name="show_sensitive_media_description">يعرض الوسائط الحساسة دون تمويه أو تحذير.</string>
+    <string name="double_tap_seek">قفزة النقر مرتين</string>
+    <string name="double_tap_seek_description">يحدد مقدار القفز عند النقر مرتين على فيديو.</string>
     <string name="customize_navigation_bar">تخصيص شريط التنقل</string>
     <string name="customize_navigation_bar_description">يعيد ترتيب علامات تبويب شريط التنقل ويُخفيها ويستبدلها.</string>
     <string name="hide_drawer_items">إخفاء عناصر القائمة الجانبية</string>

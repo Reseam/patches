@@ -126,6 +126,13 @@
     <string name="remove_share_tracking_summary">Rimuove i parametri che X aggiunge per tracciare chi ha condiviso un link.</string>
     <string name="share_link_provider">Servizio per i link condivisi</string>
     <string name="share_link_provider_summary">L’host dei link ai post condivisi.</string>
+    <string name="double_tap_seek">Salto al doppio tocco</string>
+    <string name="double_tap_seek_summary">Di quanto salta il doppio tocco su un video.</string>
+    <string name="double_tap_seek_3">3 secondi</string>
+    <string name="double_tap_seek_5">5 secondi</string>
+    <string name="double_tap_seek_10">10 secondi (predefinito)</string>
+    <string name="double_tap_seek_15">15 secondi</string>
+    <string name="double_tap_seek_30">30 secondi</string>
     <string name="post_translator">Traduttore</string>
     <string name="post_translator_summary">Chi traduce i post. Nessuno disattiva le traduzioni di post, biografie e Note della collettività. Reseam Translate riceve il testo che traduce.</string>
     <string name="post_translator_none">Nessuno</string>
@@ -186,6 +193,7 @@
     <string name="section_premium">Premium</string>
     <string name="section_ads">Annunci</string>
     <string name="section_media">Contenuti multimediali</string>
+    <string name="section_video">Video</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">Traduzione</string>
     <string name="section_ai_labels">Etichette IA</string>

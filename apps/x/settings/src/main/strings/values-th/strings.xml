@@ -125,6 +125,13 @@
     <string name="remove_share_tracking_summary">นำพารามิเตอร์ที่ X เพิ่มเพื่อติดตามว่าใครแชร์ลิงก์ออก</string>
     <string name="share_link_provider">ผู้ให้บริการลิงก์แชร์</string>
     <string name="share_link_provider_summary">โฮสต์ของลิงก์โพสต์ที่แชร์</string>
+    <string name="double_tap_seek">ข้ามด้วยการแตะสองครั้ง</string>
+    <string name="double_tap_seek_summary">ระยะที่ข้ามเมื่อแตะวิดีโอสองครั้ง</string>
+    <string name="double_tap_seek_3">3 วินาที</string>
+    <string name="double_tap_seek_5">5 วินาที</string>
+    <string name="double_tap_seek_10">10 วินาที (ค่าเริ่มต้น)</string>
+    <string name="double_tap_seek_15">15 วินาที</string>
+    <string name="double_tap_seek_30">30 วินาที</string>
     <string name="post_translator">ผู้แปล</string>
     <string name="post_translator_summary">ผู้แปลโพสต์ \"ไม่มี\" จะปิดการแปลโพสต์ คำอธิบายโปรไฟล์ และบันทึกจากชุมชน Reseam Translate จะได้รับข้อความที่แปล</string>
     <string name="post_translator_none">ไม่มี</string>
@@ -185,6 +192,7 @@
     <string name="section_premium">Premium</string>
     <string name="section_ads">โฆษณา</string>
     <string name="section_media">สื่อ</string>
+    <string name="section_video">วิดีโอ</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">การแปล</string>
     <string name="section_ai_labels">ป้าย AI</string>

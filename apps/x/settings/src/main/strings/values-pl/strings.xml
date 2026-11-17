@@ -128,6 +128,13 @@
     <string name="remove_share_tracking_summary">Usuwa parametry dodawane przez X do śledzenia, kto udostępnił link.</string>
     <string name="share_link_provider">Dostawca linków udostępniania</string>
     <string name="share_link_provider_summary">Host udostępnianych linków do postów.</string>
+    <string name="double_tap_seek">Przewijanie dwukrotnym kliknięciem</string>
+    <string name="double_tap_seek_summary">Jak daleko przewija dwukrotne kliknięcie w filmie.</string>
+    <string name="double_tap_seek_3">3 sekundy</string>
+    <string name="double_tap_seek_5">5 sekund</string>
+    <string name="double_tap_seek_10">10 sekund (domyślnie)</string>
+    <string name="double_tap_seek_15">15 sekund</string>
+    <string name="double_tap_seek_30">30 sekund</string>
     <string name="post_translator">Tłumacz</string>
     <string name="post_translator_summary">Kto tłumaczy posty. Brak wyłącza tłumaczenia postów, opisów i Uwag społeczności. Reseam Translate otrzymuje tłumaczony tekst.</string>
     <string name="post_translator_none">Brak</string>
@@ -188,6 +195,7 @@
     <string name="section_premium">Premium</string>
     <string name="section_ads">Reklamy</string>
     <string name="section_media">Multimedia</string>
+    <string name="section_video">Wideo</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">Tłumaczenie</string>
     <string name="section_ai_labels">Etykiety AI</string>

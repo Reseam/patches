@@ -126,6 +126,13 @@
     <string name="remove_share_tracking_summary">Entfernt die Parameter, die X anhängt, um zu verfolgen, wer einen Link geteilt hat.</string>
     <string name="share_link_provider">Anbieter für geteilte Links</string>
     <string name="share_link_provider_summary">Der Host geteilter Beitragslinks.</string>
+    <string name="double_tap_seek">Sprungweite beim Doppeltippen</string>
+    <string name="double_tap_seek_summary">Wie weit Doppeltippen in einem Video springt.</string>
+    <string name="double_tap_seek_3">3 Sekunden</string>
+    <string name="double_tap_seek_5">5 Sekunden</string>
+    <string name="double_tap_seek_10">10 Sekunden (Standard)</string>
+    <string name="double_tap_seek_15">15 Sekunden</string>
+    <string name="double_tap_seek_30">30 Sekunden</string>
     <string name="post_translator">Übersetzer</string>
     <string name="post_translator_summary">Wer Beiträge übersetzt. „Keiner“ schaltet Übersetzungen von Beiträgen, Biografien und Community-Notizen ab. Reseam Translate erhält den Text, den es übersetzt.</string>
     <string name="post_translator_none">Keiner</string>
@@ -186,6 +193,7 @@
     <string name="section_premium">Premium</string>
     <string name="section_ads">Werbung</string>
     <string name="section_media">Medien</string>
+    <string name="section_video">Video</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">Übersetzung</string>
     <string name="section_ai_labels">KI-Labels</string>

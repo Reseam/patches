@@ -126,6 +126,13 @@
     <string name="remove_share_tracking_summary">Remove os parâmetros que o X adiciona para rastrear quem compartilhou um link.</string>
     <string name="share_link_provider">Provedor dos links compartilhados</string>
     <string name="share_link_provider_summary">O host dos links de posts compartilhados.</string>
+    <string name="double_tap_seek">Pulo com toque duplo</string>
+    <string name="double_tap_seek_summary">Quanto um toque duplo pula em um vídeo.</string>
+    <string name="double_tap_seek_3">3 segundos</string>
+    <string name="double_tap_seek_5">5 segundos</string>
+    <string name="double_tap_seek_10">10 segundos (padrão)</string>
+    <string name="double_tap_seek_15">15 segundos</string>
+    <string name="double_tap_seek_30">30 segundos</string>
     <string name="post_translator">Tradutor</string>
     <string name="post_translator_summary">Quem traduz os posts. Nenhum desativa as traduções de posts, bios e Notas da Comunidade. O Reseam Translate recebe o texto que traduz.</string>
     <string name="post_translator_none">Nenhum</string>
@@ -186,6 +193,7 @@
     <string name="section_premium">Premium</string>
     <string name="section_ads">Anúncios</string>
     <string name="section_media">Mídia</string>
+    <string name="section_video">Vídeo</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">Tradução</string>
     <string name="section_ai_labels">Rótulos de IA</string>

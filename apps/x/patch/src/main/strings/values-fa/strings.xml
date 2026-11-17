@@ -38,6 +38,8 @@
     <string name="save_media_description">عکس‌ها، ویدیوها و GIFها را در پوشه‌ای که انتخاب می‌کنید ذخیره می‌کند.</string>
     <string name="show_sensitive_media">نمایش رسانه‌های حساس</string>
     <string name="show_sensitive_media_description">رسانه‌های حساس را بدون محوشدگی یا هشدار نشان می‌دهد.</string>
+    <string name="double_tap_seek">پرش با دو ضربه</string>
+    <string name="double_tap_seek_description">تعیین می‌کند دو ضربه روی ویدیو چقدر جلو یا عقب می‌برد.</string>
     <string name="customize_navigation_bar">سفارشی‌سازی نوار پیمایش</string>
     <string name="customize_navigation_bar_description">ترتیب برگه‌های نوار پیمایش را تغییر می‌دهد و آن‌ها را پنهان یا جایگزین می‌کند.</string>
     <string name="hide_drawer_items">پنهان کردن موارد منوی کناری</string>

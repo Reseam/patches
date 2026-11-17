@@ -126,6 +126,13 @@
     <string name="remove_share_tracking_summary">Retire les paramètres que X ajoute pour savoir qui a partagé un lien.</string>
     <string name="share_link_provider">Fournisseur des liens de partage</string>
     <string name="share_link_provider_summary">L’hôte des liens de posts partagés.</string>
+    <string name="double_tap_seek">Saut au double appui</string>
+    <string name="double_tap_seek_summary">Durée du saut quand vous appuyez deux fois sur une vidéo.</string>
+    <string name="double_tap_seek_3">3 secondes</string>
+    <string name="double_tap_seek_5">5 secondes</string>
+    <string name="double_tap_seek_10">10 secondes (par défaut)</string>
+    <string name="double_tap_seek_15">15 secondes</string>
+    <string name="double_tap_seek_30">30 secondes</string>
     <string name="post_translator">Traducteur</string>
     <string name="post_translator_summary">Qui traduit les posts. Aucun désactive les traductions des posts, des bios et des Notes de la Communauté. Reseam Translate reçoit le texte qu’il traduit.</string>
     <string name="post_translator_none">Aucun</string>
@@ -186,6 +193,7 @@
     <string name="section_premium">Premium</string>
     <string name="section_ads">Publicités</string>
     <string name="section_media">Médias</string>
+    <string name="section_video">Vidéo</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">Traduction</string>
     <string name="section_ai_labels">Étiquettes IA</string>

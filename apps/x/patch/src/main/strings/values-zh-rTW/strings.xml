@@ -38,6 +38,8 @@
     <string name="save_media_description">將相片、影片和 GIF 儲存到你選擇的資料夾。</string>
     <string name="show_sensitive_media">顯示敏感媒體</string>
     <string name="show_sensitive_media_description">顯示敏感媒體，不加模糊或警告。</string>
+    <string name="double_tap_seek">雙擊快轉/倒轉</string>
+    <string name="double_tap_seek_description">設定在影片上雙擊時跳轉的秒數。</string>
     <string name="customize_navigation_bar">自訂導覽列</string>
     <string name="customize_navigation_bar_description">重新排列、隱藏和取代導覽列的分頁。</string>
     <string name="hide_drawer_items">隱藏側邊選單項目</string>

@@ -125,6 +125,13 @@
     <string name="remove_share_tracking_summary">リンクを共有した人を追跡するために X が付けるパラメータを取り除きます。</string>
     <string name="share_link_provider">共有リンクのサービス</string>
     <string name="share_link_provider_summary">共有するポストのリンクのホスト。</string>
+    <string name="double_tap_seek">ダブルタップのシーク幅</string>
+    <string name="double_tap_seek_summary">動画をダブルタップしたときに移動する秒数。</string>
+    <string name="double_tap_seek_3">3 秒</string>
+    <string name="double_tap_seek_5">5 秒</string>
+    <string name="double_tap_seek_10">10 秒（デフォルト）</string>
+    <string name="double_tap_seek_15">15 秒</string>
+    <string name="double_tap_seek_30">30 秒</string>
     <string name="post_translator">翻訳サービス</string>
     <string name="post_translator_summary">ポストを翻訳するサービス。「なし」にすると、ポスト、自己紹介、コミュニティノートの翻訳がオフになります。Reseam Translate には翻訳するテキストが送られます。</string>
     <string name="post_translator_none">なし</string>
@@ -185,6 +192,7 @@
     <string name="section_premium">Premium</string>
     <string name="section_ads">広告</string>
     <string name="section_media">メディア</string>
+    <string name="section_video">動画</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">翻訳</string>
     <string name="section_ai_labels">AI ラベル</string>

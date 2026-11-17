@@ -127,6 +127,13 @@
     <string name="remove_share_tracking_summary">يزيل المعلَمات التي يضيفها X لتتبع مَن شارك الرابط.</string>
     <string name="share_link_provider">مزوّد روابط المشاركة</string>
     <string name="share_link_provider_summary">مضيف روابط المنشورات المشارَكة.</string>
+    <string name="double_tap_seek">قفزة النقر مرتين</string>
+    <string name="double_tap_seek_summary">مقدار القفز عند النقر مرتين على فيديو.</string>
+    <string name="double_tap_seek_3">٣ ثوانٍ</string>
+    <string name="double_tap_seek_5">٥ ثوانٍ</string>
+    <string name="double_tap_seek_10">١٠ ثوانٍ (الافتراضي)</string>
+    <string name="double_tap_seek_15">١٥ ثانية</string>
+    <string name="double_tap_seek_30">٣٠ ثانية</string>
     <string name="post_translator">المترجم</string>
     <string name="post_translator_summary">مَن يترجم المنشورات. يؤدي اختيار «بلا» إلى إيقاف ترجمة المنشورات والنبذات التعريفية وملاحظات المجتمع. تتلقى Reseam Translate النص الذي تترجمه.</string>
     <string name="post_translator_none">بلا</string>
@@ -187,6 +194,7 @@
     <string name="section_premium">Premium</string>
     <string name="section_ads">الإعلانات</string>
     <string name="section_media">الوسائط</string>
+    <string name="section_video">الفيديو</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">الترجمة</string>
     <string name="section_ai_labels">تصنيفات الذكاء الاصطناعي</string>
