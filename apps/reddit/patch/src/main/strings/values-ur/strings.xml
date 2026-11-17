@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_comment_ads">تبصروں کے اشتہارات چھپائیں</string>
+    <string name="hide_comment_ads_description">پوسٹس کے نیچے اور تبصروں کے درمیان اشتہارات چھپاتا ہے۔</string>
+    <string name="hide_feed_ads">فیڈ کے اشتہارات چھپائیں</string>
+    <string name="hide_feed_ads_description">فیڈز اور تلاش میں پروموٹڈ پوسٹس چھپاتا ہے۔</string>
+    <string name="color_thread_lines">تھریڈ لائنز رنگین کریں</string>
+    <string name="color_thread_lines_description">جواب کی ہر سطح کو لائن کا الگ رنگ دیتا ہے۔</string>
+    <string name="ignore_suggested_sort">تبصروں کی میری ترتیب ہمیشہ استعمال کریں</string>
+    <string name="ignore_suggested_sort_description">پوسٹ یا کمیونٹی کی تجویز کردہ ترتیب کو نظر انداز کرتا ہے۔</string>
+    <string name="settings_entry">Reseam ترتیبات کا اندراج</string>
+    <string name="settings_entry_description">اکاؤنٹ کی ترتیبات کے نیچے Reseam ترتیبات شامل کرتا ہے۔</string>
+    <string name="disable_features">Reddit کے فیچرز غیر فعال کریں</string>
+    <string name="disable_features_description">Reddit Answers، گیمز، اپ گریڈ کی پیشکشیں، یاد دہانیاں اور دیگر فیچرز بند کرتا ہے۔</string>
+    <string name="default_feed_sort">فیڈ کی ڈیفالٹ ترتیب</string>
+    <string name="default_feed_sort_description">کمیونٹیز، حسب ضرورت فیڈز، Popular اور All کو آپ کی پسند کی ترتیب میں دکھاتا ہے۔</string>
+    <string name="hide_feed_units">فیڈ سیکشنز چھپائیں</string>
+    <string name="hide_feed_units_description">فیڈز میں ٹرینڈنگ، کیروسلز، پروموز، سروے اور دیگر اضافی چیزیں چھپاتا ہے۔</string>
+    <string name="hide_recommended_communities">تجویز کردہ کمیونٹیز چھپائیں</string>
+    <string name="hide_recommended_communities_description">فیڈز میں کمیونٹیز کی تجاویز چھپاتا ہے۔</string>
+    <string name="hide_recommended_posts">تجویز کردہ پوسٹس چھپائیں</string>
+    <string name="hide_recommended_posts_description">ہوم میں ان کمیونٹیز کی پوسٹس چھپاتا ہے جنہیں آپ فالو نہیں کرتے۔</string>
+    <string name="hide_drawer_items">کمیونٹی سائیڈ مینو کے آئٹمز چھپائیں</string>
+    <string name="hide_drawer_items_description">کمیونٹی سائیڈ مینو کی منتخب قطاریں چھپاتا ہے۔</string>
+    <string name="hide_navigation_tabs">نیویگیشن ٹیبز چھپائیں</string>
+    <string name="hide_navigation_tabs_description">نیویگیشن بار کے منتخب ٹیبز چھپاتا ہے۔</string>
+    <string name="fix_push_notifications">پش اطلاعات ٹھیک کریں</string>
+    <string name="fix_push_notifications_description">پیچ کرنے کے بعد بھی پش اطلاعات موصول ہونے دیتا ہے۔</string>
+    <string name="skip_nsfw_warning">NSFW کمیونٹی کی وارننگ چھوڑیں</string>
+    <string name="skip_nsfw_warning_description">بالغوں کی کمیونٹیز کو پوچھے بغیر کھولتا ہے۔</string>
+    <string name="block_analytics">اینالیٹکس بلاک کریں</string>
+    <string name="block_analytics_description">Reddit کی ایونٹ لاگنگ اور AppsFlyer ٹریکنگ روکتا ہے۔</string>
+    <string name="disable_app_rate_prompt">ریٹنگ کا پرامپٹ چھپائیں</string>
+    <string name="disable_app_rate_prompt_description">Reddit کو آپ سے ریٹنگ مانگنے سے روکتا ہے۔</string>
+    <string name="disable_screenshot_banner">اسکرین شاٹ بینر چھپائیں</string>
+    <string name="disable_screenshot_banner_description">Reddit کو اسکرین شاٹس کا پتہ لگانے سے روکتا ہے۔</string>
+    <string name="hide_trending_searches">ٹرینڈنگ تلاشیں چھپائیں</string>
+    <string name="hide_trending_searches_description">تلاش کی اسکرین پر ٹرینڈنگ چھپاتا ہے۔</string>
+    <string name="hide_premium_settings">Premium ترتیبات چھپائیں</string>
+    <string name="hide_premium_settings_description">ترتیبات میں Premium اور Reddit Pro کی پیشکشیں چھپاتا ہے۔</string>
+    <string name="vxreddit_links">vxreddit لنکس شیئر کریں</string>
+    <string name="vxreddit_links_description">پوسٹس کو vxreddit.com لنکس کے طور پر شیئر کرتا ہے، جو Discord اور دیگر ایپس میں اپنا میڈیا دکھاتے ہیں۔</string>
+    <string name="block_forced_update">زبردستی اپ ڈیٹس بلاک کریں</string>
+    <string name="block_forced_update_description">Reddit کو اپ ڈیٹ اسکرین کے ذریعے اس ورژن کو بلاک کرنے سے روکتا ہے۔</string>
+</resources>

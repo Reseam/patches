@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="block_embedded_ads">ایمبیڈڈ اشتہارات بلاک کریں</string>
+    <string name="block_embedded_ads_description">لائیو اسٹریمز کو اشتہارات کے بغیر تھرڈ پارٹی پراکسی کے ذریعے لوڈ کرتا ہے، جو آپ کا IP پتہ اور آپ کے دیکھے جانے والے چینلز دیکھتی ہے۔</string>
+    <string name="block_video_ads">ویڈیو اشتہارات بلاک کریں</string>
+    <string name="block_video_ads_description">Twitch کے خود منگوائے گئے ویڈیو، آڈیو اور ڈسپلے اشتہارات بلاک کرتا ہے۔</string>
+    <string name="ignore_ad_events">اشتہاری ایونٹس نظر انداز کریں</string>
+    <string name="ignore_ad_events_description">اسٹریم کے دوران Twitch کے اعلان کردہ اشتہاری وقفوں اور اشتہاری ٹریکنگ کو نظر انداز کرتا ہے۔</string>
+    <string name="settings_entry">Reseam ترتیبات کا اندراج</string>
+    <string name="settings_entry_description">Twitch کی ترتیبات میں اکاؤنٹ کے اوپر Reseam ترتیبات شامل کرتا ہے۔</string>
+    <string name="enable_debug_mode">ڈیبگ موڈ فعال کریں</string>
+    <string name="enable_debug_mode_description">Twitch کے عملے کے ٹولز دکھاتا ہے، جیسے ڈیبگ مینو اور ویڈیو ڈیبگ پینل۔</string>
+    <string name="fix_login_crash">لاگ ان کریش ٹھیک کریں</string>
+    <string name="fix_login_crash_description">لاگ ان کرتے ہی Twitch کو کریش ہونے سے روکتا ہے۔</string>
+    <string name="startup_tab">ابتدائی ٹیب</string>
+    <string name="startup_tab_description">Twitch کو براؤز یا پروفائل پر کھولتا ہے، اور Default Home Page کی ترتیب ان لاک کرتا ہے۔</string>
+    <string name="block_analytics">اینالیٹکس بلاک کریں</string>
+    <string name="block_analytics_description">comScore، Nielsen، Sentry، Crashlytics، Sprig اور Branch کو روکتا ہے۔</string>
+    <string name="disable_update_prompts">اپ ڈیٹ پرامپٹس غیر فعال کریں</string>
+    <string name="disable_update_prompts_description">اپ ڈیٹ پرامپٹس روکتا ہے۔</string>
+</resources>

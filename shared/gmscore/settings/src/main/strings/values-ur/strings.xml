@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="gmscore_missing_title">GmsCore انسٹال نہیں ہے</string>
+    <string name="gmscore_missing_message">یہ ایپ GmsCore (<xliff:g id="packageName">%1$s</xliff:g>) کے ذریعے سائن ان کرنے کے لیے پیچ کی گئی تھی، جو انسٹال نہیں ہے۔ اسے انسٹال کریں، ایک بار کھولیں اور مانگی گئی اجازتیں دیں، پھر یہ ایپ دوبارہ کھولیں۔</string>
+    <string name="gmscore_get">GmsCore حاصل کریں</string>
+    <string name="gmscore_close">بند کریں</string>
+    <string name="gmscore_mount_unsupported">GmsCore سپورٹ پیچ ماؤنٹ انسٹالیشنز کو خراب کر دیتا ہے</string>
+    <string name="gmscore_battery_optimized_title">GmsCore بیٹری آپٹمائزڈ ہے</string>
+    <string name="gmscore_battery_optimized_message">Android پس منظر میں GmsCore کو بند کر دے گا، جس سے آپ سائن آؤٹ ہو جائیں گے اور اطلاعات کام نہیں کریں گی۔ GmsCore کے لیے بیٹری آپٹمائزیشن آف کریں۔</string>
+    <string name="gmscore_open_settings">ترتیبات کھولیں</string>
+    <string name="gmscore_unavailable_title">GmsCore دستیاب نہیں ہے</string>
+    <string name="gmscore_unavailable_message">ایپ GmsCore تک رسائی حاصل نہیں کر سکتی۔ GmsCore کھولیں اور اس کی اجازتیں اور پس منظر کی سرگرمی کی ترتیبات چیک کریں۔</string>
+    <string name="gmscore_open_website">ویب سائٹ کھولیں</string>
+    <string name="gmscore_ignore">نظر انداز کریں</string>
+    <string name="gmscore_no_screen_handler">یہ اسکرین کھولنے کے لیے کوئی ایپ دستیاب نہیں</string>
+</resources>

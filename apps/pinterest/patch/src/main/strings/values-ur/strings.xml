@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="show_posted_date">پوسٹ کرنے کی تاریخ دکھائیں</string>
+    <string name="show_posted_date_description">دکھاتا ہے کہ پن کب پوسٹ کی گئی۔</string>
+    <string name="settings_entry">Reseam ترتیبات کا اندراج</string>
+    <string name="settings_entry_description">Pinterest کی ترتیبات میں Reseam ترتیبات شامل کرتا ہے۔</string>
+    <string name="download_board">بورڈ ڈاؤن لوڈ کریں</string>
+    <string name="download_board_description">بورڈ میں لوڈ ہو چکی پنز ڈاؤن لوڈ کرتا ہے۔</string>
+    <string name="download_pins">پنز ڈاؤن لوڈ کریں</string>
+    <string name="download_pins_description">پنز کو اصل تصاویر اور ویڈیوز کے طور پر ڈاؤن لوڈ کرتا ہے۔</string>
+    <string name="hide_ads">اشتہارات چھپائیں</string>
+    <string name="hide_ads_description">پروموٹڈ پنز چھپاتا ہے۔</string>
+    <string name="hide_shopping">شاپنگ پنز چھپائیں</string>
+    <string name="hide_shopping_description">خریداری والی پنز چھپاتا ہے۔</string>
+    <string name="original_quality">اصل کوالٹی کی تصاویر</string>
+    <string name="original_quality_description">تصاویر کو اصل کوالٹی میں لوڈ کرتا ہے۔</string>
+    <string name="fix_push_notifications">پش اطلاعات ٹھیک کریں</string>
+    <string name="fix_push_notifications_description">پیچ کرنے کے بعد بھی پش اطلاعات موصول ہونے دیتا ہے۔</string>
+    <string name="hide_surveys">سروے کے پرامپٹس چھپائیں</string>
+    <string name="hide_surveys_description">سروے کے پرامپٹس چھپاتا ہے۔</string>
+    <string name="hide_screenshot_share">اسکرین شاٹ شیئر مینو چھپائیں</string>
+    <string name="hide_screenshot_share_description">اسکرین شاٹ کے بعد کھلنے والا شیئر مینو چھپاتا ہے۔</string>
+    <string name="disable_update_prompts">اپ ڈیٹ پرامپٹس غیر فعال کریں</string>
+    <string name="disable_update_prompts_description">اپ ڈیٹ پرامپٹس روکتا ہے۔</string>
+</resources>

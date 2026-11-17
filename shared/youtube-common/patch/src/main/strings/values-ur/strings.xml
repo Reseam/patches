@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_branding">حسب ضرورت برانڈنگ</string>
+    <string name="custom_branding_description">منتخب کرنے کے لیے لانچر آئیکنز اور ایپ کے نام شامل کرتا ہے، بشمول آپ کے اپنے۔</string>
+    <string name="custom_branding_custom_name">ایپ کا حسب ضرورت نام</string>
+    <string name="custom_branding_custom_name_description">یہ نام ایپ کے ناموں کے انتخاب میں شامل کرتا ہے اور اسے ڈیفالٹ بناتا ہے۔</string>
+    <string name="custom_branding_custom_icon">حسب ضرورت آئیکن</string>
+    <string name="custom_branding_custom_icon_description">ایک فولڈر جس میں mipmap-mdpi سے mipmap-xxxhdpi تک کے فولڈرز ہوں، اور ہر ایک میں foreground.png اور background.png ہو۔ آئیکن کو انتخاب میں شامل کرتا ہے اور اسے ڈیفالٹ بناتا ہے۔</string>
+</resources>

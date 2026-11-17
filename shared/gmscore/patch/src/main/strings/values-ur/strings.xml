@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gms_core_support">GmsCore سپورٹ</string>
+    <string name="gms_core_support_description">Google Play سروسز کے بجائے GmsCore کے ذریعے سائن ان کرتا ہے، جسے آپ الگ سے انسٹال کرتے ہیں۔</string>
+    <string name="gms_core_support_gms_core_vendor_group_id">GmsCore فراہم کنندہ</string>
+    <string name="gms_core_support_gms_core_vendor_group_id_description">وہ گروپ ID جس کے تحت آپ کا GmsCore شائع کیا گیا تھا۔</string>
+    <string name="gms_core_support_package_name">پیکیج کا نام</string>
+    <string name="gms_core_support_package_name_description">پیچ شدہ ایپ کا پیکیج نام۔</string>
+</resources>

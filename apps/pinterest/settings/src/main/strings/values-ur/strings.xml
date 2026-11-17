@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="hide_ads">اشتہارات چھپائیں</string>
+    <string name="hide_shopping">شاپنگ پنز چھپائیں</string>
+    <string name="disable_update_prompts">اپ ڈیٹ پرامپٹس غیر فعال کریں</string>
+    <string name="hide_screenshot_share">اسکرین شاٹ شیئر مینو چھپائیں</string>
+    <string name="original_quality">اصل کوالٹی کی تصاویر</string>
+    <string name="original_quality_summary">زیادہ ڈیٹا استعمال کرتا ہے۔</string>
+    <string name="show_posted_date">پوسٹ کرنے کی تاریخ دکھائیں</string>
+    <string name="posted_on">پوسٹ کی گئی <xliff:g id="date">%1$s</xliff:g></string>
+    <string name="hide_surveys">سروے کے پرامپٹس چھپائیں</string>
+    <string name="download_started">ڈاؤن لوڈ ہو رہا ہے</string>
+    <string name="download_unavailable">ڈاؤن لوڈ کے لیے کچھ نہیں</string>
+    <plurals name="download_board_started">
+        <item quantity="one"><xliff:g id="count">%1$d</xliff:g> پن ڈاؤن لوڈ ہو رہی ہے</item>
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> پنز ڈاؤن لوڈ ہو رہی ہیں</item>
+    </plurals>
+    <string name="download_board_empty">پنز لوڈ کرنے کے لیے پہلے بورڈ کو اسکرول کریں</string>
+    <string name="ask_which_media">پوچھیں کہ کون سا میڈیا محفوظ کرنا ہے</string>
+    <string name="ask_which_media_summary">جب کسی پن میں کئی تصاویر یا ویڈیوز ہوں تو پوچھتا ہے کہ ان میں سے کون سی محفوظ کرنی ہیں۔</string>
+    <string name="save_media_choose">منتخب کریں کہ کیا محفوظ کرنا ہے</string>
+    <string name="save_media_image">تصویر <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_video">ویڈیو <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_all">سبھی محفوظ کریں</string>
+    <string name="download_folder">ڈاؤن لوڈ فولڈر</string>
+    <string name="download_folder_summary">محفوظ کی گئی پنز کہاں جائیں۔ گیلری کا ڈیفالٹ رکھیں یا کوئی فولڈر منتخب کریں۔</string>
+    <string name="section_downloads">ڈاؤن لوڈز</string>
+    <string name="section_feed">فیڈ</string>
+    <string name="section_closeup">کلوز اپ</string>
+    <string name="section_images">تصاویر</string>
+    <string name="section_sharing">شیئرنگ</string>
+    <string name="section_prompts">پرامپٹس</string>
+    <string name="section_updates">اپ ڈیٹس</string>
+</resources>

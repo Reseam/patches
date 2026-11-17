@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="spoof_video_streams_client_tv">TV (SABR)</string>
+    <string name="spoof_video_streams_client_web">ویب (SABR)</string>
+    <string name="spoof_video_streams_client_tv_simply">TV Simply</string>
+    <string name="spoof_video_streams_stats_for_nerds">اعداد و شمار میں جعلی کلائنٹ دکھائیں</string>
+    <string name="spoof_video_streams_stats_for_nerds_summary">Stats for nerds میں اسٹریم کلائنٹ دکھاتا ہے۔</string>
+    <string name="token_server_credential">ٹوکن سرور کی اسناد</string>
+    <string name="spoof_video_streams">پلے بیک ٹھیک کریں</string>
+    <string name="spoof_video_streams_summary">جب YouTube ایپ کو بلاک کرے تو ویڈیوز چلاتا ہے۔</string>
+    <string name="spoof_video_streams_client">ترجیحی کلائنٹ</string>
+    <string name="spoof_video_streams_client_summary">جس کلائنٹ کو پہلے آزمایا جاتا ہے۔ Android اور ویب کلائنٹ Reseam ٹوکن سرور استعمال کر سکتے ہیں، جس کی شرائط https://mint.reseam.app پر ہیں۔</string>
+    <string name="user_agent_client_spoof">یوزر ایجنٹ جعلی ظاہر کریں</string>
+    <string name="user_agent_client_spoof_summary">درخواستوں میں اصل ایپ ظاہر کرتا ہے، تاکہ YouTube انہیں قبول کرے۔</string>
+    <string name="spoof_client_tv">TV (SABR)</string>
+    <string name="spoof_client_web">ویب (SABR)</string>
+    <string name="spoof_client_tv_simply">TV Simply</string>
+    <string name="spoof_client_native">نیٹو</string>
+</resources>

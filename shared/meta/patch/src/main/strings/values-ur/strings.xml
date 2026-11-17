@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="signature_check">دستخط کی جانچ ٹھیک کریں</string>
+    <string name="signature_check_description">دوبارہ سائن کی گئی ایپ کو شروع ہونے دیتا ہے۔</string>
+</resources>

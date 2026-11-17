@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_sponsored_ads">اسپانسر شدہ پیغامات چھپائیں</string>
+    <string name="hide_sponsored_ads_description">چینلز میں اسپانسر شدہ پیغامات چھپاتا ہے۔</string>
+    <string name="download_boost">تیز ڈاؤن لوڈز</string>
+    <string name="download_boost_description">بڑے حصوں میں اور ایک وقت میں زیادہ حصے ڈاؤن لوڈ کرتا ہے۔</string>
+    <string name="bypass_integrity">انٹیگریٹی چیک بائی پاس کریں</string>
+    <string name="bypass_integrity_description">روٹ شدہ فونز اور Google سروسز کے بغیر فونز پر سائن ان کی اجازت دیتا ہے۔</string>
+    <string name="fix_push_notifications">پش اطلاعات ٹھیک کریں</string>
+    <string name="fix_push_notifications_description">پیچ کرنے کے بعد بھی پش اطلاعات موصول ہونے دیتا ہے۔</string>
+    <string name="allow_screenshots">خفیہ میڈیا کے اسکرین شاٹس کی اجازت دیں</string>
+    <string name="allow_screenshots_description">ایک بار دیکھے جانے والے اور خود حذف ہونے والے میڈیا کے اسکرین شاٹس اور اسکرین ریکارڈنگز کی اجازت دیتا ہے۔</string>
+    <string name="anti_delete">حذف شدہ پیغامات رکھیں</string>
+    <string name="anti_delete_description">دوسروں کے حذف کردہ پیغامات کو رکھتا ہے اور انہیں چیٹ میں دکھاتا ہے۔</string>
+    <string name="bypass_restrictions">محدود چیٹس سے محفوظ کریں</string>
+    <string name="bypass_restrictions_description">محدود چیٹس میں کاپی، محفوظ اور فارورڈ کرنے کی اجازت دیتا ہے۔</string>
+    <string name="forward_from_restricted">محدود چیٹس سے فارورڈ کریں</string>
+    <string name="forward_from_restricted_description">فارورڈنگ بلاک کرنے والی چیٹس کے پیغامات کو نئے پیغامات کے طور پر بھیجتا ہے۔</string>
+    <string name="hide_typing_indicator">ٹائپنگ کا اشارہ چھپائیں</string>
+    <string name="hide_typing_indicator_description">دوسروں کو یہ دیکھنے سے روکتا ہے کہ آپ ٹائپ یا ریکارڈ کر رہے ہیں۔</string>
+    <string name="play_store_restrictions">Play Store کی پابندیاں ہٹائیں</string>
+    <string name="play_store_restrictions_description">وہ چیٹس اور میڈیا دکھاتا ہے جو Telegram صرف اپنے Play Store ورژن میں چھپاتا ہے۔</string>
+    <string name="unlock_premium">Premium ان لاک کریں</string>
+    <string name="unlock_premium_description">Premium کے وہ فیچرز ان لاک کرتا ہے جو اس فون پر کام کرتے ہیں۔</string>
+    <string name="disable_auto_update">اپ ڈیٹ پرامپٹس غیر فعال کریں</string>
+    <string name="disable_auto_update_description">اپ ڈیٹ کی جانچ اور پرامپٹس روکتا ہے۔</string>
+</resources>

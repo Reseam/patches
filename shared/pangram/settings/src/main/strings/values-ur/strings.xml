@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pangram_sign_in">سائن ان کریں</string>
+    <string name="pangram_sign_out">سائن آؤٹ کریں</string>
+    <string name="pangram_close">بند کریں</string>
+    <string name="pangram_signed_out_message">نئی پوسٹس جانچنے کے لیے اپنے براؤزر سے سائن ان کریں۔ Pangram کے لیے بامعاوضہ پلان یا مفت ٹرائل ضروری ہے۔</string>
+    <string name="pangram_signed_in">Pangram میں سائن ان ہو گئے</string>
+    <string name="pangram_sign_in_failed">سائن ان مکمل نہیں ہوا</string>
+    <string name="pangram_feed_consent_title">Pangram کو پوسٹس جانچنے دیں؟</string>
+    <string name="pangram_feed_consent_message">Pangram جانچی گئی پوسٹس آپ کی اسکین ہسٹری میں رکھتا ہے۔</string>
+    <string name="pangram_feed_consent_agree">اجازت دیں</string>
+    <string name="pangram_feed_consent_decline">ابھی نہیں</string>
+    <string name="pangram_signed_in_as">بطور <xliff:g id="email">%1$s</xliff:g> سائن ان ہیں</string>
+    <plurals name="pangram_plan">
+        <item quantity="one"><xliff:g id="plan">%1$s</xliff:g>، <xliff:g id="count">%2$d</xliff:g> کریڈٹ باقی</item>
+        <item quantity="other"><xliff:g id="plan">%1$s</xliff:g>، <xliff:g id="count">%2$d</xliff:g> کریڈٹس باقی</item>
+    </plurals>
+    <string name="pangram_no_plan">کوئی فعال پلان نہیں۔ Pangram کے لیے بامعاوضہ پلان یا مفت ٹرائل ضروری ہے۔</string>
+    <string name="pangram_unavailable">Pangram تک رسائی نہیں ہو سکی</string>
+    <string name="pangram_image_consent_title">Pangram سے تصاویر جانچیں؟</string>
+    <string name="pangram_image_consent_message">آپ کے اس کی شرائط سے اتفاق کرنے کے بعد Pangram تصاویر جانچتا ہے، اور ہر تصویر اس کے لنک سے ڈاؤن لوڈ کرتا ہے۔</string>
+    <string name="pangram_image_consent_terms">شرائط پڑھیں</string>
+    <string name="pangram_image_consent_agree">اتفاق کریں</string>
+</resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="custom_filter">حسب ضرورت فلٹرز استعمال کریں</string>
+    <string name="custom_filter_strings">حسب ضرورت فلٹرز</string>
+    <string name="custom_filter_strings_summary">ہر لائن میں ایک ایکسپریشن، اس شکل میں: ^path#accessibility$buffer۔</string>
+    <string name="debug_logging">ڈیبگ لاگنگ</string>
+    <string name="debug_logging_summary">Reseam کی سرگرمیاں Android لاگ میں لکھتا ہے۔</string>
+    <string name="sanitize_sharing_links">شیئر لنکس صاف کریں</string>
+    <string name="sanitize_sharing_links_summary">آپ کے شیئر کردہ لنکس سے ٹریکنگ ہٹاتا ہے۔</string>
+    <string name="force_original_audio">ہمیشہ اصل آڈیو</string>
+    <string name="force_original_audio_summary">ڈب شدہ ٹریک کے بجائے اصل آڈیو چلاتا ہے۔</string>
+    <string name="custom_branding_icon_custom">حسب ضرورت</string>
+    <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g> ڈاؤن لوڈز میں محفوظ ہو گیا</string>
+    <string name="experiment_flags_failed">تجرباتی فلیگز محفوظ نہیں ہو سکے</string>
+    <string name="segment_behaviors_skip">خودکار طور پر اسکپ کریں</string>
+    <string name="segment_behaviors_skip_once">ایک بار اسکپ کریں</string>
+    <string name="segment_behaviors_manual_skip">اسکپ بٹن دکھائیں</string>
+    <string name="segment_behaviors_seekbar_only">سیک بار میں دکھائیں</string>
+    <string name="segment_behaviors_ignore">نظر انداز کریں</string>
+    <string name="sb_enabled">SponsorBlock</string>
+    <string name="sb_enabled_summary">SponsorBlock کمیونٹی کے نشان زد کردہ سیگمنٹس اسکپ کرتا ہے، جو آپ کی کھولی گئی ویڈیوز دیکھ سکتی ہے۔</string>
+    <string name="sb_sponsor">اسپانسر سیگمنٹس</string>
+    <string name="sb_selfpromo">خود کی تشہیر</string>
+    <string name="sb_interaction">تعامل کی یاد دہانیاں</string>
+    <string name="sb_poi_highlight">ہائی لائٹس</string>
+    <string name="sb_intro">انٹروز</string>
+    <string name="sb_outro">آؤٹروز</string>
+    <string name="sb_preview">پیش منظر</string>
+    <string name="sb_hook">ہُکس</string>
+    <string name="sb_filler">فِلر</string>
+    <string name="sb_music_offtopic">غیر موسیقی حصے</string>
+    <string name="sb_toast_on_skip">اسکپ کرنے کے بعد پیغام دکھائیں</string>
+    <string name="sb_toast_on_connection_error">SponsorBlock کنکشن کی خرابیاں دکھائیں</string>
+    <string name="sb_track_skip_count">SponsorBlock اسکپس ٹریک کریں</string>
+    <string name="sb_track_skip_count_summary">اس فون پر اعداد و شمار رکھتا ہے اور آپ کے اسکپس SponsorBlock کو رپورٹ کرتا ہے۔</string>
+    <string name="sb_min_segment_duration">سیگمنٹ کا کم از کم دورانیہ (سیکنڈز)</string>
+    <string name="section_sponsorblock">SponsorBlock</string>
+    <string name="sponsorblock_category_sponsor">اسپانسر</string>
+    <string name="sponsorblock_category_selfpromo">خود کی تشہیر</string>
+    <string name="sponsorblock_category_interaction">تعامل کی یاد دہانی</string>
+    <string name="sponsorblock_category_highlight">ہائی لائٹ</string>
+    <string name="sponsorblock_category_intro">انٹرو</string>
+    <string name="sponsorblock_category_outro">آؤٹرو</string>
+    <string name="sponsorblock_category_preview">پیش منظر</string>
+    <string name="sponsorblock_category_hook">ہُک</string>
+    <string name="sponsorblock_category_filler">فِلر</string>
+    <string name="sponsorblock_category_music">غیر موسیقی حصہ</string>
+    <string name="sponsorblock_skipped"><xliff:g id="segment">%1$s</xliff:g> اسکپ ہو گیا</string>
+    <string name="sponsorblock_load_failed">SponsorBlock سیگمنٹس لوڈ نہیں ہو سکے</string>
+</resources>

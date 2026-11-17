@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="recover_deleted_chats_chosen">وہ چیٹس جن کے لیے میں اسے آن کروں</string>
+    <string name="recover_deleted_chats_all">تمام چیٹس، جب تک میں اسے آف نہ کروں</string>
+    <string name="hide_sponsored_ads">اسپانسر شدہ پیغامات چھپائیں</string>
+    <string name="disable_auto_update">اپ ڈیٹ پرامپٹس غیر فعال کریں</string>
+    <string name="unlock_premium">Premium ان لاک کریں</string>
+    <string name="unlock_premium_summary">جن فیچرز کی جانچ سرور کرتا ہے، ان کے لیے اب بھی سبسکرپشن درکار ہے۔</string>
+    <string name="hide_typing">ٹائپنگ کا اشارہ چھپائیں</string>
+    <string name="boost_downloads">تیز ڈاؤن لوڈز</string>
+    <string name="save_from_restricted">محدود چیٹس سے محفوظ کریں</string>
+    <string name="save_from_restricted_summary">محدود چیٹس میں کاپی، محفوظ اور فارورڈ کرنے کی اجازت دیتا ہے۔</string>
+    <string name="remove_play_store_restrictions">Play Store کی پابندیاں ہٹائیں</string>
+    <string name="remove_play_store_restrictions_summary">وہ چیٹس اور میڈیا دکھاتا ہے جو Telegram صرف اپنے Play Store ورژن میں چھپاتا ہے۔</string>
+    <string name="recover_deleted">حذف شدہ پیغامات رکھیں</string>
+    <string name="recover_deleted_summary">دوسروں کے حذف کردہ پیغامات کو رکھتا ہے اور ان پر 🗑️ کا نشان لگاتا ہے۔</string>
+    <string name="recover_deleted_chats">کن کے لیے آن ہے</string>
+    <string name="recover_deleted_chats_summary">کسی چیٹ کے لیے اسے اس چیٹ کے ⋮ مینو سے آن یا آف کریں۔</string>
+    <string name="allow_screenshots">خفیہ میڈیا کے اسکرین شاٹس کی اجازت دیں</string>
+    <string name="allow_screenshots_summary">ایک بار دیکھے جانے والے اور خود حذف ہونے والے میڈیا کی اسکرین ریکارڈنگز بھی شامل ہیں۔</string>
+    <string name="section_ads">اشتہارات</string>
+    <string name="section_updates">اپ ڈیٹس</string>
+    <string name="section_downloads">ڈاؤن لوڈز</string>
+    <string name="section_premium">Premium</string>
+    <string name="section_privacy">رازداری</string>
+    <string name="anti_delete_recovery_off">حذف شدہ پیغامات رکھنا بند کریں</string>
+    <string name="anti_delete_recovery_on">حذف شدہ پیغامات رکھیں</string>
+</resources>
