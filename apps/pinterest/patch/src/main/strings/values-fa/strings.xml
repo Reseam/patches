@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="show_posted_date">نمایش تاریخ انتشار</string>
+    <string name="show_posted_date_description">زمان انتشار پین را نشان می‌دهد.</string>
+    <string name="settings_entry">ورودی تنظیمات Reseam</string>
+    <string name="settings_entry_description">گزینهٔ «تنظیمات Reseam» را به تنظیمات Pinterest اضافه می‌کند.</string>
+    <string name="download_board">بارگیری بورد</string>
+    <string name="download_board_description">پین‌هایی را که بورد بار کرده است بارگیری می‌کند.</string>
+    <string name="download_pins">بارگیری پین‌ها</string>
+    <string name="download_pins_description">پین‌ها را به‌صورت تصاویر و ویدیوهای اصلی بارگیری می‌کند.</string>
+    <string name="hide_ads">پنهان کردن تبلیغات</string>
+    <string name="hide_ads_description">پین‌های تبلیغاتی را پنهان می‌کند.</string>
+    <string name="hide_shopping">پنهان کردن پین‌های خرید</string>
+    <string name="hide_shopping_description">پین‌های قابل خرید را پنهان می‌کند.</string>
+    <string name="original_quality">تصاویر با کیفیت اصلی</string>
+    <string name="original_quality_description">تصاویر را با کیفیت اصلی بار می‌کند.</string>
+    <string name="fix_push_notifications">رفع مشکل اعلان‌ها</string>
+    <string name="fix_push_notifications_description">کاری می‌کند که اعلان‌ها پس از وصله کردن برسند.</string>
+    <string name="hide_surveys">پنهان کردن درخواست‌های نظرسنجی</string>
+    <string name="hide_surveys_description">درخواست‌های نظرسنجی را پنهان می‌کند.</string>
+    <string name="hide_screenshot_share">پنهان کردن منوی هم‌رسانی نماگرفت</string>
+    <string name="hide_screenshot_share_description">منوی هم‌رسانی‌ای را که پس از گرفتن نماگرفت باز می‌شود پنهان می‌کند.</string>
+    <string name="disable_update_prompts">غیرفعال کردن درخواست‌های به‌روزرسانی</string>
+    <string name="disable_update_prompts_description">درخواست‌های به‌روزرسانی را متوقف می‌کند.</string>
+</resources>

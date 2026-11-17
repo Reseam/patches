@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_branding">برندسازی سفارشی</string>
+    <string name="custom_branding_description">نمادهای راه‌انداز و نام‌هایی برای برنامه اضافه می‌کند که می‌توانید از بینشان انتخاب کنید، از جمله نام و نماد دلخواه خودتان.</string>
+    <string name="custom_branding_custom_name">نام سفارشی برنامه</string>
+    <string name="custom_branding_custom_name_description">این نام را به گزینه‌های نام برنامه اضافه و آن را پیش‌فرض می‌کند.</string>
+    <string name="custom_branding_custom_icon">نماد سفارشی</string>
+    <string name="custom_branding_custom_icon_description">پوشه‌ای شامل پوشه‌های mipmap-mdpi تا mipmap-xxxhdpi که هرکدام foreground.png و background.png دارند. نماد را به گزینه‌ها اضافه و آن را پیش‌فرض می‌کند.</string>
+</resources>

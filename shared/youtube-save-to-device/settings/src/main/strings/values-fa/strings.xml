@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_save_to_device">ذخیره در دستگاه</string>
+    <string name="save_folder">پوشهٔ ذخیره</string>
+    <string name="save_folder_summary">جایی که فایل‌های ذخیره‌شده می‌روند. اولین بار که ذخیره می‌کنید آن را انتخاب می‌کنید.</string>
+    <string name="save_new_downloads">ذخیرهٔ بارگیری‌های جدید در دستگاه</string>
+    <string name="save_new_downloads_summary">هر بارگیری را هم پس از تمام شدن ذخیره می‌کند.</string>
+    <string name="save_to_device">ذخیره در دستگاه</string>
+    <string name="notification_channel">بارگیری‌های ذخیره‌شده</string>
+    <string name="saving">در حال ذخیرهٔ <xliff:g id="title">%1$s</xliff:g></string>
+    <string name="saving_progress">در حال ذخیرهٔ <xliff:g id="done">%1$d</xliff:g> از <xliff:g id="total">%2$d</xliff:g></string>
+    <string name="saved"><xliff:g id="title">%1$s</xliff:g> ذخیره شد</string>
+    <plurals name="saved_count">
+        <item quantity="one"><xliff:g id="count">%1$d</xliff:g> بارگیری ذخیره شد</item>
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> بارگیری ذخیره شد</item>
+    </plurals>
+    <string name="save_failed"><xliff:g id="title">%1$s</xliff:g> ذخیره نشد</string>
+    <string name="save_failed_unsupported">قالب این بارگیری را نمی‌توان به‌صورت فایل ذخیره کرد.</string>
+    <string name="save_failed_incomplete">بارگیری هنوز تمام نشده است.</string>
+    <string name="save_failed_folder">پوشهٔ ذخیره دیگر در دسترس نیست. آن را دوباره در تنظیمات Reseam انتخاب کنید.</string>
+    <string name="save_failed_space">فضای کافی در پوشهٔ ذخیره وجود ندارد.</string>
+    <string name="open">باز کردن</string>
+</resources>

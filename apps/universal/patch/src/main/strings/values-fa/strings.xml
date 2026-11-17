@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="allow_screenshots">مجاز کردن نماگرفت</string>
+    <string name="allow_screenshots_description">گرفتن نماگرفت و ضبط صفحه را در صفحه‌های محافظت‌شده مجاز می‌کند.</string>
+    <string name="allow_split_screen">مجاز کردن صفحهٔ دونیمه</string>
+    <string name="allow_split_screen_description">امکان باز شدن برنامه در صفحهٔ دونیمه و حباب‌ها را فراهم می‌کند.</string>
+    <string name="change_package_name">تغییر نام بسته</string>
+    <string name="change_package_name_description">برنامه را با نام بستهٔ دیگری نصب می‌کند تا کنار نسخهٔ اصلی اجرا شود. برخی برنامه‌ها این‌طور کار نمی‌کنند.</string>
+    <string name="change_package_name_package_name">نام بسته</string>
+    <string name="change_package_name_package_name_description">نام بستهٔ جدید. اگر خالی باشد، .reseam به نام اصلی اضافه می‌شود.</string>
+    <string name="disable_play_store_updates">غیرفعال کردن به‌روزرسانی‌های Play Store</string>
+    <string name="disable_play_store_updates_description">برنامه را از به‌روزرسانی‌های Google Play پنهان می‌کند.</string>
+    <string name="enable_debugging">فعال کردن اشکال‌زدایی</string>
+    <string name="enable_debugging_description">برنامه را قابل اشکال‌زدایی علامت می‌زند تا adb بتواند بدون روت آن را بررسی کند.</string>
+    <string name="hide_mock_location">پنهان کردن مکان ساختگی</string>
+    <string name="hide_mock_location_description">پنهان می‌کند که مکانتان از یک برنامهٔ مکان ساختگی می‌آید.</string>
+    <string name="override_certificate_pinning">دور زدن سنجاق کردن گواهی</string>
+    <string name="override_certificate_pinning_description">به گواهی‌های خودتان اعتماد می‌کند تا پراکسی بتواند ترافیک برنامه را بررسی کند.</string>
+    <string name="remove_ads">مسدود کردن تبلیغات</string>
+    <string name="remove_ads_description">نمی‌گذارد برنامه از شبکه‌های تبلیغاتی رایج تبلیغ بار کند.</string>
+    <string name="remove_pairip">حذف Pairip</string>
+    <string name="remove_pairip_description">محافظت خودکار یکپارچگی Google Play را حذف می‌کند. بررسی‌های سمت سرور همچنان اعمال می‌شوند.</string>
+    <string name="remove_pairip_kill_vm">متوقف کردن ماشین مجازی Pairip</string>
+    <string name="remove_pairip_kill_vm_description">فقط برای برنامه‌هایی که ماشین مجازی Pairip آن‌ها کاری جز بررسی مجوز نمی‌کند. برنامه‌هایی را که کد خودشان را در آن اجرا می‌کنند خراب می‌کند.</string>
+    <string name="remove_pairip_spoof_installer">جعل بررسی‌های نصب‌کننده</string>
+    <string name="remove_pairip_spoof_installer_description">کاری می‌کند که بررسی‌های باقی‌ماندهٔ نصب‌کننده، Google Play را گزارش کنند.</string>
+    <string name="report_play_store_installer">معرفی Play Store به‌عنوان نصب‌کننده</string>
+    <string name="report_play_store_installer_description">کاری می‌کند که برنامه خودش را نصب‌شده از Google Play ببیند.</string>
+    <string name="spoof_signature">جعل امضا</string>
+    <string name="spoof_signature_description">امضای اصلی برنامه را به آن نشان می‌دهد تا از بررسی‌های تشخیص برنامهٔ تغییریافته عبور کند.</string>
+</resources>

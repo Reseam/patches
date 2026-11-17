@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pangram_sign_in">ورود</string>
+    <string name="pangram_sign_out">خروج از حساب</string>
+    <string name="pangram_close">بستن</string>
+    <string name="pangram_signed_out_message">برای بررسی پست‌های جدید، از طریق مرورگر وارد شوید. Pangram به طرح پولی یا دورهٔ آزمایشی رایگان نیاز دارد.</string>
+    <string name="pangram_signed_in">وارد Pangram شدید</string>
+    <string name="pangram_sign_in_failed">ورود کامل نشد</string>
+    <string name="pangram_feed_consent_title">اجازه می‌دهید Pangram پست‌ها را بررسی کند؟</string>
+    <string name="pangram_feed_consent_message">Pangram پست‌هایی را که بررسی می‌کند در سابقهٔ اسکن شما نگه می‌دارد.</string>
+    <string name="pangram_feed_consent_agree">اجازه دادن</string>
+    <string name="pangram_feed_consent_decline">اکنون نه</string>
+    <string name="pangram_signed_in_as">به‌عنوان <xliff:g id="email">%1$s</xliff:g> وارد شده‌اید</string>
+    <plurals name="pangram_plan">
+        <item quantity="one"><xliff:g id="plan">%1$s</xliff:g>، <xliff:g id="count">%2$d</xliff:g> اعتبار باقی مانده</item>
+        <item quantity="other"><xliff:g id="plan">%1$s</xliff:g>، <xliff:g id="count">%2$d</xliff:g> اعتبار باقی مانده</item>
+    </plurals>
+    <string name="pangram_no_plan">طرح فعالی ندارید. Pangram به طرح پولی یا دورهٔ آزمایشی رایگان نیاز دارد.</string>
+    <string name="pangram_unavailable">دسترسی به Pangram ممکن نشد</string>
+    <string name="pangram_image_consent_title">تصاویر با Pangram بررسی شوند؟</string>
+    <string name="pangram_image_consent_message">Pangram پس از پذیرفتن شرایطش تصاویر را بررسی می‌کند و هر تصویر را از پیوندش بارگیری می‌کند.</string>
+    <string name="pangram_image_consent_terms">خواندن شرایط</string>
+    <string name="pangram_image_consent_agree">موافقم</string>
+</resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_comment_ads">پنهان کردن تبلیغات نظرها</string>
+    <string name="hide_comment_ads_description">تبلیغات زیر پست‌ها و بین نظرها را پنهان می‌کند.</string>
+    <string name="hide_feed_ads">پنهان کردن تبلیغات فید</string>
+    <string name="hide_feed_ads_description">پست‌های تبلیغاتی را در فیدها و جستجو پنهان می‌کند.</string>
+    <string name="color_thread_lines">رنگی کردن خطوط رشته</string>
+    <string name="color_thread_lines_description">به هر سطح پاسخ، رنگ خط جداگانه‌ای می‌دهد.</string>
+    <string name="ignore_suggested_sort">استفادهٔ همیشگی از ترتیب نظرهای خودم</string>
+    <string name="ignore_suggested_sort_description">ترتیبی را که پست یا انجمن پیشنهاد می‌کند نادیده می‌گیرد.</string>
+    <string name="settings_entry">ورودی تنظیمات Reseam</string>
+    <string name="settings_entry_description">گزینهٔ «تنظیمات Reseam» را زیر تنظیمات حساب اضافه می‌کند.</string>
+    <string name="disable_features">غیرفعال کردن ویژگی‌های Reddit</string>
+    <string name="disable_features_description">Reddit Answers، بازی‌ها، پیشنهادهای خرید، یادآوری‌ها و ویژگی‌های دیگر را خاموش می‌کند.</string>
+    <string name="default_feed_sort">ترتیب پیش‌فرض فید</string>
+    <string name="default_feed_sort_description">انجمن‌ها، فیدهای سفارشی، «محبوب» و «همه» را به ترتیب دلخواه شما مرتب می‌کند.</string>
+    <string name="hide_feed_units">پنهان کردن بخش‌های فید</string>
+    <string name="hide_feed_units_description">پرطرفدارها، ردیف‌ها، تبلیغات، نظرسنجی‌ها و موارد دیگری را که میان فیدها قرار می‌گیرند پنهان می‌کند.</string>
+    <string name="hide_recommended_communities">پنهان کردن انجمن‌های پیشنهادی</string>
+    <string name="hide_recommended_communities_description">پیشنهاد انجمن‌ها را در فیدها پنهان می‌کند.</string>
+    <string name="hide_recommended_posts">پنهان کردن پست‌های پیشنهادی</string>
+    <string name="hide_recommended_posts_description">پست‌های انجمن‌هایی را که دنبال نمی‌کنید در «خانه» پنهان می‌کند.</string>
+    <string name="hide_drawer_items">پنهان کردن موارد منوی کناری انجمن‌ها</string>
+    <string name="hide_drawer_items_description">ردیف‌های انتخاب‌شدهٔ منوی کناری انجمن‌ها را پنهان می‌کند.</string>
+    <string name="hide_navigation_tabs">پنهان کردن برگه‌های پیمایش</string>
+    <string name="hide_navigation_tabs_description">برگه‌های انتخاب‌شدهٔ نوار پیمایش را پنهان می‌کند.</string>
+    <string name="fix_push_notifications">رفع مشکل اعلان‌ها</string>
+    <string name="fix_push_notifications_description">کاری می‌کند که اعلان‌ها پس از وصله کردن برسند.</string>
+    <string name="skip_nsfw_warning">رد شدن از هشدار انجمن‌های بزرگسالانه</string>
+    <string name="skip_nsfw_warning_description">انجمن‌های بزرگسالانه را بدون پرسیدن باز می‌کند.</string>
+    <string name="block_analytics">مسدود کردن آمارگیری</string>
+    <string name="block_analytics_description">ثبت رویدادهای Reddit و ردیابی AppsFlyer را متوقف می‌کند.</string>
+    <string name="disable_app_rate_prompt">پنهان کردن درخواست امتیازدهی</string>
+    <string name="disable_app_rate_prompt_description">نمی‌گذارد Reddit از شما بخواهد به آن امتیاز بدهید.</string>
+    <string name="disable_screenshot_banner">پنهان کردن بنر نماگرفت</string>
+    <string name="disable_screenshot_banner_description">نمی‌گذارد Reddit متوجه نماگرفت‌ها شود.</string>
+    <string name="hide_trending_searches">پنهان کردن جستجوهای پرطرفدار</string>
+    <string name="hide_trending_searches_description">بخش «پرطرفدار» را در صفحهٔ جستجو پنهان می‌کند.</string>
+    <string name="hide_premium_settings">پنهان کردن تنظیمات Premium</string>
+    <string name="hide_premium_settings_description">پیشنهادهای Premium و Reddit Pro را در تنظیمات پنهان می‌کند.</string>
+    <string name="vxreddit_links">هم‌رسانی پیوندهای vxreddit</string>
+    <string name="vxreddit_links_description">پست‌ها را به‌صورت پیوند vxreddit.com هم‌رسانی می‌کند که رسانه‌شان را در Discord و برنامه‌های دیگر نشان می‌دهد.</string>
+    <string name="block_forced_update">مسدود کردن به‌روزرسانی‌های اجباری</string>
+    <string name="block_forced_update_description">نمی‌گذارد Reddit این نسخه را با صفحهٔ به‌روزرسانی مسدود کند.</string>
+</resources>

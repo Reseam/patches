@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="show_ai_labels">نمایش برچسب‌های هوش مصنوعی</string>
+    <string name="show_ai_labels_description">با آشکارسازی که پست‌های بررسی‌شده را می‌بیند، پست‌ها را به‌عنوان انسانی یا هوش مصنوعی برچسب می‌زند و نتایج را از طریق Reseam هم‌رسانی می‌کند.</string>
+</resources>

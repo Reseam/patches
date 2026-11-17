@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reseam_you_tube_music">Reseam YouTube Music</string>
+    <string name="reseam_you_tube_music_description">وقتی Reseam YouTube Music نصب باشد، از آن برای پخش خودکار و سرویس‌های متصل استفاده می‌کند.</string>
+    <string name="reseam_you_tube_music_you_tube_music_package_name">نام بستهٔ YouTube Music</string>
+    <string name="reseam_you_tube_music_you_tube_music_package_name_description">نام بسته‌ای که Reseam YouTube Music شما با آن وصله شده است.</string>
+</resources>

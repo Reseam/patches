@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="ai_labels">برچسب‌های هوش مصنوعی</string>
+    <string name="ai_labels_summary">پست‌ها را به‌عنوان انسانی یا هوش مصنوعی برچسب می‌زند و نتایج را از طریق Reseam هم‌رسانی می‌کند.</string>
+    <string name="ai_label_images">برچسب‌گذاری تصاویر</string>
+    <string name="ai_label_images_summary">تصاویر پست‌ها را هم بررسی می‌کند.</string>
+    <string name="ai_detector">آشکارساز</string>
+    <string name="ai_detector_summary">پست‌های جدید را بررسی می‌کند و متن، نویسنده و پیوند تصاویر آن‌ها را می‌بیند.</string>
+    <string name="ai_detector_account">حساب آشکارساز</string>
+    <string name="ai_detector_account_summary">برای بررسی پست‌های جدید وارد شوید.</string>
+    <string name="ai_label_human">انسان</string>
+    <string name="ai_label_ai">هوش مصنوعی</string>
+    <string name="ai_label_mixed">ترکیبی</string>
+    <string name="ai_label_ai_assisted">با کمک هوش مصنوعی</string>
+    <string name="ai_label_checking">در حال بررسی</string>
+    <string name="ai_label_sign_in">ورود</string>
+    <string name="ai_label_limit">محدودیت روزانه</string>
+    <string name="ai_label_retry">تلاش دوباره</string>
+    <string name="ai_label_allow_images">مجاز کردن تصاویر</string>
+    <string name="ai_label_not_ai">هوش مصنوعی نیست</string>
+    <string name="ai_label_unsure">نامطمئن</string>
+    <string name="ai_label_short_text">متن کوتاه</string>
+    <string name="ai_label_percent_ai"><xliff:g id="percent">%1$s</xliff:g> هوش مصنوعی</string>
+    <plurals name="ai_label_words">
+        <item quantity="one"><xliff:g id="count">%1$d</xliff:g> کلمه</item>
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> کلمه</item>
+    </plurals>
+    <string name="ai_label_share_human">از این متن را انسان نوشته است</string>
+    <string name="ai_label_share_ai">از این متن را هوش مصنوعی تولید کرده است</string>
+    <string name="ai_label_confidence_limited">در متن کوتاه اطمینان کمتر است</string>
+    <string name="ai_label_learn_more">بیشتر بدانید</string>
+    <string name="ai_label_confidence">اطمینان <xliff:g id="level">%1$s</xliff:g></string>
+    <string name="ai_label_share_result">هم‌رسانی نتیجه</string>
+    <string name="ai_label_full_analysis">تحلیل کامل</string>
+    <string name="ai_label_preparing_share">در حال ایجاد پیوند…</string>
+    <string name="ai_label_opening_analysis">در حال باز کردن…</string>
+    <string name="ai_label_link_copied">پیوند در بریده‌دان کپی شد</string>
+    <string name="ai_label_share_failed">پیوند ایجاد نشد</string>
+    <string name="ai_label_analysis_failed">تحلیل کامل باز نشد</string>
+    <string name="ai_label_session_expired">از <xliff:g id="detector">%1$s</xliff:g> خارج شدید</string>
+    <string name="ai_label_daily_limit">به محدودیت روزانهٔ <xliff:g id="detector">%1$s</xliff:g> رسیدید</string>
+</resources>

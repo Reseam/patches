@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="hide_ads">پنهان کردن تبلیغات</string>
+    <string name="hide_shopping">پنهان کردن پین‌های خرید</string>
+    <string name="disable_update_prompts">غیرفعال کردن درخواست‌های به‌روزرسانی</string>
+    <string name="hide_screenshot_share">پنهان کردن منوی هم‌رسانی نماگرفت</string>
+    <string name="original_quality">تصاویر با کیفیت اصلی</string>
+    <string name="original_quality_summary">داده بیشتری مصرف می‌کند.</string>
+    <string name="show_posted_date">نمایش تاریخ انتشار</string>
+    <string name="posted_on">انتشار: <xliff:g id="date">%1$s</xliff:g></string>
+    <string name="hide_surveys">پنهان کردن درخواست‌های نظرسنجی</string>
+    <string name="download_started">در حال بارگیری</string>
+    <string name="download_unavailable">چیزی برای بارگیری نیست</string>
+    <plurals name="download_board_started">
+        <item quantity="one">در حال بارگیری <xliff:g id="count">%1$d</xliff:g> پین</item>
+        <item quantity="other">در حال بارگیری <xliff:g id="count">%1$d</xliff:g> پین</item>
+    </plurals>
+    <string name="download_board_empty">اول بورد را پیمایش کنید تا پین‌هایش بار شوند</string>
+    <string name="ask_which_media">پرسش برای انتخاب رسانه</string>
+    <string name="ask_which_media_summary">وقتی پین چند تصویر یا ویدیو دارد، می‌پرسد کدام‌ها ذخیره شوند.</string>
+    <string name="save_media_choose">انتخاب موارد برای ذخیره</string>
+    <string name="save_media_image">تصویر <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_video">ویدیو <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_all">ذخیرهٔ همه</string>
+    <string name="download_folder">پوشهٔ بارگیری</string>
+    <string name="download_folder_summary">محل ذخیرهٔ پین‌ها. پیش‌فرض گالری را نگه دارید یا پوشه‌ای انتخاب کنید.</string>
+    <string name="section_downloads">بارگیری‌ها</string>
+    <string name="section_feed">فید</string>
+    <string name="section_closeup">نمای نزدیک</string>
+    <string name="section_images">تصاویر</string>
+    <string name="section_sharing">هم‌رسانی</string>
+    <string name="section_prompts">درخواست‌ها</string>
+    <string name="section_updates">به‌روزرسانی‌ها</string>
+</resources>

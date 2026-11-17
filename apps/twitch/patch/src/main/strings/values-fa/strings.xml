@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="block_embedded_ads">مسدود کردن تبلیغات جاسازی‌شده</string>
+    <string name="block_embedded_ads_description">پخش‌های زنده را بدون تبلیغ و از طریق پراکسی شخص ثالث بار می‌کند؛ این پراکسی نشانی IP شما و کانال‌هایی را که تماشا می‌کنید می‌بیند.</string>
+    <string name="block_video_ads">مسدود کردن تبلیغات ویدیویی</string>
+    <string name="block_video_ads_description">تبلیغات ویدیویی، صوتی و نمایشی را که خود Twitch درخواست می‌کند مسدود می‌کند.</string>
+    <string name="ignore_ad_events">نادیده گرفتن رویدادهای تبلیغ</string>
+    <string name="ignore_ad_events_description">وقفه‌های تبلیغاتی و ردیابی تبلیغاتی را که Twitch هنگام پخش اعلام می‌کند نادیده می‌گیرد.</string>
+    <string name="settings_entry">ورودی تنظیمات Reseam</string>
+    <string name="settings_entry_description">گزینهٔ «تنظیمات Reseam» را بالای «حساب» در تنظیمات Twitch اضافه می‌کند.</string>
+    <string name="enable_debug_mode">فعال کردن حالت اشکال‌زدایی</string>
+    <string name="enable_debug_mode_description">ابزارهای کارکنان Twitch مثل منوی اشکال‌زدایی و پنل اشکال‌زدایی ویدیو را نشان می‌دهد.</string>
+    <string name="fix_login_crash">رفع خرابی هنگام ورود</string>
+    <string name="fix_login_crash_description">نمی‌گذارد Twitch بلافاصله پس از ورود از کار بیفتد.</string>
+    <string name="startup_tab">برگهٔ شروع</string>
+    <string name="startup_tab_description">Twitch را در «مرور» یا «نمایه» باز می‌کند و قفل تنظیم Default Home Page را باز می‌کند.</string>
+    <string name="block_analytics">مسدود کردن آمارگیری</string>
+    <string name="block_analytics_description">comScore، Nielsen، Sentry، Crashlytics، Sprig و Branch را متوقف می‌کند.</string>
+    <string name="disable_update_prompts">غیرفعال کردن درخواست‌های به‌روزرسانی</string>
+    <string name="disable_update_prompts_description">درخواست‌های به‌روزرسانی را متوقف می‌کند.</string>
+</resources>

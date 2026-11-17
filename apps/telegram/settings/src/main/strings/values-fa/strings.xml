@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="recover_deleted_chats_chosen">گفتگوهایی که برایشان روشنش می‌کنم</string>
+    <string name="recover_deleted_chats_all">همهٔ گفتگوها، مگر اینکه خاموشش کنم</string>
+    <string name="hide_sponsored_ads">پنهان کردن پیام‌های تبلیغاتی</string>
+    <string name="disable_auto_update">غیرفعال کردن درخواست‌های به‌روزرسانی</string>
+    <string name="unlock_premium">باز کردن قفل Premium</string>
+    <string name="unlock_premium_summary">ویژگی‌هایی که سرور بررسی می‌کند همچنان به اشتراک نیاز دارند.</string>
+    <string name="hide_typing">پنهان کردن نشانگر تایپ</string>
+    <string name="boost_downloads">بارگیری سریع‌تر</string>
+    <string name="save_from_restricted">ذخیره از گفتگوهای محدود</string>
+    <string name="save_from_restricted_summary">کپی، ذخیره و هدایت را در گفتگوهای محافظت‌شده ممکن می‌کند.</string>
+    <string name="remove_play_store_restrictions">حذف محدودیت‌های Play Store</string>
+    <string name="remove_play_store_restrictions_summary">گفتگوها و رسانه‌هایی را که Telegram فقط در نسخهٔ Play Store پنهان می‌کند نشان می‌دهد.</string>
+    <string name="recover_deleted">نگه داشتن پیام‌های حذف‌شده</string>
+    <string name="recover_deleted_summary">پیام‌هایی را که دیگران حذف می‌کنند نگه می‌دارد و با 🗑️ علامت می‌زند.</string>
+    <string name="recover_deleted_chats">روشن برای</string>
+    <string name="recover_deleted_chats_summary">آن را برای هر گفتگو از منوی ⋮ همان گفتگو روشن یا خاموش کنید.</string>
+    <string name="allow_screenshots">مجاز کردن نماگرفت از رسانه‌های محرمانه</string>
+    <string name="allow_screenshots_summary">شامل ضبط صفحه از رسانه‌های یک‌بار مشاهده و خودتخریب.</string>
+    <string name="section_ads">تبلیغات</string>
+    <string name="section_updates">به‌روزرسانی‌ها</string>
+    <string name="section_downloads">بارگیری‌ها</string>
+    <string name="section_premium">Premium</string>
+    <string name="section_privacy">حریم خصوصی</string>
+    <string name="anti_delete_recovery_off">توقف نگه داشتن پیام‌های حذف‌شده</string>
+    <string name="anti_delete_recovery_on">نگه داشتن پیام‌های حذف‌شده</string>
+</resources>

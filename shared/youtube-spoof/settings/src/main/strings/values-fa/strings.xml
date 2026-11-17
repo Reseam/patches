@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="spoof_video_streams_client_tv">TV (SABR)</string>
+    <string name="spoof_video_streams_client_web">Web (SABR)</string>
+    <string name="spoof_video_streams_client_tv_simply">TV Simply</string>
+    <string name="spoof_video_streams_stats_for_nerds">نمایش کلاینت جعل‌شده در آمار</string>
+    <string name="spoof_video_streams_stats_for_nerds_summary">کلاینت جریان را در «آمار برای متخصصان» نشان می‌دهد.</string>
+    <string name="token_server_credential">اعتبارنامهٔ سرور توکن</string>
+    <string name="spoof_video_streams">رفع مشکل پخش</string>
+    <string name="spoof_video_streams_summary">وقتی YouTube برنامه را مسدود می‌کند، پخش ویدیوها را ممکن می‌کند.</string>
+    <string name="spoof_video_streams_client">کلاینت ترجیحی</string>
+    <string name="spoof_video_streams_client_summary">کلاینتی که اول امتحان می‌شود. Android و Web می‌توانند طبق شرایط سرور توکن Reseam در https://mint.reseam.app از آن استفاده کنند.</string>
+    <string name="user_agent_client_spoof">جعل عامل کاربر</string>
+    <string name="user_agent_client_spoof_summary">در درخواست‌ها برنامهٔ اصلی را اعلام می‌کند تا YouTube آن‌ها را بپذیرد.</string>
+    <string name="spoof_client_tv">TV (SABR)</string>
+    <string name="spoof_client_web">Web (SABR)</string>
+    <string name="spoof_client_tv_simply">TV Simply</string>
+    <string name="spoof_client_native">بومی</string>
+</resources>

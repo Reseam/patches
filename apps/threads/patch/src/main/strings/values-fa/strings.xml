@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_ads">پنهان کردن تبلیغات</string>
+    <string name="hide_ads_description">پست‌های تبلیغاتی را پنهان می‌کند.</string>
+    <string name="settings_entry">ورودی تنظیمات Reseam</string>
+    <string name="settings_entry_description">گزینهٔ «تنظیمات Reseam» را به تنظیمات Threads اضافه می‌کند.</string>
+</resources>

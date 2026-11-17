@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="custom_filter">استفاده از فیلترهای سفارشی</string>
+    <string name="custom_filter_strings">فیلترهای سفارشی</string>
+    <string name="custom_filter_strings_summary">در هر خط یک عبارت، به‌شکل ^path#accessibility$buffer.</string>
+    <string name="debug_logging">گزارش‌گیری اشکال‌زدایی</string>
+    <string name="debug_logging_summary">کارهای Reseam را در گزارش Android می‌نویسد.</string>
+    <string name="sanitize_sharing_links">پاک‌سازی پیوندهای هم‌رسانی</string>
+    <string name="sanitize_sharing_links_summary">ردیاب‌ها را از پیوندهایی که هم‌رسانی می‌کنید حذف می‌کند.</string>
+    <string name="force_original_audio">استفادهٔ اجباری از صدای اصلی</string>
+    <string name="force_original_audio_summary">به‌جای صدای دوبله‌شده، صدای اصلی را پخش می‌کند.</string>
+    <string name="custom_branding_icon_custom">سفارشی</string>
+    <string name="experiment_flags_saved"><xliff:g id="file_name">%1$s</xliff:g> در «بارگیری‌ها» ذخیره شد</string>
+    <string name="experiment_flags_failed">پرچم‌های آزمایش ذخیره نشد</string>
+    <string name="segment_behaviors_skip">رد شدن خودکار</string>
+    <string name="segment_behaviors_skip_once">یک بار رد شدن</string>
+    <string name="segment_behaviors_manual_skip">نمایش دکمهٔ رد شدن</string>
+    <string name="segment_behaviors_seekbar_only">نمایش در نوار پیشرفت</string>
+    <string name="segment_behaviors_ignore">نادیده گرفتن</string>
+    <string name="sb_enabled">SponsorBlock</string>
+    <string name="sb_enabled_summary">بخش‌هایی را که انجمن SponsorBlock علامت زده است رد می‌کند. این انجمن ویدیوهایی را که باز می‌کنید می‌بیند.</string>
+    <string name="sb_sponsor">بخش‌های حامی مالی</string>
+    <string name="sb_selfpromo">تبلیغ شخصی</string>
+    <string name="sb_interaction">یادآوری‌های تعامل</string>
+    <string name="sb_poi_highlight">نکته‌های برجسته</string>
+    <string name="sb_intro">مقدمه‌ها</string>
+    <string name="sb_outro">پایان‌بندی‌ها</string>
+    <string name="sb_preview">پیش‌نمایش‌ها</string>
+    <string name="sb_hook">قلاب‌ها</string>
+    <string name="sb_filler">محتوای حاشیه‌ای</string>
+    <string name="sb_music_offtopic">بخش‌های غیرموسیقی</string>
+    <string name="sb_toast_on_skip">نمایش پیام پس از رد شدن</string>
+    <string name="sb_toast_on_connection_error">نمایش خطاهای اتصال SponsorBlock</string>
+    <string name="sb_track_skip_count">ثبت رد شدن‌های SponsorBlock</string>
+    <string name="sb_track_skip_count_summary">آمار را در این تلفن نگه می‌دارد و رد شدن‌های شما را به SponsorBlock گزارش می‌دهد.</string>
+    <string name="sb_min_segment_duration">حداقل مدت بخش (ثانیه)</string>
+    <string name="section_sponsorblock">SponsorBlock</string>
+    <string name="sponsorblock_category_sponsor">حامی مالی</string>
+    <string name="sponsorblock_category_selfpromo">تبلیغ شخصی</string>
+    <string name="sponsorblock_category_interaction">یادآوری تعامل</string>
+    <string name="sponsorblock_category_highlight">نکتهٔ برجسته</string>
+    <string name="sponsorblock_category_intro">مقدمه</string>
+    <string name="sponsorblock_category_outro">پایان‌بندی</string>
+    <string name="sponsorblock_category_preview">پیش‌نمایش</string>
+    <string name="sponsorblock_category_hook">قلاب</string>
+    <string name="sponsorblock_category_filler">محتوای حاشیه‌ای</string>
+    <string name="sponsorblock_category_music">بخش غیرموسیقی</string>
+    <string name="sponsorblock_skipped"><xliff:g id="segment">%1$s</xliff:g> رد شد</string>
+    <string name="sponsorblock_load_failed">بخش‌های SponsorBlock بار نشد</string>
+</resources>
