@@ -123,7 +123,8 @@ private fun Sheet.distributionCard(distribution: Distribution, segments: List<Se
         setOnClickListener {
             val open = details.visibility != View.VISIBLE
             details.visibility = if (open) View.VISIBLE else View.GONE
-            arrow.animate().rotation(if (open) 90f else 0f).setDuration(ARROW_MS).start()
+            val down = if (arrow.layoutDirection == View.LAYOUT_DIRECTION_RTL) -90f else 90f
+            arrow.animate().rotation(if (open) down else 0f).setDuration(ARROW_MS).start()
         }
     }
 }

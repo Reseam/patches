@@ -61,12 +61,10 @@ internal class SponsorBlockOverlay(activity: Activity) : FrameLayout(activity) {
                     Gravity.BOTTOM or Gravity.END,
                 )
                 .apply {
-                    setMargins(
-                        resources.dpToPx(16f),
-                        resources.dpToPx(16f),
-                        resources.dpToPx(28f),
-                        resources.dpToPx(60f),
-                    )
+                    marginStart = resources.dpToPx(16f)
+                    topMargin = resources.dpToPx(16f)
+                    marginEnd = resources.dpToPx(28f)
+                    bottomMargin = resources.dpToPx(60f)
                 },
         )
     }

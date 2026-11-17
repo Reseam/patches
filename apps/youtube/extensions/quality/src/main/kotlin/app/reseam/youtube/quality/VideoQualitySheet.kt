@@ -70,7 +70,11 @@ internal fun showQualitySheet(context: Context) {
                         LinearLayout.LayoutParams.WRAP_CONTENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT,
                     )
-                    .apply { setMargins(dp(12f), dp(16f), 0, dp(16f)) }
+                    .apply {
+                        marginStart = dp(12f)
+                        topMargin = dp(16f)
+                        bottomMargin = dp(16f)
+                    }
         }
     )
     val list =
