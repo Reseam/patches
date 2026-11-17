@@ -157,6 +157,8 @@
     <string name="hide_affiliates_tab_summary">在组织的个人资料上。</string>
     <string name="hide_subscriptions_tab">隐藏“订阅”标签页</string>
     <string name="hide_subscriptions_tab_summary">在创作者的个人资料上。</string>
+    <string name="hide_extra_follower_tabs">隐藏多余的粉丝标签页</string>
+    <string name="hide_extra_follower_tabs_summary">只保留“正在关注”和“关注者”。</string>
     <string name="hide_likes_tab">隐藏“喜欢”标签页</string>
     <string name="hide_likes_tab_summary">在你自己的个人资料上。</string>
     <string name="hide_grok_stories">隐藏 Grok 故事</string>

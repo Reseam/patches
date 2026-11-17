@@ -160,6 +160,8 @@
     <string name="hide_affiliates_tab_summary">У профілях організацій.</string>
     <string name="hide_subscriptions_tab">Приховати вкладку «Підписки»</string>
     <string name="hide_subscriptions_tab_summary">У профілях авторів.</string>
+    <string name="hide_extra_follower_tabs">Сховати додаткові вкладки читачів</string>
+    <string name="hide_extra_follower_tabs_summary">Залишає лише «Читає» і «Читачі».</string>
     <string name="hide_likes_tab">Приховати вкладку «Вподобання»</string>
     <string name="hide_likes_tab_summary">У вашому власному профілі.</string>
     <string name="hide_grok_stories">Приховати історії Grok</string>

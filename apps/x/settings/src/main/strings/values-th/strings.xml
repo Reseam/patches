@@ -157,6 +157,8 @@
     <string name="hide_affiliates_tab_summary">ในโปรไฟล์ขององค์กร</string>
     <string name="hide_subscriptions_tab">ซ่อนแท็บการสมัครรับ</string>
     <string name="hide_subscriptions_tab_summary">ในโปรไฟล์ของครีเอเตอร์</string>
+    <string name="hide_extra_follower_tabs">ซ่อนแท็บผู้ติดตามเพิ่มเติม</string>
+    <string name="hide_extra_follower_tabs_summary">แสดงเฉพาะกำลังติดตามและผู้ติดตาม</string>
     <string name="hide_likes_tab">ซ่อนแท็บการถูกใจ</string>
     <string name="hide_likes_tab_summary">ในโปรไฟล์ของคุณเอง</string>
     <string name="hide_grok_stories">ซ่อนเรื่องราวจาก Grok</string>

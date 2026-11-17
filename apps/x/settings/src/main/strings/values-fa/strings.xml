@@ -158,6 +158,8 @@
     <string name="hide_affiliates_tab_summary">در نمایهٔ سازمان‌ها.</string>
     <string name="hide_subscriptions_tab">پنهان کردن برگهٔ «اشتراک‌ها»</string>
     <string name="hide_subscriptions_tab_summary">در نمایهٔ سازندگان.</string>
+    <string name="hide_extra_follower_tabs">پنهان کردن برگه‌های اضافی دنبال‌کننده‌ها</string>
+    <string name="hide_extra_follower_tabs_summary">فقط «دنبال‌شونده‌ها» و «دنبال‌کننده‌ها» می‌مانند.</string>
     <string name="hide_likes_tab">پنهان کردن برگهٔ «پسندها»</string>
     <string name="hide_likes_tab_summary">در نمایهٔ خودتان.</string>
     <string name="hide_grok_stories">پنهان کردن خبرهای Grok</string>

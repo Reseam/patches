@@ -84,6 +84,7 @@ object XSettings : SettingsGroup(XStrings) {
     val hideRepostsTab by toggle(default = false, icon = Vector.lucide("repeat-2"))
     val hideAffiliatesTab by toggle(default = false, icon = Vector.lucide("building"))
     val hideSubscriptionsTab by toggle(default = false, icon = Vector.lucide("hand-coins"))
+    val hideExtraFollowerTabs by toggle(default = false, icon = Vector.lucide("users"))
     val hideLikesTab by toggle(default = false, icon = Vector.lucide("heart-off"))
     val hideGrokStories by toggle(default = false, icon = Vector.lucide("sparkles"))
     val hideExploreTrends by toggle(default = false, icon = Vector.lucide("trending-up"))

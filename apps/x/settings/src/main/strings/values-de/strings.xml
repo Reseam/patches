@@ -158,6 +158,8 @@
     <string name="hide_affiliates_tab_summary">In Profilen von Organisationen.</string>
     <string name="hide_subscriptions_tab">Tab Abos ausblenden</string>
     <string name="hide_subscriptions_tab_summary">In Profilen von Creatorn.</string>
+    <string name="hide_extra_follower_tabs">Weitere Follower-Tabs ausblenden</string>
+    <string name="hide_extra_follower_tabs_summary">Zeigt nur Folge ich und Follower.</string>
     <string name="hide_likes_tab">Tab Gefällt mir ausblenden</string>
     <string name="hide_likes_tab_summary">In deinem eigenen Profil.</string>
     <string name="hide_grok_stories">Grok-Storys ausblenden</string>

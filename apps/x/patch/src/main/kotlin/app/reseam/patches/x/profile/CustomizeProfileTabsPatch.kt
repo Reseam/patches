@@ -4,6 +4,7 @@
 package app.reseam.patches.x.profile
 
 import app.reseam.patch.Type
+import app.reseam.patch.after
 import app.reseam.patch.before
 import app.reseam.patch.klass
 import app.reseam.patch.method
@@ -15,6 +16,7 @@ import app.reseam.patches.x.XPatchStrings
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettingsPages
 import app.reseam.patches.x.core.xSettings
+import app.reseam.x.profile.bindings.ConnectionTabs
 import app.reseam.x.profile.bindings.ProfileTabs
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
@@ -35,6 +37,7 @@ val customizeProfileTabs = patch(XPatchStrings.customizeProfileTabs) {
             XSettings.hideAffiliatesTab,
             XSettings.hideSubscriptionsTab,
             XSettings.hideLikesTab,
+            XSettings.hideExtraFollowerTabs,
         ),
     )
 
@@ -46,6 +49,7 @@ val customizeProfileTabs = patch(XPatchStrings.customizeProfileTabs) {
             .next { invokeStatic { params("[${Type.Object}") } }
             .captureArgumentAs("tabs", 0)
             .before { capture("tabs").assign(ProfileTabs.visible(capture("tabs"))) }
+        urpTimelines.after { result.assign(ConnectionTabs.visible(result)) }
         // With x_lite_profile_combined_posts_highlights_enabled, Highlights is a sub-tab grouped into Posts.
         gate(XSettings.hideHighlightsTab) {
             profileTabs.point {
@@ -59,3 +63,9 @@ val customizeProfileTabs = patch(XPatchStrings.customizeProfileTabs) {
 private val profileTab = klass("profileTab") { strings("ProfileTab(type=") }
 
 private val profileTabs = method("profileTabs") { strings("x_lite_profile_combined_posts_highlights_enabled") }
+
+// Every server page with tabs (follower lists, Explore, topics) maps its timelines here.
+private val urpTimelines = method("urpTimelines") {
+    param(0, klass("urpPage") { strings("UrpPageFragment(page_body=") }.descriptor)
+    returns(Type.List)
+}

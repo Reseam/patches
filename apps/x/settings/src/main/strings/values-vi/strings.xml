@@ -157,6 +157,8 @@
     <string name="hide_affiliates_tab_summary">Trên hồ sơ tổ chức.</string>
     <string name="hide_subscriptions_tab">Ẩn tab Đăng ký</string>
     <string name="hide_subscriptions_tab_summary">Trên hồ sơ nhà sáng tạo.</string>
+    <string name="hide_extra_follower_tabs">Ẩn các thẻ người theo dõi phụ</string>
+    <string name="hide_extra_follower_tabs_summary">Chỉ giữ Đang theo dõi và Người theo dõi.</string>
     <string name="hide_likes_tab">Ẩn tab Lượt thích</string>
     <string name="hide_likes_tab_summary">Trên hồ sơ của chính bạn.</string>
     <string name="hide_grok_stories">Ẩn tin của Grok</string>
