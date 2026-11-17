@@ -40,3 +40,17 @@ val overlayActionButtons = function("overlayActionButtons") {
     strings("showCheerButton", "onEnterBits")
     paramCount(1)
 }
+
+// Applies each delete, timeout, ban and chat clear that the chat store receives over IRC.
+val applyModeration = function("applyModeration") {
+    name("applyModeration")
+    strings("BRIEF", "DETAILED")
+    paramCount(1)
+}
+
+// Draws one chat message, including the placeholders for deleted messages and blocked users.
+val chatMessageRow = function("chatMessageRow") {
+    name("ChatMessageRowComponent")
+    strings("useIsMessageDeleted", "modActionType")
+    paramCount(1)
+}

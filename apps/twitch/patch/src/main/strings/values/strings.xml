@@ -44,6 +44,10 @@
     <string name="hide_welcome_message_description">Hides the Welcome to the chat room line that chat shows when it connects.</string>
     <string name="keep_deleted_messages">Keep deleted messages</string>
     <string name="keep_deleted_messages_description">Shows the text of messages that moderators remove, on a red background and labeled Deleted, Timeout or Banned.</string>
+    <string name="keep_chat_after_a_clear">Keep chat after a clear</string>
+    <string name="keep_chat_after_a_clear_description">Keeps the messages in chat when a moderator clears it, without Twitch\'s Chat was cleared by a moderator line.</string>
+    <string name="hide_blocked_messages">Hide blocked messages</string>
+    <string name="hide_blocked_messages_description">In channels you moderate, removes the placeholder Twitch shows for a blocked user\'s message.</string>
     <string name="hide_viewer_count">Hide viewer count</string>
     <string name="hide_viewer_count_description">Hides the number of viewers on the player.</string>
     <string name="hide_content_classification_label">Hide content classification label</string>

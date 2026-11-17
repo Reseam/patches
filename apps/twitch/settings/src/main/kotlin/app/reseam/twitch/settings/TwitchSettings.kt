@@ -71,6 +71,9 @@ object ChatSettings : SettingsGroup(TwitchStrings) {
     val hideChatBadges by toggle(default = false, icon = Vector.lucide("badge-x"))
     val hideWelcomeMessage by toggle(default = true, icon = Vector.lucide("message-square-off"))
     val keepDeletedMessages by toggle(default = true, icon = Vector.lucide("message-square-x"))
+    val showTimeoutLength by toggle(default = false, icon = Vector.lucide("timer"))
+    val keepChatAfterAClear by toggle(default = false, icon = Vector.lucide("archive"))
+    val hideBlockedMessages by toggle(default = false, icon = Vector.lucide("user-x"))
 }
 
 object LinkSettings : SettingsGroup(TwitchStrings) {

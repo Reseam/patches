@@ -39,6 +39,10 @@
     <string name="hide_chat_badges">Hide chat badges</string>
     <string name="hide_welcome_message">Hide welcome message</string>
     <string name="keep_deleted_messages">Keep deleted messages</string>
+    <string name="show_timeout_length">Show timeout length</string>
+    <string name="show_timeout_length_summary">Needs Keep deleted messages.</string>
+    <string name="keep_chat_after_a_clear">Keep chat after a clear</string>
+    <string name="hide_blocked_messages">Hide blocked messages</string>
     <string name="clean_share_links">Clean share links</string>
     <string name="default_video_quality">Default quality on Wi-Fi</string>
     <string name="default_video_quality_summary">Also used on other networks not marked as metered.</string>
