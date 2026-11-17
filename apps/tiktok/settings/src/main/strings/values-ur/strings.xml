@@ -12,6 +12,7 @@
     <string name="section_inbox">ان باکس</string>
     <string name="section_messages">پیغامات</string>
     <string name="section_search">تلاش</string>
+    <string name="section_navigation">نیویگیشن</string>
     <string name="section_links">لنکس</string>
     <string name="section_advanced">ایڈوانسڈ</string>
     <string name="page_feed">فیڈ</string>
@@ -114,6 +115,11 @@
     <string name="remove_app_shortcuts_summary">TikTok کے لانچر آئیکن سے اس کے شارٹ کٹس ہٹاتا ہے۔</string>
     <string name="hide_region_popups">علاقائی پاپ اپس چھپائیں</string>
     <string name="hide_region_popups_summary">ان فیچرز کے پاپ اپس چھپاتا ہے جو آپ کے علاقے میں دستیاب نہیں۔</string>
+    <string name="hide_shop_tab">Shop ٹیب چھپائیں</string>
+    <string name="hide_shop_tab_summary">For You سے سوائپ کرنے پر اب Shop نہیں کھلتا۔</string>
+    <string name="hide_friends_tab">Friends ٹیب چھپائیں</string>
+    <string name="hide_create_button">بنانے کا بٹن چھپائیں</string>
+    <string name="hide_create_button_summary">نیویگیشن بار سے + ہٹاتا ہے۔</string>
     <string name="hide_inbox_stories">اسٹوریز چھپائیں</string>
     <string name="hide_inbox_suggestions">تجویز کردہ اکاؤنٹس چھپائیں</string>
     <string name="hide_inbox_suggestions_summary">نئے فالوورز میں بھی۔</string>

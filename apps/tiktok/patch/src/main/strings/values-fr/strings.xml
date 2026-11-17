@@ -16,6 +16,8 @@
     <string name="hide_feed_content_description">Masque les types de publications de votre choix, comme les LIVE, Shop ou les publications générées par IA.</string>
     <string name="inbox">Boîte de réception</string>
     <string name="inbox_description">Masque les sections de votre choix dans la Boîte de réception, comme les stories et les comptes suggérés.</string>
+    <string name="navigation_tabs">Onglets de navigation</string>
+    <string name="navigation_tabs_description">Masque les onglets de votre choix, comme Shop, Amis et le bouton de création.</string>
     <string name="always_show_seek_bar">Toujours afficher la barre de progression</string>
     <string name="always_show_seek_bar_description">Affiche la barre de progression sur toutes les vidéos, pas seulement les longues.</string>
     <string name="disable_like_long_press">Désactiver l’appui long sur J’aime</string>

@@ -16,6 +16,8 @@
     <string name="hide_feed_content_description">CANLI, Mağaza veya yapay zeka ile oluşturulmuş gönderiler gibi seçilen gönderi türlerini gizler.</string>
     <string name="inbox">Gelen Kutusu</string>
     <string name="inbox_description">Gelen Kutusu\'nda hikayeler ve önerilen hesaplar gibi seçilen bölümleri gizler.</string>
+    <string name="navigation_tabs">Gezinme sekmeleri</string>
+    <string name="navigation_tabs_description">Mağaza, Arkadaşlar ve oluştur düğmesi gibi seçilen sekmeleri gizler.</string>
     <string name="always_show_seek_bar">İlerleme çubuğunu her zaman göster</string>
     <string name="always_show_seek_bar_description">İlerleme çubuğunu yalnızca uzun videolarda değil, her videoda gösterir.</string>
     <string name="disable_like_long_press">Beğeniye uzun basmayı kapat</string>

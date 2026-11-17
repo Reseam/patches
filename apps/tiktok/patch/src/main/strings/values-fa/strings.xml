@@ -16,6 +16,8 @@
     <string name="hide_feed_content_description">انواع انتخاب‌شده‌ای از پست‌ها، مثل LIVE، فروشگاه یا پست‌های ساخته‌شده با هوش مصنوعی را پنهان می‌کند.</string>
     <string name="inbox">صندوق پیام</string>
     <string name="inbox_description">بخش‌های انتخاب‌شدهٔ صندوق پیام، مثل استوری‌ها و حساب‌های پیشنهادی را پنهان می‌کند.</string>
+    <string name="navigation_tabs">برگه‌های پیمایش</string>
+    <string name="navigation_tabs_description">برگه‌های انتخاب‌شده، مثل فروشگاه، دوستان و دکمهٔ ساخت را پنهان می‌کند.</string>
     <string name="always_show_seek_bar">نمایش همیشگی نوار پیشرفت</string>
     <string name="always_show_seek_bar_description">نوار پیشرفت را روی همهٔ ویدیوها نشان می‌دهد، نه فقط ویدیوهای طولانی.</string>
     <string name="disable_like_long_press">غیرفعال کردن لمس طولانی پسند</string>

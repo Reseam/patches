@@ -12,6 +12,7 @@
     <string name="section_inbox">Hộp thư</string>
     <string name="section_messages">Tin nhắn</string>
     <string name="section_search">Tìm kiếm</string>
+    <string name="section_navigation">Điều hướng</string>
     <string name="section_links">Đường liên kết</string>
     <string name="section_advanced">Nâng cao</string>
     <string name="page_feed">Bảng feed</string>
@@ -114,6 +115,11 @@
     <string name="remove_app_shortcuts_summary">Gỡ các lối tắt của TikTok khỏi biểu tượng trình chạy.</string>
     <string name="hide_region_popups">Ẩn cửa sổ bật lên về khu vực</string>
     <string name="hide_region_popups_summary">Ẩn cửa sổ bật lên về các tính năng không có ở khu vực của bạn.</string>
+    <string name="hide_shop_tab">Ẩn tab Shop</string>
+    <string name="hide_shop_tab_summary">Vuốt từ Dành cho bạn không còn mở Shop.</string>
+    <string name="hide_friends_tab">Ẩn tab Bạn bè</string>
+    <string name="hide_create_button">Ẩn nút tạo</string>
+    <string name="hide_create_button_summary">Bỏ dấu + khỏi thanh điều hướng.</string>
     <string name="hide_inbox_stories">Ẩn tin</string>
     <string name="hide_inbox_suggestions">Ẩn tài khoản đề xuất</string>
     <string name="hide_inbox_suggestions_summary">Áp dụng cả trong Người theo dõi mới.</string>

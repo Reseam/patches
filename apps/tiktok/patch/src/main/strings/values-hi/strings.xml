@@ -16,6 +16,8 @@
     <string name="hide_feed_content_description">चुनी हुई तरह की पोस्ट छिपाता है, जैसे LIVE, Shop या AI से बनी पोस्ट।</string>
     <string name="inbox">इनबॉक्स</string>
     <string name="inbox_description">Inbox के चुने हुए हिस्से छिपाता है, जैसे स्टोरी और सुझाए गए अकाउंट।</string>
+    <string name="navigation_tabs">नेविगेशन टैब</string>
+    <string name="navigation_tabs_description">चुने हुए टैब छिपाता है, जैसे Shop, Friends और बनाने का बटन।</string>
     <string name="always_show_seek_bar">प्रोग्रेस बार हमेशा दिखाएँ</string>
     <string name="always_show_seek_bar_description">प्रोग्रेस बार हर वीडियो पर दिखाता है, सिर्फ़ लंबे वीडियो पर नहीं।</string>
     <string name="disable_like_long_press">लाइक को देर तक दबाना बंद करें</string>

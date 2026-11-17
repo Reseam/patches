@@ -12,6 +12,7 @@
     <string name="section_inbox">받은편지함</string>
     <string name="section_messages">메시지</string>
     <string name="section_search">검색</string>
+    <string name="section_navigation">탐색</string>
     <string name="section_links">링크</string>
     <string name="section_advanced">고급</string>
     <string name="page_feed">피드</string>
@@ -114,6 +115,11 @@
     <string name="remove_app_shortcuts_summary">TikTok 런처 아이콘의 바로가기를 제거합니다.</string>
     <string name="hide_region_popups">지역 팝업 숨기기</string>
     <string name="hide_region_popups_summary">내 지역에서 사용할 수 없는 기능에 대한 팝업을 숨깁니다.</string>
+    <string name="hide_shop_tab">Shop 탭 숨기기</string>
+    <string name="hide_shop_tab_summary">추천에서 스와이프해도 Shop이 열리지 않습니다.</string>
+    <string name="hide_friends_tab">친구 탭 숨기기</string>
+    <string name="hide_create_button">만들기 버튼 숨기기</string>
+    <string name="hide_create_button_summary">탐색 바에서 +를 없앱니다.</string>
     <string name="hide_inbox_stories">스토리 숨기기</string>
     <string name="hide_inbox_suggestions">추천 계정 숨기기</string>
     <string name="hide_inbox_suggestions_summary">새 팔로워에도 적용됩니다.</string>

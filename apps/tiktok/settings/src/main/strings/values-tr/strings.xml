@@ -12,6 +12,7 @@
     <string name="section_inbox">Gelen Kutusu</string>
     <string name="section_messages">Mesajlar</string>
     <string name="section_search">Arama</string>
+    <string name="section_navigation">Gezinme</string>
     <string name="section_links">Bağlantılar</string>
     <string name="section_advanced">Gelişmiş</string>
     <string name="page_feed">Akış</string>
@@ -114,6 +115,11 @@
     <string name="remove_app_shortcuts_summary">TikTok\'un başlatıcı simgesindeki kısayolları kaldırır.</string>
     <string name="hide_region_popups">Bölge açılır pencerelerini gizle</string>
     <string name="hide_region_popups_summary">Bölgenizde olmayan özelliklerle ilgili açılır pencereleri gizler.</string>
+    <string name="hide_shop_tab">Mağaza sekmesini gizle</string>
+    <string name="hide_shop_tab_summary">Sana Özel\'den kaydırınca artık Mağaza açılmaz.</string>
+    <string name="hide_friends_tab">Arkadaşlar sekmesini gizle</string>
+    <string name="hide_create_button">Oluştur düğmesini gizle</string>
+    <string name="hide_create_button_summary">Gezinme çubuğundaki + işaretini kaldırır.</string>
     <string name="hide_inbox_stories">Hikayeleri gizle</string>
     <string name="hide_inbox_suggestions">Önerilen hesapları gizle</string>
     <string name="hide_inbox_suggestions_summary">Yeni takipçiler\'de de.</string>

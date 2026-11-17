@@ -16,6 +16,8 @@
     <string name="hide_feed_content_description">منتخب قسم کی پوسٹس چھپاتا ہے، جیسے LIVE، Shop یا AI سے بنی پوسٹس۔</string>
     <string name="inbox">ان باکس</string>
     <string name="inbox_description">ان باکس کے منتخب حصے چھپاتا ہے، جیسے اسٹوریز اور تجویز کردہ اکاؤنٹس۔</string>
+    <string name="navigation_tabs">نیویگیشن ٹیبز</string>
+    <string name="navigation_tabs_description">منتخب ٹیبز چھپاتا ہے، جیسے Shop، Friends اور بنانے کا بٹن۔</string>
     <string name="always_show_seek_bar">سیک بار ہمیشہ دکھائیں</string>
     <string name="always_show_seek_bar_description">صرف لمبی ویڈیوز پر نہیں، ہر ویڈیو پر سیک بار دکھاتا ہے۔</string>
     <string name="disable_like_long_press">پسند کو دیر تک دبانا غیر فعال کریں</string>

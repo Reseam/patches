@@ -16,6 +16,8 @@
     <string name="hide_feed_content_description">Oculta los tipos de publicaciones que elijas, como LIVE, Shop o las generadas con IA.</string>
     <string name="inbox">Bandeja de entrada</string>
     <string name="inbox_description">Oculta las secciones que elijas de la Bandeja de entrada, como historias y cuentas sugeridas.</string>
+    <string name="navigation_tabs">Pestañas de navegación</string>
+    <string name="navigation_tabs_description">Oculta las pestañas que elijas, como Shop, Amigos y el botón de crear.</string>
     <string name="always_show_seek_bar">Mostrar siempre la barra de progreso</string>
     <string name="always_show_seek_bar_description">Muestra la barra de progreso en todos los videos, no solo en los largos.</string>
     <string name="disable_like_long_press">Desactivar pulsación larga de Me gusta</string>

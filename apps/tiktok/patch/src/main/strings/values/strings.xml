@@ -16,6 +16,8 @@
     <string name="hide_feed_content_description">Hides chosen kinds of posts, such as LIVE, Shop or AI-generated posts.</string>
     <string name="inbox">Inbox</string>
     <string name="inbox_description">Hides chosen sections of the Inbox, such as stories and suggested accounts.</string>
+    <string name="navigation_tabs">Navigation tabs</string>
+    <string name="navigation_tabs_description">Hides chosen tabs, such as Shop, Friends and the create button.</string>
     <string name="always_show_seek_bar">Always show the seekbar</string>
     <string name="always_show_seek_bar_description">Shows the seekbar on every video, not only long ones.</string>
     <string name="disable_like_long_press">Disable like long-press</string>

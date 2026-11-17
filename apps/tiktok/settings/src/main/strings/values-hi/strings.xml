@@ -12,6 +12,7 @@
     <string name="section_inbox">इनबॉक्स</string>
     <string name="section_messages">मैसेज</string>
     <string name="section_search">खोज</string>
+    <string name="section_navigation">नेविगेशन</string>
     <string name="section_links">लिंक</string>
     <string name="section_advanced">एडवांस</string>
     <string name="page_feed">फ़ीड</string>
@@ -114,6 +115,11 @@
     <string name="remove_app_shortcuts_summary">लॉन्चर आइकन से TikTok के शॉर्टकट हटाता है।</string>
     <string name="hide_region_popups">क्षेत्र वाले पॉप-अप छिपाएँ</string>
     <string name="hide_region_popups_summary">उन फ़ीचर के पॉप-अप छिपाता है जो आपके क्षेत्र में नहीं हैं।</string>
+    <string name="hide_shop_tab">Shop टैब छिपाएँ</string>
+    <string name="hide_shop_tab_summary">For You से स्वाइप करने पर अब Shop नहीं खुलता।</string>
+    <string name="hide_friends_tab">Friends टैब छिपाएँ</string>
+    <string name="hide_create_button">बनाने का बटन छिपाएँ</string>
+    <string name="hide_create_button_summary">नेविगेशन बार से + हटाता है।</string>
     <string name="hide_inbox_stories">स्टोरी छिपाएँ</string>
     <string name="hide_inbox_suggestions">सुझाए गए अकाउंट छिपाएँ</string>
     <string name="hide_inbox_suggestions_summary">New followers में भी।</string>

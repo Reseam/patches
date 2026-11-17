@@ -12,6 +12,7 @@
     <string name="section_inbox">Bandeja de entrada</string>
     <string name="section_messages">Mensajes</string>
     <string name="section_search">Búsqueda</string>
+    <string name="section_navigation">Navegación</string>
     <string name="section_links">Enlaces</string>
     <string name="section_advanced">Avanzado</string>
     <string name="page_feed">Feed</string>
@@ -114,6 +115,11 @@
     <string name="remove_app_shortcuts_summary">Quita los accesos directos de TikTok de su icono en el launcher.</string>
     <string name="hide_region_popups">Ocultar avisos de región</string>
     <string name="hide_region_popups_summary">Oculta los avisos sobre funciones que no están en tu región.</string>
+    <string name="hide_shop_tab">Ocultar pestaña Shop</string>
+    <string name="hide_shop_tab_summary">Deslizar desde Para ti ya no abre Shop.</string>
+    <string name="hide_friends_tab">Ocultar pestaña Amigos</string>
+    <string name="hide_create_button">Ocultar botón de crear</string>
+    <string name="hide_create_button_summary">Quita el + de la barra de navegación.</string>
     <string name="hide_inbox_stories">Ocultar historias</string>
     <string name="hide_inbox_suggestions">Ocultar cuentas sugeridas</string>
     <string name="hide_inbox_suggestions_summary">También en Nuevos seguidores.</string>

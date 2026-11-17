@@ -16,6 +16,8 @@
     <string name="hide_feed_content_description">Menyembunyikan jenis postingan yang dipilih, seperti LIVE, Shop, atau postingan buatan AI.</string>
     <string name="inbox">Kotak Masuk</string>
     <string name="inbox_description">Menyembunyikan bagian Kotak Masuk yang dipilih, seperti cerita dan akun yang disarankan.</string>
+    <string name="navigation_tabs">Tab navigasi</string>
+    <string name="navigation_tabs_description">Menyembunyikan tab yang dipilih, seperti Shop, Teman, dan tombol buat.</string>
     <string name="always_show_seek_bar">Selalu tampilkan bilah putar</string>
     <string name="always_show_seek_bar_description">Menampilkan bilah putar di setiap video, tidak hanya di video panjang.</string>
     <string name="disable_like_long_press">Nonaktifkan tekan lama suka</string>

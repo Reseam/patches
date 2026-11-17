@@ -16,6 +16,8 @@
     <string name="hide_feed_content_description">Nasconde i tipi di post che scegli, come LIVE, Shop o post generati dall’IA.</string>
     <string name="inbox">Posta</string>
     <string name="inbox_description">Nasconde le sezioni che scegli della Posta, come storie e account suggeriti.</string>
+    <string name="navigation_tabs">Schede di navigazione</string>
+    <string name="navigation_tabs_description">Nasconde le schede che scegli, come Shop, Amici e il pulsante di creazione.</string>
     <string name="always_show_seek_bar">Mostra sempre la barra di avanzamento</string>
     <string name="always_show_seek_bar_description">Mostra la barra di avanzamento su ogni video, non solo su quelli lunghi.</string>
     <string name="disable_like_long_press">Disattiva la pressione prolungata su Mi piace</string>

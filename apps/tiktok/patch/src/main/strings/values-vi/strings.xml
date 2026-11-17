@@ -16,6 +16,8 @@
     <string name="hide_feed_content_description">Ẩn các loại bài viết đã chọn, như LIVE, Shop hoặc bài viết do AI tạo.</string>
     <string name="inbox">Hộp thư</string>
     <string name="inbox_description">Ẩn các mục đã chọn trong Hộp thư, như tin và tài khoản đề xuất.</string>
+    <string name="navigation_tabs">Tab điều hướng</string>
+    <string name="navigation_tabs_description">Ẩn các tab đã chọn, như Shop, Bạn bè và nút tạo.</string>
     <string name="always_show_seek_bar">Luôn hiện thanh tiến trình</string>
     <string name="always_show_seek_bar_description">Hiện thanh tiến trình trên mọi video, không chỉ video dài.</string>
     <string name="disable_like_long_press">Tắt nhấn giữ nút thích</string>

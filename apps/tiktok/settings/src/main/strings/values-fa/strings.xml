@@ -12,6 +12,7 @@
     <string name="section_inbox">صندوق پیام</string>
     <string name="section_messages">پیام‌ها</string>
     <string name="section_search">جستجو</string>
+    <string name="section_navigation">پیمایش</string>
     <string name="section_links">پیوندها</string>
     <string name="section_advanced">پیشرفته</string>
     <string name="page_feed">فید</string>
@@ -114,6 +115,11 @@
     <string name="remove_app_shortcuts_summary">میان‌برهای TikTok را از نماد آن در صفحهٔ اصلی حذف می‌کند.</string>
     <string name="hide_region_popups">پنهان کردن پنجره‌های منطقه</string>
     <string name="hide_region_popups_summary">پنجره‌های مربوط به ویژگی‌هایی را که در منطقهٔ شما در دسترس نیستند پنهان می‌کند.</string>
+    <string name="hide_shop_tab">پنهان کردن برگهٔ فروشگاه</string>
+    <string name="hide_shop_tab_summary">کشیدن از «برای شما» دیگر فروشگاه را باز نمی‌کند.</string>
+    <string name="hide_friends_tab">پنهان کردن برگهٔ دوستان</string>
+    <string name="hide_create_button">پنهان کردن دکمهٔ ساخت</string>
+    <string name="hide_create_button_summary">علامت + را از نوار پیمایش برمی‌دارد.</string>
     <string name="hide_inbox_stories">پنهان کردن استوری‌ها</string>
     <string name="hide_inbox_suggestions">پنهان کردن حساب‌های پیشنهادی</string>
     <string name="hide_inbox_suggestions_summary">در «دنبال‌کنندگان جدید» هم.</string>

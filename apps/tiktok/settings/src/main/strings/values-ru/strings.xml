@@ -12,6 +12,7 @@
     <string name="section_inbox">Входящие</string>
     <string name="section_messages">Сообщения</string>
     <string name="section_search">Поиск</string>
+    <string name="section_navigation">Навигация</string>
     <string name="section_links">Ссылки</string>
     <string name="section_advanced">Дополнительно</string>
     <string name="page_feed">Лента</string>
@@ -114,6 +115,11 @@
     <string name="remove_app_shortcuts_summary">Убирает ярлыки TikTok с его значка в лаунчере.</string>
     <string name="hide_region_popups">Скрыть всплывающие окна о регионе</string>
     <string name="hide_region_popups_summary">Скрывает окна о функциях, недоступных в вашем регионе.</string>
+    <string name="hide_shop_tab">Скрыть вкладку Shop</string>
+    <string name="hide_shop_tab_summary">Свайп из «Рекомендаций» больше не открывает Shop.</string>
+    <string name="hide_friends_tab">Скрыть вкладку «Друзья»</string>
+    <string name="hide_create_button">Скрыть кнопку создания</string>
+    <string name="hide_create_button_summary">Убирает + с панели навигации.</string>
     <string name="hide_inbox_stories">Скрыть истории</string>
     <string name="hide_inbox_suggestions">Скрыть рекомендуемые аккаунты</string>
     <string name="hide_inbox_suggestions_summary">В том числе в разделе новых подписчиков.</string>

@@ -16,6 +16,8 @@
     <string name="hide_feed_content_description">Приховує вибрані типи дописів, наприклад LIVE, Shop або створені ШІ.</string>
     <string name="inbox">Вхідні</string>
     <string name="inbox_description">Приховує вибрані розділи «Вхідних», наприклад історії й рекомендовані акаунти.</string>
+    <string name="navigation_tabs">Вкладки навігації</string>
+    <string name="navigation_tabs_description">Приховує вибрані вкладки, наприклад Shop, «Друзі» і кнопку створення.</string>
     <string name="always_show_seek_bar">Завжди показувати повзунок</string>
     <string name="always_show_seek_bar_description">Показує повзунок на кожному відео, а не лише на довгих.</string>
     <string name="disable_like_long_press">Вимкнути довге натискання вподобання</string>

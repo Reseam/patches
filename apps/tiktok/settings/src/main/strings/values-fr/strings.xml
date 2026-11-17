@@ -12,6 +12,7 @@
     <string name="section_inbox">Boîte de réception</string>
     <string name="section_messages">Messages</string>
     <string name="section_search">Recherche</string>
+    <string name="section_navigation">Navigation</string>
     <string name="section_links">Liens</string>
     <string name="section_advanced">Avancé</string>
     <string name="page_feed">Fil</string>
@@ -114,6 +115,11 @@
     <string name="remove_app_shortcuts_summary">Retire les raccourcis de TikTok de son icône dans le lanceur.</string>
     <string name="hide_region_popups">Masquer les pop-ups de région</string>
     <string name="hide_region_popups_summary">Masque les pop-ups sur les fonctionnalités absentes de votre région.</string>
+    <string name="hide_shop_tab">Masquer l’onglet Shop</string>
+    <string name="hide_shop_tab_summary">Balayer depuis Pour toi n’ouvre plus Shop.</string>
+    <string name="hide_friends_tab">Masquer l’onglet Amis</string>
+    <string name="hide_create_button">Masquer le bouton de création</string>
+    <string name="hide_create_button_summary">Retire le + de la barre de navigation.</string>
     <string name="hide_inbox_stories">Masquer les stories</string>
     <string name="hide_inbox_suggestions">Masquer les comptes suggérés</string>
     <string name="hide_inbox_suggestions_summary">Aussi dans Nouveaux followers.</string>

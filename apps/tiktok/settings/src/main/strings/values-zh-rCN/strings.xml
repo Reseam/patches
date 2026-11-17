@@ -12,6 +12,7 @@
     <string name="section_inbox">收件箱</string>
     <string name="section_messages">消息</string>
     <string name="section_search">搜索</string>
+    <string name="section_navigation">导航</string>
     <string name="section_links">链接</string>
     <string name="section_advanced">高级</string>
     <string name="page_feed">动态</string>
@@ -114,6 +115,11 @@
     <string name="remove_app_shortcuts_summary">移除 TikTok 启动器图标上的快捷方式。</string>
     <string name="hide_region_popups">隐藏地区弹窗</string>
     <string name="hide_region_popups_summary">隐藏关于你所在地区不可用功能的弹窗。</string>
+    <string name="hide_shop_tab">隐藏 Shop 标签</string>
+    <string name="hide_shop_tab_summary">从“推荐”滑动时不再打开 Shop。</string>
+    <string name="hide_friends_tab">隐藏朋友标签</string>
+    <string name="hide_create_button">隐藏创作按钮</string>
+    <string name="hide_create_button_summary">从导航栏移除 +。</string>
     <string name="hide_inbox_stories">隐藏快拍</string>
     <string name="hide_inbox_suggestions">隐藏推荐帐户</string>
     <string name="hide_inbox_suggestions_summary">“新粉丝”中也适用。</string>

@@ -16,6 +16,8 @@
     <string name="hide_feed_content_description">Blendet ausgewählte Arten von Beiträgen aus, etwa LIVE, Shop oder KI-generierte Beiträge.</string>
     <string name="inbox">Postfach</string>
     <string name="inbox_description">Blendet ausgewählte Bereiche des Postfachs aus, etwa Stories und vorgeschlagene Konten.</string>
+    <string name="navigation_tabs">Navigations-Tabs</string>
+    <string name="navigation_tabs_description">Blendet ausgewählte Tabs aus, etwa Shop, Freunde und die Erstellen-Schaltfläche.</string>
     <string name="always_show_seek_bar">Fortschrittsleiste immer anzeigen</string>
     <string name="always_show_seek_bar_description">Zeigt die Fortschrittsleiste bei jedem Video, nicht nur bei langen.</string>
     <string name="disable_like_long_press">Langes Drücken auf „Gefällt mir“ deaktivieren</string>

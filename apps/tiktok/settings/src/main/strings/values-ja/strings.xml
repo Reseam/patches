@@ -12,6 +12,7 @@
     <string name="section_inbox">受信箱</string>
     <string name="section_messages">メッセージ</string>
     <string name="section_search">検索</string>
+    <string name="section_navigation">ナビゲーション</string>
     <string name="section_links">リンク</string>
     <string name="section_advanced">詳細設定</string>
     <string name="page_feed">フィード</string>
@@ -114,6 +115,11 @@
     <string name="remove_app_shortcuts_summary">ランチャーアイコンから TikTok のショートカットを削除します。</string>
     <string name="hide_region_popups">地域のポップアップを非表示</string>
     <string name="hide_region_popups_summary">お住まいの地域にない機能についてのポップアップを非表示にします。</string>
+    <string name="hide_shop_tab">Shop タブを非表示</string>
+    <string name="hide_shop_tab_summary">おすすめからスワイプしても Shop が開かなくなります。</string>
+    <string name="hide_friends_tab">友達タブを非表示</string>
+    <string name="hide_create_button">作成ボタンを非表示</string>
+    <string name="hide_create_button_summary">ナビゲーションバーから + を削除します。</string>
     <string name="hide_inbox_stories">ストーリーズを非表示</string>
     <string name="hide_inbox_suggestions">おすすめのアカウントを非表示</string>
     <string name="hide_inbox_suggestions_summary">新しいフォロワーにも適用します。</string>

@@ -16,6 +16,8 @@
     <string name="hide_feed_content_description">隱藏選取的貼文類型，例如直播、商店或 AI 生成的貼文。</string>
     <string name="inbox">收件匣</string>
     <string name="inbox_description">隱藏收件匣中選取的區塊，例如限時動態和推薦帳號。</string>
+    <string name="navigation_tabs">導覽分頁</string>
+    <string name="navigation_tabs_description">隱藏所選分頁，例如 Shop、朋友和建立按鈕。</string>
     <string name="always_show_seek_bar">一律顯示進度列</string>
     <string name="always_show_seek_bar_description">在每部影片上顯示進度列，而不只是長影片。</string>
     <string name="disable_like_long_press">停用長按按讚</string>

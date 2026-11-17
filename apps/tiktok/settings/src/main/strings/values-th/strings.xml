@@ -12,6 +12,7 @@
     <string name="section_inbox">กล่องข้อความ</string>
     <string name="section_messages">ข้อความ</string>
     <string name="section_search">ค้นหา</string>
+    <string name="section_navigation">การนำทาง</string>
     <string name="section_links">ลิงก์</string>
     <string name="section_advanced">ขั้นสูง</string>
     <string name="page_feed">ฟีด</string>
@@ -114,6 +115,11 @@
     <string name="remove_app_shortcuts_summary">นำทางลัดของ TikTok ออกจากไอคอนตัวเปิดแอป</string>
     <string name="hide_region_popups">ซ่อนป๊อปอัปเกี่ยวกับภูมิภาค</string>
     <string name="hide_region_popups_summary">ซ่อนป๊อปอัปเกี่ยวกับฟีเจอร์ที่ไม่พร้อมใช้งานในภูมิภาคของคุณ</string>
+    <string name="hide_shop_tab">ซ่อนแท็บ Shop</string>
+    <string name="hide_shop_tab_summary">ปัดจากสำหรับคุณจะไม่เปิด Shop อีก</string>
+    <string name="hide_friends_tab">ซ่อนแท็บเพื่อน</string>
+    <string name="hide_create_button">ซ่อนปุ่มสร้าง</string>
+    <string name="hide_create_button_summary">นำเครื่องหมาย + ออกจากแถบนำทาง</string>
     <string name="hide_inbox_stories">ซ่อนสตอรี่</string>
     <string name="hide_inbox_suggestions">ซ่อนบัญชีแนะนำ</string>
     <string name="hide_inbox_suggestions_summary">ใช้ในผู้ติดตามใหม่ด้วย</string>

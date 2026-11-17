@@ -12,6 +12,7 @@
     <string name="section_inbox">Skrzynka odbiorcza</string>
     <string name="section_messages">Wiadomości</string>
     <string name="section_search">Wyszukiwanie</string>
+    <string name="section_navigation">Nawigacja</string>
     <string name="section_links">Linki</string>
     <string name="section_advanced">Zaawansowane</string>
     <string name="page_feed">Aktualności</string>
@@ -114,6 +115,11 @@
     <string name="remove_app_shortcuts_summary">Usuwa skróty TikToka z ikony w launcherze.</string>
     <string name="hide_region_popups">Ukryj okna regionalne</string>
     <string name="hide_region_popups_summary">Ukrywa okna o funkcjach niedostępnych w twoim regionie.</string>
+    <string name="hide_shop_tab">Ukryj kartę Shop</string>
+    <string name="hide_shop_tab_summary">Przesunięcie z Dla Ciebie nie otwiera już Shop.</string>
+    <string name="hide_friends_tab">Ukryj kartę Znajomi</string>
+    <string name="hide_create_button">Ukryj przycisk tworzenia</string>
+    <string name="hide_create_button_summary">Usuwa + z paska nawigacji.</string>
     <string name="hide_inbox_stories">Ukryj relacje</string>
     <string name="hide_inbox_suggestions">Ukryj proponowane konta</string>
     <string name="hide_inbox_suggestions_summary">Także w sekcji Nowi obserwujący.</string>

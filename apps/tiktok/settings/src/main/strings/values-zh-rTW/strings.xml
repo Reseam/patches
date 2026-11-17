@@ -12,6 +12,7 @@
     <string name="section_inbox">收件匣</string>
     <string name="section_messages">訊息</string>
     <string name="section_search">搜尋</string>
+    <string name="section_navigation">導覽</string>
     <string name="section_links">連結</string>
     <string name="section_advanced">進階</string>
     <string name="page_feed">動態消息</string>
@@ -114,6 +115,11 @@
     <string name="remove_app_shortcuts_summary">移除 TikTok 啟動器圖示上的捷徑。</string>
     <string name="hide_region_popups">隱藏地區彈出視窗</string>
     <string name="hide_region_popups_summary">隱藏關於你所在地區無法使用之功能的彈出視窗。</string>
+    <string name="hide_shop_tab">隱藏 Shop 分頁</string>
+    <string name="hide_shop_tab_summary">從「為你推薦」滑動時不再開啟 Shop。</string>
+    <string name="hide_friends_tab">隱藏朋友分頁</string>
+    <string name="hide_create_button">隱藏建立按鈕</string>
+    <string name="hide_create_button_summary">從導覽列移除 +。</string>
     <string name="hide_inbox_stories">隱藏限時動態</string>
     <string name="hide_inbox_suggestions">隱藏推薦帳號</string>
     <string name="hide_inbox_suggestions_summary">「新粉絲」中也適用。</string>

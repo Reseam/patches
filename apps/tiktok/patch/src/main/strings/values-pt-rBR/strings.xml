@@ -16,6 +16,8 @@
     <string name="hide_feed_content_description">Oculta os tipos de post escolhidos, como LIVE, Shop ou posts gerados por IA.</string>
     <string name="inbox">Caixa de entrada</string>
     <string name="inbox_description">Oculta as seções escolhidas da Caixa de entrada, como stories e contas sugeridas.</string>
+    <string name="navigation_tabs">Abas de navegação</string>
+    <string name="navigation_tabs_description">Oculta as abas escolhidas, como Shop, Amigos e o botão de criar.</string>
     <string name="always_show_seek_bar">Sempre mostrar a barra de progresso</string>
     <string name="always_show_seek_bar_description">Mostra a barra de progresso em todos os vídeos, não só nos longos.</string>
     <string name="disable_like_long_press">Desativar toque longo em Curtir</string>

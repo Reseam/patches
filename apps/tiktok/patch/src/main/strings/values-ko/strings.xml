@@ -16,6 +16,8 @@
     <string name="hide_feed_content_description">LIVE, Shop, AI 생성 게시물 등 선택한 유형의 게시물을 숨깁니다.</string>
     <string name="inbox">받은편지함</string>
     <string name="inbox_description">스토리, 추천 계정 등 받은편지함에서 선택한 섹션을 숨깁니다.</string>
+    <string name="navigation_tabs">탐색 탭</string>
+    <string name="navigation_tabs_description">Shop, 친구, 만들기 버튼 등 선택한 탭을 숨깁니다.</string>
     <string name="always_show_seek_bar">항상 탐색 바 표시</string>
     <string name="always_show_seek_bar_description">긴 동영상뿐 아니라 모든 동영상에 탐색 바를 표시합니다.</string>
     <string name="disable_like_long_press">좋아요 길게 누르기 사용 중지</string>

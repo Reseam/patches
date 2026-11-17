@@ -12,6 +12,7 @@
     <string name="section_inbox">Postfach</string>
     <string name="section_messages">Nachrichten</string>
     <string name="section_search">Suche</string>
+    <string name="section_navigation">Navigation</string>
     <string name="section_links">Links</string>
     <string name="section_advanced">Erweitert</string>
     <string name="page_feed">Feed</string>
@@ -114,6 +115,11 @@
     <string name="remove_app_shortcuts_summary">Entfernt TikToks Verknüpfungen von seinem Launcher-Symbol.</string>
     <string name="hide_region_popups">Regions-Pop-ups ausblenden</string>
     <string name="hide_region_popups_summary">Blendet Pop-ups zu Funktionen aus, die es in deiner Region nicht gibt.</string>
+    <string name="hide_shop_tab">Shop-Tab ausblenden</string>
+    <string name="hide_shop_tab_summary">Wischen von „Für dich“ öffnet nicht mehr den Shop.</string>
+    <string name="hide_friends_tab">Freunde-Tab ausblenden</string>
+    <string name="hide_create_button">Erstellen-Schaltfläche ausblenden</string>
+    <string name="hide_create_button_summary">Entfernt das + aus der Navigationsleiste.</string>
     <string name="hide_inbox_stories">Stories ausblenden</string>
     <string name="hide_inbox_suggestions">Vorgeschlagene Konten ausblenden</string>
     <string name="hide_inbox_suggestions_summary">Auch unter Neue Follower.</string>

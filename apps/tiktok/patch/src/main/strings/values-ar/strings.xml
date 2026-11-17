@@ -16,6 +16,8 @@
     <string name="hide_feed_content_description">يُخفي أنواعًا تختارها من المنشورات، مثل LIVE أو Shop أو المنشورات المُنشأة بالذكاء الاصطناعي.</string>
     <string name="inbox">البريد الوارد</string>
     <string name="inbox_description">يُخفي أقسامًا تختارها من البريد الوارد، مثل القصص والحسابات المقترحة.</string>
+    <string name="navigation_tabs">علامات تبويب التنقل</string>
+    <string name="navigation_tabs_description">يُخفي علامات تبويب تختارها، مثل Shop والأصدقاء وزر الإنشاء.</string>
     <string name="always_show_seek_bar">إظهار شريط التقدم دائمًا</string>
     <string name="always_show_seek_bar_description">يعرض شريط التقدم في كل الفيديوهات، وليس الطويلة فقط.</string>
     <string name="disable_like_long_press">تعطيل الضغط مع الاستمرار على الإعجاب</string>

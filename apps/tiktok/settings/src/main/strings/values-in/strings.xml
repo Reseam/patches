@@ -12,6 +12,7 @@
     <string name="section_inbox">Kotak Masuk</string>
     <string name="section_messages">Pesan</string>
     <string name="section_search">Pencarian</string>
+    <string name="section_navigation">Navigasi</string>
     <string name="section_links">Link</string>
     <string name="section_advanced">Lanjutan</string>
     <string name="page_feed">Feed</string>
@@ -114,6 +115,11 @@
     <string name="remove_app_shortcuts_summary">Menghapus pintasan TikTok dari ikon peluncurnya.</string>
     <string name="hide_region_popups">Sembunyikan pop-up wilayah</string>
     <string name="hide_region_popups_summary">Menyembunyikan pop-up tentang fitur yang tidak tersedia di wilayah Anda.</string>
+    <string name="hide_shop_tab">Sembunyikan tab Shop</string>
+    <string name="hide_shop_tab_summary">Menggeser dari Untuk Anda tidak lagi membuka Shop.</string>
+    <string name="hide_friends_tab">Sembunyikan tab Teman</string>
+    <string name="hide_create_button">Sembunyikan tombol buat</string>
+    <string name="hide_create_button_summary">Menghapus tanda + dari bilah navigasi.</string>
     <string name="hide_inbox_stories">Sembunyikan cerita</string>
     <string name="hide_inbox_suggestions">Sembunyikan akun yang disarankan</string>
     <string name="hide_inbox_suggestions_summary">Juga di Pengikut baru.</string>

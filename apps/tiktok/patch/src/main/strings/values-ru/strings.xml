@@ -16,6 +16,8 @@
     <string name="hide_feed_content_description">Скрывает выбранные виды публикаций, например LIVE, Shop или созданные ИИ.</string>
     <string name="inbox">Входящие</string>
     <string name="inbox_description">Скрывает выбранные разделы входящих, например истории и рекомендуемые аккаунты.</string>
+    <string name="navigation_tabs">Вкладки навигации</string>
+    <string name="navigation_tabs_description">Скрывает выбранные вкладки, например Shop, «Друзья» и кнопку создания.</string>
     <string name="always_show_seek_bar">Всегда показывать полосу перемотки</string>
     <string name="always_show_seek_bar_description">Показывает полосу перемотки на каждом видео, а не только на длинных.</string>
     <string name="disable_like_long_press">Отключить долгое нажатие на «Нравится»</string>

@@ -16,6 +16,8 @@
     <string name="hide_feed_content_description">LIVE、Shop、AI 生成の投稿など、選んだ種類の投稿を非表示にします。</string>
     <string name="inbox">受信箱</string>
     <string name="inbox_description">ストーリーズやおすすめアカウントなど、受信箱の選んだセクションを非表示にします。</string>
+    <string name="navigation_tabs">ナビゲーションタブ</string>
+    <string name="navigation_tabs_description">Shop、友達、作成ボタンなど、選んだタブを非表示にします。</string>
     <string name="always_show_seek_bar">シークバーを常に表示</string>
     <string name="always_show_seek_bar_description">長い動画だけでなく、すべての動画にシークバーを表示します。</string>
     <string name="disable_like_long_press">いいねの長押しを無効にする</string>

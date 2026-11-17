@@ -110,6 +110,9 @@ object InterfaceSettings : SettingsGroup(TikTokStrings) {
     val disableSearchAutoplay by toggle(default = false, icon = Vector.lucide("circle-pause"))
     val removeAppShortcuts by toggle(default = false, icon = Vector.lucide("list-x"))
     val hideRegionPopups by toggle(default = true, icon = Vector.lucide("triangle-alert"))
+    val hideShopTab by toggle(default = false, icon = Vector.lucide("shopping-bag"))
+    val hideFriendsTab by toggle(default = false, icon = Vector.lucide("users"))
+    val hideCreateButton by toggle(default = false, icon = Vector.lucide("square-plus"))
 }
 
 object InboxSettings : SettingsGroup(TikTokStrings) {

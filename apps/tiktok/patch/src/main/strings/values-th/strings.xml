@@ -16,6 +16,8 @@
     <string name="hide_feed_content_description">ซ่อนโพสต์ประเภทที่เลือก เช่น LIVE, Shop หรือโพสต์ที่สร้างด้วย AI</string>
     <string name="inbox">กล่องข้อความ</string>
     <string name="inbox_description">ซ่อนส่วนที่เลือกของกล่องข้อความ เช่น สตอรี่และบัญชีแนะนำ</string>
+    <string name="navigation_tabs">แท็บนำทาง</string>
+    <string name="navigation_tabs_description">ซ่อนแท็บที่เลือก เช่น Shop เพื่อน และปุ่มสร้าง</string>
     <string name="always_show_seek_bar">แสดงแถบเลื่อนเสมอ</string>
     <string name="always_show_seek_bar_description">แสดงแถบเลื่อนในทุกวิดีโอ ไม่ใช่เฉพาะวิดีโอยาว</string>
     <string name="disable_like_long_press">ปิดการกดถูกใจค้าง</string>

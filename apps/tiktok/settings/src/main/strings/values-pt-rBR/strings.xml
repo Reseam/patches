@@ -12,6 +12,7 @@
     <string name="section_inbox">Caixa de entrada</string>
     <string name="section_messages">Mensagens</string>
     <string name="section_search">Busca</string>
+    <string name="section_navigation">Navegação</string>
     <string name="section_links">Links</string>
     <string name="section_advanced">Avançado</string>
 
@@ -120,6 +121,11 @@
     <string name="remove_app_shortcuts_summary">Remove os atalhos do TikTok do ícone do app.</string>
     <string name="hide_region_popups">Ocultar pop-ups de região</string>
     <string name="hide_region_popups_summary">Oculta os pop-ups sobre recursos que não existem na sua região.</string>
+    <string name="hide_shop_tab">Ocultar aba Shop</string>
+    <string name="hide_shop_tab_summary">Deslizar a partir de Para Você não abre mais o Shop.</string>
+    <string name="hide_friends_tab">Ocultar aba Amigos</string>
+    <string name="hide_create_button">Ocultar botão de criar</string>
+    <string name="hide_create_button_summary">Remove o + da barra de navegação.</string>
 
     <string name="hide_inbox_stories">Ocultar stories</string>
     <string name="hide_inbox_suggestions">Ocultar contas sugeridas</string>

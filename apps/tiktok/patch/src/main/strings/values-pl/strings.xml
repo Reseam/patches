@@ -16,6 +16,8 @@
     <string name="hide_feed_content_description">Ukrywa wybrane rodzaje postów, np. LIVE, Shop lub posty wygenerowane przez AI.</string>
     <string name="inbox">Skrzynka odbiorcza</string>
     <string name="inbox_description">Ukrywa wybrane sekcje skrzynki odbiorczej, np. relacje i proponowane konta.</string>
+    <string name="navigation_tabs">Karty nawigacji</string>
+    <string name="navigation_tabs_description">Ukrywa wybrane karty, np. Shop, Znajomi i przycisk tworzenia.</string>
     <string name="always_show_seek_bar">Zawsze pokazuj pasek przewijania</string>
     <string name="always_show_seek_bar_description">Pokazuje pasek przewijania w każdym filmie, nie tylko w długich.</string>
     <string name="disable_like_long_press">Wyłącz przytrzymanie polubienia</string>

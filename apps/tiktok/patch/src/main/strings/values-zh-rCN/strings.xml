@@ -16,6 +16,8 @@
     <string name="hide_feed_content_description">隐藏选定类型的帖子，例如直播、商店或 AI 生成的帖子。</string>
     <string name="inbox">收件箱</string>
     <string name="inbox_description">隐藏收件箱中选定的版块，例如快拍和推荐帐户。</string>
+    <string name="navigation_tabs">导航标签</string>
+    <string name="navigation_tabs_description">隐藏所选标签，例如 Shop、朋友和创作按钮。</string>
     <string name="always_show_seek_bar">始终显示进度条</string>
     <string name="always_show_seek_bar_description">在每个视频上都显示进度条，而不只是长视频。</string>
     <string name="disable_like_long_press">停用长按点赞</string>

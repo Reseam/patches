@@ -12,6 +12,7 @@
     <string name="section_inbox">البريد الوارد</string>
     <string name="section_messages">الرسائل</string>
     <string name="section_search">البحث</string>
+    <string name="section_navigation">التنقل</string>
     <string name="section_links">الروابط</string>
     <string name="section_advanced">متقدّم</string>
     <string name="page_feed">الخلاصة</string>
@@ -114,6 +115,11 @@
     <string name="remove_app_shortcuts_summary">يزيل اختصارات TikTok من أيقونته في الشاشة الرئيسية.</string>
     <string name="hide_region_popups">إخفاء النوافذ المنبثقة للمنطقة</string>
     <string name="hide_region_popups_summary">يُخفي النوافذ المنبثقة عن الميزات غير المتاحة في منطقتك.</string>
+    <string name="hide_shop_tab">إخفاء علامة تبويب Shop</string>
+    <string name="hide_shop_tab_summary">لم يعد التمرير من «لك» يفتح Shop.</string>
+    <string name="hide_friends_tab">إخفاء علامة تبويب الأصدقاء</string>
+    <string name="hide_create_button">إخفاء زر الإنشاء</string>
+    <string name="hide_create_button_summary">يُزيل علامة + من شريط التنقل.</string>
     <string name="hide_inbox_stories">إخفاء القصص</string>
     <string name="hide_inbox_suggestions">إخفاء الحسابات المقترحة</string>
     <string name="hide_inbox_suggestions_summary">في «متابعون جدد» أيضًا.</string>
