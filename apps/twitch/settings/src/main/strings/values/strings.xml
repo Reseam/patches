@@ -33,7 +33,7 @@
     <string name="startup_tab_profile">Profile</string>
     <string name="auto_claim_rewards">Auto-claim rewards</string>
     <string name="hide_leaderboards">Hide leaderboards</string>
-    <string name="hide_bits_buttons">Hide Bits buttons</string>
+    <string name="hide_bits_buttons">Hide bits buttons</string>
     <string name="hide_channel_points_buttons">Hide channel points buttons</string>
     <string name="hide_community_highlights">Hide community highlights</string>
     <string name="hide_chat_badges">Hide chat badges</string>
