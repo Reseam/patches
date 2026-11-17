@@ -12,8 +12,7 @@ import app.reseam.patches.youtube.YouTubePatchStrings
 import app.reseam.patches.youtube.core.YOUTUBE
 import app.reseam.patches.youtube.core.YouTubeSettingsPages
 import app.reseam.patches.youtube.core.youTubeSettings
-import app.reseam.youtube.core.bindings.DisplayHdr
-import app.reseam.youtube.core.bindings.VideoCodecs
+import app.reseam.youtube.core.bindings.VideoCapabilities
 import app.reseam.youtube.settings.YouTubeStrings
 import app.reseam.youtubecommon.settings.YouTubeCommonSettings
 
@@ -33,9 +32,9 @@ val disableVideoCodecs = patch(YouTubePatchStrings.disableVideoCodecs) {
 
     execute {
         // HDR is decided from the display's own capability list, wherever the app asks for it.
-        bytecode.redirectCalls("android.view.Display\$HdrCapabilities", "getSupportedHdrTypes", DisplayHdr.supportedHdrTypes)
+        bytecode.redirectCalls("android.view.Display\$HdrCapabilities", "getSupportedHdrTypes", VideoCapabilities.supportedHdrTypes)
         codecSupported.after {
-            result.assign(VideoCodecs.codecSupported(param(1), result))
+            result.assign(VideoCapabilities.codecSupported(param(1), result))
         }
     }
 }
@@ -46,11 +45,9 @@ private val vp9Supported = method("vp9Supported") {
     returns(Type.Boolean)
 }
 
-// Every codec check, AV1 included, asks this cached decoder lookup with a flag name and a mime type.
+// The cached lookup behind every codec check; its second parameter is the mime type.
 private val codecSupported = method("codecSupported") {
     calledBy(vp9Supported)
     paramCount(7)
-    param(0, Type.String)
-    param(1, Type.String)
     returns(Type.Boolean)
 }

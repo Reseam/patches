@@ -179,19 +179,15 @@ private val shelfHeaderPath = intArrayOf(1, 168777401, 5, 312131490, 20, 1)
 private const val SHELF_HEADER_COMMAND = 4
 private const val SHELF_HEADER_TITLE = 20
 
-// On channel pages only the For You shelf has a header that leads nowhere; store and playlist shelves link to
-// their page.
-private fun hasUnlinkedHeader(element: ByteArray): Boolean =
-    runCatching {
-            val header =
-                shelfHeaderPath.fold(element) { message, field ->
-                    Proto.bytes(message, field) ?: return false
-                }
-            val fields = Proto.fields(header)
-            fields.any { it.number == SHELF_HEADER_TITLE } &&
-                fields.none { it.number == SHELF_HEADER_COMMAND }
-        }
-        .getOrDefault(false)
+// On channel pages only the For You shelf has a titled header that leads nowhere; store and playlist shelves
+// link to their page.
+private fun hasUnlinkedHeader(element: ByteArray): Boolean {
+    val header =
+        shelfHeaderPath.fold<ByteArray?>(element) { message, field -> message?.let { Proto.bytes(it, field) } }
+            ?: return false
+    val fields = Proto.fields(header)
+    return fields.any { it.number == SHELF_HEADER_TITLE } && fields.none { it.number == SHELF_HEADER_COMMAND }
+}
 
 private fun isChannelBrowsePage(): Boolean =
     NavigationBar.isBackButtonVisible &&

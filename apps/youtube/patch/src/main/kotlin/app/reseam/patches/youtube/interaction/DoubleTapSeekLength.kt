@@ -26,7 +26,7 @@ val doubleTapSeekLength = patch(YouTubePatchStrings.doubleTapSeekLength) {
         // Every double tap builds this record with the tapped side and YouTube's length, negated for the left side.
         doubleTapInfoConstructor.before {
             val millis = DoubleTapSeek.seekMillis(param(1), param(3).callVirtual(DURATION, "toMillis", "()J"))
-            param(3).assign(callStatic(DURATION, "ofMillis", "(J)L${DURATION.replace('.', '/')};", millis))
+            param(3).assign(callStatic(DURATION, "ofMillis", "(J)Lj\$/time/Duration;", millis))
         }
     }
 }
