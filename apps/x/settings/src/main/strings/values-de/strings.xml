@@ -60,6 +60,8 @@
     <string name="hide_grok_image_tools">„Video erstellen“ und „Bild bearbeiten“ ausblenden</string>
     <string name="hide_grok_image_tools_summary">Blendet die Einträge von Grok Imagine im Beitragsmenü und beim Verfassen aus.</string>
     <string name="hide_grok_composer">Grok beim Verfassen ausblenden</string>
+    <string name="hide_grok_text_selection">„Grok fragen“ bei Textauswahl ausblenden</string>
+    <string name="hide_grok_text_selection_summary">Im Menü, wenn du Text in einem Beitrag markierst.</string>
     <string name="hide_live_bar">Live-Leiste ausblenden</string>
     <string name="hide_live_bar_summary">Blendet die Live-Spaces und -Übertragungen über der Startseite aus.</string>
     <string name="hide_live_avatar_rings">Live-Ringe an Avataren ausblenden</string>

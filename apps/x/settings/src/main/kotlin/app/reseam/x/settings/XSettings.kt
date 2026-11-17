@@ -47,6 +47,7 @@ object XSettings : SettingsGroup(XStrings) {
     val hideGrokPrompts by toggle(default = true, icon = Vector.lucide("message-square-dashed"))
     val hideGrokImageTools by toggle(default = true, icon = Vector.lucide("image-off"))
     val hideGrokComposer by toggle(default = true, icon = Vector.lucide("pen-off"))
+    val hideGrokTextSelection by toggle(default = true, icon = Vector.lucide("text-cursor"))
     val hideLiveBar by toggle(default = true, icon = Vector.lucide("radio"))
     val hideLiveAvatarRings by toggle(default = false, icon = Vector.lucide("circle-dot"))
     val hideRecommendations by toggle(default = false, icon = Vector.lucide("user-plus"))

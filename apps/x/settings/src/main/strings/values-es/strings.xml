@@ -60,6 +60,8 @@
     <string name="hide_grok_image_tools">Ocultar Crear video y Editar imagen</string>
     <string name="hide_grok_image_tools_summary">Oculta los elementos de Grok Imagine en el menú de la publicación y al redactar.</string>
     <string name="hide_grok_composer">Ocultar Grok al redactar</string>
+    <string name="hide_grok_text_selection">Ocultar Preguntar a Grok al seleccionar texto</string>
+    <string name="hide_grok_text_selection_summary">En el menú al seleccionar texto en una publicación.</string>
     <string name="hide_live_bar">Ocultar barra de En vivo</string>
     <string name="hide_live_bar_summary">Oculta los Espacios y las transmisiones en vivo encima de Inicio.</string>
     <string name="hide_live_avatar_rings">Ocultar círculos de En vivo en avatares</string>

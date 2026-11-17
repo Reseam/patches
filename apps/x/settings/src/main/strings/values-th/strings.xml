@@ -59,6 +59,8 @@
     <string name="hide_grok_image_tools">ซ่อน \"สร้างวิดีโอ\" และ \"แก้ไขรูปภาพ\"</string>
     <string name="hide_grok_image_tools_summary">ซ่อนรายการ Grok Imagine ในเมนูโพสต์และหน้าเขียนโพสต์</string>
     <string name="hide_grok_composer">ซ่อน Grok ในหน้าเขียนโพสต์</string>
+    <string name="hide_grok_text_selection">ซ่อน ถาม Grok เมื่อเลือกข้อความ</string>
+    <string name="hide_grok_text_selection_summary">ในเมนูเมื่อคุณเลือกข้อความในโพสต์</string>
     <string name="hide_live_bar">ซ่อนแถบไลฟ์</string>
     <string name="hide_live_bar_summary">ซ่อน Spaces และการถ่ายทอดสดที่กำลังเกิดขึ้นเหนือหน้าแรก</string>
     <string name="hide_live_avatar_rings">ซ่อนวงไลฟ์บนรูปโปรไฟล์</string>

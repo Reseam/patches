@@ -59,6 +59,8 @@
     <string name="hide_grok_image_tools">동영상 만들기 및 이미지 편집 숨기기</string>
     <string name="hide_grok_image_tools_summary">게시물 메뉴와 작성 화면의 Grok Imagine 항목을 숨깁니다.</string>
     <string name="hide_grok_composer">작성 화면의 Grok 숨기기</string>
+    <string name="hide_grok_text_selection">텍스트 선택 시 \'Grok에게 묻기\' 숨기기</string>
+    <string name="hide_grok_text_selection_summary">게시물의 텍스트를 선택할 때 나오는 메뉴에서.</string>
     <string name="hide_live_bar">라이브 바 숨기기</string>
     <string name="hide_live_bar_summary">홈 위의 진행 중인 스페이스와 방송을 숨깁니다.</string>
     <string name="hide_live_avatar_rings">프로필 사진 라이브 링 숨기기</string>

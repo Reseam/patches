@@ -64,6 +64,8 @@
     <string name="hide_grok_image_tools">Hide Make video and Edit image</string>
     <string name="hide_grok_image_tools_summary">Hides the Grok Imagine items in the post menu and composer.</string>
     <string name="hide_grok_composer">Hide Grok in composer</string>
+    <string name="hide_grok_text_selection">Hide Ask Grok in text selection</string>
+    <string name="hide_grok_text_selection_summary">In the menu when you select text in a post.</string>
     <string name="hide_live_bar">Hide Live bar</string>
     <string name="hide_live_bar_summary">Hides the live Spaces and broadcasts above Home.</string>
     <string name="hide_live_avatar_rings">Hide live avatar rings</string>

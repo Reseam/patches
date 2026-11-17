@@ -59,6 +59,8 @@
     <string name="hide_grok_image_tools">Ẩn Tạo video và Chỉnh sửa hình ảnh</string>
     <string name="hide_grok_image_tools_summary">Ẩn các mục Grok Imagine trong trình đơn bài đăng và trình soạn bài.</string>
     <string name="hide_grok_composer">Ẩn Grok trong trình soạn bài</string>
+    <string name="hide_grok_text_selection">Ẩn Hỏi Grok khi chọn văn bản</string>
+    <string name="hide_grok_text_selection_summary">Trong menu khi bạn chọn văn bản trong bài đăng.</string>
     <string name="hide_live_bar">Ẩn thanh Trực tiếp</string>
     <string name="hide_live_bar_summary">Ẩn các Spaces và buổi phát đang diễn ra phía trên Trang chủ.</string>
     <string name="hide_live_avatar_rings">Ẩn vòng trực tiếp trên ảnh đại diện</string>

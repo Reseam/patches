@@ -62,6 +62,8 @@
     <string name="hide_grok_image_tools">Скрыть «Создать видео» и «Изменить изображение»</string>
     <string name="hide_grok_image_tools_summary">Скрывает пункты Grok Imagine в меню поста и при создании поста.</string>
     <string name="hide_grok_composer">Скрыть Grok при создании поста</string>
+    <string name="hide_grok_text_selection">Скрыть «Спросить Grok» при выделении текста</string>
+    <string name="hide_grok_text_selection_summary">В меню при выделении текста в посте.</string>
     <string name="hide_live_bar">Скрыть панель эфиров</string>
     <string name="hide_live_bar_summary">Скрывает прямые эфиры Spaces и трансляции над главной.</string>
     <string name="hide_live_avatar_rings">Скрыть кольца эфира на аватарах</string>

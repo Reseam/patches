@@ -62,6 +62,8 @@
     <string name="hide_grok_image_tools">Приховати «Створити відео» й «Редагувати зображення»</string>
     <string name="hide_grok_image_tools_summary">Приховує пункти Grok Imagine в меню допису й редакторі.</string>
     <string name="hide_grok_composer">Приховати Grok у редакторі</string>
+    <string name="hide_grok_text_selection">Сховати «Запитати Grok» під час виділення тексту</string>
+    <string name="hide_grok_text_selection_summary">У меню під час виділення тексту в дописі.</string>
     <string name="hide_live_bar">Приховати панель трансляцій</string>
     <string name="hide_live_bar_summary">Приховує поточні Spaces і трансляції над головною.</string>
     <string name="hide_live_avatar_rings">Приховати кільця трансляцій на аватарах</string>

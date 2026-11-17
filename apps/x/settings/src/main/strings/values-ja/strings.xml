@@ -59,6 +59,8 @@
     <string name="hide_grok_image_tools">「動画を作成」と「画像を編集」を非表示</string>
     <string name="hide_grok_image_tools_summary">ポストのメニューと作成画面の Grok Imagine の項目を非表示にします。</string>
     <string name="hide_grok_composer">作成画面の Grok を非表示</string>
+    <string name="hide_grok_text_selection">テキスト選択の「Grok に質問」を非表示</string>
+    <string name="hide_grok_text_selection_summary">ポストのテキストを選択したときのメニューで。</string>
     <string name="hide_live_bar">ライブバーを非表示</string>
     <string name="hide_live_bar_summary">ホーム上部のライブ中のスペースと配信を非表示にします。</string>
     <string name="hide_live_avatar_rings">アバターのライブリングを非表示</string>

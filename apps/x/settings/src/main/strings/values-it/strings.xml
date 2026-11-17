@@ -60,6 +60,8 @@
     <string name="hide_grok_image_tools">Nascondi Crea video e Modifica immagine</string>
     <string name="hide_grok_image_tools_summary">Nasconde le voci di Grok Imagine nel menu del post e nella scrittura.</string>
     <string name="hide_grok_composer">Nascondi Grok nella scrittura</string>
+    <string name="hide_grok_text_selection">Nascondi Chiedi a Grok nella selezione del testo</string>
+    <string name="hide_grok_text_selection_summary">Nel menu quando selezioni il testo di un post.</string>
     <string name="hide_live_bar">Nascondi la barra delle dirette</string>
     <string name="hide_live_bar_summary">Nasconde gli Spazi e le trasmissioni in diretta sopra la Home.</string>
     <string name="hide_live_avatar_rings">Nascondi i cerchi di diretta sugli avatar</string>

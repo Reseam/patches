@@ -60,6 +60,8 @@
     <string name="hide_grok_image_tools">پنهان کردن «ساخت ویدیو» و «ویرایش تصویر»</string>
     <string name="hide_grok_image_tools_summary">موارد Grok Imagine را در منوی پست و صفحهٔ نوشتن پنهان می‌کند.</string>
     <string name="hide_grok_composer">پنهان کردن Grok در صفحهٔ نوشتن</string>
+    <string name="hide_grok_text_selection">پنهان کردن «از Grok بپرسید» هنگام انتخاب متن</string>
+    <string name="hide_grok_text_selection_summary">در منویی که هنگام انتخاب متن یک پست باز می‌شود.</string>
     <string name="hide_live_bar">پنهان کردن نوار زنده</string>
     <string name="hide_live_bar_summary">Spaces و پخش‌های زندهٔ بالای «خانه» را پنهان می‌کند.</string>
     <string name="hide_live_avatar_rings">پنهان کردن حلقه‌های زنده دور آواتار</string>

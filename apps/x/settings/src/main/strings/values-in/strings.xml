@@ -59,6 +59,8 @@
     <string name="hide_grok_image_tools">Sembunyikan Buat video dan Edit gambar</string>
     <string name="hide_grok_image_tools_summary">Menyembunyikan item Grok Imagine di menu postingan dan penulis postingan.</string>
     <string name="hide_grok_composer">Sembunyikan Grok di penulis postingan</string>
+    <string name="hide_grok_text_selection">Sembunyikan Tanya Grok saat memilih teks</string>
+    <string name="hide_grok_text_selection_summary">Di menu saat Anda memilih teks dalam postingan.</string>
     <string name="hide_live_bar">Sembunyikan bilah Live</string>
     <string name="hide_live_bar_summary">Menyembunyikan Spaces live dan siaran di atas Beranda.</string>
     <string name="hide_live_avatar_rings">Sembunyikan lingkaran live avatar</string>

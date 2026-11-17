@@ -61,6 +61,8 @@
     <string name="hide_grok_image_tools">إخفاء «إنشاء فيديو» و«تحرير الصورة»</string>
     <string name="hide_grok_image_tools_summary">يُخفي عناصر Grok Imagine في قائمة المنشور وأداة الكتابة.</string>
     <string name="hide_grok_composer">إخفاء Grok في أداة الكتابة</string>
+    <string name="hide_grok_text_selection">إخفاء «اسأل Grok» عند تحديد النص</string>
+    <string name="hide_grok_text_selection_summary">في القائمة التي تظهر عند تحديد نص في منشور.</string>
     <string name="hide_live_bar">إخفاء شريط البث المباشر</string>
     <string name="hide_live_bar_summary">يُخفي المساحات والبث المباشر أعلى «الرئيسية».</string>
     <string name="hide_live_avatar_rings">إخفاء حلقات البث المباشر حول الصور الرمزية</string>

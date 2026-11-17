@@ -60,6 +60,8 @@
     <string name="hide_grok_image_tools">Masquer Créer une vidéo et Modifier l’image</string>
     <string name="hide_grok_image_tools_summary">Masque les éléments Grok Imagine dans le menu du post et la rédaction.</string>
     <string name="hide_grok_composer">Masquer Grok dans la rédaction</string>
+    <string name="hide_grok_text_selection">Masquer Demander à Grok dans la sélection de texte</string>
+    <string name="hide_grok_text_selection_summary">Dans le menu quand vous sélectionnez du texte dans un post.</string>
     <string name="hide_live_bar">Masquer la barre des directs</string>
     <string name="hide_live_bar_summary">Masque les Spaces et les diffusions en direct au-dessus de l’Accueil.</string>
     <string name="hide_live_avatar_rings">Masquer les cercles de direct sur les avatars</string>

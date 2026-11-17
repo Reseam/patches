@@ -59,6 +59,8 @@
     <string name="hide_grok_image_tools">隐藏“制作视频”和“编辑图片”</string>
     <string name="hide_grok_image_tools_summary">隐藏帖子菜单和发帖界面中的 Grok Imagine 项目。</string>
     <string name="hide_grok_composer">隐藏发帖界面中的 Grok</string>
+    <string name="hide_grok_text_selection">在选择文字时隐藏“问问 Grok”</string>
+    <string name="hide_grok_text_selection_summary">选择帖子中的文字时弹出的菜单。</string>
     <string name="hide_live_bar">隐藏直播栏</string>
     <string name="hide_live_bar_summary">隐藏首页上方正在进行的空间和直播。</string>
     <string name="hide_live_avatar_rings">隐藏头像上的直播光圈</string>

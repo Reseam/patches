@@ -60,6 +60,8 @@
     <string name="hide_grok_image_tools">Make video और Edit image छिपाएँ</string>
     <string name="hide_grok_image_tools_summary">पोस्ट के मेन्यू और लिखने की स्क्रीन में Grok Imagine के आइटम छिपाता है।</string>
     <string name="hide_grok_composer">लिखने की स्क्रीन में Grok छिपाएँ</string>
+    <string name="hide_grok_text_selection">टेक्स्ट चुनने पर Ask Grok छिपाएँ</string>
+    <string name="hide_grok_text_selection_summary">पोस्ट में टेक्स्ट चुनने पर दिखने वाले मेनू में।</string>
     <string name="hide_live_bar">Live बार छिपाएँ</string>
     <string name="hide_live_bar_summary">होम के ऊपर के लाइव Spaces और ब्रॉडकास्ट छिपाता है।</string>
     <string name="hide_live_avatar_rings">अवतार की लाइव रिंग छिपाएँ</string>

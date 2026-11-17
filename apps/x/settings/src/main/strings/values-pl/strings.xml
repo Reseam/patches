@@ -62,6 +62,8 @@
     <string name="hide_grok_image_tools">Ukryj Utwórz film i Edytuj obraz</string>
     <string name="hide_grok_image_tools_summary">Ukrywa elementy Grok Imagine w menu posta i edytorze.</string>
     <string name="hide_grok_composer">Ukryj Groka w edytorze</string>
+    <string name="hide_grok_text_selection">Ukryj Zapytaj Groka przy zaznaczaniu tekstu</string>
+    <string name="hide_grok_text_selection_summary">W menu po zaznaczeniu tekstu w poście.</string>
     <string name="hide_live_bar">Ukryj pasek Na żywo</string>
     <string name="hide_live_bar_summary">Ukrywa trwające Spaces i transmisje nad stroną główną.</string>
     <string name="hide_live_avatar_rings">Ukryj kółka na żywo przy awatarach</string>

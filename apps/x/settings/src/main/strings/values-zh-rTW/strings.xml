@@ -59,6 +59,8 @@
     <string name="hide_grok_image_tools">隱藏「製作影片」和「編輯圖片」</string>
     <string name="hide_grok_image_tools_summary">隱藏貼文選單和撰寫畫面中的 Grok Imagine 項目。</string>
     <string name="hide_grok_composer">隱藏撰寫畫面中的 Grok</string>
+    <string name="hide_grok_text_selection">選取文字時隱藏「詢問 Grok」</string>
+    <string name="hide_grok_text_selection_summary">選取貼文文字時出現的選單。</string>
     <string name="hide_live_bar">隱藏直播列</string>
     <string name="hide_live_bar_summary">隱藏首頁上方進行中的語音空間和直播。</string>
     <string name="hide_live_avatar_rings">隱藏頭像上的直播光環</string>

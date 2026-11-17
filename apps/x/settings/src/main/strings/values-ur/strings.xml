@@ -60,6 +60,8 @@
     <string name="hide_grok_image_tools">“ویڈیو بنائیں” اور “تصویر میں ترمیم کریں” چھپائیں</string>
     <string name="hide_grok_image_tools_summary">پوسٹ مینو اور پوسٹ لکھنے کی اسکرین میں Grok Imagine کے آئٹمز چھپاتا ہے۔</string>
     <string name="hide_grok_composer">پوسٹ لکھنے کی اسکرین میں Grok چھپائیں</string>
+    <string name="hide_grok_text_selection">متن منتخب کرتے وقت “Grok سے پوچھیں” چھپائیں</string>
+    <string name="hide_grok_text_selection_summary">اس مینو میں جو کسی پوسٹ کا متن منتخب کرنے پر کھلتا ہے۔</string>
     <string name="hide_live_bar">لائیو بار چھپائیں</string>
     <string name="hide_live_bar_summary">ہوم کے اوپر لائیو اسپیسز اور براڈکاسٹس چھپاتا ہے۔</string>
     <string name="hide_live_avatar_rings">پروفائل تصاویر پر لائیو دائرے چھپائیں</string>

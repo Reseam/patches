@@ -60,6 +60,8 @@
     <string name="hide_grok_image_tools">Video yap ve Resmi düzenle seçeneklerini gizle</string>
     <string name="hide_grok_image_tools_summary">Gönderi menüsündeki ve yazma ekranındaki Grok Imagine öğelerini gizler.</string>
     <string name="hide_grok_composer">Yazma ekranında Grok\'u gizle</string>
+    <string name="hide_grok_text_selection">Metin seçiminde Grok\'a Sor seçeneğini gizle</string>
+    <string name="hide_grok_text_selection_summary">Bir gönderide metin seçtiğinizde açılan menüde.</string>
     <string name="hide_live_bar">Canlı çubuğunu gizle</string>
     <string name="hide_live_bar_summary">Ana Sayfa\'nın üstündeki canlı Sohbet Odalarını ve yayınları gizler.</string>
     <string name="hide_live_avatar_rings">Profil resmi canlı halkalarını gizle</string>

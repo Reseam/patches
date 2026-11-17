@@ -9,6 +9,8 @@ import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
+import app.reseam.patch.settings.valueOf
+import app.reseam.patch.skipWhen
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.XPatchStrings
@@ -34,6 +36,7 @@ val grok = patch(XPatchStrings.grok) {
             XSettings.hideGrokPrompts,
             XSettings.hideGrokImageTools,
             XSettings.hideGrokComposer,
+            XSettings.hideGrokTextSelection,
             XSettings.hideGrokDrawerEntry,
         ),
     )
@@ -68,6 +71,14 @@ val grok = patch(XPatchStrings.grok) {
         )
         disableFeatureSwitches(XSettings.hideGrokImageTools, "grok_android_imagine_make_video", "grok_android_imagine_edit_image")
         disableFeatureSwitches(XSettings.hideGrokComposer, "grok_mobile_post_composer_is_enabled")
+
+        // Selecting text in a post builds the menu in order; Ask Grok is the item added with its title.
+        val askGrokSelection = resources.id("string", "text_selection_action_ask_grok")?.toLong()
+            ?: error("string/text_selection_action_ask_grok missing")
+        method("postTextSelectionMenu") { name("onCreateActionMode"); literals(askGrokSelection) }
+            .point { literal(askGrokSelection) }
+            .next { invokeInterface { name("add") } }
+            .skipWhen { valueOf(XSettings.hideGrokTextSelection) }
     }
 }
 
