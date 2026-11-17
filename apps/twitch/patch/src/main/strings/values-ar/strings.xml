@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="block_embedded_ads">حظر الإعلانات المضمَّنة</string>
+    <string name="block_embedded_ads_description">يحمّل البث المباشر دون إعلانات عبر خادم وكيل تابع لجهة خارجية، يرى عنوان IP الخاص بك والقنوات التي تشاهدها.</string>
+    <string name="block_video_ads">حظر إعلانات الفيديو</string>
+    <string name="block_video_ads_description">يحظر إعلانات الفيديو والصوت والإعلانات المصوّرة التي يطلبها Twitch بنفسه.</string>
+    <string name="ignore_ad_events">تجاهل أحداث الإعلانات</string>
+    <string name="ignore_ad_events_description">يتجاهل الفواصل الإعلانية وتتبع الإعلانات التي يعلن عنها Twitch أثناء البث.</string>
+    <string name="settings_entry">مدخل إعدادات Reseam</string>
+    <string name="settings_entry_description">يضيف «إعدادات Reseam» فوق «الحساب» في إعدادات Twitch.</string>
+    <string name="enable_debug_mode">تفعيل وضع تصحيح الأخطاء</string>
+    <string name="enable_debug_mode_description">يعرض أدوات فريق Twitch، مثل قائمة تصحيح الأخطاء ولوحة تصحيح أخطاء الفيديو.</string>
+    <string name="fix_login_crash">إصلاح التعطل عند تسجيل الدخول</string>
+    <string name="fix_login_crash_description">يمنع Twitch من التعطل مباشرة بعد تسجيل الدخول.</string>
+    <string name="startup_tab">علامة التبويب عند البدء</string>
+    <string name="startup_tab_description">يفتح Twitch على «تصفّح» أو «الملف الشخصي»، ويتيح إعداد «الصفحة الرئيسية الافتراضية».</string>
+    <string name="block_analytics">حظر التحليلات</string>
+    <string name="block_analytics_description">يوقف comScore وNielsen وSentry وCrashlytics وSprig وBranch.</string>
+    <string name="disable_update_prompts">تعطيل دعوات التحديث</string>
+    <string name="disable_update_prompts_description">يوقف دعوات التحديث.</string>
+</resources>

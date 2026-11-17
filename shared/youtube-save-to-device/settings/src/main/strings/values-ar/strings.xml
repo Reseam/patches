@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_save_to_device">الحفظ على الجهاز</string>
+    <string name="save_folder">مجلد الحفظ</string>
+    <string name="save_folder_summary">مكان حفظ الملفات. تختاره في أول مرة تحفظ فيها.</string>
+    <string name="save_new_downloads">حفظ التنزيلات الجديدة على الجهاز</string>
+    <string name="save_new_downloads_summary">يحفظ أيضًا كل تنزيل عند اكتماله.</string>
+    <string name="save_to_device">الحفظ على الجهاز</string>
+    <string name="notification_channel">التنزيلات المحفوظة</string>
+    <string name="saving">جارٍ حفظ <xliff:g id="title">%1$s</xliff:g></string>
+    <string name="saving_progress">جارٍ حفظ <xliff:g id="done">%1$d</xliff:g> من <xliff:g id="total">%2$d</xliff:g></string>
+    <string name="saved">تم حفظ <xliff:g id="title">%1$s</xliff:g></string>
+    <plurals name="saved_count">
+        <item quantity="few">تم حفظ <xliff:g id="count">%1$d</xliff:g> تنزيلات</item>
+        <item quantity="many">تم حفظ <xliff:g id="count">%1$d</xliff:g> تنزيلًا</item>
+        <item quantity="other">تم حفظ <xliff:g id="count">%1$d</xliff:g> تنزيل</item>
+    </plurals>
+    <string name="save_failed">تعذّر حفظ <xliff:g id="title">%1$s</xliff:g></string>
+    <string name="save_failed_unsupported">لا يمكن حفظ تنسيق هذا التنزيل كملف.</string>
+    <string name="save_failed_incomplete">لم يكتمل التنزيل.</string>
+    <string name="save_failed_folder">لم يعد مجلد الحفظ متاحًا. اختره مجددًا في «إعدادات Reseam».</string>
+    <string name="save_failed_space">لا توجد مساحة كافية في مجلد الحفظ.</string>
+    <string name="open">فتح</string>
+</resources>

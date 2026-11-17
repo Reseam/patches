@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_comment_ads">إخفاء إعلانات التعليقات</string>
+    <string name="hide_comment_ads_description">يُخفي الإعلانات أسفل المنشورات وبين التعليقات.</string>
+    <string name="hide_feed_ads">إخفاء إعلانات الخلاصة</string>
+    <string name="hide_feed_ads_description">يُخفي المنشورات المروَّجة في الخلاصات والبحث.</string>
+    <string name="color_thread_lines">تلوين خطوط سلاسل الردود</string>
+    <string name="color_thread_lines_description">يمنح كل مستوى من الردود لون خط خاصًا به.</string>
+    <string name="ignore_suggested_sort">استخدام ترتيبي للتعليقات دائمًا</string>
+    <string name="ignore_suggested_sort_description">يتجاهل الترتيب الذي يقترحه المنشور أو المجتمع.</string>
+    <string name="settings_entry">مدخل إعدادات Reseam</string>
+    <string name="settings_entry_description">يضيف «إعدادات Reseam» ضمن إعدادات الحساب.</string>
+    <string name="disable_features">تعطيل ميزات Reddit</string>
+    <string name="disable_features_description">يوقف Reddit Answers والألعاب وعروض الترقية والتلميحات وميزات أخرى.</string>
+    <string name="default_feed_sort">ترتيب الخلاصة الافتراضي</string>
+    <string name="default_feed_sort_description">يرتّب المجتمعات والخلاصات المخصصة و«شائع» و«الكل» بالطريقة التي تختارها.</string>
+    <string name="hide_feed_units">إخفاء أقسام الخلاصة</string>
+    <string name="hide_feed_units_description">يُخفي «الرائج» والعروض الدوّارة والعروض الترويجية والاستبيانات وغيرها من الإدراجات في الخلاصات.</string>
+    <string name="hide_recommended_communities">إخفاء المجتمعات المقترحة</string>
+    <string name="hide_recommended_communities_description">يُخفي اقتراحات المجتمعات في الخلاصات.</string>
+    <string name="hide_recommended_posts">إخفاء المنشورات المقترحة</string>
+    <string name="hide_recommended_posts_description">يُخفي في «الرئيسية» منشورات المجتمعات التي لا تتابعها.</string>
+    <string name="hide_drawer_items">إخفاء عناصر درج المجتمعات</string>
+    <string name="hide_drawer_items_description">يُخفي صفوفًا تختارها من درج المجتمعات.</string>
+    <string name="hide_navigation_tabs">إخفاء علامات تبويب التنقل</string>
+    <string name="hide_navigation_tabs_description">يُخفي علامات تبويب تختارها من شريط التنقل.</string>
+    <string name="fix_push_notifications">إصلاح الإشعارات الفورية</string>
+    <string name="fix_push_notifications_description">يجعل الإشعارات الفورية تصل بعد التعديل.</string>
+    <string name="skip_nsfw_warning">تخطي تحذير مجتمعات NSFW</string>
+    <string name="skip_nsfw_warning_description">يفتح مجتمعات البالغين دون أن يسأل.</string>
+    <string name="block_analytics">حظر التحليلات</string>
+    <string name="block_analytics_description">يوقف تسجيل الأحداث في Reddit وتتبع AppsFlyer.</string>
+    <string name="disable_app_rate_prompt">إخفاء دعوة التقييم</string>
+    <string name="disable_app_rate_prompt_description">يمنع Reddit من مطالبتك بتقييمه.</string>
+    <string name="disable_screenshot_banner">إخفاء لافتة لقطة الشاشة</string>
+    <string name="disable_screenshot_banner_description">يمنع Reddit من رصد لقطات الشاشة.</string>
+    <string name="hide_trending_searches">إخفاء عمليات البحث الرائجة</string>
+    <string name="hide_trending_searches_description">يُخفي «الرائج» في شاشة البحث.</string>
+    <string name="hide_premium_settings">إخفاء إعدادات Premium</string>
+    <string name="hide_premium_settings_description">يُخفي عروض Premium وReddit Pro في الإعدادات.</string>
+    <string name="vxreddit_links">مشاركة روابط vxreddit</string>
+    <string name="vxreddit_links_description">يشارك المنشورات كروابط vxreddit.com التي تعرض وسائطها في Discord وتطبيقات أخرى.</string>
+    <string name="block_forced_update">حظر التحديثات الإجبارية</string>
+    <string name="block_forced_update_description">يمنع Reddit من حظر هذا الإصدار بشاشة تحديث.</string>
+</resources>

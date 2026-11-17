@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_branding">تخصيص الهوية</string>
+    <string name="custom_branding_description">يضيف أيقونات تشغيل وأسماء للتطبيق لتختار منها، بما في ذلك أيقونتك واسمك.</string>
+    <string name="custom_branding_custom_name">اسم مخصص للتطبيق</string>
+    <string name="custom_branding_custom_name_description">يضيف هذا الاسم إلى خيارات اسم التطبيق ويجعله الاسم الافتراضي.</string>
+    <string name="custom_branding_custom_icon">أيقونة مخصصة</string>
+    <string name="custom_branding_custom_icon_description">مجلد يحتوي على مجلدات من mipmap-mdpi إلى mipmap-xxxhdpi، في كل منها foreground.png وbackground.png. يضيف الأيقونة إلى الخيارات ويجعلها الافتراضية.</string>
+</resources>

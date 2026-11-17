@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="pangram_sign_in">تسجيل الدخول</string>
+    <string name="pangram_sign_out">تسجيل الخروج</string>
+    <string name="pangram_close">إغلاق</string>
+    <string name="pangram_signed_out_message">سجّل الدخول عبر المتصفح لفحص المنشورات الجديدة. يتطلب Pangram خطة مدفوعة أو فترة تجريبية مجانية.</string>
+    <string name="pangram_signed_in">تم تسجيل الدخول إلى Pangram</string>
+    <string name="pangram_sign_in_failed">لم يكتمل تسجيل الدخول</string>
+    <string name="pangram_feed_consent_title">هل تسمح لـ Pangram بفحص المنشورات؟</string>
+    <string name="pangram_feed_consent_message">يحتفظ Pangram بالمنشورات التي يفحصها في سجل الفحص لديك.</string>
+    <string name="pangram_feed_consent_agree">سماح</string>
+    <string name="pangram_feed_consent_decline">ليس الآن</string>
+    <string name="pangram_signed_in_as">تم تسجيل الدخول باسم <xliff:g id="email">%1$s</xliff:g></string>
+    <plurals name="pangram_plan">
+        <item quantity="few"><xliff:g id="plan">%1$s</xliff:g>، تتبقى <xliff:g id="count">%2$d</xliff:g> أرصدة</item>
+        <item quantity="many"><xliff:g id="plan">%1$s</xliff:g>، يتبقى <xliff:g id="count">%2$d</xliff:g> رصيدًا</item>
+        <item quantity="other"><xliff:g id="plan">%1$s</xliff:g>، يتبقى <xliff:g id="count">%2$d</xliff:g> رصيد</item>
+    </plurals>
+    <string name="pangram_no_plan">لا توجد خطة نشطة. يتطلب Pangram خطة مدفوعة أو فترة تجريبية مجانية.</string>
+    <string name="pangram_unavailable">تعذّر الوصول إلى Pangram</string>
+    <string name="pangram_image_consent_title">هل تريد فحص الصور باستخدام Pangram؟</string>
+    <string name="pangram_image_consent_message">يفحص Pangram الصور بعد موافقتك على شروطه، وينزّل كل صورة من رابطها.</string>
+    <string name="pangram_image_consent_terms">قراءة الشروط</string>
+    <string name="pangram_image_consent_agree">أوافق</string>
+</resources>

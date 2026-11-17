@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="hide_typing">إخفاء مؤشر الكتابة</string>
+    <string name="hide_typing_summary">لا يرى الآخرون أنك تكتب. قد يحظر Instagram حسابك.</string>
+    <string name="hide_dm_seen">إخفاء إشعارات قراءة الرسائل</string>
+    <string name="hide_dm_seen_summary">لا يرى المرسلون أنك قرأت رسائلهم حتى تختار «وضع علامة كمقروءة» في «تحديد الدردشات». قد يحظر Instagram حسابك.</string>
+    <string name="hide_story_seen">إخفاء مشاهدات القصص</string>
+    <string name="hide_story_seen_summary">لا تظهر في قوائم مشاهدي القصص. قد يحظر Instagram حسابك.</string>
+    <string name="hide_live_seen">إخفاء مشاهدات البث المباشر</string>
+    <string name="hide_live_seen_summary">لا تظهر كمشاهد للبث المباشر. قد يحظر Instagram حسابك.</string>
+    <string name="hide_screenshot_notifications">إخفاء إشعارات لقطات الشاشة</string>
+    <string name="hide_screenshot_notifications_summary">لا يُبلَّغ الآخرون عندما تلتقط لقطة شاشة. قد يحظر Instagram حسابك.</string>
+    <string name="max_resolution">صور بدقة كاملة</string>
+    <string name="original_quality">جودة الصور الأصلية</string>
+    <string name="original_quality_summary">يحمّل الصور كما رُفعت عبر الإبلاغ عن شاشة أكبر. قد يحظر Instagram حسابك.</string>
+    <string name="disable_video_autoplay">تعطيل التشغيل التلقائي للفيديو</string>
+    <string name="disable_video_autoplay_summary">يشغّل فيديوهات الخلاصة فقط عند النقر عليها.</string>
+    <string name="disable_reels_swiping">تعطيل السحب في Reels</string>
+    <string name="disable_reels_swiping_summary">يُبقي Reels على المقطع الذي فتحته.</string>
+    <string name="swipe_in_reels_tab">مواصلة السحب في علامة التبويب Reels</string>
+    <string name="swipe_in_reels_tab_summary">عندها يسري «تعطيل السحب في Reels» فقط على Reels التي تفتحها من المنشورات والدردشات و«استكشاف».</string>
+    <string name="disable_auto_advance">تعطيل الانتقال التلقائي بين القصص</string>
+    <string name="disable_auto_advance_summary">يُبقي القصة المنتهية على الشاشة حتى تنقر.</string>
+    <string name="hide_suggested_users">إخفاء القصص المقترحة</string>
+    <string name="hide_suggested_users_summary">يُخفي القصص والحسابات التي لا تتابعها في شريط القصص.</string>
+    <string name="hide_story_tray">إخفاء شريط القصص</string>
+    <string name="hide_story_tray_summary">يُخفي القصص في أعلى «الرئيسية».</string>
+    <string name="ring_size">حجم دوائر القصص</string>
+    <string name="ring_size_summary">حجم دوائر القصص في أعلى «الرئيسية».</string>
+    <string name="ring_size_small">صغير (٨٠٪)</string>
+    <string name="ring_size_default">الافتراضي</string>
+    <string name="ring_size_large">كبير (١٢٠٪)</string>
+    <string name="ring_size_extra_large">كبير جدًا (١٤٠٪)</string>
+    <string name="hide_in_explore_search">إخفاء Meta AI في بحث «استكشاف»</string>
+    <string name="hide_in_direct">إخفاء Meta AI في الرسائل المباشرة</string>
+    <string name="hide_in_direct_summary">يُخفي Meta AI في البريد الوارد وبحث الرسائل المباشرة والدردشات.</string>
+    <string name="hide_in_posts">إخفاء Meta AI في المنشورات</string>
+    <string name="hide_in_posts_summary">يُخفي ملخص المنشور و«اسأل Meta AI» في قوائم المنشورات.</string>
+    <string name="open_externally">فتح الروابط في المتصفح</string>
+    <string name="clean_share_links">تنظيف روابط المشاركة</string>
+    <string name="clean_share_links_summary">يزيل الجزء الذي يحدد هويتك من الروابط المُشارَكة.</string>
+    <string name="share_link_provider">مزوّد روابط المشاركة</string>
+    <string name="share_link_provider_summary">مضيف روابط المنشورات وReels المُشارَكة. تعرض هذه المضيفات الفيديو في Discord وTelegram.</string>
+    <string name="share_link_provider_custom">مخصص</string>
+    <string name="share_link_provider_off">إيقاف (instagram.com)</string>
+    <string name="custom_share_link_host">مضيف مخصص لروابط المشاركة</string>
+    <string name="custom_share_link_host_summary">يُستخدم عندما يكون المزوّد «مخصص»، مثل kkinstagram.com.</string>
+    <string name="allow_screenshots">السماح بلقطات الشاشة</string>
+    <string name="allow_screenshots_summary">يشمل الدردشات والوسائط ذات العرض لمرة واحدة ووضع الاختفاء.</string>
+    <string name="unlock_developer_options">تفعيل قائمة المطوّرين</string>
+    <string name="unlock_developer_options_summary">يضيف قائمة مطوّري Instagram في أسفل الإعدادات.</string>
+    <string name="copy_comment">نسخ التعليق</string>
+    <string name="copy_comment_summary">يضيف «نسخ» إلى قائمة الضغط مع الاستمرار على التعليقات.</string>
+    <string name="comment_copied">تم نسخ التعليق</string>
+    <string name="follows_you_indicator">مؤشر «يتابعك»</string>
+    <string name="follows_you_indicator_summary">يعرض «يتابعك» في الملفات الشخصية للحسابات التي تتابعك.</string>
+    <string name="disable_double_tap_like">تعطيل الإعجاب بالنقر مرتين</string>
+    <string name="disable_double_tap_like_summary">ينطبق على المنشورات وReels والتعليقات والرسائل.</string>
+    <string name="hide_repost_buttons">إخفاء أزرار إعادة النشر</string>
+    <string name="hide_engagement_counts">إخفاء أعداد التفاعل</string>
+    <string name="hide_engagement_counts_summary">يُخفي أعداد الإعجابات والتعليقات والمشاركات وإعادات النشر في الخلاصة.</string>
+    <string name="hide_explore_grid">إخفاء شبكة «استكشاف»</string>
+    <string name="hide_explore_grid_summary">يُبقي البحث فقط في علامة التبويب «استكشاف».</string>
+    <string name="hide_instants">إخفاء Instants</string>
+    <string name="hide_instants_summary">يُخفي مجموعة Instants في البريد الوارد.</string>
+    <string name="hide_threads_badge">إخفاء شارة Threads</string>
+    <string name="hide_profile_suggestions">إخفاء الحسابات المقترحة في الملفات الشخصية</string>
+    <string name="hide_profile_suggestions_summary">يُخفي «اكتشاف أشخاص» في ملفك الشخصي و«مقترح لك» في ملفات الآخرين.</string>
+    <string name="first_tab">علامة التبويب الأولى</string>
+    <string name="second_tab">علامة التبويب الثانية</string>
+    <string name="third_tab">علامة التبويب الثالثة</string>
+    <string name="fourth_tab">علامة التبويب الرابعة</string>
+    <string name="fifth_tab">علامة التبويب الخامسة</string>
+    <string name="navigation_tab_home">الرئيسية</string>
+    <string name="navigation_tab_reels">Reels</string>
+    <string name="navigation_tab_messages">الرسائل</string>
+    <string name="navigation_tab_search">البحث و«استكشاف»</string>
+    <string name="navigation_tab_notifications">الإشعارات</string>
+    <string name="navigation_tab_create">إنشاء</string>
+    <string name="navigation_tab_profile">الملف الشخصي</string>
+    <string name="navigation_tab_none">بلا</string>
+    <string name="hide_ads">إخفاء الإعلانات</string>
+    <string name="following_only">خلاصة المتابَعين فقط</string>
+    <string name="following_only_summary">يعرض منشورات الحسابات التي تتابعها، الأحدث أولًا.</string>
+    <string name="hide_suggested_accounts">إخفاء الحسابات المقترحة</string>
+    <string name="hide_suggested_accounts_summary">تبقى المنشورات المقترحة. يُخفيها خيار «خلاصة المتابَعين فقط».</string>
+    <string name="hide_threads_units">إخفاء أقسام Threads</string>
+    <string name="hide_threads_units_summary">قد يترك مساحة فارغة في «الرئيسية».</string>
+    <string name="hide_shopping_units">إخفاء أقسام التسوق</string>
+    <string name="hide_shopping_units_summary">قد يترك مساحة فارغة في «الرئيسية».</string>
+    <string name="hide_suggested_reels">إخفاء Reels المقترحة</string>
+    <string name="liked_posts_feed">تصفح المنشورات التي أعجبتك</string>
+    <string name="liked_posts_feed_summary">تُفتح المنشورات وReels في «نشاطك › تسجيلات الإعجاب» في خلاصة تضم كل ما أعجبك.</string>
+    <string name="folder">مجلد التنزيل</string>
+    <string name="show_toast">إظهار رسالة التنزيل</string>
+    <string name="section_social">التواصل الاجتماعي</string>
+    <string name="section_comments">التعليقات</string>
+    <string name="section_appearance">المظهر</string>
+    <string name="section_navigation">شريط التنقل</string>
+    <string name="section_playback">التشغيل</string>
+    <string name="section_media">الوسائط</string>
+    <string name="section_privacy">الخصوصية</string>
+    <string name="section_ghost_mode">وضع التخفي</string>
+    <string name="section_feed">الخلاصة</string>
+    <string name="section_stories">القصص</string>
+    <string name="section_meta_ai">Meta AI</string>
+    <string name="section_links">الروابط</string>
+    <string name="section_developer">المطوّر</string>
+    <string name="section_downloads">التنزيلات</string>
+    <string name="download_label">تنزيل</string>
+    <string name="download_instant_description">تنزيل Instant</string>
+    <string name="download_carousel_current">الحالي (<xliff:g id="slide">%1$d</xliff:g>/<xliff:g id="total">%2$d</xliff:g>)</string>
+    <plurals name="download_carousel_all">
+        <item quantity="few">كل العناصر الـ<xliff:g id="count">%1$d</xliff:g></item>
+        <item quantity="many">كل العناصر الـ<xliff:g id="count">%1$d</xliff:g></item>
+        <item quantity="other">كل العناصر الـ<xliff:g id="count">%1$d</xliff:g></item>
+    </plurals>
+    <string name="download_cancel">إلغاء</string>
+    <string name="download_started">جارٍ التنزيل</string>
+    <string name="download_media_url_missing">تعذّر العثور على الوسائط المراد تنزيلها</string>
+    <string name="download_failed">تعذّر التنزيل</string>
+    <string name="download_slide_started">جارٍ تنزيل الشريحة <xliff:g id="slide">%1$d</xliff:g></string>
+    <string name="download_slide_url_missing">تعذّر تنزيل الشريحة <xliff:g id="slide">%1$d</xliff:g></string>
+    <string name="download_story_media_missing">تعذّر العثور على القصة المراد تنزيلها</string>
+    <plurals name="download_carousel_started">
+        <item quantity="few">جارٍ تنزيل <xliff:g id="started">%1$d</xliff:g> من <xliff:g id="count">%2$d</xliff:g> عناصر</item>
+        <item quantity="many">جارٍ تنزيل <xliff:g id="started">%1$d</xliff:g> من <xliff:g id="count">%2$d</xliff:g> عنصرًا</item>
+        <item quantity="other">جارٍ تنزيل <xliff:g id="started">%1$d</xliff:g> من <xliff:g id="count">%2$d</xliff:g> عنصر</item>
+    </plurals>
+    <string name="download_carousel_urls_missing">تعذّر العثور على وسائط العرض الدوّار</string>
+    <string name="download_notification_description">تنزيل وسائط Instagram</string>
+    <string name="follows_you_label">يتابعك</string>
+    <string name="follows_you_suffix">\u0020· يتابعك</string>
+    <string name="follows_you_subtitle"><xliff:g id="subtitle">%1$s</xliff:g> · يتابعك</string>
+</resources>

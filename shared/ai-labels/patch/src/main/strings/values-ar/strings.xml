@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="show_ai_labels">إظهار تصنيفات الذكاء الاصطناعي</string>
+    <string name="show_ai_labels_description">يصنّف المنشورات على أنها من كتابة إنسان أو مولَّدة بالذكاء الاصطناعي باستخدام أداة كشف ترى المنشورات التي تفحصها، ويشارك النتائج عبر Reseam.</string>
+</resources>

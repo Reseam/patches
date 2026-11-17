@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="custom_filter">استخدام عوامل التصفية المخصصة</string>
+    <string name="custom_filter_strings">عوامل التصفية المخصصة</string>
+    <string name="custom_filter_strings_summary">تعبير واحد في كل سطر، بالصيغة ^path#accessibility$buffer.</string>
+    <string name="debug_logging">سجل تصحيح الأخطاء</string>
+    <string name="debug_logging_summary">يكتب ما يفعله Reseam في سجل Android.</string>
+    <string name="sanitize_sharing_links">تنظيف روابط المشاركة</string>
+    <string name="sanitize_sharing_links_summary">يزيل التتبع من الروابط التي تشاركها.</string>
+    <string name="force_original_audio">فرض الصوت الأصلي</string>
+    <string name="force_original_audio_summary">يشغّل الصوت الأصلي بدلًا من المسار المدبلج.</string>
+    <string name="custom_branding_icon_custom">مخصص</string>
+    <string name="experiment_flags_saved">تم حفظ <xliff:g id="file_name">%1$s</xliff:g> في «التنزيلات»</string>
+    <string name="experiment_flags_failed">تعذّر حفظ علامات التجارب</string>
+    <string name="segment_behaviors_skip">التخطي تلقائيًا</string>
+    <string name="segment_behaviors_skip_once">التخطي مرة واحدة</string>
+    <string name="segment_behaviors_manual_skip">إظهار زر التخطي</string>
+    <string name="segment_behaviors_seekbar_only">الإظهار في شريط التقدم</string>
+    <string name="segment_behaviors_ignore">تجاهل</string>
+    <string name="sb_enabled">SponsorBlock</string>
+    <string name="sb_enabled_summary">يتخطى المقاطع التي حددها مجتمع SponsorBlock، الذي يرى الفيديوهات التي تفتحها.</string>
+    <string name="sb_sponsor">مقاطع الرعاية</string>
+    <string name="sb_selfpromo">الترويج الذاتي</string>
+    <string name="sb_interaction">تذكيرات التفاعل</string>
+    <string name="sb_poi_highlight">أبرز اللحظات</string>
+    <string name="sb_intro">المقدمات</string>
+    <string name="sb_outro">الخواتيم</string>
+    <string name="sb_preview">المعاينات</string>
+    <string name="sb_hook">مقاطع التشويق</string>
+    <string name="sb_filler">الحشو</string>
+    <string name="sb_music_offtopic">الأجزاء غير الموسيقية</string>
+    <string name="sb_toast_on_skip">إظهار رسالة بعد التخطي</string>
+    <string name="sb_toast_on_connection_error">إظهار أخطاء الاتصال بـ SponsorBlock</string>
+    <string name="sb_track_skip_count">تتبع عمليات التخطي في SponsorBlock</string>
+    <string name="sb_track_skip_count_summary">يحتفظ بالإحصاءات على هذا الهاتف ويُبلغ SponsorBlock بعمليات التخطي التي تجريها.</string>
+    <string name="sb_min_segment_duration">الحد الأدنى لمدة المقطع (بالثواني)</string>
+    <string name="section_sponsorblock">SponsorBlock</string>
+    <string name="sponsorblock_category_sponsor">رعاية</string>
+    <string name="sponsorblock_category_selfpromo">الترويج الذاتي</string>
+    <string name="sponsorblock_category_interaction">تذكير بالتفاعل</string>
+    <string name="sponsorblock_category_highlight">أبرز لحظة</string>
+    <string name="sponsorblock_category_intro">مقدمة</string>
+    <string name="sponsorblock_category_outro">خاتمة</string>
+    <string name="sponsorblock_category_preview">معاينة</string>
+    <string name="sponsorblock_category_hook">تشويق</string>
+    <string name="sponsorblock_category_filler">الحشو</string>
+    <string name="sponsorblock_category_music">جزء غير موسيقي</string>
+    <string name="sponsorblock_skipped">تم تخطي <xliff:g id="segment">%1$s</xliff:g></string>
+    <string name="sponsorblock_load_failed">تعذّر تحميل مقاطع SponsorBlock</string>
+</resources>

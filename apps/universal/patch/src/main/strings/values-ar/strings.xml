@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="allow_screenshots">السماح بلقطات الشاشة</string>
+    <string name="allow_screenshots_description">يسمح بلقطات الشاشة وتسجيل الشاشة في الشاشات المحمية.</string>
+    <string name="allow_split_screen">السماح بتقسيم الشاشة</string>
+    <string name="allow_split_screen_description">يتيح فتح التطبيق في وضع تقسيم الشاشة وفي الفقاعات.</string>
+    <string name="change_package_name">تغيير اسم الحزمة</string>
+    <string name="change_package_name_description">يثبّت التطبيق باسم حزمة آخر ليعمل بجانب التطبيق الأصلي. بعض التطبيقات لا تعمل بهذه الطريقة.</string>
+    <string name="change_package_name_package_name">اسم الحزمة</string>
+    <string name="change_package_name_package_name_description">اسم الحزمة الجديد. تركه فارغًا يضيف .reseam إلى الاسم الأصلي.</string>
+    <string name="disable_play_store_updates">تعطيل تحديثات متجر Play</string>
+    <string name="disable_play_store_updates_description">يُخفي التطبيق من تحديثات Google Play.</string>
+    <string name="enable_debugging">تفعيل تصحيح الأخطاء</string>
+    <string name="enable_debugging_description">يجعل التطبيق قابلًا لتصحيح الأخطاء، ليتمكن adb من فحصه دون روت.</string>
+    <string name="hide_mock_location">إخفاء الموقع الوهمي</string>
+    <string name="hide_mock_location_description">يُخفي أن موقعك يأتي من تطبيق موقع وهمي.</string>
+    <string name="override_certificate_pinning">تجاوز تثبيت الشهادات</string>
+    <string name="override_certificate_pinning_description">يثق بشهاداتك الخاصة، ليتمكن خادم وكيل من فحص حركة بيانات التطبيق.</string>
+    <string name="remove_ads">حظر الإعلانات</string>
+    <string name="remove_ads_description">يمنع التطبيق من تحميل الإعلانات من شبكات الإعلانات الشائعة.</string>
+    <string name="remove_pairip">إزالة Pairip</string>
+    <string name="remove_pairip_description">يزيل حماية السلامة التلقائية من Google Play. تظل عمليات التحقق من جهة الخادم سارية.</string>
+    <string name="remove_pairip_kill_vm">إيقاف آلة Pairip الافتراضية</string>
+    <string name="remove_pairip_kill_vm_description">فقط للتطبيقات التي لا تفعل فيها آلة Pairip الافتراضية سوى التحقق من الترخيص. يُعطّل التطبيقات التي تشغّل فيها كودها الخاص.</string>
+    <string name="remove_pairip_spoof_installer">انتحال عمليات التحقق من المثبِّت</string>
+    <string name="remove_pairip_spoof_installer_description">يجعل عمليات التحقق المتبقية من المثبِّت تُبلغ عن Google Play.</string>
+    <string name="report_play_store_installer">الإبلاغ عن متجر Play كمثبِّت</string>
+    <string name="report_play_store_installer_description">يجعل التطبيق يرى نفسه مثبَّتًا من Google Play.</string>
+    <string name="spoof_signature">انتحال التوقيع</string>
+    <string name="spoof_signature_description">يعرض للتطبيق توقيعه الأصلي، فتنجح عمليات التحقق من التطبيقات المعدَّلة.</string>
+</resources>

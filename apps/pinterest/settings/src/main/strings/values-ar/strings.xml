@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="hide_ads">إخفاء الإعلانات</string>
+    <string name="hide_shopping">إخفاء دبابيس التسوق</string>
+    <string name="disable_update_prompts">تعطيل دعوات التحديث</string>
+    <string name="hide_screenshot_share">إخفاء قائمة مشاركة لقطة الشاشة</string>
+    <string name="original_quality">صور بالجودة الأصلية</string>
+    <string name="original_quality_summary">يستهلك بيانات أكثر.</string>
+    <string name="show_posted_date">إظهار تاريخ النشر</string>
+    <string name="posted_on">نُشر <xliff:g id="date">%1$s</xliff:g></string>
+    <string name="hide_surveys">إخفاء دعوات الاستبيان</string>
+    <string name="download_started">جارٍ التنزيل</string>
+    <string name="download_unavailable">لا شيء للتنزيل</string>
+    <plurals name="download_board_started">
+        <item quantity="few">جارٍ تنزيل <xliff:g id="count">%1$d</xliff:g> دبابيس</item>
+        <item quantity="many">جارٍ تنزيل <xliff:g id="count">%1$d</xliff:g> دبوسًا</item>
+        <item quantity="other">جارٍ تنزيل <xliff:g id="count">%1$d</xliff:g> دبوس</item>
+    </plurals>
+    <string name="download_board_empty">مرّر في اللوحة أولًا لتحميل دبابيسها</string>
+    <string name="ask_which_media">السؤال عن الوسائط المراد حفظها</string>
+    <string name="ask_which_media_summary">عندما يحتوي الدبوس على عدة صور أو فيديوهات، يسألك أيها تريد حفظه.</string>
+    <string name="save_media_choose">اختر ما تريد حفظه</string>
+    <string name="save_media_image">صورة <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_video">فيديو <xliff:g id="number">%1$d</xliff:g></string>
+    <string name="save_media_all">حفظ الكل</string>
+    <string name="download_folder">مجلد التنزيل</string>
+    <string name="download_folder_summary">مكان حفظ الدبابيس. أبقِ المعرض الافتراضي أو اختر مجلدًا.</string>
+    <string name="section_downloads">التنزيلات</string>
+    <string name="section_feed">الخلاصة</string>
+    <string name="section_closeup">عرض الدبوس</string>
+    <string name="section_images">الصور</string>
+    <string name="section_sharing">المشاركة</string>
+    <string name="section_prompts">الدعوات</string>
+    <string name="section_updates">التحديثات</string>
+</resources>

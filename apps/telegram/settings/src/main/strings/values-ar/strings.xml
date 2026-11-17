@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="recover_deleted_chats_chosen">الدردشات التي أفعّله فيها</string>
+    <string name="recover_deleted_chats_all">كل الدردشات، إلا إذا عطّلته</string>
+    <string name="hide_sponsored_ads">إخفاء الرسائل الممولة</string>
+    <string name="disable_auto_update">تعطيل دعوات التحديث</string>
+    <string name="unlock_premium">فتح Premium</string>
+    <string name="unlock_premium_summary">الميزات التي يتحقق منها الخادم لا تزال تتطلب اشتراكًا.</string>
+    <string name="hide_typing">إخفاء مؤشر الكتابة</string>
+    <string name="boost_downloads">تنزيلات أسرع</string>
+    <string name="save_from_restricted">الحفظ من الدردشات المقيّدة</string>
+    <string name="save_from_restricted_summary">يتيح النسخ والحفظ وإعادة التوجيه في الدردشات المحمية.</string>
+    <string name="remove_play_store_restrictions">إزالة قيود متجر Play</string>
+    <string name="remove_play_store_restrictions_summary">يعرض الدردشات والوسائط التي يُخفيها Telegram في إصدار متجر Play فقط.</string>
+    <string name="recover_deleted">الاحتفاظ بالرسائل المحذوفة</string>
+    <string name="recover_deleted_summary">يحتفظ بالرسائل التي يحذفها الآخرون ويميّزها بـ 🗑️.</string>
+    <string name="recover_deleted_chats">مفعَّل لـ</string>
+    <string name="recover_deleted_chats_summary">يمكنك تفعيله أو تعطيله لكل دردشة من قائمة ⋮ في الدردشة.</string>
+    <string name="allow_screenshots">السماح بلقطات شاشة الوسائط السرية</string>
+    <string name="allow_screenshots_summary">يشمل تسجيل الشاشة للوسائط ذات العرض لمرة واحدة والوسائط ذاتية الحذف.</string>
+    <string name="section_ads">الإعلانات</string>
+    <string name="section_updates">التحديثات</string>
+    <string name="section_downloads">التنزيلات</string>
+    <string name="section_premium">Premium</string>
+    <string name="section_privacy">الخصوصية</string>
+    <string name="anti_delete_recovery_off">إيقاف الاحتفاظ بالرسائل المحذوفة</string>
+    <string name="anti_delete_recovery_on">الاحتفاظ بالرسائل المحذوفة</string>
+</resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="show_posted_date">إظهار تاريخ النشر</string>
+    <string name="show_posted_date_description">يعرض وقت نشر الدبوس.</string>
+    <string name="settings_entry">مدخل إعدادات Reseam</string>
+    <string name="settings_entry_description">يضيف «إعدادات Reseam» إلى إعدادات Pinterest.</string>
+    <string name="download_board">تنزيل اللوحة</string>
+    <string name="download_board_description">ينزّل الدبابيس التي حمّلتها اللوحة.</string>
+    <string name="download_pins">تنزيل الدبابيس</string>
+    <string name="download_pins_description">ينزّل الدبابيس كصور وفيديوهات أصلية.</string>
+    <string name="hide_ads">إخفاء الإعلانات</string>
+    <string name="hide_ads_description">يُخفي الدبابيس المروَّجة.</string>
+    <string name="hide_shopping">إخفاء دبابيس التسوق</string>
+    <string name="hide_shopping_description">يُخفي الدبابيس القابلة للشراء.</string>
+    <string name="original_quality">صور بالجودة الأصلية</string>
+    <string name="original_quality_description">يحمّل الصور بالجودة الأصلية.</string>
+    <string name="fix_push_notifications">إصلاح الإشعارات الفورية</string>
+    <string name="fix_push_notifications_description">يجعل الإشعارات الفورية تصل بعد التعديل.</string>
+    <string name="hide_surveys">إخفاء دعوات الاستبيان</string>
+    <string name="hide_surveys_description">يُخفي دعوات الاستبيان.</string>
+    <string name="hide_screenshot_share">إخفاء قائمة مشاركة لقطة الشاشة</string>
+    <string name="hide_screenshot_share_description">يُخفي قائمة المشاركة التي تظهر بعد التقاط لقطة شاشة.</string>
+    <string name="disable_update_prompts">تعطيل دعوات التحديث</string>
+    <string name="disable_update_prompts_description">يوقف دعوات التحديث.</string>
+</resources>

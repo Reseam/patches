@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hide_sponsored_ads">إخفاء الرسائل الممولة</string>
+    <string name="hide_sponsored_ads_description">يُخفي الرسائل الممولة في القنوات.</string>
+    <string name="download_boost">تنزيلات أسرع</string>
+    <string name="download_boost_description">ينزّل الملفات بأجزاء أكبر وعدد أكبر في الوقت نفسه.</string>
+    <string name="bypass_integrity">تجاوز فحص السلامة</string>
+    <string name="bypass_integrity_description">يتيح تسجيل الدخول على الهواتف التي عليها روت والهواتف التي لا تحتوي على خدمات Google.</string>
+    <string name="fix_push_notifications">إصلاح الإشعارات الفورية</string>
+    <string name="fix_push_notifications_description">يجعل الإشعارات الفورية تصل بعد التعديل.</string>
+    <string name="allow_screenshots">السماح بلقطات شاشة الوسائط السرية</string>
+    <string name="allow_screenshots_description">يسمح بلقطات الشاشة وتسجيل الشاشة للوسائط ذات العرض لمرة واحدة والوسائط ذاتية الحذف.</string>
+    <string name="anti_delete">الاحتفاظ بالرسائل المحذوفة</string>
+    <string name="anti_delete_description">يحتفظ بالرسائل التي يحذفها الآخرون ويعرضها في الدردشة.</string>
+    <string name="bypass_restrictions">الحفظ من الدردشات المقيّدة</string>
+    <string name="bypass_restrictions_description">يتيح النسخ والحفظ وإعادة التوجيه في الدردشات المحمية.</string>
+    <string name="forward_from_restricted">إعادة التوجيه من الدردشات المقيّدة</string>
+    <string name="forward_from_restricted_description">يرسل الرسائل من الدردشات التي تمنع إعادة التوجيه كرسائل جديدة.</string>
+    <string name="hide_typing_indicator">إخفاء مؤشر الكتابة</string>
+    <string name="hide_typing_indicator_description">يمنع الآخرين من رؤية أنك تكتب أو تسجّل.</string>
+    <string name="play_store_restrictions">إزالة قيود متجر Play</string>
+    <string name="play_store_restrictions_description">يعرض الدردشات والوسائط التي يُخفيها Telegram في إصدار متجر Play فقط.</string>
+    <string name="unlock_premium">فتح Premium</string>
+    <string name="unlock_premium_description">يفتح ميزات Premium التي تعمل على هذا الهاتف.</string>
+    <string name="disable_auto_update">تعطيل دعوات التحديث</string>
+    <string name="disable_auto_update_description">يوقف التحقق من التحديثات ودعوات التحديث.</string>
+</resources>

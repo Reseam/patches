@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="spoof_video_streams_client_tv">التلفزيون (SABR)</string>
+    <string name="spoof_video_streams_client_web">الويب (SABR)</string>
+    <string name="spoof_video_streams_client_tv_simply">TV Simply</string>
+    <string name="spoof_video_streams_stats_for_nerds">إظهار العميل المنتحَل في الإحصاءات</string>
+    <string name="spoof_video_streams_stats_for_nerds_summary">يعرض عميل البث في «إحصاءات تفصيلية».</string>
+    <string name="token_server_credential">بيانات اعتماد خادم الرموز المميزة</string>
+    <string name="spoof_video_streams">إصلاح التشغيل</string>
+    <string name="spoof_video_streams_summary">يجعل الفيديوهات تعمل عندما يحظر YouTube التطبيق.</string>
+    <string name="spoof_video_streams_client">العميل المفضّل</string>
+    <string name="spoof_video_streams_client_summary">العميل الذي تتم تجربته أولًا. يمكن لعميلَي Android والويب استخدام خادم الرموز المميزة من Reseam، وفقًا لشروطه على https://mint.reseam.app.</string>
+    <string name="user_agent_client_spoof">انتحال وكيل المستخدم</string>
+    <string name="user_agent_client_spoof_summary">يعرّف الطلبات بأنها من التطبيق الأصلي، ليقبلها YouTube.</string>
+    <string name="spoof_client_tv">التلفزيون (SABR)</string>
+    <string name="spoof_client_web">الويب (SABR)</string>
+    <string name="spoof_client_tv_simply">TV Simply</string>
+    <string name="spoof_client_native">أصلي</string>
+</resources>

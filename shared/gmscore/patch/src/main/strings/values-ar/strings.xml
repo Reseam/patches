@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gms_core_support">دعم GmsCore</string>
+    <string name="gms_core_support_description">يسجّل الدخول عبر GmsCore بدلًا من خدمات Google Play، ويجب تثبيته بشكل منفصل.</string>
+    <string name="gms_core_support_gms_core_vendor_group_id">مورّد GmsCore</string>
+    <string name="gms_core_support_gms_core_vendor_group_id_description">معرّف المجموعة الذي نُشر GmsCore الخاص بك تحته.</string>
+    <string name="gms_core_support_package_name">اسم الحزمة</string>
+    <string name="gms_core_support_package_name_description">اسم حزمة التطبيق المعدَّل.</string>
+</resources>

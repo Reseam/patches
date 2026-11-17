@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="reseam_you_tube_music">Reseam YouTube Music</string>
+    <string name="reseam_you_tube_music_description">يستخدم YouTube Music من Reseam للتشغيل التلقائي والخدمات المرتبطة عند تثبيته.</string>
+    <string name="reseam_you_tube_music_you_tube_music_package_name">اسم حزمة YouTube Music</string>
+    <string name="reseam_you_tube_music_you_tube_music_package_name_description">اسم الحزمة الذي عُدِّل به Reseam YouTube Music لديك.</string>
+</resources>

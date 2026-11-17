@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="gmscore_missing_title">GmsCore غير مثبَّت</string>
+    <string name="gmscore_missing_message">تم تعديل هذا التطبيق لتسجيل الدخول عبر GmsCore (<xliff:g id="packageName">%1$s</xliff:g>)، وهو غير مثبَّت. ثبّته وافتحه مرة واحدة وامنحه الأذونات التي يطلبها، ثم افتح هذا التطبيق مجددًا.</string>
+    <string name="gmscore_get">تنزيل GmsCore</string>
+    <string name="gmscore_close">إغلاق</string>
+    <string name="gmscore_mount_unsupported">تعديل دعم GmsCore يعطّل التثبيت بالربط</string>
+    <string name="gmscore_battery_optimized_title">تحسين البطارية مفعَّل لـ GmsCore</string>
+    <string name="gmscore_battery_optimized_message">سيوقف Android تطبيق GmsCore في الخلفية، ما يؤدي إلى تسجيل خروجك وتعطّل الإشعارات. أوقف تحسين البطارية لـ GmsCore.</string>
+    <string name="gmscore_open_settings">فتح الإعدادات</string>
+    <string name="gmscore_unavailable_title">GmsCore غير متاح</string>
+    <string name="gmscore_unavailable_message">لا يمكن للتطبيق الوصول إلى GmsCore. افتح GmsCore وتحقق من أذوناته وإعدادات النشاط في الخلفية.</string>
+    <string name="gmscore_open_website">فتح الموقع الإلكتروني</string>
+    <string name="gmscore_ignore">تجاهل</string>
+    <string name="gmscore_no_screen_handler">لا يتوفر تطبيق لفتح هذه الشاشة</string>
+</resources>

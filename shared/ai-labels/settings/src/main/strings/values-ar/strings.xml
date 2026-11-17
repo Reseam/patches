@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="ai_labels">تصنيفات الذكاء الاصطناعي</string>
+    <string name="ai_labels_summary">يصنّف المنشورات على أنها من كتابة إنسان أو مولَّدة بالذكاء الاصطناعي، مع مشاركة النتائج عبر Reseam.</string>
+    <string name="ai_label_images">تصنيف الصور</string>
+    <string name="ai_label_images_summary">يفحص الصور في المنشورات أيضًا.</string>
+    <string name="ai_detector">أداة الكشف</string>
+    <string name="ai_detector_summary">تفحص المنشورات الجديدة، وترى نصها وكاتبها وروابط صورها.</string>
+    <string name="ai_detector_account">حساب أداة الكشف</string>
+    <string name="ai_detector_account_summary">سجّل الدخول لفحص المنشورات الجديدة.</string>
+    <string name="ai_label_human">بشري</string>
+    <string name="ai_label_ai">ذكاء اصطناعي</string>
+    <string name="ai_label_mixed">مختلط</string>
+    <string name="ai_label_ai_assisted">بمساعدة الذكاء الاصطناعي</string>
+    <string name="ai_label_checking">جارٍ الفحص</string>
+    <string name="ai_label_sign_in">تسجيل الدخول</string>
+    <string name="ai_label_limit">الحد اليومي</string>
+    <string name="ai_label_retry">إعادة المحاولة</string>
+    <string name="ai_label_allow_images">السماح بالصور</string>
+    <string name="ai_label_not_ai">ليس ذكاءً اصطناعيًا</string>
+    <string name="ai_label_unsure">غير مؤكد</string>
+    <string name="ai_label_short_text">نص قصير</string>
+    <string name="ai_label_percent_ai"><xliff:g id="percent">%1$s</xliff:g> ذكاء اصطناعي</string>
+    <plurals name="ai_label_words">
+        <item quantity="few"><xliff:g id="count">%1$d</xliff:g> كلمات</item>
+        <item quantity="many"><xliff:g id="count">%1$d</xliff:g> كلمة</item>
+        <item quantity="other"><xliff:g id="count">%1$d</xliff:g> كلمة</item>
+    </plurals>
+    <string name="ai_label_share_human">من هذا النص كتبه إنسان</string>
+    <string name="ai_label_share_ai">من هذا النص مولَّد بالذكاء الاصطناعي</string>
+    <string name="ai_label_confidence_limited">دقة أقل في النصوص القصيرة</string>
+    <string name="ai_label_learn_more">مزيد من المعلومات</string>
+    <string name="ai_label_confidence">مستوى الثقة <xliff:g id="level">%1$s</xliff:g></string>
+    <string name="ai_label_share_result">مشاركة النتيجة</string>
+    <string name="ai_label_full_analysis">التحليل الكامل</string>
+    <string name="ai_label_preparing_share">جارٍ إنشاء الرابط…</string>
+    <string name="ai_label_opening_analysis">جارٍ الفتح…</string>
+    <string name="ai_label_link_copied">تم نسخ الرابط إلى الحافظة</string>
+    <string name="ai_label_share_failed">تعذّر إنشاء رابط</string>
+    <string name="ai_label_analysis_failed">تعذّر فتح التحليل الكامل</string>
+    <string name="ai_label_session_expired">تم تسجيل الخروج من <xliff:g id="detector">%1$s</xliff:g></string>
+    <string name="ai_label_daily_limit">تم بلوغ الحد اليومي في <xliff:g id="detector">%1$s</xliff:g></string>
+</resources>
