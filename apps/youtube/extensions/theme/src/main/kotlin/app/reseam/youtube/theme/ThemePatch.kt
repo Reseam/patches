@@ -44,8 +44,7 @@ fun getValue(originalValue: Int): Int =
         ?: originalValue
 
 @Export
-fun gradientLoadingScreenEnabled(original: Boolean): Boolean =
-    AppearanceSettings.gradientLoadingScreen.value || original
+fun gradientLoadingScreenEnabled(): Boolean = AppearanceSettings.gradientLoadingScreen.value
 
 @Export
 fun showSplashScreen(original: Boolean): Boolean =

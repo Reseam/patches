@@ -110,7 +110,7 @@ val theme = patch(YouTubePatchStrings.theme) {
                 then(within = 6) { resultOf(Type.Boolean) }
             }
             .captureAs("gradient", Type.Boolean)
-            .after { capture("gradient").assign(ThemePatch.gradientLoadingScreenEnabled(capture("gradient"))) }
+            .after { capture("gradient").assign(ThemePatch.gradientLoadingScreenEnabled()) }
 
         splashScreenStyle
             .point {
