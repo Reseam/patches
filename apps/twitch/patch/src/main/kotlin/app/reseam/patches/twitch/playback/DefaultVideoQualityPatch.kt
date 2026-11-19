@@ -62,7 +62,7 @@ val defaultVideoQuality = patch(TwitchPatchStrings.defaultVideoQuality) {
             }
         }
 
-        // The stream's renditions are known once the player is ready, where Twitch applies the quality it asked for before loading.
+        // The player lists the stream's renditions once it is ready, which is when Twitch applies the quality it asked for before loading.
         val renditionPicks = pendingQualityApplies.all
         require(renditionPicks.isNotEmpty()) { "The player no longer applies a pending quality" }
         renditionPicks.forEach { pick ->
@@ -95,7 +95,7 @@ private val savedQuality = method("savedQuality") {
     returns(Type.String)
 }
 
-// The theatre's start quality, which defaults clips to 480p and everything else to Auto.
+// Picks the theatre's start quality, with 480p as the default for clips and Auto for everything else.
 private val theatreQualityRead = method("theatreQuality") {
     calls(savedQuality)
     accesses { owner(CLIP_QUALITY); name("Quality480p") }

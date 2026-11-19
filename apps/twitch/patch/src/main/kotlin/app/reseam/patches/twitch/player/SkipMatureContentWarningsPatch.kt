@@ -28,14 +28,14 @@ val skipMatureContentWarnings = patch(TwitchPatchStrings.skipMatureContentWarnin
     }
 }
 
-// Picks the screen that covers a stream in the theater: the mature content warning, parental controls, your own content limits or a ban.
+// Picks the screen that covers a stream in the theatre: the mature content warning, parental controls, your own content limits or a ban.
 private val theatreContentGates = function("theatreContentGates") {
     name("useTheatreContentGates")
     strings("guardianLimited", "userLimited", "mature")
     paramCount(1)
 }
 
-// Plays a video in the new video theater, and covers it with a warning until you acknowledge its content labels.
+// Plays a video in the new video theatre, and covers it with a warning until you acknowledge its content labels.
 private val vodStage = function("vodStage") {
     name("SkylineVodStage")
     strings("-mature-gate", "matureAcknowledged")

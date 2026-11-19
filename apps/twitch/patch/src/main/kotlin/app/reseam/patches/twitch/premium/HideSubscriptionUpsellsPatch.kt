@@ -95,14 +95,14 @@ private val turboOfferNavigation = method("appStartTurboOffer") {
         argument(2) { field { owner(turboOfferScreen.descriptor) } }
     }
 
-// The Try Ad-Free button in the Following page's Live Now header.
+// Draws the Try Ad-Free button in the Following page's Live Now header.
 private val turboUpsellButton = function("turboUpsellButton") {
     name("TurboUpsellButton")
     strings("useTurboUpsell")
     paramCount(1)
 }
 
-// The Turbo offer the theatre shows over stream display ads.
+// Draws the Turbo offer the theatre shows over stream display ads.
 private val theatreTurboUpsell = function("theatreTurboUpsell") {
     name("TheatreSDAUpsell")
     strings("useTurboUpsell")

@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2026 Reseam contributors <https://reseam.app>
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-// A long stream sees many moderations, so each map keeps only the newest ones.
+// Moderators can act many times in a long stream, so each map keeps only the newest actions.
 const MAX_ACTIONS = 500;
 
 // Twitch writes a timeout's length only next to the moderator's name, which IRC lines never carry, so this stands in for the name.

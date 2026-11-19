@@ -52,7 +52,7 @@ val enableDebugMode = patch(TwitchPatchStrings.enableDebugMode) {
 private fun staffChecksIn(target: MethodsTarget, place: String): List<MethodTarget> =
     target.all.also { require(it.isNotEmpty()) { "$place no longer checks the staff flag" } }
 
-// Resource ids are known only at patch time.
+// Resource ids exist only at patch time.
 private fun PatchRuntime.staffChecksUsing(type: String, name: String): List<MethodTarget> {
     val id = resources.id(type, name)?.toLong() ?: error("$type/$name missing")
     return staffChecksIn(methods("$type/$name staff checks") { calls(isStaff); literals(id) }, "The code that uses $type/$name")

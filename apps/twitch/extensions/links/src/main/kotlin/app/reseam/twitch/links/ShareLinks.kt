@@ -18,10 +18,10 @@ private const val TRAILING_PUNCTUATION = ".,!?;:)]'"
 private val trackingNames = setOf("sr", "referrer_url")
 private val trackingPrefixes = listOf("tt_", "utm_")
 
-// The Japanese and Korean share texts run straight into the next word, so a link ends at the first character a URL cannot hold.
+// The Japanese and Korean share texts put the next word right after the link, so a link ends at the first character a URL cannot hold.
 private val link = Regex("""https?://[A-Za-z0-9\-._~:/?#\[\]@!$&'()*+,;=%]+""", RegexOption.IGNORE_CASE)
 
-/** [text] with the attribution and campaign parameters taken out of every twitch.tv link in it. */
+/** Returns [text] without the attribution and campaign parameters of every twitch.tv link in it. */
 @Export
 fun clean(text: String?): String? {
     if (text == null || !text.contains(TWITCH_HOST, ignoreCase = true)) return text

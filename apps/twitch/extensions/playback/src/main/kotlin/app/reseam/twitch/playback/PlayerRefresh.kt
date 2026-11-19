@@ -22,6 +22,6 @@ fun addButton(gear: View?, icon: Int) {
     addBeforeGear(gear, refresh)
 }
 
-/** Runs Twitch's Retry: a new access token and playlist for a live stream, the same position for a video. */
+/** Runs Twitch's Retry through [presenter]. Retry fetches a new access token and playlist for a live stream, and reloads a video at the same position. */
 @Export
 external fun reload(presenter: Any?)

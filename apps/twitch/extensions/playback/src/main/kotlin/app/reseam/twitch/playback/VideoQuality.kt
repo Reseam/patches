@@ -30,7 +30,7 @@ private const val AUTO_PICKED = "auto_picked"
 private var connectivity: ConnectivityManager? = null
 private var preferences: SharedPreferences? = null
 
-// The session each React Native player last started, so a quality you pick later in the same session stays.
+// Holds the session each React Native player last started, so the start quality applies once per session and leaves a quality you pick later alone.
 private val startedSessions = WeakHashMap<Any, String>()
 
 @Export
@@ -40,7 +40,7 @@ fun init(application: Application) {
     preferences = application.getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE)
 }
 
-/** The chosen quality when [twitchDefault] is Twitch's Auto, or [twitchDefault] unchanged. */
+/** Returns the chosen quality when [twitchDefault] is Twitch's Auto, and [twitchDefault] otherwise. */
 @Export
 fun initial(twitchDefault: String?): String? {
     if (twitchDefault != AUTO) return twitchDefault
@@ -49,11 +49,11 @@ fun initial(twitchDefault: String?): String? {
     return PlaybackSettings.defaultVideoQuality.value
 }
 
-/** The saved quality's [suffix] while Remember video quality is on, or a suffix Twitch never saves a quality under. */
+/** Returns the saved quality's [suffix] while Remember video quality is on, or a suffix Twitch never saves a quality under. */
 @Export
 fun savedQualitySuffix(suffix: String?): String? = if (PlaybackSettings.rememberVideoQuality.value) suffix else suffix + UNSAVED_ENDING
 
-/** The stream's rendition for a chosen quality, Auto when it has none, or [requested] as it is for any other name. */
+/** Returns the stream's rendition for a chosen quality, or Auto when the stream has none at that quality. Any other name, and any name asked for before the stream loads, comes back as [requested]. */
 @Export
 fun rendition(requested: String?, player: Any?): String? {
     if (requested != SOURCE && requested?.toIntOrNull() == null) return requested
@@ -80,7 +80,7 @@ fun startQuality(slot: Any?, player: Any?, ownsAdState: Boolean) {
     ivsPlayer.setQuality(quality)
 }
 
-/** Remembers whether the quality you last picked in a main React Native player, one that [ownsAdState], was [auto], which Twitch saves as no choice at all. */
+/** Remembers whether your last pick in a main React Native player was Auto, since Twitch saves Auto as no choice. [auto] is true for a pick of Auto, and [ownsAdState] marks a main player. */
 @Export
 fun rememberPick(auto: Boolean, ownsAdState: Boolean) {
     if (ownsAdState && autoPicked() != auto) preferences?.edit()?.putBoolean(AUTO_PICKED, auto)?.apply()

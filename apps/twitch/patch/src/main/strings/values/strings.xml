@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="block_embedded_ads">Block embedded ads</string>
-    <string name="block_embedded_ads_description">Loads live streams through a third-party proxy without ads, which sees your IP address and the channels you watch.</string>
+    <string name="block_embedded_ads_description">Loads live streams without ads through a third-party proxy, which sees your IP address and the channels you watch.</string>
     <string name="block_video_ads">Block video ads</string>
     <string name="block_video_ads_description">Blocks the ads Twitch requests itself, but ads inside live streams need Block embedded ads.</string>
     <string name="ignore_ad_events">Ignore ad events</string>
@@ -33,7 +33,7 @@
     <string name="show_vod_chapters">Show VOD chapters</string>
     <string name="show_vod_chapters_description">Adds a Chapters button to the VOD player that lists the stream\'s category changes and jumps to the one you pick.</string>
     <string name="hide_subscription_upsells">Hide subscription upsells</string>
-    <string name="hide_subscription_upsells_description">Hides Subscribe and Gift a Sub buttons and Turbo offers.</string>
+    <string name="hide_subscription_upsells_description">Hides the Subscribe and Gift a Sub buttons and the Turbo offers.</string>
     <string name="hide_player_overlay_buttons">Hide player overlay buttons</string>
     <string name="hide_player_overlay_buttons_description">Hides the clip, cast, share and rotate screen buttons on live streams.</string>
     <string name="hide_leaderboards">Hide leaderboards</string>
@@ -61,7 +61,7 @@
     <string name="hide_shared_chat_from_other_channels">Hide shared chat from other channels</string>
     <string name="hide_shared_chat_from_other_channels_description">In a shared chat, hides the messages and notices from the other channels.</string>
     <string name="hide_watch_streaks">Hide watch streaks</string>
-    <string name="hide_watch_streaks_description">Hides watch streaks in chat, the channel points menu, the Following tab, Home and channel pages.</string>
+    <string name="hide_watch_streaks_description">Hides watch streaks in chat, the Channel Points menu, the Following tab, Home and channel pages.</string>
     <string name="dont_follow_raids">Don\'t follow raids</string>
     <string name="dont_follow_raids_description">Keeps you in the channel when it raids another channel.</string>
     <string name="hide_viewer_count">Hide viewer count</string>

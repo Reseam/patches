@@ -19,7 +19,7 @@ private const val TITLE = "Reseam Settings"
 private const val ICON = "reseam_settings_icon"
 private const val ICON_PATH = "res/drawable/$ICON.xml"
 
-// Compose defaults mask: the subtitle and the badge.
+// Each set bit leaves one parameter at its Compose default, here the subtitle and the badge.
 private const val ROW_DEFAULTS = 0b10010
 
 val settingsEntry = patch(TwitchPatchStrings.settingsEntry) {
@@ -56,7 +56,7 @@ val settingsEntry = patch(TwitchPatchStrings.settingsEntry) {
     }
 }
 
-// Resource ids are known only at patch time. Signed out, the older settings list shows the description without the icon.
+// Resource ids exist only at patch time. Signed out, the older settings list shows the account description without the icon, so requiring the icon id rules that list out.
 private fun PatchRuntime.accountRow(): PointTarget {
     val accountDescription = resources.id("string", "account_description")?.toLong() ?: error("string/account_description missing")
     val accountIcon = resources.id("drawable", "account")?.toLong() ?: error("drawable/account missing")

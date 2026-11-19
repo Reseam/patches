@@ -15,10 +15,10 @@ const val TWITCH_PACKAGE = "tv.twitch.android.app"
 
 val TWITCH: CompatiblePackage = TWITCH_PACKAGE("31.9.0")
 
-// The base presenter of every native player.
+// Every native player has a presenter that extends this class.
 val playerPresenter = klass("playerPresenter") { strings("playerStateAndEventDisposable") }
 
-// Attaches a native player's view to its presenter. Videos, and live streams Twitch does not open in its React Native theater, play in the native player.
+// Attaches a native player's view to its presenter. Videos play in the native player, and so do live streams that Twitch does not open in its React Native theatre.
 val playerViewAttached = method("playerViewAttach") {
     inClass(playerPresenter)
     calls { name("addOnLayoutChangeListener") }
@@ -37,14 +37,14 @@ val isStaff = method("isStaff") {
 val viewerLandingCreate = klass("tv.twitch.android.feature.viewer.landing.ViewerLandingActivity")
     .method("onCreate") { strings("destinationOrdinal") }
 
-// Draws the React Native theater's top-right buttons, with the settings gear last.
+// Draws the React Native theatre's top-right buttons, with the settings gear last.
 val controlsOverlay = function("controlsOverlay") {
     name("PlayerControlsOverlay")
     strings("rightActionGroup", "IconNavSettings")
     paramCount(1)
 }
 
-// Draws the chat input row under the portrait theater, with the channel points button left of the field and the Bits button right of it.
+// Draws the chat input row under the portrait theatre, with the channel points button left of the field and the Bits button right of it.
 val chatComposerBar = function("chatComposerBar") {
     name("ChatComposerBar")
     strings("showBitsButton", "bitsChatMode")
