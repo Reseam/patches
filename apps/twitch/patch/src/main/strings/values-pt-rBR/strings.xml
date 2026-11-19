@@ -3,7 +3,7 @@
     <string name="block_embedded_ads">Bloquear anúncios incorporados</string>
     <string name="block_embedded_ads_description">Carrega as transmissões ao vivo sem anúncios por um proxy de terceiros, que vê seu endereço IP e os canais a que você assiste.</string>
     <string name="block_video_ads">Bloquear anúncios em vídeo</string>
-    <string name="block_video_ads_description">Bloqueia os anúncios em vídeo, áudio e display que a própria Twitch solicita.</string>
+    <string name="block_video_ads_description">Bloqueia os anúncios que a própria Twitch solicita, mas os anúncios dentro das transmissões ao vivo precisam de Bloquear anúncios incorporados.</string>
     <string name="ignore_ad_events">Ignorar eventos de anúncio</string>
     <string name="ignore_ad_events_description">Ignora os intervalos comerciais e o rastreamento de anúncios que a Twitch sinaliza durante uma transmissão.</string>
     <string name="settings_entry">Entrada das configurações do Reseam</string>

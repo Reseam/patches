@@ -60,6 +60,11 @@ object NavigationSettings : SettingsGroup(TwitchStrings) {
                 ),
             icon = Vector.lucide("house"),
         )
+    val hideCreateButton by toggle(default = false, icon = Vector.lucide("square-plus"))
+}
+
+object FeedSettings : SettingsGroup(TwitchStrings) {
+    val hideStoriesShelf by toggle(default = false, icon = Vector.lucide("gallery-horizontal"))
 }
 
 object ChatSettings : SettingsGroup(TwitchStrings) {
@@ -74,6 +79,11 @@ object ChatSettings : SettingsGroup(TwitchStrings) {
     val showTimeoutLength by toggle(default = false, icon = Vector.lucide("timer"))
     val keepChatAfterAClear by toggle(default = false, icon = Vector.lucide("archive"))
     val hideBlockedMessages by toggle(default = false, icon = Vector.lucide("user-x"))
+    val shrinkGiantEmotes by toggle(default = false, icon = Vector.lucide("shrink"))
+    val hideSubAndGiftNotices by toggle(default = false, icon = Vector.lucide("party-popper"))
+    val hideSharedChatFromOtherChannels by toggle(default = false, icon = Vector.lucide("messages-square"))
+    val hideWatchStreaks by toggle(default = false, icon = Vector.lucide("flame"))
+    val dontFollowRaids by toggle(default = false, icon = Vector.lucide("anchor"))
 }
 
 object LinkSettings : SettingsGroup(TwitchStrings) {
@@ -101,6 +111,7 @@ object PlaybackSettings : SettingsGroup(TwitchStrings) {
         )
     val rememberVideoQuality by toggle(default = true, icon = Vector.lucide("bookmark-check"))
     val refreshStream by toggle(default = true, icon = Vector.lucide("refresh-cw"))
+    val showVodChapters by toggle(default = true, icon = Vector.lucide("list-video"))
 }
 
 object PlayerOverlaySettings : SettingsGroup(TwitchStrings) {
@@ -110,6 +121,7 @@ object PlayerOverlaySettings : SettingsGroup(TwitchStrings) {
     val hideRotateScreenButton by toggle(default = false, icon = Vector.lucide("tablet-smartphone"))
     val hideViewerCount by toggle(default = false, icon = Vector.lucide("eye-off"))
     val hideContentClassificationLabel by toggle(default = true, icon = Vector.lucide("tag"))
+    val skipMatureContentWarnings by toggle(default = false, icon = Vector.lucide("fast-forward"))
 }
 
 object SubscriptionSettings : SettingsGroup(TwitchStrings) {

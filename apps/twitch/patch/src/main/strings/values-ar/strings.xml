@@ -3,7 +3,7 @@
     <string name="block_embedded_ads">حظر الإعلانات المضمَّنة</string>
     <string name="block_embedded_ads_description">يحمّل البث المباشر دون إعلانات عبر خادم وكيل تابع لجهة خارجية، يرى عنوان IP الخاص بك والقنوات التي تشاهدها.</string>
     <string name="block_video_ads">حظر إعلانات الفيديو</string>
-    <string name="block_video_ads_description">يحظر إعلانات الفيديو والصوت والإعلانات المصوّرة التي يطلبها Twitch بنفسه.</string>
+    <string name="block_video_ads_description">يحظر الإعلانات التي يطلبها Twitch بنفسه، لكن الإعلانات داخل البث المباشر تتطلب «حظر الإعلانات المضمَّنة».</string>
     <string name="ignore_ad_events">تجاهل أحداث الإعلانات</string>
     <string name="ignore_ad_events_description">يتجاهل الفواصل الإعلانية وتتبع الإعلانات التي يعلن عنها Twitch أثناء البث.</string>
     <string name="settings_entry">مدخل إعدادات Reseam</string>

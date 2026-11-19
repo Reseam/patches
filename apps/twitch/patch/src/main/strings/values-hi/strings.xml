@@ -3,7 +3,7 @@
     <string name="block_embedded_ads">स्ट्रीम में जुड़े विज्ञापन ब्लॉक करें</string>
     <string name="block_embedded_ads_description">लाइव स्ट्रीम बिना विज्ञापन के किसी तीसरे पक्ष के प्रॉक्सी से लोड करता है, जिसे आपका IP पता और आपके देखे गए चैनल दिखते हैं।</string>
     <string name="block_video_ads">वीडियो विज्ञापन ब्लॉक करें</string>
-    <string name="block_video_ads_description">वे वीडियो, ऑडियो और डिस्प्ले विज्ञापन ब्लॉक करता है जिन्हें Twitch ख़ुद माँगता है।</string>
+    <string name="block_video_ads_description">वे विज्ञापन ब्लॉक करता है जिन्हें Twitch ख़ुद माँगता है, लेकिन लाइव स्ट्रीम के अंदर के विज्ञापनों के लिए \"स्ट्रीम में जुड़े विज्ञापन ब्लॉक करें\" चाहिए।</string>
     <string name="ignore_ad_events">विज्ञापन इवेंट अनदेखा करें</string>
     <string name="ignore_ad_events_description">स्ट्रीम के दौरान Twitch के बताए विज्ञापन ब्रेक और विज्ञापन ट्रैकिंग को अनदेखा करता है।</string>
     <string name="settings_entry">Reseam सेटिंग का विकल्प</string>

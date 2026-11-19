@@ -3,7 +3,7 @@
     <string name="block_embedded_ads">封鎖內嵌廣告</string>
     <string name="block_embedded_ads_description">透過第三方代理伺服器載入無廣告的直播，該代理伺服器看得到你的 IP 位址和你觀看的頻道。</string>
     <string name="block_video_ads">封鎖影片廣告</string>
-    <string name="block_video_ads_description">封鎖 Twitch 自行請求的影片、音訊和展示廣告。</string>
+    <string name="block_video_ads_description">封鎖 Twitch 自行請求的廣告，但直播中的廣告需要「封鎖內嵌廣告」。</string>
     <string name="ignore_ad_events">忽略廣告事件</string>
     <string name="ignore_ad_events_description">忽略 Twitch 在直播期間宣告的廣告時段和廣告追蹤。</string>
     <string name="settings_entry">Reseam 設定入口</string>

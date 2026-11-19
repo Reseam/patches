@@ -3,7 +3,7 @@
     <string name="block_embedded_ads">ایمبیڈڈ اشتہارات بلاک کریں</string>
     <string name="block_embedded_ads_description">لائیو اسٹریمز کو اشتہارات کے بغیر تھرڈ پارٹی پراکسی کے ذریعے لوڈ کرتا ہے، جو آپ کا IP پتہ اور آپ کے دیکھے جانے والے چینلز دیکھتی ہے۔</string>
     <string name="block_video_ads">ویڈیو اشتہارات بلاک کریں</string>
-    <string name="block_video_ads_description">Twitch کے خود منگوائے گئے ویڈیو، آڈیو اور ڈسپلے اشتہارات بلاک کرتا ہے۔</string>
+    <string name="block_video_ads_description">Twitch کے خود منگوائے گئے اشتہارات بلاک کرتا ہے، لیکن لائیو اسٹریمز کے اندر کے اشتہارات کے لیے “ایمبیڈڈ اشتہارات بلاک کریں” درکار ہے۔</string>
     <string name="ignore_ad_events">اشتہاری ایونٹس نظر انداز کریں</string>
     <string name="ignore_ad_events_description">اسٹریم کے دوران Twitch کے اعلان کردہ اشتہاری وقفوں اور اشتہاری ٹریکنگ کو نظر انداز کرتا ہے۔</string>
     <string name="settings_entry">Reseam ترتیبات کا اندراج</string>

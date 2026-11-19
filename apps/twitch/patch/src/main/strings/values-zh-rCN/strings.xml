@@ -3,7 +3,7 @@
     <string name="block_embedded_ads">阻止嵌入式广告</string>
     <string name="block_embedded_ads_description">通过第三方代理加载无广告的直播，该代理能看到你的 IP 地址和你观看的频道。</string>
     <string name="block_video_ads">阻止视频广告</string>
-    <string name="block_video_ads_description">阻止 Twitch 自己请求的视频、音频和展示广告。</string>
+    <string name="block_video_ads_description">阻止 Twitch 自己请求的广告，但直播中的广告需要“阻止嵌入式广告”。</string>
     <string name="ignore_ad_events">忽略广告事件</string>
     <string name="ignore_ad_events_description">忽略 Twitch 在直播期间宣布的广告时段和广告跟踪。</string>
     <string name="settings_entry">Reseam 设置入口</string>

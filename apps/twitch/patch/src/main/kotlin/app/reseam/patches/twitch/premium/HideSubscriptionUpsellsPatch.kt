@@ -136,8 +136,8 @@ private val ownProfileActions = function("ownProfileActions") {
 
 // Resource ids exist only at patch time. The section draws the Subscriptions, Drops and Turbo rows, and its first parameter says the account has no Turbo.
 private fun PatchRuntime.turboSettingsRow(): PointTarget {
-    val turboTitle = resources.id("string", "viewer_account_menu_turbo")?.toLong() ?: error("The app has no string/viewer_account_menu_turbo")
-    val turboIcon = resources.id("drawable", "turbo")?.toLong() ?: error("The app has no drawable/turbo")
+    val turboTitle = resources.id("string", "viewer_account_menu_turbo")?.toLong() ?: error("string/viewer_account_menu_turbo missing")
+    val turboIcon = resources.id("drawable", "turbo")?.toLong() ?: error("drawable/turbo missing")
     return method("turboSettingsSection") { literals(turboTitle, turboIcon) }
         .point("turboIcon") { literal(turboIcon) }
         .settingsRowCall()

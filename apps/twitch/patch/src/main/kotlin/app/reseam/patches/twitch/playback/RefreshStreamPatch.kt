@@ -3,8 +3,6 @@
 
 package app.reseam.patches.twitch.playback
 
-import app.reseam.patch.PatchRuntime
-import app.reseam.patch.PointTarget
 import app.reseam.patch.Type
 import app.reseam.patch.dex.literal
 import app.reseam.patch.function
@@ -12,7 +10,6 @@ import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.methodTarget
 import app.reseam.patch.patch
-import app.reseam.patch.point
 import app.reseam.patch.points
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
@@ -20,6 +17,9 @@ import app.reseam.patches.twitch.TwitchPatchStrings
 import app.reseam.patches.twitch.core.TWITCH
 import app.reseam.patches.twitch.core.TwitchSettingsPages
 import app.reseam.patches.twitch.core.controlsOverlay
+import app.reseam.patches.twitch.core.playerPresenter
+import app.reseam.patches.twitch.core.playerSettingsButton
+import app.reseam.patches.twitch.core.playerViewAttached
 import app.reseam.patches.twitch.core.twitchModules
 import app.reseam.patches.twitch.core.twitchSettings
 import app.reseam.twitch.bindings.TheatreRefresh
@@ -52,11 +52,10 @@ val refreshStream = patch(TwitchPatchStrings.refreshStream) {
             returnVoid()
         }
 
-        val settingsButton = settingsButton()
-        val icon = resources.id("drawable", REFRESH_ICON)?.toInt() ?: error("The app has no drawable/$REFRESH_ICON")
+        val settingsButton = playerSettingsButton()
+        val icon = resources.id("drawable", REFRESH_ICON)?.toInt() ?: error("drawable/$REFRESH_ICON missing")
 
         gate(PlaybackSettings.refreshStream) {
-            // Videos, and live streams Twitch does not open in its React Native theatre, play in the native one.
             playerViewAttached.before { PlayerRefresh.register(capture("playerView"), thisObject) }
             settingsButton.after { PlayerRefresh.addButton(capture("settingsButton"), int(icon)) }
 
@@ -65,9 +64,6 @@ val refreshStream = patch(TwitchPatchStrings.refreshStream) {
         }
     }
 }
-
-// The base presenter of every native player.
-private val playerPresenter = klass("playerPresenter") { strings("playerStateAndEventDisposable") }
 
 // Shows a playback error, and creates the one callback its Retry button runs.
 private val retryCallbackCreated = method("playbackErrorShown") {
@@ -84,30 +80,9 @@ private val retry = methodTarget("retry") {
     bytecode.findClass(retryCallbackConstructor.owner)?.virtualMethods?.singleOrNull() ?: error("Twitch's Retry callback no longer has one method")
 }
 
-private val playerViewAttached = method("playerViewAttach") {
-    inClass(playerPresenter)
-    calls { name("addOnLayoutChangeListener") }
-}
-    .point("playerViewListener") { invokeVirtual { name("addOnLayoutChangeListener") } }
-    .captureArgumentAs("playerView", 0)
-
 // Builds the React Native theatre's player element, and the Retry the theatre hands only to its error overlay.
 private val theatrePlayer = function("theatrePlayer") {
     name("useTheatrePlayer")
     strings("playerAccessToken", "refreshVideoToken")
     paramCount(1)
 }
-
-// Resource ids exist only at patch time.
-private fun PatchRuntime.settingsButton(): PointTarget {
-    val gear = viewId("settings_button")
-    return method("playerOverlay") { literals(gear, viewId("play_pause_fast_seek_view")) }
-        .point("settingsButtonLookup") {
-            invokeVirtual { name("findViewById") }
-            argument(1) { literal(gear) }
-        }
-        .next { resultOf(Type.View) }
-        .captureAs("settingsButton")
-}
-
-private fun PatchRuntime.viewId(name: String) = resources.id("id", name)?.toLong() ?: error("The app has no id/$name")

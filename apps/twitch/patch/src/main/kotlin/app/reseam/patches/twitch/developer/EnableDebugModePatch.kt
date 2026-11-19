@@ -54,7 +54,7 @@ private fun staffChecksIn(target: MethodsTarget, place: String): List<MethodTarg
 
 // Resource ids are known only at patch time.
 private fun PatchRuntime.staffChecksUsing(type: String, name: String): List<MethodTarget> {
-    val id = resources.id(type, name)?.toLong() ?: error("The app has no $type/$name")
+    val id = resources.id(type, name)?.toLong() ?: error("$type/$name missing")
     return staffChecksIn(methods("$type/$name staff checks") { calls(isStaff); literals(id) }, "The code that uses $type/$name")
 }
 

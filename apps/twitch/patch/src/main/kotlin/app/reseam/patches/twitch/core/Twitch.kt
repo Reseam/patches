@@ -7,11 +7,24 @@ import app.reseam.patch.CompatiblePackage
 import app.reseam.patch.Type
 import app.reseam.patch.function
 import app.reseam.patch.invoke
+import app.reseam.patch.klass
 import app.reseam.patch.method
+import app.reseam.patch.point
 
 const val TWITCH_PACKAGE = "tv.twitch.android.app"
 
 val TWITCH: CompatiblePackage = TWITCH_PACKAGE("31.9.0")
+
+// The base presenter of every native player.
+val playerPresenter = klass("playerPresenter") { strings("playerStateAndEventDisposable") }
+
+// Attaches a native player's view to its presenter. Videos, and live streams Twitch does not open in its React Native theater, play in the native player.
+val playerViewAttached = method("playerViewAttach") {
+    inClass(playerPresenter)
+    calls { name("addOnLayoutChangeListener") }
+}
+    .point("playerViewListener") { invokeVirtual { name("addOnLayoutChangeListener") } }
+    .captureArgumentAs("playerView", 0)
 
 // Twitch hides its internal tools from everyone but staff.
 val isStaff = method("isStaff") {
@@ -19,6 +32,10 @@ val isStaff = method("isStaff") {
     returns(Type.Boolean)
     paramCount(0)
 }
+
+// Builds Twitch's main screen, with the bottom bar and the side rail.
+val viewerLandingCreate = klass("tv.twitch.android.feature.viewer.landing.ViewerLandingActivity")
+    .method("onCreate") { strings("destinationOrdinal") }
 
 // Draws the React Native theater's top-right buttons, with the settings gear last.
 val controlsOverlay = function("controlsOverlay") {
@@ -52,5 +69,12 @@ val applyModeration = function("applyModeration") {
 val chatMessageRow = function("chatMessageRow") {
     name("ChatMessageRowComponent")
     strings("useIsMessageDeleted", "modActionType")
+    paramCount(1)
+}
+
+// Draws one chat line of any kind, such as a message, a sub notice or a raid, by the line's type.
+val chatLine = function("chatLine") {
+    name("ChatLineComponent")
+    strings("local-echo-", "LowTrustChatHighlight")
     paramCount(1)
 }

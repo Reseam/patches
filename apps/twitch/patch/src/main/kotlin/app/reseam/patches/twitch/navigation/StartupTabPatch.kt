@@ -20,6 +20,7 @@ import app.reseam.patches.twitch.TwitchPatchStrings
 import app.reseam.patches.twitch.core.TWITCH
 import app.reseam.patches.twitch.core.TwitchSettingsPages
 import app.reseam.patches.twitch.core.twitchSettings
+import app.reseam.patches.twitch.core.viewerLandingCreate
 import app.reseam.twitch.navigation.bindings.StartupTab
 import app.reseam.twitch.settings.NavigationSettings
 import app.reseam.twitch.settings.TwitchStrings
@@ -79,9 +80,6 @@ private fun PatchRuntime.initialBottomTab(): PointTarget {
         .next { invokeDirect { name("<init>"); hasParam(Type.Map) } }
         .captureArgumentAs("initialTab", 2, Type.Int)
 }
-
-private val viewerLandingCreate = klass("tv.twitch.android.feature.viewer.landing.ViewerLandingActivity")
-    .method("onCreate") { strings(DESTINATION_ORDINAL) }
 
 private val destinations = klass("destinations") { enumConstants("Default", "Browse", "DiscoveryFeed") }
 private val defaultDestination = destinations.enumConstant("Default")
