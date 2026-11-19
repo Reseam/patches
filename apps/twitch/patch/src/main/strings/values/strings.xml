@@ -35,7 +35,7 @@
     <string name="hide_subscription_upsells">Hide subscription upsells</string>
     <string name="hide_subscription_upsells_description">Hides the Subscribe and Gift a Sub buttons and the Turbo offers.</string>
     <string name="hide_player_overlay_buttons">Hide player overlay buttons</string>
-    <string name="hide_player_overlay_buttons_description">Hides the clip, cast, share and rotate screen buttons on live streams.</string>
+    <string name="hide_player_overlay_buttons_description">Hides the clip, cast, share and rotate screen buttons on the player.</string>
     <string name="hide_leaderboards">Hide leaderboards</string>
     <string name="hide_leaderboards_description">Hides the gifter, cheerer and clip leaderboards above chat.</string>
     <string name="hide_bits_buttons">Hide bits buttons</string>
