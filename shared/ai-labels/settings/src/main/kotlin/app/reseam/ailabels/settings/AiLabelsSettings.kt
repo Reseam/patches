@@ -12,8 +12,8 @@ import app.reseam.patch.settings.choice
 import app.reseam.patch.settings.toggle
 
 object AiLabelsSettings : SettingsGroup(AiLabelsStrings) {
-    val aiLabels by toggle(default = true, icon = Vector.lucide("scan-text"), takesEffect = TakesEffect.IMMEDIATELY)
-    val aiLabelImages by toggle(default = true, icon = Vector.lucide("image"), takesEffect = TakesEffect.IMMEDIATELY)
+    val aiLabels by toggle(default = false, icon = Vector.lucide("scan-text"), takesEffect = TakesEffect.IMMEDIATELY)
+    val aiLabelImages by toggle(default = false, icon = Vector.lucide("image"), takesEffect = TakesEffect.IMMEDIATELY)
     val aiDetector by
         choice(
             default = "pangram",
