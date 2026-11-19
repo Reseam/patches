@@ -9,7 +9,6 @@ import app.reseam.patch.PatchRuntime
 import app.reseam.patch.PointTarget
 import app.reseam.patch.Type
 import app.reseam.patch.dex.Opcode
-import app.reseam.patch.dex.invokeRegisters
 import app.reseam.patch.dex.opcode
 import app.reseam.patch.dex.referencedRegisters
 import app.reseam.patch.dex.regA
@@ -80,7 +79,7 @@ val hidePlayerOverlayButtons = patch(TwitchPatchStrings.hidePlayerOverlayButtons
             visibilityCalls += keepHidden(bottomBar.storedButton("rotateButton", viewId("rotate_button")))
             visibilityCalls += keepHidden(theatre.boundButton("theatreRotateButton", viewId("rotate_button")))
         }
-        log.info("Kept the native players' clip, cast, share and rotate screen buttons hidden at $visibilityCalls visibility calls")
+        log.info("Hooked $visibilityCalls visibility calls on the fields that hold the native players' clip, cast, share and rotate screen buttons")
     }
 }
 
@@ -90,35 +89,34 @@ private fun PatchRuntime.playerBottomBar() = method("playerBottomBar") { literal
 // Builds Twitch's other native theatre, whose player overlay looks up its views through view bindings.
 private fun PatchRuntime.nativeTheatre() = method("nativeTheatre") { literals(viewId("cast_button"), viewId("create_clip_text_button")) }
 
-/** A button of a native player overlay: the lookup that finds it, the field that keeps it, and its view id. */
-private class OverlayButton(val label: String, val lookup: PointTarget, val field: FieldTarget, val id: Long)
+/** A button of a native player overlay: the result of its lookup, the field that keeps it, and its view id. */
+private class OverlayButton(val label: String, val lookupResult: PointTarget, val field: FieldTarget, val id: Long)
 
 /** Returns the button that this method looks up by [id] with findViewById and keeps in a field of its class. */
-private fun MethodTarget.storedButton(label: String, id: Long) = OverlayButton(
-    label,
-    point("${label}Lookup") {
+private fun MethodTarget.storedButton(label: String, id: Long): OverlayButton {
+    val lookup = point("${label}Lookup") {
         invokeVirtual { name("findViewById") }
         argument(1) { literal(id) }
-    },
-    point("${label}Store") {
-        invokeVirtual { name("findViewById") }
-        argument(1) { literal(id) }
-        then(within = 5) { opcode(Opcode.IPUT_OBJECT) }
-    }.field(label),
-    id,
-)
+    }
+    val store = lookup.next {
+        resultOf(Type.View)
+        then(within = 4) { opcode(Opcode.IPUT_OBJECT) }
+    }
+    return OverlayButton(label, lookup.next { resultOf(Type.View) }, store.field(label), id)
+}
 
 /** Returns the button that this method looks up by [id] and passes to a view binding, which keeps it in a field. */
 private fun MethodTarget.boundButton(label: String, id: Long): OverlayButton {
-    val lookup = point("${label}Lookup") {
+    val lookupResult = point("${label}Lookup") {
         invokeStatic { params(Type.Int, Type.View); returns(Type.View) }
         argument(0) { literal(id) }
     }
-    val view = lookup.next { opcode(Opcode.CHECK_CAST) }.instruction.regA
-    val bindingCall = lookup.next { invokeDirect { name("<init>") } }
-    val parameter = bindingCall.instruction.invokeRegisters.orEmpty().indexOf(view)
-    require(parameter > 0) { "The native theatre no longer passes its $label to a view binding" }
+        .next { resultOf(Type.View) }
+    val bindingCall = lookupResult.next { invokeDirect { name("<init>") } }
     val binding = bindingCall.callee("${label}Binding")
+    // writer fails on an argument that arrives as a parameter or comes from several places, and neither is the lookup's result.
+    val parameter = (1..binding.parameterTypes.size).firstOrNull { runCatching { bindingCall.writer(it).index }.getOrNull() == lookupResult.index }
+        ?: error("The native theatre no longer passes its $label to a view binding")
     // The binding's parameters arrive in its last registers, the object itself first.
     val parameterRegister = binding.method.registersSize - binding.method.insSize + parameter
     val read = binding.point("${label}Read") { where { parameterRegister in referencedRegisters } }
@@ -132,28 +130,33 @@ private fun MethodTarget.boundButton(label: String, id: Long): OverlayButton {
         }
         else -> error("The native theatre's view binding no longer stores its $label in a field")
     }
-    return OverlayButton(label, lookup, store.field(label), id)
+    return OverlayButton(label, lookupResult, store.field(label), id)
 }
 
-/** Keeps [button] hidden, and returns how many of its setVisibility calls it changed. */
+/** Keeps [button] hidden, and returns how many visibility calls on its field it hooked. */
 private fun GateScope.keepHidden(button: OverlayButton): Int {
     val buttonField = button.field
-    val visibilityCalls = methods("${button.label}Users") { accesses { owner(buttonField.owner); name(buttonField.name); type(buttonField.type) } }
-        .points("${button.label}VisibilityCalls") {
-            invokeVirtual { name("setVisibility") }
-            argument(0) { field { owner(buttonField.owner); name(buttonField.name) } }
-        }
-        .all
-        .also { require(it.isNotEmpty()) { "Twitch no longer calls setVisibility on the native player's ${button.label}" } }
-    // R8 merges some classes, so the same field can hold an unrelated view elsewhere. Only the view with the button's id gets GONE.
+    val users = methods("${button.label}Users") { accesses { owner(buttonField.owner); name(buttonField.name); type(buttonField.type) } }
+    val setVisibilityCalls = users.points("${button.label}SetVisibilityCalls") {
+        invokeVirtual { name("setVisibility") }
+        argument(0) { field { owner(buttonField.owner); name(buttonField.name) } }
+    }
+    // Twitch also shows views through a static helper that takes the view and whether it is visible.
+    val visibleHelperCalls = users.points("${button.label}VisibleHelperCalls") {
+        invokeStatic { params(Type.View, Type.Boolean); returns(Type.Void) }
+        argument(0) { field { owner(buttonField.owner); name(buttonField.name) } }
+    }
+    val visibilityCalls = setVisibilityCalls.all + visibleHelperCalls.all
+    require(visibilityCalls.isNotEmpty()) { "Twitch no longer changes the visibility of the native player's ${button.label}" }
+    // R8 merges some classes, so the same field can hold an unrelated view elsewhere. Only the view with the button's id is hidden again.
     visibilityCalls.forEach { call ->
-        call.captureArgumentAs("view", 0).captureArgumentAs("visibility", 1).before {
-            whenEqual(capture("view").callVirtual(Type.View, "getId", "()I"), int(button.id.toInt())) { capture("visibility").assign(int(VIEW_GONE)) }
+        call.captureArgumentAs("view", 0).after {
+            whenEqual(capture("view").callVirtual(Type.View, "getId", "()I"), int(button.id.toInt())) {
+                capture("view").callVirtual(Type.View, "setVisibility", "(I)V", int(VIEW_GONE))
+            }
         }
     }
-    // The layout shows some buttons before any code sets their visibility. The search above runs first, so it does not find this hook's own call.
-    button.lookup.next { resultOf(Type.View) }.captureAs(button.label).after {
-        capture(button.label).callVirtual(Type.View, "setVisibility", "(I)V", int(VIEW_GONE))
-    }
+    // The layout shows some buttons before any code sets their visibility.
+    button.lookupResult.captureAs(button.label).after { capture(button.label).callVirtual(Type.View, "setVisibility", "(I)V", int(VIEW_GONE)) }
     return visibilityCalls.size
 }
