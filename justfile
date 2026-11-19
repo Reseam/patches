@@ -17,7 +17,7 @@ release tag: cli
     echo "$BUNDLE_SIGNING_KEY_B64" | base64 -d > "$RESEAM_BUNDLE_KEY"
     {{ gradle }} bundle -PreleaseTag={{ tag }}
     "$RESEAM_BIN" release patches build/reseam/reseam-patches.reseam --tag {{ tag }} --to s3://reseam-releases/patches \
-        --public-url https://api.reseam.app --homepage https://reseam.app --forge-release
+        --public-url https://api.reseam.app --homepage https://reseam.app --keep 3 --forge-release
     # The GitHub mirror gets the same files, as a second place to download them from.
     git push "https://x-access-token:$MIRROR_RELEASE_TOKEN@github.com/Reseam/patches.git" refs/tags/{{ tag }}
     GITHUB_SERVER_URL=https://github.com GITHUB_API_URL=https://api.github.com RELEASE_TOKEN="$MIRROR_RELEASE_TOKEN" \
