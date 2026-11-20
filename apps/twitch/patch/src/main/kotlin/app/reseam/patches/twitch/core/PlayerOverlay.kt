@@ -10,20 +10,10 @@ import app.reseam.patch.Type
 import app.reseam.patch.method
 import app.reseam.patch.point
 
-/** Returns the native player overlay's constructor, which looks up each of its views by id. Resource ids exist only at patch time. */
-fun PatchRuntime.playerOverlay(): MethodTarget = method("playerOverlay") { literals(viewId("settings_button"), viewId("play_pause_fast_seek_view")) }
+// The native player overlay's constructor looks up each of its views by id.
+fun PatchRuntime.playerOverlay(): MethodTarget =
+    method("playerOverlay") { literals(resourceId("id", "settings_button"), resourceId("id", "play_pause_fast_seek_view")) }
 
-/** Returns the native player overlay's lookup of its settings gear, with the gear captured as `settingsButton`. Resource ids exist only at patch time. */
-fun PatchRuntime.playerSettingsButton(): PointTarget {
-    val gear = viewId("settings_button")
-    return playerOverlay()
-        .point("settingsButtonLookup") {
-            invokeVirtual { name("findViewById") }
-            argument(1) { literal(gear) }
-        }
-        .next { resultOf(Type.View) }
-        .captureAs("settingsButton")
-}
-
-/** Returns the id of the view resource [name]. */
-fun PatchRuntime.viewId(name: String): Long = resources.id("id", name)?.toLong() ?: error("id/$name missing")
+/** The view [method] looks up by the id [name], captured as `view`. */
+fun PatchRuntime.viewLookup(method: MethodTarget, name: String): PointTarget =
+    method.point("${name}Lookup") { literal(resourceId("id", name)) }.next { resultOf(Type.View) }.captureAs("view")

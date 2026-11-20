@@ -24,9 +24,7 @@ val hideWelcomeMessage = patch(TwitchPatchStrings.hideWelcomeMessage) {
     }
 }
 
-// Chat writes Welcome to the chat room with this line when it connects.
-private val chatConnectedLine = function("chatConnectedLine") {
+private val chatConnectedLine = function {
     name("ChatConnectedLine")
-    strings("StatusLine", "channelLogin")
     paramCount(1)
 }

@@ -9,7 +9,7 @@ import app.reseam.runtime.Export
 import org.json.JSONException
 import org.json.JSONObject
 
-// These metadata classes mark stitched ads, other ad formats, ad tracking and the picture-by-picture ad preflight.
+// Stitched ads, other ad formats, ad tracking, and the picture-by-picture ad preflight.
 private val adMetadataClasses = setOf("twitch-stitched-ad", "twitch-maf-ad", "twitch-ad-quartile", "live-video-net-metadata")
 
 @Export

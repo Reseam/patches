@@ -18,10 +18,12 @@ import app.reseam.patches.twitch.core.TWITCH
 import app.reseam.patches.twitch.core.TwitchSettingsPages
 import app.reseam.patches.twitch.core.controlsOverlay
 import app.reseam.patches.twitch.core.playerPresenter
-import app.reseam.patches.twitch.core.playerSettingsButton
+import app.reseam.patches.twitch.core.playerOverlay
 import app.reseam.patches.twitch.core.playerViewAttached
+import app.reseam.patches.twitch.core.resourceId
 import app.reseam.patches.twitch.core.twitchModules
 import app.reseam.patches.twitch.core.twitchSettings
+import app.reseam.patches.twitch.core.viewLookup
 import app.reseam.twitch.bindings.TheatreRefresh
 import app.reseam.twitch.playback.bindings.PlayerRefresh
 import app.reseam.twitch.settings.PlaybackSettings
@@ -39,9 +41,8 @@ val refreshStream = patch(TwitchPatchStrings.refreshStream) {
     settings(twitchSettings, section(TwitchSettingsPages.Player, TwitchStrings.sectionPlayerButtons, PlaybackSettings.refreshStream))
 
     execute {
-        // R8 merged lambdas into the Retry callback's class, and the number the error screen passes picks the Retry body.
+        // R8 merged lambdas into the Retry callback's class; this number picks the Retry body.
         val retryBody = retryCallbackCreated.writer(2).instruction.literal ?: error("Twitch no longer passes a number to its Retry callback")
-        // The same callback runs when you tap Retry on Twitch's playback error.
         PlayerRefresh.reload.implement {
             newInstance(
                 retryCallbackConstructor.owner,
@@ -52,12 +53,12 @@ val refreshStream = patch(TwitchPatchStrings.refreshStream) {
             returnVoid()
         }
 
-        val settingsButton = playerSettingsButton()
-        val icon = resources.id("drawable", REFRESH_ICON)?.toInt() ?: error("drawable/$REFRESH_ICON missing")
+        val settingsButton = viewLookup(playerOverlay(), "settings_button")
+        val icon = resourceId("drawable", REFRESH_ICON).toInt()
 
         gate(PlaybackSettings.refreshStream) {
             playerViewAttached.before { PlayerRefresh.register(capture("playerView"), thisObject) }
-            settingsButton.after { PlayerRefresh.addButton(capture("settingsButton"), int(icon)) }
+            settingsButton.after { PlayerRefresh.addButton(capture("view"), int(icon)) }
 
             theatrePlayer.after { returnValue(TheatreRefresh.restartablePlayer(result, param(0))) }
             controlsOverlay.after { returnValue(TheatreRefresh.withRefreshButton(result, string(REFRESH_LABEL))) }
@@ -65,7 +66,6 @@ val refreshStream = patch(TwitchPatchStrings.refreshStream) {
     }
 }
 
-// Shows a playback error, and creates the one callback its Retry button runs.
 private val retryCallbackCreated = method("playbackErrorShown") {
     inClass(playerPresenter)
     params(klass("playbackError") { enumConstants("NETWORK_ERROR", "CHANNEL_OFFLINE", "NAUTH_TOKEN_EXPIRED") }.descriptor)
@@ -75,14 +75,13 @@ private val retryCallbackCreated = method("playbackErrorShown") {
 
 private val retryCallbackConstructor = retryCallbackCreated.callee("retryCallbackConstructor")
 
-// R8 renamed Function0, so the callback's one method is its invoke.
+// R8 renamed Function0, so the callback's only method is its invoke.
 private val retry = methodTarget("retry") {
     bytecode.findClass(retryCallbackConstructor.owner)?.virtualMethods?.singleOrNull() ?: error("Twitch's Retry callback no longer has one method")
 }
 
-// Builds the React Native theatre's player element, and the Retry the theatre hands only to its error overlay.
-private val theatrePlayer = function("theatrePlayer") {
+// Returns the theatre's player element and the Retry it otherwise hands only to its error overlay.
+private val theatrePlayer = function {
     name("useTheatrePlayer")
-    strings("playerAccessToken", "refreshVideoToken")
     paramCount(1)
 }

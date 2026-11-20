@@ -21,7 +21,7 @@ val hideBlockedMessages = patch(TwitchPatchStrings.hideBlockedMessages) {
     settings(twitchSettings, section(TwitchSettingsPages.Chat, TwitchStrings.sectionChatMessages, ChatSettings.hideBlockedMessages))
 
     execute {
-        // A line can turn hidden while it is on screen, so the row still runs its React hooks before it returns nothing.
+        // A line can turn hidden while it is on screen, so the row runs its React hooks first.
         gate(ChatSettings.hideBlockedMessages) {
             chatMessageRow.after { whenTrue(BlockedUsers.isHiddenMessage(param(0))) { returnNull() } }
         }

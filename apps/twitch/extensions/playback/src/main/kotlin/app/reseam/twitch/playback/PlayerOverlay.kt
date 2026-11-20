@@ -12,7 +12,7 @@ import android.widget.LinearLayout
 import java.lang.ref.WeakReference
 import java.util.WeakHashMap
 
-// The presenter keeps its player view alive, so the map holds it weakly too.
+// The presenter keeps its player view alive.
 private val presenters = WeakHashMap<View, WeakReference<Any>>()
 private var lastPlayerView: WeakReference<View>? = null
 
@@ -25,7 +25,7 @@ internal fun registerPlayer(playerView: View?, presenter: Any?) {
     lastPlayerView = WeakReference(playerView)
 }
 
-// The controls and the player view sit side by side in the theatre, so the presenter comes from the nearest ancestor that holds a player view.
+// The controls sit beside the player view, so the presenter comes from the nearest ancestor that holds one.
 internal fun presenterFor(control: View): Any? {
     var ancestor: View? = control
     while (ancestor != null) {
@@ -45,7 +45,6 @@ private fun View.isInside(ancestor: View): Boolean {
     return false
 }
 
-/** Returns a button with [icon] that looks like the native player's settings [gear]. */
 internal fun gearStyledButton(gear: ImageView, icon: Int, label: String) =
     ImageView(gear.context).apply {
         setImageResource(icon)
@@ -56,13 +55,12 @@ internal fun gearStyledButton(gear: ImageView, icon: Int, label: String) =
         contentDescription = label
     }
 
-/** Puts [button] just before the settings [gear], and shows it with the gear while [shown] returns true. */
 internal fun addBeforeGear(gear: ImageView, button: ImageView, shown: () -> Boolean = { true }) {
     val parent = gear.parent as? ViewGroup ?: return
     if (parent.tag === buttonRow) {
         parent.addView(button, parent.indexOfChild(gear), LinearLayout.LayoutParams(gear.layoutParams.width, gear.layoutParams.height))
     } else {
-        // The overlay's constraints point at the gear's id, so the row that holds the buttons gets that id.
+        // The overlay's constraints point at the gear's id.
         val row = LinearLayout(gear.context).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
@@ -78,17 +76,21 @@ internal fun addBeforeGear(gear: ImageView, button: ImageView, shown: () -> Bool
         params.width = ViewGroup.LayoutParams.WRAP_CONTENT
         parent.addView(row, index, params)
     }
-    // Twitch hides and fades the gear itself, so each frame copies the gear's visibility and alpha to the button while the player is on screen.
-    val gearFollower = ViewTreeObserver.OnPreDrawListener {
+    // Twitch hides and fades the gear itself.
+    button.beforeEachDraw {
         button.visibility = if (shown()) gear.visibility else View.GONE
         button.alpha = gear.alpha
         true
     }
-    button.addOnAttachStateChangeListener(
-        object : View.OnAttachStateChangeListener {
-            override fun onViewAttachedToWindow(view: View) = view.viewTreeObserver.addOnPreDrawListener(gearFollower)
+}
 
-            override fun onViewDetachedFromWindow(view: View) = view.viewTreeObserver.removeOnPreDrawListener(gearFollower)
+/** Runs [listener] before each frame while this view is attached; returning false skips that frame. */
+internal fun View.beforeEachDraw(listener: ViewTreeObserver.OnPreDrawListener) {
+    addOnAttachStateChangeListener(
+        object : View.OnAttachStateChangeListener {
+            override fun onViewAttachedToWindow(view: View) = view.viewTreeObserver.addOnPreDrawListener(listener)
+
+            override fun onViewDetachedFromWindow(view: View) = view.viewTreeObserver.removeOnPreDrawListener(listener)
         },
     )
 }

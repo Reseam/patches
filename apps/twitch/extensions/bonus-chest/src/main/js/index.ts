@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2026 Reseam contributors <https://reseam.app>
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-// The Java side of Auto-claim rewards may claim the same bonus first and clear the chest, so the chat bar waits this long before it claims.
+// The native claim may take the same bonus first and clear the chest.
 const CLAIM_DELAY_MILLIS = 2000;
 
 type ComposerProps = {
@@ -18,7 +18,6 @@ function claimable(props: ComposerProps | undefined, bonusId: string) {
     return props?.hasClaimable === true && props.hasClaimError !== true && props.bonusUUID === bonusId && typeof props.onClaimBonus === "function";
 }
 
-// Tapping the chest calls onClaimBonus, so this calls it for each new bonus that is still shown without an error when the delay ends.
 export function claimBonusChest(props: ComposerProps | null | undefined) {
     if (props == null) return;
     latestProps = props;

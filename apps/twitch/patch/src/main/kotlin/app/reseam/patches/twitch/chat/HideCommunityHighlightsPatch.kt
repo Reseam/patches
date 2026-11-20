@@ -24,9 +24,8 @@ val hideCommunityHighlights = patch(TwitchPatchStrings.hideCommunityHighlights) 
     }
 }
 
-// The stack above chat shows pinned messages, hype trains, polls, predictions and the other community highlights, one card at a time.
-private val highlightStack = function("highlightStack") {
+// Pinned messages, hype trains, polls and predictions above chat.
+private val highlightStack = function {
     name("HighlightStack")
-    strings("hiddenForTray", "onHeightChange")
     paramCount(1)
 }

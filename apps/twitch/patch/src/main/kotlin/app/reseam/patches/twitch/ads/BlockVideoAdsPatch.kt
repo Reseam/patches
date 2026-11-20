@@ -43,7 +43,7 @@ val blockVideoAds = patch(TwitchPatchStrings.blockVideoAds) {
     }
 }
 
-// Applies the staff ad debug switches before a stream decides whether to request an ad. Declining every ad skips the request.
+// Staff ad debug switches, applied before a stream decides whether to request an ad. Declining every ad skips the request.
 private val adEligibilityOverride = method("adEligibilityOverride") { strings("skip_preroll", "decline_all_ads") }
 
 private val adEligibilityStaffChecks = adEligibilityOverride.points("adEligibilityStaffChecks") { calls(isStaff) }

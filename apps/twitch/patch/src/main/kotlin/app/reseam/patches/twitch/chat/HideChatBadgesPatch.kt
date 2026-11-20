@@ -24,9 +24,7 @@ val hideChatBadges = patch(TwitchPatchStrings.hideChatBadges) {
     }
 }
 
-// Chat lines, held messages, mod logs and the pinned message bar draw their badges with this component.
-private val badgePart = function("badgePart") {
+private val badgePart = function {
     name("BadgePart")
-    strings("useChatBadgesLoading", "registry")
     paramCount(1)
 }

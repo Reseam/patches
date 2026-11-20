@@ -21,7 +21,7 @@ val keepChatAfterAClear = patch(TwitchPatchStrings.keepChatAfterAClear) {
     settings(twitchSettings, section(TwitchSettingsPages.Chat, TwitchStrings.sectionChatMessages, ChatSettings.keepChatAfterAClear))
 
     execute {
-        // The store adds its Chat was cleared by a moderator line in the same call that empties chat, so skipping the clear leaves out both.
+        // Skipping the clear also leaves out the store's Chat was cleared line.
         gate(ChatSettings.keepChatAfterAClear) {
             applyModeration.before { whenTrue(ChatClear.isChatClear(param(0))) { returnUndefined() } }
         }

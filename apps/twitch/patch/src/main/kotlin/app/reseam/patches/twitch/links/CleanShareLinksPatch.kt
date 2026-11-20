@@ -32,7 +32,6 @@ val cleanShareLinks = patch(TwitchPatchStrings.cleanShareLinks) {
 
     execute {
         gate(LinkSettings.cleanShareLinks) {
-            // The share text already holds the video's timestamp, which Twitch appends to the link with an ampersand.
             shareText.after { returnValue(ShareLinks.clean(result)) }
             chatShareLink.after { capture("link").assign(ShareLinks.clean(capture("link"))) }
             shareTextDataConstructor.before {
@@ -50,19 +49,18 @@ val cleanShareLinks = patch(TwitchPatchStrings.cleanShareLinks) {
     }
 }
 
-// Share, Copy link and the app shortcuts of the share sheet take this text for a clip, story, recap, stream or video.
+// The share sheet's text for any shared content.
 private val shareText = method("shareText") {
     calls { owner(SHAREABLE_VIDEO); name("shareableText") }
     returns(Type.String)
 }
 
-// Send to chat posts the bare link instead of the share text.
 private val chatShareLink = method("chatShare") { strings("send_to_chat") }
     .point("shareableLink") { invokeVirtual { owner(SHAREABLE_CONTENT); name("getShareableLink") } }
     .next { resultOf(Type.String) }
     .captureAs("link")
 
-// The older share menus and Whisper shares carry a link and its text together.
+// The older share menus and Whisper shares.
 private val shareTextDataConstructor = klass("shareTextData") { strings("ShareTextData(url=") }
     .method("<init>") { params(Type.String, Type.String) }
 

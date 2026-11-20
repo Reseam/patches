@@ -23,6 +23,7 @@ import app.reseam.patches.twitch.core.TWITCH
 import app.reseam.patches.twitch.core.TwitchSettingsPages
 import app.reseam.patches.twitch.core.overlayActionButtons
 import app.reseam.patches.twitch.core.settingsRowCall
+import app.reseam.patches.twitch.core.resourceId
 import app.reseam.patches.twitch.core.twitchSettings
 import app.reseam.twitch.bindings.Upsells
 import app.reseam.twitch.settings.SubscriptionSettings
@@ -37,8 +38,7 @@ val hideSubscriptionUpsells = patch(TwitchPatchStrings.hideSubscriptionUpsells) 
     settings(twitchSettings, section(TwitchSettingsPages.Ads, TwitchStrings.sectionPromotions, SubscriptionSettings.hideSubscriptionUpsells))
 
     execute {
-        // Twitch's settings list badges the Turbo row GO AD FREE for accounts without Turbo, and subscribers keep it to manage Turbo.
-        // A gate can only skip unconditionally, so this skip reads the toggle itself.
+        // Turbo subscribers keep the row to manage Turbo, so this skips it only for accounts without Turbo.
         turboSettingsRow().skipWhen {
             val hide = bool(false)
             whenEnabled(SubscriptionSettings.hideSubscriptionUpsells) { hide.assign(param(0)) }
@@ -46,7 +46,7 @@ val hideSubscriptionUpsells = patch(TwitchPatchStrings.hideSubscriptionUpsells) 
         }
 
         gate(SubscriptionSettings.hideSubscriptionUpsells) {
-            // Every Subscribe and Gift a Sub button asks these, while the Subscribed badge reads the subscription itself.
+            // The Subscribed badge reads the subscription itself, not these.
             subscriptionEnabled.alwaysReturn(true)
             giftingEnabled.alwaysReturn(true)
             subscribedEnabled.alwaysReturn(true)
@@ -56,13 +56,11 @@ val hideSubscriptionUpsells = patch(TwitchPatchStrings.hideSubscriptionUpsells) 
             turboButtons.forEach { it.captureAs("shown").after { capture("shown").assign(bool(false)) } }
             turboOfferNavigation.skip()
 
-            // The React Native home, theatre and profile screens draw their own buttons.
             turboUpsellButton.alwaysReturnNull()
             theatreTurboUpsell.alwaysReturnNull()
             giftButton.alwaysReturnNull()
             listOf(subscribeButton, promoSubscribeButton).forEach { it.before { whenFalse(Upsells.isSubscribed(param(0))) { returnNull() } } }
             ownProfileActions.setArgument(0, "profile.turboStatus.hasActiveTurbo", true)
-            // The landscape chat overlay shows its Subscribe, Gift a Sub and Upgrade Sub buttons only for channels with sub products.
             overlayActionButtons.setArgument(0, "hasSubProducts", false)
             log.info("Hid Subscribe, Gift a Sub, the Turbo offers at app start and in settings, and ${turboButtons.size} native Turbo buttons")
         }
@@ -75,17 +73,16 @@ private val subscriptionEnabled = subscriptionState.method("isSubscriptionEnable
 private val giftingEnabled = subscriptionState.method("isGiftingEnabled")
 private val subscribedEnabled = subscriptionState.method("isSubscribed")
 
-// R8 renamed the enum of Turbo button texts but kept the name of its getter.
+// R8 kept the getter's name on the renamed enum of Turbo button texts.
 private val turboButtonChecks = methods("turboButtons") { calls { name("getButtonTextResId") } }
     .points("turboButtonChecks") {
         opcode(Opcode.INSTANCE_OF)
-        // The Try Ad-Free and Go Ad-Free buttons show only for this state.
         type(klass("turboButtonShown") { strings("Visible(ingressType=") }.descriptor)
     }
 
 private val turboOfferScreen = klass("turboOfferScreen") { strings("TurboAppStartUpsell") }
 
-// At app start, Twitch opens the Turbo trial offer when the account can still take it.
+// The Turbo trial offer Twitch opens at app start.
 private val turboOfferNavigation = method("appStartTurboOffer") {
     accesses { owner(APP_START_TURBO_OFFER); name("INSTANCE") }
     accesses { owner(turboOfferScreen.descriptor) }
@@ -95,49 +92,40 @@ private val turboOfferNavigation = method("appStartTurboOffer") {
         argument(2) { field { owner(turboOfferScreen.descriptor) } }
     }
 
-// Draws the Try Ad-Free button in the Following page's Live Now header.
-private val turboUpsellButton = function("turboUpsellButton") {
+private val turboUpsellButton = function {
     name("TurboUpsellButton")
-    strings("useTurboUpsell")
     paramCount(1)
 }
 
-// Draws the Turbo offer the theatre shows over stream display ads.
-private val theatreTurboUpsell = function("theatreTurboUpsell") {
+private val theatreTurboUpsell = function {
     name("TheatreSDAUpsell")
-    strings("useTurboUpsell")
     paramCount(1)
 }
 
-private val giftButton = function("giftButton") {
+private val giftButton = function {
     name("GiftButton")
-    strings("onOpenPanel")
     paramCount(1)
 }
 
-private val subscribeButton = function("subscribeButton") {
+private val subscribeButton = function {
     name("SubscribeButton")
-    strings("isSubscribed", "onOpenPanel")
     paramCount(1)
 }
 
-private val promoSubscribeButton = function("promoSubscribeButton") {
+private val promoSubscribeButton = function {
     name("SubscribeButtonWithPromo")
-    strings("useSubscribeButtonPromoImpression")
     paramCount(1)
 }
 
-// Your own profile page offers Turbo unless the profile reports an active Turbo subscription.
-private val ownProfileActions = function("ownProfileActions") {
+private val ownProfileActions = function {
     name("OwnProfileActions")
-    strings("turboStatus", "hasActiveTurbo")
     paramCount(1)
 }
 
-// Resource ids exist only at patch time. The section draws the Subscriptions, Drops and Turbo rows, and its first parameter says the account has no Turbo.
+// The section's first parameter says the account has no Turbo.
 private fun PatchRuntime.turboSettingsRow(): PointTarget {
-    val turboTitle = resources.id("string", "viewer_account_menu_turbo")?.toLong() ?: error("string/viewer_account_menu_turbo missing")
-    val turboIcon = resources.id("drawable", "turbo")?.toLong() ?: error("drawable/turbo missing")
+    val turboTitle = resourceId("string", "viewer_account_menu_turbo")
+    val turboIcon = resourceId("drawable", "turbo")
     return method("turboSettingsSection") { literals(turboTitle, turboIcon) }
         .point("turboIcon") { literal(turboIcon) }
         .settingsRowCall()

@@ -20,7 +20,6 @@ val shrinkGiantEmotes = patch(TwitchPatchStrings.shrinkGiantEmotes) {
     settings(twitchSettings, section(TwitchSettingsPages.Chat, TwitchStrings.sectionChatMessages, ChatSettings.shrinkGiantEmotes))
 
     execute {
-        // The row moves a gigantified emote out of the text and enlarges it only while this flag is set.
         gate(ChatSettings.shrinkGiantEmotes) { chatMessageRow.setArgument(0, "message.gigantifiedEmote", false) }
     }
 }

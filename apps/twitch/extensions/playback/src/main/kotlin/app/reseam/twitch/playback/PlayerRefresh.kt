@@ -13,7 +13,6 @@ import app.reseam.twitch.settings.TwitchStrings
 @Export
 fun register(playerView: View?, presenter: Any?) = registerPlayer(playerView, presenter)
 
-/** Puts a refresh button with [icon] just before the native player's settings [gear]. */
 @Export
 fun addButton(gear: View?, icon: Int) {
     if (gear !is ImageView) return
@@ -22,6 +21,6 @@ fun addButton(gear: View?, icon: Int) {
     addBeforeGear(gear, refresh)
 }
 
-/** Runs Twitch's Retry through [presenter]. Retry fetches a new access token and playlist for a live stream, and reloads a video at the same position. */
+/** Runs Twitch's Retry, which fetches a new access token and playlist for a live stream and reloads a video in place. */
 @Export
 external fun reload(presenter: Any?)

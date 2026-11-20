@@ -3,7 +3,7 @@
 
 type RowProps = { message?: { hidden?: boolean } | null };
 
-// Twitch keeps a blocked user's message as a placeholder only in channels you moderate, and drops it everywhere else.
+// Twitch keeps a placeholder for a blocked user's message only in channels you moderate.
 export function isHiddenMessage(props: RowProps | null | undefined) {
     return props?.message?.hidden === true;
 }

@@ -14,11 +14,11 @@ private const val TWITCH_HOST = "twitch.tv"
 // A share text can end a sentence right after the link.
 private const val TRAILING_PUNCTUATION = ".,!?;:)]'"
 
-// Twitch marks shared links with sr, and reads its campaign keys under both the tt_ and the utm_ prefix.
+// Twitch reads its campaign keys under both the tt_ and the utm_ prefix.
 private val trackingNames = setOf("sr", "referrer_url")
 private val trackingPrefixes = listOf("tt_", "utm_")
 
-// The Japanese and Korean share texts put the next word right after the link, so a link ends at the first character a URL cannot hold.
+// The Japanese and Korean share texts put the next word right after the link.
 private val link = Regex("""https?://[A-Za-z0-9\-._~:/?#\[\]@!$&'()*+,;=%]+""", RegexOption.IGNORE_CASE)
 
 /** Returns [text] without the attribution and campaign parameters of every twitch.tv link in it. */

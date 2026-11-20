@@ -16,6 +16,7 @@ import app.reseam.patches.twitch.core.TWITCH
 import app.reseam.patches.twitch.core.TwitchSettingsPages
 import app.reseam.patches.twitch.core.forceTrue
 import app.reseam.patches.twitch.core.isStaff
+import app.reseam.patches.twitch.core.resourceId
 import app.reseam.patches.twitch.core.twitchSettings
 import app.reseam.twitch.settings.DeveloperSettings
 import app.reseam.twitch.settings.TwitchStrings
@@ -52,9 +53,8 @@ val enableDebugMode = patch(TwitchPatchStrings.enableDebugMode) {
 private fun staffChecksIn(target: MethodsTarget, place: String): List<MethodTarget> =
     target.all.also { require(it.isNotEmpty()) { "$place no longer checks the staff flag" } }
 
-// Resource ids exist only at patch time.
 private fun PatchRuntime.staffChecksUsing(type: String, name: String): List<MethodTarget> {
-    val id = resources.id(type, name)?.toLong() ?: error("$type/$name missing")
+    val id = resourceId(type, name)
     return staffChecksIn(methods("$type/$name staff checks") { calls(isStaff); literals(id) }, "The code that uses $type/$name")
 }
 

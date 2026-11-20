@@ -27,9 +27,7 @@ val dontFollowRaids = patch(TwitchPatchStrings.dontFollowRaids) {
     }
 }
 
-// Moves you to the raided channel a short random wait after the raid starts, unless you left the channel.
-private val raidCarry = function("raidCarry") {
+private val raidCarry = function {
     name("useRaidCarry")
-    strings("jitterSeconds", "onCarried")
     paramCount(1)
 }

@@ -21,7 +21,7 @@ val hideSharedChatFromOtherChannels = patch(TwitchPatchStrings.hideSharedChatFro
     settings(twitchSettings, section(TwitchSettingsPages.Chat, TwitchStrings.sectionChatMessages, ChatSettings.hideSharedChatFromOtherChannels))
 
     execute {
-        // Chat never recycles a line's component and a line keeps its source channel, so a hidden line never runs its React hooks.
+        // A line keeps its source channel and chat never recycles its component, so skipping its React hooks is safe.
         gate(ChatSettings.hideSharedChatFromOtherChannels) {
             chatLine.before { whenTrue(SharedChat.isFromOtherChannel(param(0))) { returnNull() } }
         }

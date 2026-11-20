@@ -3,7 +3,6 @@
 
 import { cloneElement, isValidElement } from "react";
 
-// The overlay draws its clip button only when the theatre passes it a clip action.
 export function withoutClipAction(props: { onClips?: unknown } | null | undefined) {
     return props?.onClips === undefined ? props : { ...props, onClips: undefined };
 }
@@ -27,7 +26,7 @@ function without(node: any, button: string): any {
     return children === node.props.children ? node : cloneElement(node, { children });
 }
 
-// The overlay reuses its element between renders, so this keeps one copy without the button per element.
+// The overlay reuses its element between renders.
 const copiesWithout = new Map<string, WeakMap<object, unknown>>();
 
 export function withoutButton(element: unknown, button: string) {

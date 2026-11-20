@@ -20,7 +20,7 @@ val hideStoriesShelf = patch(TwitchPatchStrings.hideStoriesShelf) {
     settings(twitchSettings, section(TwitchSettingsPages.Appearance, TwitchStrings.sectionHomeFeed, FeedSettings.hideStoriesShelf))
 
     execute {
-        // Home passes the same shelf flag to all three, so the query, the pull-down gesture and the shelf turn off together.
+        // Home passes one shelf flag to all three.
         gate(FeedSettings.hideStoriesShelf) {
             storyPreviews.before { param(0).assign(bool(false)) }
             storiesShelfGesture.setArgument(0, "shelfPresent", false)
@@ -29,23 +29,17 @@ val hideStoriesShelf = patch(TwitchPatchStrings.hideStoriesShelf) {
     }
 }
 
-// Loads the stories for the shelf, and skips its query while the first argument is false.
-private val storyPreviews = function("storyPreviews") {
+private val storyPreviews = function {
     name("useStoryShelfPreviews")
-    strings("storyPreviewsWithOrder", "useSeedQuery")
     paramCount(2)
 }
 
-// Runs the pull-down gesture that opens the shelf above the feed.
-private val storiesShelfGesture = function("storiesShelfGesture") {
+private val storiesShelfGesture = function {
     name("useStoriesShelf")
-    strings("shelfPresent", "screenReaderActive")
     paramCount(1)
 }
 
-// Draws the top of Home: the stories shelf, its collapsed row of icons and the feed tabs.
-private val feedTopChrome = function("feedTopChrome") {
+private val feedTopChrome = function {
     name("FeedTopChromeComponent")
-    strings("CollapsedStoriesIcons", "StoriesShelf")
     paramCount(1)
 }

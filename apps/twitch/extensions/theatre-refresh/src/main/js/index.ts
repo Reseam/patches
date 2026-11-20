@@ -10,14 +10,14 @@ const NOT_REFRESHING = Symbol("not refreshing");
 
 type TheatrePlayer = { playerElement?: unknown; handlePlayerErrorReset?: () => void };
 
-// The theatre gives its Retry only to the error overlay, so the button keeps the one its player hook returned last.
+// The theatre gives its Retry only to the error overlay.
 let retry: (() => void) | undefined;
 let accessToken: unknown;
 // Holds the token that Retry replaces, until the new token arrives.
 let staleToken: unknown = NOT_REFRESHING;
 let restarts = 0;
 
-// The theatre reuses its player element between renders, so this keeps one restarted copy per element.
+// The theatre reuses its player element between renders.
 const restartedCopies = new WeakMap<object, { restarts: number; element: ReactElement }>();
 
 function restarted(element: ReactElement) {
@@ -28,8 +28,8 @@ function restarted(element: ReactElement) {
     return next;
 }
 
-// Retry loads a new source into the running player, which keeps showing the old picture and can stay frozen.
-// Once Retry's new access token arrives, a new key makes React mount a new player for it.
+// Retry loads a new source into the running player, which can stay frozen on the old picture.
+// A new key once Retry's new token arrives makes React mount a fresh player.
 export function restartablePlayer(
     player: TheatrePlayer | null | undefined,
     props: { playerAccessToken?: unknown } | null | undefined,
@@ -65,7 +65,6 @@ function refreshButton(gear: any, label: string) {
     });
 }
 
-// Puts the button just before the settings gear, wherever the overlay nests it.
 function withButton(node: any, label: string): any {
     if (Array.isArray(node)) {
         let changed = false;
@@ -92,7 +91,7 @@ function withButton(node: any, label: string): any {
     return next === children ? node : cloneElement(node, { children: next });
 }
 
-// The overlay reuses its element between renders, so this keeps one copy with the button per element.
+// The overlay reuses its element between renders.
 const copiesWithButton = new WeakMap<object, unknown>();
 
 export function withRefreshButton(element: unknown, label: string) {

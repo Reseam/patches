@@ -24,9 +24,7 @@ val hideContentClassificationLabel = patch(TwitchPatchStrings.hideContentClassif
     }
 }
 
-// Shows the stream's content classification, such as Intended for certain audiences, at the top of the player.
-private val contentClassificationDisclosure = function("contentClassificationDisclosure") {
+private val contentClassificationDisclosure = function {
     name("TheatreContentClassificationDisclosure")
-    strings("ContentMetadataTag", "matchWidth")
     paramCount(1)
 }

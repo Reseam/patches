@@ -31,7 +31,7 @@ fun playlistUrl(url: String?): String? {
     return playlistPrefix() + channel + PLAYLIST_EXTENSION + PROXY_QUERY
 }
 
-// The proxy gets none of the player's headers, so it never sees the player's tokens.
+// The proxy gets none of the player's headers, so none of its tokens.
 @Export
 fun playlistHeaders(url: String?, headers: Map<String, String>?): Map<String, String>? =
     if (url != null && proxiedChannelStart(url) >= 0) emptyMap() else headers
@@ -46,7 +46,7 @@ fun onFailure(url: String?) {
     if (isProxied(url)) pauseProxy()
 }
 
-/** Returns where the channel starts in [url] when the proxy should serve that live playlist, and -1 otherwise. */
+/** The channel's start in a live playlist URL the proxy should serve, or -1. */
 private fun proxiedChannelStart(url: String): Int {
     if (!url.startsWith(LIVE_PLAYLIST_PREFIX) || System.currentTimeMillis() < proxyPausedUntil) return -1
     val channelPath = url.indexOf(CHANNEL_PATH, LIVE_PLAYLIST_PREFIX.length - 1)
@@ -55,7 +55,7 @@ private fun proxiedChannelStart(url: String): Int {
     return if (url.indexOf(PLAYLIST_EXTENSION, channelStart) > channelStart) channelStart else -1
 }
 
-/** Returns the URL prefix of the chosen proxy's playlists. A custom value that is not an https base URL falls back to the default. */
+/** The chosen proxy's playlist path; a custom value that is not an https base URL falls back to the default. */
 private fun playlistPrefix(): String {
     val chosen = AdsSettings.embeddedAdsProxy.value
     val proxy = if (chosen == "custom") AdsSettings.customEmbeddedAdsProxy.value.trim().trimEnd('/') else chosen

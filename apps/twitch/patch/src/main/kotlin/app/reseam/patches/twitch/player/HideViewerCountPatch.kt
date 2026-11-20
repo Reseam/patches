@@ -29,9 +29,7 @@ val hideViewerCount = patch(TwitchPatchStrings.hideViewerCount) {
     }
 }
 
-// Every theatre layout draws its uptime and viewer count with this component.
-private val viewerStats = function("viewerStats") {
+private val viewerStats = function {
     name("ViewerStats")
-    strings("viewerCount", "streamCreatedAt")
     paramCount(1)
 }

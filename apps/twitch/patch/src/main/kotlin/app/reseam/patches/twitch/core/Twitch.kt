@@ -13,12 +13,12 @@ import app.reseam.patch.point
 
 const val TWITCH_PACKAGE = "tv.twitch.android.app"
 
-val TWITCH: CompatiblePackage = TWITCH_PACKAGE("31.9.0")
+val TWITCH: CompatiblePackage = TWITCH_PACKAGE("32.1.0")
 
-// Every native player has a presenter that extends this class.
+// The base class of every native player's presenter.
 val playerPresenter = klass("playerPresenter") { strings("playerStateAndEventDisposable") }
 
-// Attaches a native player's view to its presenter. Videos play in the native player, and so do live streams that Twitch does not open in its React Native theatre.
+// Videos, and live streams outside the React Native theatre, play in a native player.
 val playerViewAttached = method("playerViewAttach") {
     inClass(playerPresenter)
     calls { name("addOnLayoutChangeListener") }
@@ -33,48 +33,39 @@ val isStaff = method("isStaff") {
     paramCount(0)
 }
 
-// Builds Twitch's main screen, with the bottom bar and the side rail.
 val viewerLandingCreate = klass("tv.twitch.android.feature.viewer.landing.ViewerLandingActivity")
     .method("onCreate") { strings("destinationOrdinal") }
 
-// Draws the React Native theatre's top-right buttons, with the settings gear last.
-val controlsOverlay = function("controlsOverlay") {
+// The React Native theatre's top-right buttons.
+val controlsOverlay = function {
     name("PlayerControlsOverlay")
-    strings("rightActionGroup", "IconNavSettings")
     paramCount(1)
 }
 
-// Draws the chat input row under the portrait theatre, with the channel points button left of the field and the Bits button right of it.
-val chatComposerBar = function("chatComposerBar") {
+val chatComposerBar = function {
     name("ChatComposerBar")
-    strings("showBitsButton", "bitsChatMode")
     paramCount(1)
 }
 
-// Draws the round buttons of the landscape chat overlay, such as Subscribe, Cheer and channel points.
-val overlayActionButtons = function("overlayActionButtons") {
+// The round buttons of the landscape chat overlay.
+val overlayActionButtons = function {
     name("OverlayActionButtons")
-    strings("showCheerButton", "onEnterBits")
     paramCount(1)
 }
 
-// Applies each delete, timeout, ban and chat clear that the chat store receives over IRC.
-val applyModeration = function("applyModeration") {
+// Applies each delete, timeout, ban and clear the chat store receives.
+val applyModeration = function {
     name("applyModeration")
-    strings("BRIEF", "DETAILED")
     paramCount(1)
 }
 
-// Draws one chat message, including the placeholders for deleted messages and blocked users.
-val chatMessageRow = function("chatMessageRow") {
+val chatMessageRow = function {
     name("ChatMessageRowComponent")
-    strings("useIsMessageDeleted", "modActionType")
     paramCount(1)
 }
 
-// Draws one chat line of any kind, such as a message, a sub notice or a raid, by the line's type.
-val chatLine = function("chatLine") {
+// Draws any kind of chat line, such as a message, a sub notice or a raid.
+val chatLine = function {
     name("ChatLineComponent")
-    strings("local-echo-", "LowTrustChatHighlight")
     paramCount(1)
 }

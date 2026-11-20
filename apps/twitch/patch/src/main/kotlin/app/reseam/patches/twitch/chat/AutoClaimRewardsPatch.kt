@@ -57,7 +57,7 @@ val autoClaimRewards = patch(TwitchPatchStrings.autoClaimRewards) {
                 }
             }
 
-            // The React Native chat's bonus chest claims by calling onClaimBonus, so the extension calls it when a chest is still shown a moment after it appears.
+            // The React Native chat bar claims its bonus chest separately.
             chatComposerBar.before { BonusChest.claimBonusChest(param(0)) }
         }
     }

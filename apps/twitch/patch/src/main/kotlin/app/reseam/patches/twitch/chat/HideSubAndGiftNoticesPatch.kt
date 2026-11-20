@@ -21,7 +21,7 @@ val hideSubAndGiftNotices = patch(TwitchPatchStrings.hideSubAndGiftNotices) {
     settings(twitchSettings, section(TwitchSettingsPages.Chat, TwitchStrings.sectionChatMessages, ChatSettings.hideSubAndGiftNotices))
 
     execute {
-        // Chat never recycles a line's component and a line keeps its type, so a hidden line never runs its React hooks.
+        // A line keeps its type and chat never recycles its component, so skipping its React hooks is safe.
         gate(ChatSettings.hideSubAndGiftNotices) {
             chatLine.before { whenTrue(SubNotices.isSubNotice(param(0))) { returnNull() } }
         }

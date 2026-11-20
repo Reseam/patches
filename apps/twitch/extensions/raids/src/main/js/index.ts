@@ -3,7 +3,7 @@
 
 type CarryProps = { going?: { isCreator?: boolean } | null };
 
-// A raid you start still takes you to the channel you raid.
+// A raid you start still takes you along.
 export function withoutCarry(props: CarryProps | null | undefined) {
     return props?.going && !props.going.isCreator ? { ...props, going: null } : props;
 }

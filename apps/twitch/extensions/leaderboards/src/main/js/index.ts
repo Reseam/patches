@@ -1,13 +1,12 @@
 // SPDX-FileCopyrightText: 2026 Reseam contributors <https://reseam.app>
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-// Every copy shares one empty list, so the strip's memoized pages see the same boards.
+// The strip memoizes its pages by the boards list.
 const noBoards: never[] = [];
 
-// Each render reads the same context value, so this keeps one copy per value.
 const copies = new WeakMap<object, object>();
 
-// Without boards or a top supporter, the strip above chat keeps only its goal pages, and draws nothing when there are none.
+// Without boards or a top supporter, the strip keeps only its goal pages.
 export function withoutLeaderboards(leaderboard: object | null | undefined) {
     if (leaderboard == null) return leaderboard;
     let copy = copies.get(leaderboard);

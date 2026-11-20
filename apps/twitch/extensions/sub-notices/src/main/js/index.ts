@@ -3,7 +3,6 @@
 
 type LineProps = { line?: { type?: string } | null };
 
-// Twitch draws subs, resubs, gift subs and their upgrades, and the rewards a sub or gift shares with chat, as chat lines of these types.
 const subNoticeTypes = new Set([
     "subscription",
     "resub",

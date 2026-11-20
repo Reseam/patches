@@ -20,7 +20,7 @@ internal val twitchModules = patch {
                     paramCount(1)
                 }.module,
             )
-            // The icon's module also exports it wrapped as IconRefresh, the way the player draws its buttons.
+            // The module also exports the wrapped IconRefresh that the player draws.
             module(
                 "twitch:icons/IconRefresh",
                 function {

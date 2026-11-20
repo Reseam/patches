@@ -50,8 +50,7 @@ val defaultVideoQuality = patch(TwitchPatchStrings.defaultVideoQuality) {
     execute {
         appEntry { VideoQuality.init(application) }
 
-        // Twitch passes its default to the lookup of the saved choice, so a quality picked in the player still wins.
-        // With Remember video quality off, the lookup uses a suffix Twitch never saves under, so it returns that default.
+        // A quality picked in the player still wins over the default.
         val verticalReads = verticalTheatreQualityReads.all
         require(verticalReads.isNotEmpty()) { "The vertical theatre no longer reads the saved quality" }
         val startQualities = verticalReads + theatreQualityRead
@@ -62,7 +61,7 @@ val defaultVideoQuality = patch(TwitchPatchStrings.defaultVideoQuality) {
             }
         }
 
-        // The player lists the stream's renditions once it is ready, which is when Twitch applies the quality it asked for before loading.
+        // Renditions are known only once the player is ready, which is when Twitch applies a pending quality.
         val renditionPicks = pendingQualityApplies.all
         require(renditionPicks.isNotEmpty()) { "The player no longer applies a pending quality" }
         renditionPicks.forEach { pick ->
@@ -71,15 +70,14 @@ val defaultVideoQuality = patch(TwitchPatchStrings.defaultVideoQuality) {
             }
         }
 
-        // Live streams play in the React Native theatre, whose JavaScript applies a quality you saved only after these.
+        // The React Native theatre's JavaScript applies a saved quality only after these.
         reactNativePlayerReady.before { VideoQuality.startQuality(param(0), capture("player"), param(0).field(ownsAdState)) }
         reactNativeHandoff.before { VideoQuality.startQuality(thisObject, param(0), thisObject.field(ownsAdState)) }
 
-        // Twitch's JavaScript saves a pick of Auto as no choice, so the extension remembers it.
+        // Twitch's JavaScript saves a pick of Auto as no choice.
         autoQualityPick.before { VideoQuality.rememberPick(bool(true), thisObject.field(ownsAdState)) }
         qualityPick.before { VideoQuality.rememberPick(bool(false), thisObject.field(ownsAdState)) }
 
-        // With Remember video quality off, the theatre's player never reads as ready for the quality its JavaScript saved.
         preferredVideoQuality.before {
             whenFalse(valueOf(PlaybackSettings.rememberVideoQuality)) { param(0).assign(TheatreQuality.withoutSavedQuality(param(0))) }
         }
@@ -88,21 +86,18 @@ val defaultVideoQuality = patch(TwitchPatchStrings.defaultVideoQuality) {
     }
 }
 
-// Reads the saved quality for live streams, videos or clips, or returns the default the caller passes in.
 private val savedQuality = method("savedQuality") {
     strings("video_quality")
     params(Type.String, Type.String)
     returns(Type.String)
 }
 
-// Picks the theatre's start quality, with 480p as the default for clips and Auto for everything else.
 private val theatreQualityRead = method("theatreQuality") {
     calls(savedQuality)
     accesses { owner(CLIP_QUALITY); name("Quality480p") }
 }
     .point("theatreQualityRead") { calls(savedQuality) }
 
-// The vertical theatre swaps a saved audio-only choice for the last video quality.
 private val verticalTheatreQualityReads = methods("verticalTheatreQualities") {
     calls(savedQuality)
     strings("audio_only")
@@ -115,7 +110,6 @@ private val setQualityByName = method("setQualityByName") {
     calls { owner(IVS_PLAYER); name("setAutoQualityMode") }
 }
 
-// Applies the pending quality once the player is ready, and again when it resumes.
 private val pendingQualityApplies = methods("pendingQualityAppliers") {
     calls(setQualityByName)
     calls { owner(IVS_PLAYER); name("play") }
@@ -125,10 +119,9 @@ private val pendingQualityApplies = methods("pendingQualityAppliers") {
 // The React Native player library keeps its names.
 private val reactNativePlayback = klass("com.twitchrn.player.PlaybackSlot")
 
-// The theatre and other main players own the ad state, while feed previews keep Twitch's Auto, capped to their size.
+// Main players own the ad state; feed previews keep Twitch's Auto.
 private val ownsAdState = reactNativePlayback.field("ownsAdState")
 
-// The ready handler sends the stream's renditions to JavaScript.
 private val reactNativePlayerReady = method("reactNativeStateChange") {
     inClass(reactNativePlayback)
     calls { name("emitPlaybackState") }
@@ -139,7 +132,7 @@ private val reactNativePlayerReady = method("reactNativeStateChange") {
     .captureAs("player")
     .next { invokeVirtual { name("emitQualities") } }
 
-// A player that a feed preview hands over keeps playing, so it skips the ready handler.
+// A player handed over from a feed preview skips the ready handler.
 private val reactNativeHandoff = reactNativePlayback
     .method("replayHandedOverState")
     .point("handoffQualities") { invokeVirtual { name("emitQualities") } }
@@ -147,9 +140,7 @@ private val reactNativeHandoff = reactNativePlayback
 private val autoQualityPick = reactNativePlayback.method("setAutoQuality")
 private val qualityPick = reactNativePlayback.method("setQuality")
 
-// Applies the quality the React Native theatre saved, once its player is ready.
-private val preferredVideoQuality = function("preferredVideoQuality") {
+private val preferredVideoQuality = function {
     name("usePreferredVideoQuality")
-    strings("preferredVideoQuality", "isPlayerReady")
     paramCount(1)
 }

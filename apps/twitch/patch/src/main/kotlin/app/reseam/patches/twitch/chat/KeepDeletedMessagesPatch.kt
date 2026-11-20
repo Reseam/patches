@@ -33,7 +33,7 @@ val keepDeletedMessages = patch(TwitchPatchStrings.keepDeletedMessages) {
 
     execute {
         gate(ChatSettings.keepDeletedMessages) {
-            // The chat store sets the action on a deleted line only when you moderate the channel, so the extension records each delete, timeout and ban.
+            // The chat store names the action on a deleted line only for moderators.
             applyModeration.before { DeletedMessages.rememberModeration(param(0)) }
             chatMessageRow.before { param(0).assign(DeletedMessages.withModeration(param(0), valueOf(ChatSettings.showTimeoutLength))) }
             messageBody.before { param(0).assign(DeletedMessages.withModeratedBody(param(0))) }
@@ -41,9 +41,8 @@ val keepDeletedMessages = patch(TwitchPatchStrings.keepDeletedMessages) {
     }
 }
 
-// Chat rows and mod logs draw message text with this component, and only deleted messages come in with strikethrough on.
-private val messageBody = function("messageBody") {
+// Only deleted messages come in with strikethrough on.
+private val messageBody = function {
     name("MessageBody")
-    strings("strikethrough", "moderatedRanges")
     paramCount(1)
 }

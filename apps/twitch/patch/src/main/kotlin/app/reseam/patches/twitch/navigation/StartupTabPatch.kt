@@ -33,7 +33,7 @@ val startupTab = patch(TwitchPatchStrings.startupTab) {
     settings(twitchSettings, section(TwitchSettingsPages.Appearance, TwitchStrings.sectionStartPage, NavigationSettings.startupTab))
 
     execute {
-        // Twitch shows its Default Home Page setting only to users in its home page experiment, so this unlocks it for everyone.
+        // Twitch's own Following, Live or Clips choice, shown only to users enrolled in its home page experiment.
         defaultHomePageEnabled.alwaysReturn(true)
 
         val profileTab = resources.id("id", "viewer_bottom_nav_profile")?.toInt()

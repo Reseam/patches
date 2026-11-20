@@ -26,8 +26,7 @@ val hideLeaderboards = patch(TwitchPatchStrings.hideLeaderboards) {
 }
 
 // The strip above chat reads the channel's leaderboards and goals from this context.
-// The hook references only "default" and "useContext", so its kept name is the anchor.
-private val channelLeaderboard = function("channelLeaderboard") {
+private val channelLeaderboard = function {
     name("useChannelLeaderboard")
     paramCount(0)
 }

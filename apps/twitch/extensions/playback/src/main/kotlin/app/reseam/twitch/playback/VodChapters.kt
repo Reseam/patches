@@ -22,7 +22,7 @@ import java.util.WeakHashMap
 import kotlin.concurrent.thread
 import org.json.JSONObject
 
-// Twitch's app never queries chapters, but its GraphQL API returns a video's chapter markers to the web client ID without a login.
+// The app never queries chapters, but the API returns them to the web client ID without a login.
 private const val GQL_URL = "https://gql.twitch.tv/gql"
 private const val WEB_CLIENT_ID = "kimne78kx3ncx6brgo4mv6wki5h1ko"
 private const val CHAPTERS_QUERY =
@@ -31,12 +31,12 @@ private const val TIMEOUT_MILLIS = 10_000
 
 private class Chapter(val positionMillis: Int, val title: String)
 
-// One video plays at a time, so the chapters of the last one are enough. The main thread sets all three.
+// One video plays at a time. Only the main thread sets these.
 private var loadedVodId: String? = null
 private var loadedChapters: List<Chapter> = emptyList()
 private var loadingVodId: String? = null
 
-// A detached button never runs what it posts, so results come back through the main looper instead.
+// A detached button never runs what it posts.
 private val mainThread = Handler(Looper.getMainLooper())
 
 // A button keeps the presenter it found until the next player view registers, which can change the nearest one.
@@ -48,22 +48,19 @@ fun trackPlayer(playerView: View?, presenter: Any?) {
     buttonPresenters.clear()
 }
 
-/** Puts a Chapters button with [icon] just before the native player's settings [gear], shown while the video has two chapters or more. */
 @Export
 fun addChaptersButton(gear: View?, icon: Int) {
     if (gear !is ImageView) return
     val chapters = gearStyledButton(gear, icon, TwitchStrings.vodChapters)
-    // The list icon is black, so it takes the gear's tint, or white when the gear has none.
+    // The list icon is black.
     if (chapters.imageTintList == null) chapters.imageTintList = ColorStateList.valueOf(Color.WHITE)
     chapters.setOnClickListener { view -> presenterOf(view)?.let { showChapters(view, it) } }
     addBeforeGear(gear, chapters) { hasChapters(chapters) }
 }
 
-/** Returns the id of the video [presenter] plays, or null when it plays none. */
 @Export
 external fun vodId(presenter: Any?): String?
 
-/** Seeks [presenter]'s video to [positionMillis], the way Twitch jumps to a time itself. */
 @Export
 external fun seek(presenter: Any?, positionMillis: Int)
 
@@ -104,7 +101,7 @@ private fun fetchChapters(vodId: String): List<Chapter> {
         connection.doOutput = true
         connection.setRequestProperty("Client-ID", WEB_CLIENT_ID)
         connection.setRequestProperty("Content-Type", "application/json")
-        // A VodModel id starts with a v, which Twitch's own player strips before it requests the video, and the API takes the number.
+        // A VodModel id starts with a v, and the API takes the number.
         val variables = JSONObject().put("id", vodId.removePrefix("v"))
         connection.outputStream.use { it.write(JSONObject().put("query", CHAPTERS_QUERY).put("variables", variables).toString().toByteArray()) }
         val response = JSONObject(connection.inputStream.bufferedReader().use { it.readText() })

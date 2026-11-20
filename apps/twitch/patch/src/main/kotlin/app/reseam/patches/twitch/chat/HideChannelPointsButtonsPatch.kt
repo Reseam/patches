@@ -21,7 +21,6 @@ val hideChannelPointsButtons = patch(TwitchPatchStrings.hideChannelPointsButtons
     settings(twitchSettings, section(TwitchSettingsPages.Chat, TwitchStrings.sectionChannelPoints, ChatSettings.hideChannelPointsButtons))
 
     execute {
-        // Auto-claim rewards claims from Java code and from the chat bar's props, not by pressing these buttons.
         gate(ChatSettings.hideChannelPointsButtons) {
             chatComposerBar.setArgument(0, "channelPointsEnabled", false)
             overlayActionButtons.setArgument(0, "showChannelPoints", false)

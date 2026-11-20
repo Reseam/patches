@@ -7,7 +7,6 @@ import app.reseam.patch.settings.SettingsPage
 import app.reseam.patch.settings.Vector
 import app.reseam.twitch.settings.TwitchStrings
 
-/** The pages of the Reseam settings screen in Twitch, laid out like YouTube's. */
 internal object TwitchSettingsPages {
     val Video = SettingsPage("video", TwitchStrings.pageVideo, order = 0, summary = TwitchStrings.pageVideoSummary, icon = Vector.lucide("clapperboard"))
     val Player = SettingsPage("player", TwitchStrings.pagePlayer, order = 10, summary = TwitchStrings.pagePlayerSummary, icon = Vector.lucide("tv-minimal-play"))
