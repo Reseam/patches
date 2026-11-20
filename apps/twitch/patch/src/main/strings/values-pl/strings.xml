@@ -3,7 +3,7 @@
     <string name="block_embedded_ads">Blokuj osadzone reklamy</string>
     <string name="block_embedded_ads_description">Wczytuje transmisje na żywo bez reklam przez zewnętrzne proxy, które widzi twój adres IP i oglądane kanały.</string>
     <string name="block_video_ads">Blokuj reklamy wideo</string>
-    <string name="block_video_ads_description">Blokuje reklamy wideo, audio i graficzne, o które Twitch prosi sam.</string>
+    <string name="block_video_ads_description">Blokuje reklamy, o które Twitch prosi sam, ale reklamy wewnątrz transmisji na żywo wymagają opcji Blokuj osadzone reklamy.</string>
     <string name="ignore_ad_events">Ignoruj zdarzenia reklamowe</string>
     <string name="ignore_ad_events_description">Ignoruje przerwy reklamowe i śledzenie reklam ogłaszane przez Twitcha podczas transmisji.</string>
     <string name="settings_entry">Wpis ustawień Reseam</string>

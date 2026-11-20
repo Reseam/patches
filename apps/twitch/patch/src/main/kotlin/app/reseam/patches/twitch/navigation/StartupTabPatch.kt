@@ -18,7 +18,9 @@ import app.reseam.patch.settings.section
 import app.reseam.patch.settings.valueOf
 import app.reseam.patches.twitch.TwitchPatchStrings
 import app.reseam.patches.twitch.core.TWITCH
+import app.reseam.patches.twitch.core.TwitchSettingsPages
 import app.reseam.patches.twitch.core.twitchSettings
+import app.reseam.patches.twitch.core.viewerLandingCreate
 import app.reseam.twitch.navigation.bindings.StartupTab
 import app.reseam.twitch.settings.NavigationSettings
 import app.reseam.twitch.settings.TwitchStrings
@@ -28,7 +30,7 @@ private const val DESTINATION_ORDINAL = "destinationOrdinal"
 val startupTab = patch(TwitchPatchStrings.startupTab) {
     description(TwitchPatchStrings.startupTabDescription)
     compatibleWith(TWITCH)
-    settings(twitchSettings, section(TwitchStrings.sectionNavigation, NavigationSettings.startupTab))
+    settings(twitchSettings, section(TwitchSettingsPages.Appearance, TwitchStrings.sectionStartPage, NavigationSettings.startupTab))
 
     execute {
         // Twitch's own Following, Live or Clips choice, shown only to users enrolled in its home page experiment.
@@ -78,9 +80,6 @@ private fun PatchRuntime.initialBottomTab(): PointTarget {
         .next { invokeDirect { name("<init>"); hasParam(Type.Map) } }
         .captureArgumentAs("initialTab", 2, Type.Int)
 }
-
-private val viewerLandingCreate = klass("tv.twitch.android.feature.viewer.landing.ViewerLandingActivity")
-    .method("onCreate") { strings(DESTINATION_ORDINAL) }
 
 private val destinations = klass("destinations") { enumConstants("Default", "Browse", "DiscoveryFeed") }
 private val defaultDestination = destinations.enumConstant("Default")

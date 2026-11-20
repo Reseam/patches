@@ -12,7 +12,7 @@ import app.reseam.patch.settings.toggle
 
 object AdsSettings : SettingsGroup(TwitchStrings) {
     val blockVideoAds by toggle(default = true, icon = Vector.lucide("megaphone-off"))
-    val blockEmbeddedAds by toggle(default = true, icon = Vector.lucide("monitor-off"))
+    val blockEmbeddedAds by toggle(default = false, icon = Vector.lucide("monitor-off"))
     val embeddedAdsProxy by
         choice(
             default = "https://eu.luminous.dev",
@@ -60,6 +60,72 @@ object NavigationSettings : SettingsGroup(TwitchStrings) {
                 ),
             icon = Vector.lucide("house"),
         )
+    val hideCreateButton by toggle(default = false, icon = Vector.lucide("square-plus"))
+}
+
+object FeedSettings : SettingsGroup(TwitchStrings) {
+    val hideStoriesShelf by toggle(default = false, icon = Vector.lucide("gallery-horizontal"))
+}
+
+object ChatSettings : SettingsGroup(TwitchStrings) {
+    val autoClaimRewards by toggle(default = true, icon = Vector.lucide("gift"))
+    val hideLeaderboards by toggle(default = false, icon = Vector.lucide("trophy"))
+    val hideBitsButtons by toggle(default = false, icon = Vector.lucide("gem"))
+    val hideChannelPointsButtons by toggle(default = false, icon = Vector.lucide("coins"))
+    val hideCommunityHighlights by toggle(default = false, icon = Vector.lucide("pin-off"))
+    val hideChatBadges by toggle(default = false, icon = Vector.lucide("badge-x"))
+    val hideWelcomeMessage by toggle(default = true, icon = Vector.lucide("message-square-off"))
+    val keepDeletedMessages by toggle(default = true, icon = Vector.lucide("message-square-x"))
+    val showTimeoutLength by toggle(default = false, icon = Vector.lucide("timer"))
+    val keepChatAfterAClear by toggle(default = false, icon = Vector.lucide("archive"))
+    val hideBlockedMessages by toggle(default = false, icon = Vector.lucide("user-x"))
+    val shrinkGiantEmotes by toggle(default = false, icon = Vector.lucide("shrink"))
+    val hideSubAndGiftNotices by toggle(default = false, icon = Vector.lucide("party-popper"))
+    val hideSharedChatFromOtherChannels by toggle(default = false, icon = Vector.lucide("messages-square"))
+    val hideWatchStreaks by toggle(default = false, icon = Vector.lucide("flame"))
+    val dontFollowRaids by toggle(default = false, icon = Vector.lucide("anchor"))
+}
+
+object LinkSettings : SettingsGroup(TwitchStrings) {
+    val cleanShareLinks by toggle(default = true, icon = Vector.lucide("link-2-off"))
+}
+
+private val videoQualities =
+    listOf(
+        Choice("source", TwitchStrings.videoQualitySource),
+        Choice("1080", TwitchStrings.videoQuality1080),
+        Choice("720", TwitchStrings.videoQuality720),
+        Choice("480", TwitchStrings.videoQuality480),
+        Choice("360", TwitchStrings.videoQuality360),
+        Choice("160", TwitchStrings.videoQuality160),
+        Choice("auto", TwitchStrings.videoQualityAuto),
+    )
+
+object PlaybackSettings : SettingsGroup(TwitchStrings) {
+    val defaultVideoQuality by choice(default = "source", choices = videoQualities, icon = Vector.lucide("monitor-play"))
+    val mobileDataQuality by
+        choice(
+            default = "same",
+            choices = listOf(Choice("same", TwitchStrings.videoQualitySameAsWifi)) + videoQualities,
+            icon = Vector.lucide("signal"),
+        )
+    val rememberVideoQuality by toggle(default = true, icon = Vector.lucide("bookmark-check"))
+    val refreshStream by toggle(default = true, icon = Vector.lucide("refresh-cw"))
+    val showVodChapters by toggle(default = true, icon = Vector.lucide("list-video"))
+}
+
+object PlayerOverlaySettings : SettingsGroup(TwitchStrings) {
+    val hideClipButton by toggle(default = false, icon = Vector.lucide("clapperboard"))
+    val hideCastButton by toggle(default = false, icon = Vector.lucide("cast"))
+    val hideShareButton by toggle(default = false, icon = Vector.lucide("share-2"))
+    val hideRotateScreenButton by toggle(default = false, icon = Vector.lucide("tablet-smartphone"))
+    val hideViewerCount by toggle(default = false, icon = Vector.lucide("eye-off"))
+    val hideContentClassificationLabel by toggle(default = true, icon = Vector.lucide("tag"))
+    val skipMatureContentWarnings by toggle(default = false, icon = Vector.lucide("fast-forward"))
+}
+
+object SubscriptionSettings : SettingsGroup(TwitchStrings) {
+    val hideSubscriptionUpsells by toggle(default = true, icon = Vector.lucide("star-off"))
 }
 
 object DeveloperSettings : SettingsGroup(TwitchStrings) {

@@ -12,6 +12,7 @@ import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.twitch.TwitchPatchStrings
 import app.reseam.patches.twitch.core.TWITCH
+import app.reseam.patches.twitch.core.TwitchSettingsPages
 import app.reseam.patches.twitch.core.twitchSettings
 import app.reseam.twitch.adevents.bindings.AdEvents
 import app.reseam.twitch.settings.AdsSettings
@@ -20,7 +21,7 @@ import app.reseam.twitch.settings.TwitchStrings
 val ignoreAdEvents = patch(TwitchPatchStrings.ignoreAdEvents) {
     description(TwitchPatchStrings.ignoreAdEventsDescription)
     compatibleWith(TWITCH)
-    settings(twitchSettings, section(TwitchStrings.sectionAds, AdsSettings.ignoreAdEvents))
+    settings(twitchSettings, section(TwitchSettingsPages.Ads, TwitchStrings.sectionVideoAds, AdsSettings.ignoreAdEvents))
 
     execute {
         gate(AdsSettings.ignoreAdEvents) {

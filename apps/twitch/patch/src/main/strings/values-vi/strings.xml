@@ -3,7 +3,7 @@
     <string name="block_embedded_ads">Chặn quảng cáo nhúng</string>
     <string name="block_embedded_ads_description">Tải buổi phát trực tiếp không có quảng cáo qua proxy của bên thứ ba, proxy này thấy địa chỉ IP của bạn và các kênh bạn xem.</string>
     <string name="block_video_ads">Chặn quảng cáo video</string>
-    <string name="block_video_ads_description">Chặn quảng cáo video, âm thanh và hiển thị do chính Twitch yêu cầu.</string>
+    <string name="block_video_ads_description">Chặn quảng cáo do chính Twitch yêu cầu, nhưng quảng cáo bên trong buổi phát trực tiếp cần Chặn quảng cáo nhúng.</string>
     <string name="ignore_ad_events">Bỏ qua sự kiện quảng cáo</string>
     <string name="ignore_ad_events_description">Bỏ qua các lần nghỉ quảng cáo và theo dõi quảng cáo mà Twitch thông báo trong buổi phát.</string>
     <string name="settings_entry">Mục cài đặt Reseam</string>

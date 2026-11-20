@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "devDependencies": {
+    "@types/react": "19.2.18",
+    "csstype": "3.2.3"
+  }
+}

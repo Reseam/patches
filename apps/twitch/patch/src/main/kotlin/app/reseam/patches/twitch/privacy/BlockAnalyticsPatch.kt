@@ -14,6 +14,7 @@ import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.twitch.TwitchPatchStrings
 import app.reseam.patches.twitch.core.TWITCH
+import app.reseam.patches.twitch.core.TwitchSettingsPages
 import app.reseam.patches.twitch.core.cutOffServer
 import app.reseam.patches.twitch.core.twitchSettings
 import app.reseam.twitch.settings.PrivacySettings
@@ -25,7 +26,7 @@ private const val BRANCH_CDN = "https://cdn.branch.io/"
 val blockAnalytics = patch(TwitchPatchStrings.blockAnalytics) {
     description(TwitchPatchStrings.blockAnalyticsDescription)
     compatibleWith(TWITCH)
-    settings(twitchSettings, section(TwitchStrings.sectionPrivacy, PrivacySettings.blockAnalytics))
+    settings(twitchSettings, section(TwitchSettingsPages.Advanced, TwitchStrings.sectionPrivacy, PrivacySettings.blockAnalytics))
 
     execute {
         gate(PrivacySettings.blockAnalytics) {

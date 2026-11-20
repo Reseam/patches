@@ -3,7 +3,7 @@
     <string name="block_embedded_ads">삽입 광고 차단</string>
     <string name="block_embedded_ads_description">광고 없는 라이브 방송을 서드파티 프록시를 통해 불러옵니다. 프록시는 내 IP 주소와 시청하는 채널을 볼 수 있습니다.</string>
     <string name="block_video_ads">동영상 광고 차단</string>
-    <string name="block_video_ads_description">Twitch가 직접 요청하는 동영상, 오디오, 디스플레이 광고를 차단합니다.</string>
+    <string name="block_video_ads_description">Twitch가 직접 요청하는 광고를 차단하지만, 라이브 방송에 포함된 광고는 \'삽입 광고 차단\'이 필요합니다.</string>
     <string name="ignore_ad_events">광고 이벤트 무시</string>
     <string name="ignore_ad_events_description">방송 중 Twitch가 알리는 광고 시간과 광고 추적을 무시합니다.</string>
     <string name="settings_entry">Reseam 설정 항목</string>

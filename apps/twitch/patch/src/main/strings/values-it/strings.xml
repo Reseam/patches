@@ -3,7 +3,7 @@
     <string name="block_embedded_ads">Blocca gli annunci incorporati</string>
     <string name="block_embedded_ads_description">Carica le dirette senza annunci tramite un proxy di terze parti, che vede il tuo indirizzo IP e i canali che guardi.</string>
     <string name="block_video_ads">Blocca gli annunci video</string>
-    <string name="block_video_ads_description">Blocca gli annunci video, audio e display che Twitch richiede da sé.</string>
+    <string name="block_video_ads_description">Blocca gli annunci che Twitch richiede da sé, ma per gli annunci dentro le dirette serve «Blocca gli annunci incorporati».</string>
     <string name="ignore_ad_events">Ignora gli eventi pubblicitari</string>
     <string name="ignore_ad_events_description">Ignora le interruzioni pubblicitarie e il tracciamento degli annunci che Twitch segnala durante una diretta.</string>
     <string name="settings_entry">Voce Impostazioni di Reseam</string>

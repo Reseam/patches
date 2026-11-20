@@ -3,7 +3,7 @@
     <string name="block_embedded_ads">Blokir iklan tersemat</string>
     <string name="block_embedded_ads_description">Memuat siaran live tanpa iklan melalui proxy pihak ketiga, yang dapat melihat alamat IP Anda dan channel yang Anda tonton.</string>
     <string name="block_video_ads">Blokir iklan video</string>
-    <string name="block_video_ads_description">Memblokir iklan video, audio, dan display yang diminta Twitch sendiri.</string>
+    <string name="block_video_ads_description">Memblokir iklan yang diminta Twitch sendiri, tetapi iklan di dalam siaran live memerlukan Blokir iklan tersemat.</string>
     <string name="ignore_ad_events">Abaikan peristiwa iklan</string>
     <string name="ignore_ad_events_description">Mengabaikan jeda iklan dan pelacakan iklan yang diumumkan Twitch selama siaran.</string>
     <string name="settings_entry">Entri setelan Reseam</string>

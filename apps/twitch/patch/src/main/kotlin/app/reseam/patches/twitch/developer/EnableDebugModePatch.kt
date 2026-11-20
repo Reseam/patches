@@ -13,8 +13,10 @@ import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.twitch.TwitchPatchStrings
 import app.reseam.patches.twitch.core.TWITCH
+import app.reseam.patches.twitch.core.TwitchSettingsPages
 import app.reseam.patches.twitch.core.forceTrue
 import app.reseam.patches.twitch.core.isStaff
+import app.reseam.patches.twitch.core.resourceId
 import app.reseam.patches.twitch.core.twitchSettings
 import app.reseam.twitch.settings.DeveloperSettings
 import app.reseam.twitch.settings.TwitchStrings
@@ -26,7 +28,7 @@ val enableDebugMode = patch(TwitchPatchStrings.enableDebugMode) {
     description(TwitchPatchStrings.enableDebugModeDescription)
     compatibleWith(TWITCH)
     enabledByDefault(false)
-    settings(twitchSettings, section(TwitchStrings.sectionDeveloper, DeveloperSettings.debugMode))
+    settings(twitchSettings, section(TwitchSettingsPages.Advanced, TwitchStrings.sectionDeveloper, DeveloperSettings.debugMode))
 
     execute {
         // Each staff tool checks the staff flag itself.
@@ -51,9 +53,8 @@ val enableDebugMode = patch(TwitchPatchStrings.enableDebugMode) {
 private fun staffChecksIn(target: MethodsTarget, place: String): List<MethodTarget> =
     target.all.also { require(it.isNotEmpty()) { "$place no longer checks the staff flag" } }
 
-// Resource ids are known only at patch time.
 private fun PatchRuntime.staffChecksUsing(type: String, name: String): List<MethodTarget> {
-    val id = resources.id(type, name)?.toLong() ?: error("The app has no $type/$name")
+    val id = resourceId(type, name)
     return staffChecksIn(methods("$type/$name staff checks") { calls(isStaff); literals(id) }, "The code that uses $type/$name")
 }
 

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="block_video_ads">Block video ads</string>
-    <string name="block_video_ads_summary">Blocks the ads Twitch requests itself. Ads inside the stream need Block embedded ads.</string>
     <string name="block_embedded_ads">Block embedded ads</string>
-    <string name="block_embedded_ads_summary">Loads live streams through a third-party proxy, which sees your IP address and the channels you watch.</string>
+    <string name="block_embedded_ads_summary">The proxy sees your IP address and the channels you watch.</string>
     <string name="embedded_ads_proxy">Ad-free proxy</string>
     <string name="embedded_ads_proxy_eu_luminous" translatable="false">eu.luminous.dev</string>
     <string name="embedded_ads_proxy_eu2_luminous" translatable="false">eu2.luminous.dev</string>
@@ -23,7 +22,6 @@
     <string name="custom_embedded_ads_proxy">Custom proxy</string>
     <string name="custom_embedded_ads_proxy_summary">The address of a Luminous or TTV LOL compatible proxy, used when Ad-free proxy is Custom.</string>
     <string name="ignore_ad_events">Ignore ad events</string>
-    <string name="ignore_ad_events_summary">Ignores the ad breaks Twitch announces during a stream.</string>
     <string name="block_analytics">Block analytics</string>
     <string name="disable_update_prompts">Disable update prompts</string>
     <string name="startup_tab">Startup tab</string>
@@ -31,10 +29,81 @@
     <string name="startup_tab_home">Home</string>
     <string name="startup_tab_browse">Browse</string>
     <string name="startup_tab_profile">Profile</string>
+    <string name="hide_create_button">Hide create button</string>
+    <string name="hide_stories_shelf">Hide stories shelf</string>
+    <string name="auto_claim_rewards">Auto-claim rewards</string>
+    <string name="hide_leaderboards">Hide leaderboards</string>
+    <string name="hide_bits_buttons">Hide bits buttons</string>
+    <string name="hide_channel_points_buttons">Hide channel points buttons</string>
+    <string name="hide_community_highlights">Hide community highlights</string>
+    <string name="hide_chat_badges">Hide chat badges</string>
+    <string name="hide_welcome_message">Hide welcome message</string>
+    <string name="keep_deleted_messages">Keep deleted messages</string>
+    <string name="show_timeout_length">Show timeout length</string>
+    <string name="show_timeout_length_summary">Needs Keep deleted messages.</string>
+    <string name="keep_chat_after_a_clear">Keep chat after a clear</string>
+    <string name="hide_blocked_messages">Hide blocked messages</string>
+    <string name="shrink_giant_emotes">Shrink giant emotes</string>
+    <string name="hide_sub_and_gift_notices">Hide sub and gift notices</string>
+    <string name="hide_shared_chat_from_other_channels">Hide shared chat from other channels</string>
+    <string name="hide_watch_streaks">Hide watch streaks</string>
+    <string name="dont_follow_raids">Don\'t follow raids</string>
+    <string name="clean_share_links">Clean share links</string>
+    <string name="default_video_quality">Default quality on Wi-Fi</string>
+    <string name="default_video_quality_summary">Also used on other networks not marked as metered.</string>
+    <string name="mobile_data_quality">Default quality on mobile data</string>
+    <string name="mobile_data_quality_summary">Also used on Wi-Fi networks marked as metered.</string>
+    <string name="video_quality_same_as_wifi">Same as on Wi-Fi</string>
+    <string name="video_quality_source">Source</string>
+    <string name="video_quality_1080" translatable="false">1080p</string>
+    <string name="video_quality_720" translatable="false">720p</string>
+    <string name="video_quality_480" translatable="false">480p</string>
+    <string name="video_quality_360" translatable="false">360p</string>
+    <string name="video_quality_160" translatable="false">160p</string>
+    <string name="video_quality_auto">Auto</string>
+    <string name="remember_video_quality">Remember video quality</string>
+    <string name="remember_video_quality_summary">Keeps a quality you pick in the player, Auto included, for later streams.</string>
+    <string name="refresh_stream">Refresh stream</string>
+    <string name="refresh_stream_summary">Adds a reload button next to the player\'s settings gear.</string>
+    <string name="show_vod_chapters">Show VOD chapters</string>
+    <string name="show_vod_chapters_summary">The button shows on videos with two chapters or more.</string>
+    <string name="vod_chapters">Chapters</string>
+    <string name="hide_clip_button">Hide clip button</string>
+    <string name="hide_cast_button">Hide cast button</string>
+    <string name="hide_share_button">Hide share button</string>
+    <string name="hide_rotate_screen_button">Hide rotate screen button</string>
+    <string name="hide_viewer_count">Hide viewer count</string>
+    <string name="hide_content_classification_label">Hide content classification label</string>
+    <string name="skip_mature_content_warnings">Skip mature content warnings</string>
+    <string name="hide_subscription_upsells">Hide subscription upsells</string>
     <string name="debug_mode">Debug mode</string>
-    <string name="section_ads">Ads</string>
+    <string name="page_video">Video</string>
+    <string name="page_video_summary">Quality on Wi-Fi and mobile data</string>
+    <string name="page_player">Player</string>
+    <string name="page_player_summary">Buttons and stream info on the player</string>
+    <string name="page_chat">Chat</string>
+    <string name="page_chat_summary">Channel points, messages, leaderboards, highlights and buttons</string>
+    <string name="page_ads">Ads</string>
+    <string name="page_ads_summary">Video ads, embedded ads and promotions</string>
+    <string name="page_appearance">Appearance</string>
+    <string name="page_appearance_summary">Start page, navigation and Home feed</string>
+    <string name="page_advanced">Advanced</string>
+    <string name="page_advanced_summary">Privacy, updates and debug mode</string>
+    <string name="section_video_quality">Video quality</string>
+    <string name="section_player_buttons">Player buttons</string>
+    <string name="section_stream_info">Stream info</string>
+    <string name="section_channel_points">Channel points</string>
+    <string name="section_leaderboards">Leaderboards</string>
+    <string name="section_chat_buttons">Chat buttons</string>
+    <string name="section_community_highlights">Community highlights</string>
+    <string name="section_chat_messages">Chat messages</string>
+    <string name="section_video_ads">Video ads</string>
+    <string name="section_embedded_ads">Embedded ads</string>
+    <string name="section_promotions">Promotions</string>
+    <string name="section_start_page">Start page</string>
     <string name="section_privacy">Privacy</string>
     <string name="section_updates">Updates</string>
     <string name="section_navigation">Navigation</string>
+    <string name="section_home_feed">Home feed</string>
     <string name="section_developer">Developer</string>
 </resources>

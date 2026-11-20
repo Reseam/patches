@@ -56,13 +56,13 @@ val settingsEntry = patch(TwitchPatchStrings.settingsEntry) {
     }
 }
 
-// Resource ids are known only at patch time. Signed out, the older settings list shows the description without the icon.
+// Signed out, the older settings list shows the description without the icon.
 private fun PatchRuntime.accountRow(): PointTarget {
-    val accountDescription = resources.id("string", "account_description")?.toLong() ?: error("The app has no string/account_description")
-    val accountIcon = resources.id("drawable", "account")?.toLong() ?: error("The app has no drawable/account")
+    val accountDescription = resourceId("string", "account_description")
+    val accountIcon = resourceId("drawable", "account")
     return method("accountSection") { literals(accountDescription, accountIcon) }
         .point("accountIcon") { literal(accountIcon) }
-        .next { invokeStatic { returns(Type.Void); paramCount(8); hasParam(Type.String); hasParam(Type.Int) } }
+        .settingsRowCall()
 }
 
 private object Resources

@@ -12,6 +12,7 @@ import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patches.twitch.TwitchPatchStrings
 import app.reseam.patches.twitch.core.TWITCH
+import app.reseam.patches.twitch.core.TwitchSettingsPages
 import app.reseam.patches.twitch.core.cutOffServer
 import app.reseam.patches.twitch.core.forceTrue
 import app.reseam.patches.twitch.core.isStaff
@@ -26,7 +27,7 @@ private const val GOOGLE_AD_SERVER = "https://pagead2.googlesyndication.com/"
 val blockVideoAds = patch(TwitchPatchStrings.blockVideoAds) {
     description(TwitchPatchStrings.blockVideoAdsDescription)
     compatibleWith(TWITCH)
-    settings(twitchSettings, section(TwitchStrings.sectionAds, AdsSettings.blockVideoAds))
+    settings(twitchSettings, section(TwitchSettingsPages.Ads, TwitchStrings.sectionVideoAds, AdsSettings.blockVideoAds))
 
     execute {
         gate(AdsSettings.blockVideoAds) {

@@ -3,7 +3,7 @@
     <string name="block_embedded_ads">埋め込み広告をブロック</string>
     <string name="block_embedded_ads_description">広告のないサードパーティのプロキシ経由でライブ配信を読み込みます。プロキシにはあなたの IP アドレスと視聴するチャンネルが見えます。</string>
     <string name="block_video_ads">動画広告をブロック</string>
-    <string name="block_video_ads_description">Twitch 自身が要求する動画、音声、ディスプレイ広告をブロックします。</string>
+    <string name="block_video_ads_description">Twitch 自身が要求する広告をブロックしますが、ライブ配信内の広告には「埋め込み広告をブロック」が必要です。</string>
     <string name="ignore_ad_events">広告イベントを無視</string>
     <string name="ignore_ad_events_description">配信中に Twitch が通知する広告休憩と広告トラッキングを無視します。</string>
     <string name="settings_entry">Reseam 設定の項目</string>
