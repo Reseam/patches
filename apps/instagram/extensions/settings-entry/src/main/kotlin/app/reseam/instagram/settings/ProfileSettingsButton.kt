@@ -65,10 +65,12 @@ internal class ProfileSettingsButton(context: Context) {
         }
     }
 
+    // Right-to-left layouts put the first button on the right, so the row is measured by position.
     private fun layoutParams(row: ViewGroup, template: View): LinearLayout.LayoutParams {
-        val gap = row.getChildAt(1)?.let { it.left - template.right } ?: 0
+        val buttons = row.children().sortedBy { it.left }.toList()
+        val gap = buttons.zipWithNext { left, right -> right.left - left.right }.firstOrNull() ?: 0
         return LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, template.height).apply {
-            setMargins(template.left, gap, row.width - row.getChildAt(row.childCount - 1).right, 0)
+            setMargins(buttons.first().left, gap, row.width - buttons.last().right, 0)
         }
     }
 }
