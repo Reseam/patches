@@ -2,4 +2,6 @@
 <resources>
     <string name="signature_check">Fix signature check</string>
     <string name="signature_check_description">Lets the re-signed app start.</string>
+    <string name="push_registration">Fix push registration crash</string>
+    <string name="push_registration_description">Stops a crash on Android 12 and later when the app registers for notifications.</string>
 </resources>
