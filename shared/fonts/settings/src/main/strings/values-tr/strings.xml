@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_text">Metin</string>
+    <string name="font">Yazı tipi</string>
+    <string name="font_app">Uygulamanın yazı tipi</string>
+    <string name="font_system">Sistem yazı tipi</string>
+    <string name="font_custom">Özel yazı tipi</string>
+    <string name="font_file">Yazı tipi dosyası</string>
+    <string name="font_file_summary">Özel yazı tipi için bir .ttf veya .otf dosyası.</string>
+    <string name="font_file_unreadable">Bu dosya bir yazı tipi değil</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_text">Tekst</string>
+    <string name="font">Czcionka</string>
+    <string name="font_app">Czcionka aplikacji</string>
+    <string name="font_system">Czcionka systemowa</string>
+    <string name="font_custom">Własna czcionka</string>
+    <string name="font_file">Plik czcionki</string>
+    <string name="font_file_summary">Plik .ttf lub .otf dla opcji Własna czcionka.</string>
+    <string name="font_file_unreadable">Ten plik nie jest czcionką</string>
+</resources>

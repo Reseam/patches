@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_text">Texte</string>
+    <string name="font">Police</string>
+    <string name="font_app">Police de l’application</string>
+    <string name="font_system">Police du système</string>
+    <string name="font_custom">Police personnalisée</string>
+    <string name="font_file">Fichier de police</string>
+    <string name="font_file_summary">Un fichier .ttf ou .otf pour Police personnalisée.</string>
+    <string name="font_file_unreadable">Ce fichier n’est pas une police</string>
+</resources>

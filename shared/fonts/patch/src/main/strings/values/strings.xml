@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_font">Custom font</string>
+    <string name="custom_font_description">Shows the app in the system font or a font file you choose.</string>
+</resources>

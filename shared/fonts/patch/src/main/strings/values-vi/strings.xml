@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_font">Phông chữ tùy chỉnh</string>
+    <string name="custom_font_description">Hiển thị ứng dụng bằng phông chữ hệ thống hoặc tệp phông chữ bạn chọn.</string>
+</resources>

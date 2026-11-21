@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_text">Text</string>
+    <string name="font">Schriftart</string>
+    <string name="font_app">Schriftart der App</string>
+    <string name="font_system">Systemschriftart</string>
+    <string name="font_custom">Eigene Schriftart</string>
+    <string name="font_file">Schriftdatei</string>
+    <string name="font_file_summary">Eine .ttf- oder .otf-Datei für „Eigene Schriftart“.</string>
+    <string name="font_file_unreadable">Diese Datei ist keine Schriftart</string>
+</resources>

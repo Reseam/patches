@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_text">テキスト</string>
+    <string name="font">フォント</string>
+    <string name="font_app">アプリのフォント</string>
+    <string name="font_system">システムフォント</string>
+    <string name="font_custom">カスタムフォント</string>
+    <string name="font_file">フォントファイル</string>
+    <string name="font_file_summary">カスタムフォント用の .ttf または .otf ファイル。</string>
+    <string name="font_file_unreadable">このファイルはフォントではありません</string>
+</resources>

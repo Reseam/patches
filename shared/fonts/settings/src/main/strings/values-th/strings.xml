@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_text">ข้อความ</string>
+    <string name="font">แบบอักษร</string>
+    <string name="font_app">แบบอักษรของแอป</string>
+    <string name="font_system">แบบอักษรของระบบ</string>
+    <string name="font_custom">แบบอักษรที่กำหนดเอง</string>
+    <string name="font_file">ไฟล์แบบอักษร</string>
+    <string name="font_file_summary">ไฟล์ .ttf หรือ .otf สำหรับแบบอักษรที่กำหนดเอง</string>
+    <string name="font_file_unreadable">ไฟล์นี้ไม่ใช่แบบอักษร</string>
+</resources>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_font">Carattere personalizzato</string>
+    <string name="custom_font_description">Mostra l’app con il carattere di sistema o con un file di carattere a tua scelta.</string>
+</resources>

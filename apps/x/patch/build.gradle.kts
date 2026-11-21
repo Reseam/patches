@@ -5,6 +5,7 @@ reseamStrings { objectName = "app.reseam.patches.x.XPatchStrings" }
 
 dependencies {
     compileOnly(project(":shared:bundle:patch"))
+    compileOnly(project(":shared:fonts:patch"))
     compileOnly(project(":shared:ai-labels:patch"))
     compileOnly(project(":shared:pangram:patch"))
 }

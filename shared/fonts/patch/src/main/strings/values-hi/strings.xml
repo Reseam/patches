@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_font">कस्टम फ़ॉन्ट</string>
+    <string name="custom_font_description">ऐप को सिस्टम फ़ॉन्ट या आपकी चुनी फ़ॉन्ट फ़ाइल में दिखाता है।</string>
+</resources>

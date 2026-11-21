@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_text">Teks</string>
+    <string name="font">Font</string>
+    <string name="font_app">Font aplikasi</string>
+    <string name="font_system">Font sistem</string>
+    <string name="font_custom">Font kustom</string>
+    <string name="font_file">File font</string>
+    <string name="font_file_summary">File .ttf atau .otf untuk Font kustom.</string>
+    <string name="font_file_unreadable">File ini bukan font</string>
+</resources>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_font">Özel yazı tipi</string>
+    <string name="custom_font_description">Uygulamayı sistem yazı tipiyle veya seçtiğin bir yazı tipi dosyasıyla gösterir.</string>
+</resources>

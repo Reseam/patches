@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_font">사용자 지정 글꼴</string>
+    <string name="custom_font_description">앱을 시스템 글꼴이나 직접 고른 글꼴 파일로 표시합니다.</string>
+</resources>

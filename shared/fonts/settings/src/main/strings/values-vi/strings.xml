@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_text">Văn bản</string>
+    <string name="font">Phông chữ</string>
+    <string name="font_app">Phông chữ của ứng dụng</string>
+    <string name="font_system">Phông chữ hệ thống</string>
+    <string name="font_custom">Phông chữ tùy chỉnh</string>
+    <string name="font_file">Tệp phông chữ</string>
+    <string name="font_file_summary">Tệp .ttf hoặc .otf cho Phông chữ tùy chỉnh.</string>
+    <string name="font_file_unreadable">Tệp này không phải phông chữ</string>
+</resources>

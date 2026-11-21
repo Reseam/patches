@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_text">متن</string>
+    <string name="font">قلم</string>
+    <string name="font_app">قلم برنامه</string>
+    <string name="font_system">قلم سیستم</string>
+    <string name="font_custom">قلم سفارشی</string>
+    <string name="font_file">فایل قلم</string>
+    <string name="font_file_summary">فایل .ttf یا .otf برای «قلم سفارشی».</string>
+    <string name="font_file_unreadable">این فایل قلم نیست</string>
+</resources>

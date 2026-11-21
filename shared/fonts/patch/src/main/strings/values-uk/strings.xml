@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_font">Власний шрифт</string>
+    <string name="custom_font_description">Показує застосунок системним шрифтом або шрифтом із вибраного вами файлу.</string>
+</resources>

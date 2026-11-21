@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_font">Własna czcionka</string>
+    <string name="custom_font_description">Wyświetla aplikację czcionką systemową lub z wybranego pliku czcionki.</string>
+</resources>

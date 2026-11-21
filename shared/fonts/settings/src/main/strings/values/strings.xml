@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_text">Text</string>
+    <string name="font">Font</string>
+    <string name="font_app">App font</string>
+    <string name="font_system">System font</string>
+    <string name="font_custom">Custom font</string>
+    <string name="font_file">Font file</string>
+    <string name="font_file_summary">A .ttf or .otf file for Custom font.</string>
+    <string name="font_file_unreadable">This file is not a font</string>
+</resources>

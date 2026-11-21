@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_text">Текст</string>
+    <string name="font">Шрифт</string>
+    <string name="font_app">Шрифт приложения</string>
+    <string name="font_system">Системный шрифт</string>
+    <string name="font_custom">Свой шрифт</string>
+    <string name="font_file">Файл шрифта</string>
+    <string name="font_file_summary">Файл .ttf или .otf для варианта «Свой шрифт».</string>
+    <string name="font_file_unreadable">Этот файл не является шрифтом</string>
+</resources>

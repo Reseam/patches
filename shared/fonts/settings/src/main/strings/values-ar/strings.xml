@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_text">النص</string>
+    <string name="font">الخط</string>
+    <string name="font_app">خط التطبيق</string>
+    <string name="font_system">خط النظام</string>
+    <string name="font_custom">خط مخصّص</string>
+    <string name="font_file">ملف الخط</string>
+    <string name="font_file_summary">ملف .ttf أو .otf لخيار «خط مخصّص».</string>
+    <string name="font_file_unreadable">هذا الملف ليس خطًا</string>
+</resources>

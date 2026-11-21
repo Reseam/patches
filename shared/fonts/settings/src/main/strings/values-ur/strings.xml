@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_text">متن</string>
+    <string name="font">فونٹ</string>
+    <string name="font_app">ایپ کا فونٹ</string>
+    <string name="font_system">سسٹم فونٹ</string>
+    <string name="font_custom">حسب ضرورت فونٹ</string>
+    <string name="font_file">فونٹ فائل</string>
+    <string name="font_file_summary">حسب ضرورت فونٹ کے لیے .ttf یا .otf فائل۔</string>
+    <string name="font_file_unreadable">یہ فائل فونٹ نہیں ہے</string>
+</resources>

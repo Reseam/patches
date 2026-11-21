@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_text">Testo</string>
+    <string name="font">Carattere</string>
+    <string name="font_app">Carattere dell’app</string>
+    <string name="font_system">Carattere di sistema</string>
+    <string name="font_custom">Carattere personalizzato</string>
+    <string name="font_file">File del carattere</string>
+    <string name="font_file_summary">Un file .ttf o .otf per Carattere personalizzato.</string>
+    <string name="font_file_unreadable">Questo file non è un carattere</string>
+</resources>

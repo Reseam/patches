@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="section_text">文字</string>
+    <string name="font">字体</string>
+    <string name="font_app">应用字体</string>
+    <string name="font_system">系统字体</string>
+    <string name="font_custom">自定义字体</string>
+    <string name="font_file">字体文件</string>
+    <string name="font_file_summary">用于“自定义字体”的 .ttf 或 .otf 文件。</string>
+    <string name="font_file_unreadable">此文件不是字体</string>
+</resources>

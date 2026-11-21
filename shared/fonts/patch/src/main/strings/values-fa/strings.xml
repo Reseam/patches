@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_font">قلم سفارشی</string>
+    <string name="custom_font_description">برنامه را با قلم سیستم یا فایل قلمی که انتخاب می‌کنید نشان می‌دهد.</string>
+</resources>

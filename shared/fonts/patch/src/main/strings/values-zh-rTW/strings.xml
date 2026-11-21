@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="custom_font">自訂字型</string>
+    <string name="custom_font_description">以系統字型或你選擇的字型檔案顯示應用程式。</string>
+</resources>
