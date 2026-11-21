@@ -5,5 +5,6 @@ reseamStrings { objectName = "app.reseam.patches.instagram.InstagramPatchStrings
 
 dependencies {
     compileOnly(project(":shared:bundle:patch"))
+    compileOnly(project(":shared:fonts:patch"))
     compileOnly(project(":shared:meta:patch"))
 }
