@@ -2,4 +2,6 @@
 <resources>
     <string name="signature_check">Perbaiki pemeriksaan tanda tangan</string>
     <string name="signature_check_description">Memungkinkan aplikasi yang ditandatangani ulang untuk dimulai.</string>
+    <string name="push_registration">Perbaiki crash pendaftaran push</string>
+    <string name="push_registration_description">Mencegah crash di Android 12 dan yang lebih baru saat aplikasi mendaftar untuk notifikasi.</string>
 </resources>

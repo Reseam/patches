@@ -2,4 +2,6 @@
 <resources>
     <string name="signature_check">إصلاح التحقق من التوقيع</string>
     <string name="signature_check_description">يسمح بتشغيل التطبيق بعد إعادة توقيعه.</string>
+    <string name="push_registration">إصلاح الأعطال عند تسجيل الإشعارات الفورية</string>
+    <string name="push_registration_description">يمنع تعطّل التطبيق على Android 12 والإصدارات الأحدث عند تسجيله لتلقي الإشعارات.</string>
 </resources>

@@ -2,4 +2,6 @@
 <resources>
     <string name="signature_check">Corriger la vérification de signature</string>
     <string name="signature_check_description">Permet à l’application re-signée de démarrer.</string>
+    <string name="push_registration">Corriger le plantage à l’inscription aux notifications push</string>
+    <string name="push_registration_description">Évite un plantage sous Android 12 et versions ultérieures quand l’application s’inscrit aux notifications.</string>
 </resources>

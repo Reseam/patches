@@ -2,4 +2,6 @@
 <resources>
     <string name="signature_check">دستخط کی جانچ ٹھیک کریں</string>
     <string name="signature_check_description">دوبارہ سائن کی گئی ایپ کو شروع ہونے دیتا ہے۔</string>
+    <string name="push_registration">پش رجسٹریشن کریش ٹھیک کریں</string>
+    <string name="push_registration_description">Android 12 اور بعد کے ورژنز پر ایپ کے اطلاعات کے لیے رجسٹر ہوتے وقت ہونے والا کریش روکتا ہے۔</string>
 </resources>

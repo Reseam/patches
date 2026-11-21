@@ -2,4 +2,6 @@
 <resources>
     <string name="signature_check">署名チェックを修正</string>
     <string name="signature_check_description">再署名したアプリを起動できるようにします。</string>
+    <string name="push_registration">プッシュ登録時のクラッシュを修正</string>
+    <string name="push_registration_description">Android 12 以降で、アプリが通知を登録するときのクラッシュを防ぎます。</string>
 </resources>

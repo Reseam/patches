@@ -2,4 +2,6 @@
 <resources>
     <string name="signature_check">Corrigir verificação de assinatura</string>
     <string name="signature_check_description">Permite que o app reassinado seja iniciado.</string>
+    <string name="push_registration">Corrigir falha no registro de notificações push</string>
+    <string name="push_registration_description">Evita uma falha no Android 12 e versões mais recentes quando o app se registra para receber notificações.</string>
 </resources>

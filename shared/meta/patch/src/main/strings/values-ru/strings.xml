@@ -2,4 +2,6 @@
 <resources>
     <string name="signature_check">Исправить проверку подписи</string>
     <string name="signature_check_description">Позволяет запуститься переподписанному приложению.</string>
+    <string name="push_registration">Исправить сбой при регистрации push-уведомлений</string>
+    <string name="push_registration_description">Предотвращает сбой на Android 12 и новее, когда приложение регистрируется для уведомлений.</string>
 </resources>

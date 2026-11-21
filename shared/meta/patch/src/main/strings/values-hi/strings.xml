@@ -2,4 +2,6 @@
 <resources>
     <string name="signature_check">सिग्नेचर जाँच ठीक करें</string>
     <string name="signature_check_description">दोबारा साइन किए गए ऐप को चालू होने देता है।</string>
+    <string name="push_registration">पुश रजिस्ट्रेशन क्रैश ठीक करें</string>
+    <string name="push_registration_description">Android 12 और उसके बाद के वर्शन पर ऐप के सूचनाओं के लिए रजिस्टर करते समय होने वाला क्रैश रोकता है।</string>
 </resources>

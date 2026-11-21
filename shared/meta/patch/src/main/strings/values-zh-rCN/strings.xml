@@ -2,4 +2,6 @@
 <resources>
     <string name="signature_check">修复签名校验</string>
     <string name="signature_check_description">让重新签名的应用能够启动。</string>
+    <string name="push_registration">修复推送注册崩溃</string>
+    <string name="push_registration_description">防止应用在 Android 12 及更高版本上注册通知时崩溃。</string>
 </resources>

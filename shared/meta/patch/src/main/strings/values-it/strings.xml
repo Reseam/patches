@@ -2,4 +2,6 @@
 <resources>
     <string name="signature_check">Ripara il controllo della firma</string>
     <string name="signature_check_description">Permette all’app firmata di nuovo di avviarsi.</string>
+    <string name="push_registration">Correggi arresto anomalo nella registrazione push</string>
+    <string name="push_registration_description">Evita un arresto anomalo su Android 12 e versioni successive quando l’app si registra per le notifiche.</string>
 </resources>

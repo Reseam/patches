@@ -2,4 +2,6 @@
 <resources>
     <string name="signature_check">Signaturprüfung reparieren</string>
     <string name="signature_check_description">Lässt die neu signierte App starten.</string>
+    <string name="push_registration">Absturz bei der Push-Registrierung beheben</string>
+    <string name="push_registration_description">Verhindert einen Absturz unter Android 12 und höher, wenn sich die App für Benachrichtigungen registriert.</string>
 </resources>

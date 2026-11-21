@@ -2,4 +2,6 @@
 <resources>
     <string name="signature_check">修正簽章檢查</string>
     <string name="signature_check_description">讓重新簽署的應用程式可以啟動。</string>
+    <string name="push_registration">修正推播註冊當機</string>
+    <string name="push_registration_description">防止應用程式在 Android 12 以上版本註冊通知時當機。</string>
 </resources>

@@ -2,4 +2,6 @@
 <resources>
     <string name="signature_check">Sửa kiểm tra chữ ký</string>
     <string name="signature_check_description">Cho phép ứng dụng đã ký lại khởi động.</string>
+    <string name="push_registration">Sửa lỗi dừng khi đăng ký thông báo đẩy</string>
+    <string name="push_registration_description">Ngăn lỗi dừng ứng dụng trên Android 12 trở lên khi ứng dụng đăng ký nhận thông báo.</string>
 </resources>

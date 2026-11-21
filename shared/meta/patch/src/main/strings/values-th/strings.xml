@@ -2,4 +2,6 @@
 <resources>
     <string name="signature_check">แก้ไขการตรวจสอบลายเซ็น</string>
     <string name="signature_check_description">ให้แอปที่ลงนามใหม่เริ่มทำงานได้</string>
+    <string name="push_registration">แก้ไขการแครชขณะลงทะเบียนพุช</string>
+    <string name="push_registration_description">ป้องกันการแครชบน Android 12 ขึ้นไปเมื่อแอปลงทะเบียนรับการแจ้งเตือน</string>
 </resources>

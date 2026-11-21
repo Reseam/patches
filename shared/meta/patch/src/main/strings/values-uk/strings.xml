@@ -2,4 +2,6 @@
 <resources>
     <string name="signature_check">Виправити перевірку підпису</string>
     <string name="signature_check_description">Дає змогу запускати повторно підписаний застосунок.</string>
+    <string name="push_registration">Виправити збій під час реєстрації push-сповіщень</string>
+    <string name="push_registration_description">Запобігає збою на Android 12 і новіших, коли застосунок реєструється для сповіщень.</string>
 </resources>

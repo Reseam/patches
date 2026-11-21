@@ -2,4 +2,6 @@
 <resources>
     <string name="signature_check">Napraw sprawdzanie podpisu</string>
     <string name="signature_check_description">Pozwala uruchomić aplikację z nowym podpisem.</string>
+    <string name="push_registration">Napraw awarię przy rejestracji powiadomień push</string>
+    <string name="push_registration_description">Zapobiega awarii na Androidzie 12 i nowszym, gdy aplikacja rejestruje się do powiadomień.</string>
 </resources>

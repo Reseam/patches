@@ -2,4 +2,6 @@
 <resources>
     <string name="signature_check">İmza denetimini düzelt</string>
     <string name="signature_check_description">Yeniden imzalanan uygulamanın başlamasını sağlar.</string>
+    <string name="push_registration">Anlık bildirim kaydı çökmesini düzelt</string>
+    <string name="push_registration_description">Uygulama bildirimlere kaydolurken Android 12 ve sonrasında oluşan bir çökmeyi önler.</string>
 </resources>

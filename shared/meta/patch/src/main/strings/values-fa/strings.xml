@@ -2,4 +2,6 @@
 <resources>
     <string name="signature_check">رفع بررسی امضا</string>
     <string name="signature_check_description">اجازه می‌دهد برنامهٔ دوباره‌امضاشده اجرا شود.</string>
+    <string name="push_registration">رفع خرابی هنگام ثبت اعلان‌های فوری</string>
+    <string name="push_registration_description">از خراب شدن برنامه در Android 12 و نسخه‌های بعدی هنگام ثبت برای اعلان‌ها جلوگیری می‌کند.</string>
 </resources>

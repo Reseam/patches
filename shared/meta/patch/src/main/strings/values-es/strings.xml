@@ -2,4 +2,6 @@
 <resources>
     <string name="signature_check">Arreglar comprobación de firma</string>
     <string name="signature_check_description">Permite que la app firmada de nuevo se inicie.</string>
+    <string name="push_registration">Corregir cierre al registrar notificaciones push</string>
+    <string name="push_registration_description">Evita un cierre inesperado en Android 12 y posteriores cuando la app se registra para recibir notificaciones.</string>
 </resources>
