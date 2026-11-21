@@ -5,4 +5,5 @@ reseamStrings { objectName = "app.reseam.patches.tiktok.TikTokPatchStrings" }
 
 dependencies {
     compileOnly(project(":shared:bundle:patch"))
+    compileOnly(project(":shared:fonts:patch"))
 }
