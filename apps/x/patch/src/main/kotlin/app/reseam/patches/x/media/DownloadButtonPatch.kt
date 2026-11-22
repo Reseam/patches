@@ -9,11 +9,6 @@ import app.reseam.patch.PointTarget
 import app.reseam.patch.Type
 import app.reseam.patch.appEntry
 import app.reseam.patch.before
-import app.reseam.patch.dex.ref
-import app.reseam.patch.field
-import app.reseam.patch.fieldTarget
-import app.reseam.patch.klass
-import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.point
 import app.reseam.patch.points
@@ -22,16 +17,13 @@ import app.reseam.patch.settings.section
 import app.reseam.patches.x.XPatchStrings
 import app.reseam.patches.x.core.COMPOSER
 import app.reseam.patches.x.core.FUNCTION0
-import app.reseam.patches.x.core.FUNCTION1
 import app.reseam.patches.x.core.MODIFIER
 import app.reseam.patches.x.core.X
 import app.reseam.patches.x.core.XSettingsPages
-import app.reseam.patches.x.core.availablePost
 import app.reseam.patches.x.core.postHeader
 import app.reseam.patches.x.core.postOptionsState
 import app.reseam.patches.x.core.xIcon
 import app.reseam.patches.x.core.unitInstance
-import app.reseam.patches.x.core.xPosts
 import app.reseam.patches.x.core.xSettings
 import app.reseam.x.download.bindings.DownloadButton
 import app.reseam.x.postheader.bindings.DownloadClick
@@ -45,7 +37,7 @@ private const val PADDING_TOP_BOTTOM_DEFAULT = 0b1010
 val downloadButton = patch(XPatchStrings.downloadButton) {
     description(XPatchStrings.downloadButtonDescription)
     compatibleWith(X)
-    dependsOn(saveMedia, xPosts)
+    dependsOn(saveMedia, shownPosts)
     settings(xSettings, section(XSettingsPages.Media, XStrings.sectionMedia, XSettings.downloadButton, XSettings.saveAllMedia))
 
     execute {
@@ -53,17 +45,11 @@ val downloadButton = patch(XPatchStrings.downloadButton) {
         val (optionsButton, postHeaders) = postHeader()
         val clickable = optionsButton.point { invokeStatic { hasParam(FUNCTION0); returns(MODIFIER) } }.callee("clickable")
         val drawIcon = optionsButton.point { invokeStatic { hasParam(xIcon.descriptor); hasParam(COMPOSER) } }.callee("drawIcon")
-        implementMediaAccess()
         DownloadClick.invoke.implement {
             DownloadButton.saveAll(thisObject.fieldOfType(Type.Object))
             returnValue(staticField(unitInstance))
         }
         appEntry { DownloadButton.initButton(application) }
-
-        val options = optionsButton.parameterTypes.indexOf(postOptionsState.descriptor)
-        postHeaders.points { calls(optionsButton) }.forEach {
-            captureArgumentAs("options", options).before { DownloadButton.trackOptions(capture("options"), paramOfType(availablePost.descriptor)) }
-        }
 
         // The download button repeats the menu button's size, clickable and icon calls with its own
         // size, click, icon and tint, so it sits in the same header row with the same placement.
@@ -120,37 +106,3 @@ private fun CodeScope.arguments(callee: MethodTarget) = callee.parameterTypes.in
 
 private fun <T> List<T>.withType(callee: MethodTarget, type: String, value: T) =
     mapIndexed { i, arg -> if (callee.parameterTypes[i] == type) value else arg }
-
-private fun implementMediaAccess() {
-    DownloadButton.optionsKey.implement { returnValue(param(0).cast(postOptionsState.descriptor).fieldOfType(FUNCTION1)) }
-    DownloadButton.isGif.implement {
-        whenInstanceOf(param(0), gif.descriptor) { returnValue(bool(true)) }
-        returnValue(bool(false))
-    }
-    DownloadButton.bestVariant.implement {
-        for (animated in listOf(gif, video)) {
-            whenInstanceOf(param(0), animated.descriptor) {
-                returnValue(call(bestVariantOf, param(0).cast(animated.descriptor).fieldOfType(immutableList)))
-            }
-        }
-        returnNull()
-    }
-    DownloadButton.variantUrl.implement { returnValue(param(0).cast(variant.descriptor).field(variantUrl)) }
-    DownloadButton.variantType.implement { returnValue(param(0).cast(variant.descriptor).field(variantType)) }
-}
-
-private val immutableList get() = bestVariantOf.parameterTypes.single()
-
-private val gif = klass("mediaGif") { strings("MediaContentGif(mediaId=") }
-private val video = klass("mediaVideo") { strings("MediaContentVideo(mediaId=") }
-private val variant = klass("mediaVariant") { strings("MediaVariant(url=") }
-
-private val bestVariantOf = method("bestMediaVariant") {
-    strings("x-mpegURL")
-    returns(variant.descriptor)
-    custom { parameterTypes.size == 1 && parameterTypes[0].startsWith("Lkotlinx/collections/immutable/") }
-}
-private val variantType = bestVariantOf.field("mediaVariantType") { owner(variant.descriptor); type(Type.String) }
-private val variantUrl = fieldTarget("mediaVariantUrl") {
-    variant.classDef.instanceFields.single { it.fieldType == Type.String && it.name != variantType.name }.ref
-}

@@ -19,6 +19,9 @@ import app.reseam.runtime.Export
 
 @Export external fun authorName(post: Any): String?
 
+/** The author's handle, without the @. */
+@Export external fun authorScreenName(post: Any): String?
+
 /** 0 when unknown. */
 @Export external fun postedAtSeconds(post: Any): Long
 

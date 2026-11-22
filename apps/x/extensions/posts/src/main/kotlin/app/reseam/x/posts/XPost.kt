@@ -17,6 +17,7 @@ data class XPost(
     val text: String,
     val authorId: String?,
     val authorName: String?,
+    val authorScreenName: String?,
     val postedAtMillis: Long?,
     val photoUrls: List<String>,
 )
@@ -28,6 +29,7 @@ fun xPost(model: Any): XPost =
         text = postText(model).orEmpty(),
         authorId = authorId(model).takeIf { it != 0L }?.toString(),
         authorName = authorName(model),
+        authorScreenName = authorScreenName(model),
         postedAtMillis = postedAtSeconds(model).takeIf { it != 0L }?.let { it * 1000 },
         photoUrls = postMedia(model).orEmpty().mapNotNull { it?.let(::photoUrl) }.map(::standardPhotoUrl),
     )
@@ -56,6 +58,7 @@ private fun JSONObject.toXPost(): XPost? {
         text = note?.getString("text") ?: details.getString("full_text"),
         authorId = user?.optString("rest_id")?.ifEmpty { null },
         authorName = user?.optJSONObject("core")?.optString("name")?.ifEmpty { null },
+        authorScreenName = user?.optJSONObject("core")?.optString("screen_name")?.ifEmpty { null },
         postedAtMillis = details.optLong("created_at_ms").takeIf { it > 0 },
         photoUrls = optJSONArray("media_entities")?.objects().orEmpty().mapNotNull {
             it.optJSONObject("media_results")?.optJSONObject("result")?.optJSONObject("media_info")

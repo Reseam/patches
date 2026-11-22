@@ -27,6 +27,8 @@
     <string name="download_without_watermark">Download without watermark</string>
     <string name="download_folder">Download folder</string>
     <string name="download_folder_summary">Where saved photos, videos and GIFs go. Keep the gallery default or pick a folder.</string>
+    <string name="download_file_name">File name</string>
+    <string name="download_file_name_summary">Names saved media after its post with {username}, {name}, {post_id}, {date}, {time}, {n} (its place in the post) and {media_id}. Leave it empty to keep X\'s names.</string>
     <string name="save_all_media">Ask which media to save</string>
     <string name="save_all_media_summary">When a post has several photos, GIFs or videos, asks which to save.</string>
     <string name="download_button">Download button on posts</string>

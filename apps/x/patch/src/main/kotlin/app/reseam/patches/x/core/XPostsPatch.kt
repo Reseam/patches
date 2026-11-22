@@ -45,6 +45,11 @@ val xPosts = patch {
             whenNotNull(author) { returnValue(author.callInterface(authorField.type, "getName", "()${Type.String}")) }
             returnNull()
         }
+        XPosts.authorScreenName.implement {
+            val author = param(0).cast(post).field(authorField)
+            whenNotNull(author) { returnValue(author.callInterface(authorField.type, screenNameGetter.name, "()${Type.String}")) }
+            returnNull()
+        }
         XPosts.postedAtSeconds.implement {
             val time = param(0).cast(post).field(timeField)
             whenNotNull(time) { returnValue(time.cast(timeField.type).field(timeSeconds)) }
@@ -86,6 +91,26 @@ private val idValue = onlyLongField("postIdValue") { idField.type }
 private val timeSeconds = onlyLongField("timestampSeconds") { timeField.type }
 private val authorIdType get() = klass(authorField.type).classDef.method("getId")?.returnType ?: error("author getId missing")
 private val authorIdValue = onlyLongField("authorIdValue") { authorIdType }
+
+// The author is an interface whose getters R8 renames; MinimalUser implements it, and its toString
+// passes the screen name to an outlined append right after the label.
+private const val SCREEN_NAME_LABEL_ARGUMENT = 2
+private val minimalUser = klass("minimalUser") { strings("MinimalUser(id=") }
+private val minimalUserToString = method("minimalUserToString") {
+    inClass(minimalUser)
+    name("toString")
+}
+private val screenNameField = minimalUserToString.point {
+    invokeStatic()
+    argument(SCREEN_NAME_LABEL_ARGUMENT) { string(", screenName=") }
+}.writer(SCREEN_NAME_LABEL_ARGUMENT + 1).field("minimalUserScreenName")
+private val screenNameGetter = method("authorScreenName") {
+    inClass(minimalUser)
+    params()
+    returns(Type.String)
+    accesses { owner(minimalUser.descriptor); name(screenNameField.name) }
+    custom { klass(authorField.type).classDef.method(name, proto) != null }
+}
 
 private val regularMedia = klass("regularPostMedia") { strings("RegularMedia(media=") }
 private val mediaState = fieldTarget("postMediaState") {

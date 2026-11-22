@@ -35,7 +35,7 @@
     <string name="save_all_media">Save all media</string>
     <string name="save_all_media_description">Offers to save all the media of a post when you save one.</string>
     <string name="save_media">Save media</string>
-    <string name="save_media_description">Saves photos, videos and GIFs to a folder you choose.</string>
+    <string name="save_media_description">Saves photos, videos and GIFs to a folder you choose, named after their post.</string>
     <string name="show_sensitive_media">Show sensitive media</string>
     <string name="show_sensitive_media_description">Shows sensitive media without the blur or warning.</string>
     <string name="double_tap_seek">Double-tap seek</string>

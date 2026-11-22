@@ -18,22 +18,8 @@ import app.reseam.x.posts.photoUrl
 import app.reseam.x.posts.postMedia
 import app.reseam.x.settings.XSettings
 import app.reseam.x.settings.XStrings
-import java.util.WeakHashMap
-
-@Export external fun optionsKey(options: Any?): Any?
-
-@Export external fun isGif(media: Any): Boolean
-
-@Export external fun bestVariant(media: Any): Any?
-
-@Export external fun variantUrl(variant: Any): String?
-
-@Export external fun variantType(variant: Any): String?
 
 private lateinit var app: Context
-
-// Options states are data classes rebuilt on every update; their event sink is one identity per post.
-private val posts = WeakHashMap<Any, Any>()
 
 @Export
 fun initButton(application: Application) {
@@ -42,15 +28,9 @@ fun initButton(application: Application) {
 }
 
 @Export
-fun trackOptions(options: Any?, post: Any?) {
-    val key = optionsKey(options)
-    if (key != null && post != null) posts[key] = post
-}
-
-@Export
 fun downloadTarget(options: Any?): Any? {
     if (!XSettings.downloadButton.value) return null
-    return posts[optionsKey(options)]?.let(::postMedia)?.takeIf { it.isNotEmpty() }
+    return composedPost(options)?.let(::postMedia)?.takeIf { it.isNotEmpty() }
 }
 
 @Export fun downloadLabel(): String = XStrings.downloadPost

@@ -32,6 +32,12 @@ object XSettings : SettingsGroup(XStrings) {
             icon = Vector.lucide("folder-open"),
             takesEffect = TakesEffect.IMMEDIATELY,
         )
+    val downloadFileName by
+        text(
+            default = "{username}_{post_id}_{n}",
+            icon = Vector.lucide("file-pen"),
+            takesEffect = TakesEffect.IMMEDIATELY,
+        )
     val saveAllMedia by
         toggle(
             default = true,

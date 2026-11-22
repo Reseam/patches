@@ -26,7 +26,8 @@ private const val CONTEXT = "Landroid/content/Context;"
 val saveMedia = patch(XPatchStrings.saveMedia) {
     description(XPatchStrings.saveMediaDescription)
     compatibleWith(X)
-    settings(xSettings, section(XSettingsPages.Media, XStrings.sectionMedia, XSettings.downloadFolder))
+    dependsOn(shownPosts)
+    settings(xSettings, section(XSettingsPages.Media, XStrings.sectionMedia, XSettings.downloadFolder, XSettings.downloadFileName))
 
     execute {
         for (save in listOf(imageAndVideoArgs, enqueueArgs)) {
