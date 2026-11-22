@@ -7,7 +7,7 @@
     <string name="settings_entry">Voce Impostazioni di Reseam</string>
     <string name="settings_entry_description">Aggiunge Impostazioni di Reseam a Impostazioni e privacy di X.</string>
     <string name="customize_explore">Personalizza Esplora</string>
-    <string name="customize_explore_description">Nasconde le storie di Grok, le tendenze e le schede di Esplora che scegli.</string>
+    <string name="customize_explore_description">Nasconde le storie di Grok, le tendenze, Post per te e le schede di Esplora che scegli.</string>
     <string name="user_feature_switches">Sostituzione dei flag delle funzioni</string>
     <string name="user_feature_switches_description">Imposta gli interruttori delle funzioni di X sui valori che scegli.</string>
     <string name="grok">Nascondi Grok</string>
@@ -35,7 +35,7 @@
     <string name="save_all_media">Salva tutti i contenuti</string>
     <string name="save_all_media_description">Propone di salvare tutti i contenuti di un post quando ne salvi uno.</string>
     <string name="save_media">Salva i contenuti</string>
-    <string name="save_media_description">Salva foto, video e GIF in una cartella a tua scelta.</string>
+    <string name="save_media_description">Salva foto, video e GIF in una cartella a tua scelta, con il nome del loro post.</string>
     <string name="show_sensitive_media">Mostra i contenuti sensibili</string>
     <string name="show_sensitive_media_description">Mostra i contenuti sensibili senza sfocatura né avviso.</string>
     <string name="double_tap_seek">Salto al doppio tocco</string>
@@ -78,6 +78,10 @@
     <string name="hide_post_metrics_description">Nasconde i conteggi sui post. I pulsanti continuano a funzionare.</string>
     <string name="hide_recommendations">Nascondi i consigli</string>
     <string name="hide_recommendations_description">Nasconde Chi seguire, Abbonati a e Community a cui unirti.</string>
+    <string name="hide_videos_for_you">Nascondi Video per te</string>
+    <string name="hide_videos_for_you_description">Nasconde il carosello Video per te nelle timeline.</string>
+    <string name="hide_discover_more">Nascondi Scopri di più</string>
+    <string name="hide_discover_more_description">Nasconde i post di Scopri di più sotto le risposte di un post.</string>
     <string name="show_poll_results">Mostra i risultati dei sondaggi</string>
     <string name="show_poll_results_description">Mostra i risultati dei sondaggi prima che tu voti.</string>
     <string name="show_withheld_posts">Mostra i post oscurati</string>

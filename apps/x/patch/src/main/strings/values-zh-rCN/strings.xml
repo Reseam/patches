@@ -7,7 +7,7 @@
     <string name="settings_entry">Reseam 设置入口</string>
     <string name="settings_entry_description">在 X 的“设置和隐私”中添加 Reseam 设置。</string>
     <string name="customize_explore">自定义探索</string>
-    <string name="customize_explore_description">隐藏 Grok 故事、趋势和选定的探索标签页。</string>
+    <string name="customize_explore_description">隐藏 Grok 故事、趋势、“为你推荐的帖子”和选定的探索标签页。</string>
     <string name="user_feature_switches">功能开关覆盖</string>
     <string name="user_feature_switches_description">将 X 的功能开关设为你选择的值。</string>
     <string name="grok">隐藏 Grok</string>
@@ -35,7 +35,7 @@
     <string name="save_all_media">保存所有媒体</string>
     <string name="save_all_media_description">保存帖子中的一项媒体时，提供保存全部媒体的选项。</string>
     <string name="save_media">保存媒体</string>
-    <string name="save_media_description">将照片、视频和 GIF 保存到你选择的文件夹。</string>
+    <string name="save_media_description">将照片、视频和 GIF 以所属帖子命名，保存到你选择的文件夹。</string>
     <string name="show_sensitive_media">显示敏感媒体</string>
     <string name="show_sensitive_media_description">显示敏感媒体，不加模糊或警告。</string>
     <string name="double_tap_seek">双击快进/快退</string>
@@ -78,6 +78,10 @@
     <string name="hide_post_metrics_description">隐藏帖子上的数字。按钮仍可正常使用。</string>
     <string name="hide_recommendations">隐藏推荐</string>
     <string name="hide_recommendations_description">隐藏“推荐关注”、“订阅”和“可加入的社群”。</string>
+    <string name="hide_videos_for_you">隐藏“为你推荐的视频”</string>
+    <string name="hide_videos_for_you_description">隐藏时间线中的“为你推荐的视频”轮播。</string>
+    <string name="hide_discover_more">隐藏“发现更多”</string>
+    <string name="hide_discover_more_description">隐藏帖子回复下方的“发现更多”帖子。</string>
     <string name="show_poll_results">显示投票结果</string>
     <string name="show_poll_results_description">在你投票前就显示投票结果。</string>
     <string name="show_withheld_posts">显示被限制的帖子</string>

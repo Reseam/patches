@@ -23,6 +23,8 @@
     <string name="download_without_watermark">下載時不含浮水印</string>
     <string name="download_folder">下載資料夾</string>
     <string name="download_folder_summary">儲存的相片、影片和 GIF 存放的位置。可保留預設的相簿，或選擇一個資料夾。</string>
+    <string name="download_file_name">檔案名稱</string>
+    <string name="download_file_name_summary">用 {username}、{name}、{post_id}、{date}、{time}、{n}（在貼文中的位置）和 {media_id} 依所屬貼文命名儲存的媒體。留空則保留 X 的名稱。</string>
     <string name="save_all_media">詢問要儲存哪些媒體</string>
     <string name="save_all_media_summary">當貼文含有多張相片、多個 GIF 或多部影片時，詢問要儲存哪些。</string>
     <string name="download_button">貼文上的下載按鈕</string>
@@ -66,6 +68,9 @@
     <string name="hide_live_avatar_rings">隱藏頭像上的直播光環</string>
     <string name="hide_recommendations">隱藏推薦</string>
     <string name="hide_recommendations_summary">隱藏「推薦跟隨」、「訂閱」和「可加入的社群」。</string>
+    <string name="hide_videos_for_you">隱藏「為你推薦的影片」</string>
+    <string name="hide_discover_more">隱藏「探索更多」</string>
+    <string name="hide_discover_more_summary">X 在貼文回覆下方推薦的貼文。</string>
     <string name="show_withheld_posts">顯示受限制的貼文</string>
     <string name="show_withheld_posts_summary">從 FxTwitter 載入受限制的貼文和個人檔案，FxTwitter 看得到你的 IP 位址和你開啟的內容。</string>
     <string name="withheld_repost_refused">X 不允許轉發受限制的貼文。請改用「引用」。</string>
@@ -172,6 +177,8 @@
     <string name="hide_grok_stories_summary">隱藏「今日新聞」和其他由 Grok 撰寫的新聞清單。「新聞」、「體育」和「娛樂」分頁只會顯示這些內容。</string>
     <string name="hide_explore_trends">隱藏「為你推薦」中的趨勢</string>
     <string name="hide_explore_trends_summary">「趨勢」分頁仍會保留。</string>
+    <string name="hide_explore_posts">隱藏「為你推薦」中的「為你推薦的貼文」</string>
+    <string name="hide_explore_posts_summary">X 在趨勢下方列出的貼文。</string>
     <string name="hide_trending_tab">隱藏「趨勢」分頁</string>
     <string name="hide_news_tab">隱藏「新聞」分頁</string>
     <string name="hide_sports_tab">隱藏「體育」分頁</string>
@@ -208,7 +215,7 @@
     <string name="page_home">首頁</string>
     <string name="page_home_summary">首頁分頁、直播列、貼文數據和回覆</string>
     <string name="page_explore">探索</string>
-    <string name="page_explore_summary">Grok 新聞、趨勢和探索分頁</string>
+    <string name="page_explore_summary">Grok 新聞、趨勢、貼文和探索分頁</string>
     <string name="page_profile">個人檔案</string>
     <string name="page_profile_summary">個人檔案分頁和預設媒體分頁</string>
     <string name="page_navigation">導覽</string>

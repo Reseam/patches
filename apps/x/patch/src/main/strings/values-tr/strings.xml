@@ -7,7 +7,7 @@
     <string name="settings_entry">Reseam ayarları girişi</string>
     <string name="settings_entry_description">X\'in Ayarlar ve gizlilik bölümüne Reseam Ayarları\'nı ekler.</string>
     <string name="customize_explore">Keşfet\'i özelleştir</string>
-    <string name="customize_explore_description">Grok hikayelerini, gündemleri ve seçilen Keşfet sekmelerini gizler.</string>
+    <string name="customize_explore_description">Grok hikayelerini, gündemleri, Senin için gönderileri ve seçilen Keşfet sekmelerini gizler.</string>
     <string name="user_feature_switches">Özellik bayrağı geçersiz kılmaları</string>
     <string name="user_feature_switches_description">X\'in özellik anahtarlarını seçtiğiniz değerlere ayarlar.</string>
     <string name="grok">Grok\'u gizle</string>
@@ -35,7 +35,7 @@
     <string name="save_all_media">Tüm medyayı kaydet</string>
     <string name="save_all_media_description">Bir gönderinin bir medyasını kaydettiğinizde tümünü kaydetmeyi önerir.</string>
     <string name="save_media">Medyayı kaydet</string>
-    <string name="save_media_description">Fotoğrafları, videoları ve GIF\'leri seçtiğiniz bir klasöre kaydeder.</string>
+    <string name="save_media_description">Fotoğrafları, videoları ve GIF\'leri, gönderilerine göre adlandırarak seçtiğiniz bir klasöre kaydeder.</string>
     <string name="show_sensitive_media">Hassas medyayı göster</string>
     <string name="show_sensitive_media_description">Hassas medyayı bulanıklık veya uyarı olmadan gösterir.</string>
     <string name="double_tap_seek">Çift dokunarak atlama</string>
@@ -78,6 +78,10 @@
     <string name="hide_post_metrics_description">Gönderilerdeki sayıları gizler. Düğmeler çalışmaya devam eder.</string>
     <string name="hide_recommendations">Önerileri gizle</string>
     <string name="hide_recommendations_description">Kimi takip etmeli, Abone ol ve Katılabileceğin topluluklar bölümlerini gizler.</string>
+    <string name="hide_videos_for_you">Senin için videoları gizle</string>
+    <string name="hide_videos_for_you_description">Zaman akışlarındaki Senin için videolar şeridini gizler.</string>
+    <string name="hide_discover_more">Daha fazlasını keşfet bölümünü gizle</string>
+    <string name="hide_discover_more_description">Bir gönderinin yanıtlarının altındaki Daha fazlasını keşfet gönderilerini gizler.</string>
     <string name="show_poll_results">Anket sonuçlarını göster</string>
     <string name="show_poll_results_description">Anket sonuçlarını oy vermeden önce gösterir.</string>
     <string name="show_withheld_posts">Kısıtlanan gönderileri göster</string>

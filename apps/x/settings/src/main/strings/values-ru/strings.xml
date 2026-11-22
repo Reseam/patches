@@ -23,6 +23,8 @@
     <string name="download_without_watermark">Скачивать без водяного знака</string>
     <string name="download_folder">Папка для скачивания</string>
     <string name="download_folder_summary">Куда сохраняются фото, видео и GIF. Оставьте галерею по умолчанию или выберите папку.</string>
+    <string name="download_file_name">Имя файла</string>
+    <string name="download_file_name_summary">Называет сохранённые медиа по их посту с помощью {username}, {name}, {post_id}, {date}, {time}, {n} (их место в посте) и {media_id}. Оставьте пустым, чтобы сохранить имена X.</string>
     <string name="save_all_media">Спрашивать, какие медиа сохранять</string>
     <string name="save_all_media_summary">Если в посте несколько фото, GIF или видео, спрашивает, какие сохранить.</string>
     <string name="download_button">Кнопка скачивания на постах</string>
@@ -69,6 +71,9 @@
     <string name="hide_live_avatar_rings">Скрыть кольца эфира на аватарах</string>
     <string name="hide_recommendations">Скрыть рекомендации</string>
     <string name="hide_recommendations_summary">Скрывает «Кого читать», «Подписаться» и «Сообщества для вступления».</string>
+    <string name="hide_videos_for_you">Скрыть «Видео для вас»</string>
+    <string name="hide_discover_more">Скрыть «Узнать больше»</string>
+    <string name="hide_discover_more_summary">Посты, которые X предлагает под ответами на пост.</string>
     <string name="show_withheld_posts">Показывать скрытые по требованию посты</string>
     <string name="show_withheld_posts_summary">Загружает скрытые по требованию посты и профили из FxTwitter, который видит ваш IP-адрес и то, что вы открываете.</string>
     <string name="withheld_repost_refused">X не даёт репостить скрытые по требованию посты. Используйте цитирование.</string>
@@ -175,6 +180,8 @@
     <string name="hide_grok_stories_summary">Скрывает «Новости дня» и другие списки историй, которые пишет Grok. На вкладках «Новости», «Спорт» и «Развлечения» есть только они.</string>
     <string name="hide_explore_trends">Скрыть тренды в «Для вас»</string>
     <string name="hide_explore_trends_summary">На вкладке «Тренды» они остаются.</string>
+    <string name="hide_explore_posts">Скрыть «Посты для вас» в «Для вас»</string>
+    <string name="hide_explore_posts_summary">Посты, которые X показывает под трендами.</string>
     <string name="hide_trending_tab">Скрыть вкладку «Тренды»</string>
     <string name="hide_news_tab">Скрыть вкладку «Новости»</string>
     <string name="hide_sports_tab">Скрыть вкладку «Спорт»</string>
@@ -211,7 +218,7 @@
     <string name="page_home">Главная</string>
     <string name="page_home_summary">Вкладки главной, панель эфиров, статистика постов и ответы</string>
     <string name="page_explore">Обзор</string>
-    <string name="page_explore_summary">Истории Grok, тренды и вкладки «Обзора»</string>
+    <string name="page_explore_summary">Истории Grok, тренды, посты и вкладки «Обзора»</string>
     <string name="page_profile">Профиль</string>
     <string name="page_profile_summary">Вкладки профиля и вкладка медиа по умолчанию</string>
     <string name="page_navigation">Навигация</string>

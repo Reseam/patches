@@ -20,6 +20,8 @@
     <string name="hide_typing_indicator_description">Інші не бачать, що ви друкуєте або записуєте.</string>
     <string name="play_store_restrictions">Прибрати обмеження Play Маркету</string>
     <string name="play_store_restrictions_description">Показує чати й медіа, які Telegram приховує лише у версії з Play Маркету.</string>
+    <string name="customize_messages">Налаштування повідомлень</string>
+    <string name="customize_messages_description">Показує ID повідомлень і користувачів та коли переслані повідомлення були надіслані вперше, а також змінює позначку редагування.</string>
     <string name="unlock_premium">Відкрити Premium</string>
     <string name="unlock_premium_description">Відкриває функції Premium, які працюють на цьому телефоні.</string>
     <string name="disable_auto_update">Вимкнути запити оновлення</string>

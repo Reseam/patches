@@ -7,7 +7,7 @@
     <string name="settings_entry">Entrée Paramètres Reseam</string>
     <string name="settings_entry_description">Ajoute Paramètres Reseam à Paramètres et confidentialité de X.</string>
     <string name="customize_explore">Personnaliser Explorer</string>
-    <string name="customize_explore_description">Masque les actualités de Grok, les tendances et les onglets Explorer de votre choix.</string>
+    <string name="customize_explore_description">Masque les actualités de Grok, les tendances, Posts pour vous et les onglets Explorer de votre choix.</string>
     <string name="user_feature_switches">Remplacement des indicateurs de fonctionnalités</string>
     <string name="user_feature_switches_description">Règle les commutateurs de fonctionnalités de X sur les valeurs de votre choix.</string>
     <string name="grok">Masquer Grok</string>
@@ -35,7 +35,7 @@
     <string name="save_all_media">Enregistrer tous les médias</string>
     <string name="save_all_media_description">Propose d’enregistrer tous les médias d’un post quand vous en enregistrez un.</string>
     <string name="save_media">Enregistrer les médias</string>
-    <string name="save_media_description">Enregistre les photos, vidéos et GIF dans le dossier de votre choix.</string>
+    <string name="save_media_description">Enregistre les photos, vidéos et GIF dans le dossier de votre choix, nommés d’après leur post.</string>
     <string name="show_sensitive_media">Afficher les médias sensibles</string>
     <string name="show_sensitive_media_description">Affiche les médias sensibles sans flou ni avertissement.</string>
     <string name="double_tap_seek">Saut au double appui</string>
@@ -78,6 +78,10 @@
     <string name="hide_post_metrics_description">Masque les compteurs sur les posts. Les boutons fonctionnent toujours.</string>
     <string name="hide_recommendations">Masquer les recommandations</string>
     <string name="hide_recommendations_description">Masque Qui suivre, S’abonner à et Communautés à rejoindre.</string>
+    <string name="hide_videos_for_you">Masquer Vidéos pour vous</string>
+    <string name="hide_videos_for_you_description">Masque le carrousel Vidéos pour vous dans les fils.</string>
+    <string name="hide_discover_more">Masquer Découvrir plus</string>
+    <string name="hide_discover_more_description">Masque les posts Découvrir plus sous les réponses d’un post.</string>
     <string name="show_poll_results">Afficher les résultats des sondages</string>
     <string name="show_poll_results_description">Affiche les résultats des sondages avant votre vote.</string>
     <string name="show_withheld_posts">Afficher les posts retenus</string>

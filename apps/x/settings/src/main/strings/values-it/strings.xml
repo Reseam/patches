@@ -23,6 +23,8 @@
     <string name="download_without_watermark">Scarica senza filigrana</string>
     <string name="download_folder">Cartella dei download</string>
     <string name="download_folder_summary">Dove finiscono foto, video e GIF salvati. Mantieni la galleria predefinita o scegli una cartella.</string>
+    <string name="download_file_name">Nome del file</string>
+    <string name="download_file_name_summary">Dà ai media salvati il nome del loro post con {username}, {name}, {post_id}, {date}, {time}, {n} (la posizione nel post) e {media_id}. Lascia vuoto per mantenere i nomi di X.</string>
     <string name="save_all_media">Chiedi quali contenuti salvare</string>
     <string name="save_all_media_summary">Quando un post ha più foto, GIF o video, chiede quali salvare.</string>
     <string name="download_button">Pulsante di download sui post</string>
@@ -67,6 +69,9 @@
     <string name="hide_live_avatar_rings">Nascondi i cerchi di diretta sugli avatar</string>
     <string name="hide_recommendations">Nascondi i consigli</string>
     <string name="hide_recommendations_summary">Nasconde Chi seguire, Abbonati a e Community a cui unirti.</string>
+    <string name="hide_videos_for_you">Nascondi Video per te</string>
+    <string name="hide_discover_more">Nascondi Scopri di più</string>
+    <string name="hide_discover_more_summary">I post che X suggerisce sotto le risposte di un post.</string>
     <string name="show_withheld_posts">Mostra i post oscurati</string>
     <string name="show_withheld_posts_summary">Carica i post e i profili oscurati da FxTwitter, che vede il tuo indirizzo IP e quello che apri.</string>
     <string name="withheld_repost_refused">X blocca i repost dei post oscurati. Usa Cita.</string>
@@ -173,6 +178,8 @@
     <string name="hide_grok_stories_summary">Nasconde Notizie di oggi e gli altri elenchi di storie scritti da Grok. Le schede Notizie, Sport e Intrattenimento mostrano solo questi.</string>
     <string name="hide_explore_trends">Nascondi le tendenze in Per te</string>
     <string name="hide_explore_trends_summary">La scheda Tendenze le mantiene.</string>
+    <string name="hide_explore_posts">Nascondi Post per te in Per te</string>
+    <string name="hide_explore_posts_summary">I post che X mostra sotto le tendenze.</string>
     <string name="hide_trending_tab">Nascondi la scheda Tendenze</string>
     <string name="hide_news_tab">Nascondi la scheda Notizie</string>
     <string name="hide_sports_tab">Nascondi la scheda Sport</string>
@@ -209,7 +216,7 @@
     <string name="page_home">Home</string>
     <string name="page_home_summary">Schede della Home, barra delle dirette, statistiche dei post e risposte</string>
     <string name="page_explore">Esplora</string>
-    <string name="page_explore_summary">Storie di Grok, tendenze e schede di Esplora</string>
+    <string name="page_explore_summary">Storie di Grok, tendenze, post e schede di Esplora</string>
     <string name="page_profile">Profilo</string>
     <string name="page_profile_summary">Schede del profilo e scheda Contenuti predefinita</string>
     <string name="page_navigation">Navigazione</string>

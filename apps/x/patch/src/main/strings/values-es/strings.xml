@@ -7,7 +7,7 @@
     <string name="settings_entry">Acceso a los ajustes de Reseam</string>
     <string name="settings_entry_description">Añade Ajustes de Reseam a Configuración y privacidad de X.</string>
     <string name="customize_explore">Personalizar Explorar</string>
-    <string name="customize_explore_description">Oculta las historias de Grok, las tendencias y las pestañas de Explorar que elijas.</string>
+    <string name="customize_explore_description">Oculta las historias de Grok, las tendencias, Posts para ti y las pestañas de Explorar que elijas.</string>
     <string name="user_feature_switches">Cambiar indicadores de funciones</string>
     <string name="user_feature_switches_description">Pone los interruptores de funciones de X en los valores que elijas.</string>
     <string name="grok">Ocultar Grok</string>
@@ -35,7 +35,7 @@
     <string name="save_all_media">Guardar todo el contenido</string>
     <string name="save_all_media_description">Te ofrece guardar todo el contenido de una publicación cuando guardas uno.</string>
     <string name="save_media">Guardar contenido</string>
-    <string name="save_media_description">Guarda fotos, videos y GIF en la carpeta que elijas.</string>
+    <string name="save_media_description">Guarda fotos, videos y GIF en la carpeta que elijas, con el nombre de su post.</string>
     <string name="show_sensitive_media">Mostrar contenido sensible</string>
     <string name="show_sensitive_media_description">Muestra el contenido sensible sin el desenfoque ni el aviso.</string>
     <string name="double_tap_seek">Salto con doble toque</string>
@@ -78,6 +78,10 @@
     <string name="hide_post_metrics_description">Oculta los contadores de las publicaciones. Los botones siguen funcionando.</string>
     <string name="hide_recommendations">Ocultar recomendaciones</string>
     <string name="hide_recommendations_description">Oculta A quién seguir, Suscríbete a y Comunidades a las que unirte.</string>
+    <string name="hide_videos_for_you">Ocultar Videos para ti</string>
+    <string name="hide_videos_for_you_description">Oculta el carrusel Videos para ti en las cronologías.</string>
+    <string name="hide_discover_more">Ocultar Descubre más</string>
+    <string name="hide_discover_more_description">Oculta los posts de Descubre más debajo de las respuestas de un post.</string>
     <string name="show_poll_results">Mostrar resultados de encuestas</string>
     <string name="show_poll_results_description">Muestra los resultados de las encuestas antes de que votes.</string>
     <string name="show_withheld_posts">Mostrar publicaciones retenidas</string>

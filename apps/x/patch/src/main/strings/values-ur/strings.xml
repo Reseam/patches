@@ -7,7 +7,7 @@
     <string name="settings_entry">Reseam ترتیبات کا اندراج</string>
     <string name="settings_entry_description">X کی “ترتیبات اور رازداری” میں Reseam ترتیبات شامل کرتا ہے۔</string>
     <string name="customize_explore">ایکسپلور حسب ضرورت بنائیں</string>
-    <string name="customize_explore_description">Grok اسٹوریز، ٹرینڈز اور منتخب ایکسپلور ٹیبز چھپاتا ہے۔</string>
+    <string name="customize_explore_description">Grok اسٹوریز، ٹرینڈز، “آپ کے لیے پوسٹس” اور منتخب ایکسپلور ٹیبز چھپاتا ہے۔</string>
     <string name="user_feature_switches">فیچر فلیگ اوور رائیڈز</string>
     <string name="user_feature_switches_description">X کے فیچر سوئچز کو آپ کی منتخب کردہ ویلیوز پر سیٹ کرتا ہے۔</string>
     <string name="grok">Grok چھپائیں</string>
@@ -35,7 +35,7 @@
     <string name="save_all_media">تمام میڈیا محفوظ کریں</string>
     <string name="save_all_media_description">جب آپ ایک میڈیا محفوظ کرتے ہیں تو پوسٹ کا تمام میڈیا محفوظ کرنے کی پیشکش کرتا ہے۔</string>
     <string name="save_media">میڈیا محفوظ کریں</string>
-    <string name="save_media_description">تصاویر، ویڈیوز اور GIFs کو آپ کے منتخب کردہ فولڈر میں محفوظ کرتا ہے۔</string>
+    <string name="save_media_description">تصاویر، ویڈیوز اور GIFs کو ان کی پوسٹ کے نام سے آپ کے منتخب کردہ فولڈر میں محفوظ کرتا ہے۔</string>
     <string name="show_sensitive_media">حساس میڈیا دکھائیں</string>
     <string name="show_sensitive_media_description">حساس میڈیا کو دھندلاہٹ یا وارننگ کے بغیر دکھاتا ہے۔</string>
     <string name="double_tap_seek">ڈبل ٹیپ سیک</string>
@@ -78,6 +78,10 @@
     <string name="hide_post_metrics_description">پوسٹس پر گنتیاں چھپاتا ہے۔ بٹن کام کرتے رہتے ہیں۔</string>
     <string name="hide_recommendations">تجاویز چھپائیں</string>
     <string name="hide_recommendations_description">“کس کو فالو کریں”، “سبسکرائب کریں” اور “شامل ہونے کے لیے کمیونٹیز” چھپاتا ہے۔</string>
+    <string name="hide_videos_for_you">“آپ کے لیے ویڈیوز” چھپائیں</string>
+    <string name="hide_videos_for_you_description">ٹائم لائنز میں “آپ کے لیے ویڈیوز” کیروسل چھپاتا ہے۔</string>
+    <string name="hide_discover_more">“مزید دریافت کریں” چھپائیں</string>
+    <string name="hide_discover_more_description">کسی پوسٹ کے جوابات کے نیچے “مزید دریافت کریں” کی پوسٹس چھپاتا ہے۔</string>
     <string name="show_poll_results">پول کے نتائج دکھائیں</string>
     <string name="show_poll_results_description">ووٹ دینے سے پہلے پول کے نتائج دکھاتا ہے۔</string>
     <string name="show_withheld_posts">روکی گئی پوسٹس دکھائیں</string>

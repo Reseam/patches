@@ -10,6 +10,7 @@
     <string name="boost_downloads">ダウンロードを高速化</string>
     <string name="save_from_restricted">制限付きチャットから保存</string>
     <string name="save_from_restricted_summary">保護されたチャットでコピー、保存、転送ができるようにします。</string>
+    <string name="restricted_media_not_loaded">一部のメディアをダウンロードできませんでした。</string>
     <string name="remove_play_store_restrictions">Play ストアの制限を解除</string>
     <string name="remove_play_store_restrictions_summary">Telegram が Play ストア版でのみ隠しているチャットとメディアを表示します。</string>
     <string name="recover_deleted">削除されたメッセージを残す</string>
@@ -23,6 +24,22 @@
     <string name="section_downloads">ダウンロード</string>
     <string name="section_premium">Premium</string>
     <string name="section_privacy">プライバシー</string>
+    <string name="section_messages">メッセージ</string>
+    <string name="show_message_ids">メッセージ ID を表示</string>
+    <string name="show_message_ids_summary">各メッセージの時刻の前に表示します。</string>
+    <string name="show_user_ids">ユーザー ID を表示</string>
+    <string name="show_user_ids_summary">相手のメッセージのメニューに表示されます。ID をタップするとコピーします。</string>
+    <string name="show_forward_dates">転送元の日付を表示</string>
+    <string name="show_forward_dates_summary">転送されたメッセージが最初に送信された日付です。</string>
+    <string name="edited_mark">編集済みの表示</string>
+    <string name="edited_mark_telegram">Telegram の表示</string>
+    <string name="edited_mark_icon">鉛筆アイコン</string>
+    <string name="edited_mark_custom">カスタムテキスト</string>
+    <string name="edited_mark_hidden">非表示</string>
+    <string name="custom_edited_mark">カスタムの編集済み表示</string>
+    <string name="custom_edited_mark_summary">編集済みの表示がカスタムテキストのときに使います。</string>
+    <string name="user_id">ID <xliff:g id="id">%1$s</xliff:g></string>
+    <string name="user_id_copied">ID をコピーしました</string>
     <string name="anti_delete_recovery_off">削除されたメッセージを残すのをやめる</string>
     <string name="anti_delete_recovery_on">削除されたメッセージを残す</string>
 </resources>

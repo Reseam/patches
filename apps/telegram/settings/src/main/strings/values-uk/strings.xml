@@ -10,6 +10,7 @@
     <string name="boost_downloads">Швидші завантаження</string>
     <string name="save_from_restricted">Зберігати з обмежених чатів</string>
     <string name="save_from_restricted_summary">Дозволяє копіювати, зберігати й пересилати в захищених чатах.</string>
+    <string name="restricted_media_not_loaded">Не вдалося завантажити частину медіа.</string>
     <string name="remove_play_store_restrictions">Прибрати обмеження Play Маркету</string>
     <string name="remove_play_store_restrictions_summary">Показує чати й медіа, які Telegram приховує лише у версії з Play Маркету.</string>
     <string name="recover_deleted">Зберігати видалені повідомлення</string>
@@ -23,6 +24,22 @@
     <string name="section_downloads">Завантаження</string>
     <string name="section_premium">Premium</string>
     <string name="section_privacy">Конфіденційність</string>
+    <string name="section_messages">Повідомлення</string>
+    <string name="show_message_ids">Показувати ID повідомлень</string>
+    <string name="show_message_ids_summary">Перед часом кожного повідомлення.</string>
+    <string name="show_user_ids">Показувати ID користувачів</string>
+    <string name="show_user_ids_summary">У меню повідомлення людини. Торкніться ID, щоб скопіювати його.</string>
+    <string name="show_forward_dates">Показувати дати пересилань</string>
+    <string name="show_forward_dates_summary">Коли переслане повідомлення було надіслано вперше.</string>
+    <string name="edited_mark">Позначка редагування</string>
+    <string name="edited_mark_telegram">Позначка Telegram</string>
+    <string name="edited_mark_icon">Значок олівця</string>
+    <string name="edited_mark_custom">Власний текст</string>
+    <string name="edited_mark_hidden">Прихована</string>
+    <string name="custom_edited_mark">Власна позначка редагування</string>
+    <string name="custom_edited_mark_summary">Використовується, коли позначка редагування — «Власний текст».</string>
+    <string name="user_id">ID <xliff:g id="id">%1$s</xliff:g></string>
+    <string name="user_id_copied">ID скопійовано</string>
     <string name="anti_delete_recovery_off">Не зберігати видалені повідомлення</string>
     <string name="anti_delete_recovery_on">Зберігати видалені повідомлення</string>
 </resources>

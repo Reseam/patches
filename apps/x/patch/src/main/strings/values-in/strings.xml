@@ -7,7 +7,7 @@
     <string name="settings_entry">Entri setelan Reseam</string>
     <string name="settings_entry_description">Menambahkan Setelan Reseam ke Setelan dan privasi X.</string>
     <string name="customize_explore">Sesuaikan Jelajahi</string>
-    <string name="customize_explore_description">Menyembunyikan cerita Grok, tren, dan tab Jelajahi yang dipilih.</string>
+    <string name="customize_explore_description">Menyembunyikan cerita Grok, tren, Postingan untuk Anda, dan tab Jelajahi yang dipilih.</string>
     <string name="user_feature_switches">Penggantian feature flag</string>
     <string name="user_feature_switches_description">Mengatur sakelar fitur X ke nilai yang Anda pilih.</string>
     <string name="grok">Sembunyikan Grok</string>
@@ -35,7 +35,7 @@
     <string name="save_all_media">Simpan semua media</string>
     <string name="save_all_media_description">Menawarkan untuk menyimpan semua media postingan saat Anda menyimpan salah satunya.</string>
     <string name="save_media">Simpan media</string>
-    <string name="save_media_description">Menyimpan foto, video, dan GIF ke folder pilihan Anda.</string>
+    <string name="save_media_description">Menyimpan foto, video, dan GIF ke folder pilihan Anda, dinamai sesuai postingannya.</string>
     <string name="show_sensitive_media">Tampilkan media sensitif</string>
     <string name="show_sensitive_media_description">Menampilkan media sensitif tanpa buram atau peringatan.</string>
     <string name="double_tap_seek">Lompat ketuk dua kali</string>
@@ -78,6 +78,10 @@
     <string name="hide_post_metrics_description">Menyembunyikan angka di postingan. Tombolnya tetap berfungsi.</string>
     <string name="hide_recommendations">Sembunyikan rekomendasi</string>
     <string name="hide_recommendations_description">Menyembunyikan Siapa yang harus diikuti, Berlangganan, dan Komunitas untuk diikuti.</string>
+    <string name="hide_videos_for_you">Sembunyikan Video untuk Anda</string>
+    <string name="hide_videos_for_you_description">Menyembunyikan karosel Video untuk Anda di linimasa.</string>
+    <string name="hide_discover_more">Sembunyikan Temukan lainnya</string>
+    <string name="hide_discover_more_description">Menyembunyikan postingan Temukan lainnya di bawah balasan postingan.</string>
     <string name="show_poll_results">Tampilkan hasil polling</string>
     <string name="show_poll_results_description">Menampilkan hasil polling sebelum Anda memilih.</string>
     <string name="show_withheld_posts">Tampilkan postingan yang ditahan</string>

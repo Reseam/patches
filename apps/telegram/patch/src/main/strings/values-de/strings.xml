@@ -20,6 +20,8 @@
     <string name="hide_typing_indicator_description">Verhindert, dass andere sehen, dass du tippst oder aufnimmst.</string>
     <string name="play_store_restrictions">Play-Store-Einschränkungen entfernen</string>
     <string name="play_store_restrictions_description">Zeigt die Chats und Medien, die Telegram nur in seiner Play-Store-Version verbirgt.</string>
+    <string name="customize_messages">Nachrichten anpassen</string>
+    <string name="customize_messages_description">Zeigt Nachrichten- und Nutzer-IDs und wann Weiterleitungen zuerst gesendet wurden, und ändert die Bearbeitet-Markierung.</string>
     <string name="unlock_premium">Premium freischalten</string>
     <string name="unlock_premium_description">Schaltet Premium-Funktionen frei, die auf diesem Handy funktionieren.</string>
     <string name="disable_auto_update">Update-Hinweise deaktivieren</string>

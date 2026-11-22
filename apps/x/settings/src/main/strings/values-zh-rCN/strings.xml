@@ -23,6 +23,8 @@
     <string name="download_without_watermark">无水印下载</string>
     <string name="download_folder">下载文件夹</string>
     <string name="download_folder_summary">保存的照片、视频和 GIF 存放的位置。可保留默认的相册，或选择一个文件夹。</string>
+    <string name="download_file_name">文件名</string>
+    <string name="download_file_name_summary">用 {username}、{name}、{post_id}、{date}、{time}、{n}（在帖子中的位置）和 {media_id} 按所属帖子命名保存的媒体。留空则保留 X 的名称。</string>
     <string name="save_all_media">询问要保存哪些媒体</string>
     <string name="save_all_media_summary">当帖子包含多张照片、多个 GIF 或视频时，询问要保存哪些。</string>
     <string name="download_button">帖子上的下载按钮</string>
@@ -66,6 +68,9 @@
     <string name="hide_live_avatar_rings">隐藏头像上的直播光圈</string>
     <string name="hide_recommendations">隐藏推荐</string>
     <string name="hide_recommendations_summary">隐藏“推荐关注”、“订阅”和“可加入的社群”。</string>
+    <string name="hide_videos_for_you">隐藏“为你推荐的视频”</string>
+    <string name="hide_discover_more">隐藏“发现更多”</string>
+    <string name="hide_discover_more_summary">X 在帖子回复下方推荐的帖子。</string>
     <string name="show_withheld_posts">显示被限制的帖子</string>
     <string name="show_withheld_posts_summary">从 FxTwitter 加载被限制的帖子和个人资料，FxTwitter 能看到你的 IP 地址和你打开的内容。</string>
     <string name="withheld_repost_refused">X 不允许转发被限制的帖子。请改用“引用”。</string>
@@ -172,6 +177,8 @@
     <string name="hide_grok_stories_summary">隐藏“今日新闻”和其他由 Grok 编写的故事列表。“新闻”、“体育”和“娱乐”标签页只显示这些内容。</string>
     <string name="hide_explore_trends">隐藏“为你推荐”中的趋势</string>
     <string name="hide_explore_trends_summary">“趋势”标签页中仍会保留。</string>
+    <string name="hide_explore_posts">隐藏“为你推荐”中的“为你推荐的帖子”</string>
+    <string name="hide_explore_posts_summary">X 在趋势下方列出的帖子。</string>
     <string name="hide_trending_tab">隐藏“趋势”标签页</string>
     <string name="hide_news_tab">隐藏“新闻”标签页</string>
     <string name="hide_sports_tab">隐藏“体育”标签页</string>
@@ -208,7 +215,7 @@
     <string name="page_home">首页</string>
     <string name="page_home_summary">首页标签页、直播栏、帖子数据和回复</string>
     <string name="page_explore">探索</string>
-    <string name="page_explore_summary">Grok 故事、趋势和探索标签页</string>
+    <string name="page_explore_summary">Grok 故事、趋势、帖子和探索标签页</string>
     <string name="page_profile">个人资料</string>
     <string name="page_profile_summary">个人资料标签页和默认媒体标签页</string>
     <string name="page_navigation">导航</string>

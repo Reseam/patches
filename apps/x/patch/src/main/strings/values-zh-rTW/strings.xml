@@ -7,7 +7,7 @@
     <string name="settings_entry">Reseam 設定入口</string>
     <string name="settings_entry_description">在 X 的「設定和隱私」中新增 Reseam 設定。</string>
     <string name="customize_explore">自訂探索</string>
-    <string name="customize_explore_description">隱藏 Grok 新聞、趨勢和選取的探索分頁。</string>
+    <string name="customize_explore_description">隱藏 Grok 新聞、趨勢、「為你推薦的貼文」和選取的探索分頁。</string>
     <string name="user_feature_switches">功能旗標覆寫</string>
     <string name="user_feature_switches_description">將 X 的功能開關設為你選擇的值。</string>
     <string name="grok">隱藏 Grok</string>
@@ -35,7 +35,7 @@
     <string name="save_all_media">儲存所有媒體</string>
     <string name="save_all_media_description">儲存貼文中的一項媒體時，提供儲存全部媒體的選項。</string>
     <string name="save_media">儲存媒體</string>
-    <string name="save_media_description">將相片、影片和 GIF 儲存到你選擇的資料夾。</string>
+    <string name="save_media_description">將相片、影片和 GIF 以所屬貼文命名，儲存到你選擇的資料夾。</string>
     <string name="show_sensitive_media">顯示敏感媒體</string>
     <string name="show_sensitive_media_description">顯示敏感媒體，不加模糊或警告。</string>
     <string name="double_tap_seek">雙擊快轉/倒轉</string>
@@ -78,6 +78,10 @@
     <string name="hide_post_metrics_description">隱藏貼文上的數字。按鈕仍可正常使用。</string>
     <string name="hide_recommendations">隱藏推薦</string>
     <string name="hide_recommendations_description">隱藏「推薦跟隨」、「訂閱」和「可加入的社群」。</string>
+    <string name="hide_videos_for_you">隱藏「為你推薦的影片」</string>
+    <string name="hide_videos_for_you_description">隱藏時間軸中的「為你推薦的影片」輪播。</string>
+    <string name="hide_discover_more">隱藏「探索更多」</string>
+    <string name="hide_discover_more_description">隱藏貼文回覆下方的「探索更多」貼文。</string>
     <string name="show_poll_results">顯示投票結果</string>
     <string name="show_poll_results_description">在你投票前就顯示投票結果。</string>
     <string name="show_withheld_posts">顯示受限制的貼文</string>

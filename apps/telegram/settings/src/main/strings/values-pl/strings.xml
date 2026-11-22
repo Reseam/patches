@@ -10,6 +10,7 @@
     <string name="boost_downloads">Szybsze pobieranie</string>
     <string name="save_from_restricted">Zapisuj z czatów z ograniczeniami</string>
     <string name="save_from_restricted_summary">Pozwala kopiować, zapisywać i przekazywać dalej w chronionych czatach.</string>
+    <string name="restricted_media_not_loaded">Nie udało się pobrać części multimediów.</string>
     <string name="remove_play_store_restrictions">Usuń ograniczenia Sklepu Play</string>
     <string name="remove_play_store_restrictions_summary">Pokazuje czaty i multimedia, które Telegram ukrywa tylko w wersji ze Sklepu Play.</string>
     <string name="recover_deleted">Zachowuj usunięte wiadomości</string>
@@ -23,6 +24,22 @@
     <string name="section_downloads">Pobrane</string>
     <string name="section_premium">Premium</string>
     <string name="section_privacy">Prywatność</string>
+    <string name="section_messages">Wiadomości</string>
+    <string name="show_message_ids">Pokaż identyfikatory wiadomości</string>
+    <string name="show_message_ids_summary">Przed godziną każdej wiadomości.</string>
+    <string name="show_user_ids">Pokaż identyfikatory użytkowników</string>
+    <string name="show_user_ids_summary">W menu wiadomości danej osoby. Dotknij identyfikatora, aby go skopiować.</string>
+    <string name="show_forward_dates">Pokaż daty przekazanych wiadomości</string>
+    <string name="show_forward_dates_summary">Kiedy przekazana wiadomość została wysłana po raz pierwszy.</string>
+    <string name="edited_mark">Oznaczenie edycji</string>
+    <string name="edited_mark_telegram">Etykieta Telegrama</string>
+    <string name="edited_mark_icon">Ikona ołówka</string>
+    <string name="edited_mark_custom">Własny tekst</string>
+    <string name="edited_mark_hidden">Ukryte</string>
+    <string name="custom_edited_mark">Własne oznaczenie edycji</string>
+    <string name="custom_edited_mark_summary">Używane, gdy Oznaczenie edycji to Własny tekst.</string>
+    <string name="user_id">ID <xliff:g id="id">%1$s</xliff:g></string>
+    <string name="user_id_copied">Skopiowano identyfikator</string>
     <string name="anti_delete_recovery_off">Przestań zachowywać usunięte wiadomości</string>
     <string name="anti_delete_recovery_on">Zachowuj usunięte wiadomości</string>
 </resources>

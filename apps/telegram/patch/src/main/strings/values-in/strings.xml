@@ -20,6 +20,8 @@
     <string name="hide_typing_indicator_description">Mencegah orang lain melihat bahwa Anda sedang mengetik atau merekam.</string>
     <string name="play_store_restrictions">Hapus pembatasan Play Store</string>
     <string name="play_store_restrictions_description">Menampilkan chat dan media yang disembunyikan Telegram hanya di versi Play Store.</string>
+    <string name="customize_messages">Sesuaikan pesan</string>
+    <string name="customize_messages_description">Menampilkan ID pesan dan pengguna serta kapan pesan terusan pertama kali dikirim, dan mengubah tanda diedit.</string>
     <string name="unlock_premium">Buka Premium</string>
     <string name="unlock_premium_description">Membuka fitur Premium yang berfungsi di ponsel ini.</string>
     <string name="disable_auto_update">Nonaktifkan ajakan update</string>

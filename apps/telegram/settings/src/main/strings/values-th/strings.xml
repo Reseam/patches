@@ -10,6 +10,7 @@
     <string name="boost_downloads">ดาวน์โหลดเร็วขึ้น</string>
     <string name="save_from_restricted">บันทึกจากแชทที่จำกัด</string>
     <string name="save_from_restricted_summary">อนุญาตให้คัดลอก บันทึก และส่งต่อในแชทที่มีการป้องกัน</string>
+    <string name="restricted_media_not_loaded">ดาวน์โหลดสื่อบางรายการไม่ได้</string>
     <string name="remove_play_store_restrictions">นำข้อจำกัดของ Play Store ออก</string>
     <string name="remove_play_store_restrictions_summary">แสดงแชทและสื่อที่ Telegram ซ่อนไว้เฉพาะในเวอร์ชัน Play Store</string>
     <string name="recover_deleted">เก็บข้อความที่ถูกลบ</string>
@@ -23,6 +24,22 @@
     <string name="section_downloads">ดาวน์โหลด</string>
     <string name="section_premium">Premium</string>
     <string name="section_privacy">ความเป็นส่วนตัว</string>
+    <string name="section_messages">ข้อความ</string>
+    <string name="show_message_ids">แสดง ID ข้อความ</string>
+    <string name="show_message_ids_summary">ก่อนเวลาของแต่ละข้อความ</string>
+    <string name="show_user_ids">แสดง ID ผู้ใช้</string>
+    <string name="show_user_ids_summary">ในเมนูของข้อความจากบุคคล แตะ ID เพื่อคัดลอก</string>
+    <string name="show_forward_dates">แสดงวันที่ของข้อความที่ส่งต่อ</string>
+    <string name="show_forward_dates_summary">เวลาที่ข้อความที่ส่งต่อถูกส่งครั้งแรก</string>
+    <string name="edited_mark">เครื่องหมายแก้ไข</string>
+    <string name="edited_mark_telegram">ป้ายของ Telegram</string>
+    <string name="edited_mark_icon">ไอคอนดินสอ</string>
+    <string name="edited_mark_custom">ข้อความที่กำหนดเอง</string>
+    <string name="edited_mark_hidden">ซ่อน</string>
+    <string name="custom_edited_mark">เครื่องหมายแก้ไขที่กำหนดเอง</string>
+    <string name="custom_edited_mark_summary">ใช้เมื่อเครื่องหมายแก้ไขเป็นข้อความที่กำหนดเอง</string>
+    <string name="user_id">ID <xliff:g id="id">%1$s</xliff:g></string>
+    <string name="user_id_copied">คัดลอก ID แล้ว</string>
     <string name="anti_delete_recovery_off">เลิกเก็บข้อความที่ถูกลบ</string>
     <string name="anti_delete_recovery_on">เก็บข้อความที่ถูกลบ</string>
 </resources>

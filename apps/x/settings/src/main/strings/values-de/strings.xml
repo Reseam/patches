@@ -23,6 +23,8 @@
     <string name="download_without_watermark">Ohne Wasserzeichen herunterladen</string>
     <string name="download_folder">Download-Ordner</string>
     <string name="download_folder_summary">Wohin gespeicherte Fotos, Videos und GIFs kommen. Behalte den Galerie-Standard oder wähle einen Ordner.</string>
+    <string name="download_file_name">Dateiname</string>
+    <string name="download_file_name_summary">Benennt gespeicherte Medien nach ihrem Post mit {username}, {name}, {post_id}, {date}, {time}, {n} (ihre Stelle im Post) und {media_id}. Leer lassen, um die Namen von X zu behalten.</string>
     <string name="save_all_media">Fragen, welche Medien gespeichert werden</string>
     <string name="save_all_media_summary">Fragt bei einem Beitrag mit mehreren Fotos, GIFs oder Videos, welche gespeichert werden sollen.</string>
     <string name="download_button">Download-Schaltfläche an Beiträgen</string>
@@ -67,6 +69,9 @@
     <string name="hide_live_avatar_rings">Live-Ringe an Avataren ausblenden</string>
     <string name="hide_recommendations">Empfehlungen ausblenden</string>
     <string name="hide_recommendations_summary">Blendet „Wem folgen?“, „Abonnieren“ und „Communities zum Beitreten“ aus.</string>
+    <string name="hide_videos_for_you">„Videos für dich“ ausblenden</string>
+    <string name="hide_discover_more">„Mehr entdecken“ ausblenden</string>
+    <string name="hide_discover_more_summary">Die Posts, die X unter den Antworten eines Posts vorschlägt.</string>
     <string name="show_withheld_posts">Zurückgehaltene Beiträge anzeigen</string>
     <string name="show_withheld_posts_summary">Lädt zurückgehaltene Beiträge und Profile von FxTwitter, das deine IP-Adresse sieht und was du öffnest.</string>
     <string name="withheld_repost_refused">X blockiert Reposts zurückgehaltener Beiträge. Verwende stattdessen Zitieren.</string>
@@ -173,6 +178,8 @@
     <string name="hide_grok_stories_summary">Blendet „Nachrichten von heute“ und die anderen Story-Listen aus, die Grok schreibt. Die Tabs Nachrichten, Sport und Unterhaltung zeigen nur diese.</string>
     <string name="hide_explore_trends">Trends in Für dich ausblenden</string>
     <string name="hide_explore_trends_summary">Der Tab Trends behält sie.</string>
+    <string name="hide_explore_posts">„Posts für dich“ in Für dich ausblenden</string>
+    <string name="hide_explore_posts_summary">Die Posts, die X unter den Trends zeigt.</string>
     <string name="hide_trending_tab">Tab Trends ausblenden</string>
     <string name="hide_news_tab">Tab Nachrichten ausblenden</string>
     <string name="hide_sports_tab">Tab Sport ausblenden</string>
@@ -209,7 +216,7 @@
     <string name="page_home">Start</string>
     <string name="page_home_summary">Startseiten-Tabs, Live-Leiste, Beitragsstatistiken und Antworten</string>
     <string name="page_explore">Entdecken</string>
-    <string name="page_explore_summary">Grok-Storys, Trends und Entdecken-Tabs</string>
+    <string name="page_explore_summary">Grok-Storys, Trends, Posts und Entdecken-Tabs</string>
     <string name="page_profile">Profil</string>
     <string name="page_profile_summary">Profil-Tabs und der Standard-Medien-Tab</string>
     <string name="page_navigation">Navigation</string>

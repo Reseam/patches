@@ -10,6 +10,7 @@
     <string name="boost_downloads">Download lebih cepat</string>
     <string name="save_from_restricted">Simpan dari chat yang dibatasi</string>
     <string name="save_from_restricted_summary">Mengizinkan menyalin, menyimpan, dan meneruskan di chat yang dilindungi.</string>
+    <string name="restricted_media_not_loaded">Beberapa media tidak dapat diunduh.</string>
     <string name="remove_play_store_restrictions">Hapus pembatasan Play Store</string>
     <string name="remove_play_store_restrictions_summary">Menampilkan chat dan media yang disembunyikan Telegram hanya di versi Play Store.</string>
     <string name="recover_deleted">Simpan pesan yang dihapus</string>
@@ -23,6 +24,22 @@
     <string name="section_downloads">Download</string>
     <string name="section_premium">Premium</string>
     <string name="section_privacy">Privasi</string>
+    <string name="section_messages">Pesan</string>
+    <string name="show_message_ids">Tampilkan ID pesan</string>
+    <string name="show_message_ids_summary">Sebelum waktu di setiap pesan.</string>
+    <string name="show_user_ids">Tampilkan ID pengguna</string>
+    <string name="show_user_ids_summary">Di menu pesan seseorang. Ketuk ID untuk menyalinnya.</string>
+    <string name="show_forward_dates">Tampilkan tanggal terusan</string>
+    <string name="show_forward_dates_summary">Kapan pesan terusan pertama kali dikirim.</string>
+    <string name="edited_mark">Tanda diedit</string>
+    <string name="edited_mark_telegram">Label Telegram</string>
+    <string name="edited_mark_icon">Ikon pensil</string>
+    <string name="edited_mark_custom">Teks kustom</string>
+    <string name="edited_mark_hidden">Disembunyikan</string>
+    <string name="custom_edited_mark">Tanda diedit kustom</string>
+    <string name="custom_edited_mark_summary">Dipakai saat Tanda diedit diatur ke Teks kustom.</string>
+    <string name="user_id">ID <xliff:g id="id">%1$s</xliff:g></string>
+    <string name="user_id_copied">ID disalin</string>
     <string name="anti_delete_recovery_off">Berhenti menyimpan pesan yang dihapus</string>
     <string name="anti_delete_recovery_on">Simpan pesan yang dihapus</string>
 </resources>

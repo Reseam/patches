@@ -10,6 +10,7 @@
     <string name="boost_downloads">Быстрое скачивание</string>
     <string name="save_from_restricted">Сохранять из чатов с ограничениями</string>
     <string name="save_from_restricted_summary">Разрешает копирование, сохранение и пересылку в защищённых чатах.</string>
+    <string name="restricted_media_not_loaded">Не удалось загрузить часть медиа.</string>
     <string name="remove_play_store_restrictions">Убрать ограничения Play Маркета</string>
     <string name="remove_play_store_restrictions_summary">Показывает чаты и медиа, которые Telegram скрывает только в версии из Play Маркета.</string>
     <string name="recover_deleted">Сохранять удалённые сообщения</string>
@@ -23,6 +24,22 @@
     <string name="section_downloads">Скачивание</string>
     <string name="section_premium">Premium</string>
     <string name="section_privacy">Конфиденциальность</string>
+    <string name="section_messages">Сообщения</string>
+    <string name="show_message_ids">Показывать ID сообщений</string>
+    <string name="show_message_ids_summary">Перед временем каждого сообщения.</string>
+    <string name="show_user_ids">Показывать ID пользователей</string>
+    <string name="show_user_ids_summary">В меню сообщения человека. Нажмите на ID, чтобы скопировать его.</string>
+    <string name="show_forward_dates">Показывать даты пересылок</string>
+    <string name="show_forward_dates_summary">Когда пересланное сообщение было отправлено впервые.</string>
+    <string name="edited_mark">Отметка об изменении</string>
+    <string name="edited_mark_telegram">Отметка Telegram</string>
+    <string name="edited_mark_icon">Значок карандаша</string>
+    <string name="edited_mark_custom">Свой текст</string>
+    <string name="edited_mark_hidden">Скрыта</string>
+    <string name="custom_edited_mark">Своя отметка об изменении</string>
+    <string name="custom_edited_mark_summary">Используется, если отметка об изменении — «Свой текст».</string>
+    <string name="user_id">ID <xliff:g id="id">%1$s</xliff:g></string>
+    <string name="user_id_copied">ID скопирован</string>
     <string name="anti_delete_recovery_off">Перестать сохранять удалённые сообщения</string>
     <string name="anti_delete_recovery_on">Сохранять удалённые сообщения</string>
 </resources>

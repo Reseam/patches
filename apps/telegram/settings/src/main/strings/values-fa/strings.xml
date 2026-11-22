@@ -10,6 +10,7 @@
     <string name="boost_downloads">بارگیری سریع‌تر</string>
     <string name="save_from_restricted">ذخیره از گفتگوهای محدود</string>
     <string name="save_from_restricted_summary">کپی، ذخیره و هدایت را در گفتگوهای محافظت‌شده ممکن می‌کند.</string>
+    <string name="restricted_media_not_loaded">برخی رسانه‌ها دانلود نشدند.</string>
     <string name="remove_play_store_restrictions">حذف محدودیت‌های Play Store</string>
     <string name="remove_play_store_restrictions_summary">گفتگوها و رسانه‌هایی را که Telegram فقط در نسخهٔ Play Store پنهان می‌کند نشان می‌دهد.</string>
     <string name="recover_deleted">نگه داشتن پیام‌های حذف‌شده</string>
@@ -23,6 +24,22 @@
     <string name="section_downloads">بارگیری‌ها</string>
     <string name="section_premium">Premium</string>
     <string name="section_privacy">حریم خصوصی</string>
+    <string name="section_messages">پیام‌ها</string>
+    <string name="show_message_ids">نمایش شناسهٔ پیام‌ها</string>
+    <string name="show_message_ids_summary">پیش از زمانِ هر پیام.</string>
+    <string name="show_user_ids">نمایش شناسهٔ کاربران</string>
+    <string name="show_user_ids_summary">در منوی پیامِ هر شخص. برای کپی، روی شناسه بزنید.</string>
+    <string name="show_forward_dates">نمایش تاریخ بازارسال</string>
+    <string name="show_forward_dates_summary">زمانی که پیامِ بازارسال‌شده نخستین بار فرستاده شد.</string>
+    <string name="edited_mark">نشانِ ویرایش</string>
+    <string name="edited_mark_telegram">برچسب Telegram</string>
+    <string name="edited_mark_icon">نماد مداد</string>
+    <string name="edited_mark_custom">متن دلخواه</string>
+    <string name="edited_mark_hidden">پنهان</string>
+    <string name="custom_edited_mark">نشانِ ویرایش دلخواه</string>
+    <string name="custom_edited_mark_summary">وقتی «نشانِ ویرایش» روی «متن دلخواه» است استفاده می‌شود.</string>
+    <string name="user_id">شناسه <xliff:g id="id">%1$s</xliff:g></string>
+    <string name="user_id_copied">شناسه کپی شد</string>
     <string name="anti_delete_recovery_off">توقف نگه داشتن پیام‌های حذف‌شده</string>
     <string name="anti_delete_recovery_on">نگه داشتن پیام‌های حذف‌شده</string>
 </resources>

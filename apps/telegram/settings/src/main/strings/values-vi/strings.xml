@@ -10,6 +10,7 @@
     <string name="boost_downloads">Tải xuống nhanh hơn</string>
     <string name="save_from_restricted">Lưu từ cuộc trò chuyện bị hạn chế</string>
     <string name="save_from_restricted_summary">Cho phép sao chép, lưu và chuyển tiếp trong cuộc trò chuyện được bảo vệ.</string>
+    <string name="restricted_media_not_loaded">Không thể tải xuống một số nội dung.</string>
     <string name="remove_play_store_restrictions">Gỡ hạn chế của Cửa hàng Play</string>
     <string name="remove_play_store_restrictions_summary">Hiện các cuộc trò chuyện và nội dung mà Telegram chỉ ẩn trong phiên bản Cửa hàng Play.</string>
     <string name="recover_deleted">Giữ lại tin nhắn đã xóa</string>
@@ -23,6 +24,22 @@
     <string name="section_downloads">Tải xuống</string>
     <string name="section_premium">Premium</string>
     <string name="section_privacy">Quyền riêng tư</string>
+    <string name="section_messages">Tin nhắn</string>
+    <string name="show_message_ids">Hiện ID tin nhắn</string>
+    <string name="show_message_ids_summary">Trước thời gian của mỗi tin nhắn.</string>
+    <string name="show_user_ids">Hiện ID người dùng</string>
+    <string name="show_user_ids_summary">Trong menu tin nhắn của một người. Chạm vào ID để sao chép.</string>
+    <string name="show_forward_dates">Hiện ngày của tin chuyển tiếp</string>
+    <string name="show_forward_dates_summary">Thời điểm tin nhắn chuyển tiếp được gửi lần đầu.</string>
+    <string name="edited_mark">Dấu đã sửa</string>
+    <string name="edited_mark_telegram">Nhãn của Telegram</string>
+    <string name="edited_mark_icon">Biểu tượng bút chì</string>
+    <string name="edited_mark_custom">Văn bản tùy chỉnh</string>
+    <string name="edited_mark_hidden">Ẩn</string>
+    <string name="custom_edited_mark">Dấu đã sửa tùy chỉnh</string>
+    <string name="custom_edited_mark_summary">Dùng khi Dấu đã sửa là Văn bản tùy chỉnh.</string>
+    <string name="user_id">ID <xliff:g id="id">%1$s</xliff:g></string>
+    <string name="user_id_copied">Đã sao chép ID</string>
     <string name="anti_delete_recovery_off">Ngừng giữ lại tin nhắn đã xóa</string>
     <string name="anti_delete_recovery_on">Giữ lại tin nhắn đã xóa</string>
 </resources>

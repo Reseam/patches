@@ -23,6 +23,8 @@
     <string name="download_without_watermark">Télécharger sans filigrane</string>
     <string name="download_folder">Dossier de téléchargement</string>
     <string name="download_folder_summary">Où vont les photos, vidéos et GIF enregistrés. Gardez la galerie par défaut ou choisissez un dossier.</string>
+    <string name="download_file_name">Nom du fichier</string>
+    <string name="download_file_name_summary">Nomme les médias enregistrés d’après leur post avec {username}, {name}, {post_id}, {date}, {time}, {n} (leur place dans le post) et {media_id}. Laissez vide pour garder les noms de X.</string>
     <string name="save_all_media">Demander quels médias enregistrer</string>
     <string name="save_all_media_summary">Quand un post contient plusieurs photos, GIF ou vidéos, demande lesquels enregistrer.</string>
     <string name="download_button">Bouton de téléchargement sur les posts</string>
@@ -67,6 +69,9 @@
     <string name="hide_live_avatar_rings">Masquer les cercles de direct sur les avatars</string>
     <string name="hide_recommendations">Masquer les recommandations</string>
     <string name="hide_recommendations_summary">Masque Qui suivre, S’abonner à et Communautés à rejoindre.</string>
+    <string name="hide_videos_for_you">Masquer Vidéos pour vous</string>
+    <string name="hide_discover_more">Masquer Découvrir plus</string>
+    <string name="hide_discover_more_summary">Les posts que X suggère sous les réponses d’un post.</string>
     <string name="show_withheld_posts">Afficher les posts retenus</string>
     <string name="show_withheld_posts_summary">Charge les posts et profils retenus depuis FxTwitter, qui voit votre adresse IP et ce que vous ouvrez.</string>
     <string name="withheld_repost_refused">X bloque les reposts de posts retenus. Utilisez plutôt Citer.</string>
@@ -173,6 +178,8 @@
     <string name="hide_grok_stories_summary">Masque Actualités du jour et les autres listes d’actualités rédigées par Grok. Les onglets Actualités, Sports et Divertissement n’affichent que celles-ci.</string>
     <string name="hide_explore_trends">Masquer les tendances dans Pour vous</string>
     <string name="hide_explore_trends_summary">L’onglet Tendances les garde.</string>
+    <string name="hide_explore_posts">Masquer Posts pour vous dans Pour vous</string>
+    <string name="hide_explore_posts_summary">Les posts que X affiche sous les tendances.</string>
     <string name="hide_trending_tab">Masquer l’onglet Tendances</string>
     <string name="hide_news_tab">Masquer l’onglet Actualités</string>
     <string name="hide_sports_tab">Masquer l’onglet Sports</string>
@@ -209,7 +216,7 @@
     <string name="page_home">Accueil</string>
     <string name="page_home_summary">Onglets d’Accueil, barre des directs, statistiques des posts et réponses</string>
     <string name="page_explore">Explorer</string>
-    <string name="page_explore_summary">Actualités de Grok, tendances et onglets Explorer</string>
+    <string name="page_explore_summary">Actualités de Grok, tendances, posts et onglets Explorer</string>
     <string name="page_profile">Profil</string>
     <string name="page_profile_summary">Onglets du profil et onglet Médias par défaut</string>
     <string name="page_navigation">Navigation</string>

@@ -23,6 +23,8 @@
     <string name="download_without_watermark">Pobieraj bez znaku wodnego</string>
     <string name="download_folder">Folder pobranych</string>
     <string name="download_folder_summary">Miejsce zapisu zdjęć, filmów i GIF-ów. Zostaw domyślną galerię lub wybierz folder.</string>
+    <string name="download_file_name">Nazwa pliku</string>
+    <string name="download_file_name_summary">Nazywa zapisane multimedia według ich wpisu za pomocą {username}, {name}, {post_id}, {date}, {time}, {n} (ich miejsce we wpisie) i {media_id}. Zostaw puste, aby zachować nazwy X.</string>
     <string name="save_all_media">Pytaj, które multimedia zapisać</string>
     <string name="save_all_media_summary">Gdy post ma kilka zdjęć, GIF-ów lub filmów, pyta, które zapisać.</string>
     <string name="download_button">Przycisk pobierania przy postach</string>
@@ -69,6 +71,9 @@
     <string name="hide_live_avatar_rings">Ukryj kółka na żywo przy awatarach</string>
     <string name="hide_recommendations">Ukryj rekomendacje</string>
     <string name="hide_recommendations_summary">Ukrywa Kogo obserwować, Subskrybuj i Społeczności, do których warto dołączyć.</string>
+    <string name="hide_videos_for_you">Ukryj Filmy dla Ciebie</string>
+    <string name="hide_discover_more">Ukryj Odkryj więcej</string>
+    <string name="hide_discover_more_summary">Wpisy, które X proponuje pod odpowiedziami na wpis.</string>
     <string name="show_withheld_posts">Pokazuj wstrzymane posty</string>
     <string name="show_withheld_posts_summary">Wczytuje wstrzymane posty i profile z FxTwitter, który widzi twój adres IP i to, co otwierasz.</string>
     <string name="withheld_repost_refused">X blokuje podawanie dalej wstrzymanych postów. Użyj zamiast tego Cytatu.</string>
@@ -175,6 +180,8 @@
     <string name="hide_grok_stories_summary">Ukrywa Dzisiejsze wiadomości i inne listy historii pisane przez Groka. Karty Wiadomości, Sport i Rozrywka pokazują tylko je.</string>
     <string name="hide_explore_trends">Ukryj trendy w Dla Ciebie</string>
     <string name="hide_explore_trends_summary">Karta Na czasie nadal je zawiera.</string>
+    <string name="hide_explore_posts">Ukryj Wpisy dla Ciebie w Dla Ciebie</string>
+    <string name="hide_explore_posts_summary">Wpisy, które X pokazuje pod trendami.</string>
     <string name="hide_trending_tab">Ukryj kartę Na czasie</string>
     <string name="hide_news_tab">Ukryj kartę Wiadomości</string>
     <string name="hide_sports_tab">Ukryj kartę Sport</string>
@@ -211,7 +218,7 @@
     <string name="page_home">Strona główna</string>
     <string name="page_home_summary">Karty strony głównej, pasek Na żywo, statystyki postów i odpowiedzi</string>
     <string name="page_explore">Odkrywaj</string>
-    <string name="page_explore_summary">Historie Groka, trendy i karty Odkrywaj</string>
+    <string name="page_explore_summary">Historie Groka, trendy, wpisy i karty Odkrywaj</string>
     <string name="page_profile">Profil</string>
     <string name="page_profile_summary">Karty profilu i domyślna karta multimediów</string>
     <string name="page_navigation">Nawigacja</string>

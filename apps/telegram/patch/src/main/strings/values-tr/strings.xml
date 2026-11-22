@@ -20,6 +20,8 @@
     <string name="hide_typing_indicator_description">Başkalarının yazdığınızı veya kayıt yaptığınızı görmesini engeller.</string>
     <string name="play_store_restrictions">Play Store kısıtlamalarını kaldır</string>
     <string name="play_store_restrictions_description">Telegram\'ın yalnızca Play Store sürümünde gizlediği sohbetleri ve medyayı gösterir.</string>
+    <string name="customize_messages">Mesajları özelleştir</string>
+    <string name="customize_messages_description">Mesaj ve kullanıcı kimliklerini ve iletilen mesajların ilk ne zaman gönderildiğini gösterir, düzenlendi işaretini değiştirir.</string>
     <string name="unlock_premium">Premium\'un kilidini aç</string>
     <string name="unlock_premium_description">Bu telefonda çalışan Premium özelliklerinin kilidini açar.</string>
     <string name="disable_auto_update">Güncelleme istemlerini kapat</string>

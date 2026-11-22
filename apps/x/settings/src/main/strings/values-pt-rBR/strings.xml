@@ -23,6 +23,8 @@
     <string name="download_without_watermark">Baixar sem marca d\'água</string>
     <string name="download_folder">Pasta de downloads</string>
     <string name="download_folder_summary">Onde as fotos, os vídeos e os GIFs salvos ficam. Mantenha o padrão da galeria ou escolha uma pasta.</string>
+    <string name="download_file_name">Nome do arquivo</string>
+    <string name="download_file_name_summary">Nomeia a mídia salva de acordo com o post usando {username}, {name}, {post_id}, {date}, {time}, {n} (a posição no post) e {media_id}. Deixe vazio para manter os nomes do X.</string>
     <string name="save_all_media">Perguntar quais mídias salvar</string>
     <string name="save_all_media_summary">Quando um post tem várias fotos, GIFs ou vídeos, pergunta quais salvar.</string>
     <string name="download_button">Botão de download nos posts</string>
@@ -67,6 +69,9 @@
     <string name="hide_live_avatar_rings">Ocultar anéis de ao vivo nos avatares</string>
     <string name="hide_recommendations">Ocultar recomendações</string>
     <string name="hide_recommendations_summary">Oculta Quem seguir, Assine e Comunidades para participar.</string>
+    <string name="hide_videos_for_you">Ocultar Vídeos para você</string>
+    <string name="hide_discover_more">Ocultar Descubra mais</string>
+    <string name="hide_discover_more_summary">Os posts que o X sugere abaixo das respostas de um post.</string>
     <string name="show_withheld_posts">Mostrar posts retidos</string>
     <string name="show_withheld_posts_summary">Carrega posts e perfis retidos pelo FxTwitter, que vê seu endereço IP e o que você abre.</string>
     <string name="withheld_repost_refused">O X bloqueia reposts de posts retidos. Use Citar.</string>
@@ -173,6 +178,8 @@
     <string name="hide_grok_stories_summary">Oculta Notícias de hoje e as outras listas de histórias que o Grok escreve. As abas Notícias, Esportes e Entretenimento mostram apenas essas listas.</string>
     <string name="hide_explore_trends">Ocultar assuntos do momento em Para você</string>
     <string name="hide_explore_trends_summary">A aba Assuntos do Momento continua com eles.</string>
+    <string name="hide_explore_posts">Ocultar Posts para você em Para você</string>
+    <string name="hide_explore_posts_summary">Os posts que o X mostra abaixo dos assuntos do momento.</string>
     <string name="hide_trending_tab">Ocultar aba Assuntos do Momento</string>
     <string name="hide_news_tab">Ocultar aba Notícias</string>
     <string name="hide_sports_tab">Ocultar aba Esportes</string>
@@ -209,7 +216,7 @@
     <string name="page_home">Página Inicial</string>
     <string name="page_home_summary">Abas da Página Inicial, barra Ao vivo, métricas dos posts e respostas</string>
     <string name="page_explore">Explorar</string>
-    <string name="page_explore_summary">Histórias do Grok, assuntos do momento e abas do Explorar</string>
+    <string name="page_explore_summary">Histórias do Grok, assuntos do momento, posts e abas do Explorar</string>
     <string name="page_profile">Perfil</string>
     <string name="page_profile_summary">Abas do perfil e a aba de mídia padrão</string>
     <string name="page_navigation">Navegação</string>

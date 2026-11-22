@@ -7,7 +7,7 @@
     <string name="settings_entry">Mục cài đặt Reseam</string>
     <string name="settings_entry_description">Thêm Cài đặt Reseam vào Cài đặt và quyền riêng tư của X.</string>
     <string name="customize_explore">Tùy chỉnh Khám phá</string>
-    <string name="customize_explore_description">Ẩn tin của Grok, xu hướng và các tab Khám phá đã chọn.</string>
+    <string name="customize_explore_description">Ẩn tin của Grok, xu hướng, Bài đăng dành cho bạn và các tab Khám phá đã chọn.</string>
     <string name="user_feature_switches">Ghi đè cờ tính năng</string>
     <string name="user_feature_switches_description">Đặt các công tắc tính năng của X thành giá trị bạn chọn.</string>
     <string name="grok">Ẩn Grok</string>
@@ -35,7 +35,7 @@
     <string name="save_all_media">Lưu tất cả nội dung</string>
     <string name="save_all_media_description">Đề nghị lưu toàn bộ nội dung của bài đăng khi bạn lưu một mục.</string>
     <string name="save_media">Lưu nội dung</string>
-    <string name="save_media_description">Lưu ảnh, video và GIF vào thư mục bạn chọn.</string>
+    <string name="save_media_description">Lưu ảnh, video và GIF vào thư mục bạn chọn, đặt tên theo bài đăng.</string>
     <string name="show_sensitive_media">Hiện nội dung nhạy cảm</string>
     <string name="show_sensitive_media_description">Hiện nội dung nhạy cảm mà không làm mờ hoặc cảnh báo.</string>
     <string name="double_tap_seek">Tua bằng chạm hai lần</string>
@@ -78,6 +78,10 @@
     <string name="hide_post_metrics_description">Ẩn các con số trên bài đăng. Các nút vẫn hoạt động.</string>
     <string name="hide_recommendations">Ẩn đề xuất</string>
     <string name="hide_recommendations_description">Ẩn Gợi ý theo dõi, Đăng ký và Cộng đồng để tham gia.</string>
+    <string name="hide_videos_for_you">Ẩn Video dành cho bạn</string>
+    <string name="hide_videos_for_you_description">Ẩn băng chuyền Video dành cho bạn trong dòng thời gian.</string>
+    <string name="hide_discover_more">Ẩn Khám phá thêm</string>
+    <string name="hide_discover_more_description">Ẩn các bài đăng Khám phá thêm bên dưới phần trả lời của bài đăng.</string>
     <string name="show_poll_results">Hiển thị kết quả thăm dò</string>
     <string name="show_poll_results_description">Hiển thị kết quả thăm dò trước khi bạn bình chọn.</string>
     <string name="show_withheld_posts">Hiện bài đăng bị giữ lại</string>

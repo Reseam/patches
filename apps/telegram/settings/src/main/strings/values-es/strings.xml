@@ -10,6 +10,7 @@
     <string name="boost_downloads">Descargas más rápidas</string>
     <string name="save_from_restricted">Guardar desde chats restringidos</string>
     <string name="save_from_restricted_summary">Permite copiar, guardar y reenviar en chats protegidos.</string>
+    <string name="restricted_media_not_loaded">No se pudieron descargar algunos archivos.</string>
     <string name="remove_play_store_restrictions">Quitar restricciones de Play Store</string>
     <string name="remove_play_store_restrictions_summary">Muestra los chats y el contenido que Telegram oculta solo en su versión de Play Store.</string>
     <string name="recover_deleted">Conservar mensajes eliminados</string>
@@ -23,6 +24,22 @@
     <string name="section_downloads">Descargas</string>
     <string name="section_premium">Premium</string>
     <string name="section_privacy">Privacidad</string>
+    <string name="section_messages">Mensajes</string>
+    <string name="show_message_ids">Mostrar ID de mensajes</string>
+    <string name="show_message_ids_summary">Antes de la hora de cada mensaje.</string>
+    <string name="show_user_ids">Mostrar ID de usuarios</string>
+    <string name="show_user_ids_summary">En el menú del mensaje de una persona. Toca el ID para copiarlo.</string>
+    <string name="show_forward_dates">Mostrar fechas de reenvío</string>
+    <string name="show_forward_dates_summary">Cuándo se envió por primera vez un mensaje reenviado.</string>
+    <string name="edited_mark">Marca de editado</string>
+    <string name="edited_mark_telegram">Etiqueta de Telegram</string>
+    <string name="edited_mark_icon">Icono de lápiz</string>
+    <string name="edited_mark_custom">Texto personalizado</string>
+    <string name="edited_mark_hidden">Oculta</string>
+    <string name="custom_edited_mark">Marca de editado personalizada</string>
+    <string name="custom_edited_mark_summary">Se usa cuando la Marca de editado es Texto personalizado.</string>
+    <string name="user_id">ID <xliff:g id="id">%1$s</xliff:g></string>
+    <string name="user_id_copied">ID copiado</string>
     <string name="anti_delete_recovery_off">Dejar de conservar mensajes eliminados</string>
     <string name="anti_delete_recovery_on">Conservar mensajes eliminados</string>
 </resources>

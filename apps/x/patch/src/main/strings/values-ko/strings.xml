@@ -7,7 +7,7 @@
     <string name="settings_entry">Reseam 설정 항목</string>
     <string name="settings_entry_description">X의 설정 및 개인정보에 Reseam 설정을 추가합니다.</string>
     <string name="customize_explore">탐색하기 맞춤설정</string>
-    <string name="customize_explore_description">Grok 스토리, 트렌드, 선택한 탐색하기 탭을 숨깁니다.</string>
+    <string name="customize_explore_description">Grok 스토리, 트렌드, 추천 게시물, 선택한 탐색하기 탭을 숨깁니다.</string>
     <string name="user_feature_switches">기능 플래그 재정의</string>
     <string name="user_feature_switches_description">X의 기능 스위치를 선택한 값으로 설정합니다.</string>
     <string name="grok">Grok 숨기기</string>
@@ -35,7 +35,7 @@
     <string name="save_all_media">모든 미디어 저장</string>
     <string name="save_all_media_description">하나를 저장할 때 게시물의 모든 미디어를 저장하도록 제안합니다.</string>
     <string name="save_media">미디어 저장</string>
-    <string name="save_media_description">사진, 동영상, GIF를 선택한 폴더에 저장합니다.</string>
+    <string name="save_media_description">사진, 동영상, GIF를 게시물 이름으로 선택한 폴더에 저장합니다.</string>
     <string name="show_sensitive_media">민감한 미디어 표시</string>
     <string name="show_sensitive_media_description">민감한 미디어를 흐림 처리나 경고 없이 표시합니다.</string>
     <string name="double_tap_seek">두 번 탭 이동</string>
@@ -78,6 +78,10 @@
     <string name="hide_post_metrics_description">게시물의 숫자를 숨깁니다. 버튼은 계속 작동합니다.</string>
     <string name="hide_recommendations">추천 숨기기</string>
     <string name="hide_recommendations_description">팔로우 추천, 구독 추천, 가입할 만한 커뮤니티를 숨깁니다.</string>
+    <string name="hide_videos_for_you">추천 동영상 숨기기</string>
+    <string name="hide_videos_for_you_description">타임라인의 추천 동영상 캐러셀을 숨깁니다.</string>
+    <string name="hide_discover_more">더 찾아보기 숨기기</string>
+    <string name="hide_discover_more_description">게시물 답글 아래의 더 찾아보기 게시물을 숨깁니다.</string>
     <string name="show_poll_results">투표 결과 표시</string>
     <string name="show_poll_results_description">투표하기 전에 투표 결과를 표시합니다.</string>
     <string name="show_withheld_posts">제한된 게시물 표시</string>

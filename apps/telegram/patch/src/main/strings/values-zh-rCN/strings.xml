@@ -20,6 +20,8 @@
     <string name="hide_typing_indicator_description">不让他人看到你正在输入或录音。</string>
     <string name="play_store_restrictions">移除 Play 商店限制</string>
     <string name="play_store_restrictions_description">显示 Telegram 只在 Play 商店版本中隐藏的聊天和媒体。</string>
+    <string name="customize_messages">自定义消息</string>
+    <string name="customize_messages_description">显示消息和用户 ID 以及转发消息的首次发送时间，并更改已编辑标记。</string>
     <string name="unlock_premium">解锁 Premium</string>
     <string name="unlock_premium_description">解锁可在这部手机上使用的 Premium 功能。</string>
     <string name="disable_auto_update">停用更新提示</string>

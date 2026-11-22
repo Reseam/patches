@@ -23,6 +23,8 @@
     <string name="download_without_watermark">Завантажувати без водяного знака</string>
     <string name="download_folder">Папка завантажень</string>
     <string name="download_folder_summary">Куди зберігаються фото, відео й GIF. Залиште стандартну галерею або виберіть папку.</string>
+    <string name="download_file_name">Назва файлу</string>
+    <string name="download_file_name_summary">Називає збережені медіа за їхнім дописом за допомогою {username}, {name}, {post_id}, {date}, {time}, {n} (їхнє місце в дописі) та {media_id}. Залиште порожнім, щоб зберегти назви X.</string>
     <string name="save_all_media">Питати, які медіа зберегти</string>
     <string name="save_all_media_summary">Коли допис має кілька фото, GIF або відео, запитує, які зберегти.</string>
     <string name="download_button">Кнопка завантаження на дописах</string>
@@ -69,6 +71,9 @@
     <string name="hide_live_avatar_rings">Приховати кільця трансляцій на аватарах</string>
     <string name="hide_recommendations">Приховати рекомендації</string>
     <string name="hide_recommendations_summary">Приховує «Кого читати», «Підписатися» й «Спільноти, до яких варто приєднатися».</string>
+    <string name="hide_videos_for_you">Приховати «Відео для вас»</string>
+    <string name="hide_discover_more">Приховати «Відкрийте більше»</string>
+    <string name="hide_discover_more_summary">Дописи, які X пропонує під відповідями на допис.</string>
     <string name="show_withheld_posts">Показувати приховані дописи</string>
     <string name="show_withheld_posts_summary">Завантажує приховані дописи й профілі з FxTwitter, який бачить вашу IP-адресу й те, що ви відкриваєте.</string>
     <string name="withheld_repost_refused">X блокує репости прихованих дописів. Скористайтеся цитуванням.</string>
@@ -175,6 +180,8 @@
     <string name="hide_grok_stories_summary">Приховує «Новини дня» та інші добірки історій, які пише Grok. Вкладки «Новини», «Спорт» і «Розваги» показують лише їх.</string>
     <string name="hide_explore_trends">Приховати тренди в «Для вас»</string>
     <string name="hide_explore_trends_summary">Вкладка «Тренди» їх зберігає.</string>
+    <string name="hide_explore_posts">Приховати «Дописи для вас» у «Для вас»</string>
+    <string name="hide_explore_posts_summary">Дописи, які X показує під трендами.</string>
     <string name="hide_trending_tab">Приховати вкладку «Тренди»</string>
     <string name="hide_news_tab">Приховати вкладку «Новини»</string>
     <string name="hide_sports_tab">Приховати вкладку «Спорт»</string>
@@ -211,7 +218,7 @@
     <string name="page_home">Головна</string>
     <string name="page_home_summary">Вкладки головної, панель трансляцій, показники дописів і відповіді</string>
     <string name="page_explore">Огляд</string>
-    <string name="page_explore_summary">Історії Grok, тренди й вкладки «Огляду»</string>
+    <string name="page_explore_summary">Історії Grok, тренди, дописи й вкладки «Огляду»</string>
     <string name="page_profile">Профіль</string>
     <string name="page_profile_summary">Вкладки профілю й вкладка медіа за замовчуванням</string>
     <string name="page_navigation">Навігація</string>

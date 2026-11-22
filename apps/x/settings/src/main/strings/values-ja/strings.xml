@@ -23,6 +23,8 @@
     <string name="download_without_watermark">透かしなしでダウンロード</string>
     <string name="download_folder">ダウンロードフォルダ</string>
     <string name="download_folder_summary">保存した写真、動画、GIF の保存先。ギャラリーのデフォルトのままにするか、フォルダを選びます。</string>
+    <string name="download_file_name">ファイル名</string>
+    <string name="download_file_name_summary">保存したメディアに {username}、{name}、{post_id}、{date}、{time}、{n}（ポスト内の順番）、{media_id} を使ってポストにちなんだ名前を付けます。空欄にすると X の名前のままです。</string>
     <string name="save_all_media">保存するメディアを確認する</string>
     <string name="save_all_media_summary">ポストに複数の写真、GIF、動画があるとき、どれを保存するか確認します。</string>
     <string name="download_button">ポストのダウンロードボタン</string>
@@ -66,6 +68,9 @@
     <string name="hide_live_avatar_rings">アバターのライブリングを非表示</string>
     <string name="hide_recommendations">おすすめを非表示</string>
     <string name="hide_recommendations_summary">おすすめユーザー、サブスクライブ、参加できるコミュニティを非表示にします。</string>
+    <string name="hide_videos_for_you">「おすすめ動画」を非表示</string>
+    <string name="hide_discover_more">「さらに見つける」を非表示</string>
+    <string name="hide_discover_more_summary">ポストの返信の下に X が表示するおすすめのポスト。</string>
     <string name="show_withheld_posts">表示制限されたポストを表示</string>
     <string name="show_withheld_posts_summary">表示制限されたポストとプロフィールを FxTwitter から読み込みます。FxTwitter にはあなたの IP アドレスと開いた内容が見えます。</string>
     <string name="withheld_repost_refused">X は表示制限されたポストのリポストをブロックします。代わりに引用を使ってください。</string>
@@ -172,6 +177,8 @@
     <string name="hide_grok_stories_summary">「今日のニュース」など、Grok が書くストーリーのリストを非表示にします。ニュース、スポーツ、エンターテイメントのタブにはこれしか表示されません。</string>
     <string name="hide_explore_trends">「おすすめ」のトレンドを非表示</string>
     <string name="hide_explore_trends_summary">トレンドタブには残ります。</string>
+    <string name="hide_explore_posts">「おすすめ」の「おすすめのポスト」を非表示</string>
+    <string name="hide_explore_posts_summary">トレンドの下に X が並べるポスト。</string>
     <string name="hide_trending_tab">トレンドタブを非表示</string>
     <string name="hide_news_tab">ニュースタブを非表示</string>
     <string name="hide_sports_tab">スポーツタブを非表示</string>
@@ -208,7 +215,7 @@
     <string name="page_home">ホーム</string>
     <string name="page_home_summary">ホームのタブ、ライブバー、ポストの数値、返信</string>
     <string name="page_explore">話題を検索</string>
-    <string name="page_explore_summary">Grok のストーリー、トレンド、話題を検索のタブ</string>
+    <string name="page_explore_summary">Grok のストーリー、トレンド、ポスト、話題を検索のタブ</string>
     <string name="page_profile">プロフィール</string>
     <string name="page_profile_summary">プロフィールのタブとデフォルトのメディアタブ</string>
     <string name="page_navigation">ナビゲーション</string>

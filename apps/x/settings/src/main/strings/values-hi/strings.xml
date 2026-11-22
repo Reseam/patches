@@ -23,6 +23,8 @@
     <string name="download_without_watermark">बिना वॉटरमार्क के डाउनलोड करें</string>
     <string name="download_folder">डाउनलोड फ़ोल्डर</string>
     <string name="download_folder_summary">सेव की गई फ़ोटो, वीडियो और GIF कहाँ जाएँ। गैलरी का डिफ़ॉल्ट रखें या कोई फ़ोल्डर चुनें।</string>
+    <string name="download_file_name">फ़ाइल का नाम</string>
+    <string name="download_file_name_summary">सेव किए मीडिया को उसकी पोस्ट के हिसाब से {username}, {name}, {post_id}, {date}, {time}, {n} (पोस्ट में उसकी जगह) और {media_id} से नाम देता है। X के नाम रखने के लिए खाली छोड़ें।</string>
     <string name="save_all_media">पूछें कि कौन-सा मीडिया सेव करना है</string>
     <string name="save_all_media_summary">जब किसी पोस्ट में कई फ़ोटो, GIF या वीडियो हों, तो पूछता है कि कौन-से सेव करने हैं।</string>
     <string name="download_button">पोस्ट पर डाउनलोड बटन</string>
@@ -67,6 +69,9 @@
     <string name="hide_live_avatar_rings">अवतार की लाइव रिंग छिपाएँ</string>
     <string name="hide_recommendations">सुझाव छिपाएँ</string>
     <string name="hide_recommendations_summary">Who to follow, Subscribe to और Communities to join छिपाता है।</string>
+    <string name="hide_videos_for_you">Videos for you छिपाएँ</string>
+    <string name="hide_discover_more">Discover more छिपाएँ</string>
+    <string name="hide_discover_more_summary">किसी पोस्ट के जवाबों के नीचे X की सुझाई पोस्ट।</string>
     <string name="show_withheld_posts">रोकी गई पोस्ट दिखाएँ</string>
     <string name="show_withheld_posts_summary">रोकी गई पोस्ट और प्रोफ़ाइल FxTwitter से लोड करता है, जिसे आपका IP पता और आप जो खोलते हैं वह दिखता है।</string>
     <string name="withheld_repost_refused">X रोकी गई पोस्ट को रीपोस्ट नहीं करने देता। इसकी जगह Quote इस्तेमाल करें।</string>
@@ -173,6 +178,8 @@
     <string name="hide_grok_stories_summary">Today\'s News और Grok की लिखी दूसरी स्टोरी सूचियाँ छिपाता है। News, Sports और Entertainment टैब में सिर्फ़ यही दिखती हैं।</string>
     <string name="hide_explore_trends">For You में ट्रेंड छिपाएँ</string>
     <string name="hide_explore_trends_summary">Trending टैब में ये बने रहते हैं।</string>
+    <string name="hide_explore_posts">For You में Posts for you छिपाएँ</string>
+    <string name="hide_explore_posts_summary">ट्रेंड के नीचे X की दिखाई पोस्ट।</string>
     <string name="hide_trending_tab">Trending टैब छिपाएँ</string>
     <string name="hide_news_tab">News टैब छिपाएँ</string>
     <string name="hide_sports_tab">Sports टैब छिपाएँ</string>
@@ -209,7 +216,7 @@
     <string name="page_home">Home</string>
     <string name="page_home_summary">होम के टैब, Live बार, पोस्ट के आँकड़े और जवाब</string>
     <string name="page_explore">Explore</string>
-    <string name="page_explore_summary">Grok की स्टोरी, ट्रेंड और Explore के टैब</string>
+    <string name="page_explore_summary">Grok की स्टोरी, ट्रेंड, पोस्ट और Explore के टैब</string>
     <string name="page_profile">Profile</string>
     <string name="page_profile_summary">प्रोफ़ाइल के टैब और डिफ़ॉल्ट मीडिया टैब</string>
     <string name="page_navigation">नेविगेशन</string>

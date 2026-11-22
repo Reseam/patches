@@ -10,6 +10,7 @@
     <string name="boost_downloads">تیز ڈاؤن لوڈز</string>
     <string name="save_from_restricted">محدود چیٹس سے محفوظ کریں</string>
     <string name="save_from_restricted_summary">محدود چیٹس میں کاپی، محفوظ اور فارورڈ کرنے کی اجازت دیتا ہے۔</string>
+    <string name="restricted_media_not_loaded">کچھ میڈیا ڈاؤن لوڈ نہیں ہو سکا۔</string>
     <string name="remove_play_store_restrictions">Play Store کی پابندیاں ہٹائیں</string>
     <string name="remove_play_store_restrictions_summary">وہ چیٹس اور میڈیا دکھاتا ہے جو Telegram صرف اپنے Play Store ورژن میں چھپاتا ہے۔</string>
     <string name="recover_deleted">حذف شدہ پیغامات رکھیں</string>
@@ -23,6 +24,22 @@
     <string name="section_downloads">ڈاؤن لوڈز</string>
     <string name="section_premium">Premium</string>
     <string name="section_privacy">رازداری</string>
+    <string name="section_messages">پیغامات</string>
+    <string name="show_message_ids">پیغام کی ID دکھائیں</string>
+    <string name="show_message_ids_summary">ہر پیغام کے وقت سے پہلے۔</string>
+    <string name="show_user_ids">صارف کی ID دکھائیں</string>
+    <string name="show_user_ids_summary">کسی شخص کے پیغام کے مینو میں۔ کاپی کرنے کے لیے ID پر ٹیپ کریں۔</string>
+    <string name="show_forward_dates">فارورڈ کی تاریخ دکھائیں</string>
+    <string name="show_forward_dates_summary">فارورڈ کیا گیا پیغام پہلی بار کب بھیجا گیا تھا۔</string>
+    <string name="edited_mark">ترمیم کا نشان</string>
+    <string name="edited_mark_telegram">Telegram کا لیبل</string>
+    <string name="edited_mark_icon">پنسل کا آئیکن</string>
+    <string name="edited_mark_custom">اپنا متن</string>
+    <string name="edited_mark_hidden">چھپا ہوا</string>
+    <string name="custom_edited_mark">ترمیم کا اپنا نشان</string>
+    <string name="custom_edited_mark_summary">جب ترمیم کا نشان “اپنا متن” ہو تو استعمال ہوتا ہے۔</string>
+    <string name="user_id">ID <xliff:g id="id">%1$s</xliff:g></string>
+    <string name="user_id_copied">ID کاپی ہو گئی</string>
     <string name="anti_delete_recovery_off">حذف شدہ پیغامات رکھنا بند کریں</string>
     <string name="anti_delete_recovery_on">حذف شدہ پیغامات رکھیں</string>
 </resources>

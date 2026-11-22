@@ -7,7 +7,7 @@
     <string name="settings_entry">รายการการตั้งค่า Reseam</string>
     <string name="settings_entry_description">เพิ่มการตั้งค่า Reseam ในการตั้งค่าและความเป็นส่วนตัวของ X</string>
     <string name="customize_explore">ปรับแต่งสำรวจ</string>
-    <string name="customize_explore_description">ซ่อนเรื่องราวจาก Grok เทรนด์ และแท็บสำรวจที่เลือก</string>
+    <string name="customize_explore_description">ซ่อนเรื่องราวจาก Grok เทรนด์ โพสต์สำหรับคุณ และแท็บสำรวจที่เลือก</string>
     <string name="user_feature_switches">การแทนที่แฟล็กฟีเจอร์</string>
     <string name="user_feature_switches_description">ตั้งค่าสวิตช์ฟีเจอร์ของ X เป็นค่าที่คุณเลือก</string>
     <string name="grok">ซ่อน Grok</string>
@@ -35,7 +35,7 @@
     <string name="save_all_media">บันทึกสื่อทั้งหมด</string>
     <string name="save_all_media_description">เสนอให้บันทึกสื่อทั้งหมดของโพสต์เมื่อคุณบันทึกรายการหนึ่ง</string>
     <string name="save_media">บันทึกสื่อ</string>
-    <string name="save_media_description">บันทึกรูปภาพ วิดีโอ และ GIF ลงในโฟลเดอร์ที่คุณเลือก</string>
+    <string name="save_media_description">บันทึกรูปภาพ วิดีโอ และ GIF ลงในโฟลเดอร์ที่คุณเลือก โดยตั้งชื่อตามโพสต์</string>
     <string name="show_sensitive_media">แสดงสื่อที่ละเอียดอ่อน</string>
     <string name="show_sensitive_media_description">แสดงสื่อที่ละเอียดอ่อนโดยไม่เบลอหรือแสดงคำเตือน</string>
     <string name="double_tap_seek">ข้ามด้วยการแตะสองครั้ง</string>
@@ -78,6 +78,10 @@
     <string name="hide_post_metrics_description">ซ่อนตัวเลขบนโพสต์ ปุ่มต่างๆ ยังใช้งานได้</string>
     <string name="hide_recommendations">ซ่อนคำแนะนำ</string>
     <string name="hide_recommendations_description">ซ่อน \"ใครที่ควรติดตาม\" \"สมัครรับ\" และ \"ชุมชนที่น่าเข้าร่วม\"</string>
+    <string name="hide_videos_for_you">ซ่อนวิดีโอสำหรับคุณ</string>
+    <string name="hide_videos_for_you_description">ซ่อนแถบวิดีโอสำหรับคุณในไทม์ไลน์</string>
+    <string name="hide_discover_more">ซ่อนค้นพบเพิ่มเติม</string>
+    <string name="hide_discover_more_description">ซ่อนโพสต์ในค้นพบเพิ่มเติมใต้การตอบกลับของโพสต์</string>
     <string name="show_poll_results">แสดงผลโพล</string>
     <string name="show_poll_results_description">แสดงผลโพลก่อนที่คุณจะโหวต</string>
     <string name="show_withheld_posts">แสดงโพสต์ที่ถูกระงับ</string>

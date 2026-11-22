@@ -7,7 +7,7 @@
     <string name="settings_entry">Пункт налаштувань Reseam</string>
     <string name="settings_entry_description">Додає «Налаштування Reseam» до «Налаштувань і конфіденційності» X.</string>
     <string name="customize_explore">Налаштувати «Огляд»</string>
-    <string name="customize_explore_description">Приховує історії Grok, тренди й вибрані вкладки «Огляду».</string>
+    <string name="customize_explore_description">Приховує історії Grok, тренди, «Дописи для вас» і вибрані вкладки «Огляду».</string>
     <string name="user_feature_switches">Перевизначення прапорців функцій</string>
     <string name="user_feature_switches_description">Встановлює перемикачі функцій X на вибрані вами значення.</string>
     <string name="grok">Приховати Grok</string>
@@ -35,7 +35,7 @@
     <string name="save_all_media">Зберігати всі медіа</string>
     <string name="save_all_media_description">Пропонує зберегти всі медіа допису, коли ви зберігаєте одне.</string>
     <string name="save_media">Зберігати медіа</string>
-    <string name="save_media_description">Зберігає фото, відео й GIF у вибрану вами папку.</string>
+    <string name="save_media_description">Зберігає фото, відео й GIF у вибрану вами папку з назвами за їхнім дописом.</string>
     <string name="show_sensitive_media">Показувати делікатні медіа</string>
     <string name="show_sensitive_media_description">Показує делікатні медіа без розмиття й попередження.</string>
     <string name="double_tap_seek">Перемотування подвійним дотиком</string>
@@ -78,6 +78,10 @@
     <string name="hide_post_metrics_description">Приховує числа на дописах. Кнопки й далі працюють.</string>
     <string name="hide_recommendations">Приховати рекомендації</string>
     <string name="hide_recommendations_description">Приховує «Кого читати», «Підписатися» й «Спільноти, до яких варто приєднатися».</string>
+    <string name="hide_videos_for_you">Приховати «Відео для вас»</string>
+    <string name="hide_videos_for_you_description">Приховує карусель «Відео для вас» у стрічках.</string>
+    <string name="hide_discover_more">Приховати «Відкрийте більше»</string>
+    <string name="hide_discover_more_description">Приховує дописи «Відкрийте більше» під відповідями на допис.</string>
     <string name="show_poll_results">Показувати результати опитувань</string>
     <string name="show_poll_results_description">Показує результати опитувань ще до вашого голосу.</string>
     <string name="show_withheld_posts">Показувати приховані дописи</string>

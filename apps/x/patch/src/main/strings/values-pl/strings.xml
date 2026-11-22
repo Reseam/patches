@@ -7,7 +7,7 @@
     <string name="settings_entry">Wpis ustawień Reseam</string>
     <string name="settings_entry_description">Dodaje Ustawienia Reseam do Ustawień i prywatności X.</string>
     <string name="customize_explore">Dostosuj Odkrywaj</string>
-    <string name="customize_explore_description">Ukrywa historie Groka, trendy i wybrane karty Odkrywaj.</string>
+    <string name="customize_explore_description">Ukrywa historie Groka, trendy, Wpisy dla Ciebie i wybrane karty Odkrywaj.</string>
     <string name="user_feature_switches">Nadpisywanie flag funkcji</string>
     <string name="user_feature_switches_description">Ustawia przełączniki funkcji X na wybrane przez ciebie wartości.</string>
     <string name="grok">Ukryj Groka</string>
@@ -35,7 +35,7 @@
     <string name="save_all_media">Zapisuj wszystkie multimedia</string>
     <string name="save_all_media_description">Proponuje zapisanie wszystkich multimediów posta, gdy zapisujesz jedno.</string>
     <string name="save_media">Zapisuj multimedia</string>
-    <string name="save_media_description">Zapisuje zdjęcia, filmy i GIF-y w wybranym folderze.</string>
+    <string name="save_media_description">Zapisuje zdjęcia, filmy i GIF-y w wybranym folderze, z nazwą od ich wpisu.</string>
     <string name="show_sensitive_media">Pokazuj multimedia poufne</string>
     <string name="show_sensitive_media_description">Pokazuje multimedia poufne bez rozmycia i ostrzeżenia.</string>
     <string name="double_tap_seek">Przewijanie dwukrotnym kliknięciem</string>
@@ -78,6 +78,10 @@
     <string name="hide_post_metrics_description">Ukrywa liczby przy postach. Przyciski nadal działają.</string>
     <string name="hide_recommendations">Ukryj rekomendacje</string>
     <string name="hide_recommendations_description">Ukrywa Kogo obserwować, Subskrybuj i Społeczności, do których warto dołączyć.</string>
+    <string name="hide_videos_for_you">Ukryj Filmy dla Ciebie</string>
+    <string name="hide_videos_for_you_description">Ukrywa karuzelę Filmy dla Ciebie na osiach czasu.</string>
+    <string name="hide_discover_more">Ukryj Odkryj więcej</string>
+    <string name="hide_discover_more_description">Ukrywa wpisy Odkryj więcej pod odpowiedziami na wpis.</string>
     <string name="show_poll_results">Pokazuj wyniki ankiet</string>
     <string name="show_poll_results_description">Pokazuje wyniki ankiet, zanim zagłosujesz.</string>
     <string name="show_withheld_posts">Pokazuj wstrzymane posty</string>

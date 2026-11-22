@@ -10,6 +10,7 @@
     <string name="boost_downloads">Schnellere Downloads</string>
     <string name="save_from_restricted">Aus eingeschränkten Chats speichern</string>
     <string name="save_from_restricted_summary">Erlaubt Kopieren, Speichern und Weiterleiten in geschützten Chats.</string>
+    <string name="restricted_media_not_loaded">Einige Medien konnten nicht heruntergeladen werden.</string>
     <string name="remove_play_store_restrictions">Play-Store-Einschränkungen entfernen</string>
     <string name="remove_play_store_restrictions_summary">Zeigt die Chats und Medien, die Telegram nur in seiner Play-Store-Version verbirgt.</string>
     <string name="recover_deleted">Gelöschte Nachrichten behalten</string>
@@ -23,6 +24,22 @@
     <string name="section_downloads">Downloads</string>
     <string name="section_premium">Premium</string>
     <string name="section_privacy">Datenschutz</string>
+    <string name="section_messages">Nachrichten</string>
+    <string name="show_message_ids">Nachrichten-IDs anzeigen</string>
+    <string name="show_message_ids_summary">Vor der Uhrzeit jeder Nachricht.</string>
+    <string name="show_user_ids">Nutzer-IDs anzeigen</string>
+    <string name="show_user_ids_summary">Im Menü der Nachricht einer Person. Tippe auf die ID, um sie zu kopieren.</string>
+    <string name="show_forward_dates">Weiterleitungsdatum anzeigen</string>
+    <string name="show_forward_dates_summary">Wann eine weitergeleitete Nachricht zuerst gesendet wurde.</string>
+    <string name="edited_mark">Bearbeitet-Markierung</string>
+    <string name="edited_mark_telegram">Telegram-Beschriftung</string>
+    <string name="edited_mark_icon">Stiftsymbol</string>
+    <string name="edited_mark_custom">Eigener Text</string>
+    <string name="edited_mark_hidden">Ausgeblendet</string>
+    <string name="custom_edited_mark">Eigene Bearbeitet-Markierung</string>
+    <string name="custom_edited_mark_summary">Wird verwendet, wenn die Bearbeitet-Markierung „Eigener Text“ ist.</string>
+    <string name="user_id">ID <xliff:g id="id">%1$s</xliff:g></string>
+    <string name="user_id_copied">ID kopiert</string>
     <string name="anti_delete_recovery_off">Gelöschte Nachrichten nicht mehr behalten</string>
     <string name="anti_delete_recovery_on">Gelöschte Nachrichten behalten</string>
 </resources>

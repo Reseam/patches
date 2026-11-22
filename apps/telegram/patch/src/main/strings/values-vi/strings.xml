@@ -20,6 +20,8 @@
     <string name="hide_typing_indicator_description">Ngăn người khác thấy bạn đang nhập hoặc ghi âm.</string>
     <string name="play_store_restrictions">Gỡ hạn chế của Cửa hàng Play</string>
     <string name="play_store_restrictions_description">Hiện các cuộc trò chuyện và nội dung mà Telegram chỉ ẩn trong phiên bản Cửa hàng Play.</string>
+    <string name="customize_messages">Tùy chỉnh tin nhắn</string>
+    <string name="customize_messages_description">Hiện ID tin nhắn và người dùng, thời điểm tin chuyển tiếp được gửi lần đầu, và thay đổi dấu đã sửa.</string>
     <string name="unlock_premium">Mở khóa Premium</string>
     <string name="unlock_premium_description">Mở khóa các tính năng Premium hoạt động trên điện thoại này.</string>
     <string name="disable_auto_update">Tắt lời nhắc cập nhật</string>

@@ -10,6 +10,7 @@
     <string name="boost_downloads">더 빠른 다운로드</string>
     <string name="save_from_restricted">제한된 채팅에서 저장</string>
     <string name="save_from_restricted_summary">보호된 채팅에서 복사, 저장, 전달을 허용합니다.</string>
+    <string name="restricted_media_not_loaded">일부 미디어를 다운로드하지 못했습니다.</string>
     <string name="remove_play_store_restrictions">Play 스토어 제한 해제</string>
     <string name="remove_play_store_restrictions_summary">Telegram이 Play 스토어 버전에서만 숨기는 채팅과 미디어를 표시합니다.</string>
     <string name="recover_deleted">삭제된 메시지 보관</string>
@@ -23,6 +24,22 @@
     <string name="section_downloads">다운로드</string>
     <string name="section_premium">Premium</string>
     <string name="section_privacy">개인정보 보호</string>
+    <string name="section_messages">메시지</string>
+    <string name="show_message_ids">메시지 ID 표시</string>
+    <string name="show_message_ids_summary">각 메시지의 시간 앞에 표시됩니다.</string>
+    <string name="show_user_ids">사용자 ID 표시</string>
+    <string name="show_user_ids_summary">다른 사람 메시지의 메뉴에 표시됩니다. ID를 탭하면 복사됩니다.</string>
+    <string name="show_forward_dates">전달 날짜 표시</string>
+    <string name="show_forward_dates_summary">전달된 메시지가 처음 보내진 날짜입니다.</string>
+    <string name="edited_mark">수정됨 표시</string>
+    <string name="edited_mark_telegram">Telegram 표시</string>
+    <string name="edited_mark_icon">연필 아이콘</string>
+    <string name="edited_mark_custom">사용자 지정 텍스트</string>
+    <string name="edited_mark_hidden">숨김</string>
+    <string name="custom_edited_mark">사용자 지정 수정됨 표시</string>
+    <string name="custom_edited_mark_summary">수정됨 표시가 사용자 지정 텍스트일 때 사용됩니다.</string>
+    <string name="user_id">ID <xliff:g id="id">%1$s</xliff:g></string>
+    <string name="user_id_copied">ID를 복사했습니다</string>
     <string name="anti_delete_recovery_off">삭제된 메시지 보관 중지</string>
     <string name="anti_delete_recovery_on">삭제된 메시지 보관</string>
 </resources>

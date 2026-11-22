@@ -23,6 +23,8 @@
     <string name="download_without_watermark">워터마크 없이 다운로드</string>
     <string name="download_folder">다운로드 폴더</string>
     <string name="download_folder_summary">저장한 사진, 동영상, GIF가 저장되는 위치입니다. 기본 갤러리를 유지하거나 폴더를 선택하세요.</string>
+    <string name="download_file_name">파일 이름</string>
+    <string name="download_file_name_summary">저장한 미디어 이름을 게시물에 맞춰 {username}, {name}, {post_id}, {date}, {time}, {n}(게시물 안의 순서), {media_id}로 짓습니다. X의 이름을 유지하려면 비워 두세요.</string>
     <string name="save_all_media">저장할 미디어 묻기</string>
     <string name="save_all_media_summary">게시물에 사진, GIF, 동영상이 여러 개 있으면 어떤 것을 저장할지 묻습니다.</string>
     <string name="download_button">게시물의 다운로드 버튼</string>
@@ -66,6 +68,9 @@
     <string name="hide_live_avatar_rings">프로필 사진 라이브 링 숨기기</string>
     <string name="hide_recommendations">추천 숨기기</string>
     <string name="hide_recommendations_summary">팔로우 추천, 구독 추천, 가입할 만한 커뮤니티를 숨깁니다.</string>
+    <string name="hide_videos_for_you">추천 동영상 숨기기</string>
+    <string name="hide_discover_more">더 찾아보기 숨기기</string>
+    <string name="hide_discover_more_summary">게시물 답글 아래에 X가 추천하는 게시물.</string>
     <string name="show_withheld_posts">제한된 게시물 표시</string>
     <string name="show_withheld_posts_summary">제한된 게시물과 프로필을 FxTwitter에서 불러옵니다. FxTwitter는 내 IP 주소와 내가 여는 콘텐츠를 볼 수 있습니다.</string>
     <string name="withheld_repost_refused">X는 제한된 게시물의 재게시를 막습니다. 대신 인용하기를 사용하세요.</string>
@@ -172,6 +177,8 @@
     <string name="hide_grok_stories_summary">오늘의 뉴스와 Grok이 작성한 다른 스토리 목록을 숨깁니다. 뉴스, 스포츠, 엔터테인먼트 탭에는 이것만 표시됩니다.</string>
     <string name="hide_explore_trends">추천의 트렌드 숨기기</string>
     <string name="hide_explore_trends_summary">트렌드 탭에는 그대로 남습니다.</string>
+    <string name="hide_explore_posts">추천의 추천 게시물 숨기기</string>
+    <string name="hide_explore_posts_summary">트렌드 아래에 X가 보여 주는 게시물.</string>
     <string name="hide_trending_tab">트렌드 탭 숨기기</string>
     <string name="hide_news_tab">뉴스 탭 숨기기</string>
     <string name="hide_sports_tab">스포츠 탭 숨기기</string>
@@ -208,7 +215,7 @@
     <string name="page_home">홈</string>
     <string name="page_home_summary">홈 탭, 라이브 바, 게시물 지표, 답글</string>
     <string name="page_explore">탐색하기</string>
-    <string name="page_explore_summary">Grok 스토리, 트렌드, 탐색하기 탭</string>
+    <string name="page_explore_summary">Grok 스토리, 트렌드, 게시물, 탐색하기 탭</string>
     <string name="page_profile">프로필</string>
     <string name="page_profile_summary">프로필 탭과 기본 미디어 탭</string>
     <string name="page_navigation">탐색</string>

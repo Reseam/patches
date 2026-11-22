@@ -23,6 +23,8 @@
     <string name="download_without_watermark">Download tanpa watermark</string>
     <string name="download_folder">Folder download</string>
     <string name="download_folder_summary">Tempat foto, video, dan GIF yang disimpan. Biarkan galeri default atau pilih folder.</string>
+    <string name="download_file_name">Nama file</string>
+    <string name="download_file_name_summary">Menamai media yang disimpan sesuai postingannya dengan {username}, {name}, {post_id}, {date}, {time}, {n} (urutannya di postingan), dan {media_id}. Kosongkan untuk mempertahankan nama dari X.</string>
     <string name="save_all_media">Tanyakan media mana yang disimpan</string>
     <string name="save_all_media_summary">Jika sebuah postingan memiliki beberapa foto, GIF, atau video, menanyakan mana yang akan disimpan.</string>
     <string name="download_button">Tombol download di postingan</string>
@@ -66,6 +68,9 @@
     <string name="hide_live_avatar_rings">Sembunyikan lingkaran live avatar</string>
     <string name="hide_recommendations">Sembunyikan rekomendasi</string>
     <string name="hide_recommendations_summary">Menyembunyikan Siapa yang harus diikuti, Berlangganan, dan Komunitas untuk diikuti.</string>
+    <string name="hide_videos_for_you">Sembunyikan Video untuk Anda</string>
+    <string name="hide_discover_more">Sembunyikan Temukan lainnya</string>
+    <string name="hide_discover_more_summary">Postingan yang disarankan X di bawah balasan postingan.</string>
     <string name="show_withheld_posts">Tampilkan postingan yang ditahan</string>
     <string name="show_withheld_posts_summary">Memuat postingan dan profil yang ditahan dari FxTwitter, yang dapat melihat alamat IP Anda dan apa yang Anda buka.</string>
     <string name="withheld_repost_refused">X memblokir posting ulang postingan yang ditahan. Gunakan Kutip sebagai gantinya.</string>
@@ -172,6 +177,8 @@
     <string name="hide_grok_stories_summary">Menyembunyikan Berita Hari Ini dan daftar cerita lain yang ditulis Grok. Tab Berita, Olahraga, dan Hiburan hanya menampilkan ini.</string>
     <string name="hide_explore_trends">Sembunyikan tren di Untuk Anda</string>
     <string name="hide_explore_trends_summary">Tab Trending tetap menampilkannya.</string>
+    <string name="hide_explore_posts">Sembunyikan Postingan untuk Anda di Untuk Anda</string>
+    <string name="hide_explore_posts_summary">Postingan yang ditampilkan X di bawah tren.</string>
     <string name="hide_trending_tab">Sembunyikan tab Trending</string>
     <string name="hide_news_tab">Sembunyikan tab Berita</string>
     <string name="hide_sports_tab">Sembunyikan tab Olahraga</string>
@@ -208,7 +215,7 @@
     <string name="page_home">Beranda</string>
     <string name="page_home_summary">Tab Beranda, bilah Live, metrik postingan, dan balasan</string>
     <string name="page_explore">Jelajahi</string>
-    <string name="page_explore_summary">Cerita Grok, tren, dan tab Jelajahi</string>
+    <string name="page_explore_summary">Cerita Grok, tren, postingan, dan tab Jelajahi</string>
     <string name="page_profile">Profil</string>
     <string name="page_profile_summary">Tab profil dan tab media default</string>
     <string name="page_navigation">Navigasi</string>

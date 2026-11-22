@@ -23,6 +23,8 @@
     <string name="download_without_watermark">واٹر مارک کے بغیر ڈاؤن لوڈ کریں</string>
     <string name="download_folder">ڈاؤن لوڈ فولڈر</string>
     <string name="download_folder_summary">محفوظ کردہ تصاویر، ویڈیوز اور GIFs کہاں جائیں۔ گیلری کا ڈیفالٹ رکھیں یا کوئی فولڈر منتخب کریں۔</string>
+    <string name="download_file_name">فائل کا نام</string>
+    <string name="download_file_name_summary">محفوظ کردہ میڈیا کو اس کی پوسٹ کے مطابق {username}، {name}، {post_id}، {date}، {time}، {n} (پوسٹ میں اس کی جگہ) اور {media_id} سے نام دیتا ہے۔ X کے نام رکھنے کے لیے خالی چھوڑ دیں۔</string>
     <string name="save_all_media">پوچھیں کہ کون سا میڈیا محفوظ کرنا ہے</string>
     <string name="save_all_media_summary">جب پوسٹ میں کئی تصاویر، GIFs یا ویڈیوز ہوں تو پوچھتا ہے کہ کون سی محفوظ کرنی ہیں۔</string>
     <string name="download_button">پوسٹس پر ڈاؤن لوڈ بٹن</string>
@@ -67,6 +69,9 @@
     <string name="hide_live_avatar_rings">پروفائل تصاویر پر لائیو دائرے چھپائیں</string>
     <string name="hide_recommendations">تجاویز چھپائیں</string>
     <string name="hide_recommendations_summary">“کس کو فالو کریں”، “سبسکرائب کریں” اور “شامل ہونے کے لیے کمیونٹیز” چھپاتا ہے۔</string>
+    <string name="hide_videos_for_you">“آپ کے لیے ویڈیوز” چھپائیں</string>
+    <string name="hide_discover_more">“مزید دریافت کریں” چھپائیں</string>
+    <string name="hide_discover_more_summary">کسی پوسٹ کے جوابات کے نیچے X کی تجویز کردہ پوسٹس۔</string>
     <string name="show_withheld_posts">روکی گئی پوسٹس دکھائیں</string>
     <string name="show_withheld_posts_summary">روکی گئی پوسٹس اور پروفائلز FxTwitter سے لوڈ کرتا ہے، جو آپ کا IP پتہ اور آپ کی کھولی ہوئی چیزیں دیکھتا ہے۔</string>
     <string name="withheld_repost_refused">X روکی گئی پوسٹس کی ری پوسٹ بلاک کرتا ہے۔ اس کے بجائے کوٹ استعمال کریں۔</string>
@@ -173,6 +178,8 @@
     <string name="hide_grok_stories_summary">آج کی خبریں اور Grok کی لکھی ہوئی دیگر اسٹوری فہرستیں چھپاتا ہے۔ خبریں، کھیل اور تفریح ٹیبز میں صرف یہی ہوتی ہیں۔</string>
     <string name="hide_explore_trends">“آپ کے لیے” میں ٹرینڈز چھپائیں</string>
     <string name="hide_explore_trends_summary">ٹرینڈنگ ٹیب میں یہ برقرار رہتے ہیں۔</string>
+    <string name="hide_explore_posts">“آپ کے لیے” میں “آپ کے لیے پوسٹس” چھپائیں</string>
+    <string name="hide_explore_posts_summary">ٹرینڈز کے نیچے X کی دکھائی گئی پوسٹس۔</string>
     <string name="hide_trending_tab">ٹرینڈنگ ٹیب چھپائیں</string>
     <string name="hide_news_tab">خبریں ٹیب چھپائیں</string>
     <string name="hide_sports_tab">کھیل ٹیب چھپائیں</string>
@@ -209,7 +216,7 @@
     <string name="page_home">ہوم</string>
     <string name="page_home_summary">ہوم ٹیبز، لائیو بار، پوسٹ کے اعداد و شمار اور جوابات</string>
     <string name="page_explore">ایکسپلور</string>
-    <string name="page_explore_summary">Grok اسٹوریز، ٹرینڈز اور ایکسپلور ٹیبز</string>
+    <string name="page_explore_summary">Grok اسٹوریز، ٹرینڈز، پوسٹس اور ایکسپلور ٹیبز</string>
     <string name="page_profile">پروفائل</string>
     <string name="page_profile_summary">پروفائل ٹیبز اور ڈیفالٹ میڈیا ٹیب</string>
     <string name="page_navigation">نیویگیشن</string>

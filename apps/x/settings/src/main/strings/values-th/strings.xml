@@ -23,6 +23,8 @@
     <string name="download_without_watermark">ดาวน์โหลดโดยไม่มีลายน้ำ</string>
     <string name="download_folder">โฟลเดอร์ดาวน์โหลด</string>
     <string name="download_folder_summary">ตำแหน่งที่จัดเก็บรูปภาพ วิดีโอ และ GIF ที่บันทึก ใช้แกลเลอรีที่เป็นค่าเริ่มต้นหรือเลือกโฟลเดอร์</string>
+    <string name="download_file_name">ชื่อไฟล์</string>
+    <string name="download_file_name_summary">ตั้งชื่อสื่อที่บันทึกตามโพสต์ด้วย {username}, {name}, {post_id}, {date}, {time}, {n} (ลำดับในโพสต์) และ {media_id} เว้นว่างไว้เพื่อใช้ชื่อของ X</string>
     <string name="save_all_media">ถามว่าจะบันทึกสื่อใด</string>
     <string name="save_all_media_summary">เมื่อโพสต์มีรูปภาพ GIF หรือวิดีโอหลายรายการ ระบบจะถามว่าจะบันทึกรายการใด</string>
     <string name="download_button">ปุ่มดาวน์โหลดบนโพสต์</string>
@@ -66,6 +68,9 @@
     <string name="hide_live_avatar_rings">ซ่อนวงไลฟ์บนรูปโปรไฟล์</string>
     <string name="hide_recommendations">ซ่อนคำแนะนำ</string>
     <string name="hide_recommendations_summary">ซ่อน \"ใครที่ควรติดตาม\" \"สมัครรับ\" และ \"ชุมชนที่น่าเข้าร่วม\"</string>
+    <string name="hide_videos_for_you">ซ่อนวิดีโอสำหรับคุณ</string>
+    <string name="hide_discover_more">ซ่อนค้นพบเพิ่มเติม</string>
+    <string name="hide_discover_more_summary">โพสต์ที่ X แนะนำใต้การตอบกลับของโพสต์</string>
     <string name="show_withheld_posts">แสดงโพสต์ที่ถูกระงับ</string>
     <string name="show_withheld_posts_summary">โหลดโพสต์และโปรไฟล์ที่ถูกระงับจาก FxTwitter ซึ่งจะเห็นที่อยู่ IP ของคุณและสิ่งที่คุณเปิด</string>
     <string name="withheld_repost_refused">X บล็อกการรีโพสต์โพสต์ที่ถูกระงับ ให้ใช้การอ้างอิงแทน</string>
@@ -172,6 +177,8 @@
     <string name="hide_grok_stories_summary">ซ่อนข่าววันนี้และรายการเรื่องราวอื่นๆ ที่ Grok เขียน แท็บข่าว กีฬา และบันเทิงจะแสดงเฉพาะเนื้อหาเหล่านี้</string>
     <string name="hide_explore_trends">ซ่อนเทรนด์ในสำหรับคุณ</string>
     <string name="hide_explore_trends_summary">แท็บกำลังเป็นกระแสยังแสดงเทรนด์อยู่</string>
+    <string name="hide_explore_posts">ซ่อนโพสต์สำหรับคุณในสำหรับคุณ</string>
+    <string name="hide_explore_posts_summary">โพสต์ที่ X แสดงใต้เทรนด์</string>
     <string name="hide_trending_tab">ซ่อนแท็บกำลังเป็นกระแส</string>
     <string name="hide_news_tab">ซ่อนแท็บข่าว</string>
     <string name="hide_sports_tab">ซ่อนแท็บกีฬา</string>
@@ -208,7 +215,7 @@
     <string name="page_home">หน้าแรก</string>
     <string name="page_home_summary">แท็บหน้าแรก แถบไลฟ์ เมตริกของโพสต์ และการตอบกลับ</string>
     <string name="page_explore">สำรวจ</string>
-    <string name="page_explore_summary">เรื่องราวจาก Grok เทรนด์ และแท็บสำรวจ</string>
+    <string name="page_explore_summary">เรื่องราวจาก Grok เทรนด์ โพสต์ และแท็บสำรวจ</string>
     <string name="page_profile">โปรไฟล์</string>
     <string name="page_profile_summary">แท็บโปรไฟล์และแท็บสื่อเริ่มต้น</string>
     <string name="page_navigation">การนำทาง</string>

@@ -23,6 +23,8 @@
     <string name="download_without_watermark">Tải xuống không có hình mờ</string>
     <string name="download_folder">Thư mục tải xuống</string>
     <string name="download_folder_summary">Nơi lưu ảnh, video và GIF. Giữ thư viện ảnh mặc định hoặc chọn một thư mục.</string>
+    <string name="download_file_name">Tên tệp</string>
+    <string name="download_file_name_summary">Đặt tên cho nội dung đã lưu theo bài đăng bằng {username}, {name}, {post_id}, {date}, {time}, {n} (vị trí trong bài đăng) và {media_id}. Để trống để giữ tên của X.</string>
     <string name="save_all_media">Hỏi nên lưu nội dung nào</string>
     <string name="save_all_media_summary">Khi một bài đăng có nhiều ảnh, GIF hoặc video, hỏi bạn muốn lưu những mục nào.</string>
     <string name="download_button">Nút tải xuống trên bài đăng</string>
@@ -66,6 +68,9 @@
     <string name="hide_live_avatar_rings">Ẩn vòng trực tiếp trên ảnh đại diện</string>
     <string name="hide_recommendations">Ẩn đề xuất</string>
     <string name="hide_recommendations_summary">Ẩn Gợi ý theo dõi, Đăng ký và Cộng đồng để tham gia.</string>
+    <string name="hide_videos_for_you">Ẩn Video dành cho bạn</string>
+    <string name="hide_discover_more">Ẩn Khám phá thêm</string>
+    <string name="hide_discover_more_summary">Các bài đăng X gợi ý bên dưới phần trả lời của bài đăng.</string>
     <string name="show_withheld_posts">Hiện bài đăng bị giữ lại</string>
     <string name="show_withheld_posts_summary">Tải bài đăng và hồ sơ bị giữ lại từ FxTwitter, dịch vụ này thấy địa chỉ IP của bạn và những gì bạn mở.</string>
     <string name="withheld_repost_refused">X chặn đăng lại các bài đăng bị giữ lại. Hãy dùng Trích dẫn thay thế.</string>
@@ -172,6 +177,8 @@
     <string name="hide_grok_stories_summary">Ẩn Tin tức hôm nay và các danh sách tin khác do Grok viết. Các tab Tin tức, Thể thao và Giải trí chỉ hiển thị những tin này.</string>
     <string name="hide_explore_trends">Ẩn xu hướng trong Dành cho bạn</string>
     <string name="hide_explore_trends_summary">Tab Xu hướng vẫn giữ chúng.</string>
+    <string name="hide_explore_posts">Ẩn Bài đăng dành cho bạn trong Dành cho bạn</string>
+    <string name="hide_explore_posts_summary">Các bài đăng X hiển thị bên dưới xu hướng.</string>
     <string name="hide_trending_tab">Ẩn tab Xu hướng</string>
     <string name="hide_news_tab">Ẩn tab Tin tức</string>
     <string name="hide_sports_tab">Ẩn tab Thể thao</string>
@@ -208,7 +215,7 @@
     <string name="page_home">Trang chủ</string>
     <string name="page_home_summary">Tab Trang chủ, thanh Trực tiếp, số liệu bài đăng và câu trả lời</string>
     <string name="page_explore">Khám phá</string>
-    <string name="page_explore_summary">Tin của Grok, xu hướng và các tab Khám phá</string>
+    <string name="page_explore_summary">Tin của Grok, xu hướng, bài đăng và các tab Khám phá</string>
     <string name="page_profile">Hồ sơ</string>
     <string name="page_profile_summary">Tab hồ sơ và tab nội dung mặc định</string>
     <string name="page_navigation">Điều hướng</string>

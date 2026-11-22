@@ -10,6 +10,7 @@
     <string name="boost_downloads">更快的下載</string>
     <string name="save_from_restricted">從受限制的聊天儲存</string>
     <string name="save_from_restricted_summary">允許在受保護的聊天中複製、儲存和轉傳。</string>
+    <string name="restricted_media_not_loaded">部分媒體無法下載。</string>
     <string name="remove_play_store_restrictions">移除 Play 商店限制</string>
     <string name="remove_play_store_restrictions_summary">顯示 Telegram 只在 Play 商店版本中隱藏的聊天和媒體。</string>
     <string name="recover_deleted">保留已刪除的訊息</string>
@@ -23,6 +24,22 @@
     <string name="section_downloads">下載</string>
     <string name="section_premium">Premium</string>
     <string name="section_privacy">隱私權</string>
+    <string name="section_messages">訊息</string>
+    <string name="show_message_ids">顯示訊息 ID</string>
+    <string name="show_message_ids_summary">顯示在每則訊息的時間前。</string>
+    <string name="show_user_ids">顯示使用者 ID</string>
+    <string name="show_user_ids_summary">顯示在某人訊息的選單中。輕觸 ID 即可複製。</string>
+    <string name="show_forward_dates">顯示轉寄日期</string>
+    <string name="show_forward_dates_summary">轉寄訊息首次傳送的時間。</string>
+    <string name="edited_mark">已編輯標記</string>
+    <string name="edited_mark_telegram">Telegram 的標籤</string>
+    <string name="edited_mark_icon">鉛筆圖示</string>
+    <string name="edited_mark_custom">自訂文字</string>
+    <string name="edited_mark_hidden">隱藏</string>
+    <string name="custom_edited_mark">自訂已編輯標記</string>
+    <string name="custom_edited_mark_summary">在已編輯標記為「自訂文字」時使用。</string>
+    <string name="user_id">ID <xliff:g id="id">%1$s</xliff:g></string>
+    <string name="user_id_copied">已複製 ID</string>
     <string name="anti_delete_recovery_off">不再保留已刪除的訊息</string>
     <string name="anti_delete_recovery_on">保留已刪除的訊息</string>
 </resources>

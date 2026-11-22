@@ -7,7 +7,7 @@
     <string name="settings_entry">ورودی تنظیمات Reseam</string>
     <string name="settings_entry_description">گزینهٔ «تنظیمات Reseam» را به «تنظیمات و حریم خصوصی» X اضافه می‌کند.</string>
     <string name="customize_explore">سفارشی‌سازی کاوش</string>
-    <string name="customize_explore_description">خبرهای Grok، ترندها و برگه‌های انتخاب‌شدهٔ «کاوش» را پنهان می‌کند.</string>
+    <string name="customize_explore_description">خبرهای Grok، ترندها، «پست‌ها برای شما» و برگه‌های انتخاب‌شدهٔ «کاوش» را پنهان می‌کند.</string>
     <string name="user_feature_switches">بازنویسی پرچم‌های ویژگی</string>
     <string name="user_feature_switches_description">کلیدهای ویژگی X را روی مقادیری که انتخاب می‌کنید تنظیم می‌کند.</string>
     <string name="grok">پنهان کردن Grok</string>
@@ -35,7 +35,7 @@
     <string name="save_all_media">ذخیرهٔ همهٔ رسانه‌ها</string>
     <string name="save_all_media_description">وقتی یکی از رسانه‌های پست را ذخیره می‌کنید، پیشنهاد می‌دهد همه را ذخیره کنید.</string>
     <string name="save_media">ذخیرهٔ رسانه</string>
-    <string name="save_media_description">عکس‌ها، ویدیوها و GIFها را در پوشه‌ای که انتخاب می‌کنید ذخیره می‌کند.</string>
+    <string name="save_media_description">عکس‌ها، ویدیوها و GIFها را با نامی برگرفته از پستشان در پوشه‌ای که انتخاب می‌کنید ذخیره می‌کند.</string>
     <string name="show_sensitive_media">نمایش رسانه‌های حساس</string>
     <string name="show_sensitive_media_description">رسانه‌های حساس را بدون محوشدگی یا هشدار نشان می‌دهد.</string>
     <string name="double_tap_seek">پرش با دو ضربه</string>
@@ -78,6 +78,10 @@
     <string name="hide_post_metrics_description">شمارش‌ها را روی پست‌ها پنهان می‌کند. دکمه‌ها همچنان کار می‌کنند.</string>
     <string name="hide_recommendations">پنهان کردن پیشنهادها</string>
     <string name="hide_recommendations_description">«چه کسی را دنبال کنید»، «اشتراک در» و «انجمن‌هایی برای پیوستن» را پنهان می‌کند.</string>
+    <string name="hide_videos_for_you">پنهان کردن «ویدیوها برای شما»</string>
+    <string name="hide_videos_for_you_description">نوار «ویدیوها برای شما» را در تایم‌لاین‌ها پنهان می‌کند.</string>
+    <string name="hide_discover_more">پنهان کردن «کشف بیشتر»</string>
+    <string name="hide_discover_more_description">پست‌های «کشف بیشتر» را زیر پاسخ‌های یک پست پنهان می‌کند.</string>
     <string name="show_poll_results">نمایش نتایج نظرسنجی</string>
     <string name="show_poll_results_description">نتایج نظرسنجی را پیش از رأی دادن نشان می‌دهد.</string>
     <string name="show_withheld_posts">نمایش پست‌های محدودشده</string>

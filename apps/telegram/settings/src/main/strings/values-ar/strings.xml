@@ -10,6 +10,7 @@
     <string name="boost_downloads">تنزيلات أسرع</string>
     <string name="save_from_restricted">الحفظ من الدردشات المقيّدة</string>
     <string name="save_from_restricted_summary">يتيح النسخ والحفظ وإعادة التوجيه في الدردشات المحمية.</string>
+    <string name="restricted_media_not_loaded">تعذّر تنزيل بعض الوسائط.</string>
     <string name="remove_play_store_restrictions">إزالة قيود متجر Play</string>
     <string name="remove_play_store_restrictions_summary">يعرض الدردشات والوسائط التي يُخفيها Telegram في إصدار متجر Play فقط.</string>
     <string name="recover_deleted">الاحتفاظ بالرسائل المحذوفة</string>
@@ -23,6 +24,22 @@
     <string name="section_downloads">التنزيلات</string>
     <string name="section_premium">Premium</string>
     <string name="section_privacy">الخصوصية</string>
+    <string name="section_messages">الرسائل</string>
+    <string name="show_message_ids">إظهار معرّفات الرسائل</string>
+    <string name="show_message_ids_summary">قبل الوقت في كل رسالة.</string>
+    <string name="show_user_ids">إظهار معرّفات المستخدمين</string>
+    <string name="show_user_ids_summary">في قائمة رسالة الشخص. انقر على المعرّف لنسخه.</string>
+    <string name="show_forward_dates">إظهار تواريخ إعادة التوجيه</string>
+    <string name="show_forward_dates_summary">وقت إرسال الرسالة المُعاد توجيهها لأول مرة.</string>
+    <string name="edited_mark">علامة التعديل</string>
+    <string name="edited_mark_telegram">تسمية Telegram</string>
+    <string name="edited_mark_icon">أيقونة قلم</string>
+    <string name="edited_mark_custom">نص مخصص</string>
+    <string name="edited_mark_hidden">مخفية</string>
+    <string name="custom_edited_mark">علامة تعديل مخصصة</string>
+    <string name="custom_edited_mark_summary">تُستخدم عندما تكون «علامة التعديل» نصًا مخصصًا.</string>
+    <string name="user_id">المعرّف <xliff:g id="id">%1$s</xliff:g></string>
+    <string name="user_id_copied">تم نسخ المعرّف</string>
     <string name="anti_delete_recovery_off">إيقاف الاحتفاظ بالرسائل المحذوفة</string>
     <string name="anti_delete_recovery_on">الاحتفاظ بالرسائل المحذوفة</string>
 </resources>

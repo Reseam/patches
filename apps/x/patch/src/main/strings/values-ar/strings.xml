@@ -7,7 +7,7 @@
     <string name="settings_entry">مدخل إعدادات Reseam</string>
     <string name="settings_entry_description">يضيف «إعدادات Reseam» إلى «الإعدادات والخصوصية» في X.</string>
     <string name="customize_explore">تخصيص «استكشاف»</string>
-    <string name="customize_explore_description">يُخفي قصص Grok والمواضيع الرائجة وعلامات تبويب تختارها في «استكشاف».</string>
+    <string name="customize_explore_description">يُخفي قصص Grok والمواضيع الرائجة و«منشورات لك» وعلامات تبويب تختارها في «استكشاف».</string>
     <string name="user_feature_switches">تجاوزات علامات الميزات</string>
     <string name="user_feature_switches_description">يضبط مفاتيح ميزات X على قيم تختارها.</string>
     <string name="grok">إخفاء Grok</string>
@@ -35,7 +35,7 @@
     <string name="save_all_media">حفظ كل الوسائط</string>
     <string name="save_all_media_description">يعرض حفظ كل وسائط المنشور عند حفظ أحدها.</string>
     <string name="save_media">حفظ الوسائط</string>
-    <string name="save_media_description">يحفظ الصور والفيديوهات وصور GIF في مجلد تختاره.</string>
+    <string name="save_media_description">يحفظ الصور والفيديوهات وصور GIF في مجلد تختاره، باسم منشورها.</string>
     <string name="show_sensitive_media">إظهار الوسائط الحساسة</string>
     <string name="show_sensitive_media_description">يعرض الوسائط الحساسة دون تمويه أو تحذير.</string>
     <string name="double_tap_seek">قفزة النقر مرتين</string>
@@ -78,6 +78,10 @@
     <string name="hide_post_metrics_description">يُخفي الأعداد على المنشورات. تظل الأزرار تعمل.</string>
     <string name="hide_recommendations">إخفاء الاقتراحات</string>
     <string name="hide_recommendations_description">يُخفي «مَن تتابع» و«اشترك في» و«مجتمعات للانضمام».</string>
+    <string name="hide_videos_for_you">إخفاء «فيديوهات لك»</string>
+    <string name="hide_videos_for_you_description">يُخفي شريط «فيديوهات لك» في الخطوط الزمنية.</string>
+    <string name="hide_discover_more">إخفاء «اكتشف المزيد»</string>
+    <string name="hide_discover_more_description">يُخفي منشورات «اكتشف المزيد» أسفل ردود المنشور.</string>
     <string name="show_poll_results">إظهار نتائج الاستطلاعات</string>
     <string name="show_poll_results_description">يعرض نتائج الاستطلاع قبل أن تصوّت.</string>
     <string name="show_withheld_posts">إظهار المنشورات المحجوبة</string>

@@ -20,6 +20,8 @@
     <string name="hide_typing_indicator_description">يمنع الآخرين من رؤية أنك تكتب أو تسجّل.</string>
     <string name="play_store_restrictions">إزالة قيود متجر Play</string>
     <string name="play_store_restrictions_description">يعرض الدردشات والوسائط التي يُخفيها Telegram في إصدار متجر Play فقط.</string>
+    <string name="customize_messages">تخصيص الرسائل</string>
+    <string name="customize_messages_description">يعرض معرّفات الرسائل والمستخدمين ووقت إرسال الرسائل المُعاد توجيهها لأول مرة، ويغيّر علامة التعديل.</string>
     <string name="unlock_premium">فتح Premium</string>
     <string name="unlock_premium_description">يفتح ميزات Premium التي تعمل على هذا الهاتف.</string>
     <string name="disable_auto_update">تعطيل دعوات التحديث</string>

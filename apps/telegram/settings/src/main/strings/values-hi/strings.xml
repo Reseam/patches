@@ -10,6 +10,7 @@
     <string name="boost_downloads">तेज़ डाउनलोड</string>
     <string name="save_from_restricted">प्रतिबंधित चैट से सेव करें</string>
     <string name="save_from_restricted_summary">सुरक्षित चैट में कॉपी, सेव और फ़ॉरवर्ड करने देता है।</string>
+    <string name="restricted_media_not_loaded">कुछ मीडिया डाउनलोड नहीं हो सका।</string>
     <string name="remove_play_store_restrictions">Play Store की पाबंदियाँ हटाएँ</string>
     <string name="remove_play_store_restrictions_summary">वे चैट और मीडिया दिखाता है जिन्हें Telegram सिर्फ़ अपने Play Store वर्शन में छिपाता है।</string>
     <string name="recover_deleted">हटाए गए मैसेज रखें</string>
@@ -23,6 +24,22 @@
     <string name="section_downloads">डाउनलोड</string>
     <string name="section_premium">Premium</string>
     <string name="section_privacy">निजता</string>
+    <string name="section_messages">संदेश</string>
+    <string name="show_message_ids">संदेश ID दिखाएँ</string>
+    <string name="show_message_ids_summary">हर संदेश के समय से पहले।</string>
+    <string name="show_user_ids">यूज़र ID दिखाएँ</string>
+    <string name="show_user_ids_summary">किसी व्यक्ति के संदेश के मेन्यू में। कॉपी करने के लिए ID पर टैप करें।</string>
+    <string name="show_forward_dates">फ़ॉरवर्ड की तारीख दिखाएँ</string>
+    <string name="show_forward_dates_summary">फ़ॉरवर्ड किया गया संदेश पहली बार कब भेजा गया था।</string>
+    <string name="edited_mark">एडिट का निशान</string>
+    <string name="edited_mark_telegram">Telegram का लेबल</string>
+    <string name="edited_mark_icon">पेंसिल आइकन</string>
+    <string name="edited_mark_custom">अपना टेक्स्ट</string>
+    <string name="edited_mark_hidden">छिपा हुआ</string>
+    <string name="custom_edited_mark">एडिट का अपना निशान</string>
+    <string name="custom_edited_mark_summary">तब इस्तेमाल होता है जब एडिट का निशान अपना टेक्स्ट हो।</string>
+    <string name="user_id">ID <xliff:g id="id">%1$s</xliff:g></string>
+    <string name="user_id_copied">ID कॉपी हो गई</string>
     <string name="anti_delete_recovery_off">हटाए गए मैसेज रखना बंद करें</string>
     <string name="anti_delete_recovery_on">हटाए गए मैसेज रखें</string>
 </resources>

@@ -23,6 +23,8 @@
     <string name="download_without_watermark">Filigransız indir</string>
     <string name="download_folder">İndirme klasörü</string>
     <string name="download_folder_summary">Kaydedilen fotoğrafların, videoların ve GIF\'lerin gideceği yer. Varsayılan galeriyi koruyun veya bir klasör seçin.</string>
+    <string name="download_file_name">Dosya adı</string>
+    <string name="download_file_name_summary">Kaydedilen medyayı gönderisine göre {username}, {name}, {post_id}, {date}, {time}, {n} (gönderideki sırası) ve {media_id} ile adlandırır. X\'in adlarını korumak için boş bırakın.</string>
     <string name="save_all_media">Hangi medyanın kaydedileceğini sor</string>
     <string name="save_all_media_summary">Bir gönderide birden fazla fotoğraf, GIF veya video olduğunda hangilerinin kaydedileceğini sorar.</string>
     <string name="download_button">Gönderilerde indirme düğmesi</string>
@@ -67,6 +69,9 @@
     <string name="hide_live_avatar_rings">Profil resmi canlı halkalarını gizle</string>
     <string name="hide_recommendations">Önerileri gizle</string>
     <string name="hide_recommendations_summary">Kimi takip etmeli, Abone ol ve Katılabileceğin topluluklar bölümlerini gizler.</string>
+    <string name="hide_videos_for_you">Senin için videoları gizle</string>
+    <string name="hide_discover_more">Daha fazlasını keşfet bölümünü gizle</string>
+    <string name="hide_discover_more_summary">X\'in bir gönderinin yanıtlarının altında önerdiği gönderiler.</string>
     <string name="show_withheld_posts">Kısıtlanan gönderileri göster</string>
     <string name="show_withheld_posts_summary">Kısıtlanan gönderileri ve profilleri, IP adresinizi ve neyi açtığınızı gören FxTwitter\'dan yükler.</string>
     <string name="withheld_repost_refused">X kısıtlanan gönderilerin yeniden paylaşılmasını engeller. Bunun yerine Alıntıla\'yı kullanın.</string>
@@ -173,6 +178,8 @@
     <string name="hide_grok_stories_summary">Bugünün Haberleri\'ni ve Grok\'un yazdığı diğer hikaye listelerini gizler. Haberler, Spor ve Eğlence sekmeleri yalnızca bunları gösterir.</string>
     <string name="hide_explore_trends">Sana özel\'deki gündemleri gizle</string>
     <string name="hide_explore_trends_summary">Gündem sekmesi onları tutar.</string>
+    <string name="hide_explore_posts">Sana özel\'deki Senin için gönderileri gizle</string>
+    <string name="hide_explore_posts_summary">X\'in gündemlerin altında listelediği gönderiler.</string>
     <string name="hide_trending_tab">Gündem sekmesini gizle</string>
     <string name="hide_news_tab">Haberler sekmesini gizle</string>
     <string name="hide_sports_tab">Spor sekmesini gizle</string>
@@ -209,7 +216,7 @@
     <string name="page_home">Ana Sayfa</string>
     <string name="page_home_summary">Ana Sayfa sekmeleri, Canlı çubuğu, gönderi metrikleri ve yanıtlar</string>
     <string name="page_explore">Keşfet</string>
-    <string name="page_explore_summary">Grok hikayeleri, gündemler ve Keşfet sekmeleri</string>
+    <string name="page_explore_summary">Grok hikayeleri, gündemler, gönderiler ve Keşfet sekmeleri</string>
     <string name="page_profile">Profil</string>
     <string name="page_profile_summary">Profil sekmeleri ve varsayılan medya sekmesi</string>
     <string name="page_navigation">Gezinme</string>

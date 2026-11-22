@@ -23,6 +23,8 @@
     <string name="download_without_watermark">Descargar sin marca de agua</string>
     <string name="download_folder">Carpeta de descargas</string>
     <string name="download_folder_summary">Adónde van las fotos, los videos y los GIF guardados. Deja la galería por defecto o elige una carpeta.</string>
+    <string name="download_file_name">Nombre de archivo</string>
+    <string name="download_file_name_summary">Nombra los archivos guardados según su post con {username}, {name}, {post_id}, {date}, {time}, {n} (su posición en el post) y {media_id}. Déjalo vacío para mantener los nombres de X.</string>
     <string name="save_all_media">Preguntar qué contenido guardar</string>
     <string name="save_all_media_summary">Cuando una publicación tiene varias fotos, GIF o videos, pregunta cuáles guardar.</string>
     <string name="download_button">Botón de descarga en publicaciones</string>
@@ -67,6 +69,9 @@
     <string name="hide_live_avatar_rings">Ocultar círculos de En vivo en avatares</string>
     <string name="hide_recommendations">Ocultar recomendaciones</string>
     <string name="hide_recommendations_summary">Oculta A quién seguir, Suscríbete a y Comunidades a las que unirte.</string>
+    <string name="hide_videos_for_you">Ocultar Videos para ti</string>
+    <string name="hide_discover_more">Ocultar Descubre más</string>
+    <string name="hide_discover_more_summary">Los posts que X sugiere debajo de las respuestas de un post.</string>
     <string name="show_withheld_posts">Mostrar publicaciones retenidas</string>
     <string name="show_withheld_posts_summary">Carga las publicaciones y los perfiles retenidos desde FxTwitter, que ve tu dirección IP y lo que abres.</string>
     <string name="withheld_repost_refused">X bloquea los reposts de publicaciones retenidas. Usa Citar en su lugar.</string>
@@ -173,6 +178,8 @@
     <string name="hide_grok_stories_summary">Oculta Noticias de hoy y las demás listas de historias que escribe Grok. Las pestañas Noticias, Deportes y Entretenimiento solo muestran estas.</string>
     <string name="hide_explore_trends">Ocultar tendencias en Para ti</string>
     <string name="hide_explore_trends_summary">La pestaña Tendencias las conserva.</string>
+    <string name="hide_explore_posts">Ocultar Posts para ti en Para ti</string>
+    <string name="hide_explore_posts_summary">Los posts que X muestra debajo de las tendencias.</string>
     <string name="hide_trending_tab">Ocultar pestaña Tendencias</string>
     <string name="hide_news_tab">Ocultar pestaña Noticias</string>
     <string name="hide_sports_tab">Ocultar pestaña Deportes</string>
@@ -209,7 +216,7 @@
     <string name="page_home">Inicio</string>
     <string name="page_home_summary">Pestañas de Inicio, barra de En vivo, métricas de publicaciones y respuestas</string>
     <string name="page_explore">Explorar</string>
-    <string name="page_explore_summary">Historias de Grok, tendencias y pestañas de Explorar</string>
+    <string name="page_explore_summary">Historias de Grok, tendencias, posts y pestañas de Explorar</string>
     <string name="page_profile">Perfil</string>
     <string name="page_profile_summary">Pestañas del perfil y la pestaña multimedia predeterminada</string>
     <string name="page_navigation">Navegación</string>

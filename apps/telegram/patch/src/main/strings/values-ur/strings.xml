@@ -20,6 +20,8 @@
     <string name="hide_typing_indicator_description">دوسروں کو یہ دیکھنے سے روکتا ہے کہ آپ ٹائپ یا ریکارڈ کر رہے ہیں۔</string>
     <string name="play_store_restrictions">Play Store کی پابندیاں ہٹائیں</string>
     <string name="play_store_restrictions_description">وہ چیٹس اور میڈیا دکھاتا ہے جو Telegram صرف اپنے Play Store ورژن میں چھپاتا ہے۔</string>
+    <string name="customize_messages">پیغامات حسبِ منشا بنائیں</string>
+    <string name="customize_messages_description">پیغامات اور صارفین کی ID اور فارورڈ کیے گئے پیغامات پہلی بار کب بھیجے گئے تھے دکھاتا ہے، اور ترمیم کا نشان بدلتا ہے۔</string>
     <string name="unlock_premium">Premium ان لاک کریں</string>
     <string name="unlock_premium_description">Premium کے وہ فیچرز ان لاک کرتا ہے جو اس فون پر کام کرتے ہیں۔</string>
     <string name="disable_auto_update">اپ ڈیٹ پرامپٹس غیر فعال کریں</string>

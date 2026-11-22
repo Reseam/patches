@@ -7,7 +7,7 @@
     <string name="settings_entry">Eintrag für Reseam-Einstellungen</string>
     <string name="settings_entry_description">Fügt die Reseam-Einstellungen zu Einstellungen und Datenschutz von X hinzu.</string>
     <string name="customize_explore">Entdecken anpassen</string>
-    <string name="customize_explore_description">Blendet Grok-Storys, Trends und ausgewählte Entdecken-Tabs aus.</string>
+    <string name="customize_explore_description">Blendet Grok-Storys, Trends, „Posts für dich“ und ausgewählte Entdecken-Tabs aus.</string>
     <string name="user_feature_switches">Feature-Flags überschreiben</string>
     <string name="user_feature_switches_description">Setzt die Feature-Schalter von X auf Werte, die du wählst.</string>
     <string name="grok">Grok ausblenden</string>
@@ -35,7 +35,7 @@
     <string name="save_all_media">Alle Medien speichern</string>
     <string name="save_all_media_description">Bietet an, alle Medien eines Beitrags zu speichern, wenn du eines speicherst.</string>
     <string name="save_media">Medien speichern</string>
-    <string name="save_media_description">Speichert Fotos, Videos und GIFs in einem Ordner deiner Wahl.</string>
+    <string name="save_media_description">Speichert Fotos, Videos und GIFs in einem Ordner deiner Wahl, benannt nach ihrem Post.</string>
     <string name="show_sensitive_media">Sensible Medien anzeigen</string>
     <string name="show_sensitive_media_description">Zeigt sensible Medien ohne Unschärfe oder Warnung.</string>
     <string name="double_tap_seek">Sprungweite beim Doppeltippen</string>
@@ -78,6 +78,10 @@
     <string name="hide_post_metrics_description">Blendet die Zahlen an Beiträgen aus. Die Schaltflächen funktionieren weiter.</string>
     <string name="hide_recommendations">Empfehlungen ausblenden</string>
     <string name="hide_recommendations_description">Blendet „Wem folgen?“, „Abonnieren“ und „Communities zum Beitreten“ aus.</string>
+    <string name="hide_videos_for_you">„Videos für dich“ ausblenden</string>
+    <string name="hide_videos_for_you_description">Blendet das Karussell „Videos für dich“ in Timelines aus.</string>
+    <string name="hide_discover_more">„Mehr entdecken“ ausblenden</string>
+    <string name="hide_discover_more_description">Blendet die Posts unter „Mehr entdecken“ unterhalb der Antworten eines Posts aus.</string>
     <string name="show_poll_results">Umfrageergebnisse anzeigen</string>
     <string name="show_poll_results_description">Zeigt Umfrageergebnisse, bevor du abstimmst.</string>
     <string name="show_withheld_posts">Zurückgehaltene Beiträge anzeigen</string>

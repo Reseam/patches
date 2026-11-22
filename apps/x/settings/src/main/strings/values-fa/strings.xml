@@ -23,6 +23,8 @@
     <string name="download_without_watermark">بارگیری بدون واترمارک</string>
     <string name="download_folder">پوشهٔ بارگیری</string>
     <string name="download_folder_summary">محل ذخیرهٔ عکس‌ها، ویدیوها و GIFها. پیش‌فرض گالری را نگه دارید یا پوشه‌ای انتخاب کنید.</string>
+    <string name="download_file_name">نام فایل</string>
+    <string name="download_file_name_summary">رسانه‌های ذخیره‌شده را بر اساس پستشان با {username}، {name}، {post_id}، {date}، {time}، {n} (جایگاهش در پست) و {media_id} نام‌گذاری می‌کند. برای نگه داشتن نام‌های X خالی بگذارید.</string>
     <string name="save_all_media">پرسش برای انتخاب رسانه</string>
     <string name="save_all_media_summary">وقتی پستی چند عکس، GIF یا ویدیو دارد، می‌پرسد کدام ذخیره شود.</string>
     <string name="download_button">دکمهٔ بارگیری روی پست‌ها</string>
@@ -67,6 +69,9 @@
     <string name="hide_live_avatar_rings">پنهان کردن حلقه‌های زنده دور آواتار</string>
     <string name="hide_recommendations">پنهان کردن پیشنهادها</string>
     <string name="hide_recommendations_summary">«چه کسی را دنبال کنید»، «اشتراک در» و «انجمن‌هایی برای پیوستن» را پنهان می‌کند.</string>
+    <string name="hide_videos_for_you">پنهان کردن «ویدیوها برای شما»</string>
+    <string name="hide_discover_more">پنهان کردن «کشف بیشتر»</string>
+    <string name="hide_discover_more_summary">پست‌هایی که X زیر پاسخ‌های یک پست پیشنهاد می‌کند.</string>
     <string name="show_withheld_posts">نمایش پست‌های محدودشده</string>
     <string name="show_withheld_posts_summary">پست‌ها و نمایه‌های محدودشده را از FxTwitter بار می‌کند که نشانی IP شما و آنچه را باز می‌کنید می‌بیند.</string>
     <string name="withheld_repost_refused">X بازپست کردن پست‌های محدودشده را مسدود می‌کند. به‌جای آن از «نقل‌قول» استفاده کنید.</string>
@@ -173,6 +178,8 @@
     <string name="hide_grok_stories_summary">«اخبار امروز» و دیگر فهرست‌های خبری را که Grok می‌نویسد پنهان می‌کند. برگه‌های «اخبار»، «ورزش» و «سرگرمی» فقط همین‌ها را نشان می‌دهند.</string>
     <string name="hide_explore_trends">پنهان کردن ترندها در «برای شما»</string>
     <string name="hide_explore_trends_summary">برگهٔ «پرطرفدار» آن‌ها را نگه می‌دارد.</string>
+    <string name="hide_explore_posts">پنهان کردن «پست‌ها برای شما» در «برای شما»</string>
+    <string name="hide_explore_posts_summary">پست‌هایی که X زیر ترندها نشان می‌دهد.</string>
     <string name="hide_trending_tab">پنهان کردن برگهٔ «پرطرفدار»</string>
     <string name="hide_news_tab">پنهان کردن برگهٔ «اخبار»</string>
     <string name="hide_sports_tab">پنهان کردن برگهٔ «ورزش»</string>
@@ -209,7 +216,7 @@
     <string name="page_home">خانه</string>
     <string name="page_home_summary">برگه‌های «خانه»، نوار زنده، آمار پست و پاسخ‌ها</string>
     <string name="page_explore">کاوش</string>
-    <string name="page_explore_summary">خبرهای Grok، ترندها و برگه‌های «کاوش»</string>
+    <string name="page_explore_summary">خبرهای Grok، ترندها، پست‌ها و برگه‌های «کاوش»</string>
     <string name="page_profile">نمایه</string>
     <string name="page_profile_summary">برگه‌های نمایه و برگهٔ رسانهٔ پیش‌فرض</string>
     <string name="page_navigation">پیمایش</string>

@@ -7,7 +7,7 @@
     <string name="settings_entry">Reseam 設定の項目</string>
     <string name="settings_entry_description">X の「設定とプライバシー」に Reseam 設定を追加します。</string>
     <string name="customize_explore">話題を検索をカスタマイズ</string>
-    <string name="customize_explore_description">Grok のストーリー、トレンド、選んだ話題を検索のタブを非表示にします。</string>
+    <string name="customize_explore_description">Grok のストーリー、トレンド、「おすすめのポスト」、選んだ話題を検索のタブを非表示にします。</string>
     <string name="user_feature_switches">機能フラグの上書き</string>
     <string name="user_feature_switches_description">X の機能スイッチを選んだ値に設定します。</string>
     <string name="grok">Grok を非表示</string>
@@ -35,7 +35,7 @@
     <string name="save_all_media">すべてのメディアを保存</string>
     <string name="save_all_media_description">1 つ保存するときに、ポストのすべてのメディアを保存するか確認します。</string>
     <string name="save_media">メディアを保存</string>
-    <string name="save_media_description">写真、動画、GIF を選んだフォルダに保存します。</string>
+    <string name="save_media_description">写真、動画、GIF をポストにちなんだ名前で、選んだフォルダに保存します。</string>
     <string name="show_sensitive_media">センシティブなメディアを表示</string>
     <string name="show_sensitive_media_description">センシティブなメディアを、ぼかしや警告なしで表示します。</string>
     <string name="double_tap_seek">ダブルタップのシーク幅</string>
@@ -78,6 +78,10 @@
     <string name="hide_post_metrics_description">ポストの各種の数を非表示にします。ボタンは引き続き使えます。</string>
     <string name="hide_recommendations">おすすめを非表示</string>
     <string name="hide_recommendations_description">おすすめユーザー、サブスクライブ、参加できるコミュニティを非表示にします。</string>
+    <string name="hide_videos_for_you">「おすすめ動画」を非表示</string>
+    <string name="hide_videos_for_you_description">タイムラインの「おすすめ動画」カルーセルを非表示にします。</string>
+    <string name="hide_discover_more">「さらに見つける」を非表示</string>
+    <string name="hide_discover_more_description">ポストの返信の下にある「さらに見つける」のポストを非表示にします。</string>
     <string name="show_poll_results">投票結果を表示</string>
     <string name="show_poll_results_description">投票する前に投票結果を表示します。</string>
     <string name="show_withheld_posts">表示制限されたポストを表示</string>

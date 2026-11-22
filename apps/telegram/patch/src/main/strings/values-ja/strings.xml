@@ -20,6 +20,8 @@
     <string name="hide_typing_indicator_description">入力中や録音中であることが他の人に見えないようにします。</string>
     <string name="play_store_restrictions">Play ストアの制限を解除</string>
     <string name="play_store_restrictions_description">Telegram が Play ストア版でのみ隠しているチャットとメディアを表示します。</string>
+    <string name="customize_messages">メッセージをカスタマイズ</string>
+    <string name="customize_messages_description">メッセージとユーザーの ID、転送メッセージが最初に送信された日時を表示し、編集済みの表示を変更します。</string>
     <string name="unlock_premium">Premium をロック解除</string>
     <string name="unlock_premium_description">このスマートフォンで動作する Premium 機能をロック解除します。</string>
     <string name="disable_auto_update">アップデートの案内を無効にする</string>
