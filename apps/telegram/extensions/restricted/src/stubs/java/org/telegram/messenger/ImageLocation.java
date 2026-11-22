@@ -3,11 +3,9 @@
 
 package org.telegram.messenger;
 
-import java.io.File;
-
+import org.telegram.tgnet.TLObject;
 import org.telegram.tgnet.TLRPC;
 
-public class FileLoader {
-    public static FileLoader getInstance(int num) { return null; }
-    public File getPathToMessage(TLRPC.Message message) { return null; }
+public class ImageLocation {
+    public static ImageLocation getForObject(TLRPC.PhotoSize photoSize, TLObject object) { return null; }
 }

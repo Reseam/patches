@@ -15,12 +15,12 @@ import app.reseam.patches.telegram.core.SEND_MESSAGE_PARAMS
 import app.reseam.patches.telegram.core.TELEGRAM
 import app.reseam.patches.telegram.core.sendMessagesHelper
 import app.reseam.patches.telegram.core.telegramSettings
-import app.reseam.telegram.forward.bindings.TelegramForwardBridge
+import app.reseam.telegram.restricted.bindings.RestrictedForwards
 import app.reseam.telegram.settings.TelegramSettings
 
 // The server enforces `noforwards` on messages.forwardMessages, so re-enabling the UI is not
 // enough. Forwards from such chats go through processForwardFromMyName, which the app already
-// uses for encrypted dialogs: each message is re-sent as a fresh upload.
+// uses for encrypted dialogs: each message is re-sent as a fresh upload of its local file.
 val forwardFromRestricted = patch(TelegramPatchStrings.forwardFromRestricted) {
     description(TelegramPatchStrings.forwardFromRestrictedDescription)
     compatibleWith(TELEGRAM)
@@ -29,18 +29,13 @@ val forwardFromRestricted = patch(TelegramPatchStrings.forwardFromRestricted) {
     execute {
         gate(TelegramSettings.saveFromRestricted) {
             sendMessages.before {
-                val handled = TelegramForwardBridge.tryFakeForward(param(0), param(1), param(9), param(10), param(11))
+                val handled = RestrictedForwards.forward(param(0), param(1), param(9), param(10), param(11))
                 whenTrue(handled) {
                     returnValue(int(0))
                 }
             }
 
-            // processForwardFromMyName leaves `path` unset for received media, which makes the
-            // eventual messages.sendMedia reference a server-side media id the server rejects.
-            // Pointing it at the local cache makes the send re-upload instead.
-            sendOneMessage.before {
-                TelegramForwardBridge.fixPathForNoForwards(param(0))
-            }
+            sendOneMessage.before { RestrictedForwards.uploadLocalCopy(param(0)) }
         }
     }
 }

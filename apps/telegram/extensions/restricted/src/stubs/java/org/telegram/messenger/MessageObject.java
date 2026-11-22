@@ -9,4 +9,7 @@ public class MessageObject {
     public int currentAccount;
     public TLRPC.Message messageOwner;
     public long getDialogId() { return 0; }
+    public TLRPC.Document getDocument() { return null; }
+    public TLRPC.Photo getPhoto() { return null; }
+    public boolean shouldEncryptPhotoOrVideo() { return false; }
 }
