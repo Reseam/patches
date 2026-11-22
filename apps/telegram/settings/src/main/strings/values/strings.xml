@@ -24,6 +24,22 @@
     <string name="section_downloads">Downloads</string>
     <string name="section_premium">Premium</string>
     <string name="section_privacy">Privacy</string>
+    <string name="section_messages">Messages</string>
+    <string name="show_message_ids">Show message IDs</string>
+    <string name="show_message_ids_summary">Before the time on each message.</string>
+    <string name="show_user_ids">Show user IDs</string>
+    <string name="show_user_ids_summary">In the menu of a person\'s message. Tap the ID to copy it.</string>
+    <string name="show_forward_dates">Show forward dates</string>
+    <string name="show_forward_dates_summary">When a forwarded message was first sent.</string>
+    <string name="edited_mark">Edited mark</string>
+    <string name="edited_mark_telegram">Telegram\'s label</string>
+    <string name="edited_mark_icon">Pencil icon</string>
+    <string name="edited_mark_custom">Custom text</string>
+    <string name="edited_mark_hidden">Hidden</string>
+    <string name="custom_edited_mark">Custom edited mark</string>
+    <string name="custom_edited_mark_summary">Used when Edited mark is Custom text.</string>
+    <string name="user_id">ID <xliff:g id="id">%1$s</xliff:g></string>
+    <string name="user_id_copied">ID copied</string>
     <string name="anti_delete_recovery_off">Stop keeping deleted messages</string>
     <string name="anti_delete_recovery_on">Keep deleted messages</string>
 </resources>

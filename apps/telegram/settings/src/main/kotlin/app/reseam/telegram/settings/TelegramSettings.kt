@@ -7,6 +7,7 @@ import app.reseam.patch.settings.Choice
 import app.reseam.patch.settings.SettingsGroup
 import app.reseam.patch.settings.Vector
 import app.reseam.patch.settings.choice
+import app.reseam.patch.settings.text
 import app.reseam.patch.settings.toggle
 
 object TelegramSettings : SettingsGroup(TelegramStrings) {
@@ -29,4 +30,20 @@ object TelegramSettings : SettingsGroup(TelegramStrings) {
             icon = Vector.lucide("messages-square"),
         )
     val allowScreenshots by toggle(default = true, icon = Vector.lucide("camera"))
+    val showMessageIds by toggle(default = false, icon = Vector.lucide("hash"))
+    val showUserIds by toggle(default = false, icon = Vector.lucide("id-card"))
+    val showForwardDates by toggle(default = false, icon = Vector.lucide("calendar-clock"))
+    val editedMark by
+        choice(
+            default = "telegram",
+            choices =
+                listOf(
+                    Choice("telegram", TelegramStrings.editedMarkTelegram),
+                    Choice("icon", TelegramStrings.editedMarkIcon),
+                    Choice("custom", TelegramStrings.editedMarkCustom),
+                    Choice("hidden", TelegramStrings.editedMarkHidden),
+                ),
+            icon = Vector.lucide("pencil"),
+        )
+    val customEditedMark by text(default = "(e)", icon = Vector.lucide("type"))
 }
