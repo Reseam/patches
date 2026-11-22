@@ -14,64 +14,56 @@ import java.util.regex.Pattern
 private val timelinePredicate = Pattern.compile("WHERE (t\\.)?timeline_id = \\?")
 private val recommendationPrefixes =
     listOf("who-to-follow-", "who-to-subscribe-", "community-to-join-")
+
 // The filter is shared, so each patch registers its own condition: one left out of the build adds none.
-@Volatile private var promoted: ToggleValue? = null
-@Volatile private var recommendations: ToggleValue? = null
-@Volatile private var videosForYou: ToggleValue? = null
-@Volatile private var stories: ToggleValue? = null
-@Volatile private var exploreTrends: ToggleValue? = null
-
-@Export
-fun hidePromoted(key: String, defaultValue: Boolean) {
-    promoted = ToggleValue(ReseamPatches.NAME, key, defaultValue)
+private class Filter(val conditions: (alias: String) -> List<String>) {
+    @Volatile var toggle: ToggleValue? = null
+    val enabled get() = toggle?.value == true
 }
 
-@Export
-fun hideRecommendations(key: String, defaultValue: Boolean) {
-    recommendations = ToggleValue(ReseamPatches.NAME, key, defaultValue)
+private val promoted = Filter { listOf("${it}promoted_metadata IS NULL") }
+private val recommendations = Filter { t -> recommendationPrefixes.map { "${t}entry_id NOT LIKE '$it%'" } }
+// A module's items carry the module's entry id as their prefix.
+private val videosForYou = Filter { listOf("${it}entry_id NOT LIKE 'video-carousel-%'") }
+private val stories = Filter { listOf("${it}entry_id NOT LIKE 'stories-%'") }
+private val discoverMore = Filter { listOf("${it}entry_id NOT LIKE 'tweetdetailrelatedtweets-%'") }
+private val exploreTrends = Filter {
+    listOf("NOT (${it}timeline_id LIKE 'EXPLORE_FOR_YOU%' AND ${it}entry_id LIKE 'trend-%')")
 }
+private val filters = listOf(promoted, recommendations, videosForYou, stories, discoverMore, exploreTrends)
 
 @Export
-fun hideVideosForYou(key: String, defaultValue: Boolean) {
-    videosForYou = ToggleValue(ReseamPatches.NAME, key, defaultValue)
-}
+fun hidePromoted(key: String, defaultValue: Boolean) = promoted.register(key, defaultValue)
 
 @Export
-fun hideStories(key: String, defaultValue: Boolean) {
-    stories = ToggleValue(ReseamPatches.NAME, key, defaultValue)
-}
+fun hideRecommendations(key: String, defaultValue: Boolean) = recommendations.register(key, defaultValue)
 
 @Export
-fun hideExploreTrends(key: String, defaultValue: Boolean) {
-    exploreTrends = ToggleValue(ReseamPatches.NAME, key, defaultValue)
-}
+fun hideVideosForYou(key: String, defaultValue: Boolean) = videosForYou.register(key, defaultValue)
+
+@Export
+fun hideStories(key: String, defaultValue: Boolean) = stories.register(key, defaultValue)
+
+@Export
+fun hideDiscoverMore(key: String, defaultValue: Boolean) = discoverMore.register(key, defaultValue)
+
+@Export
+fun hideExploreTrends(key: String, defaultValue: Boolean) = exploreTrends.register(key, defaultValue)
 
 @Export
 fun rewrite(sql: String?): String? {
     if (sql == null || !readsTimeline(sql)) return sql
-    val hidePromoted = promoted?.value == true
-    val hideRecommendations = recommendations?.value == true
-    val hideVideosForYou = videosForYou?.value == true
-    val hideStories = stories?.value == true
-    val hideExploreTrends = exploreTrends?.value == true
-    if (!hidePromoted && !hideRecommendations && !hideVideosForYou && !hideStories && !hideExploreTrends) return sql
+    val active = filters.filter { it.enabled }
+    if (active.isEmpty()) return sql
     val predicate = timelinePredicate.matcher(sql)
     if (!predicate.find()) return sql
     val alias = predicate.group(1) ?: ""
-    val conditions = buildList {
-        if (hidePromoted) add("${alias}promoted_metadata IS NULL")
-        if (hideRecommendations) {
-            addAll(recommendationPrefixes.map { "${alias}entry_id NOT LIKE '$it%'" })
-        }
-        if (hideVideosForYou) add("${alias}entry_id NOT LIKE 'video-carousel-%'")
-        // A story module's items carry the module's entry id as their prefix.
-        if (hideStories) add("${alias}entry_id NOT LIKE 'stories-%'")
-        if (hideExploreTrends) {
-            add("NOT (${alias}timeline_id LIKE 'EXPLORE_FOR_YOU%' AND ${alias}entry_id LIKE 'trend-%')")
-        }
-        add("${alias}timeline_id = ?")
-    }
+    val conditions = active.flatMap { it.conditions(alias) } + "${alias}timeline_id = ?"
     return predicate.replaceFirst("WHERE ${conditions.joinToString(" AND ")}")
+}
+
+private fun Filter.register(key: String, defaultValue: Boolean) {
+    toggle = ToggleValue(ReseamPatches.NAME, key, defaultValue)
 }
 
 private fun readsTimeline(sql: String): Boolean {
