@@ -71,6 +71,7 @@
     <string name="hide_live_avatar_rings">Hide live avatar rings</string>
     <string name="hide_recommendations">Hide recommendations</string>
     <string name="hide_recommendations_summary">Hides Who to follow, Subscribe to and Communities to join.</string>
+    <string name="hide_videos_for_you">Hide Videos for you</string>
     <string name="show_withheld_posts">Show withheld posts</string>
     <string name="show_withheld_posts_summary">Loads withheld posts and profiles from FxTwitter, which sees your IP address and what you open.</string>
     <string name="withheld_repost_refused">X blocks reposts of withheld posts. Use Quote instead.</string>

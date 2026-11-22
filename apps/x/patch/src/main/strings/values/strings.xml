@@ -78,6 +78,8 @@
     <string name="hide_post_metrics_description">Hides the counts on posts. The buttons keep working.</string>
     <string name="hide_recommendations">Hide recommendations</string>
     <string name="hide_recommendations_description">Hides Who to follow, Subscribe to and Communities to join.</string>
+    <string name="hide_videos_for_you">Hide Videos for you</string>
+    <string name="hide_videos_for_you_description">Hides the Videos for you carousel in timelines.</string>
     <string name="show_poll_results">Show poll results</string>
     <string name="show_poll_results_description">Shows poll results before you vote.</string>
     <string name="show_withheld_posts">Show withheld posts</string>

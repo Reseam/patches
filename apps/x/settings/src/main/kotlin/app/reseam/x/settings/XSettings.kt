@@ -51,6 +51,7 @@ object XSettings : SettingsGroup(XStrings) {
     val hideLiveBar by toggle(default = true, icon = Vector.lucide("radio"))
     val hideLiveAvatarRings by toggle(default = false, icon = Vector.lucide("circle-dot"))
     val hideRecommendations by toggle(default = false, icon = Vector.lucide("user-plus"))
+    val hideVideosForYou by toggle(default = false, icon = Vector.lucide("video-off"))
     val showWithheldPosts by toggle(default = false, icon = Vector.lucide("eye"))
     val showPollResults by toggle(default = false, icon = Vector.lucide("chart-bar"))
     val hideViewCounts by toggle(default = false, icon = Vector.lucide("chart-no-axes-column"))

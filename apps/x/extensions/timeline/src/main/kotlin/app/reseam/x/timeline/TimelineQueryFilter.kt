@@ -17,6 +17,7 @@ private val recommendationPrefixes =
 // The filter is shared, so each patch registers its own condition: one left out of the build adds none.
 @Volatile private var promoted: ToggleValue? = null
 @Volatile private var recommendations: ToggleValue? = null
+@Volatile private var videosForYou: ToggleValue? = null
 @Volatile private var stories: ToggleValue? = null
 @Volatile private var exploreTrends: ToggleValue? = null
 
@@ -28,6 +29,11 @@ fun hidePromoted(key: String, defaultValue: Boolean) {
 @Export
 fun hideRecommendations(key: String, defaultValue: Boolean) {
     recommendations = ToggleValue(ReseamPatches.NAME, key, defaultValue)
+}
+
+@Export
+fun hideVideosForYou(key: String, defaultValue: Boolean) {
+    videosForYou = ToggleValue(ReseamPatches.NAME, key, defaultValue)
 }
 
 @Export
@@ -45,9 +51,10 @@ fun rewrite(sql: String?): String? {
     if (sql == null || !readsTimeline(sql)) return sql
     val hidePromoted = promoted?.value == true
     val hideRecommendations = recommendations?.value == true
+    val hideVideosForYou = videosForYou?.value == true
     val hideStories = stories?.value == true
     val hideExploreTrends = exploreTrends?.value == true
-    if (!hidePromoted && !hideRecommendations && !hideStories && !hideExploreTrends) return sql
+    if (!hidePromoted && !hideRecommendations && !hideVideosForYou && !hideStories && !hideExploreTrends) return sql
     val predicate = timelinePredicate.matcher(sql)
     if (!predicate.find()) return sql
     val alias = predicate.group(1) ?: ""
@@ -56,6 +63,7 @@ fun rewrite(sql: String?): String? {
         if (hideRecommendations) {
             addAll(recommendationPrefixes.map { "${alias}entry_id NOT LIKE '$it%'" })
         }
+        if (hideVideosForYou) add("${alias}entry_id NOT LIKE 'video-carousel-%'")
         // A story module's items carry the module's entry id as their prefix.
         if (hideStories) add("${alias}entry_id NOT LIKE 'stories-%'")
         if (hideExploreTrends) {
