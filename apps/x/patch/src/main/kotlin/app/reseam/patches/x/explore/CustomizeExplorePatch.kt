@@ -33,6 +33,7 @@ val customizeExplore = patch(XPatchStrings.customizeExplore) {
             XStrings.sectionExplore,
             XSettings.hideGrokStories,
             XSettings.hideExploreTrends,
+            XSettings.hideExplorePosts,
             XSettings.hideTrendingTab,
             XSettings.hideNewsTab,
             XSettings.hideSportsTab,
@@ -44,6 +45,7 @@ val customizeExplore = patch(XPatchStrings.customizeExplore) {
         appEntry {
             TimelineQueryFilter.hideStories(string(XSettings.hideGrokStories.key), bool(XSettings.hideGrokStories.default))
             TimelineQueryFilter.hideExploreTrends(string(XSettings.hideExploreTrends.key), bool(XSettings.hideExploreTrends.default))
+            TimelineQueryFilter.hideExplorePosts(string(XSettings.hideExplorePosts.key), bool(XSettings.hideExplorePosts.default))
         }
         ExploreTabs.segmentedTimelineId.implement {
             returnValue(param(0).cast(urpTimeline.descriptor).field(segmentedTimelineId))

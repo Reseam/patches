@@ -90,6 +90,7 @@ object XSettings : SettingsGroup(XStrings) {
     val hideLikesTab by toggle(default = false, icon = Vector.lucide("heart-off"))
     val hideGrokStories by toggle(default = false, icon = Vector.lucide("sparkles"))
     val hideExploreTrends by toggle(default = false, icon = Vector.lucide("trending-up"))
+    val hideExplorePosts by toggle(default = false, icon = Vector.lucide("layout-list"))
     val hideTrendingTab by toggle(default = false, icon = Vector.lucide("flame"))
     val hideNewsTab by toggle(default = false, icon = Vector.lucide("newspaper"))
     val hideSportsTab by toggle(default = false, icon = Vector.lucide("trophy"))

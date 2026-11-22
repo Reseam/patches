@@ -7,7 +7,7 @@
     <string name="settings_entry">Reseam settings entry</string>
     <string name="settings_entry_description">Adds Reseam Settings to X\'s Settings and privacy.</string>
     <string name="customize_explore">Customize Explore</string>
-    <string name="customize_explore_description">Hides Grok stories, trends and chosen Explore tabs.</string>
+    <string name="customize_explore_description">Hides Grok stories, trends, Posts for you and chosen Explore tabs.</string>
     <string name="user_feature_switches">Feature flag overrides</string>
     <string name="user_feature_switches_description">Sets X\'s feature switches to values you choose.</string>
     <string name="grok">Hide Grok</string>

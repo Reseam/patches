@@ -30,7 +30,15 @@ private val discoverMore = Filter { listOf("${it}entry_id NOT LIKE 'tweetdetailr
 private val exploreTrends = Filter {
     listOf("NOT (${it}timeline_id LIKE 'EXPLORE_FOR_YOU%' AND ${it}entry_id LIKE 'trend-%')")
 }
-private val filters = listOf(promoted, recommendations, videosForYou, stories, discoverMore, exploreTrends)
+// Posts For You starts as a module of posts and continues as every later page, so the bottom cursor
+// that loads those pages goes too.
+private val explorePosts = Filter {
+    listOf(
+        "NOT (${it}timeline_id LIKE 'EXPLORE_FOR_YOU%' AND " +
+            "(${it}entry_id LIKE 'tweet-%' OR ${it}entry_id LIKE 'cursor-bottom-%'))",
+    )
+}
+private val filters = listOf(promoted, recommendations, videosForYou, stories, discoverMore, exploreTrends, explorePosts)
 
 @Export
 fun hidePromoted(key: String, defaultValue: Boolean) = promoted.register(key, defaultValue)
@@ -49,6 +57,9 @@ fun hideDiscoverMore(key: String, defaultValue: Boolean) = discoverMore.register
 
 @Export
 fun hideExploreTrends(key: String, defaultValue: Boolean) = exploreTrends.register(key, defaultValue)
+
+@Export
+fun hideExplorePosts(key: String, defaultValue: Boolean) = explorePosts.register(key, defaultValue)
 
 @Export
 fun rewrite(sql: String?): String? {

@@ -181,6 +181,8 @@
     <string name="hide_grok_stories_summary">Hides Today\'s News and the other story lists Grok writes. The News, Sports and Entertainment tabs show only these.</string>
     <string name="hide_explore_trends">Hide trends in For You</string>
     <string name="hide_explore_trends_summary">The Trending tab keeps them.</string>
+    <string name="hide_explore_posts">Hide Posts for you in For You</string>
+    <string name="hide_explore_posts_summary">The posts X lists under the trends.</string>
     <string name="hide_trending_tab">Hide Trending tab</string>
     <string name="hide_news_tab">Hide News tab</string>
     <string name="hide_sports_tab">Hide Sports tab</string>
@@ -217,7 +219,7 @@
     <string name="page_home">Home</string>
     <string name="page_home_summary">Home tabs, Live bar, post metrics and replies</string>
     <string name="page_explore">Explore</string>
-    <string name="page_explore_summary">Grok stories, trends and Explore tabs</string>
+    <string name="page_explore_summary">Grok stories, trends, posts and Explore tabs</string>
     <string name="page_profile">Profile</string>
     <string name="page_profile_summary">Profile tabs and the default media tab</string>
     <string name="page_navigation">Navigation</string>
