@@ -270,6 +270,8 @@
     <string name="hide_comments_emoji_and_timestamp_buttons">تبصروں کے ایموجی اور ٹائم اسٹیمپ بٹن چھپائیں</string>
     <string name="hide_comments_preview_comment">تبصروں کے پیش منظر چھپائیں</string>
     <string name="hide_comments_preview_comment_summary">فیڈز میں تبصروں کے پیش منظر چھپاتا ہے۔</string>
+    <string name="hide_comments_ask_teaser">تبصروں کے کارڈ میں Ask چھپائیں</string>
+    <string name="hide_comments_hype_teaser">تبصروں کے کارڈ میں Hype چھپائیں</string>
     <string name="hide_comments_section">تبصرے چھپائیں</string>
     <string name="hide_comments_section_in_home_feed">ہوم فیڈ میں تبصرے چھپائیں</string>
     <string name="hide_comments_thanks_button">تبصروں میں Thanks بٹن چھپائیں</string>

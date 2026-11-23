@@ -270,6 +270,8 @@
     <string name="hide_comments_emoji_and_timestamp_buttons">댓글의 이모지 및 타임스탬프 버튼 숨기기</string>
     <string name="hide_comments_preview_comment">댓글 미리보기 숨기기</string>
     <string name="hide_comments_preview_comment_summary">피드의 댓글 미리보기를 숨깁니다.</string>
+    <string name="hide_comments_ask_teaser">댓글 카드의 질문하기 숨기기</string>
+    <string name="hide_comments_hype_teaser">댓글 카드의 Hype 숨기기</string>
     <string name="hide_comments_section">댓글 숨기기</string>
     <string name="hide_comments_section_in_home_feed">홈 피드의 댓글 숨기기</string>
     <string name="hide_comments_thanks_button">댓글의 감사 버튼 숨기기</string>

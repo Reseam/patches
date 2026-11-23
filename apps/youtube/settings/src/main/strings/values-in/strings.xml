@@ -270,6 +270,8 @@
     <string name="hide_comments_emoji_and_timestamp_buttons">Sembunyikan tombol emoji dan stempel waktu di komentar</string>
     <string name="hide_comments_preview_comment">Sembunyikan pratinjau komentar</string>
     <string name="hide_comments_preview_comment_summary">Menyembunyikan pratinjau komentar di feed.</string>
+    <string name="hide_comments_ask_teaser">Sembunyikan Tanya di kartu komentar</string>
+    <string name="hide_comments_hype_teaser">Sembunyikan Hype di kartu komentar</string>
     <string name="hide_comments_section">Sembunyikan komentar</string>
     <string name="hide_comments_section_in_home_feed">Sembunyikan komentar di feed Beranda</string>
     <string name="hide_comments_thanks_button">Sembunyikan tombol Terima kasih di komentar</string>

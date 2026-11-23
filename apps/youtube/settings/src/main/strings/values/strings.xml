@@ -273,6 +273,8 @@
     <string name="hide_comments_emoji_and_timestamp_buttons">Hide comment emoji and timestamp buttons</string>
     <string name="hide_comments_preview_comment">Hide comment previews</string>
     <string name="hide_comments_preview_comment_summary">Hides comment previews in feeds.</string>
+    <string name="hide_comments_ask_teaser">Hide Ask in the comments card</string>
+    <string name="hide_comments_hype_teaser">Hide Hype in the comments card</string>
     <string name="hide_comments_section">Hide comments</string>
     <string name="hide_comments_section_in_home_feed">Hide comments in the home feed</string>
     <string name="hide_comments_thanks_button">Hide Thanks buttons in comments</string>

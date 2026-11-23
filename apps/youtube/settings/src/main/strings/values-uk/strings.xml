@@ -270,6 +270,8 @@
     <string name="hide_comments_emoji_and_timestamp_buttons">Приховати кнопки емодзі й позначок часу в коментарях</string>
     <string name="hide_comments_preview_comment">Приховати попередній перегляд коментарів</string>
     <string name="hide_comments_preview_comment_summary">Приховує попередній перегляд коментарів у стрічках.</string>
+    <string name="hide_comments_ask_teaser">Приховати «Запитати» в картці коментарів</string>
+    <string name="hide_comments_hype_teaser">Приховати Hype у картці коментарів</string>
     <string name="hide_comments_section">Приховати коментарі</string>
     <string name="hide_comments_section_in_home_feed">Приховати коментарі в стрічці головної</string>
     <string name="hide_comments_thanks_button">Приховати кнопки «Дякую» в коментарях</string>

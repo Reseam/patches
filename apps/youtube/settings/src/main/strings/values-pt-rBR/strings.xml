@@ -270,6 +270,8 @@
     <string name="hide_comments_emoji_and_timestamp_buttons">Ocultar botões de emoji e de marcação de tempo nos comentários</string>
     <string name="hide_comments_preview_comment">Ocultar prévias de comentários</string>
     <string name="hide_comments_preview_comment_summary">Oculta as prévias de comentários nos feeds.</string>
+    <string name="hide_comments_ask_teaser">Ocultar Perguntar no cartão de comentários</string>
+    <string name="hide_comments_hype_teaser">Ocultar Hype no cartão de comentários</string>
     <string name="hide_comments_section">Ocultar comentários</string>
     <string name="hide_comments_section_in_home_feed">Ocultar comentários no feed do Início</string>
     <string name="hide_comments_thanks_button">Ocultar botões Valeu nos comentários</string>

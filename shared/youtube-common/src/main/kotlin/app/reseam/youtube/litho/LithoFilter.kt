@@ -17,6 +17,9 @@ private val filters = mutableListOf<Filter>()
 private const val LAYOUT_THREAD_POOL_SIZE = 1
 private val pathSearch = StringTrieSearch<Parameters>()
 private val identifierSearch = StringTrieSearch<Parameters>()
+private val treeRewrites by lazy {
+    filters.flatMap { it.treeRewrites }.groupBy({ it.component }, { it.rewrite })
+}
 private val searchIndex by lazy {
     filters += CustomFilter()
     filters.forEach { filter ->
@@ -45,9 +48,19 @@ private fun StringTrieSearch<Parameters>.register(
     }
 }
 
+/** Returns the buffer the app is about to parse with the filters' tree rewrites applied, and remembers it. */
 @Export
-fun setProtoBuffer(buffer: ByteArray?) {
-    rememberProtoBuffer(buffer)
+fun prepareProtoBuffer(buffer: ByteArray?): ByteArray? {
+    val identifier = buffer?.let(::identifierOf) ?: return buffer
+    val prepared =
+        try {
+            treeRewrites[identifier.substringBefore(".e")]?.fold(buffer) { tree, rewrite -> rewrite(tree) } ?: buffer
+        } catch (ex: Exception) {
+            Logger.error(ex) { "Tree rewrite failure for $identifier" }
+            buffer
+        }
+    rememberProtoBuffer(identifier, prepared)
+    return prepared
 }
 
 /** Returns the enclosing tree, to restore with exitTree when this tree finishes building. */

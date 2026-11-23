@@ -270,6 +270,8 @@
     <string name="hide_comments_emoji_and_timestamp_buttons">Скрыть кнопки эмодзи и времени в комментариях</string>
     <string name="hide_comments_preview_comment">Скрыть предпросмотр комментариев</string>
     <string name="hide_comments_preview_comment_summary">Скрывает предпросмотр комментариев в лентах.</string>
+    <string name="hide_comments_ask_teaser">Скрыть «Спросить» в карточке комментариев</string>
+    <string name="hide_comments_hype_teaser">Скрыть Hype в карточке комментариев</string>
     <string name="hide_comments_section">Скрыть комментарии</string>
     <string name="hide_comments_section_in_home_feed">Скрыть комментарии в ленте главной</string>
     <string name="hide_comments_thanks_button">Скрыть кнопки «Спасибо» в комментариях</string>

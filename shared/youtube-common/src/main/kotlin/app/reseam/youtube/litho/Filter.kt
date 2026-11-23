@@ -20,6 +20,7 @@ abstract class Filter {
 
     val identifierCallbacks = mutableListOf<StringFilterGroup>()
     val pathCallbacks = mutableListOf<StringFilterGroup>()
+    val treeRewrites = mutableListOf<TreeRewrite>()
 
     protected fun addIdentifierCallbacks(vararg groups: StringFilterGroup) {
         identifierCallbacks += groups
@@ -29,10 +30,21 @@ abstract class Filter {
         pathCallbacks += groups
     }
 
+    /**
+     * Rewrites the proto of trees rooted at [component] before the app builds them. Content removed
+     * there leaves no gap, where a hidden component keeps its place in lists and pagers.
+     */
+    protected fun addTreeRewrite(component: String, rewrite: (ByteArray) -> ByteArray) {
+        treeRewrites += TreeRewrite(component, rewrite)
+    }
+
     /** Runs off the main thread once an enabled [group] matched [component]. */
     open fun isFiltered(component: LithoComponent, group: StringFilterGroup): Boolean =
         (group as? FilterRule)?.accepts?.invoke(component) ?: true
 }
+
+/** [component] is a tree root's name without its extension, as `video_metadata_carousel`. */
+class TreeRewrite(val component: String, val rewrite: (ByteArray) -> ByteArray)
 
 /** A group that hides a match only when [accepts] agrees. */
 open class FilterRule(

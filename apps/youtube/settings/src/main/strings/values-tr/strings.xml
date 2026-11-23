@@ -270,6 +270,8 @@
     <string name="hide_comments_emoji_and_timestamp_buttons">Yorumlardaki emoji ve zaman damgası düğmelerini gizle</string>
     <string name="hide_comments_preview_comment">Yorum önizlemelerini gizle</string>
     <string name="hide_comments_preview_comment_summary">Akışlardaki yorum önizlemelerini gizler.</string>
+    <string name="hide_comments_ask_teaser">Yorum kartında Sor\'u gizle</string>
+    <string name="hide_comments_hype_teaser">Yorum kartında Hype\'ı gizle</string>
     <string name="hide_comments_section">Yorumları gizle</string>
     <string name="hide_comments_section_in_home_feed">Ana Sayfa akışındaki yorumları gizle</string>
     <string name="hide_comments_thanks_button">Yorumlardaki Teşekkürler düğmelerini gizle</string>

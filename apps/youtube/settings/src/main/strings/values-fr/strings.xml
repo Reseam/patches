@@ -270,6 +270,8 @@
     <string name="hide_comments_emoji_and_timestamp_buttons">Masquer les boutons émoji et horodatage des commentaires</string>
     <string name="hide_comments_preview_comment">Masquer les aperçus de commentaires</string>
     <string name="hide_comments_preview_comment_summary">Masque les aperçus de commentaires dans les fils.</string>
+    <string name="hide_comments_ask_teaser">Masquer Demander dans la carte des commentaires</string>
+    <string name="hide_comments_hype_teaser">Masquer Hype dans la carte des commentaires</string>
     <string name="hide_comments_section">Masquer les commentaires</string>
     <string name="hide_comments_section_in_home_feed">Masquer les commentaires dans le fil d’Accueil</string>
     <string name="hide_comments_thanks_button">Masquer les boutons Merci dans les commentaires</string>

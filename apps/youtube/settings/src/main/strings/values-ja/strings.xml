@@ -270,6 +270,8 @@
     <string name="hide_comments_emoji_and_timestamp_buttons">コメントの絵文字とタイムスタンプのボタンを非表示</string>
     <string name="hide_comments_preview_comment">コメントのプレビューを非表示</string>
     <string name="hide_comments_preview_comment_summary">フィードのコメントのプレビューを非表示にします。</string>
+    <string name="hide_comments_ask_teaser">コメントカードの質問を非表示</string>
+    <string name="hide_comments_hype_teaser">コメントカードの Hype を非表示</string>
     <string name="hide_comments_section">コメントを非表示</string>
     <string name="hide_comments_section_in_home_feed">ホームフィードのコメントを非表示</string>
     <string name="hide_comments_thanks_button">コメントの Thanks ボタンを非表示</string>

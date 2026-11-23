@@ -270,6 +270,8 @@
     <string name="hide_comments_emoji_and_timestamp_buttons">پنهان کردن دکمه‌های اموجی و مهر زمانی در نظرها</string>
     <string name="hide_comments_preview_comment">پنهان کردن پیش‌نمایش نظرها</string>
     <string name="hide_comments_preview_comment_summary">پیش‌نمایش نظرها را در فیدها پنهان می‌کند.</string>
+    <string name="hide_comments_ask_teaser">پنهان کردن «پرسیدن» در کارت نظرها</string>
+    <string name="hide_comments_hype_teaser">پنهان کردن Hype در کارت نظرها</string>
     <string name="hide_comments_section">پنهان کردن نظرها</string>
     <string name="hide_comments_section_in_home_feed">پنهان کردن نظرها در فید صفحهٔ اصلی</string>
     <string name="hide_comments_thanks_button">پنهان کردن دکمه‌های «تشکر» در نظرها</string>

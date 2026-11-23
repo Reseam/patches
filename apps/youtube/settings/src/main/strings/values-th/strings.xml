@@ -270,6 +270,8 @@
     <string name="hide_comments_emoji_and_timestamp_buttons">ซ่อนปุ่มอีโมจิและการประทับเวลาในความคิดเห็น</string>
     <string name="hide_comments_preview_comment">ซ่อนตัวอย่างความคิดเห็น</string>
     <string name="hide_comments_preview_comment_summary">ซ่อนตัวอย่างความคิดเห็นในฟีด</string>
+    <string name="hide_comments_ask_teaser">ซ่อน \"ถาม\" ในการ์ดความคิดเห็น</string>
+    <string name="hide_comments_hype_teaser">ซ่อน Hype ในการ์ดความคิดเห็น</string>
     <string name="hide_comments_section">ซ่อนความคิดเห็น</string>
     <string name="hide_comments_section_in_home_feed">ซ่อนความคิดเห็นในฟีดหน้าแรก</string>
     <string name="hide_comments_thanks_button">ซ่อนปุ่ม \"ขอบคุณ\" ในความคิดเห็น</string>

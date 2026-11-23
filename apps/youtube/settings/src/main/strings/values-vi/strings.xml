@@ -270,6 +270,8 @@
     <string name="hide_comments_emoji_and_timestamp_buttons">Ẩn nút biểu tượng cảm xúc và dấu thời gian trong bình luận</string>
     <string name="hide_comments_preview_comment">Ẩn bản xem trước bình luận</string>
     <string name="hide_comments_preview_comment_summary">Ẩn bản xem trước bình luận trong bảng feed.</string>
+    <string name="hide_comments_ask_teaser">Ẩn Hỏi trong thẻ bình luận</string>
+    <string name="hide_comments_hype_teaser">Ẩn Hype trong thẻ bình luận</string>
     <string name="hide_comments_section">Ẩn bình luận</string>
     <string name="hide_comments_section_in_home_feed">Ẩn bình luận trong bảng feed Trang chủ</string>
     <string name="hide_comments_thanks_button">Ẩn nút Cảm ơn trong bình luận</string>

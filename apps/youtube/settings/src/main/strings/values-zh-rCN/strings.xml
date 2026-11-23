@@ -270,6 +270,8 @@
     <string name="hide_comments_emoji_and_timestamp_buttons">隐藏评论中的表情和时间戳按钮</string>
     <string name="hide_comments_preview_comment">隐藏评论预览</string>
     <string name="hide_comments_preview_comment_summary">隐藏推荐流中的评论预览。</string>
+    <string name="hide_comments_ask_teaser">隐藏评论卡片中的“提问”</string>
+    <string name="hide_comments_hype_teaser">隐藏评论卡片中的 Hype</string>
     <string name="hide_comments_section">隐藏评论</string>
     <string name="hide_comments_section_in_home_feed">隐藏首页推荐流中的评论</string>
     <string name="hide_comments_thanks_button">隐藏评论中的“感谢”按钮</string>

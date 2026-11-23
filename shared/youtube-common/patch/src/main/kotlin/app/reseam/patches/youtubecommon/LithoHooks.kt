@@ -14,12 +14,11 @@ import app.reseam.patch.reserveLocal
 import app.reseam.youtube.litho.bindings.LithoFilter
 
 internal fun PatchRuntime.installLithoHooks() {
-    // Observe both providers without changing their model representation. Some components
-    // (notably expandable community posts) serialize UPB models back to protobuf; the
-    // FlatBuffer implementation of the same interface cannot perform that operation.
-    // YouTube Music has dropped the FlatBuffer one.
-    flatbufferElementParsers.all.forEach { it.before { LithoFilter.setProtoBuffer(param(0)) } }
-    upbElementParser.before { LithoFilter.setProtoBuffer(param(0)) }
+    // Hook both providers and keep their model representation: some components (notably
+    // expandable community posts) serialize UPB models back to protobuf, which the FlatBuffer
+    // implementation of the same interface cannot. YouTube Music has dropped the FlatBuffer one.
+    flatbufferElementParsers.all.forEach { it.before { param(0).assign(LithoFilter.prepareProtoBuffer(param(0))) } }
+    upbElementParser.before { param(0).assign(LithoFilter.prepareProtoBuffer(param(0))) }
 
     // A tree's components take its root's own bytes. Templates are materialized into new
     // elements natively, so a parsed buffer cannot be traced to the tree built from it, and the

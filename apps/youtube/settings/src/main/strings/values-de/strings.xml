@@ -270,6 +270,8 @@
     <string name="hide_comments_emoji_and_timestamp_buttons">Emoji- und Zeitstempel-Schaltflächen in Kommentaren ausblenden</string>
     <string name="hide_comments_preview_comment">Kommentarvorschauen ausblenden</string>
     <string name="hide_comments_preview_comment_summary">Blendet Kommentarvorschauen in Feeds aus.</string>
+    <string name="hide_comments_ask_teaser">„Fragen“ in der Kommentarkarte ausblenden</string>
+    <string name="hide_comments_hype_teaser">Hype in der Kommentarkarte ausblenden</string>
     <string name="hide_comments_section">Kommentare ausblenden</string>
     <string name="hide_comments_section_in_home_feed">Kommentare im Start-Feed ausblenden</string>
     <string name="hide_comments_thanks_button">Thanks-Schaltflächen in Kommentaren ausblenden</string>

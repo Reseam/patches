@@ -270,6 +270,8 @@
     <string name="hide_comments_emoji_and_timestamp_buttons">Nascondi i pulsanti emoji e timestamp nei commenti</string>
     <string name="hide_comments_preview_comment">Nascondi le anteprime dei commenti</string>
     <string name="hide_comments_preview_comment_summary">Nasconde le anteprime dei commenti nei feed.</string>
+    <string name="hide_comments_ask_teaser">Nascondi Chiedi nella scheda dei commenti</string>
+    <string name="hide_comments_hype_teaser">Nascondi Hype nella scheda dei commenti</string>
     <string name="hide_comments_section">Nascondi i commenti</string>
     <string name="hide_comments_section_in_home_feed">Nascondi i commenti nel feed della Home</string>
     <string name="hide_comments_thanks_button">Nascondi i pulsanti Grazie nei commenti</string>

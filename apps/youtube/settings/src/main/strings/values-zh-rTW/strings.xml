@@ -270,6 +270,8 @@
     <string name="hide_comments_emoji_and_timestamp_buttons">隱藏留言中的表情符號和時間戳記按鈕</string>
     <string name="hide_comments_preview_comment">隱藏留言預覽</string>
     <string name="hide_comments_preview_comment_summary">隱藏動態中的留言預覽。</string>
+    <string name="hide_comments_ask_teaser">隱藏留言卡片中的「提問」</string>
+    <string name="hide_comments_hype_teaser">隱藏留言卡片中的 Hype</string>
     <string name="hide_comments_section">隱藏留言</string>
     <string name="hide_comments_section_in_home_feed">隱藏首頁動態中的留言</string>
     <string name="hide_comments_thanks_button">隱藏留言中的「感謝」按鈕</string>

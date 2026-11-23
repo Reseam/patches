@@ -270,6 +270,8 @@
     <string name="hide_comments_emoji_and_timestamp_buttons">कमेंट के इमोजी और टाइमस्टैंप बटन छिपाएँ</string>
     <string name="hide_comments_preview_comment">कमेंट की झलक छिपाएँ</string>
     <string name="hide_comments_preview_comment_summary">फ़ीड में कमेंट की झलक छिपाता है।</string>
+    <string name="hide_comments_ask_teaser">कमेंट कार्ड में Ask छिपाएँ</string>
+    <string name="hide_comments_hype_teaser">कमेंट कार्ड में Hype छिपाएँ</string>
     <string name="hide_comments_section">कमेंट छिपाएँ</string>
     <string name="hide_comments_section_in_home_feed">होम फ़ीड में कमेंट छिपाएँ</string>
     <string name="hide_comments_thanks_button">कमेंट में Thanks बटन छिपाएँ</string>

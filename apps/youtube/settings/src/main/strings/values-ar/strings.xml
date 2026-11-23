@@ -270,6 +270,8 @@
     <string name="hide_comments_emoji_and_timestamp_buttons">إخفاء زرَّي الرموز التعبيرية والطابع الزمني في التعليقات</string>
     <string name="hide_comments_preview_comment">إخفاء معاينات التعليقات</string>
     <string name="hide_comments_preview_comment_summary">يُخفي معاينات التعليقات في الخلاصات.</string>
+    <string name="hide_comments_ask_teaser">إخفاء «اسأل» في بطاقة التعليقات</string>
+    <string name="hide_comments_hype_teaser">إخفاء Hype في بطاقة التعليقات</string>
     <string name="hide_comments_section">إخفاء التعليقات</string>
     <string name="hide_comments_section_in_home_feed">إخفاء التعليقات في الخلاصة الرئيسية</string>
     <string name="hide_comments_thanks_button">إخفاء أزرار الشكر في التعليقات</string>

@@ -9,10 +9,8 @@ private val currentTree = ThreadLocal<Tree>()
 private val threadBuffers = ThreadLocal<MutableMap<String, ByteArray>>()
 private val globalBuffers = LinkedHashMap<String, ByteArray>(200)
 
-/** Retains identified buffers in the global and calling-thread caches; null is ignored. */
-internal fun rememberProtoBuffer(buffer: ByteArray?) {
-    if (buffer == null) return
-    val identifier = identifierOf(buffer) ?: return
+/** Retains a buffer under its identifier in the global and calling-thread caches. */
+internal fun rememberProtoBuffer(identifier: String, buffer: ByteArray) {
     synchronized(globalBuffers) { globalBuffers.remember(identifier, buffer) }
     val local =
         threadBuffers.get() ?: LinkedHashMap<String, ByteArray>(200).also(threadBuffers::set)

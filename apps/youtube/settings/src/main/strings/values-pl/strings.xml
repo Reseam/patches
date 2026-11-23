@@ -270,6 +270,8 @@
     <string name="hide_comments_emoji_and_timestamp_buttons">Ukryj przyciski emoji i znacznika czasu w komentarzach</string>
     <string name="hide_comments_preview_comment">Ukryj podglądy komentarzy</string>
     <string name="hide_comments_preview_comment_summary">Ukrywa podglądy komentarzy w kanałach.</string>
+    <string name="hide_comments_ask_teaser">Ukryj Zapytaj na karcie komentarzy</string>
+    <string name="hide_comments_hype_teaser">Ukryj Hype na karcie komentarzy</string>
     <string name="hide_comments_section">Ukryj komentarze</string>
     <string name="hide_comments_section_in_home_feed">Ukryj komentarze na stronie głównej</string>
     <string name="hide_comments_thanks_button">Ukryj przyciski Dziękuję w komentarzach</string>
