@@ -9,8 +9,11 @@
     <string name="hide_typing">Yazıyor göstergesini gizle</string>
     <string name="boost_downloads">Daha hızlı indirmeler</string>
     <string name="save_from_restricted">Kısıtlı sohbetlerden kaydet</string>
-    <string name="save_from_restricted_summary">Korumalı sohbetlerde kopyalamaya, kaydetmeye ve iletmeye izin verir.</string>
+    <string name="save_from_restricted_summary">Metin kopyalamaya ve iletmeye de izin verir. Medya iletilmeden önce indirilir.</string>
     <string name="restricted_media_not_loaded">Bazı medyalar indirilemedi.</string>
+    <string name="restricted_forward_channel">İletme</string>
+    <string name="restricted_forward_preparing">İletmeye hazırlanıyor</string>
+    <string name="restricted_forward_progress"><xliff:g id="loaded">%1$s</xliff:g> / <xliff:g id="total">%2$s</xliff:g></string>
     <string name="remove_play_store_restrictions">Play Store kısıtlamalarını kaldır</string>
     <string name="remove_play_store_restrictions_summary">Telegram\'ın yalnızca Play Store sürümünde gizlediği sohbetleri ve medyayı gösterir.</string>
     <string name="recover_deleted">Silinen mesajları tut</string>

@@ -13,9 +13,9 @@
     <string name="anti_delete">Zachowuj usunięte wiadomości</string>
     <string name="anti_delete_description">Zachowuje wiadomości usunięte przez innych i pokazuje je w czacie.</string>
     <string name="bypass_restrictions">Zapisuj z czatów z ograniczeniami</string>
-    <string name="bypass_restrictions_description">Pozwala kopiować, zapisywać i przekazywać dalej w chronionych czatach.</string>
+    <string name="bypass_restrictions_description">Pozwala kopiować tekst, zapisywać multimedia i przekazywać dalej w czatach i kanałach, które ograniczają zapisywanie treści.</string>
     <string name="forward_from_restricted">Przekazuj z czatów z ograniczeniami</string>
-    <string name="forward_from_restricted_description">Wysyła wiadomości z czatów blokujących przekazywanie jako nowe wiadomości.</string>
+    <string name="forward_from_restricted_description">Przekazuje wiadomości z czatów i kanałów, które ograniczają zapisywanie treści, jako nowe wiadomości, najpierw pobierając ich multimedia.</string>
     <string name="hide_typing_indicator">Ukryj wskaźnik pisania</string>
     <string name="hide_typing_indicator_description">Inni nie widzą, że piszesz lub nagrywasz.</string>
     <string name="play_store_restrictions">Usuń ograniczenia Sklepu Play</string>

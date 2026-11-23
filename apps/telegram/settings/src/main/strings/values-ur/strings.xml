@@ -9,8 +9,11 @@
     <string name="hide_typing">ٹائپنگ کا اشارہ چھپائیں</string>
     <string name="boost_downloads">تیز ڈاؤن لوڈز</string>
     <string name="save_from_restricted">محدود چیٹس سے محفوظ کریں</string>
-    <string name="save_from_restricted_summary">محدود چیٹس میں کاپی، محفوظ اور فارورڈ کرنے کی اجازت دیتا ہے۔</string>
+    <string name="save_from_restricted_summary">متن کاپی کرنے اور فارورڈ کرنے کی بھی اجازت دیتا ہے۔ میڈیا فارورڈ ہونے سے پہلے ڈاؤن لوڈ ہوتا ہے۔</string>
     <string name="restricted_media_not_loaded">کچھ میڈیا ڈاؤن لوڈ نہیں ہو سکا۔</string>
+    <string name="restricted_forward_channel">فارورڈ کرنا</string>
+    <string name="restricted_forward_preparing">فارورڈ کرنے کی تیاری ہو رہی ہے</string>
+    <string name="restricted_forward_progress"><xliff:g id="total">%2$s</xliff:g> میں سے <xliff:g id="loaded">%1$s</xliff:g></string>
     <string name="remove_play_store_restrictions">Play Store کی پابندیاں ہٹائیں</string>
     <string name="remove_play_store_restrictions_summary">وہ چیٹس اور میڈیا دکھاتا ہے جو Telegram صرف اپنے Play Store ورژن میں چھپاتا ہے۔</string>
     <string name="recover_deleted">حذف شدہ پیغامات رکھیں</string>

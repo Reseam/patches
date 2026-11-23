@@ -9,8 +9,11 @@
     <string name="hide_typing">Sembunyikan indikator mengetik</string>
     <string name="boost_downloads">Download lebih cepat</string>
     <string name="save_from_restricted">Simpan dari chat yang dibatasi</string>
-    <string name="save_from_restricted_summary">Mengizinkan menyalin, menyimpan, dan meneruskan di chat yang dilindungi.</string>
+    <string name="save_from_restricted_summary">Juga mengizinkan menyalin teks dan meneruskan. Media diunduh sebelum diteruskan.</string>
     <string name="restricted_media_not_loaded">Beberapa media tidak dapat diunduh.</string>
+    <string name="restricted_forward_channel">Meneruskan</string>
+    <string name="restricted_forward_preparing">Menyiapkan penerusan</string>
+    <string name="restricted_forward_progress"><xliff:g id="loaded">%1$s</xliff:g> dari <xliff:g id="total">%2$s</xliff:g></string>
     <string name="remove_play_store_restrictions">Hapus pembatasan Play Store</string>
     <string name="remove_play_store_restrictions_summary">Menampilkan chat dan media yang disembunyikan Telegram hanya di versi Play Store.</string>
     <string name="recover_deleted">Simpan pesan yang dihapus</string>

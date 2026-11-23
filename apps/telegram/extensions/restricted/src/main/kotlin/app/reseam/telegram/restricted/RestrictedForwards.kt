@@ -5,7 +5,11 @@
 
 package app.reseam.telegram.restricted
 
+import android.text.format.Formatter.formatShortFileSize
+import app.reseam.bundle.ProgressNotifications
 import app.reseam.runtime.Export
+import app.reseam.telegram.settings.TelegramStrings
+import org.telegram.messenger.ApplicationLoader
 import org.telegram.messenger.MessageObject
 import org.telegram.messenger.MessageSuggestionParams
 import org.telegram.messenger.MessagesController
@@ -14,7 +18,8 @@ import org.telegram.tgnet.TLRPC
 
 /**
  * Sends messages from a chat that blocks forwarding as new uploads, after loading any media that
- * is not on the phone yet. Returns true when it took over the forward.
+ * is not on the phone yet, with a notification showing that loading. Returns true when it took over
+ * the forward.
  */
 @Export
 fun forward(
@@ -28,7 +33,9 @@ fun forward(
     val first = items.firstOrNull() ?: return false
     if (!first.isProtected) return false
     val helper = SendMessagesHelper.getInstance(first.currentAccount)
-    whenLocal(items) { ready ->
+    val notification = notifications.newId()
+    whenLocal(items, { loaded, total -> showPreparing(notification, loaded, total) }) { ready ->
+        notifications.dismiss(notification)
         ready.forEach { helper.processForwardFromMyName(it, peer, payStars, monoForumPeerId, suggestionParams) }
     }
     return true
@@ -48,6 +55,20 @@ fun uploadLocalCopy(params: SendMessagesHelper.SendMessageParams?) {
     params.photo = params.photo?.uploadCopy()
     params.document = params.document?.uploadCopy()
     params.path = file.absolutePath
+}
+
+private val notifications by lazy {
+    ProgressNotifications(ApplicationLoader.applicationContext, "reseam_forwards", TelegramStrings.restrictedForwardChannel)
+}
+
+private fun showPreparing(notification: Int, loaded: Long, total: Long) {
+    val context = ApplicationLoader.applicationContext
+    notifications.progress(
+        notification,
+        TelegramStrings.restrictedForwardPreparing,
+        TelegramStrings.restrictedForwardProgress(formatShortFileSize(context, loaded), formatShortFileSize(context, total)),
+        loaded.toFloat() / total,
+    )
 }
 
 private val MessageObject.isProtected: Boolean

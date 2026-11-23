@@ -19,7 +19,9 @@ public class TLRPC {
         public ArrayList<Object> video_sizes;
         public boolean has_stickers;
     }
-    public abstract static class PhotoSize extends TLObject {}
+    public abstract static class PhotoSize extends TLObject {
+        public int size;
+    }
     public abstract static class Document extends TLObject {
         public byte[] file_reference;
         public int date;

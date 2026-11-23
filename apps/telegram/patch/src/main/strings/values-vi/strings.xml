@@ -13,9 +13,9 @@
     <string name="anti_delete">Giữ lại tin nhắn đã xóa</string>
     <string name="anti_delete_description">Giữ lại tin nhắn người khác đã xóa và hiển thị trong cuộc trò chuyện.</string>
     <string name="bypass_restrictions">Lưu từ cuộc trò chuyện bị hạn chế</string>
-    <string name="bypass_restrictions_description">Cho phép sao chép, lưu và chuyển tiếp trong cuộc trò chuyện được bảo vệ.</string>
+    <string name="bypass_restrictions_description">Cho phép sao chép văn bản, lưu nội dung đa phương tiện và chuyển tiếp trong cuộc trò chuyện và kênh hạn chế lưu nội dung.</string>
     <string name="forward_from_restricted">Chuyển tiếp từ cuộc trò chuyện bị hạn chế</string>
-    <string name="forward_from_restricted_description">Gửi tin nhắn từ các cuộc trò chuyện chặn chuyển tiếp dưới dạng tin nhắn mới.</string>
+    <string name="forward_from_restricted_description">Chuyển tiếp tin nhắn từ cuộc trò chuyện và kênh hạn chế lưu nội dung dưới dạng tin nhắn mới, sau khi tải xuống nội dung đa phương tiện.</string>
     <string name="hide_typing_indicator">Ẩn trạng thái đang nhập</string>
     <string name="hide_typing_indicator_description">Ngăn người khác thấy bạn đang nhập hoặc ghi âm.</string>
     <string name="play_store_restrictions">Gỡ hạn chế của Cửa hàng Play</string>

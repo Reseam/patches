@@ -13,9 +13,9 @@
     <string name="anti_delete">Simpan pesan yang dihapus</string>
     <string name="anti_delete_description">Menyimpan pesan yang dihapus orang lain dan menampilkannya di chat.</string>
     <string name="bypass_restrictions">Simpan dari chat yang dibatasi</string>
-    <string name="bypass_restrictions_description">Mengizinkan menyalin, menyimpan, dan meneruskan di chat yang dilindungi.</string>
+    <string name="bypass_restrictions_description">Mengizinkan menyalin teks, menyimpan media, dan meneruskan di chat dan channel yang membatasi penyimpanan konten.</string>
     <string name="forward_from_restricted">Teruskan dari chat yang dibatasi</string>
-    <string name="forward_from_restricted_description">Mengirim pesan dari chat yang memblokir penerusan sebagai pesan baru.</string>
+    <string name="forward_from_restricted_description">Meneruskan pesan dari chat dan channel yang membatasi penyimpanan konten sebagai pesan baru, dengan mengunduh medianya terlebih dahulu.</string>
     <string name="hide_typing_indicator">Sembunyikan indikator mengetik</string>
     <string name="hide_typing_indicator_description">Mencegah orang lain melihat bahwa Anda sedang mengetik atau merekam.</string>
     <string name="play_store_restrictions">Hapus pembatasan Play Store</string>

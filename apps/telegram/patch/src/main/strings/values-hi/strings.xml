@@ -13,9 +13,9 @@
     <string name="anti_delete">हटाए गए मैसेज रखें</string>
     <string name="anti_delete_description">दूसरों के हटाए गए मैसेज रखता है और उन्हें चैट में दिखाता है।</string>
     <string name="bypass_restrictions">प्रतिबंधित चैट से सेव करें</string>
-    <string name="bypass_restrictions_description">सुरक्षित चैट में कॉपी, सेव और फ़ॉरवर्ड करने देता है।</string>
+    <string name="bypass_restrictions_description">जिन चैट और चैनल में कंटेंट सेव करना प्रतिबंधित है, उनमें टेक्स्ट कॉपी करने, मीडिया सेव करने और फ़ॉरवर्ड करने देता है।</string>
     <string name="forward_from_restricted">प्रतिबंधित चैट से फ़ॉरवर्ड करें</string>
-    <string name="forward_from_restricted_description">जिन चैट में फ़ॉरवर्ड करना बंद है, उनके मैसेज नए मैसेज के रूप में भेजता है।</string>
+    <string name="forward_from_restricted_description">जिन चैट और चैनल में कंटेंट सेव करना प्रतिबंधित है, उनके मैसेज पहले मीडिया डाउनलोड करके नए मैसेज के रूप में फ़ॉरवर्ड करता है।</string>
     <string name="hide_typing_indicator">टाइपिंग का संकेत छिपाएँ</string>
     <string name="hide_typing_indicator_description">दूसरों को यह नहीं दिखता कि आप टाइप या रिकॉर्ड कर रहे हैं।</string>
     <string name="play_store_restrictions">Play Store की पाबंदियाँ हटाएँ</string>

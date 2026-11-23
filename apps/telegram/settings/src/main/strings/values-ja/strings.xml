@@ -9,8 +9,11 @@
     <string name="hide_typing">入力中の表示を隠す</string>
     <string name="boost_downloads">ダウンロードを高速化</string>
     <string name="save_from_restricted">制限付きチャットから保存</string>
-    <string name="save_from_restricted_summary">保護されたチャットでコピー、保存、転送ができるようにします。</string>
+    <string name="save_from_restricted_summary">テキストのコピーと転送もできるようにします。メディアは転送前にダウンロードされます。</string>
     <string name="restricted_media_not_loaded">一部のメディアをダウンロードできませんでした。</string>
+    <string name="restricted_forward_channel">転送</string>
+    <string name="restricted_forward_preparing">転送の準備中</string>
+    <string name="restricted_forward_progress"><xliff:g id="loaded">%1$s</xliff:g> / <xliff:g id="total">%2$s</xliff:g></string>
     <string name="remove_play_store_restrictions">Play ストアの制限を解除</string>
     <string name="remove_play_store_restrictions_summary">Telegram が Play ストア版でのみ隠しているチャットとメディアを表示します。</string>
     <string name="recover_deleted">削除されたメッセージを残す</string>

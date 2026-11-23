@@ -5,6 +5,7 @@ package app.reseam.youtube.savetodevice
 
 import android.content.ContentResolver
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
@@ -12,6 +13,7 @@ import android.provider.DocumentsContract
 import android.system.ErrnoException
 import android.system.OsConstants
 import app.reseam.bundle.Logger
+import app.reseam.bundle.ProgressNotifications
 import app.reseam.youtubesavetodevice.settings.SaveToDeviceStrings
 import java.io.ByteArrayOutputStream
 import java.io.File
@@ -31,7 +33,7 @@ private const val MAX_NAME = 120
 
 /** Saves on one background thread, in the order asked, into the save folder [tree]. */
 internal fun enqueue(context: Context, tree: Uri, target: SaveTarget) {
-    val notifications = SaveNotifications(context)
+    val notifications = saveNotifications(context)
     executor.execute {
         // An exception leaving an executor thread would end the app's process.
         val id = notifications.newId()
@@ -43,7 +45,7 @@ internal fun enqueue(context: Context, tree: Uri, target: SaveTarget) {
             }
         } catch (exception: Exception) {
             Logger.error(exception) { "Could not read the offline library" }
-            notifications.failed(id, target.label, null)
+            notifications.saveFailed(id, target.label, null)
         }
     }
 }
@@ -51,12 +53,12 @@ internal fun enqueue(context: Context, tree: Uri, target: SaveTarget) {
 private fun saveVideo(
     context: Context,
     store: OfflineStore,
-    notifications: SaveNotifications,
+    notifications: ProgressNotifications,
     id: Int,
     tree: Uri,
     videoId: String,
 ) {
-    val video = store.video(videoId) ?: return notifications.failed(id, videoId, SaveToDeviceStrings.saveFailedIncomplete)
+    val video = store.video(videoId) ?: return notifications.saveFailed(id, videoId, SaveToDeviceStrings.saveFailedIncomplete)
     val document = save(context, store, notifications, id, video, tree.root(), null) ?: return
     notifications.saved(id, video.title, document, context.contentResolver.getType(document))
 }
@@ -64,14 +66,14 @@ private fun saveVideo(
 private fun savePlaylist(
     context: Context,
     store: OfflineStore,
-    notifications: SaveNotifications,
+    notifications: ProgressNotifications,
     id: Int,
     tree: Uri,
     playlistId: String,
 ) {
     val playlist = store.playlist(playlistId)
     if (playlist == null || playlist.videos.isEmpty()) {
-        notifications.failed(id, playlistId, SaveToDeviceStrings.saveFailedIncomplete)
+        notifications.saveFailed(id, playlistId, SaveToDeviceStrings.saveFailedIncomplete)
         return
     }
     val folder =
@@ -79,7 +81,7 @@ private fun savePlaylist(
             context.contentResolver.childFolder(tree, tree.root(), fileName(playlist.title))
         } catch (exception: Exception) {
             Logger.error(exception) { "Could not create the folder for ${playlist.title}" }
-            notifications.failed(id, playlist.title, SaveToDeviceStrings.saveFailedFolder)
+            notifications.saveFailed(id, playlist.title, SaveToDeviceStrings.saveFailedFolder)
             return
         }
     val total = playlist.videos.size
@@ -95,7 +97,7 @@ private fun savePlaylist(
 private fun save(
     context: Context,
     store: OfflineStore,
-    notifications: SaveNotifications,
+    notifications: ProgressNotifications,
     id: Int,
     video: SavedVideo,
     parent: Uri,
@@ -132,7 +134,7 @@ private fun save(
     } catch (exception: Exception) {
         Logger.error(exception) { "Could not save ${video.videoId}" }
         document?.let { runCatching { DocumentsContract.deleteDocument(resolver, it) } }
-        notifications.failed(id, video.title, reason(exception))
+        notifications.saveFailed(id, video.title, reason(exception))
         return null
     } finally {
         streams.forEach(CachedStream::close)
@@ -190,3 +192,20 @@ private fun ContentResolver.childFolder(tree: Uri, parent: Uri, name: String): U
     return DocumentsContract.createDocument(this, parent, DocumentsContract.Document.MIME_TYPE_DIR, name)
         ?: throw IOException("Could not create $name")
 }
+
+private fun saveNotifications(context: Context) =
+    ProgressNotifications(context, "reseam_save_to_device", SaveToDeviceStrings.notificationChannel)
+
+private fun ProgressNotifications.saved(id: Int, title: String, document: Uri, mimeType: String?) =
+    finished(id, SaveToDeviceStrings.saved(title), Intent(Intent.ACTION_VIEW).setDataAndType(document, mimeType), SaveToDeviceStrings.open)
+
+private fun ProgressNotifications.savedFolder(id: Int, text: String, folder: Uri) =
+    finished(
+        id,
+        text,
+        Intent(Intent.ACTION_VIEW).setDataAndType(folder, DocumentsContract.Document.MIME_TYPE_DIR),
+        SaveToDeviceStrings.open,
+    )
+
+private fun ProgressNotifications.saveFailed(id: Int, title: String, reason: String?) =
+    failed(id, SaveToDeviceStrings.saveFailed(title), reason)

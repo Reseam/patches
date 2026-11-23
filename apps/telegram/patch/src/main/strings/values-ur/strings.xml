@@ -13,9 +13,9 @@
     <string name="anti_delete">حذف شدہ پیغامات رکھیں</string>
     <string name="anti_delete_description">دوسروں کے حذف کردہ پیغامات کو رکھتا ہے اور انہیں چیٹ میں دکھاتا ہے۔</string>
     <string name="bypass_restrictions">محدود چیٹس سے محفوظ کریں</string>
-    <string name="bypass_restrictions_description">محدود چیٹس میں کاپی، محفوظ اور فارورڈ کرنے کی اجازت دیتا ہے۔</string>
+    <string name="bypass_restrictions_description">جن چیٹس اور چینلز میں مواد محفوظ کرنا محدود ہے، ان میں متن کاپی کرنے، میڈیا محفوظ کرنے اور فارورڈ کرنے کی اجازت دیتا ہے۔</string>
     <string name="forward_from_restricted">محدود چیٹس سے فارورڈ کریں</string>
-    <string name="forward_from_restricted_description">فارورڈنگ بلاک کرنے والی چیٹس کے پیغامات کو نئے پیغامات کے طور پر بھیجتا ہے۔</string>
+    <string name="forward_from_restricted_description">جن چیٹس اور چینلز میں مواد محفوظ کرنا محدود ہے، ان کے پیغامات پہلے میڈیا ڈاؤن لوڈ کر کے نئے پیغامات کے طور پر فارورڈ کرتا ہے۔</string>
     <string name="hide_typing_indicator">ٹائپنگ کا اشارہ چھپائیں</string>
     <string name="hide_typing_indicator_description">دوسروں کو یہ دیکھنے سے روکتا ہے کہ آپ ٹائپ یا ریکارڈ کر رہے ہیں۔</string>
     <string name="play_store_restrictions">Play Store کی پابندیاں ہٹائیں</string>

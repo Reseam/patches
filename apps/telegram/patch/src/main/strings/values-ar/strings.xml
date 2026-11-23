@@ -13,9 +13,9 @@
     <string name="anti_delete">الاحتفاظ بالرسائل المحذوفة</string>
     <string name="anti_delete_description">يحتفظ بالرسائل التي يحذفها الآخرون ويعرضها في الدردشة.</string>
     <string name="bypass_restrictions">الحفظ من الدردشات المقيّدة</string>
-    <string name="bypass_restrictions_description">يتيح النسخ والحفظ وإعادة التوجيه في الدردشات المحمية.</string>
+    <string name="bypass_restrictions_description">يتيح نسخ النصوص وحفظ الوسائط وإعادة التوجيه في الدردشات والقنوات التي تقيّد حفظ المحتوى.</string>
     <string name="forward_from_restricted">إعادة التوجيه من الدردشات المقيّدة</string>
-    <string name="forward_from_restricted_description">يرسل الرسائل من الدردشات التي تمنع إعادة التوجيه كرسائل جديدة.</string>
+    <string name="forward_from_restricted_description">يعيد توجيه رسائل الدردشات والقنوات التي تقيّد حفظ المحتوى كرسائل جديدة، بعد تنزيل وسائطها أولاً.</string>
     <string name="hide_typing_indicator">إخفاء مؤشر الكتابة</string>
     <string name="hide_typing_indicator_description">يمنع الآخرين من رؤية أنك تكتب أو تسجّل.</string>
     <string name="play_store_restrictions">إزالة قيود متجر Play</string>

@@ -9,8 +9,11 @@
     <string name="hide_typing">ซ่อนสถานะกำลังพิมพ์</string>
     <string name="boost_downloads">ดาวน์โหลดเร็วขึ้น</string>
     <string name="save_from_restricted">บันทึกจากแชทที่จำกัด</string>
-    <string name="save_from_restricted_summary">อนุญาตให้คัดลอก บันทึก และส่งต่อในแชทที่มีการป้องกัน</string>
+    <string name="save_from_restricted_summary">อนุญาตให้คัดลอกข้อความและส่งต่อด้วย สื่อจะถูกดาวน์โหลดก่อนส่งต่อ</string>
     <string name="restricted_media_not_loaded">ดาวน์โหลดสื่อบางรายการไม่ได้</string>
+    <string name="restricted_forward_channel">การส่งต่อ</string>
+    <string name="restricted_forward_preparing">กำลังเตรียมส่งต่อ</string>
+    <string name="restricted_forward_progress"><xliff:g id="loaded">%1$s</xliff:g> จาก <xliff:g id="total">%2$s</xliff:g></string>
     <string name="remove_play_store_restrictions">นำข้อจำกัดของ Play Store ออก</string>
     <string name="remove_play_store_restrictions_summary">แสดงแชทและสื่อที่ Telegram ซ่อนไว้เฉพาะในเวอร์ชัน Play Store</string>
     <string name="recover_deleted">เก็บข้อความที่ถูกลบ</string>

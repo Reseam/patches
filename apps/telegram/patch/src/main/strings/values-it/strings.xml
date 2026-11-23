@@ -13,9 +13,9 @@
     <string name="anti_delete">Conserva i messaggi eliminati</string>
     <string name="anti_delete_description">Conserva i messaggi che gli altri eliminano e li mostra nella chat.</string>
     <string name="bypass_restrictions">Salva dalle chat con restrizioni</string>
-    <string name="bypass_restrictions_description">Consente di copiare, salvare e inoltrare nelle chat protette.</string>
+    <string name="bypass_restrictions_description">Consente di copiare il testo, salvare i contenuti multimediali e inoltrare nelle chat e nei canali che limitano il salvataggio dei contenuti.</string>
     <string name="forward_from_restricted">Inoltra dalle chat con restrizioni</string>
-    <string name="forward_from_restricted_description">Invia come nuovi messaggi i messaggi delle chat che bloccano l’inoltro.</string>
+    <string name="forward_from_restricted_description">Inoltra come nuovi messaggi i messaggi delle chat e dei canali che limitano il salvataggio dei contenuti, scaricandone prima i contenuti multimediali.</string>
     <string name="hide_typing_indicator">Nascondi l’indicatore di scrittura</string>
     <string name="hide_typing_indicator_description">Impedisce agli altri di vedere che stai scrivendo o registrando.</string>
     <string name="play_store_restrictions">Rimuovi le restrizioni del Play Store</string>

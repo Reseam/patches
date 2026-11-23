@@ -9,8 +9,11 @@
     <string name="hide_typing">إخفاء مؤشر الكتابة</string>
     <string name="boost_downloads">تنزيلات أسرع</string>
     <string name="save_from_restricted">الحفظ من الدردشات المقيّدة</string>
-    <string name="save_from_restricted_summary">يتيح النسخ والحفظ وإعادة التوجيه في الدردشات المحمية.</string>
+    <string name="save_from_restricted_summary">يتيح أيضًا نسخ النصوص وإعادة التوجيه. تُنزَّل الوسائط قبل إعادة توجيهها.</string>
     <string name="restricted_media_not_loaded">تعذّر تنزيل بعض الوسائط.</string>
+    <string name="restricted_forward_channel">إعادة التوجيه</string>
+    <string name="restricted_forward_preparing">جارٍ التحضير لإعادة التوجيه</string>
+    <string name="restricted_forward_progress"><xliff:g id="loaded">%1$s</xliff:g> من <xliff:g id="total">%2$s</xliff:g></string>
     <string name="remove_play_store_restrictions">إزالة قيود متجر Play</string>
     <string name="remove_play_store_restrictions_summary">يعرض الدردشات والوسائط التي يُخفيها Telegram في إصدار متجر Play فقط.</string>
     <string name="recover_deleted">الاحتفاظ بالرسائل المحذوفة</string>

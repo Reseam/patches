@@ -9,8 +9,11 @@
     <string name="hide_typing">Приховати індикатор набору</string>
     <string name="boost_downloads">Швидші завантаження</string>
     <string name="save_from_restricted">Зберігати з обмежених чатів</string>
-    <string name="save_from_restricted_summary">Дозволяє копіювати, зберігати й пересилати в захищених чатах.</string>
+    <string name="save_from_restricted_summary">Також дозволяє копіювати текст і пересилати. Медіа завантажуються перед пересиланням.</string>
     <string name="restricted_media_not_loaded">Не вдалося завантажити частину медіа.</string>
+    <string name="restricted_forward_channel">Пересилання</string>
+    <string name="restricted_forward_preparing">Підготовка до пересилання</string>
+    <string name="restricted_forward_progress"><xliff:g id="loaded">%1$s</xliff:g> з <xliff:g id="total">%2$s</xliff:g></string>
     <string name="remove_play_store_restrictions">Прибрати обмеження Play Маркету</string>
     <string name="remove_play_store_restrictions_summary">Показує чати й медіа, які Telegram приховує лише у версії з Play Маркету.</string>
     <string name="recover_deleted">Зберігати видалені повідомлення</string>

@@ -13,9 +13,9 @@
     <string name="anti_delete">Keep deleted messages</string>
     <string name="anti_delete_description">Keeps messages others delete and shows them in the chat.</string>
     <string name="bypass_restrictions">Save from restricted chats</string>
-    <string name="bypass_restrictions_description">Allows copying, saving and forwarding in protected chats.</string>
+    <string name="bypass_restrictions_description">Allows copying text, saving media and forwarding in chats and channels that restrict saving content.</string>
     <string name="forward_from_restricted">Forward from restricted chats</string>
-    <string name="forward_from_restricted_description">Sends messages from chats that block forwarding as new messages.</string>
+    <string name="forward_from_restricted_description">Forwards messages from chats and channels that restrict saving content as new messages, downloading their media first.</string>
     <string name="hide_typing_indicator">Hide typing indicator</string>
     <string name="hide_typing_indicator_description">Stops others from seeing that you are typing or recording.</string>
     <string name="play_store_restrictions">Remove Play Store restrictions</string>

@@ -9,8 +9,11 @@
     <string name="hide_typing">Скрыть индикатор набора</string>
     <string name="boost_downloads">Быстрое скачивание</string>
     <string name="save_from_restricted">Сохранять из чатов с ограничениями</string>
-    <string name="save_from_restricted_summary">Разрешает копирование, сохранение и пересылку в защищённых чатах.</string>
+    <string name="save_from_restricted_summary">Также разрешает копировать текст и пересылать. Медиа загружаются перед пересылкой.</string>
     <string name="restricted_media_not_loaded">Не удалось загрузить часть медиа.</string>
+    <string name="restricted_forward_channel">Пересылка</string>
+    <string name="restricted_forward_preparing">Подготовка к пересылке</string>
+    <string name="restricted_forward_progress"><xliff:g id="loaded">%1$s</xliff:g> из <xliff:g id="total">%2$s</xliff:g></string>
     <string name="remove_play_store_restrictions">Убрать ограничения Play Маркета</string>
     <string name="remove_play_store_restrictions_summary">Показывает чаты и медиа, которые Telegram скрывает только в версии из Play Маркета.</string>
     <string name="recover_deleted">Сохранять удалённые сообщения</string>

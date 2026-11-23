@@ -13,9 +13,9 @@
     <string name="anti_delete">Gelöschte Nachrichten behalten</string>
     <string name="anti_delete_description">Behält Nachrichten, die andere löschen, und zeigt sie im Chat.</string>
     <string name="bypass_restrictions">Aus eingeschränkten Chats speichern</string>
-    <string name="bypass_restrictions_description">Erlaubt Kopieren, Speichern und Weiterleiten in geschützten Chats.</string>
+    <string name="bypass_restrictions_description">Erlaubt Kopieren von Text, Speichern von Medien und Weiterleiten in Chats und Kanälen, die das Speichern von Inhalten beschränken.</string>
     <string name="forward_from_restricted">Aus eingeschränkten Chats weiterleiten</string>
-    <string name="forward_from_restricted_description">Sendet Nachrichten aus Chats, die das Weiterleiten sperren, als neue Nachrichten.</string>
+    <string name="forward_from_restricted_description">Leitet Nachrichten aus Chats und Kanälen, die das Speichern von Inhalten beschränken, als neue Nachrichten weiter und lädt ihre Medien vorher herunter.</string>
     <string name="hide_typing_indicator">Tippanzeige ausblenden</string>
     <string name="hide_typing_indicator_description">Verhindert, dass andere sehen, dass du tippst oder aufnimmst.</string>
     <string name="play_store_restrictions">Play-Store-Einschränkungen entfernen</string>

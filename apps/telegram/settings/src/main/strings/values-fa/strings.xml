@@ -9,8 +9,11 @@
     <string name="hide_typing">پنهان کردن نشانگر تایپ</string>
     <string name="boost_downloads">بارگیری سریع‌تر</string>
     <string name="save_from_restricted">ذخیره از گفتگوهای محدود</string>
-    <string name="save_from_restricted_summary">کپی، ذخیره و هدایت را در گفتگوهای محافظت‌شده ممکن می‌کند.</string>
+    <string name="save_from_restricted_summary">کپی متن و هدایت را هم ممکن می‌کند. رسانه‌ها پیش از هدایت دانلود می‌شوند.</string>
     <string name="restricted_media_not_loaded">برخی رسانه‌ها دانلود نشدند.</string>
+    <string name="restricted_forward_channel">هدایت</string>
+    <string name="restricted_forward_preparing">در حال آماده‌سازی برای هدایت</string>
+    <string name="restricted_forward_progress"><xliff:g id="loaded">%1$s</xliff:g> از <xliff:g id="total">%2$s</xliff:g></string>
     <string name="remove_play_store_restrictions">حذف محدودیت‌های Play Store</string>
     <string name="remove_play_store_restrictions_summary">گفتگوها و رسانه‌هایی را که Telegram فقط در نسخهٔ Play Store پنهان می‌کند نشان می‌دهد.</string>
     <string name="recover_deleted">نگه داشتن پیام‌های حذف‌شده</string>

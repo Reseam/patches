@@ -9,8 +9,11 @@
     <string name="hide_typing">Ukryj wskaźnik pisania</string>
     <string name="boost_downloads">Szybsze pobieranie</string>
     <string name="save_from_restricted">Zapisuj z czatów z ograniczeniami</string>
-    <string name="save_from_restricted_summary">Pozwala kopiować, zapisywać i przekazywać dalej w chronionych czatach.</string>
+    <string name="save_from_restricted_summary">Pozwala też kopiować tekst i przekazywać dalej. Multimedia są pobierane przed przekazaniem.</string>
     <string name="restricted_media_not_loaded">Nie udało się pobrać części multimediów.</string>
+    <string name="restricted_forward_channel">Przekazywanie</string>
+    <string name="restricted_forward_preparing">Przygotowywanie do przekazania</string>
+    <string name="restricted_forward_progress"><xliff:g id="loaded">%1$s</xliff:g> z <xliff:g id="total">%2$s</xliff:g></string>
     <string name="remove_play_store_restrictions">Usuń ograniczenia Sklepu Play</string>
     <string name="remove_play_store_restrictions_summary">Pokazuje czaty i multimedia, które Telegram ukrywa tylko w wersji ze Sklepu Play.</string>
     <string name="recover_deleted">Zachowuj usunięte wiadomości</string>

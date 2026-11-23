@@ -13,9 +13,9 @@
     <string name="anti_delete">نگه داشتن پیام‌های حذف‌شده</string>
     <string name="anti_delete_description">پیام‌هایی را که دیگران حذف می‌کنند نگه می‌دارد و در گفتگو نشان می‌دهد.</string>
     <string name="bypass_restrictions">ذخیره از گفتگوهای محدود</string>
-    <string name="bypass_restrictions_description">کپی، ذخیره و هدایت را در گفتگوهای محافظت‌شده ممکن می‌کند.</string>
+    <string name="bypass_restrictions_description">کپی متن، ذخیره رسانه و هدایت را در گفتگوها و کانال‌هایی که ذخیره محتوا را محدود کرده‌اند ممکن می‌کند.</string>
     <string name="forward_from_restricted">هدایت از گفتگوهای محدود</string>
-    <string name="forward_from_restricted_description">پیام‌های گفتگوهایی را که هدایت را مسدود کرده‌اند، به‌صورت پیام جدید می‌فرستد.</string>
+    <string name="forward_from_restricted_description">پیام‌های گفتگوها و کانال‌هایی را که ذخیره محتوا را محدود کرده‌اند به‌صورت پیام جدید هدایت می‌کند و پیش از آن رسانه‌هایشان را دانلود می‌کند.</string>
     <string name="hide_typing_indicator">پنهان کردن نشانگر تایپ</string>
     <string name="hide_typing_indicator_description">نمی‌گذارد دیگران ببینند در حال تایپ یا ضبط هستید.</string>
     <string name="play_store_restrictions">حذف محدودیت‌های Play Store</string>

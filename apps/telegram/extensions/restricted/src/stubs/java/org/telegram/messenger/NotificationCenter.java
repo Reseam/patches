@@ -6,6 +6,7 @@ package org.telegram.messenger;
 public class NotificationCenter {
     public static int fileLoaded;
     public static int fileLoadFailed;
+    public static int fileLoadProgressChanged;
 
     public static NotificationCenter getInstance(int num) { return null; }
     public void addObserver(NotificationCenterDelegate observer, int id) {}

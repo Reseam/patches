@@ -9,8 +9,11 @@
     <string name="hide_typing">Ẩn trạng thái đang nhập</string>
     <string name="boost_downloads">Tải xuống nhanh hơn</string>
     <string name="save_from_restricted">Lưu từ cuộc trò chuyện bị hạn chế</string>
-    <string name="save_from_restricted_summary">Cho phép sao chép, lưu và chuyển tiếp trong cuộc trò chuyện được bảo vệ.</string>
+    <string name="save_from_restricted_summary">Cũng cho phép sao chép văn bản và chuyển tiếp. Nội dung đa phương tiện được tải xuống trước khi chuyển tiếp.</string>
     <string name="restricted_media_not_loaded">Không thể tải xuống một số nội dung.</string>
+    <string name="restricted_forward_channel">Chuyển tiếp</string>
+    <string name="restricted_forward_preparing">Đang chuẩn bị chuyển tiếp</string>
+    <string name="restricted_forward_progress"><xliff:g id="loaded">%1$s</xliff:g> / <xliff:g id="total">%2$s</xliff:g></string>
     <string name="remove_play_store_restrictions">Gỡ hạn chế của Cửa hàng Play</string>
     <string name="remove_play_store_restrictions_summary">Hiện các cuộc trò chuyện và nội dung mà Telegram chỉ ẩn trong phiên bản Cửa hàng Play.</string>
     <string name="recover_deleted">Giữ lại tin nhắn đã xóa</string>

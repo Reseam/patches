@@ -9,8 +9,11 @@
     <string name="hide_typing">Hide typing indicator</string>
     <string name="boost_downloads">Faster downloads</string>
     <string name="save_from_restricted">Save from restricted chats</string>
-    <string name="save_from_restricted_summary">Allows copying, saving and forwarding in protected chats.</string>
+    <string name="save_from_restricted_summary">Also allows copying text and forwarding. Media is downloaded before it is forwarded.</string>
     <string name="restricted_media_not_loaded">Some media could not be downloaded.</string>
+    <string name="restricted_forward_channel">Forwarding</string>
+    <string name="restricted_forward_preparing">Preparing to forward</string>
+    <string name="restricted_forward_progress"><xliff:g id="loaded">%1$s</xliff:g> of <xliff:g id="total">%2$s</xliff:g></string>
     <string name="remove_play_store_restrictions">Remove Play Store restrictions</string>
     <string name="remove_play_store_restrictions_summary">Shows the chats and media Telegram hides only in its Play Store version.</string>
     <string name="recover_deleted">Keep deleted messages</string>

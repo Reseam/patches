@@ -9,8 +9,11 @@
     <string name="hide_typing">Ocultar indicador de escritura</string>
     <string name="boost_downloads">Descargas más rápidas</string>
     <string name="save_from_restricted">Guardar desde chats restringidos</string>
-    <string name="save_from_restricted_summary">Permite copiar, guardar y reenviar en chats protegidos.</string>
+    <string name="save_from_restricted_summary">También permite copiar texto y reenviar. Los archivos se descargan antes de reenviarlos.</string>
     <string name="restricted_media_not_loaded">No se pudieron descargar algunos archivos.</string>
+    <string name="restricted_forward_channel">Reenvío</string>
+    <string name="restricted_forward_preparing">Preparando el reenvío</string>
+    <string name="restricted_forward_progress"><xliff:g id="loaded">%1$s</xliff:g> de <xliff:g id="total">%2$s</xliff:g></string>
     <string name="remove_play_store_restrictions">Quitar restricciones de Play Store</string>
     <string name="remove_play_store_restrictions_summary">Muestra los chats y el contenido que Telegram oculta solo en su versión de Play Store.</string>
     <string name="recover_deleted">Conservar mensajes eliminados</string>

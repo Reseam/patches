@@ -13,9 +13,9 @@
     <string name="anti_delete">Garder les messages supprimés</string>
     <string name="anti_delete_description">Garde les messages que les autres suppriment et les affiche dans la discussion.</string>
     <string name="bypass_restrictions">Enregistrer depuis les discussions restreintes</string>
-    <string name="bypass_restrictions_description">Autorise la copie, l’enregistrement et le transfert dans les discussions protégées.</string>
+    <string name="bypass_restrictions_description">Autorise la copie du texte, l’enregistrement des médias et le transfert dans les discussions et canaux qui restreignent l’enregistrement du contenu.</string>
     <string name="forward_from_restricted">Transférer depuis les discussions restreintes</string>
-    <string name="forward_from_restricted_description">Envoie comme nouveaux messages les messages des discussions qui bloquent le transfert.</string>
+    <string name="forward_from_restricted_description">Transfère comme nouveaux messages les messages des discussions et canaux qui restreignent l’enregistrement du contenu, en téléchargeant d’abord leurs médias.</string>
     <string name="hide_typing_indicator">Masquer l’indicateur de saisie</string>
     <string name="hide_typing_indicator_description">Empêche les autres de voir que vous écrivez ou enregistrez.</string>
     <string name="play_store_restrictions">Retirer les restrictions du Play Store</string>

@@ -9,8 +9,11 @@
     <string name="hide_typing">隱藏正在輸入提示</string>
     <string name="boost_downloads">更快的下載</string>
     <string name="save_from_restricted">從受限制的聊天儲存</string>
-    <string name="save_from_restricted_summary">允許在受保護的聊天中複製、儲存和轉傳。</string>
+    <string name="save_from_restricted_summary">也允許複製文字和轉傳。媒體會在轉傳前下載。</string>
     <string name="restricted_media_not_loaded">部分媒體無法下載。</string>
+    <string name="restricted_forward_channel">轉傳</string>
+    <string name="restricted_forward_preparing">正在準備轉傳</string>
+    <string name="restricted_forward_progress"><xliff:g id="loaded">%1$s</xliff:g> / <xliff:g id="total">%2$s</xliff:g></string>
     <string name="remove_play_store_restrictions">移除 Play 商店限制</string>
     <string name="remove_play_store_restrictions_summary">顯示 Telegram 只在 Play 商店版本中隱藏的聊天和媒體。</string>
     <string name="recover_deleted">保留已刪除的訊息</string>
