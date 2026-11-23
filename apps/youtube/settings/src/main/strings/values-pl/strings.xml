@@ -299,9 +299,10 @@
     <string name="hide_shorts_new_posts_button">Ukryj przycisk nowych postów w Shorts</string>
     <string name="hide_shorts_hashtag_button">Ukryj przycisk hashtagu w Shorts</string>
     <string name="hide_shorts_home">Ukryj Shorts na stronie głównej</string>
-    <string name="hide_shorts_home_summary">Ukrywa je też w powiązanych filmach i innych kanałach.</string>
+    <string name="hide_shorts_home_summary">Ukrywa je też w innych kanałach.</string>
     <string name="hide_shorts_subscriptions">Ukryj Shorts w Subskrypcjach</string>
     <string name="hide_shorts_search">Ukryj Shorts w wyszukiwaniu</string>
+    <string name="hide_shorts_related_videos">Ukryj Shorts w powiązanych filmach</string>
     <string name="hide_shorts_info_panel">Ukryj panel informacyjny w Shorts</string>
     <string name="hide_shorts_join_button">Ukryj przycisk Wesprzyj w Shorts</string>
     <string name="hide_shorts_like_button">Ukryj przycisk łapki w górę w Shorts</string>

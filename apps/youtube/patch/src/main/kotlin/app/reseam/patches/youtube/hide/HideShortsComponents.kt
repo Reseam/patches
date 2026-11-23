@@ -67,6 +67,7 @@ val hideShortsComponents = patch(YouTubePatchStrings.hideShortsComponents) {
             ShortsSettings.hideShortsHome,
             ShortsSettings.hideShortsSubscriptions,
             ShortsSettings.hideShortsSearch,
+            ShortsSettings.hideShortsRelatedVideos,
             ShortsSettings.hideShortsInfoPanel,
             ShortsSettings.hideShortsJoinButton,
             ShortsSettings.hideShortsLikeButton,

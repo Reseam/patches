@@ -299,9 +299,10 @@
     <string name="hide_shorts_new_posts_button">Shorts 새 게시물 버튼 숨기기</string>
     <string name="hide_shorts_hashtag_button">Shorts 해시태그 버튼 숨기기</string>
     <string name="hide_shorts_home">홈의 Shorts 숨기기</string>
-    <string name="hide_shorts_home_summary">관련 동영상과 다른 피드에서도 숨깁니다.</string>
+    <string name="hide_shorts_home_summary">다른 피드에서도 숨깁니다.</string>
     <string name="hide_shorts_subscriptions">구독의 Shorts 숨기기</string>
     <string name="hide_shorts_search">검색의 Shorts 숨기기</string>
+    <string name="hide_shorts_related_videos">관련 동영상의 Shorts 숨기기</string>
     <string name="hide_shorts_info_panel">Shorts 정보 패널 숨기기</string>
     <string name="hide_shorts_join_button">Shorts 가입 버튼 숨기기</string>
     <string name="hide_shorts_like_button">Shorts 좋아요 버튼 숨기기</string>

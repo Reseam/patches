@@ -299,9 +299,10 @@
     <string name="hide_shorts_new_posts_button">Masquer le bouton des nouveaux posts des Shorts</string>
     <string name="hide_shorts_hashtag_button">Masquer le bouton hashtag des Shorts</string>
     <string name="hide_shorts_home">Masquer les Shorts dans l’Accueil</string>
-    <string name="hide_shorts_home_summary">Les masque aussi dans les vidéos similaires et les autres fils.</string>
+    <string name="hide_shorts_home_summary">Les masque aussi dans les autres fils.</string>
     <string name="hide_shorts_subscriptions">Masquer les Shorts dans les Abonnements</string>
     <string name="hide_shorts_search">Masquer les Shorts dans la recherche</string>
+    <string name="hide_shorts_related_videos">Masquer les Shorts dans les vidéos similaires</string>
     <string name="hide_shorts_info_panel">Masquer le panneau d’information des Shorts</string>
     <string name="hide_shorts_join_button">Masquer le bouton Rejoindre des Shorts</string>
     <string name="hide_shorts_like_button">Masquer le bouton J’aime des Shorts</string>

@@ -302,9 +302,10 @@
     <string name="hide_shorts_new_posts_button">Hide Shorts new-posts button</string>
     <string name="hide_shorts_hashtag_button">Hide Shorts hashtag button</string>
     <string name="hide_shorts_home">Hide Shorts in Home</string>
-    <string name="hide_shorts_home_summary">Also hides them in related videos and other feeds.</string>
+    <string name="hide_shorts_home_summary">Also hides them in other feeds.</string>
     <string name="hide_shorts_subscriptions">Hide Shorts in Subscriptions</string>
     <string name="hide_shorts_search">Hide Shorts in Search</string>
+    <string name="hide_shorts_related_videos">Hide Shorts in related videos</string>
     <string name="hide_shorts_info_panel">Hide Shorts info panel</string>
     <string name="hide_shorts_join_button">Hide Shorts Join button</string>
     <string name="hide_shorts_like_button">Hide Shorts like button</string>

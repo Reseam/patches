@@ -299,9 +299,10 @@
     <string name="hide_shorts_new_posts_button">Shorts میں نئی پوسٹس کا بٹن چھپائیں</string>
     <string name="hide_shorts_hashtag_button">Shorts میں ہیش ٹیگ کا بٹن چھپائیں</string>
     <string name="hide_shorts_home">ہوم میں Shorts چھپائیں</string>
-    <string name="hide_shorts_home_summary">متعلقہ ویڈیوز اور دیگر فیڈز میں بھی انہیں چھپاتا ہے۔</string>
+    <string name="hide_shorts_home_summary">دیگر فیڈز میں بھی انہیں چھپاتا ہے۔</string>
     <string name="hide_shorts_subscriptions">سبسکرپشنز میں Shorts چھپائیں</string>
     <string name="hide_shorts_search">تلاش میں Shorts چھپائیں</string>
+    <string name="hide_shorts_related_videos">متعلقہ ویڈیوز میں Shorts چھپائیں</string>
     <string name="hide_shorts_info_panel">Shorts میں معلوماتی پینل چھپائیں</string>
     <string name="hide_shorts_join_button">Shorts میں جوائن کا بٹن چھپائیں</string>
     <string name="hide_shorts_like_button">Shorts میں پسند کا بٹن چھپائیں</string>

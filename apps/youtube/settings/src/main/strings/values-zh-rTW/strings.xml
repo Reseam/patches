@@ -299,9 +299,10 @@
     <string name="hide_shorts_new_posts_button">隱藏 Shorts 新貼文按鈕</string>
     <string name="hide_shorts_hashtag_button">隱藏 Shorts 主題標籤按鈕</string>
     <string name="hide_shorts_home">隱藏首頁中的 Shorts</string>
-    <string name="hide_shorts_home_summary">同時在相關影片和其他動態中隱藏。</string>
+    <string name="hide_shorts_home_summary">同時在其他動態中隱藏。</string>
     <string name="hide_shorts_subscriptions">隱藏訂閱內容中的 Shorts</string>
     <string name="hide_shorts_search">隱藏搜尋中的 Shorts</string>
+    <string name="hide_shorts_related_videos">隱藏相關影片中的 Shorts</string>
     <string name="hide_shorts_info_panel">隱藏 Shorts 資訊面板</string>
     <string name="hide_shorts_join_button">隱藏 Shorts「加入」按鈕</string>
     <string name="hide_shorts_like_button">隱藏 Shorts 喜歡按鈕</string>

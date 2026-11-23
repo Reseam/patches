@@ -299,9 +299,10 @@
     <string name="hide_shorts_new_posts_button">Shorts yeni gönderiler düğmesini gizle</string>
     <string name="hide_shorts_hashtag_button">Shorts hashtag düğmesini gizle</string>
     <string name="hide_shorts_home">Ana Sayfa\'da Shorts\'u gizle</string>
-    <string name="hide_shorts_home_summary">İlgili videolarda ve diğer akışlarda da gizler.</string>
+    <string name="hide_shorts_home_summary">Diğer akışlarda da gizler.</string>
     <string name="hide_shorts_subscriptions">Abonelikler\'de Shorts\'u gizle</string>
     <string name="hide_shorts_search">Aramada Shorts\'u gizle</string>
+    <string name="hide_shorts_related_videos">İlgili videolarda Shorts\'u gizle</string>
     <string name="hide_shorts_info_panel">Shorts bilgi panelini gizle</string>
     <string name="hide_shorts_join_button">Shorts Katıl düğmesini gizle</string>
     <string name="hide_shorts_like_button">Shorts beğen düğmesini gizle</string>

@@ -299,9 +299,10 @@
     <string name="hide_shorts_new_posts_button">Приховати кнопку нових дописів у Shorts</string>
     <string name="hide_shorts_hashtag_button">Приховати кнопку хештегу в Shorts</string>
     <string name="hide_shorts_home">Приховати Shorts на головній</string>
-    <string name="hide_shorts_home_summary">Також приховує їх у схожих відео й інших стрічках.</string>
+    <string name="hide_shorts_home_summary">Також приховує їх в інших стрічках.</string>
     <string name="hide_shorts_subscriptions">Приховати Shorts у підписках</string>
     <string name="hide_shorts_search">Приховати Shorts у пошуку</string>
+    <string name="hide_shorts_related_videos">Приховати Shorts у схожих відео</string>
     <string name="hide_shorts_info_panel">Приховати інформаційну панель у Shorts</string>
     <string name="hide_shorts_join_button">Приховати кнопку «Спонсорувати» в Shorts</string>
     <string name="hide_shorts_like_button">Приховати кнопку «Подобається» в Shorts</string>

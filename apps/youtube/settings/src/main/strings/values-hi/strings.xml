@@ -299,9 +299,10 @@
     <string name="hide_shorts_new_posts_button">Shorts का नई पोस्ट वाला बटन छिपाएँ</string>
     <string name="hide_shorts_hashtag_button">Shorts का हैशटैग बटन छिपाएँ</string>
     <string name="hide_shorts_home">Home में Shorts छिपाएँ</string>
-    <string name="hide_shorts_home_summary">इन्हें मिलते-जुलते वीडियो और दूसरी फ़ीड में भी छिपाता है।</string>
+    <string name="hide_shorts_home_summary">इन्हें दूसरी फ़ीड में भी छिपाता है।</string>
     <string name="hide_shorts_subscriptions">सदस्यताओं में Shorts छिपाएँ</string>
     <string name="hide_shorts_search">खोज में Shorts छिपाएँ</string>
+    <string name="hide_shorts_related_videos">मिलते-जुलते वीडियो में Shorts छिपाएँ</string>
     <string name="hide_shorts_info_panel">Shorts का जानकारी पैनल छिपाएँ</string>
     <string name="hide_shorts_join_button">Shorts का Join बटन छिपाएँ</string>
     <string name="hide_shorts_like_button">Shorts का पसंद बटन छिपाएँ</string>

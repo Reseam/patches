@@ -225,10 +225,11 @@ internal fun shouldHideShortsFeedItems(): Boolean {
     val hideSubscriptions = ShortsSettings.hideShortsSubscriptions.value
     val hideSearch = ShortsSettings.hideShortsSearch.value
     val hideDescription = ShortsSettings.hideShortsVideoDescription.value
-    if (!hideHome && !hideSubscriptions && !hideSearch && !hideDescription) return false
+    val hideRelated = ShortsSettings.hideShortsRelatedVideos.value
+    if (!hideHome && !hideSubscriptions && !hideSearch && !hideDescription && !hideRelated) return false
     if (PlayerType.current.isMaximizedOrFullscreen) {
         val descriptionOpen = EngagementPanel.openPanelId == "video-description-ep-identifier"
-        return if (descriptionOpen) hideDescription else hideHome
+        return if (descriptionOpen) hideDescription else hideRelated
     }
     if (NavigationBar.isSearchBarActive) return hideSearch
     if (!hideHome && !hideSubscriptions) return false

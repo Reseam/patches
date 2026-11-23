@@ -299,9 +299,10 @@
     <string name="hide_shorts_new_posts_button">پنهان کردن دکمهٔ پست‌های جدید در Shorts</string>
     <string name="hide_shorts_hashtag_button">پنهان کردن دکمهٔ هشتگ در Shorts</string>
     <string name="hide_shorts_home">پنهان کردن Shorts در صفحهٔ اصلی</string>
-    <string name="hide_shorts_home_summary">آن‌ها را در ویدیوهای مرتبط و فیدهای دیگر هم پنهان می‌کند.</string>
+    <string name="hide_shorts_home_summary">آن‌ها را در فیدهای دیگر هم پنهان می‌کند.</string>
     <string name="hide_shorts_subscriptions">پنهان کردن Shorts در اشتراک‌ها</string>
     <string name="hide_shorts_search">پنهان کردن Shorts در جستجو</string>
+    <string name="hide_shorts_related_videos">پنهان کردن Shorts در ویدیوهای مرتبط</string>
     <string name="hide_shorts_info_panel">پنهان کردن پانل اطلاعات در Shorts</string>
     <string name="hide_shorts_join_button">پنهان کردن دکمهٔ «پیوستن» در Shorts</string>
     <string name="hide_shorts_like_button">پنهان کردن دکمهٔ پسندیدن در Shorts</string>

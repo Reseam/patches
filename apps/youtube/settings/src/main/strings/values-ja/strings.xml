@@ -299,9 +299,10 @@
     <string name="hide_shorts_new_posts_button">ショートの新着投稿ボタンを非表示</string>
     <string name="hide_shorts_hashtag_button">ショートのハッシュタグボタンを非表示</string>
     <string name="hide_shorts_home">ホームのショートを非表示</string>
-    <string name="hide_shorts_home_summary">関連動画やほかのフィードでも非表示にします。</string>
+    <string name="hide_shorts_home_summary">ほかのフィードでも非表示にします。</string>
     <string name="hide_shorts_subscriptions">登録チャンネルのショートを非表示</string>
     <string name="hide_shorts_search">検索のショートを非表示</string>
+    <string name="hide_shorts_related_videos">関連動画のショートを非表示</string>
     <string name="hide_shorts_info_panel">ショートの情報パネルを非表示</string>
     <string name="hide_shorts_join_button">ショートのメンバーになるボタンを非表示</string>
     <string name="hide_shorts_like_button">ショートの高評価ボタンを非表示</string>

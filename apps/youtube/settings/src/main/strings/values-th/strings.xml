@@ -299,9 +299,10 @@
     <string name="hide_shorts_new_posts_button">ซ่อนปุ่มโพสต์ใหม่ของ Shorts</string>
     <string name="hide_shorts_hashtag_button">ซ่อนปุ่มแฮชแท็กของ Shorts</string>
     <string name="hide_shorts_home">ซ่อน Shorts ในหน้าแรก</string>
-    <string name="hide_shorts_home_summary">ซ่อนในวิดีโอที่เกี่ยวข้องและฟีดอื่นๆ ด้วย</string>
+    <string name="hide_shorts_home_summary">ซ่อนในฟีดอื่นๆ ด้วย</string>
     <string name="hide_shorts_subscriptions">ซ่อน Shorts ในการติดตาม</string>
     <string name="hide_shorts_search">ซ่อน Shorts ในการค้นหา</string>
+    <string name="hide_shorts_related_videos">ซ่อน Shorts ในวิดีโอที่เกี่ยวข้อง</string>
     <string name="hide_shorts_info_panel">ซ่อนแผงข้อมูลของ Shorts</string>
     <string name="hide_shorts_join_button">ซ่อนปุ่มสมัครเป็นสมาชิกของ Shorts</string>
     <string name="hide_shorts_like_button">ซ่อนปุ่มชอบของ Shorts</string>

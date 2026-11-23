@@ -299,9 +299,10 @@
     <string name="hide_shorts_new_posts_button">Ẩn nút bài đăng mới của Shorts</string>
     <string name="hide_shorts_hashtag_button">Ẩn nút hashtag của Shorts</string>
     <string name="hide_shorts_home">Ẩn Shorts trên Trang chủ</string>
-    <string name="hide_shorts_home_summary">Ẩn cả trong video liên quan và các bảng feed khác.</string>
+    <string name="hide_shorts_home_summary">Ẩn cả trong các bảng feed khác.</string>
     <string name="hide_shorts_subscriptions">Ẩn Shorts trong Kênh đăng ký</string>
     <string name="hide_shorts_search">Ẩn Shorts trong Tìm kiếm</string>
+    <string name="hide_shorts_related_videos">Ẩn Shorts trong video liên quan</string>
     <string name="hide_shorts_info_panel">Ẩn bảng thông tin của Shorts</string>
     <string name="hide_shorts_join_button">Ẩn nút Tham gia của Shorts</string>
     <string name="hide_shorts_like_button">Ẩn nút thích của Shorts</string>

@@ -299,9 +299,10 @@
     <string name="hide_shorts_new_posts_button">Sembunyikan tombol postingan baru Shorts</string>
     <string name="hide_shorts_hashtag_button">Sembunyikan tombol hashtag Shorts</string>
     <string name="hide_shorts_home">Sembunyikan Shorts di Beranda</string>
-    <string name="hide_shorts_home_summary">Juga menyembunyikannya di video terkait dan feed lain.</string>
+    <string name="hide_shorts_home_summary">Juga menyembunyikannya di feed lain.</string>
     <string name="hide_shorts_subscriptions">Sembunyikan Shorts di Langganan</string>
     <string name="hide_shorts_search">Sembunyikan Shorts di Penelusuran</string>
+    <string name="hide_shorts_related_videos">Sembunyikan Shorts di video terkait</string>
     <string name="hide_shorts_info_panel">Sembunyikan panel info Shorts</string>
     <string name="hide_shorts_join_button">Sembunyikan tombol Gabung Shorts</string>
     <string name="hide_shorts_like_button">Sembunyikan tombol suka Shorts</string>

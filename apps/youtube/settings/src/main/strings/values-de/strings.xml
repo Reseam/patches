@@ -299,9 +299,10 @@
     <string name="hide_shorts_new_posts_button">Schaltfläche für neue Beiträge in Shorts ausblenden</string>
     <string name="hide_shorts_hashtag_button">Hashtag-Schaltfläche in Shorts ausblenden</string>
     <string name="hide_shorts_home">Shorts auf der Startseite ausblenden</string>
-    <string name="hide_shorts_home_summary">Blendet sie auch bei ähnlichen Videos und in anderen Feeds aus.</string>
+    <string name="hide_shorts_home_summary">Blendet sie auch in anderen Feeds aus.</string>
     <string name="hide_shorts_subscriptions">Shorts in den Abos ausblenden</string>
     <string name="hide_shorts_search">Shorts in der Suche ausblenden</string>
+    <string name="hide_shorts_related_videos">Shorts bei ähnlichen Videos ausblenden</string>
     <string name="hide_shorts_info_panel">Infopanel in Shorts ausblenden</string>
     <string name="hide_shorts_join_button">Schaltfläche „Mitglied werden“ in Shorts ausblenden</string>
     <string name="hide_shorts_like_button">„Mag ich“-Schaltfläche in Shorts ausblenden</string>

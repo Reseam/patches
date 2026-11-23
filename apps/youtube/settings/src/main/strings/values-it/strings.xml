@@ -299,9 +299,10 @@
     <string name="hide_shorts_new_posts_button">Nascondi il pulsante dei nuovi post di Shorts</string>
     <string name="hide_shorts_hashtag_button">Nascondi il pulsante hashtag di Shorts</string>
     <string name="hide_shorts_home">Nascondi gli Shorts nella Home</string>
-    <string name="hide_shorts_home_summary">Li nasconde anche nei video correlati e in altri feed.</string>
+    <string name="hide_shorts_home_summary">Li nasconde anche in altri feed.</string>
     <string name="hide_shorts_subscriptions">Nascondi gli Shorts nelle Iscrizioni</string>
     <string name="hide_shorts_search">Nascondi gli Shorts nella ricerca</string>
+    <string name="hide_shorts_related_videos">Nascondi gli Shorts nei video correlati</string>
     <string name="hide_shorts_info_panel">Nascondi il riquadro informativo di Shorts</string>
     <string name="hide_shorts_join_button">Nascondi il pulsante Abbonati di Shorts</string>
     <string name="hide_shorts_like_button">Nascondi il pulsante Mi piace di Shorts</string>

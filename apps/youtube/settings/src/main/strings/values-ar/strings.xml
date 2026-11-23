@@ -299,9 +299,10 @@
     <string name="hide_shorts_new_posts_button">إخفاء زر المنشورات الجديدة في Shorts</string>
     <string name="hide_shorts_hashtag_button">إخفاء زر الهاشتاغ في Shorts</string>
     <string name="hide_shorts_home">إخفاء Shorts في الصفحة الرئيسية</string>
-    <string name="hide_shorts_home_summary">يُخفيها أيضًا في الفيديوهات ذات الصلة والخلاصات الأخرى.</string>
+    <string name="hide_shorts_home_summary">يُخفيها أيضًا في الخلاصات الأخرى.</string>
     <string name="hide_shorts_subscriptions">إخفاء Shorts في الاشتراكات</string>
     <string name="hide_shorts_search">إخفاء Shorts في البحث</string>
+    <string name="hide_shorts_related_videos">إخفاء Shorts في الفيديوهات ذات الصلة</string>
     <string name="hide_shorts_info_panel">إخفاء لوحة المعلومات في Shorts</string>
     <string name="hide_shorts_join_button">إخفاء زر الانضمام في Shorts</string>
     <string name="hide_shorts_like_button">إخفاء زر الإعجاب في Shorts</string>

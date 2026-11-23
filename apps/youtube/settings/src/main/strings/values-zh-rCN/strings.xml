@@ -299,9 +299,10 @@
     <string name="hide_shorts_new_posts_button">隐藏 Shorts 新帖子按钮</string>
     <string name="hide_shorts_hashtag_button">隐藏 Shorts 话题标签按钮</string>
     <string name="hide_shorts_home">隐藏首页中的 Shorts</string>
-    <string name="hide_shorts_home_summary">同时在相关视频和其他推荐流中隐藏。</string>
+    <string name="hide_shorts_home_summary">同时在其他推荐流中隐藏。</string>
     <string name="hide_shorts_subscriptions">隐藏订阅内容中的 Shorts</string>
     <string name="hide_shorts_search">隐藏搜索中的 Shorts</string>
+    <string name="hide_shorts_related_videos">隐藏相关视频中的 Shorts</string>
     <string name="hide_shorts_info_panel">隐藏 Shorts 信息面板</string>
     <string name="hide_shorts_join_button">隐藏 Shorts“加入”按钮</string>
     <string name="hide_shorts_like_button">隐藏 Shorts 赞按钮</string>

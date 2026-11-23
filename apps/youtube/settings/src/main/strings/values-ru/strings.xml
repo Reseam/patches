@@ -299,9 +299,10 @@
     <string name="hide_shorts_new_posts_button">Скрыть кнопку новых записей в Shorts</string>
     <string name="hide_shorts_hashtag_button">Скрыть кнопку хештега в Shorts</string>
     <string name="hide_shorts_home">Скрыть Shorts на главной</string>
-    <string name="hide_shorts_home_summary">Также скрывает их в похожих видео и других лентах.</string>
+    <string name="hide_shorts_home_summary">Также скрывает их в других лентах.</string>
     <string name="hide_shorts_subscriptions">Скрыть Shorts в подписках</string>
     <string name="hide_shorts_search">Скрыть Shorts в поиске</string>
+    <string name="hide_shorts_related_videos">Скрыть Shorts в похожих видео</string>
     <string name="hide_shorts_info_panel">Скрыть информационную панель в Shorts</string>
     <string name="hide_shorts_join_button">Скрыть кнопку «Стать спонсором» в Shorts</string>
     <string name="hide_shorts_like_button">Скрыть кнопку «Нравится» в Shorts</string>
