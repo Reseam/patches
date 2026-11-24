@@ -50,8 +50,8 @@ fun fetchStreams(url: String?, requestHeaders: Map<String?, String?>?, requestBo
             StreamingDataRequest.setIdentityHeaders(requestHeaders)
         }
         val path = uri.path ?: return
-        if (!path.contains("player") && !path.endsWith("/get_watch")) return
-        if (listOf("get_drm_license", "heartbeat", "ad_break").any { it in path }) return
+        // Only these carry a player request; player/refresh and the other player/* calls hold other messages.
+        if (!path.endsWith("/player") && !path.endsWith("/get_watch")) return
         // Some apps send their offline requests through a path this hook does not see, so downloads use the
         // identity of the latest player request of any kind.
         StreamingDataRequest.setOfflineHeaders(requestHeaders)
