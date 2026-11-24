@@ -89,6 +89,8 @@
     <string name="hide_rewards_icon_summary">Oculta el icono flotante de recompensas y regalos en la esquina del feed.</string>
     <string name="disable_like_long_press">Desactivar pulsación larga de Me gusta</string>
     <string name="disable_like_long_press_summary">Mantener pulsado Me gusta ya no abre las opciones de reacción.</string>
+    <string name="disable_comment_long_press">Desactivar pulsación larga de Comentarios</string>
+    <string name="disable_comment_long_press_summary">Mantener pulsado Comentarios ya no abre las opciones de emojis.</string>
     <string name="show_poll_results">Mostrar resultados de encuestas</string>
     <string name="show_poll_results_summary">Muestra los resultados de las encuestas en los comentarios antes de que votes.</string>
     <string name="hide_notification_prompts">Ocultar avisos de notificaciones</string>

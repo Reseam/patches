@@ -89,6 +89,8 @@
     <string name="hide_rewards_icon_summary">نماد شناور جایزه و هدیه را در گوشهٔ فید پنهان می‌کند.</string>
     <string name="disable_like_long_press">غیرفعال کردن لمس طولانی پسند</string>
     <string name="disable_like_long_press_summary">نگه داشتن دکمهٔ پسند دیگر گزینه‌های واکنش را باز نمی‌کند.</string>
+    <string name="disable_comment_long_press">غیرفعال کردن لمس طولانی نظرها</string>
+    <string name="disable_comment_long_press_summary">نگه داشتن دکمهٔ نظرها دیگر گزینه‌های ایموجی را باز نمی‌کند.</string>
     <string name="show_poll_results">نمایش نتایج نظرسنجی</string>
     <string name="show_poll_results_summary">نتایج نظرسنجی‌ها را در نظرها پیش از رأی دادن نشان می‌دهد.</string>
     <string name="hide_notification_prompts">پنهان کردن درخواست‌های اعلان</string>

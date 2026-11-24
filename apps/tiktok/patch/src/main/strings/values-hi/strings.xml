@@ -22,6 +22,8 @@
     <string name="always_show_seek_bar_description">प्रोग्रेस बार हर वीडियो पर दिखाता है, सिर्फ़ लंबे वीडियो पर नहीं।</string>
     <string name="disable_like_long_press">लाइक को देर तक दबाना बंद करें</string>
     <string name="disable_like_long_press_description">लाइक को दबाए रखने पर रिएक्शन के विकल्प नहीं खुलते।</string>
+    <string name="disable_comment_long_press">कमेंट को देर तक दबाना बंद करें</string>
+    <string name="disable_comment_long_press_description">कमेंट को दबाए रखने पर इमोजी के विकल्प नहीं खुलते।</string>
     <string name="hide_comment_animations">कमेंट के ऐनिमेशन छिपाएँ</string>
     <string name="hide_comment_animations_description">कमेंट के कुछ शब्दों से शुरू होने वाले फ़ुल-स्क्रीन इफ़ेक्ट रोकता है।</string>
     <string name="hide_comment_suggestions">कमेंट के सुझाव छिपाएँ</string>

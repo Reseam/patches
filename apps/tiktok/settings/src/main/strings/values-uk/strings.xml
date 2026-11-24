@@ -89,6 +89,8 @@
     <string name="hide_rewards_icon_summary">Приховує плаваючий значок нагород і подарунків у куті стрічки.</string>
     <string name="disable_like_long_press">Вимкнути довге натискання вподобання</string>
     <string name="disable_like_long_press_summary">Утримання «Подобається» більше не відкриває варіанти реакцій.</string>
+    <string name="disable_comment_long_press">Вимкнути довге натискання коментарів</string>
+    <string name="disable_comment_long_press_summary">Утримання «Коментарі» більше не відкриває варіанти емодзі.</string>
     <string name="show_poll_results">Показувати результати опитувань</string>
     <string name="show_poll_results_summary">Показує результати опитувань у коментарях ще до вашого голосу.</string>
     <string name="hide_notification_prompts">Приховати запити сповіщень</string>

@@ -89,6 +89,8 @@
     <string name="hide_rewards_icon_summary">يُخفي أيقونة المكافآت والهدايا العائمة في زاوية الخلاصة.</string>
     <string name="disable_like_long_press">تعطيل الضغط مع الاستمرار على الإعجاب</string>
     <string name="disable_like_long_press_summary">لم يعد الضغط مع الاستمرار على «إعجاب» يفتح خيارات التفاعل.</string>
+    <string name="disable_comment_long_press">تعطيل الضغط مع الاستمرار على التعليقات</string>
+    <string name="disable_comment_long_press_summary">لم يعد الضغط مع الاستمرار على «التعليقات» يفتح خيارات الرموز التعبيرية.</string>
     <string name="show_poll_results">إظهار نتائج الاستطلاعات</string>
     <string name="show_poll_results_summary">يعرض نتائج الاستطلاعات في التعليقات قبل أن تصوّت.</string>
     <string name="hide_notification_prompts">إخفاء دعوات الإشعارات</string>

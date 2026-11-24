@@ -95,6 +95,8 @@
     <string name="hide_rewards_icon_summary">Oculta o ícone flutuante de recompensas e presentes no canto do feed.</string>
     <string name="disable_like_long_press">Desativar toque longo em Curtir</string>
     <string name="disable_like_long_press_summary">Segurar Curtir não abre mais as opções de reação.</string>
+    <string name="disable_comment_long_press">Desativar toque longo em Comentários</string>
+    <string name="disable_comment_long_press_summary">Segurar Comentários não abre mais as opções de emoji.</string>
     <string name="show_poll_results">Mostrar resultados de enquetes</string>
     <string name="show_poll_results_summary">Mostra os resultados das enquetes nos comentários antes de você votar.</string>
     <string name="hide_notification_prompts">Ocultar pedidos de notificação</string>

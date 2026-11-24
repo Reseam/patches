@@ -89,6 +89,8 @@
     <string name="hide_rewards_icon_summary">Menyembunyikan ikon hadiah dan imbalan yang melayang di sudut feed.</string>
     <string name="disable_like_long_press">Nonaktifkan tekan lama suka</string>
     <string name="disable_like_long_press_summary">Menahan Suka tidak lagi membuka pilihan reaksi.</string>
+    <string name="disable_comment_long_press">Nonaktifkan tekan lama komentar</string>
+    <string name="disable_comment_long_press_summary">Menahan Komentar tidak lagi membuka pilihan emoji.</string>
     <string name="show_poll_results">Tampilkan hasil polling</string>
     <string name="show_poll_results_summary">Menampilkan hasil polling di komentar sebelum Anda memilih.</string>
     <string name="hide_notification_prompts">Sembunyikan ajakan notifikasi</string>

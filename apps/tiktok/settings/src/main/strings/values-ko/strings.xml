@@ -89,6 +89,8 @@
     <string name="hide_rewards_icon_summary">피드 모서리에 떠 있는 리워드 및 선물 아이콘을 숨깁니다.</string>
     <string name="disable_like_long_press">좋아요 길게 누르기 사용 중지</string>
     <string name="disable_like_long_press_summary">좋아요를 길게 눌러도 반응 옵션이 열리지 않습니다.</string>
+    <string name="disable_comment_long_press">댓글 길게 누르기 사용 중지</string>
+    <string name="disable_comment_long_press_summary">댓글을 길게 눌러도 이모티콘 옵션이 열리지 않습니다.</string>
     <string name="show_poll_results">투표 결과 표시</string>
     <string name="show_poll_results_summary">투표하기 전에 댓글의 투표 결과를 표시합니다.</string>
     <string name="hide_notification_prompts">알림 안내 숨기기</string>

@@ -89,6 +89,8 @@
     <string name="hide_rewards_icon_summary">Ukrywa pływającą ikonę nagród i prezentów w rogu kanału.</string>
     <string name="disable_like_long_press">Wyłącz przytrzymanie polubienia</string>
     <string name="disable_like_long_press_summary">Przytrzymanie przycisku Lubię nie otwiera już opcji reakcji.</string>
+    <string name="disable_comment_long_press">Wyłącz przytrzymanie komentarzy</string>
+    <string name="disable_comment_long_press_summary">Przytrzymanie przycisku Komentarze nie otwiera już opcji emoji.</string>
     <string name="show_poll_results">Pokazuj wyniki ankiet</string>
     <string name="show_poll_results_summary">Pokazuje wyniki ankiet w komentarzach, zanim zagłosujesz.</string>
     <string name="hide_notification_prompts">Ukryj prośby o powiadomienia</string>

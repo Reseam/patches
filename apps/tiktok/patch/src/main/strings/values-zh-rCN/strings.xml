@@ -22,6 +22,8 @@
     <string name="always_show_seek_bar_description">在每个视频上都显示进度条，而不只是长视频。</string>
     <string name="disable_like_long_press">停用长按点赞</string>
     <string name="disable_like_long_press_description">长按点赞时不再打开表情回应选项。</string>
+    <string name="disable_comment_long_press">停用长按评论</string>
+    <string name="disable_comment_long_press_description">长按评论时不再打开表情选项。</string>
     <string name="hide_comment_animations">隐藏评论动画</string>
     <string name="hide_comment_animations_description">阻止评论中某些词语触发的全屏特效。</string>
     <string name="hide_comment_suggestions">隐藏评论建议</string>

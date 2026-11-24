@@ -22,6 +22,8 @@
     <string name="always_show_seek_bar_description">Hiện thanh tiến trình trên mọi video, không chỉ video dài.</string>
     <string name="disable_like_long_press">Tắt nhấn giữ nút thích</string>
     <string name="disable_like_long_press_description">Nhấn giữ nút Thích không còn mở các lựa chọn biểu cảm.</string>
+    <string name="disable_comment_long_press">Tắt nhấn giữ nút bình luận</string>
+    <string name="disable_comment_long_press_description">Nhấn giữ nút Bình luận không còn mở các lựa chọn biểu tượng cảm xúc.</string>
     <string name="hide_comment_animations">Ẩn hiệu ứng bình luận</string>
     <string name="hide_comment_animations_description">Ngăn hiệu ứng toàn màn hình do một số từ trong bình luận kích hoạt.</string>
     <string name="hide_comment_suggestions">Ẩn gợi ý bình luận</string>

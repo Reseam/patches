@@ -22,6 +22,8 @@
     <string name="always_show_seek_bar_description">Mostra a barra de progresso em todos os vídeos, não só nos longos.</string>
     <string name="disable_like_long_press">Desativar toque longo em Curtir</string>
     <string name="disable_like_long_press_description">Impede que segurar Curtir abra as opções de reação.</string>
+    <string name="disable_comment_long_press">Desativar toque longo em Comentários</string>
+    <string name="disable_comment_long_press_description">Impede que segurar Comentários abra as opções de emoji.</string>
     <string name="hide_comment_animations">Ocultar animações dos comentários</string>
     <string name="hide_comment_animations_description">Impede os efeitos em tela cheia que algumas palavras nos comentários iniciam.</string>
     <string name="hide_comment_suggestions">Ocultar sugestões nos comentários</string>

@@ -89,6 +89,8 @@
     <string name="hide_rewards_icon_summary">隱藏動態角落浮動的獎勵與禮物圖示。</string>
     <string name="disable_like_long_press">停用長按按讚</string>
     <string name="disable_like_long_press_summary">長按「讚」不再開啟反應選項。</string>
+    <string name="disable_comment_long_press">停用長按留言</string>
+    <string name="disable_comment_long_press_summary">長按「留言」不再開啟表情符號選項。</string>
     <string name="show_poll_results">顯示投票結果</string>
     <string name="show_poll_results_summary">在你投票前就顯示留言中的投票結果。</string>
     <string name="hide_notification_prompts">隱藏通知提示</string>

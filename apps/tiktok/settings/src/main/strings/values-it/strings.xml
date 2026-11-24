@@ -89,6 +89,8 @@
     <string name="hide_rewards_icon_summary">Nasconde l’icona fluttuante di premi e regali nell’angolo del feed.</string>
     <string name="disable_like_long_press">Disattiva la pressione prolungata su Mi piace</string>
     <string name="disable_like_long_press_summary">Tenere premuto Mi piace non apre più le opzioni di reazione.</string>
+    <string name="disable_comment_long_press">Disattiva la pressione prolungata su Commenti</string>
+    <string name="disable_comment_long_press_summary">Tenere premuto Commenti non apre più le opzioni delle emoji.</string>
     <string name="show_poll_results">Mostra i risultati dei sondaggi</string>
     <string name="show_poll_results_summary">Mostra i risultati dei sondaggi nei commenti prima che tu voti.</string>
     <string name="hide_notification_prompts">Nascondi le richieste di notifica</string>

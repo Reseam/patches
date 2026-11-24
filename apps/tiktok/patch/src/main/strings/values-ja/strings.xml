@@ -22,6 +22,8 @@
     <string name="always_show_seek_bar_description">長い動画だけでなく、すべての動画にシークバーを表示します。</string>
     <string name="disable_like_long_press">いいねの長押しを無効にする</string>
     <string name="disable_like_long_press_description">いいねを長押ししてもリアクションの選択肢が開かないようにします。</string>
+    <string name="disable_comment_long_press">コメントの長押しを無効にする</string>
+    <string name="disable_comment_long_press_description">コメントを長押ししても絵文字の選択肢が開かないようにします。</string>
     <string name="hide_comment_animations">コメントのアニメーションを非表示</string>
     <string name="hide_comment_animations_description">コメント内の一部の単語で始まる全画面エフェクトを止めます。</string>
     <string name="hide_comment_suggestions">コメントの候補を非表示</string>

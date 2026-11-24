@@ -22,6 +22,8 @@
     <string name="always_show_seek_bar_description">แสดงแถบเลื่อนในทุกวิดีโอ ไม่ใช่เฉพาะวิดีโอยาว</string>
     <string name="disable_like_long_press">ปิดการกดถูกใจค้าง</string>
     <string name="disable_like_long_press_description">การกดถูกใจค้างไว้จะไม่เปิดตัวเลือกรีแอคชันอีก</string>
+    <string name="disable_comment_long_press">ปิดการกดความคิดเห็นค้าง</string>
+    <string name="disable_comment_long_press_description">การกดความคิดเห็นค้างไว้จะไม่เปิดตัวเลือกอีโมจิอีก</string>
     <string name="hide_comment_animations">ซ่อนภาพเคลื่อนไหวในความคิดเห็น</string>
     <string name="hide_comment_animations_description">หยุดเอฟเฟกต์เต็มหน้าจอที่บางคำในความคิดเห็นเรียกขึ้นมา</string>
     <string name="hide_comment_suggestions">ซ่อนคำแนะนำในความคิดเห็น</string>

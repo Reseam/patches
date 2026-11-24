@@ -95,6 +95,8 @@
     <string name="hide_rewards_icon_summary">Hides the floating rewards and gift icon in the corner of the feed.</string>
     <string name="disable_like_long_press">Disable like long-press</string>
     <string name="disable_like_long_press_summary">Holding Like no longer opens the reaction options.</string>
+    <string name="disable_comment_long_press">Disable comment long-press</string>
+    <string name="disable_comment_long_press_summary">Holding Comments no longer opens the emoji options.</string>
     <string name="show_poll_results">Show poll results</string>
     <string name="show_poll_results_summary">Shows poll results in comments before you vote.</string>
     <string name="hide_notification_prompts">Hide notification prompts</string>

@@ -22,6 +22,8 @@
     <string name="always_show_seek_bar_description">Показывает полосу перемотки на каждом видео, а не только на длинных.</string>
     <string name="disable_like_long_press">Отключить долгое нажатие на «Нравится»</string>
     <string name="disable_like_long_press_description">Удержание «Нравится» больше не открывает варианты реакций.</string>
+    <string name="disable_comment_long_press">Отключить долгое нажатие на «Комментарии»</string>
+    <string name="disable_comment_long_press_description">Удержание «Комментарии» больше не открывает варианты эмодзи.</string>
     <string name="hide_comment_animations">Скрыть анимации комментариев</string>
     <string name="hide_comment_animations_description">Убирает полноэкранные эффекты, которые запускают некоторые слова в комментариях.</string>
     <string name="hide_comment_suggestions">Скрыть подсказки для комментариев</string>

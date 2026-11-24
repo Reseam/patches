@@ -22,6 +22,8 @@
     <string name="always_show_seek_bar_description">Shows the seekbar on every video, not only long ones.</string>
     <string name="disable_like_long_press">Disable like long-press</string>
     <string name="disable_like_long_press_description">Stops holding Like from opening the reaction options.</string>
+    <string name="disable_comment_long_press">Disable comment long-press</string>
+    <string name="disable_comment_long_press_description">Stops holding Comments from opening the emoji options.</string>
     <string name="hide_comment_animations">Hide comment animations</string>
     <string name="hide_comment_animations_description">Stops the full-screen effects some words in comments start.</string>
     <string name="hide_comment_suggestions">Hide comment suggestions</string>

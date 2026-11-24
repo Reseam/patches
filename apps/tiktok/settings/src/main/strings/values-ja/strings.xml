@@ -89,6 +89,8 @@
     <string name="hide_rewards_icon_summary">フィードの隅に浮かぶリワードとギフトのアイコンを非表示にします。</string>
     <string name="disable_like_long_press">いいねの長押しを無効にする</string>
     <string name="disable_like_long_press_summary">いいねを長押ししてもリアクションの選択肢が開かなくなります。</string>
+    <string name="disable_comment_long_press">コメントの長押しを無効にする</string>
+    <string name="disable_comment_long_press_summary">コメントを長押ししても絵文字の選択肢が開かなくなります。</string>
     <string name="show_poll_results">投票結果を表示</string>
     <string name="show_poll_results_summary">コメント内の投票の結果を、投票する前に表示します。</string>
     <string name="hide_notification_prompts">通知の案内を非表示</string>

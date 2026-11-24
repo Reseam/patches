@@ -22,6 +22,8 @@
     <string name="always_show_seek_bar_description">Zeigt die Fortschrittsleiste bei jedem Video, nicht nur bei langen.</string>
     <string name="disable_like_long_press">Langes Drücken auf „Gefällt mir“ deaktivieren</string>
     <string name="disable_like_long_press_description">Verhindert, dass langes Drücken auf „Gefällt mir“ die Reaktionsoptionen öffnet.</string>
+    <string name="disable_comment_long_press">Langes Drücken auf „Kommentare“ deaktivieren</string>
+    <string name="disable_comment_long_press_description">Verhindert, dass langes Drücken auf „Kommentare“ die Emoji-Optionen öffnet.</string>
     <string name="hide_comment_animations">Kommentar-Animationen ausblenden</string>
     <string name="hide_comment_animations_description">Stoppt die Vollbildeffekte, die manche Wörter in Kommentaren auslösen.</string>
     <string name="hide_comment_suggestions">Kommentarvorschläge ausblenden</string>

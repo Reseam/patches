@@ -89,6 +89,8 @@
     <string name="hide_rewards_icon_summary">फ़ीड के कोने में तैरता रिवॉर्ड और गिफ़्ट आइकन छिपाता है।</string>
     <string name="disable_like_long_press">लाइक को देर तक दबाना बंद करें</string>
     <string name="disable_like_long_press_summary">लाइक को दबाए रखने पर अब रिएक्शन के विकल्प नहीं खुलते।</string>
+    <string name="disable_comment_long_press">कमेंट को देर तक दबाना बंद करें</string>
+    <string name="disable_comment_long_press_summary">कमेंट को दबाए रखने पर अब इमोजी के विकल्प नहीं खुलते।</string>
     <string name="show_poll_results">पोल के नतीजे दिखाएँ</string>
     <string name="show_poll_results_summary">कमेंट में पोल के नतीजे आपके वोट देने से पहले दिखाता है।</string>
     <string name="hide_notification_prompts">नोटिफ़िकेशन के सुझाव छिपाएँ</string>

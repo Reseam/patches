@@ -22,6 +22,8 @@
     <string name="always_show_seek_bar_description">Mostra la barra di avanzamento su ogni video, non solo su quelli lunghi.</string>
     <string name="disable_like_long_press">Disattiva la pressione prolungata su Mi piace</string>
     <string name="disable_like_long_press_description">Impedisce che tenere premuto Mi piace apra le opzioni di reazione.</string>
+    <string name="disable_comment_long_press">Disattiva la pressione prolungata su Commenti</string>
+    <string name="disable_comment_long_press_description">Impedisce che tenere premuto Commenti apra le opzioni delle emoji.</string>
     <string name="hide_comment_animations">Nascondi le animazioni dei commenti</string>
     <string name="hide_comment_animations_description">Ferma gli effetti a schermo intero avviati da alcune parole nei commenti.</string>
     <string name="hide_comment_suggestions">Nascondi i suggerimenti per i commenti</string>

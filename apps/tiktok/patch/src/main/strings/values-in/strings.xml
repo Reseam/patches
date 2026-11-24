@@ -22,6 +22,8 @@
     <string name="always_show_seek_bar_description">Menampilkan bilah putar di setiap video, tidak hanya di video panjang.</string>
     <string name="disable_like_long_press">Nonaktifkan tekan lama suka</string>
     <string name="disable_like_long_press_description">Menahan Suka tidak lagi membuka pilihan reaksi.</string>
+    <string name="disable_comment_long_press">Nonaktifkan tekan lama komentar</string>
+    <string name="disable_comment_long_press_description">Menahan Komentar tidak lagi membuka pilihan emoji.</string>
     <string name="hide_comment_animations">Sembunyikan animasi komentar</string>
     <string name="hide_comment_animations_description">Menghentikan efek layar penuh yang dipicu kata tertentu di komentar.</string>
     <string name="hide_comment_suggestions">Sembunyikan saran komentar</string>

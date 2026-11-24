@@ -22,6 +22,8 @@
     <string name="always_show_seek_bar_description">긴 동영상뿐 아니라 모든 동영상에 탐색 바를 표시합니다.</string>
     <string name="disable_like_long_press">좋아요 길게 누르기 사용 중지</string>
     <string name="disable_like_long_press_description">좋아요를 길게 눌러도 반응 옵션이 열리지 않습니다.</string>
+    <string name="disable_comment_long_press">댓글 길게 누르기 사용 중지</string>
+    <string name="disable_comment_long_press_description">댓글을 길게 눌러도 이모티콘 옵션이 열리지 않습니다.</string>
     <string name="hide_comment_animations">댓글 애니메이션 숨기기</string>
     <string name="hide_comment_animations_description">댓글의 일부 단어가 실행하는 전체 화면 효과를 중지합니다.</string>
     <string name="hide_comment_suggestions">댓글 추천 숨기기</string>

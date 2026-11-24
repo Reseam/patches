@@ -89,6 +89,8 @@
     <string name="hide_rewards_icon_summary">Скрывает плавающий значок наград и подарков в углу ленты.</string>
     <string name="disable_like_long_press">Отключить долгое нажатие на «Нравится»</string>
     <string name="disable_like_long_press_summary">Удержание «Нравится» больше не открывает варианты реакций.</string>
+    <string name="disable_comment_long_press">Отключить долгое нажатие на «Комментарии»</string>
+    <string name="disable_comment_long_press_summary">Удержание «Комментарии» больше не открывает варианты эмодзи.</string>
     <string name="show_poll_results">Показывать результаты опросов</string>
     <string name="show_poll_results_summary">Показывает результаты опросов в комментариях до вашего голоса.</string>
     <string name="hide_notification_prompts">Скрыть предложения включить уведомления</string>

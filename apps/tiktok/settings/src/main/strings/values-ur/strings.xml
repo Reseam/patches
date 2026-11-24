@@ -89,6 +89,8 @@
     <string name="hide_rewards_icon_summary">فیڈ کے کونے میں تیرتا انعامات اور تحفے کا آئیکن چھپاتا ہے۔</string>
     <string name="disable_like_long_press">پسند کو دیر تک دبانا غیر فعال کریں</string>
     <string name="disable_like_long_press_summary">پسند کو دبائے رکھنے سے اب ری ایکشن کے اختیارات نہیں کھلتے۔</string>
+    <string name="disable_comment_long_press">تبصروں کو دیر تک دبانا غیر فعال کریں</string>
+    <string name="disable_comment_long_press_summary">تبصروں کو دبائے رکھنے سے اب ایموجی کے اختیارات نہیں کھلتے۔</string>
     <string name="show_poll_results">پول کے نتائج دکھائیں</string>
     <string name="show_poll_results_summary">ووٹ دینے سے پہلے تبصروں میں پول کے نتائج دکھاتا ہے۔</string>
     <string name="hide_notification_prompts">اطلاعات کے پرامپٹس چھپائیں</string>

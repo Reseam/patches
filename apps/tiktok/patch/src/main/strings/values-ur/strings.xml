@@ -22,6 +22,8 @@
     <string name="always_show_seek_bar_description">صرف لمبی ویڈیوز پر نہیں، ہر ویڈیو پر سیک بار دکھاتا ہے۔</string>
     <string name="disable_like_long_press">پسند کو دیر تک دبانا غیر فعال کریں</string>
     <string name="disable_like_long_press_description">پسند بٹن کو دبائے رکھنے سے ری ایکشن کے اختیارات کھلنا روکتا ہے۔</string>
+    <string name="disable_comment_long_press">تبصروں کو دیر تک دبانا غیر فعال کریں</string>
+    <string name="disable_comment_long_press_description">تبصروں کے بٹن کو دبائے رکھنے سے ایموجی کے اختیارات کھلنا روکتا ہے۔</string>
     <string name="hide_comment_animations">تبصروں کی اینیمیشنز چھپائیں</string>
     <string name="hide_comment_animations_description">تبصروں میں بعض الفاظ سے شروع ہونے والے فل اسکرین ایفیکٹس روکتا ہے۔</string>
     <string name="hide_comment_suggestions">تبصرے کی تجاویز چھپائیں</string>
