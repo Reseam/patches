@@ -7,8 +7,6 @@ import app.reseam.patch.appEntry
 import app.reseam.patch.before
 import app.reseam.patch.dex.ref
 import app.reseam.patch.fieldTarget
-import app.reseam.patch.klass
-import app.reseam.patch.method
 import app.reseam.patch.patch
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.XPatchStrings
@@ -39,12 +37,6 @@ val saveAllMedia = patch(XPatchStrings.saveAllMedia) {
         }
     }
 }
-
-private val gallery = klass("mediaGallery") { strings("offline_videos_download_fallback", "video_download") }
-
-private val gallerySave = method("gallerySave") { inClass(gallery); strings("offline_videos_download_fallback", "video_download") }
-
-private val mediaGalleryArgs = klass("mediaGalleryArgs") { strings("MediaGalleryArgs(media=") }
 
 private val galleryArgs = fieldTarget("galleryArgs") {
     gallery.classDef.instanceFields.single { it.fieldType == mediaGalleryArgs.descriptor }.ref

@@ -5,13 +5,17 @@ package app.reseam.patches.x.media
 
 import app.reseam.patch.MethodTarget
 import app.reseam.patch.Type
+import app.reseam.patch.after
 import app.reseam.patch.before
 import app.reseam.patch.descriptor
+import app.reseam.patch.dex.Opcode
+import app.reseam.patch.dex.opcode
 import app.reseam.patch.dex.ref
 import app.reseam.patch.fieldTarget
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
+import app.reseam.patch.point
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.XPatchStrings
 import app.reseam.patches.x.core.X
@@ -30,6 +34,10 @@ val saveMedia = patch(XPatchStrings.saveMedia) {
     settings(xSettings, section(XSettingsPages.Media, XStrings.sectionMedia, XSettings.downloadFolder, XSettings.downloadFileName))
 
     execute {
+        // The media viewer sends videos and GIFs to Offline Videos unless its args allow a free download.
+        gallerySave.point { opcode(Opcode.IGET_BOOLEAN); field { owner(mediaGalleryArgs.descriptor) } }
+            .captureAs("allowFreeVideoDownload", Type.Boolean)
+            .after { capture("allowFreeVideoDownload").assign(bool(true)) }
         for (save in listOf(imageAndVideoArgs, enqueueArgs)) {
             save.method.before {
                 val handled = XDownloads.save(thisObject.field(downloaderContext), param(save.url), param(save.name), param(save.mime), param(save.headers), param(6))
@@ -38,6 +46,12 @@ val saveMedia = patch(XPatchStrings.saveMedia) {
         }
     }
 }
+
+val gallery = klass("mediaGallery") { strings("offline_videos_download_fallback", "video_download") }
+
+val gallerySave = method("gallerySave") { inClass(gallery); strings("offline_videos_download_fallback", "video_download") }
+
+val mediaGalleryArgs = klass("mediaGalleryArgs") { strings("MediaGalleryArgs(media=") }
 
 private class SaveArgs(val method: MethodTarget, val url: Int, val mime: Int, val headers: Int, val name: Int)
 
