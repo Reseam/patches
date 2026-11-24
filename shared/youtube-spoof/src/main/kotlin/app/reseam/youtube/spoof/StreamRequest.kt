@@ -57,6 +57,10 @@ internal class StreamRequest(
                 }
             }
             if (client.native) {
+                if (!NativeTokens.available(deadline)) {
+                    Logger.info { "Skipping Android: the token server cannot supply DroidGuard tokens" }
+                    continue
+                }
                 Logger.debug { "Native playback with a server integrity token for $videoId" }
                 return StreamingData(client)
             }

@@ -24,7 +24,8 @@ import org.json.JSONObject
  * projects may not integrate it, impersonate Reseam, relay or resell tokens without prior
  * permission (contact@reseam.app).
  */
-private const val API = "https://mint.reseam.app/v1/"
+private const val HOST = "https://mint.reseam.app/"
+private const val API = "${HOST}v1/"
 private const val HTTP_TIMEOUT_MILLISECONDS = 10_000
 private const val MAX_RESPONSE_BYTES = 64 * 1024
 
@@ -73,21 +74,29 @@ private fun success(response: TextResponse): JSONObject {
     throw IOException("Token server HTTP ${response.status}: ${response.body.orEmpty().take(200)}")
 }
 
-private fun post(path: String, body: String, credential: String?, deadline: Long): TextResponse {
-    val payload = body.toByteArray(Charsets.UTF_8)
-    return openHttp(API + path) {
+// The readiness check is public; /readyz answers 503 when BotGuard has no worker, with the same body.
+internal fun droidguardReady(deadline: Long): Boolean =
+    request("${HOST}readyz", null, null, deadline).json().getInt("droidguard") > 0
+
+private fun post(path: String, body: String, credential: String?, deadline: Long): TextResponse =
+    request(API + path, body, credential, deadline)
+
+private fun request(url: String, body: String?, credential: String?, deadline: Long): TextResponse =
+    openHttp(url) {
         val timeout =
             minOf(HTTP_TIMEOUT_MILLISECONDS.toLong(), deadline - SystemClock.elapsedRealtime())
                 .toInt()
         if (timeout <= 0) throw TimeoutException("Token server request deadline exceeded")
         connectTimeout = timeout
         readTimeout = timeout
-        requestMethod = "POST"
+        requestMethod = if (body == null) "GET" else "POST"
         useCaches = false
-        setRequestProperty("Content-Type", "application/json")
         setRequestProperty("User-Agent", "Reseam/YouTube")
         if (credential != null) setRequestProperty("X-Installation-Token", credential)
-        send(payload)
+        if (body != null) {
+            setRequestProperty("Content-Type", "application/json")
+            send(body.toByteArray(Charsets.UTF_8))
+        }
         val status = responseCode
         TextResponse(
             status,
@@ -98,4 +107,3 @@ private fun post(path: String, body: String, credential: String?, deadline: Long
             ),
         )
     }
-}
