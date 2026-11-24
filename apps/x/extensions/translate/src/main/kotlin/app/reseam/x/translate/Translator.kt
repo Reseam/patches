@@ -5,11 +5,12 @@ package app.reseam.x.translate
 
 import app.reseam.x.settings.XSettings
 
-/** Who translates posts, as chosen in settings. */
-internal enum class Translator(val key: String) {
-    None("none"),
-    Grok("grok"),
-    Reseam("reseam"),
+/** Who translates posts, as chosen in settings. Grok and None leave posts to X. */
+internal enum class Translator(val key: String, val service: TranslationService?) {
+    None("none", null),
+    Grok("grok", null),
+    Reseam("reseam", ReseamTranslate),
+    Google("google", GoogleTranslate),
     ;
 
     companion object {

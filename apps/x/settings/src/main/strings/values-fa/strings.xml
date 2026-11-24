@@ -139,7 +139,7 @@
     <string name="double_tap_seek_15">۱۵ ثانیه</string>
     <string name="double_tap_seek_30">۳۰ ثانیه</string>
     <string name="post_translator">مترجم</string>
-    <string name="post_translator_summary">مترجم پست‌ها. «هیچ‌کدام» ترجمهٔ پست‌ها، بیوگرافی‌ها و «یادداشت‌های جامعه» را خاموش می‌کند. Reseam Translate متنی را که ترجمه می‌کند دریافت می‌کند.</string>
+    <string name="post_translator_summary">مترجم پست‌ها. «هیچ‌کدام» ترجمهٔ پست‌ها، بیوگرافی‌ها و «یادداشت‌های جامعه» را خاموش می‌کند. Reseam Translate و Google Translate متنی را که ترجمه می‌کنند دریافت می‌کنند.</string>
     <string name="post_translator_none">هیچ‌کدام</string>
     <string name="post_translator_grok">Grok (X)</string>
     <string name="dark_theme">زمینهٔ تیره</string>

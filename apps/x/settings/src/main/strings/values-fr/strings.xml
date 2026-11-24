@@ -139,7 +139,7 @@
     <string name="double_tap_seek_15">15 secondes</string>
     <string name="double_tap_seek_30">30 secondes</string>
     <string name="post_translator">Traducteur</string>
-    <string name="post_translator_summary">Qui traduit les posts. Aucun désactive les traductions des posts, des bios et des Notes de la Communauté. Reseam Translate reçoit le texte qu’il traduit.</string>
+    <string name="post_translator_summary">Qui traduit les posts. Aucun désactive les traductions des posts, des bios et des Notes de la Communauté. Reseam Translate et Google Translate reçoivent le texte qu’ils traduisent.</string>
     <string name="post_translator_none">Aucun</string>
     <string name="post_translator_grok">Grok (X)</string>
     <string name="dark_theme">Thème sombre</string>

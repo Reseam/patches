@@ -15,17 +15,18 @@ internal object TranslateButton : ApiResponder {
     override val path = "/2/grok/translation.json"
 
     override val isEnabled: Boolean
-        get() = Translator.selected == Translator.Reseam
+        get() = Translator.selected.service != null
 
     override fun respond(request: ApiRequest): String? {
+        val service = Translator.selected.service ?: return null
         val asked = request.json ?: return null
         if (asked.optString("content_type") != "POST") return null
         val post = SeenPosts[asked.getString("id")] ?: return null
         val target = engineLanguage(Locale.forLanguageTag(asked.getString("dst_lang")))
-        val languages = Translations.languages() ?: return null
+        val languages = service.languages() ?: return null
         if (post.language !in languages || target !in languages) return null
         val key = TranslationKey(post.language, target, post.text)
-        val translation = Translations.get(setOf(key))[key] ?: return null
+        val translation = Translations.get(service, setOf(key))[key] ?: return null
         return TranslationShapes.requested(translation, post.entities).toString()
     }
 }

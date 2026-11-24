@@ -139,7 +139,7 @@
     <string name="double_tap_seek_15">15 saniye</string>
     <string name="double_tap_seek_30">30 saniye</string>
     <string name="post_translator">Çevirmen</string>
-    <string name="post_translator_summary">Gönderileri kimin çevireceği. Hiçbiri seçeneği gönderilerin, biyografilerin ve Topluluk Notları\'nın çevirisini kapatır. Reseam Translate çevirdiği metni alır.</string>
+    <string name="post_translator_summary">Gönderileri kimin çevireceği. Hiçbiri seçeneği gönderilerin, biyografilerin ve Topluluk Notları\'nın çevirisini kapatır. Reseam Translate ve Google Translate çevirdikleri metni alır.</string>
     <string name="post_translator_none">Hiçbiri</string>
     <string name="post_translator_grok">Grok (X)</string>
     <string name="dark_theme">Koyu tema</string>

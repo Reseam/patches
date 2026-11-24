@@ -138,7 +138,7 @@
     <string name="double_tap_seek_15">15 วินาที</string>
     <string name="double_tap_seek_30">30 วินาที</string>
     <string name="post_translator">ผู้แปล</string>
-    <string name="post_translator_summary">ผู้แปลโพสต์ \"ไม่มี\" จะปิดการแปลโพสต์ คำอธิบายโปรไฟล์ และบันทึกจากชุมชน Reseam Translate จะได้รับข้อความที่แปล</string>
+    <string name="post_translator_summary">ผู้แปลโพสต์ \"ไม่มี\" จะปิดการแปลโพสต์ คำอธิบายโปรไฟล์ และบันทึกจากชุมชน Reseam Translate และ Google Translate จะได้รับข้อความที่แปล</string>
     <string name="post_translator_none">ไม่มี</string>
     <string name="post_translator_grok">Grok (X)</string>
     <string name="dark_theme">ธีมมืด</string>

@@ -139,7 +139,7 @@
     <string name="double_tap_seek_15">15 सेकंड</string>
     <string name="double_tap_seek_30">30 सेकंड</string>
     <string name="post_translator">अनुवादक</string>
-    <string name="post_translator_summary">पोस्ट का अनुवाद कौन करे। \"कोई नहीं\" चुनने पर पोस्ट, बायो और Community Notes के अनुवाद बंद हो जाते हैं। Reseam Translate को वह टेक्स्ट मिलता है जिसका वह अनुवाद करता है।</string>
+    <string name="post_translator_summary">पोस्ट का अनुवाद कौन करे। \"कोई नहीं\" चुनने पर पोस्ट, बायो और Community Notes के अनुवाद बंद हो जाते हैं। Reseam Translate और Google Translate को वह टेक्स्ट मिलता है जिसका वे अनुवाद करते हैं।</string>
     <string name="post_translator_none">कोई नहीं</string>
     <string name="post_translator_grok">Grok (X)</string>
     <string name="dark_theme">डार्क थीम</string>

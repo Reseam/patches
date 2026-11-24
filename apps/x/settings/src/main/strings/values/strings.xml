@@ -143,10 +143,11 @@
     <string name="double_tap_seek_15">15 seconds</string>
     <string name="double_tap_seek_30">30 seconds</string>
     <string name="post_translator">Translator</string>
-    <string name="post_translator_summary">Who translates posts. None turns off translations of posts, bios and Community Notes. Reseam Translate receives the text it translates.</string>
+    <string name="post_translator_summary">Who translates posts. None turns off translations of posts, bios and Community Notes. Reseam Translate and Google Translate receive the text they translate.</string>
     <string name="post_translator_none">None</string>
     <string name="post_translator_grok">Grok (X)</string>
     <string name="post_translator_reseam" translatable="false">Reseam Translate</string>
+    <string name="post_translator_google" translatable="false">Google Translate</string>
     <string name="dark_theme">Dark theme</string>
     <string name="dark_theme_summary">The background X uses at night.</string>
     <string name="dark_theme_lights_out">Lights out (black)</string>

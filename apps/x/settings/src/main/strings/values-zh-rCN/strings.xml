@@ -138,7 +138,7 @@
     <string name="double_tap_seek_15">15 秒</string>
     <string name="double_tap_seek_30">30 秒</string>
     <string name="post_translator">翻译服务</string>
-    <string name="post_translator_summary">由谁翻译帖子。选择“无”会关闭帖子、简介和社区笔记的翻译。Reseam Translate 会收到它翻译的文本。</string>
+    <string name="post_translator_summary">由谁翻译帖子。选择“无”会关闭帖子、简介和社区笔记的翻译。Reseam Translate 和 Google Translate 会收到它们翻译的文本。</string>
     <string name="post_translator_none">无</string>
     <string name="post_translator_grok">Grok (X)</string>
     <string name="dark_theme">深色主题</string>

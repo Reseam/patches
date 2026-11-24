@@ -14,20 +14,21 @@ internal object PostTranslator : GraphqlRewriter {
     private val POST_LANGUAGE = Regex(""""lang":"([^"]+)"""")
 
     override val isEnabled: Boolean
-        get() = Translator.selected == Translator.Reseam
+        get() = Translator.selected.service != null
 
     override fun rewrite(response: GraphqlResponse): Boolean {
+        val service = Translator.selected.service ?: return false
         val target = engineLanguage(Locale.getDefault())
         val tags = POST_LANGUAGE.findAll(response.body).map { it.groupValues[1] }
         if (tags.none { engineLanguage(Locale.forLanguageTag(it)) != target }) return false
-        val languages = Translations.languages() ?: return false
+        val languages = service.languages() ?: return false
         if (target !in languages) return false
         val posts = response.json.descendants().mapNotNull { it.toSourcePost() }
             .filter { it.content.language != target && it.content.language in languages }
             .onEach { SeenPosts.remember(it.id, it.content) }
             .toList()
         val keys = posts.associateWith { TranslationKey(it.content.language, target, it.content.text) }
-        val found = Translations.get(keys.values.toSet())
+        val found = Translations.get(service, keys.values.toSet())
         val translated = keys.mapNotNull { (post, key) -> found[key]?.let { post to it } }
         translated.forEach { (post, text) ->
             post.tweet.put(TRANSLATION_FIELD, TranslationShapes.automatic(text, post.content.entities))

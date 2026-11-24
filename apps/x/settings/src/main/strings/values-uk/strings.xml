@@ -141,7 +141,7 @@
     <string name="double_tap_seek_15">15 секунд</string>
     <string name="double_tap_seek_30">30 секунд</string>
     <string name="post_translator">Перекладач</string>
-    <string name="post_translator_summary">Хто перекладає дописи. «Немає» вимикає переклади дописів, біографій і нотаток спільноти. Reseam Translate отримує текст, який перекладає.</string>
+    <string name="post_translator_summary">Хто перекладає дописи. «Немає» вимикає переклади дописів, біографій і нотаток спільноти. Reseam Translate і Google Translate отримують текст, який перекладають.</string>
     <string name="post_translator_none">Немає</string>
     <string name="post_translator_grok">Grok (X)</string>
     <string name="dark_theme">Темна тема</string>

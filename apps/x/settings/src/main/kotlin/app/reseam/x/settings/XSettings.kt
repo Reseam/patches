@@ -148,6 +148,7 @@ object XSettings : SettingsGroup(XStrings) {
                     Choice("none", XStrings.postTranslatorNone),
                     Choice("grok", XStrings.postTranslatorGrok),
                     Choice("reseam", XStrings.postTranslatorReseam),
+                    Choice("google", XStrings.postTranslatorGoogle),
                 ),
             icon = Vector.lucide("languages"),
         )
