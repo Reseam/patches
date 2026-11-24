@@ -22,9 +22,9 @@ object SpoofSettings : SettingsGroup(SpoofStrings, "you_tube_settings") {
             choices =
                 listOf(
                     Choice("tv", SpoofStrings.spoofVideoStreamsClientTv),
-                    Choice("android", SpoofStrings.spoofVideoStreamsClientAndroid),
-                    Choice("web", SpoofStrings.spoofVideoStreamsClientWeb),
                     Choice("visionos", SpoofStrings.spoofVideoStreamsClientVisionos),
+                    Choice("web", SpoofStrings.spoofVideoStreamsClientWeb),
+                    Choice("android", SpoofStrings.spoofVideoStreamsClientAndroid),
                     Choice("tv_simply", SpoofStrings.spoofVideoStreamsClientTvSimply),
                 ),
         )
