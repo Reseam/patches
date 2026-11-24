@@ -51,6 +51,7 @@ val defaultVideoQuality = patch(TwitchPatchStrings.defaultVideoQuality) {
         appEntry { VideoQuality.init(application) }
 
         // A quality picked in the player still wins over the default.
+        // Where R8 inlines Twitch's lookup, argument 1 is the whole key instead of its suffix, so the unsaved ending still gives a key with nothing saved under it.
         val verticalReads = verticalTheatreQualityReads.all
         require(verticalReads.isNotEmpty()) { "The vertical theatre no longer reads the saved quality" }
         val startQualities = verticalReads + theatreQualityRead
@@ -86,23 +87,20 @@ val defaultVideoQuality = patch(TwitchPatchStrings.defaultVideoQuality) {
     }
 }
 
-private val savedQuality = method("savedQuality") {
-    strings("video_quality")
-    params(Type.String, Type.String)
-    returns(Type.String)
-}
-
+// In each reader, the one call that takes two strings and returns one is Twitch's saved quality lookup.
+// Where R8 inlines that lookup, it is the preference read the lookup made.
 private val theatreQualityRead = method("theatreQuality") {
-    calls(savedQuality)
+    strings("auto")
     accesses { owner(CLIP_QUALITY); name("Quality480p") }
 }
-    .point("theatreQualityRead") { calls(savedQuality) }
+    .point("theatreQualityRead") { invokeVirtual { params(Type.String, Type.String); returns(Type.String) } }
 
 private val verticalTheatreQualityReads = methods("verticalTheatreQualities") {
-    calls(savedQuality)
     strings("audio_only")
+    calls { name("getSuffix") }
+    calls { params(Type.String, Type.String); returns(Type.String) }
 }
-    .points("verticalTheatreQualityReads") { calls(savedQuality) }
+    .points("verticalTheatreQualityReads") { invokeVirtual { params(Type.String, Type.String); returns(Type.String) } }
 
 private val setQualityByName = method("setQualityByName") {
     strings("auto")
