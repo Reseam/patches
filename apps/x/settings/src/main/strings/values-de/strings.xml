@@ -133,6 +133,11 @@
     <string name="remove_share_tracking_summary">Entfernt die Parameter, die X anhängt, um zu verfolgen, wer einen Link geteilt hat.</string>
     <string name="share_link_provider">Anbieter für geteilte Links</string>
     <string name="share_link_provider_summary">Der Host geteilter Beitragslinks.</string>
+    <string name="hide_media_menu_post">„Foto posten“ und „Video posten“ ausblenden</string>
+    <string name="hide_media_menu_post_summary">„Foto posten“, „GIF posten“ und „Video posten“.</string>
+    <string name="hide_media_menu_offline_videos">Optionen für Offline-Videos ausblenden</string>
+    <string name="hide_media_menu_grok">Grok-Optionen ausblenden</string>
+    <string name="hide_media_menu_grok_summary">„Bild mit Grok bearbeiten“ und „Video mit Grok erstellen“.</string>
     <string name="phone_layout">Smartphone-Layout auf großen Bildschirmen</string>
     <string name="phone_layout_summary">Behält die Navigationsleiste auf Tablets und aufgeklappten Smartphones unten.</string>
     <string name="double_tap_seek">Sprungweite beim Doppeltippen</string>
@@ -210,6 +215,7 @@
     <string name="section_premium">Premium</string>
     <string name="section_ads">Werbung</string>
     <string name="section_media">Medien</string>
+    <string name="section_media_menu">Medienmenü</string>
     <string name="section_video">Video</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">Übersetzung</string>

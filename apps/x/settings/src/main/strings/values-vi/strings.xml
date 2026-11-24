@@ -132,6 +132,11 @@
     <string name="remove_share_tracking_summary">Xóa các tham số mà X thêm vào để theo dõi người chia sẻ đường liên kết.</string>
     <string name="share_link_provider">Nhà cung cấp đường liên kết chia sẻ</string>
     <string name="share_link_provider_summary">Máy chủ của đường liên kết bài đăng được chia sẻ.</string>
+    <string name="hide_media_menu_post">Ẩn Đăng ảnh và Đăng video</string>
+    <string name="hide_media_menu_post_summary">Đăng ảnh, Đăng GIF và Đăng video.</string>
+    <string name="hide_media_menu_offline_videos">Ẩn tùy chọn Video ngoại tuyến</string>
+    <string name="hide_media_menu_grok">Ẩn tùy chọn Grok</string>
+    <string name="hide_media_menu_grok_summary">Chỉnh sửa ảnh bằng Grok và Tạo video bằng Grok.</string>
     <string name="phone_layout">Bố cục điện thoại trên màn hình lớn</string>
     <string name="phone_layout_summary">Giữ thanh điều hướng ở dưới cùng trên máy tính bảng và điện thoại gập khi mở ra.</string>
     <string name="double_tap_seek">Tua bằng chạm hai lần</string>
@@ -209,6 +214,7 @@
     <string name="section_premium">Premium</string>
     <string name="section_ads">Quảng cáo</string>
     <string name="section_media">Nội dung nghe nhìn</string>
+    <string name="section_media_menu">Menu phương tiện</string>
     <string name="section_video">Video</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">Bản dịch</string>

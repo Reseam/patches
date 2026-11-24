@@ -132,6 +132,11 @@
     <string name="remove_share_tracking_summary">リンクを共有した人を追跡するために X が付けるパラメータを取り除きます。</string>
     <string name="share_link_provider">共有リンクのサービス</string>
     <string name="share_link_provider_summary">共有するポストのリンクのホスト。</string>
+    <string name="hide_media_menu_post">「写真をポスト」と「動画をポスト」を非表示</string>
+    <string name="hide_media_menu_post_summary">「写真をポスト」「GIFをポスト」「動画をポスト」。</string>
+    <string name="hide_media_menu_offline_videos">オフライン動画のオプションを非表示</string>
+    <string name="hide_media_menu_grok">Grok のオプションを非表示</string>
+    <string name="hide_media_menu_grok_summary">「Grok で画像を編集」と「Grok で動画を作成」。</string>
     <string name="phone_layout">大画面でスマートフォンのレイアウト</string>
     <string name="phone_layout_summary">タブレットや開いた折りたたみスマートフォンでも、ナビゲーションバーを下に表示します。</string>
     <string name="double_tap_seek">ダブルタップのシーク幅</string>
@@ -209,6 +214,7 @@
     <string name="section_premium">Premium</string>
     <string name="section_ads">広告</string>
     <string name="section_media">メディア</string>
+    <string name="section_media_menu">メディアメニュー</string>
     <string name="section_video">動画</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">翻訳</string>

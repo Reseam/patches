@@ -133,6 +133,11 @@
     <string name="remove_share_tracking_summary">وہ پیرامیٹرز ہٹاتا ہے جو X یہ ٹریک کرنے کے لیے شامل کرتا ہے کہ لنک کس نے شیئر کیا۔</string>
     <string name="share_link_provider">شیئر لنک فراہم کنندہ</string>
     <string name="share_link_provider_summary">شیئر کیے گئے پوسٹ لنکس کا ہوسٹ۔</string>
+    <string name="hide_media_menu_post">تصویر پوسٹ کریں اور ویڈیو پوسٹ کریں چھپائیں</string>
+    <string name="hide_media_menu_post_summary">تصویر پوسٹ کریں، GIF پوسٹ کریں اور ویڈیو پوسٹ کریں۔</string>
+    <string name="hide_media_menu_offline_videos">آف لائن ویڈیوز کے اختیارات چھپائیں</string>
+    <string name="hide_media_menu_grok">Grok کے اختیارات چھپائیں</string>
+    <string name="hide_media_menu_grok_summary">Grok سے تصویر میں ترمیم کریں اور Grok سے ویڈیو بنائیں۔</string>
     <string name="phone_layout">بڑی اسکرینز پر فون لے آؤٹ</string>
     <string name="phone_layout_summary">ٹیبلیٹس اور کھلے ہوئے فولڈ ایبل فونز پر نیویگیشن بار کو نیچے رکھتا ہے۔</string>
     <string name="double_tap_seek">ڈبل ٹیپ سیک</string>
@@ -210,6 +215,7 @@
     <string name="section_premium">Premium</string>
     <string name="section_ads">اشتہارات</string>
     <string name="section_media">میڈیا</string>
+    <string name="section_media_menu">میڈیا مینو</string>
     <string name="section_video">ویڈیو</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">ترجمہ</string>

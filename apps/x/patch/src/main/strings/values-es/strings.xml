@@ -40,6 +40,8 @@
     <string name="show_sensitive_media_description">Muestra el contenido sensible sin el desenfoque ni el aviso.</string>
     <string name="topic_snooze_length">Duración de la pausa de temas</string>
     <string name="topic_snooze_length_description">Te permite pausar temas en Para ti durante más de un día.</string>
+    <string name="hide_media_menu_items">Ocultar elementos del menú multimedia</string>
+    <string name="hide_media_menu_items_description">Oculta las opciones elegidas del menú que aparece al mantener pulsada una foto, un GIF o un video.</string>
     <string name="phone_layout">Diseño de teléfono en pantallas grandes</string>
     <string name="phone_layout_description">Mantiene la barra de navegación abajo en tablets y teléfonos desplegados, como en un teléfono.</string>
     <string name="double_tap_seek">Salto con doble toque</string>

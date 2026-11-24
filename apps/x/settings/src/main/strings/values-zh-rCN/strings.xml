@@ -132,6 +132,11 @@
     <string name="remove_share_tracking_summary">移除 X 为跟踪链接分享者而添加的参数。</string>
     <string name="share_link_provider">分享链接提供方</string>
     <string name="share_link_provider_summary">分享的帖子链接所用的域名。</string>
+    <string name="hide_media_menu_post">隐藏“发布照片”和“发布视频”</string>
+    <string name="hide_media_menu_post_summary">“发布照片”、“发布 GIF”和“发布视频”。</string>
+    <string name="hide_media_menu_offline_videos">隐藏离线视频选项</string>
+    <string name="hide_media_menu_grok">隐藏 Grok 选项</string>
+    <string name="hide_media_menu_grok_summary">“用 Grok 编辑图片”和“用 Grok 制作视频”。</string>
     <string name="phone_layout">大屏幕上使用手机布局</string>
     <string name="phone_layout_summary">在平板和展开的折叠屏手机上，导航栏保持在底部。</string>
     <string name="double_tap_seek">双击快进/快退</string>
@@ -209,6 +214,7 @@
     <string name="section_premium">Premium</string>
     <string name="section_ads">广告</string>
     <string name="section_media">媒体</string>
+    <string name="section_media_menu">媒体菜单</string>
     <string name="section_video">视频</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">翻译</string>

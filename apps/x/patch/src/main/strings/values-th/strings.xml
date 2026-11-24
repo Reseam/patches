@@ -40,6 +40,8 @@
     <string name="show_sensitive_media_description">แสดงสื่อที่ละเอียดอ่อนโดยไม่เบลอหรือแสดงคำเตือน</string>
     <string name="topic_snooze_length">ระยะเวลาเลื่อนหัวข้อ</string>
     <string name="topic_snooze_length_description">ให้คุณเลื่อนหัวข้อในสำหรับคุณได้นานกว่าหนึ่งวัน</string>
+    <string name="hide_media_menu_items">ซ่อนรายการในเมนูสื่อ</string>
+    <string name="hide_media_menu_items_description">ซ่อนตัวเลือกที่เลือกไว้ในเมนูที่เปิดขึ้นเมื่อกดค้างที่รูปภาพ GIF หรือวิดีโอ</string>
     <string name="phone_layout">เลย์เอาต์แบบโทรศัพท์บนหน้าจอขนาดใหญ่</string>
     <string name="phone_layout_description">แสดงแถบนำทางไว้ด้านล่างบนแท็บเล็ตและโทรศัพท์แบบพับที่กางออก เหมือนบนโทรศัพท์</string>
     <string name="double_tap_seek">ข้ามด้วยการแตะสองครั้ง</string>

@@ -132,6 +132,11 @@
     <string name="remove_share_tracking_summary">นำพารามิเตอร์ที่ X เพิ่มเพื่อติดตามว่าใครแชร์ลิงก์ออก</string>
     <string name="share_link_provider">ผู้ให้บริการลิงก์แชร์</string>
     <string name="share_link_provider_summary">โฮสต์ของลิงก์โพสต์ที่แชร์</string>
+    <string name="hide_media_menu_post">ซ่อนโพสต์รูปภาพและโพสต์วิดีโอ</string>
+    <string name="hide_media_menu_post_summary">โพสต์รูปภาพ โพสต์ GIF และโพสต์วิดีโอ</string>
+    <string name="hide_media_menu_offline_videos">ซ่อนตัวเลือกวิดีโอออฟไลน์</string>
+    <string name="hide_media_menu_grok">ซ่อนตัวเลือก Grok</string>
+    <string name="hide_media_menu_grok_summary">แก้ไขรูปภาพด้วย Grok และสร้างวิดีโอด้วย Grok</string>
     <string name="phone_layout">เลย์เอาต์แบบโทรศัพท์บนหน้าจอขนาดใหญ่</string>
     <string name="phone_layout_summary">แสดงแถบนำทางไว้ด้านล่างบนแท็บเล็ตและโทรศัพท์แบบพับที่กางออก</string>
     <string name="double_tap_seek">ข้ามด้วยการแตะสองครั้ง</string>
@@ -209,6 +214,7 @@
     <string name="section_premium">Premium</string>
     <string name="section_ads">โฆษณา</string>
     <string name="section_media">สื่อ</string>
+    <string name="section_media_menu">เมนูสื่อ</string>
     <string name="section_video">วิดีโอ</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">การแปล</string>

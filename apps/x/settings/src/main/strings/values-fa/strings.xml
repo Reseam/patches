@@ -133,6 +133,11 @@
     <string name="remove_share_tracking_summary">پارامترهایی را که X برای ردیابی هم‌رسانی‌کنندهٔ پیوند اضافه می‌کند حذف می‌کند.</string>
     <string name="share_link_provider">ارائه‌دهندهٔ پیوند هم‌رسانی</string>
     <string name="share_link_provider_summary">میزبان پیوندهای هم‌رسانی‌شدهٔ پست‌ها.</string>
+    <string name="hide_media_menu_post">پنهان کردن «ارسال عکس» و «ارسال ویدیو»</string>
+    <string name="hide_media_menu_post_summary">«ارسال عکس»، «ارسال GIF» و «ارسال ویدیو».</string>
+    <string name="hide_media_menu_offline_videos">پنهان کردن گزینه‌های «ویدیوهای آفلاین»</string>
+    <string name="hide_media_menu_grok">پنهان کردن گزینه‌های Grok</string>
+    <string name="hide_media_menu_grok_summary">«ویرایش تصویر با Grok» و «ساخت ویدیو با Grok».</string>
     <string name="phone_layout">چیدمان گوشی در صفحه‌های بزرگ</string>
     <string name="phone_layout_summary">نوار پیمایش را در تبلت‌ها و گوشی‌های تاشوی باز در پایین نگه می‌دارد.</string>
     <string name="double_tap_seek">پرش با دو ضربه</string>
@@ -210,6 +215,7 @@
     <string name="section_premium">Premium</string>
     <string name="section_ads">تبلیغات</string>
     <string name="section_media">رسانه</string>
+    <string name="section_media_menu">منوی رسانه</string>
     <string name="section_video">ویدیو</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">ترجمه</string>

@@ -40,6 +40,8 @@
     <string name="show_sensitive_media_description">Показує делікатні медіа без розмиття й попередження.</string>
     <string name="topic_snooze_length">Тривалість приховування тем</string>
     <string name="topic_snooze_length_description">Дає змогу приховувати теми у вкладці «Для вас» довше ніж на день.</string>
+    <string name="hide_media_menu_items">Приховати пункти меню медіа</string>
+    <string name="hide_media_menu_items_description">Приховує вибрані пункти в меню, яке відкривається, коли утримуєте фото, GIF або відео.</string>
     <string name="phone_layout">Макет телефона на великих екранах</string>
     <string name="phone_layout_description">Залишає панель навігації внизу на планшетах і розкладених телефонах, як на телефоні.</string>
     <string name="double_tap_seek">Перемотування подвійним дотиком</string>

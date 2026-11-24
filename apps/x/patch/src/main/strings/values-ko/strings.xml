@@ -40,6 +40,8 @@
     <string name="show_sensitive_media_description">민감한 미디어를 흐림 처리나 경고 없이 표시합니다.</string>
     <string name="topic_snooze_length">주제 일시 중지 기간</string>
     <string name="topic_snooze_length_description">추천 탭에서 주제를 하루보다 오래 일시 중지할 수 있습니다.</string>
+    <string name="hide_media_menu_items">미디어 메뉴 항목 숨기기</string>
+    <string name="hide_media_menu_items_description">사진, GIF, 동영상을 길게 누르면 나오는 메뉴에서 선택한 옵션을 숨깁니다.</string>
     <string name="phone_layout">큰 화면에서 휴대폰 레이아웃</string>
     <string name="phone_layout_description">태블릿과 펼친 폴더블 휴대폰에서도 휴대폰처럼 내비게이션 바를 아래에 둡니다.</string>
     <string name="double_tap_seek">두 번 탭 이동</string>

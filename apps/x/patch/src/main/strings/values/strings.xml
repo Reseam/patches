@@ -40,6 +40,8 @@
     <string name="show_sensitive_media_description">Shows sensitive media without the blur or warning.</string>
     <string name="topic_snooze_length">Topic snooze length</string>
     <string name="topic_snooze_length_description">Lets you snooze topics in For You for longer than a day.</string>
+    <string name="hide_media_menu_items">Hide media menu items</string>
+    <string name="hide_media_menu_items_description">Hides chosen options in the menu you get by holding a photo, GIF or video.</string>
     <string name="phone_layout">Phone layout on large screens</string>
     <string name="phone_layout_description">Keeps the navigation bar at the bottom on tablets and unfolded phones, as on a phone.</string>
     <string name="double_tap_seek">Double-tap seek</string>

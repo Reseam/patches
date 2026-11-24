@@ -40,6 +40,8 @@
     <string name="show_sensitive_media_description">Hassas medyayı bulanıklık veya uyarı olmadan gösterir.</string>
     <string name="topic_snooze_length">Konu erteleme süresi</string>
     <string name="topic_snooze_length_description">Sana özel sekmesinde konuları bir günden uzun süre ertelemenizi sağlar.</string>
+    <string name="hide_media_menu_items">Medya menüsü öğelerini gizle</string>
+    <string name="hide_media_menu_items_description">Bir fotoğrafa, GIF\'e veya videoya basılı tuttuğunuzda açılan menüdeki seçilen seçenekleri gizler.</string>
     <string name="phone_layout">Büyük ekranlarda telefon düzeni</string>
     <string name="phone_layout_description">Tabletlerde ve açılmış katlanabilir telefonlarda gezinme çubuğunu telefondaki gibi altta tutar.</string>
     <string name="double_tap_seek">Çift dokunarak atlama</string>

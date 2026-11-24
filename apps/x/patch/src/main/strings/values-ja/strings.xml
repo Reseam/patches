@@ -40,6 +40,8 @@
     <string name="show_sensitive_media_description">センシティブなメディアを、ぼかしや警告なしで表示します。</string>
     <string name="topic_snooze_length">トピックのスヌーズ期間</string>
     <string name="topic_snooze_length_description">「おすすめ」のトピックを1日より長くスヌーズできます。</string>
+    <string name="hide_media_menu_items">メディアメニューの項目を非表示</string>
+    <string name="hide_media_menu_items_description">写真、GIF、動画を長押ししたときのメニューから、選んだ項目を非表示にします。</string>
     <string name="phone_layout">大画面でスマートフォンのレイアウト</string>
     <string name="phone_layout_description">タブレットや開いた折りたたみスマートフォンでも、スマートフォンと同じくナビゲーションバーを下に表示します。</string>
     <string name="double_tap_seek">ダブルタップのシーク幅</string>

@@ -40,6 +40,8 @@
     <string name="show_sensitive_media_description">حساس میڈیا کو دھندلاہٹ یا وارننگ کے بغیر دکھاتا ہے۔</string>
     <string name="topic_snooze_length">موضوعات کو اسنوز کرنے کا دورانیہ</string>
     <string name="topic_snooze_length_description">“آپ کے لیے” میں موضوعات کو ایک دن سے زیادہ اسنوز کرنے دیتا ہے۔</string>
+    <string name="hide_media_menu_items">میڈیا مینو کے آئٹمز چھپائیں</string>
+    <string name="hide_media_menu_items_description">تصویر، GIF یا ویڈیو کو دبائے رکھنے پر کھلنے والے مینو میں منتخب اختیارات چھپاتا ہے۔</string>
     <string name="phone_layout">بڑی اسکرینز پر فون لے آؤٹ</string>
     <string name="phone_layout_description">ٹیبلیٹس اور کھلے ہوئے فولڈ ایبل فونز پر نیویگیشن بار کو فون کی طرح نیچے رکھتا ہے۔</string>
     <string name="double_tap_seek">ڈبل ٹیپ سیک</string>

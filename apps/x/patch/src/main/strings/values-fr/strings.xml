@@ -40,6 +40,8 @@
     <string name="show_sensitive_media_description">Affiche les médias sensibles sans flou ni avertissement.</string>
     <string name="topic_snooze_length">Durée de mise en veille des sujets</string>
     <string name="topic_snooze_length_description">Permet de mettre en veille des sujets dans Pour vous pendant plus d’un jour.</string>
+    <string name="hide_media_menu_items">Masquer des éléments du menu des médias</string>
+    <string name="hide_media_menu_items_description">Masque les options choisies dans le menu qui s’ouvre quand on maintient le doigt sur une photo, un GIF ou une vidéo.</string>
     <string name="phone_layout">Disposition téléphone sur grand écran</string>
     <string name="phone_layout_description">Garde la barre de navigation en bas sur les tablettes et les téléphones dépliés, comme sur un téléphone.</string>
     <string name="double_tap_seek">Saut au double appui</string>

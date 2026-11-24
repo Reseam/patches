@@ -40,6 +40,8 @@
     <string name="show_sensitive_media_description">Hiện nội dung nhạy cảm mà không làm mờ hoặc cảnh báo.</string>
     <string name="topic_snooze_length">Thời gian tạm ẩn chủ đề</string>
     <string name="topic_snooze_length_description">Cho phép bạn tạm ẩn chủ đề trong Dành cho bạn lâu hơn một ngày.</string>
+    <string name="hide_media_menu_items">Ẩn mục trong menu phương tiện</string>
+    <string name="hide_media_menu_items_description">Ẩn các tùy chọn đã chọn trong menu xuất hiện khi bạn nhấn giữ ảnh, GIF hoặc video.</string>
     <string name="phone_layout">Bố cục điện thoại trên màn hình lớn</string>
     <string name="phone_layout_description">Giữ thanh điều hướng ở dưới cùng trên máy tính bảng và điện thoại gập khi mở ra, giống như trên điện thoại.</string>
     <string name="double_tap_seek">Tua bằng chạm hai lần</string>

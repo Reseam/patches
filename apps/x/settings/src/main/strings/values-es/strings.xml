@@ -133,6 +133,11 @@
     <string name="remove_share_tracking_summary">Quita los parámetros que X añade para rastrear quién compartió un enlace.</string>
     <string name="share_link_provider">Proveedor de enlaces para compartir</string>
     <string name="share_link_provider_summary">El servidor de los enlaces de publicaciones compartidos.</string>
+    <string name="hide_media_menu_post">Ocultar Publicar foto y Publicar video</string>
+    <string name="hide_media_menu_post_summary">Publicar foto, Publicar GIF y Publicar video.</string>
+    <string name="hide_media_menu_offline_videos">Ocultar opciones de Videos sin conexión</string>
+    <string name="hide_media_menu_grok">Ocultar opciones de Grok</string>
+    <string name="hide_media_menu_grok_summary">Editar imagen con Grok y Crear video con Grok.</string>
     <string name="phone_layout">Diseño de teléfono en pantallas grandes</string>
     <string name="phone_layout_summary">Mantiene la barra de navegación abajo en tablets y teléfonos desplegados.</string>
     <string name="double_tap_seek">Salto con doble toque</string>
@@ -210,6 +215,7 @@
     <string name="section_premium">Premium</string>
     <string name="section_ads">Anuncios</string>
     <string name="section_media">Multimedia</string>
+    <string name="section_media_menu">Menú de contenido multimedia</string>
     <string name="section_video">Video</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">Traducción</string>

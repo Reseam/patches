@@ -40,6 +40,8 @@
     <string name="show_sensitive_media_description">顯示敏感媒體，不加模糊或警告。</string>
     <string name="topic_snooze_length">主題暫停時長</string>
     <string name="topic_snooze_length_description">可以在「為你推薦」中將主題暫停超過一天。</string>
+    <string name="hide_media_menu_items">隱藏媒體選單項目</string>
+    <string name="hide_media_menu_items_description">隱藏長按相片、GIF 或影片時出現的選單中所選的選項。</string>
     <string name="phone_layout">大螢幕上使用手機版面</string>
     <string name="phone_layout_description">在平板和展開的摺疊手機上，導覽列像在手機上一樣保持在底部。</string>
     <string name="double_tap_seek">雙擊快轉/倒轉</string>

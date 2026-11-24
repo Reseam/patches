@@ -133,6 +133,11 @@
     <string name="remove_share_tracking_summary">Retire les paramètres que X ajoute pour savoir qui a partagé un lien.</string>
     <string name="share_link_provider">Fournisseur des liens de partage</string>
     <string name="share_link_provider_summary">L’hôte des liens de posts partagés.</string>
+    <string name="hide_media_menu_post">Masquer Publier la photo et Publier la vidéo</string>
+    <string name="hide_media_menu_post_summary">Publier la photo, Publier le GIF et Publier la vidéo.</string>
+    <string name="hide_media_menu_offline_videos">Masquer les options Vidéos hors ligne</string>
+    <string name="hide_media_menu_grok">Masquer les options Grok</string>
+    <string name="hide_media_menu_grok_summary">Modifier l’image avec Grok et Créer une vidéo avec Grok.</string>
     <string name="phone_layout">Disposition téléphone sur grand écran</string>
     <string name="phone_layout_summary">Garde la barre de navigation en bas sur les tablettes et les téléphones dépliés.</string>
     <string name="double_tap_seek">Saut au double appui</string>
@@ -210,6 +215,7 @@
     <string name="section_premium">Premium</string>
     <string name="section_ads">Publicités</string>
     <string name="section_media">Médias</string>
+    <string name="section_media_menu">Menu des médias</string>
     <string name="section_video">Vidéo</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">Traduction</string>

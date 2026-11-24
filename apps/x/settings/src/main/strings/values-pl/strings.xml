@@ -135,6 +135,11 @@
     <string name="remove_share_tracking_summary">Usuwa parametry dodawane przez X do śledzenia, kto udostępnił link.</string>
     <string name="share_link_provider">Dostawca linków udostępniania</string>
     <string name="share_link_provider_summary">Host udostępnianych linków do postów.</string>
+    <string name="hide_media_menu_post">Ukryj Opublikuj zdjęcie i Opublikuj film</string>
+    <string name="hide_media_menu_post_summary">Opublikuj zdjęcie, Opublikuj GIF i Opublikuj film.</string>
+    <string name="hide_media_menu_offline_videos">Ukryj opcje Filmów offline</string>
+    <string name="hide_media_menu_grok">Ukryj opcje Grok</string>
+    <string name="hide_media_menu_grok_summary">Edytuj obraz za pomocą Grok i Utwórz film za pomocą Grok.</string>
     <string name="phone_layout">Układ telefonu na dużych ekranach</string>
     <string name="phone_layout_summary">Pozostawia pasek nawigacji na dole na tabletach i rozłożonych telefonach.</string>
     <string name="double_tap_seek">Przewijanie dwukrotnym kliknięciem</string>
@@ -212,6 +217,7 @@
     <string name="section_premium">Premium</string>
     <string name="section_ads">Reklamy</string>
     <string name="section_media">Multimedia</string>
+    <string name="section_media_menu">Menu multimediów</string>
     <string name="section_video">Wideo</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">Tłumaczenie</string>

@@ -133,6 +133,11 @@
     <string name="remove_share_tracking_summary">X\'in bağlantıyı kimin paylaştığını izlemek için eklediği parametreleri kaldırır.</string>
     <string name="share_link_provider">Paylaşım bağlantısı sağlayıcısı</string>
     <string name="share_link_provider_summary">Paylaşılan gönderi bağlantılarının sunucusu.</string>
+    <string name="hide_media_menu_post">Fotoğraf gönder ve Video gönder seçeneklerini gizle</string>
+    <string name="hide_media_menu_post_summary">Fotoğraf gönder, GIF gönder ve Video gönder.</string>
+    <string name="hide_media_menu_offline_videos">Çevrimdışı Videolar seçeneklerini gizle</string>
+    <string name="hide_media_menu_grok">Grok seçeneklerini gizle</string>
+    <string name="hide_media_menu_grok_summary">Görseli Grok ile düzenle ve Grok ile video oluştur.</string>
     <string name="phone_layout">Büyük ekranlarda telefon düzeni</string>
     <string name="phone_layout_summary">Tabletlerde ve açılmış katlanabilir telefonlarda gezinme çubuğunu altta tutar.</string>
     <string name="double_tap_seek">Çift dokunarak atlama</string>
@@ -210,6 +215,7 @@
     <string name="section_premium">Premium</string>
     <string name="section_ads">Reklamlar</string>
     <string name="section_media">Medya</string>
+    <string name="section_media_menu">Medya menüsü</string>
     <string name="section_video">Video</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">Çeviri</string>

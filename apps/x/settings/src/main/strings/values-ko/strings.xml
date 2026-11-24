@@ -132,6 +132,11 @@
     <string name="remove_share_tracking_summary">X가 링크 공유자를 추적하려고 추가하는 매개변수를 제거합니다.</string>
     <string name="share_link_provider">공유 링크 제공자</string>
     <string name="share_link_provider_summary">공유한 게시물 링크의 호스트입니다.</string>
+    <string name="hide_media_menu_post">사진 게시 및 동영상 게시 숨기기</string>
+    <string name="hide_media_menu_post_summary">사진 게시, GIF 게시, 동영상 게시.</string>
+    <string name="hide_media_menu_offline_videos">오프라인 동영상 옵션 숨기기</string>
+    <string name="hide_media_menu_grok">Grok 옵션 숨기기</string>
+    <string name="hide_media_menu_grok_summary">Grok으로 이미지 편집 및 Grok으로 동영상 만들기.</string>
     <string name="phone_layout">큰 화면에서 휴대폰 레이아웃</string>
     <string name="phone_layout_summary">태블릿과 펼친 폴더블 휴대폰에서도 내비게이션 바를 아래에 둡니다.</string>
     <string name="double_tap_seek">두 번 탭 이동</string>
@@ -209,6 +214,7 @@
     <string name="section_premium">Premium</string>
     <string name="section_ads">광고</string>
     <string name="section_media">미디어</string>
+    <string name="section_media_menu">미디어 메뉴</string>
     <string name="section_video">동영상</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">번역</string>

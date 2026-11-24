@@ -135,6 +135,11 @@
     <string name="remove_share_tracking_summary">Видаляє параметри, які X додає, щоб відстежувати, хто поширив посилання.</string>
     <string name="share_link_provider">Постачальник посилань для поширення</string>
     <string name="share_link_provider_summary">Хост посилань на поширені дописи.</string>
+    <string name="hide_media_menu_post">Приховати «Опублікувати фото» і «Опублікувати відео»</string>
+    <string name="hide_media_menu_post_summary">«Опублікувати фото», «Опублікувати GIF» і «Опублікувати відео».</string>
+    <string name="hide_media_menu_offline_videos">Приховати параметри офлайн-відео</string>
+    <string name="hide_media_menu_grok">Приховати параметри Grok</string>
+    <string name="hide_media_menu_grok_summary">«Змінити зображення з Grok» і «Створити відео з Grok».</string>
     <string name="phone_layout">Макет телефона на великих екранах</string>
     <string name="phone_layout_summary">Залишає панель навігації внизу на планшетах і розкладених телефонах.</string>
     <string name="double_tap_seek">Перемотування подвійним дотиком</string>
@@ -212,6 +217,7 @@
     <string name="section_premium">Premium</string>
     <string name="section_ads">Реклама</string>
     <string name="section_media">Медіа</string>
+    <string name="section_media_menu">Меню медіа</string>
     <string name="section_video">Відео</string>
     <string name="section_grok">Grok</string>
     <string name="section_translation">Переклад</string>

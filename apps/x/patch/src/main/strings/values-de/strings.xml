@@ -40,6 +40,8 @@
     <string name="show_sensitive_media_description">Zeigt sensible Medien ohne Unschärfe oder Warnung.</string>
     <string name="topic_snooze_length">Dauer für pausierte Themen</string>
     <string name="topic_snooze_length_description">Lässt dich Themen in Für dich länger als einen Tag pausieren.</string>
+    <string name="hide_media_menu_items">Einträge im Medienmenü ausblenden</string>
+    <string name="hide_media_menu_items_description">Blendet ausgewählte Optionen im Menü aus, das sich öffnet, wenn du ein Foto, GIF oder Video gedrückt hältst.</string>
     <string name="phone_layout">Smartphone-Layout auf großen Bildschirmen</string>
     <string name="phone_layout_description">Behält die Navigationsleiste auf Tablets und aufgeklappten Smartphones unten, wie auf einem Smartphone.</string>
     <string name="double_tap_seek">Sprungweite beim Doppeltippen</string>

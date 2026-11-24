@@ -40,6 +40,8 @@
     <string name="show_sensitive_media_description">Pokazuje multimedia poufne bez rozmycia i ostrzeżenia.</string>
     <string name="topic_snooze_length">Czas wyciszenia tematów</string>
     <string name="topic_snooze_length_description">Pozwala wyciszać tematy w Dla Ciebie na dłużej niż dzień.</string>
+    <string name="hide_media_menu_items">Ukryj elementy menu multimediów</string>
+    <string name="hide_media_menu_items_description">Ukrywa wybrane opcje w menu, które pojawia się po przytrzymaniu zdjęcia, GIF-a lub filmu.</string>
     <string name="phone_layout">Układ telefonu na dużych ekranach</string>
     <string name="phone_layout_description">Pozostawia pasek nawigacji na dole na tabletach i rozłożonych telefonach, tak jak na telefonie.</string>
     <string name="double_tap_seek">Przewijanie dwukrotnym kliknięciem</string>
