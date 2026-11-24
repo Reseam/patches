@@ -52,6 +52,7 @@ internal enum class ClientType(
         deviceModel = "RealityDevice17,1",
         osName = "visionOS",
         osVersion = "26.5.23O471",
+        multiAudioTracks = true,
     ),
     WEB(
         "web",
