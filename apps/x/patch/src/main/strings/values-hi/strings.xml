@@ -82,6 +82,8 @@
     <string name="hide_videos_for_you_description">टाइमलाइन में Videos for you कैरोसेल छिपाता है।</string>
     <string name="hide_discover_more">Discover more छिपाएँ</string>
     <string name="hide_discover_more_description">किसी पोस्ट के जवाबों के नीचे Discover more की पोस्ट छिपाता है।</string>
+    <string name="hide_sensitive_posts">संवेदनशील पोस्ट छिपाएँ</string>
+    <string name="hide_sensitive_posts_description">उन पोस्ट को छिपाता है जिन्हें X संवेदनशील मानता है, जैसे वयस्क सामग्री या हिंसा।</string>
     <string name="show_poll_results">पोल के नतीजे दिखाएँ</string>
     <string name="show_poll_results_description">पोल के नतीजे आपके वोट देने से पहले दिखाता है।</string>
     <string name="show_withheld_posts">रोकी गई पोस्ट दिखाएँ</string>

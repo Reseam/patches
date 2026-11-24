@@ -72,6 +72,8 @@
     <string name="hide_videos_for_you">“آپ کے لیے ویڈیوز” چھپائیں</string>
     <string name="hide_discover_more">“مزید دریافت کریں” چھپائیں</string>
     <string name="hide_discover_more_summary">کسی پوسٹ کے جوابات کے نیچے X کی تجویز کردہ پوسٹس۔</string>
+    <string name="hide_sensitive_posts">حساس پوسٹس چھپائیں</string>
+    <string name="hide_sensitive_posts_summary">وہ پوسٹس جنہیں X حساس قرار دیتا ہے، جیسے بالغ مواد یا تشدد، ٹائم لائنز، جوابات اور تلاش میں۔</string>
     <string name="show_withheld_posts">روکی گئی پوسٹس دکھائیں</string>
     <string name="show_withheld_posts_summary">روکی گئی پوسٹس اور پروفائلز FxTwitter سے لوڈ کرتا ہے، جو آپ کا IP پتہ اور آپ کی کھولی ہوئی چیزیں دیکھتا ہے۔</string>
     <string name="withheld_repost_refused">X روکی گئی پوسٹس کی ری پوسٹ بلاک کرتا ہے۔ اس کے بجائے کوٹ استعمال کریں۔</string>

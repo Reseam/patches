@@ -82,6 +82,8 @@
     <string name="hide_videos_for_you_description">ٹائم لائنز میں “آپ کے لیے ویڈیوز” کیروسل چھپاتا ہے۔</string>
     <string name="hide_discover_more">“مزید دریافت کریں” چھپائیں</string>
     <string name="hide_discover_more_description">کسی پوسٹ کے جوابات کے نیچے “مزید دریافت کریں” کی پوسٹس چھپاتا ہے۔</string>
+    <string name="hide_sensitive_posts">حساس پوسٹس چھپائیں</string>
+    <string name="hide_sensitive_posts_description">وہ پوسٹس چھپاتا ہے جنہیں X حساس قرار دیتا ہے، جیسے بالغ مواد یا تشدد۔</string>
     <string name="show_poll_results">پول کے نتائج دکھائیں</string>
     <string name="show_poll_results_description">ووٹ دینے سے پہلے پول کے نتائج دکھاتا ہے۔</string>
     <string name="show_withheld_posts">روکی گئی پوسٹس دکھائیں</string>

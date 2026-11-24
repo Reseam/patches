@@ -71,6 +71,8 @@
     <string name="hide_videos_for_you">Ẩn Video dành cho bạn</string>
     <string name="hide_discover_more">Ẩn Khám phá thêm</string>
     <string name="hide_discover_more_summary">Các bài đăng X gợi ý bên dưới phần trả lời của bài đăng.</string>
+    <string name="hide_sensitive_posts">Ẩn bài đăng nhạy cảm</string>
+    <string name="hide_sensitive_posts_summary">Các bài đăng X đánh dấu là nhạy cảm, như nội dung người lớn hoặc bạo lực, trong dòng thời gian, phần trả lời và tìm kiếm.</string>
     <string name="show_withheld_posts">Hiện bài đăng bị giữ lại</string>
     <string name="show_withheld_posts_summary">Tải bài đăng và hồ sơ bị giữ lại từ FxTwitter, dịch vụ này thấy địa chỉ IP của bạn và những gì bạn mở.</string>
     <string name="withheld_repost_refused">X chặn đăng lại các bài đăng bị giữ lại. Hãy dùng Trích dẫn thay thế.</string>

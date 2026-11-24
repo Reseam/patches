@@ -72,6 +72,8 @@
     <string name="hide_videos_for_you">Videos for you छिपाएँ</string>
     <string name="hide_discover_more">Discover more छिपाएँ</string>
     <string name="hide_discover_more_summary">किसी पोस्ट के जवाबों के नीचे X की सुझाई पोस्ट।</string>
+    <string name="hide_sensitive_posts">संवेदनशील पोस्ट छिपाएँ</string>
+    <string name="hide_sensitive_posts_summary">वे पोस्ट जिन्हें X संवेदनशील मानता है, जैसे वयस्क सामग्री या हिंसा, टाइमलाइन, जवाबों और खोज में।</string>
     <string name="show_withheld_posts">रोकी गई पोस्ट दिखाएँ</string>
     <string name="show_withheld_posts_summary">रोकी गई पोस्ट और प्रोफ़ाइल FxTwitter से लोड करता है, जिसे आपका IP पता और आप जो खोलते हैं वह दिखता है।</string>
     <string name="withheld_repost_refused">X रोकी गई पोस्ट को रीपोस्ट नहीं करने देता। इसकी जगह Quote इस्तेमाल करें।</string>

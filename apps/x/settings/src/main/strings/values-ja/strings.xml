@@ -71,6 +71,8 @@
     <string name="hide_videos_for_you">「おすすめ動画」を非表示</string>
     <string name="hide_discover_more">「さらに見つける」を非表示</string>
     <string name="hide_discover_more_summary">ポストの返信の下に X が表示するおすすめのポスト。</string>
+    <string name="hide_sensitive_posts">センシティブなポストを非表示</string>
+    <string name="hide_sensitive_posts_summary">X がセンシティブと判断したポスト（成人向けや暴力的な内容など）。タイムライン、返信、検索が対象です。</string>
     <string name="show_withheld_posts">表示制限されたポストを表示</string>
     <string name="show_withheld_posts_summary">表示制限されたポストとプロフィールを FxTwitter から読み込みます。FxTwitter にはあなたの IP アドレスと開いた内容が見えます。</string>
     <string name="withheld_repost_refused">X は表示制限されたポストのリポストをブロックします。代わりに引用を使ってください。</string>

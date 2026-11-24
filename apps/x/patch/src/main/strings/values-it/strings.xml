@@ -82,6 +82,8 @@
     <string name="hide_videos_for_you_description">Nasconde il carosello Video per te nelle timeline.</string>
     <string name="hide_discover_more">Nascondi Scopri di più</string>
     <string name="hide_discover_more_description">Nasconde i post di Scopri di più sotto le risposte di un post.</string>
+    <string name="hide_sensitive_posts">Nascondi i post sensibili</string>
+    <string name="hide_sensitive_posts_description">Nasconde i post che X segna come sensibili, come contenuti per adulti o violenza.</string>
     <string name="show_poll_results">Mostra i risultati dei sondaggi</string>
     <string name="show_poll_results_description">Mostra i risultati dei sondaggi prima che tu voti.</string>
     <string name="show_withheld_posts">Mostra i post oscurati</string>

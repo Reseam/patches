@@ -82,6 +82,8 @@
     <string name="hide_videos_for_you_description">隐藏时间线中的“为你推荐的视频”轮播。</string>
     <string name="hide_discover_more">隐藏“发现更多”</string>
     <string name="hide_discover_more_description">隐藏帖子回复下方的“发现更多”帖子。</string>
+    <string name="hide_sensitive_posts">隐藏敏感帖子</string>
+    <string name="hide_sensitive_posts_description">隐藏 X 标记为敏感的帖子，例如成人内容或暴力内容。</string>
     <string name="show_poll_results">显示投票结果</string>
     <string name="show_poll_results_description">在你投票前就显示投票结果。</string>
     <string name="show_withheld_posts">显示被限制的帖子</string>

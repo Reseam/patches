@@ -72,6 +72,8 @@
     <string name="hide_videos_for_you">Senin için videoları gizle</string>
     <string name="hide_discover_more">Daha fazlasını keşfet bölümünü gizle</string>
     <string name="hide_discover_more_summary">X\'in bir gönderinin yanıtlarının altında önerdiği gönderiler.</string>
+    <string name="hide_sensitive_posts">Hassas gönderileri gizle</string>
+    <string name="hide_sensitive_posts_summary">X\'in hassas olarak işaretlediği gönderiler (yetişkin içeriği veya şiddet gibi); zaman akışlarında, yanıtlarda ve aramada.</string>
     <string name="show_withheld_posts">Kısıtlanan gönderileri göster</string>
     <string name="show_withheld_posts_summary">Kısıtlanan gönderileri ve profilleri, IP adresinizi ve neyi açtığınızı gören FxTwitter\'dan yükler.</string>
     <string name="withheld_repost_refused">X kısıtlanan gönderilerin yeniden paylaşılmasını engeller. Bunun yerine Alıntıla\'yı kullanın.</string>

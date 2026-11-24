@@ -74,6 +74,8 @@
     <string name="hide_videos_for_you">Ukryj Filmy dla Ciebie</string>
     <string name="hide_discover_more">Ukryj Odkryj więcej</string>
     <string name="hide_discover_more_summary">Wpisy, które X proponuje pod odpowiedziami na wpis.</string>
+    <string name="hide_sensitive_posts">Ukryj posty wrażliwe</string>
+    <string name="hide_sensitive_posts_summary">Posty oznaczone przez X jako wrażliwe, np. treści dla dorosłych lub przemoc, na osiach czasu, w odpowiedziach i w wyszukiwaniu.</string>
     <string name="show_withheld_posts">Pokazuj wstrzymane posty</string>
     <string name="show_withheld_posts_summary">Wczytuje wstrzymane posty i profile z FxTwitter, który widzi twój adres IP i to, co otwierasz.</string>
     <string name="withheld_repost_refused">X blokuje podawanie dalej wstrzymanych postów. Użyj zamiast tego Cytatu.</string>

@@ -82,6 +82,8 @@
     <string name="hide_videos_for_you_description">Menyembunyikan karosel Video untuk Anda di linimasa.</string>
     <string name="hide_discover_more">Sembunyikan Temukan lainnya</string>
     <string name="hide_discover_more_description">Menyembunyikan postingan Temukan lainnya di bawah balasan postingan.</string>
+    <string name="hide_sensitive_posts">Sembunyikan postingan sensitif</string>
+    <string name="hide_sensitive_posts_description">Menyembunyikan postingan yang ditandai X sebagai sensitif, seperti konten dewasa atau kekerasan.</string>
     <string name="show_poll_results">Tampilkan hasil polling</string>
     <string name="show_poll_results_description">Menampilkan hasil polling sebelum Anda memilih.</string>
     <string name="show_withheld_posts">Tampilkan postingan yang ditahan</string>

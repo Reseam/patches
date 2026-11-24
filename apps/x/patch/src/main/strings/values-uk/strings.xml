@@ -82,6 +82,8 @@
     <string name="hide_videos_for_you_description">Приховує карусель «Відео для вас» у стрічках.</string>
     <string name="hide_discover_more">Приховати «Відкрийте більше»</string>
     <string name="hide_discover_more_description">Приховує дописи «Відкрийте більше» під відповідями на допис.</string>
+    <string name="hide_sensitive_posts">Приховати чутливі дописи</string>
+    <string name="hide_sensitive_posts_description">Приховує дописи, які X позначає як чутливі, наприклад вміст для дорослих або насильство.</string>
     <string name="show_poll_results">Показувати результати опитувань</string>
     <string name="show_poll_results_description">Показує результати опитувань ще до вашого голосу.</string>
     <string name="show_withheld_posts">Показувати приховані дописи</string>

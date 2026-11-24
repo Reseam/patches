@@ -74,6 +74,8 @@
     <string name="hide_videos_for_you">Скрыть «Видео для вас»</string>
     <string name="hide_discover_more">Скрыть «Узнать больше»</string>
     <string name="hide_discover_more_summary">Посты, которые X предлагает под ответами на пост.</string>
+    <string name="hide_sensitive_posts">Скрыть деликатные посты</string>
+    <string name="hide_sensitive_posts_summary">Посты, которые X отмечает как деликатные, например контент для взрослых или насилие, в лентах, ответах и поиске.</string>
     <string name="show_withheld_posts">Показывать скрытые по требованию посты</string>
     <string name="show_withheld_posts_summary">Загружает скрытые по требованию посты и профили из FxTwitter, который видит ваш IP-адрес и то, что вы открываете.</string>
     <string name="withheld_repost_refused">X не даёт репостить скрытые по требованию посты. Используйте цитирование.</string>

@@ -74,6 +74,8 @@
     <string name="hide_videos_for_you">Приховати «Відео для вас»</string>
     <string name="hide_discover_more">Приховати «Відкрийте більше»</string>
     <string name="hide_discover_more_summary">Дописи, які X пропонує під відповідями на допис.</string>
+    <string name="hide_sensitive_posts">Приховати чутливі дописи</string>
+    <string name="hide_sensitive_posts_summary">Дописи, які X позначає як чутливі, наприклад вміст для дорослих або насильство, у стрічках, відповідях і пошуку.</string>
     <string name="show_withheld_posts">Показувати приховані дописи</string>
     <string name="show_withheld_posts_summary">Завантажує приховані дописи й профілі з FxTwitter, який бачить вашу IP-адресу й те, що ви відкриваєте.</string>
     <string name="withheld_repost_refused">X блокує репости прихованих дописів. Скористайтеся цитуванням.</string>

@@ -82,6 +82,8 @@
     <string name="hide_videos_for_you_description">隱藏時間軸中的「為你推薦的影片」輪播。</string>
     <string name="hide_discover_more">隱藏「探索更多」</string>
     <string name="hide_discover_more_description">隱藏貼文回覆下方的「探索更多」貼文。</string>
+    <string name="hide_sensitive_posts">隱藏敏感貼文</string>
+    <string name="hide_sensitive_posts_description">隱藏 X 標示為敏感的貼文，例如成人內容或暴力內容。</string>
     <string name="show_poll_results">顯示投票結果</string>
     <string name="show_poll_results_description">在你投票前就顯示投票結果。</string>
     <string name="show_withheld_posts">顯示受限制的貼文</string>

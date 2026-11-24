@@ -72,6 +72,8 @@
     <string name="hide_videos_for_you">Ocultar Vídeos para você</string>
     <string name="hide_discover_more">Ocultar Descubra mais</string>
     <string name="hide_discover_more_summary">Os posts que o X sugere abaixo das respostas de um post.</string>
+    <string name="hide_sensitive_posts">Ocultar posts sensíveis</string>
+    <string name="hide_sensitive_posts_summary">Posts que o X marca como sensíveis, como conteúdo adulto ou violência, nas timelines, respostas e na busca.</string>
     <string name="show_withheld_posts">Mostrar posts retidos</string>
     <string name="show_withheld_posts_summary">Carrega posts e perfis retidos pelo FxTwitter, que vê seu endereço IP e o que você abre.</string>
     <string name="withheld_repost_refused">O X bloqueia reposts de posts retidos. Use Citar.</string>

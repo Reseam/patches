@@ -71,6 +71,8 @@
     <string name="hide_videos_for_you">추천 동영상 숨기기</string>
     <string name="hide_discover_more">더 찾아보기 숨기기</string>
     <string name="hide_discover_more_summary">게시물 답글 아래에 X가 추천하는 게시물.</string>
+    <string name="hide_sensitive_posts">민감한 게시물 숨기기</string>
+    <string name="hide_sensitive_posts_summary">X가 민감한 콘텐츠로 표시한 게시물(성인 콘텐츠, 폭력 등). 타임라인, 답글, 검색에 적용됩니다.</string>
     <string name="show_withheld_posts">제한된 게시물 표시</string>
     <string name="show_withheld_posts_summary">제한된 게시물과 프로필을 FxTwitter에서 불러옵니다. FxTwitter는 내 IP 주소와 내가 여는 콘텐츠를 볼 수 있습니다.</string>
     <string name="withheld_repost_refused">X는 제한된 게시물의 재게시를 막습니다. 대신 인용하기를 사용하세요.</string>

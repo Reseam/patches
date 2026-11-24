@@ -82,6 +82,8 @@
     <string name="hide_videos_for_you_description">ซ่อนแถบวิดีโอสำหรับคุณในไทม์ไลน์</string>
     <string name="hide_discover_more">ซ่อนค้นพบเพิ่มเติม</string>
     <string name="hide_discover_more_description">ซ่อนโพสต์ในค้นพบเพิ่มเติมใต้การตอบกลับของโพสต์</string>
+    <string name="hide_sensitive_posts">ซ่อนโพสต์ที่มีเนื้อหาละเอียดอ่อน</string>
+    <string name="hide_sensitive_posts_description">ซ่อนโพสต์ที่ X ทำเครื่องหมายว่าละเอียดอ่อน เช่น เนื้อหาสำหรับผู้ใหญ่หรือความรุนแรง</string>
     <string name="show_poll_results">แสดงผลโพล</string>
     <string name="show_poll_results_description">แสดงผลโพลก่อนที่คุณจะโหวต</string>
     <string name="show_withheld_posts">แสดงโพสต์ที่ถูกระงับ</string>

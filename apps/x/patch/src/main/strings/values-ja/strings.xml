@@ -82,6 +82,8 @@
     <string name="hide_videos_for_you_description">タイムラインの「おすすめ動画」カルーセルを非表示にします。</string>
     <string name="hide_discover_more">「さらに見つける」を非表示</string>
     <string name="hide_discover_more_description">ポストの返信の下にある「さらに見つける」のポストを非表示にします。</string>
+    <string name="hide_sensitive_posts">センシティブなポストを非表示</string>
+    <string name="hide_sensitive_posts_description">X がセンシティブと判断したポスト（成人向けや暴力的な内容など）を非表示にします。</string>
     <string name="show_poll_results">投票結果を表示</string>
     <string name="show_poll_results_description">投票する前に投票結果を表示します。</string>
     <string name="show_withheld_posts">表示制限されたポストを表示</string>

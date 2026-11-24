@@ -73,6 +73,8 @@
     <string name="hide_videos_for_you">إخفاء «فيديوهات لك»</string>
     <string name="hide_discover_more">إخفاء «اكتشف المزيد»</string>
     <string name="hide_discover_more_summary">المنشورات التي يقترحها X أسفل ردود المنشور.</string>
+    <string name="hide_sensitive_posts">إخفاء المنشورات الحساسة</string>
+    <string name="hide_sensitive_posts_summary">المنشورات التي يصنّفها X حساسة، مثل محتوى البالغين أو العنف، في الخطوط الزمنية والردود والبحث.</string>
     <string name="show_withheld_posts">إظهار المنشورات المحجوبة</string>
     <string name="show_withheld_posts_summary">يحمّل المنشورات والملفات الشخصية المحجوبة من FxTwitter، الذي يرى عنوان IP الخاص بك وما تفتحه.</string>
     <string name="withheld_repost_refused">يمنع X إعادة نشر المنشورات المحجوبة. استخدم الاقتباس بدلًا من ذلك.</string>

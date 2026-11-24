@@ -76,6 +76,8 @@
     <string name="hide_videos_for_you">Hide Videos for you</string>
     <string name="hide_discover_more">Hide Discover more</string>
     <string name="hide_discover_more_summary">The posts X suggests under a post\'s replies.</string>
+    <string name="hide_sensitive_posts">Hide sensitive posts</string>
+    <string name="hide_sensitive_posts_summary">Posts X marks as sensitive, such as adult content or violence, in timelines, replies and search.</string>
     <string name="show_withheld_posts">Show withheld posts</string>
     <string name="show_withheld_posts_summary">Loads withheld posts and profiles from FxTwitter, which sees your IP address and what you open.</string>
     <string name="withheld_repost_refused">X blocks reposts of withheld posts. Use Quote instead.</string>

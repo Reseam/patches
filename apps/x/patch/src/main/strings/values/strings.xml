@@ -82,6 +82,8 @@
     <string name="hide_videos_for_you_description">Hides the Videos for you carousel in timelines.</string>
     <string name="hide_discover_more">Hide Discover more</string>
     <string name="hide_discover_more_description">Hides the Discover more posts under a post\'s replies.</string>
+    <string name="hide_sensitive_posts">Hide sensitive posts</string>
+    <string name="hide_sensitive_posts_description">Hides posts X marks as sensitive, such as adult content or violence.</string>
     <string name="show_poll_results">Show poll results</string>
     <string name="show_poll_results_description">Shows poll results before you vote.</string>
     <string name="show_withheld_posts">Show withheld posts</string>

@@ -72,6 +72,8 @@
     <string name="hide_videos_for_you">„Videos für dich“ ausblenden</string>
     <string name="hide_discover_more">„Mehr entdecken“ ausblenden</string>
     <string name="hide_discover_more_summary">Die Posts, die X unter den Antworten eines Posts vorschlägt.</string>
+    <string name="hide_sensitive_posts">Sensible Posts ausblenden</string>
+    <string name="hide_sensitive_posts_summary">Posts, die X als sensibel markiert, etwa Inhalte für Erwachsene oder Gewalt, in Timelines, Antworten und der Suche.</string>
     <string name="show_withheld_posts">Zurückgehaltene Beiträge anzeigen</string>
     <string name="show_withheld_posts_summary">Lädt zurückgehaltene Beiträge und Profile von FxTwitter, das deine IP-Adresse sieht und was du öffnest.</string>
     <string name="withheld_repost_refused">X blockiert Reposts zurückgehaltener Beiträge. Verwende stattdessen Zitieren.</string>

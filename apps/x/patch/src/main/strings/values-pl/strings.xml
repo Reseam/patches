@@ -82,6 +82,8 @@
     <string name="hide_videos_for_you_description">Ukrywa karuzelę Filmy dla Ciebie na osiach czasu.</string>
     <string name="hide_discover_more">Ukryj Odkryj więcej</string>
     <string name="hide_discover_more_description">Ukrywa wpisy Odkryj więcej pod odpowiedziami na wpis.</string>
+    <string name="hide_sensitive_posts">Ukryj posty wrażliwe</string>
+    <string name="hide_sensitive_posts_description">Ukrywa posty oznaczone przez X jako wrażliwe, np. treści dla dorosłych lub przemoc.</string>
     <string name="show_poll_results">Pokazuj wyniki ankiet</string>
     <string name="show_poll_results_description">Pokazuje wyniki ankiet, zanim zagłosujesz.</string>
     <string name="show_withheld_posts">Pokazuj wstrzymane posty</string>

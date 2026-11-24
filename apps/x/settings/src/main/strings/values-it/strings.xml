@@ -72,6 +72,8 @@
     <string name="hide_videos_for_you">Nascondi Video per te</string>
     <string name="hide_discover_more">Nascondi Scopri di più</string>
     <string name="hide_discover_more_summary">I post che X suggerisce sotto le risposte di un post.</string>
+    <string name="hide_sensitive_posts">Nascondi i post sensibili</string>
+    <string name="hide_sensitive_posts_summary">I post che X segna come sensibili, come contenuti per adulti o violenza, nelle cronologie, nelle risposte e nella ricerca.</string>
     <string name="show_withheld_posts">Mostra i post oscurati</string>
     <string name="show_withheld_posts_summary">Carica i post e i profili oscurati da FxTwitter, che vede il tuo indirizzo IP e quello che apri.</string>
     <string name="withheld_repost_refused">X blocca i repost dei post oscurati. Usa Cita.</string>

@@ -82,6 +82,8 @@
     <string name="hide_videos_for_you_description">Oculta el carrusel Videos para ti en las cronologías.</string>
     <string name="hide_discover_more">Ocultar Descubre más</string>
     <string name="hide_discover_more_description">Oculta los posts de Descubre más debajo de las respuestas de un post.</string>
+    <string name="hide_sensitive_posts">Ocultar publicaciones sensibles</string>
+    <string name="hide_sensitive_posts_description">Oculta las publicaciones que X marca como sensibles, como contenido para adultos o violencia.</string>
     <string name="show_poll_results">Mostrar resultados de encuestas</string>
     <string name="show_poll_results_description">Muestra los resultados de las encuestas antes de que votes.</string>
     <string name="show_withheld_posts">Mostrar publicaciones retenidas</string>

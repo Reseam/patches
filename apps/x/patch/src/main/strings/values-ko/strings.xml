@@ -82,6 +82,8 @@
     <string name="hide_videos_for_you_description">타임라인의 추천 동영상 캐러셀을 숨깁니다.</string>
     <string name="hide_discover_more">더 찾아보기 숨기기</string>
     <string name="hide_discover_more_description">게시물 답글 아래의 더 찾아보기 게시물을 숨깁니다.</string>
+    <string name="hide_sensitive_posts">민감한 게시물 숨기기</string>
+    <string name="hide_sensitive_posts_description">X가 민감한 콘텐츠로 표시한 게시물(성인 콘텐츠, 폭력 등)을 숨깁니다.</string>
     <string name="show_poll_results">투표 결과 표시</string>
     <string name="show_poll_results_description">투표하기 전에 투표 결과를 표시합니다.</string>
     <string name="show_withheld_posts">제한된 게시물 표시</string>

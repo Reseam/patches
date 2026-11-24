@@ -71,6 +71,8 @@
     <string name="hide_videos_for_you">隐藏“为你推荐的视频”</string>
     <string name="hide_discover_more">隐藏“发现更多”</string>
     <string name="hide_discover_more_summary">X 在帖子回复下方推荐的帖子。</string>
+    <string name="hide_sensitive_posts">隐藏敏感帖子</string>
+    <string name="hide_sensitive_posts_summary">X 标记为敏感的帖子，例如成人内容或暴力内容，适用于时间线、回复和搜索。</string>
     <string name="show_withheld_posts">显示被限制的帖子</string>
     <string name="show_withheld_posts_summary">从 FxTwitter 加载被限制的帖子和个人资料，FxTwitter 能看到你的 IP 地址和你打开的内容。</string>
     <string name="withheld_repost_refused">X 不允许转发被限制的帖子。请改用“引用”。</string>

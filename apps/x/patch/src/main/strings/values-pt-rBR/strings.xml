@@ -82,6 +82,8 @@
     <string name="hide_videos_for_you_description">Oculta o carrossel Vídeos para você nas timelines.</string>
     <string name="hide_discover_more">Ocultar Descubra mais</string>
     <string name="hide_discover_more_description">Oculta os posts de Descubra mais abaixo das respostas de um post.</string>
+    <string name="hide_sensitive_posts">Ocultar posts sensíveis</string>
+    <string name="hide_sensitive_posts_description">Oculta posts que o X marca como sensíveis, como conteúdo adulto ou violência.</string>
     <string name="show_poll_results">Mostrar resultados de enquetes</string>
     <string name="show_poll_results_description">Mostra os resultados das enquetes antes de você votar.</string>
     <string name="show_withheld_posts">Mostrar posts retidos</string>

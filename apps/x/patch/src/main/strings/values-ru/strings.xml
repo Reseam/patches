@@ -82,6 +82,8 @@
     <string name="hide_videos_for_you_description">Скрывает карусель «Видео для вас» в лентах.</string>
     <string name="hide_discover_more">Скрыть «Узнать больше»</string>
     <string name="hide_discover_more_description">Скрывает посты «Узнать больше» под ответами на пост.</string>
+    <string name="hide_sensitive_posts">Скрыть деликатные посты</string>
+    <string name="hide_sensitive_posts_description">Скрывает посты, которые X отмечает как деликатные, например контент для взрослых или насилие.</string>
     <string name="show_poll_results">Показывать результаты опросов</string>
     <string name="show_poll_results_description">Показывает результаты опросов до вашего голоса.</string>
     <string name="show_withheld_posts">Показывать скрытые по требованию посты</string>

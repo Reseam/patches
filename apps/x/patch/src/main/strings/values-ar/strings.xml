@@ -82,6 +82,8 @@
     <string name="hide_videos_for_you_description">يُخفي شريط «فيديوهات لك» في الخطوط الزمنية.</string>
     <string name="hide_discover_more">إخفاء «اكتشف المزيد»</string>
     <string name="hide_discover_more_description">يُخفي منشورات «اكتشف المزيد» أسفل ردود المنشور.</string>
+    <string name="hide_sensitive_posts">إخفاء المنشورات الحساسة</string>
+    <string name="hide_sensitive_posts_description">يُخفي المنشورات التي يصنّفها X حساسة، مثل محتوى البالغين أو العنف.</string>
     <string name="show_poll_results">إظهار نتائج الاستطلاعات</string>
     <string name="show_poll_results_description">يعرض نتائج الاستطلاع قبل أن تصوّت.</string>
     <string name="show_withheld_posts">إظهار المنشورات المحجوبة</string>

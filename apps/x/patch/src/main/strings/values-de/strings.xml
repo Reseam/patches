@@ -82,6 +82,8 @@
     <string name="hide_videos_for_you_description">Blendet das Karussell „Videos für dich“ in Timelines aus.</string>
     <string name="hide_discover_more">„Mehr entdecken“ ausblenden</string>
     <string name="hide_discover_more_description">Blendet die Posts unter „Mehr entdecken“ unterhalb der Antworten eines Posts aus.</string>
+    <string name="hide_sensitive_posts">Sensible Posts ausblenden</string>
+    <string name="hide_sensitive_posts_description">Blendet Posts aus, die X als sensibel markiert, etwa Inhalte für Erwachsene oder Gewalt.</string>
     <string name="show_poll_results">Umfrageergebnisse anzeigen</string>
     <string name="show_poll_results_description">Zeigt Umfrageergebnisse, bevor du abstimmst.</string>
     <string name="show_withheld_posts">Zurückgehaltene Beiträge anzeigen</string>

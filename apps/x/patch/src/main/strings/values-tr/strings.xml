@@ -82,6 +82,8 @@
     <string name="hide_videos_for_you_description">Zaman akışlarındaki Senin için videolar şeridini gizler.</string>
     <string name="hide_discover_more">Daha fazlasını keşfet bölümünü gizle</string>
     <string name="hide_discover_more_description">Bir gönderinin yanıtlarının altındaki Daha fazlasını keşfet gönderilerini gizler.</string>
+    <string name="hide_sensitive_posts">Hassas gönderileri gizle</string>
+    <string name="hide_sensitive_posts_description">X\'in hassas olarak işaretlediği gönderileri (yetişkin içeriği veya şiddet gibi) gizler.</string>
     <string name="show_poll_results">Anket sonuçlarını göster</string>
     <string name="show_poll_results_description">Anket sonuçlarını oy vermeden önce gösterir.</string>
     <string name="show_withheld_posts">Kısıtlanan gönderileri göster</string>

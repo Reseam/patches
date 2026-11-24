@@ -72,6 +72,8 @@
     <string name="hide_videos_for_you">پنهان کردن «ویدیوها برای شما»</string>
     <string name="hide_discover_more">پنهان کردن «کشف بیشتر»</string>
     <string name="hide_discover_more_summary">پست‌هایی که X زیر پاسخ‌های یک پست پیشنهاد می‌کند.</string>
+    <string name="hide_sensitive_posts">پنهان کردن پست‌های حساس</string>
+    <string name="hide_sensitive_posts_summary">پست‌هایی که X حساس علامت می‌زند، مانند محتوای بزرگسالان یا خشونت، در خط‌های زمانی، پاسخ‌ها و جست‌وجو.</string>
     <string name="show_withheld_posts">نمایش پست‌های محدودشده</string>
     <string name="show_withheld_posts_summary">پست‌ها و نمایه‌های محدودشده را از FxTwitter بار می‌کند که نشانی IP شما و آنچه را باز می‌کنید می‌بیند.</string>
     <string name="withheld_repost_refused">X بازپست کردن پست‌های محدودشده را مسدود می‌کند. به‌جای آن از «نقل‌قول» استفاده کنید.</string>

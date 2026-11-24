@@ -82,6 +82,8 @@
     <string name="hide_videos_for_you_description">Ẩn băng chuyền Video dành cho bạn trong dòng thời gian.</string>
     <string name="hide_discover_more">Ẩn Khám phá thêm</string>
     <string name="hide_discover_more_description">Ẩn các bài đăng Khám phá thêm bên dưới phần trả lời của bài đăng.</string>
+    <string name="hide_sensitive_posts">Ẩn bài đăng nhạy cảm</string>
+    <string name="hide_sensitive_posts_description">Ẩn các bài đăng X đánh dấu là nhạy cảm, như nội dung người lớn hoặc bạo lực.</string>
     <string name="show_poll_results">Hiển thị kết quả thăm dò</string>
     <string name="show_poll_results_description">Hiển thị kết quả thăm dò trước khi bạn bình chọn.</string>
     <string name="show_withheld_posts">Hiện bài đăng bị giữ lại</string>

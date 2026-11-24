@@ -71,6 +71,8 @@
     <string name="hide_videos_for_you">隱藏「為你推薦的影片」</string>
     <string name="hide_discover_more">隱藏「探索更多」</string>
     <string name="hide_discover_more_summary">X 在貼文回覆下方推薦的貼文。</string>
+    <string name="hide_sensitive_posts">隱藏敏感貼文</string>
+    <string name="hide_sensitive_posts_summary">X 標示為敏感的貼文，例如成人內容或暴力內容，適用於時間軸、回覆和搜尋。</string>
     <string name="show_withheld_posts">顯示受限制的貼文</string>
     <string name="show_withheld_posts_summary">從 FxTwitter 載入受限制的貼文和個人檔案，FxTwitter 看得到你的 IP 位址和你開啟的內容。</string>
     <string name="withheld_repost_refused">X 不允許轉發受限制的貼文。請改用「引用」。</string>

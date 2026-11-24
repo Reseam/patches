@@ -82,6 +82,8 @@
     <string name="hide_videos_for_you_description">نوار «ویدیوها برای شما» را در تایم‌لاین‌ها پنهان می‌کند.</string>
     <string name="hide_discover_more">پنهان کردن «کشف بیشتر»</string>
     <string name="hide_discover_more_description">پست‌های «کشف بیشتر» را زیر پاسخ‌های یک پست پنهان می‌کند.</string>
+    <string name="hide_sensitive_posts">پنهان کردن پست‌های حساس</string>
+    <string name="hide_sensitive_posts_description">پست‌هایی را که X حساس علامت می‌زند، مانند محتوای بزرگسالان یا خشونت، پنهان می‌کند.</string>
     <string name="show_poll_results">نمایش نتایج نظرسنجی</string>
     <string name="show_poll_results_description">نتایج نظرسنجی را پیش از رأی دادن نشان می‌دهد.</string>
     <string name="show_withheld_posts">نمایش پست‌های محدودشده</string>

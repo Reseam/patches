@@ -82,6 +82,8 @@
     <string name="hide_videos_for_you_description">Masque le carrousel Vidéos pour vous dans les fils.</string>
     <string name="hide_discover_more">Masquer Découvrir plus</string>
     <string name="hide_discover_more_description">Masque les posts Découvrir plus sous les réponses d’un post.</string>
+    <string name="hide_sensitive_posts">Masquer les posts sensibles</string>
+    <string name="hide_sensitive_posts_description">Masque les posts que X marque comme sensibles, comme le contenu pour adultes ou la violence.</string>
     <string name="show_poll_results">Afficher les résultats des sondages</string>
     <string name="show_poll_results_description">Affiche les résultats des sondages avant votre vote.</string>
     <string name="show_withheld_posts">Afficher les posts retenus</string>
