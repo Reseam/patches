@@ -13,7 +13,7 @@ import app.reseam.patch.point
 
 const val TWITCH_PACKAGE = "tv.twitch.android.app"
 
-val TWITCH: CompatiblePackage = TWITCH_PACKAGE("32.1.0")
+val TWITCH: CompatiblePackage = TWITCH_PACKAGE("32.2.0")
 
 // The base class of every native player's presenter.
 val playerPresenter = klass("playerPresenter") { strings("playerStateAndEventDisposable") }
