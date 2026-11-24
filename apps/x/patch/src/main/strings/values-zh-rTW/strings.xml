@@ -38,6 +38,8 @@
     <string name="save_media_description">將相片、影片和 GIF 以所屬貼文命名，儲存到你選擇的資料夾。</string>
     <string name="show_sensitive_media">顯示敏感媒體</string>
     <string name="show_sensitive_media_description">顯示敏感媒體，不加模糊或警告。</string>
+    <string name="topic_snooze_length">主題暫停時長</string>
+    <string name="topic_snooze_length_description">可以在「為你推薦」中將主題暫停超過一天。</string>
     <string name="phone_layout">大螢幕上使用手機版面</string>
     <string name="phone_layout_description">在平板和展開的摺疊手機上，導覽列像在手機上一樣保持在底部。</string>
     <string name="double_tap_seek">雙擊快轉/倒轉</string>

@@ -142,6 +142,12 @@
     <string name="double_tap_seek_10">10 segundos (predeterminado)</string>
     <string name="double_tap_seek_15">15 segundos</string>
     <string name="double_tap_seek_30">30 segundos</string>
+    <string name="topic_snooze_length">Duración de la pausa de temas</string>
+    <string name="topic_snooze_length_summary">Cuánto tiempo oculta un tema la opción de pausar temas en Para ti.</string>
+    <string name="topic_snooze_length_day">1 día (predeterminado)</string>
+    <string name="topic_snooze_length_week">1 semana</string>
+    <string name="topic_snooze_length_month">30 días</string>
+    <string name="topic_snooze_length_year">1 año</string>
     <string name="post_translator">Traductor</string>
     <string name="post_translator_summary">Quién traduce las publicaciones. Ninguno desactiva las traducciones de publicaciones, biografías y Notas de la comunidad. Reseam Translate y Google Translate reciben el texto que traducen.</string>
     <string name="post_translator_none">Ninguno</string>

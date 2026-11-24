@@ -38,6 +38,8 @@
     <string name="save_media_description">Menyimpan foto, video, dan GIF ke folder pilihan Anda, dinamai sesuai postingannya.</string>
     <string name="show_sensitive_media">Tampilkan media sensitif</string>
     <string name="show_sensitive_media_description">Menampilkan media sensitif tanpa buram atau peringatan.</string>
+    <string name="topic_snooze_length">Durasi tunda topik</string>
+    <string name="topic_snooze_length_description">Memungkinkan Anda menunda topik di Untuk Anda lebih dari sehari.</string>
     <string name="phone_layout">Tata letak ponsel di layar besar</string>
     <string name="phone_layout_description">Menjaga bilah navigasi tetap di bawah pada tablet dan ponsel lipat yang terbuka, seperti di ponsel.</string>
     <string name="double_tap_seek">Lompat ketuk dua kali</string>

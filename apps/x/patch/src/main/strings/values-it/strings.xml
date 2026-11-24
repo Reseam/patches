@@ -38,6 +38,8 @@
     <string name="save_media_description">Salva foto, video e GIF in una cartella a tua scelta, con il nome del loro post.</string>
     <string name="show_sensitive_media">Mostra i contenuti sensibili</string>
     <string name="show_sensitive_media_description">Mostra i contenuti sensibili senza sfocatura né avviso.</string>
+    <string name="topic_snooze_length">Durata della sospensione degli argomenti</string>
+    <string name="topic_snooze_length_description">Ti permette di sospendere gli argomenti in Per te per più di un giorno.</string>
     <string name="phone_layout">Layout da telefono sugli schermi grandi</string>
     <string name="phone_layout_description">Mantiene la barra di navigazione in basso su tablet e telefoni pieghevoli aperti, come su un telefono.</string>
     <string name="double_tap_seek">Salto al doppio tocco</string>

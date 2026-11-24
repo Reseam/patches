@@ -38,6 +38,8 @@
     <string name="save_media_description">Salva fotos, vídeos e GIFs em uma pasta que você escolhe, com o nome do post.</string>
     <string name="show_sensitive_media">Mostrar mídia sensível</string>
     <string name="show_sensitive_media_description">Mostra mídias sensíveis sem o desfoque nem o aviso.</string>
+    <string name="topic_snooze_length">Duração da pausa de tópicos</string>
+    <string name="topic_snooze_length_description">Permite pausar tópicos em Para você por mais de um dia.</string>
     <string name="phone_layout">Layout de celular em telas grandes</string>
     <string name="phone_layout_description">Mantém a barra de navegação embaixo em tablets e celulares dobráveis abertos, como em um celular.</string>
     <string name="double_tap_seek">Pulo com toque duplo</string>

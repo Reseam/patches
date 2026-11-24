@@ -7,6 +7,7 @@ package app.reseam.x.featureswitches
 
 import app.reseam.bundle.ReseamPatches
 import app.reseam.bundle.parseOverrides
+import app.reseam.runtime.ChoiceValue
 import app.reseam.runtime.Export
 import app.reseam.runtime.ToggleValue
 import app.reseam.x.settings.XSettings
@@ -21,6 +22,13 @@ fun force(key: String, value: String, toggleKey: String, toggleDefault: Boolean)
     val toggle = ToggleValue(ReseamPatches.NAME, toggleKey, toggleDefault)
     val forced = typed(value)
     overrides[key] = { forced.takeIf { toggle.value } }
+}
+
+/** Forces the switch [key] to the choice's value, written as in the user overrides, unless its default is chosen. */
+@Export
+fun forceChoice(key: String, choiceKey: String, choiceDefault: String) {
+    val choice = ChoiceValue(ReseamPatches.NAME, choiceKey, choiceDefault)
+    overrides[key] = { choice.value.takeIf { it != choiceDefault }?.let(::typed) }
 }
 
 /** Forces the switch [key] off while [condition] holds. */

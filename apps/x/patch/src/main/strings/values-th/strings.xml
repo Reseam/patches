@@ -38,6 +38,8 @@
     <string name="save_media_description">บันทึกรูปภาพ วิดีโอ และ GIF ลงในโฟลเดอร์ที่คุณเลือก โดยตั้งชื่อตามโพสต์</string>
     <string name="show_sensitive_media">แสดงสื่อที่ละเอียดอ่อน</string>
     <string name="show_sensitive_media_description">แสดงสื่อที่ละเอียดอ่อนโดยไม่เบลอหรือแสดงคำเตือน</string>
+    <string name="topic_snooze_length">ระยะเวลาเลื่อนหัวข้อ</string>
+    <string name="topic_snooze_length_description">ให้คุณเลื่อนหัวข้อในสำหรับคุณได้นานกว่าหนึ่งวัน</string>
     <string name="phone_layout">เลย์เอาต์แบบโทรศัพท์บนหน้าจอขนาดใหญ่</string>
     <string name="phone_layout_description">แสดงแถบนำทางไว้ด้านล่างบนแท็บเล็ตและโทรศัพท์แบบพับที่กางออก เหมือนบนโทรศัพท์</string>
     <string name="double_tap_seek">ข้ามด้วยการแตะสองครั้ง</string>

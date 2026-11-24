@@ -38,6 +38,8 @@
     <string name="save_media_description">Zapisuje zdjęcia, filmy i GIF-y w wybranym folderze, z nazwą od ich wpisu.</string>
     <string name="show_sensitive_media">Pokazuj multimedia poufne</string>
     <string name="show_sensitive_media_description">Pokazuje multimedia poufne bez rozmycia i ostrzeżenia.</string>
+    <string name="topic_snooze_length">Czas wyciszenia tematów</string>
+    <string name="topic_snooze_length_description">Pozwala wyciszać tematy w Dla Ciebie na dłużej niż dzień.</string>
     <string name="phone_layout">Układ telefonu na dużych ekranach</string>
     <string name="phone_layout_description">Pozostawia pasek nawigacji na dole na tabletach i rozłożonych telefonach, tak jak na telefonie.</string>
     <string name="double_tap_seek">Przewijanie dwukrotnym kliknięciem</string>

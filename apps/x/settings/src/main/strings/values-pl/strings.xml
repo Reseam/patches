@@ -144,6 +144,12 @@
     <string name="double_tap_seek_10">10 sekund (domyślnie)</string>
     <string name="double_tap_seek_15">15 sekund</string>
     <string name="double_tap_seek_30">30 sekund</string>
+    <string name="topic_snooze_length">Czas wyciszenia tematów</string>
+    <string name="topic_snooze_length_summary">Jak długo wyciszenie tematów w Dla Ciebie ukrywa temat.</string>
+    <string name="topic_snooze_length_day">1 dzień (domyślnie)</string>
+    <string name="topic_snooze_length_week">1 tydzień</string>
+    <string name="topic_snooze_length_month">30 dni</string>
+    <string name="topic_snooze_length_year">1 rok</string>
     <string name="post_translator">Tłumacz</string>
     <string name="post_translator_summary">Kto tłumaczy posty. Brak wyłącza tłumaczenia postów, opisów i Uwag społeczności. Reseam Translate i Google Translate otrzymują tłumaczony tekst.</string>
     <string name="post_translator_none">Brak</string>

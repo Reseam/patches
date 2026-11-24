@@ -142,6 +142,19 @@ object XSettings : SettingsGroup(XStrings) {
             icon = Vector.lucide("fast-forward"),
         )
 
+    val topicSnoozeLength by
+        choice(
+            default = "1440",
+            choices =
+                listOf(
+                    Choice("1440", XStrings.topicSnoozeLengthDay),
+                    Choice("10080", XStrings.topicSnoozeLengthWeek),
+                    Choice("43200", XStrings.topicSnoozeLengthMonth),
+                    Choice("525600", XStrings.topicSnoozeLengthYear),
+                ),
+            icon = Vector.lucide("alarm-clock-off"),
+        )
+
     val postTranslator by
         choice(
             default = "grok",

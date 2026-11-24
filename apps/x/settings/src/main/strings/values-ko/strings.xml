@@ -141,6 +141,12 @@
     <string name="double_tap_seek_10">10초(기본값)</string>
     <string name="double_tap_seek_15">15초</string>
     <string name="double_tap_seek_30">30초</string>
+    <string name="topic_snooze_length">주제 일시 중지 기간</string>
+    <string name="topic_snooze_length_summary">추천 탭에서 주제 일시 중지로 주제를 숨기는 기간입니다.</string>
+    <string name="topic_snooze_length_day">1일(기본값)</string>
+    <string name="topic_snooze_length_week">1주</string>
+    <string name="topic_snooze_length_month">30일</string>
+    <string name="topic_snooze_length_year">1년</string>
     <string name="post_translator">번역기</string>
     <string name="post_translator_summary">게시물을 번역할 서비스입니다. \'없음\'은 게시물, 소개, 커뮤니티 노트의 번역을 끕니다. Reseam Translate와 Google Translate는 번역하는 텍스트를 받습니다.</string>
     <string name="post_translator_none">없음</string>

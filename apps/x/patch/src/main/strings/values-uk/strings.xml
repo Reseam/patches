@@ -38,6 +38,8 @@
     <string name="save_media_description">Зберігає фото, відео й GIF у вибрану вами папку з назвами за їхнім дописом.</string>
     <string name="show_sensitive_media">Показувати делікатні медіа</string>
     <string name="show_sensitive_media_description">Показує делікатні медіа без розмиття й попередження.</string>
+    <string name="topic_snooze_length">Тривалість приховування тем</string>
+    <string name="topic_snooze_length_description">Дає змогу приховувати теми у вкладці «Для вас» довше ніж на день.</string>
     <string name="phone_layout">Макет телефона на великих екранах</string>
     <string name="phone_layout_description">Залишає панель навігації внизу на планшетах і розкладених телефонах, як на телефоні.</string>
     <string name="double_tap_seek">Перемотування подвійним дотиком</string>

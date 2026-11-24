@@ -142,6 +142,12 @@
     <string name="double_tap_seek_10">10 secondes (par défaut)</string>
     <string name="double_tap_seek_15">15 secondes</string>
     <string name="double_tap_seek_30">30 secondes</string>
+    <string name="topic_snooze_length">Durée de mise en veille des sujets</string>
+    <string name="topic_snooze_length_summary">Combien de temps la mise en veille des sujets dans Pour vous masque un sujet.</string>
+    <string name="topic_snooze_length_day">1 jour (par défaut)</string>
+    <string name="topic_snooze_length_week">1 semaine</string>
+    <string name="topic_snooze_length_month">30 jours</string>
+    <string name="topic_snooze_length_year">1 an</string>
     <string name="post_translator">Traducteur</string>
     <string name="post_translator_summary">Qui traduit les posts. Aucun désactive les traductions des posts, des bios et des Notes de la Communauté. Reseam Translate et Google Translate reçoivent le texte qu’ils traduisent.</string>
     <string name="post_translator_none">Aucun</string>

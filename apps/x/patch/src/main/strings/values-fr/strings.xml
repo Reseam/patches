@@ -38,6 +38,8 @@
     <string name="save_media_description">Enregistre les photos, vidéos et GIF dans le dossier de votre choix, nommés d’après leur post.</string>
     <string name="show_sensitive_media">Afficher les médias sensibles</string>
     <string name="show_sensitive_media_description">Affiche les médias sensibles sans flou ni avertissement.</string>
+    <string name="topic_snooze_length">Durée de mise en veille des sujets</string>
+    <string name="topic_snooze_length_description">Permet de mettre en veille des sujets dans Pour vous pendant plus d’un jour.</string>
     <string name="phone_layout">Disposition téléphone sur grand écran</string>
     <string name="phone_layout_description">Garde la barre de navigation en bas sur les tablettes et les téléphones dépliés, comme sur un téléphone.</string>
     <string name="double_tap_seek">Saut au double appui</string>

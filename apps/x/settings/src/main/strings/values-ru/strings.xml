@@ -144,6 +144,12 @@
     <string name="double_tap_seek_10">10 секунд (по умолчанию)</string>
     <string name="double_tap_seek_15">15 секунд</string>
     <string name="double_tap_seek_30">30 секунд</string>
+    <string name="topic_snooze_length">Срок скрытия тем</string>
+    <string name="topic_snooze_length_summary">Как долго функция скрытия тем во вкладке «Для вас» скрывает тему.</string>
+    <string name="topic_snooze_length_day">1 день (по умолчанию)</string>
+    <string name="topic_snooze_length_week">1 неделя</string>
+    <string name="topic_snooze_length_month">30 дней</string>
+    <string name="topic_snooze_length_year">1 год</string>
     <string name="post_translator">Переводчик</string>
     <string name="post_translator_summary">Кто переводит посты. «Никто» отключает переводы постов, описаний профиля и заметок сообщества. Reseam Translate и Google Translate получают текст, который переводят.</string>
     <string name="post_translator_none">Никто</string>

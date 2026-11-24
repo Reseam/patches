@@ -38,6 +38,8 @@
     <string name="save_media_description">फ़ोटो, वीडियो और GIF को उनकी पोस्ट के नाम से आपके चुने फ़ोल्डर में सेव करता है।</string>
     <string name="show_sensitive_media">संवेदनशील मीडिया दिखाएँ</string>
     <string name="show_sensitive_media_description">संवेदनशील मीडिया बिना धुंधलेपन या चेतावनी के दिखाता है।</string>
+    <string name="topic_snooze_length">विषय स्नूज़ करने की अवधि</string>
+    <string name="topic_snooze_length_description">For You में विषयों को एक दिन से ज़्यादा स्नूज़ करने देता है।</string>
     <string name="phone_layout">बड़ी स्क्रीन पर फ़ोन लेआउट</string>
     <string name="phone_layout_description">टैबलेट और खुले फ़ोल्डेबल फ़ोन पर नेविगेशन बार को फ़ोन की तरह नीचे रखता है।</string>
     <string name="double_tap_seek">दो बार टैप पर सीक</string>

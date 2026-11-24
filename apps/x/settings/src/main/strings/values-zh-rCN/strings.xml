@@ -141,6 +141,12 @@
     <string name="double_tap_seek_10">10 秒（默认）</string>
     <string name="double_tap_seek_15">15 秒</string>
     <string name="double_tap_seek_30">30 秒</string>
+    <string name="topic_snooze_length">话题暂停时长</string>
+    <string name="topic_snooze_length_summary">“为你推荐”中的话题暂停会隐藏话题多久。</string>
+    <string name="topic_snooze_length_day">1 天（默认）</string>
+    <string name="topic_snooze_length_week">1 周</string>
+    <string name="topic_snooze_length_month">30 天</string>
+    <string name="topic_snooze_length_year">1 年</string>
     <string name="post_translator">翻译服务</string>
     <string name="post_translator_summary">由谁翻译帖子。选择“无”会关闭帖子、简介和社区笔记的翻译。Reseam Translate 和 Google Translate 会收到它们翻译的文本。</string>
     <string name="post_translator_none">无</string>

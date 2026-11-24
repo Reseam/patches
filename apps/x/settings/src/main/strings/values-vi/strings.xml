@@ -141,6 +141,12 @@
     <string name="double_tap_seek_10">10 giây (mặc định)</string>
     <string name="double_tap_seek_15">15 giây</string>
     <string name="double_tap_seek_30">30 giây</string>
+    <string name="topic_snooze_length">Thời gian tạm ẩn chủ đề</string>
+    <string name="topic_snooze_length_summary">Thời gian tạm ẩn chủ đề trong Dành cho bạn ẩn một chủ đề.</string>
+    <string name="topic_snooze_length_day">1 ngày (mặc định)</string>
+    <string name="topic_snooze_length_week">1 tuần</string>
+    <string name="topic_snooze_length_month">30 ngày</string>
+    <string name="topic_snooze_length_year">1 năm</string>
     <string name="post_translator">Trình dịch</string>
     <string name="post_translator_summary">Ai dịch bài đăng. Không có sẽ tắt bản dịch của bài đăng, tiểu sử và Ghi chú cộng đồng. Reseam Translate và Google Translate nhận văn bản mà chúng dịch.</string>
     <string name="post_translator_none">Không có</string>

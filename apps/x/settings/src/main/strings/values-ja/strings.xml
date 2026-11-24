@@ -141,6 +141,12 @@
     <string name="double_tap_seek_10">10 秒（デフォルト）</string>
     <string name="double_tap_seek_15">15 秒</string>
     <string name="double_tap_seek_30">30 秒</string>
+    <string name="topic_snooze_length">トピックのスヌーズ期間</string>
+    <string name="topic_snooze_length_summary">「おすすめ」のトピックのスヌーズでトピックを非表示にする期間。</string>
+    <string name="topic_snooze_length_day">1日（デフォルト）</string>
+    <string name="topic_snooze_length_week">1週間</string>
+    <string name="topic_snooze_length_month">30日</string>
+    <string name="topic_snooze_length_year">1年</string>
     <string name="post_translator">翻訳サービス</string>
     <string name="post_translator_summary">ポストを翻訳するサービス。「なし」にすると、ポスト、自己紹介、コミュニティノートの翻訳がオフになります。Reseam Translate と Google Translate には翻訳するテキストが送られます。</string>
     <string name="post_translator_none">なし</string>

@@ -143,6 +143,12 @@
     <string name="double_tap_seek_10">١٠ ثوانٍ (الافتراضي)</string>
     <string name="double_tap_seek_15">١٥ ثانية</string>
     <string name="double_tap_seek_30">٣٠ ثانية</string>
+    <string name="topic_snooze_length">مدة تأجيل المواضيع</string>
+    <string name="topic_snooze_length_summary">المدة التي يُخفي فيها «تأجيل المواضيع» في «لك» موضوعًا.</string>
+    <string name="topic_snooze_length_day">يوم واحد (افتراضي)</string>
+    <string name="topic_snooze_length_week">أسبوع واحد</string>
+    <string name="topic_snooze_length_month">30 يومًا</string>
+    <string name="topic_snooze_length_year">سنة واحدة</string>
     <string name="post_translator">المترجم</string>
     <string name="post_translator_summary">مَن يترجم المنشورات. يؤدي اختيار «بلا» إلى إيقاف ترجمة المنشورات والنبذات التعريفية وملاحظات المجتمع. تتلقى Reseam Translate وGoogle Translate النص الذي تترجمانه.</string>
     <string name="post_translator_none">بلا</string>

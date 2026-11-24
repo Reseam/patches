@@ -142,6 +142,12 @@
     <string name="double_tap_seek_10">10 سیکنڈ (ڈیفالٹ)</string>
     <string name="double_tap_seek_15">15 سیکنڈ</string>
     <string name="double_tap_seek_30">30 سیکنڈ</string>
+    <string name="topic_snooze_length">موضوعات کو اسنوز کرنے کا دورانیہ</string>
+    <string name="topic_snooze_length_summary">“آپ کے لیے” میں موضوعات اسنوز کرنا کسی موضوع کو کتنی دیر چھپاتا ہے۔</string>
+    <string name="topic_snooze_length_day">1 دن (ڈیفالٹ)</string>
+    <string name="topic_snooze_length_week">1 ہفتہ</string>
+    <string name="topic_snooze_length_month">30 دن</string>
+    <string name="topic_snooze_length_year">1 سال</string>
     <string name="post_translator">مترجم</string>
     <string name="post_translator_summary">پوسٹس کا ترجمہ کون کرے۔ “کوئی نہیں” پوسٹس، بائیوز اور کمیونٹی نوٹس کے ترجمے بند کر دیتا ہے۔ Reseam Translate اور Google Translate وہ متن وصول کرتے ہیں جس کا وہ ترجمہ کرتے ہیں۔</string>
     <string name="post_translator_none">کوئی نہیں</string>

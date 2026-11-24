@@ -38,6 +38,8 @@
     <string name="save_media_description">يحفظ الصور والفيديوهات وصور GIF في مجلد تختاره، باسم منشورها.</string>
     <string name="show_sensitive_media">إظهار الوسائط الحساسة</string>
     <string name="show_sensitive_media_description">يعرض الوسائط الحساسة دون تمويه أو تحذير.</string>
+    <string name="topic_snooze_length">مدة تأجيل المواضيع</string>
+    <string name="topic_snooze_length_description">يتيح لك تأجيل المواضيع في «لك» لأكثر من يوم.</string>
     <string name="phone_layout">تخطيط الهاتف على الشاشات الكبيرة</string>
     <string name="phone_layout_description">يُبقي شريط التنقل في الأسفل على الأجهزة اللوحية والهواتف المفتوحة، كما في الهاتف.</string>
     <string name="double_tap_seek">قفزة النقر مرتين</string>

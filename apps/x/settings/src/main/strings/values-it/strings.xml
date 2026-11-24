@@ -142,6 +142,12 @@
     <string name="double_tap_seek_10">10 secondi (predefinito)</string>
     <string name="double_tap_seek_15">15 secondi</string>
     <string name="double_tap_seek_30">30 secondi</string>
+    <string name="topic_snooze_length">Durata della sospensione degli argomenti</string>
+    <string name="topic_snooze_length_summary">Per quanto tempo la sospensione degli argomenti in Per te nasconde un argomento.</string>
+    <string name="topic_snooze_length_day">1 giorno (predefinito)</string>
+    <string name="topic_snooze_length_week">1 settimana</string>
+    <string name="topic_snooze_length_month">30 giorni</string>
+    <string name="topic_snooze_length_year">1 anno</string>
     <string name="post_translator">Traduttore</string>
     <string name="post_translator_summary">Chi traduce i post. Nessuno disattiva le traduzioni di post, biografie e Note della collettività. Reseam Translate e Google Translate ricevono il testo che traducono.</string>
     <string name="post_translator_none">Nessuno</string>

@@ -142,6 +142,12 @@
     <string name="double_tap_seek_10">10 सेकंड (डिफ़ॉल्ट)</string>
     <string name="double_tap_seek_15">15 सेकंड</string>
     <string name="double_tap_seek_30">30 सेकंड</string>
+    <string name="topic_snooze_length">विषय स्नूज़ करने की अवधि</string>
+    <string name="topic_snooze_length_summary">For You में विषय स्नूज़ करने पर कोई विषय कितनी देर छिपा रहता है।</string>
+    <string name="topic_snooze_length_day">1 दिन (डिफ़ॉल्ट)</string>
+    <string name="topic_snooze_length_week">1 सप्ताह</string>
+    <string name="topic_snooze_length_month">30 दिन</string>
+    <string name="topic_snooze_length_year">1 साल</string>
     <string name="post_translator">अनुवादक</string>
     <string name="post_translator_summary">पोस्ट का अनुवाद कौन करे। \"कोई नहीं\" चुनने पर पोस्ट, बायो और Community Notes के अनुवाद बंद हो जाते हैं। Reseam Translate और Google Translate को वह टेक्स्ट मिलता है जिसका वे अनुवाद करते हैं।</string>
     <string name="post_translator_none">कोई नहीं</string>

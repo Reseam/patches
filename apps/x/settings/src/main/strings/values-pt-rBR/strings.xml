@@ -142,6 +142,12 @@
     <string name="double_tap_seek_10">10 segundos (padrão)</string>
     <string name="double_tap_seek_15">15 segundos</string>
     <string name="double_tap_seek_30">30 segundos</string>
+    <string name="topic_snooze_length">Duração da pausa de tópicos</string>
+    <string name="topic_snooze_length_summary">Por quanto tempo a pausa de tópicos em Para você oculta um tópico.</string>
+    <string name="topic_snooze_length_day">1 dia (padrão)</string>
+    <string name="topic_snooze_length_week">1 semana</string>
+    <string name="topic_snooze_length_month">30 dias</string>
+    <string name="topic_snooze_length_year">1 ano</string>
     <string name="post_translator">Tradutor</string>
     <string name="post_translator_summary">Quem traduz os posts. Nenhum desativa as traduções de posts, bios e Notas da Comunidade. O Reseam Translate e o Google Translate recebem o texto que traduzem.</string>
     <string name="post_translator_none">Nenhum</string>

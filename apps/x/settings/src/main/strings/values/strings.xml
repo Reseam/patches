@@ -146,6 +146,12 @@
     <string name="double_tap_seek_10">10 seconds (default)</string>
     <string name="double_tap_seek_15">15 seconds</string>
     <string name="double_tap_seek_30">30 seconds</string>
+    <string name="topic_snooze_length">Topic snooze length</string>
+    <string name="topic_snooze_length_summary">How long Snooze topics in For You hides a topic.</string>
+    <string name="topic_snooze_length_day">1 day (default)</string>
+    <string name="topic_snooze_length_week">1 week</string>
+    <string name="topic_snooze_length_month">30 days</string>
+    <string name="topic_snooze_length_year">1 year</string>
     <string name="post_translator">Translator</string>
     <string name="post_translator_summary">Who translates posts. None turns off translations of posts, bios and Community Notes. Reseam Translate and Google Translate receive the text they translate.</string>
     <string name="post_translator_none">None</string>

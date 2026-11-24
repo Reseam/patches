@@ -10,6 +10,7 @@ import app.reseam.patch.before
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
+import app.reseam.patch.settings.ChoiceSetting
 import app.reseam.patch.settings.ToggleSetting
 import app.reseam.patch.settings.section
 import app.reseam.patches.x.XPatchStrings
@@ -52,6 +53,11 @@ fun PatchRuntime.forceFeatureSwitches(toggle: ToggleSetting, vararg values: Pair
     appEntry {
         for ((key, value) in values) FeatureSwitchOverrides.force(string(key), string(value), string(toggle.key), bool(toggle.default))
     }
+}
+
+/** Forces the feature switch [key] to [choice]'s value, written as in the user overrides, unless its default is chosen. Requires [featureSwitchOverrides]. */
+fun PatchRuntime.forceFeatureSwitch(key: String, choice: ChoiceSetting) {
+    appEntry { FeatureSwitchOverrides.forceChoice(string(key), string(choice.key), string(choice.default)) }
 }
 
 val featureSwitchValue = klass("com.x.featureswitches.FeatureSwitchesRepositoryImpl").method("getFeatureSwitchValue") {

@@ -142,6 +142,12 @@
     <string name="double_tap_seek_10">۱۰ ثانیه (پیش‌فرض)</string>
     <string name="double_tap_seek_15">۱۵ ثانیه</string>
     <string name="double_tap_seek_30">۳۰ ثانیه</string>
+    <string name="topic_snooze_length">مدت به‌تعویق انداختن موضوع‌ها</string>
+    <string name="topic_snooze_length_summary">مدتی که «به‌تعویق انداختن موضوع‌ها» در «برای شما» یک موضوع را پنهان می‌کند.</string>
+    <string name="topic_snooze_length_day">۱ روز (پیش‌فرض)</string>
+    <string name="topic_snooze_length_week">۱ هفته</string>
+    <string name="topic_snooze_length_month">۳۰ روز</string>
+    <string name="topic_snooze_length_year">۱ سال</string>
     <string name="post_translator">مترجم</string>
     <string name="post_translator_summary">مترجم پست‌ها. «هیچ‌کدام» ترجمهٔ پست‌ها، بیوگرافی‌ها و «یادداشت‌های جامعه» را خاموش می‌کند. Reseam Translate و Google Translate متنی را که ترجمه می‌کنند دریافت می‌کنند.</string>
     <string name="post_translator_none">هیچ‌کدام</string>
