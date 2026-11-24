@@ -10,7 +10,7 @@ import app.reseam.twitch.settings.AdsSettings
 
 private const val LIVE_PLAYLIST_PREFIX = "https://usher.ttvnw.net/api/"
 private const val CHANNEL_PATH = "/channel/hls/"
-private const val PLAYLIST_EXTENSION = ".m3u8"
+internal const val PLAYLIST_EXTENSION = ".m3u8"
 
 // The proxy reads the playlist query from its path.
 private const val PROXY_QUERY = "%3Fallow_source%3Dtrue%26allow_audio_only%3Dtrue%26fast_bread%3Dtrue"
@@ -47,8 +47,11 @@ fun onFailure(url: String?) {
 }
 
 /** The channel's start in a live playlist URL the proxy should serve, or -1. */
-private fun proxiedChannelStart(url: String): Int {
-    if (!url.startsWith(LIVE_PLAYLIST_PREFIX) || System.currentTimeMillis() < proxyPausedUntil) return -1
+private fun proxiedChannelStart(url: String): Int = if (System.currentTimeMillis() < proxyPausedUntil) -1 else channelStart(url)
+
+/** The channel's start in a live playlist URL, or -1. */
+internal fun channelStart(url: String): Int {
+    if (!url.startsWith(LIVE_PLAYLIST_PREFIX)) return -1
     val channelPath = url.indexOf(CHANNEL_PATH, LIVE_PLAYLIST_PREFIX.length - 1)
     if (channelPath < 0) return -1
     val channelStart = channelPath + CHANNEL_PATH.length
