@@ -2,6 +2,8 @@
 <resources>
     <string name="hide_ads">اشتہارات چھپائیں</string>
     <string name="hide_ads_description">اسپانسر شدہ پوسٹس چھپاتا ہے۔</string>
+    <string name="disable_autoplay">ویڈیو آٹو پلے غیر فعال کریں</string>
+    <string name="disable_autoplay_description">فیڈ کی ویڈیوز کو خود بخود چلنے سے روکتا ہے۔</string>
     <string name="settings_entry">Reseam ترتیبات کا اندراج</string>
     <string name="settings_entry_description">Threads کی ترتیبات میں Reseam ترتیبات شامل کرتا ہے۔</string>
 </resources>

@@ -2,6 +2,8 @@
 <resources>
     <string name="hide_ads">Приховати рекламу</string>
     <string name="hide_ads_description">Приховує спонсорські дописи.</string>
+    <string name="disable_autoplay">Вимкнути автовідтворення відео</string>
+    <string name="disable_autoplay_description">Не дає відео у стрічці відтворюватися самостійно.</string>
     <string name="settings_entry">Пункт налаштувань Reseam</string>
     <string name="settings_entry_description">Додає «Налаштування Reseam» до налаштувань Threads.</string>
 </resources>

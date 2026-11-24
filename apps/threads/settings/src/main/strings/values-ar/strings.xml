@@ -2,4 +2,7 @@
 <resources>
     <string name="hide_ads">إخفاء الإعلانات</string>
     <string name="section_ads">الإعلانات</string>
+    <string name="disable_video_autoplay">تعطيل التشغيل التلقائي للفيديو</string>
+    <string name="disable_video_autoplay_summary">يشغّل فيديوهات الخلاصة فقط عند النقر عليها.</string>
+    <string name="section_playback">التشغيل</string>
 </resources>

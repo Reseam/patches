@@ -2,4 +2,7 @@
 <resources>
     <string name="hide_ads">Приховати рекламу</string>
     <string name="section_ads">Реклама</string>
+    <string name="disable_video_autoplay">Вимкнути автовідтворення відео</string>
+    <string name="disable_video_autoplay_summary">Відео в стрічці відтворюються лише після торкання.</string>
+    <string name="section_playback">Відтворення</string>
 </resources>

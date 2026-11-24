@@ -2,4 +2,7 @@
 <resources>
     <string name="hide_ads">Ukryj reklamy</string>
     <string name="section_ads">Reklamy</string>
+    <string name="disable_video_autoplay">Wyłącz autoodtwarzanie filmów</string>
+    <string name="disable_video_autoplay_summary">Filmy w aktualnościach są odtwarzane dopiero po dotknięciu.</string>
+    <string name="section_playback">Odtwarzanie</string>
 </resources>

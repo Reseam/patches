@@ -2,6 +2,8 @@
 <resources>
     <string name="hide_ads">Ukryj reklamy</string>
     <string name="hide_ads_description">Ukrywa sponsorowane posty.</string>
+    <string name="disable_autoplay">Wyłącz autoodtwarzanie filmów</string>
+    <string name="disable_autoplay_description">Zapobiega samoczynnemu odtwarzaniu filmów w kanale.</string>
     <string name="settings_entry">Wpis ustawień Reseam</string>
     <string name="settings_entry_description">Dodaje Ustawienia Reseam do ustawień Threads.</string>
 </resources>

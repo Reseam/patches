@@ -2,6 +2,8 @@
 <resources>
     <string name="hide_ads">Скрыть рекламу</string>
     <string name="hide_ads_description">Скрывает рекламные публикации.</string>
+    <string name="disable_autoplay">Отключить автовоспроизведение видео</string>
+    <string name="disable_autoplay_description">Не даёт видео в ленте воспроизводиться самостоятельно.</string>
     <string name="settings_entry">Пункт «Настройки Reseam»</string>
     <string name="settings_entry_description">Добавляет «Настройки Reseam» в настройки Threads.</string>
 </resources>

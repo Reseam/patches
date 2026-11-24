@@ -2,4 +2,7 @@
 <resources>
     <string name="hide_ads">ซ่อนโฆษณา</string>
     <string name="section_ads">โฆษณา</string>
+    <string name="disable_video_autoplay">ปิดการเล่นวิดีโออัตโนมัติ</string>
+    <string name="disable_video_autoplay_summary">วิดีโอในฟีดจะเล่นเมื่อคุณแตะเท่านั้น</string>
+    <string name="section_playback">การเล่น</string>
 </resources>

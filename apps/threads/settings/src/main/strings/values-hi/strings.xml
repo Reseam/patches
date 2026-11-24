@@ -2,4 +2,7 @@
 <resources>
     <string name="hide_ads">विज्ञापन छिपाएँ</string>
     <string name="section_ads">विज्ञापन</string>
+    <string name="disable_video_autoplay">वीडियो का अपने-आप चलना बंद करें</string>
+    <string name="disable_video_autoplay_summary">फ़ीड के वीडियो सिर्फ़ टैप करने पर चलते हैं।</string>
+    <string name="section_playback">प्लेबैक</string>
 </resources>

@@ -2,4 +2,7 @@
 <resources>
     <string name="hide_ads">Hide ads</string>
     <string name="section_ads">Ads</string>
+    <string name="disable_video_autoplay">Disable video autoplay</string>
+    <string name="disable_video_autoplay_summary">Plays feed videos only when you tap them.</string>
+    <string name="section_playback">Playback</string>
 </resources>

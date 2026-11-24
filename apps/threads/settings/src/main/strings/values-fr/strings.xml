@@ -2,4 +2,7 @@
 <resources>
     <string name="hide_ads">Masquer les publicités</string>
     <string name="section_ads">Publicités</string>
+    <string name="disable_video_autoplay">Désactiver la lecture automatique des vidéos</string>
+    <string name="disable_video_autoplay_summary">Ne lit les vidéos du fil que lorsque vous les touchez.</string>
+    <string name="section_playback">Lecture</string>
 </resources>

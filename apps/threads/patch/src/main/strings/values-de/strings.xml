@@ -2,6 +2,8 @@
 <resources>
     <string name="hide_ads">Werbung ausblenden</string>
     <string name="hide_ads_description">Blendet gesponserte Beiträge aus.</string>
+    <string name="disable_autoplay">Automatische Videowiedergabe deaktivieren</string>
+    <string name="disable_autoplay_description">Verhindert, dass Videos im Feed von selbst abgespielt werden.</string>
     <string name="settings_entry">Eintrag für Reseam-Einstellungen</string>
     <string name="settings_entry_description">Fügt den Einstellungen von Threads die Reseam-Einstellungen hinzu.</string>
 </resources>

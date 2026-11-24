@@ -2,4 +2,7 @@
 <resources>
     <string name="hide_ads">広告を非表示</string>
     <string name="section_ads">広告</string>
+    <string name="disable_video_autoplay">動画の自動再生を無効にする</string>
+    <string name="disable_video_autoplay_summary">フィードの動画をタップしたときだけ再生します。</string>
+    <string name="section_playback">再生</string>
 </resources>

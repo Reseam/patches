@@ -2,6 +2,8 @@
 <resources>
     <string name="hide_ads">Sembunyikan iklan</string>
     <string name="hide_ads_description">Menyembunyikan postingan bersponsor.</string>
+    <string name="disable_autoplay">Nonaktifkan putar otomatis video</string>
+    <string name="disable_autoplay_description">Mencegah video di feed diputar sendiri.</string>
     <string name="settings_entry">Entri setelan Reseam</string>
     <string name="settings_entry_description">Menambahkan Setelan Reseam ke setelan Threads.</string>
 </resources>

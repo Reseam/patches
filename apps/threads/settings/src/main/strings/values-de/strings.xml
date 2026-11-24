@@ -2,4 +2,7 @@
 <resources>
     <string name="hide_ads">Werbung ausblenden</string>
     <string name="section_ads">Werbung</string>
+    <string name="disable_video_autoplay">Automatische Videowiedergabe deaktivieren</string>
+    <string name="disable_video_autoplay_summary">Spielt Feed-Videos nur ab, wenn du sie antippst.</string>
+    <string name="section_playback">Wiedergabe</string>
 </resources>

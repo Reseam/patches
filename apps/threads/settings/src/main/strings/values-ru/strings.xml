@@ -2,4 +2,7 @@
 <resources>
     <string name="hide_ads">Скрыть рекламу</string>
     <string name="section_ads">Реклама</string>
+    <string name="disable_video_autoplay">Отключить автовоспроизведение видео</string>
+    <string name="disable_video_autoplay_summary">Видео в ленте воспроизводятся только по нажатию.</string>
+    <string name="section_playback">Воспроизведение</string>
 </resources>

@@ -2,4 +2,7 @@
 <resources>
     <string name="hide_ads">Reklamları gizle</string>
     <string name="section_ads">Reklamlar</string>
+    <string name="disable_video_autoplay">Video otomatik oynatmayı kapat</string>
+    <string name="disable_video_autoplay_summary">Akıştaki videolar yalnızca dokunduğunuzda oynar.</string>
+    <string name="section_playback">Oynatma</string>
 </resources>

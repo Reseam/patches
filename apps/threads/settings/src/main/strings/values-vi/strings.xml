@@ -2,4 +2,7 @@
 <resources>
     <string name="hide_ads">Ẩn quảng cáo</string>
     <string name="section_ads">Quảng cáo</string>
+    <string name="disable_video_autoplay">Tắt tự động phát video</string>
+    <string name="disable_video_autoplay_summary">Chỉ phát video trong bảng feed khi bạn nhấn vào.</string>
+    <string name="section_playback">Phát lại</string>
 </resources>

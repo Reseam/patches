@@ -2,6 +2,8 @@
 <resources>
     <string name="hide_ads">Hide ads</string>
     <string name="hide_ads_description">Hides sponsored posts.</string>
+    <string name="disable_autoplay">Disable video autoplay</string>
+    <string name="disable_autoplay_description">Stops videos in the feed from playing by themselves.</string>
     <string name="settings_entry">Reseam settings entry</string>
     <string name="settings_entry_description">Adds Reseam Settings to Threads\' settings.</string>
 </resources>

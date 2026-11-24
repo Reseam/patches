@@ -2,4 +2,7 @@
 <resources>
     <string name="hide_ads">Nascondi gli annunci</string>
     <string name="section_ads">Annunci</string>
+    <string name="disable_video_autoplay">Disattiva la riproduzione automatica dei video</string>
+    <string name="disable_video_autoplay_summary">Riproduce i video del feed solo quando li tocchi.</string>
+    <string name="section_playback">Riproduzione</string>
 </resources>

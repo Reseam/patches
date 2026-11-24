@@ -2,4 +2,7 @@
 <resources>
     <string name="hide_ads">隱藏廣告</string>
     <string name="section_ads">廣告</string>
+    <string name="disable_video_autoplay">停用影片自動播放</string>
+    <string name="disable_video_autoplay_summary">動態消息中的影片只在你輕觸時播放。</string>
+    <string name="section_playback">播放</string>
 </resources>

@@ -2,4 +2,7 @@
 <resources>
     <string name="hide_ads">광고 숨기기</string>
     <string name="section_ads">광고</string>
+    <string name="disable_video_autoplay">동영상 자동 재생 사용 중지</string>
+    <string name="disable_video_autoplay_summary">피드 동영상은 탭할 때만 재생됩니다.</string>
+    <string name="section_playback">재생</string>
 </resources>

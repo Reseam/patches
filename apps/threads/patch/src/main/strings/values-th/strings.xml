@@ -2,6 +2,8 @@
 <resources>
     <string name="hide_ads">ซ่อนโฆษณา</string>
     <string name="hide_ads_description">ซ่อนโพสต์ที่ได้รับการสนับสนุน</string>
+    <string name="disable_autoplay">ปิดการเล่นวิดีโออัตโนมัติ</string>
+    <string name="disable_autoplay_description">หยุดไม่ให้วิดีโอในฟีดเล่นเอง</string>
     <string name="settings_entry">รายการการตั้งค่า Reseam</string>
     <string name="settings_entry_description">เพิ่มการตั้งค่า Reseam ในการตั้งค่าของ Threads</string>
 </resources>

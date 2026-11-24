@@ -2,4 +2,7 @@
 <resources>
     <string name="hide_ads">پنهان کردن تبلیغات</string>
     <string name="section_ads">تبلیغات</string>
+    <string name="disable_video_autoplay">غیرفعال کردن پخش خودکار ویدیو</string>
+    <string name="disable_video_autoplay_summary">ویدیوهای فید را فقط وقتی رویشان ضربه بزنید پخش می‌کند.</string>
+    <string name="section_playback">پخش</string>
 </resources>

@@ -2,4 +2,7 @@
 <resources>
     <string name="hide_ads">Sembunyikan iklan</string>
     <string name="section_ads">Iklan</string>
+    <string name="disable_video_autoplay">Nonaktifkan putar otomatis video</string>
+    <string name="disable_video_autoplay_summary">Video feed hanya diputar saat Anda mengetuknya.</string>
+    <string name="section_playback">Pemutaran</string>
 </resources>

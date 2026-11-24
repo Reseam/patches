@@ -2,6 +2,8 @@
 <resources>
     <string name="hide_ads">Ocultar anúncios</string>
     <string name="hide_ads_description">Oculta posts patrocinados.</string>
+    <string name="disable_autoplay">Desativar reprodução automática de vídeos</string>
+    <string name="disable_autoplay_description">Evita que os vídeos do feed sejam reproduzidos sozinhos.</string>
     <string name="settings_entry">Entrada das configurações do Reseam</string>
     <string name="settings_entry_description">Adiciona as Configurações do Reseam às configurações do Threads.</string>
 </resources>

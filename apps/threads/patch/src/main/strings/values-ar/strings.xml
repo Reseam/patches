@@ -2,6 +2,8 @@
 <resources>
     <string name="hide_ads">إخفاء الإعلانات</string>
     <string name="hide_ads_description">يُخفي المنشورات الممولة.</string>
+    <string name="disable_autoplay">تعطيل التشغيل التلقائي للفيديو</string>
+    <string name="disable_autoplay_description">يمنع تشغيل الفيديوهات تلقائيًا في الخلاصة.</string>
     <string name="settings_entry">مدخل إعدادات Reseam</string>
     <string name="settings_entry_description">يضيف «إعدادات Reseam» إلى إعدادات Threads.</string>
 </resources>

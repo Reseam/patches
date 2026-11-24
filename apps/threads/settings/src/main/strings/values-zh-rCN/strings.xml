@@ -2,4 +2,7 @@
 <resources>
     <string name="hide_ads">隐藏广告</string>
     <string name="section_ads">广告</string>
+    <string name="disable_video_autoplay">停用视频自动播放</string>
+    <string name="disable_video_autoplay_summary">动态中的视频只在你点击时播放。</string>
+    <string name="section_playback">播放</string>
 </resources>

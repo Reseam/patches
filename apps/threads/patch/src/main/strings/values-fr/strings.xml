@@ -2,6 +2,8 @@
 <resources>
     <string name="hide_ads">Masquer les publicités</string>
     <string name="hide_ads_description">Masque les publications sponsorisées.</string>
+    <string name="disable_autoplay">Désactiver la lecture automatique des vidéos</string>
+    <string name="disable_autoplay_description">Empêche les vidéos du fil de se lancer toutes seules.</string>
     <string name="settings_entry">Entrée Paramètres Reseam</string>
     <string name="settings_entry_description">Ajoute Paramètres Reseam aux paramètres de Threads.</string>
 </resources>

@@ -2,6 +2,8 @@
 <resources>
     <string name="hide_ads">광고 숨기기</string>
     <string name="hide_ads_description">스폰서 게시물을 숨깁니다.</string>
+    <string name="disable_autoplay">동영상 자동 재생 사용 중지</string>
+    <string name="disable_autoplay_description">피드의 동영상이 자동으로 재생되지 않게 합니다.</string>
     <string name="settings_entry">Reseam 설정 항목</string>
     <string name="settings_entry_description">Threads 설정에 Reseam 설정을 추가합니다.</string>
 </resources>

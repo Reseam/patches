@@ -10,3 +10,7 @@ import app.reseam.patch.settings.toggle
 object AdSettings : SettingsGroup(ThreadsStrings) {
     val hideAds by toggle(default = true, icon = Vector.lucide("megaphone-off"))
 }
+
+object PlaybackSettings : SettingsGroup(ThreadsStrings) {
+    val disableVideoAutoplay by toggle(default = false, icon = Vector.lucide("circle-pause"))
+}

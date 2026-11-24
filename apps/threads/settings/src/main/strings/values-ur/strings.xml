@@ -2,4 +2,7 @@
 <resources>
     <string name="hide_ads">اشتہارات چھپائیں</string>
     <string name="section_ads">اشتہارات</string>
+    <string name="disable_video_autoplay">ویڈیو آٹو پلے غیر فعال کریں</string>
+    <string name="disable_video_autoplay_summary">فیڈ کی ویڈیوز صرف آپ کے تھپتھپانے پر چلتی ہیں۔</string>
+    <string name="section_playback">پلے بیک</string>
 </resources>
