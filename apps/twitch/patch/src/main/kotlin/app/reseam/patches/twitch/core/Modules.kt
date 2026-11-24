@@ -20,6 +20,14 @@ internal val twitchModules = patch {
                     paramCount(1)
                 }.module,
             )
+            module(
+                "react-native",
+                function {
+                    name("")
+                    strings("unstable_NativeText", "unstable_batchedUpdates")
+                    paramCount(7)
+                }.module,
+            )
             // The module also exports the wrapped IconRefresh that the player draws.
             module(
                 "twitch:icons/IconRefresh",

@@ -74,4 +74,12 @@
     <string name="hide_content_classification_label_description">Hides labels such as Intended for certain audiences at the top of the player.</string>
     <string name="skip_mature_content_warnings">Skip mature content warnings</string>
     <string name="skip_mature_content_warnings_description">Starts streams and videos labeled for mature audiences without the warning screen.</string>
+    <string name="theme">Theme</string>
+    <string name="theme_description">Replaces Twitch purple with colors from your wallpaper, and changes the background colors.</string>
+    <string name="theme_dark_theme_background_color">Dark background color</string>
+    <string name="theme_dark_theme_background_color_description">The color that replaces the dark background of Twitch, as #AARRGGBB.</string>
+    <string name="theme_light_theme_background_color">Light background color</string>
+    <string name="theme_light_theme_background_color_description">The color that replaces the light background of Twitch, as #AARRGGBB.</string>
+    <string name="theme_material_you">Material You</string>
+    <string name="theme_material_you_description">Uses colors from your wallpaper for Twitch purple and the backgrounds on Android 12 and newer, in place of the background color options.</string>
 </resources>
