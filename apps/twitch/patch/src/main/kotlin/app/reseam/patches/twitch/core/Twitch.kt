@@ -34,7 +34,7 @@ val isStaff = method("isStaff") {
 }
 
 val viewerLandingCreate = klass("tv.twitch.android.feature.viewer.landing.ViewerLandingActivity")
-    .method("onCreate") { strings("destinationOrdinal") }
+    .method("onCreate")
 
 // The React Native theatre's top-right buttons.
 val controlsOverlay = function {
@@ -69,3 +69,7 @@ val chatLine = function {
     name("ChatLineComponent")
     paramCount(1)
 }
+
+// Native code calls the IVS network classes, so they keep their names.
+val ivsRequest = klass("com.amazonaws.ivs.net.Request")
+val ivsRequestUrl = ivsRequest.method("getUrl")
