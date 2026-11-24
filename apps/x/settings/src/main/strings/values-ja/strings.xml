@@ -132,6 +132,8 @@
     <string name="remove_share_tracking_summary">リンクを共有した人を追跡するために X が付けるパラメータを取り除きます。</string>
     <string name="share_link_provider">共有リンクのサービス</string>
     <string name="share_link_provider_summary">共有するポストのリンクのホスト。</string>
+    <string name="phone_layout">大画面でスマートフォンのレイアウト</string>
+    <string name="phone_layout_summary">タブレットや開いた折りたたみスマートフォンでも、ナビゲーションバーを下に表示します。</string>
     <string name="double_tap_seek">ダブルタップのシーク幅</string>
     <string name="double_tap_seek_summary">動画をダブルタップしたときに移動する秒数。</string>
     <string name="double_tap_seek_3">3 秒</string>

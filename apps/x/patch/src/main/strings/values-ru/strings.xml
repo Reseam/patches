@@ -38,6 +38,8 @@
     <string name="save_media_description">Сохраняет фото, видео и GIF в выбранную вами папку с именами по их посту.</string>
     <string name="show_sensitive_media">Показывать деликатные медиа</string>
     <string name="show_sensitive_media_description">Показывает деликатные медиа без размытия и предупреждения.</string>
+    <string name="phone_layout">Телефонный макет на больших экранах</string>
+    <string name="phone_layout_description">Оставляет панель навигации внизу на планшетах и разложенных телефонах, как на телефоне.</string>
     <string name="double_tap_seek">Перемотка двойным касанием</string>
     <string name="double_tap_seek_description">Задаёт, на сколько перематывает двойное касание в видео.</string>
     <string name="customize_navigation_bar">Настроить панель навигации</string>

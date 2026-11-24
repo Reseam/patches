@@ -60,6 +60,7 @@ object XSettings : SettingsGroup(XStrings) {
     val hideVideosForYou by toggle(default = false, icon = Vector.lucide("video-off"))
     val hideDiscoverMore by toggle(default = false, icon = Vector.lucide("messages-square"))
     val hideSensitivePosts by toggle(default = false, icon = Vector.lucide("eye-off"))
+    val phoneLayout by toggle(default = false, icon = Vector.lucide("smartphone"))
     val showWithheldPosts by toggle(default = false, icon = Vector.lucide("eye"))
     val showPollResults by toggle(default = false, icon = Vector.lucide("chart-bar"))
     val hideViewCounts by toggle(default = false, icon = Vector.lucide("chart-no-axes-column"))

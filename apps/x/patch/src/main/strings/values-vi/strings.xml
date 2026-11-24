@@ -38,6 +38,8 @@
     <string name="save_media_description">Lưu ảnh, video và GIF vào thư mục bạn chọn, đặt tên theo bài đăng.</string>
     <string name="show_sensitive_media">Hiện nội dung nhạy cảm</string>
     <string name="show_sensitive_media_description">Hiện nội dung nhạy cảm mà không làm mờ hoặc cảnh báo.</string>
+    <string name="phone_layout">Bố cục điện thoại trên màn hình lớn</string>
+    <string name="phone_layout_description">Giữ thanh điều hướng ở dưới cùng trên máy tính bảng và điện thoại gập khi mở ra, giống như trên điện thoại.</string>
     <string name="double_tap_seek">Tua bằng chạm hai lần</string>
     <string name="double_tap_seek_description">Đặt khoảng tua khi chạm hai lần vào video.</string>
     <string name="customize_navigation_bar">Tùy chỉnh thanh điều hướng</string>

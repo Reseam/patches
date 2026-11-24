@@ -133,6 +133,8 @@
     <string name="remove_share_tracking_summary">Retire les paramètres que X ajoute pour savoir qui a partagé un lien.</string>
     <string name="share_link_provider">Fournisseur des liens de partage</string>
     <string name="share_link_provider_summary">L’hôte des liens de posts partagés.</string>
+    <string name="phone_layout">Disposition téléphone sur grand écran</string>
+    <string name="phone_layout_summary">Garde la barre de navigation en bas sur les tablettes et les téléphones dépliés.</string>
     <string name="double_tap_seek">Saut au double appui</string>
     <string name="double_tap_seek_summary">Durée du saut quand vous appuyez deux fois sur une vidéo.</string>
     <string name="double_tap_seek_3">3 secondes</string>

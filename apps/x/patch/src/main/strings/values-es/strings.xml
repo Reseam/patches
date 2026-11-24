@@ -38,6 +38,8 @@
     <string name="save_media_description">Guarda fotos, videos y GIF en la carpeta que elijas, con el nombre de su post.</string>
     <string name="show_sensitive_media">Mostrar contenido sensible</string>
     <string name="show_sensitive_media_description">Muestra el contenido sensible sin el desenfoque ni el aviso.</string>
+    <string name="phone_layout">Diseño de teléfono en pantallas grandes</string>
+    <string name="phone_layout_description">Mantiene la barra de navegación abajo en tablets y teléfonos desplegados, como en un teléfono.</string>
     <string name="double_tap_seek">Salto con doble toque</string>
     <string name="double_tap_seek_description">Define cuánto salta un doble toque en un video.</string>
     <string name="customize_navigation_bar">Personalizar barra de navegación</string>

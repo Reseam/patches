@@ -38,6 +38,8 @@
     <string name="save_media_description">写真、動画、GIF をポストにちなんだ名前で、選んだフォルダに保存します。</string>
     <string name="show_sensitive_media">センシティブなメディアを表示</string>
     <string name="show_sensitive_media_description">センシティブなメディアを、ぼかしや警告なしで表示します。</string>
+    <string name="phone_layout">大画面でスマートフォンのレイアウト</string>
+    <string name="phone_layout_description">タブレットや開いた折りたたみスマートフォンでも、スマートフォンと同じくナビゲーションバーを下に表示します。</string>
     <string name="double_tap_seek">ダブルタップのシーク幅</string>
     <string name="double_tap_seek_description">動画をダブルタップしたときに移動する秒数を設定します。</string>
     <string name="customize_navigation_bar">ナビゲーションバーをカスタマイズ</string>

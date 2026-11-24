@@ -132,6 +132,8 @@
     <string name="remove_share_tracking_summary">Menghapus parameter yang ditambahkan X untuk melacak siapa yang membagikan link.</string>
     <string name="share_link_provider">Penyedia link berbagi</string>
     <string name="share_link_provider_summary">Host link postingan yang dibagikan.</string>
+    <string name="phone_layout">Tata letak ponsel di layar besar</string>
+    <string name="phone_layout_summary">Menjaga bilah navigasi tetap di bawah pada tablet dan ponsel lipat yang terbuka.</string>
     <string name="double_tap_seek">Lompat ketuk dua kali</string>
     <string name="double_tap_seek_summary">Seberapa jauh ketuk dua kali melompat di video.</string>
     <string name="double_tap_seek_3">3 detik</string>

@@ -135,6 +135,8 @@
     <string name="remove_share_tracking_summary">Usuwa parametry dodawane przez X do śledzenia, kto udostępnił link.</string>
     <string name="share_link_provider">Dostawca linków udostępniania</string>
     <string name="share_link_provider_summary">Host udostępnianych linków do postów.</string>
+    <string name="phone_layout">Układ telefonu na dużych ekranach</string>
+    <string name="phone_layout_summary">Pozostawia pasek nawigacji na dole na tabletach i rozłożonych telefonach.</string>
     <string name="double_tap_seek">Przewijanie dwukrotnym kliknięciem</string>
     <string name="double_tap_seek_summary">Jak daleko przewija dwukrotne kliknięcie w filmie.</string>
     <string name="double_tap_seek_3">3 sekundy</string>

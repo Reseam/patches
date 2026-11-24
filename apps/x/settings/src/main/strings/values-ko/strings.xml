@@ -132,6 +132,8 @@
     <string name="remove_share_tracking_summary">X가 링크 공유자를 추적하려고 추가하는 매개변수를 제거합니다.</string>
     <string name="share_link_provider">공유 링크 제공자</string>
     <string name="share_link_provider_summary">공유한 게시물 링크의 호스트입니다.</string>
+    <string name="phone_layout">큰 화면에서 휴대폰 레이아웃</string>
+    <string name="phone_layout_summary">태블릿과 펼친 폴더블 휴대폰에서도 내비게이션 바를 아래에 둡니다.</string>
     <string name="double_tap_seek">두 번 탭 이동</string>
     <string name="double_tap_seek_summary">동영상을 두 번 탭할 때 이동하는 길이입니다.</string>
     <string name="double_tap_seek_3">3초</string>

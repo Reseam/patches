@@ -38,6 +38,8 @@
     <string name="save_media_description">Fotoğrafları, videoları ve GIF\'leri, gönderilerine göre adlandırarak seçtiğiniz bir klasöre kaydeder.</string>
     <string name="show_sensitive_media">Hassas medyayı göster</string>
     <string name="show_sensitive_media_description">Hassas medyayı bulanıklık veya uyarı olmadan gösterir.</string>
+    <string name="phone_layout">Büyük ekranlarda telefon düzeni</string>
+    <string name="phone_layout_description">Tabletlerde ve açılmış katlanabilir telefonlarda gezinme çubuğunu telefondaki gibi altta tutar.</string>
     <string name="double_tap_seek">Çift dokunarak atlama</string>
     <string name="double_tap_seek_description">Videoya çift dokunduğunuzda ne kadar atlanacağını ayarlar.</string>
     <string name="customize_navigation_bar">Gezinme çubuğunu özelleştir</string>

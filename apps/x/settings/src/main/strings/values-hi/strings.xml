@@ -133,6 +133,8 @@
     <string name="remove_share_tracking_summary">वे पैरामीटर हटाता है जो X यह ट्रैक करने के लिए जोड़ता है कि लिंक किसने शेयर किया।</string>
     <string name="share_link_provider">शेयर लिंक का प्रोवाइडर</string>
     <string name="share_link_provider_summary">शेयर किए गए पोस्ट लिंक का होस्ट।</string>
+    <string name="phone_layout">बड़ी स्क्रीन पर फ़ोन लेआउट</string>
+    <string name="phone_layout_summary">टैबलेट और खुले फ़ोल्डेबल फ़ोन पर नेविगेशन बार को नीचे रखता है।</string>
     <string name="double_tap_seek">दो बार टैप पर सीक</string>
     <string name="double_tap_seek_summary">वीडियो पर दो बार टैप करने से कितना आगे-पीछे जाना है।</string>
     <string name="double_tap_seek_3">3 सेकंड</string>

@@ -132,6 +132,8 @@
     <string name="remove_share_tracking_summary">Xóa các tham số mà X thêm vào để theo dõi người chia sẻ đường liên kết.</string>
     <string name="share_link_provider">Nhà cung cấp đường liên kết chia sẻ</string>
     <string name="share_link_provider_summary">Máy chủ của đường liên kết bài đăng được chia sẻ.</string>
+    <string name="phone_layout">Bố cục điện thoại trên màn hình lớn</string>
+    <string name="phone_layout_summary">Giữ thanh điều hướng ở dưới cùng trên máy tính bảng và điện thoại gập khi mở ra.</string>
     <string name="double_tap_seek">Tua bằng chạm hai lần</string>
     <string name="double_tap_seek_summary">Khoảng tua khi chạm hai lần vào video.</string>
     <string name="double_tap_seek_3">3 giây</string>

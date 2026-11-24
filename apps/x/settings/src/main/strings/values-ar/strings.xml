@@ -134,6 +134,8 @@
     <string name="remove_share_tracking_summary">يزيل المعلَمات التي يضيفها X لتتبع مَن شارك الرابط.</string>
     <string name="share_link_provider">مزوّد روابط المشاركة</string>
     <string name="share_link_provider_summary">مضيف روابط المنشورات المشارَكة.</string>
+    <string name="phone_layout">تخطيط الهاتف على الشاشات الكبيرة</string>
+    <string name="phone_layout_summary">يُبقي شريط التنقل في الأسفل على الأجهزة اللوحية والهواتف المفتوحة.</string>
     <string name="double_tap_seek">قفزة النقر مرتين</string>
     <string name="double_tap_seek_summary">مقدار القفز عند النقر مرتين على فيديو.</string>
     <string name="double_tap_seek_3">٣ ثوانٍ</string>

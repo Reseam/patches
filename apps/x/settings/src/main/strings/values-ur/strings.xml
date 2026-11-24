@@ -133,6 +133,8 @@
     <string name="remove_share_tracking_summary">وہ پیرامیٹرز ہٹاتا ہے جو X یہ ٹریک کرنے کے لیے شامل کرتا ہے کہ لنک کس نے شیئر کیا۔</string>
     <string name="share_link_provider">شیئر لنک فراہم کنندہ</string>
     <string name="share_link_provider_summary">شیئر کیے گئے پوسٹ لنکس کا ہوسٹ۔</string>
+    <string name="phone_layout">بڑی اسکرینز پر فون لے آؤٹ</string>
+    <string name="phone_layout_summary">ٹیبلیٹس اور کھلے ہوئے فولڈ ایبل فونز پر نیویگیشن بار کو نیچے رکھتا ہے۔</string>
     <string name="double_tap_seek">ڈبل ٹیپ سیک</string>
     <string name="double_tap_seek_summary">ویڈیو پر ڈبل ٹیپ کتنا آگے یا پیچھے لے جائے۔</string>
     <string name="double_tap_seek_3">3 سیکنڈ</string>

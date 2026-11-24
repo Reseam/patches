@@ -132,6 +132,8 @@
     <string name="remove_share_tracking_summary">นำพารามิเตอร์ที่ X เพิ่มเพื่อติดตามว่าใครแชร์ลิงก์ออก</string>
     <string name="share_link_provider">ผู้ให้บริการลิงก์แชร์</string>
     <string name="share_link_provider_summary">โฮสต์ของลิงก์โพสต์ที่แชร์</string>
+    <string name="phone_layout">เลย์เอาต์แบบโทรศัพท์บนหน้าจอขนาดใหญ่</string>
+    <string name="phone_layout_summary">แสดงแถบนำทางไว้ด้านล่างบนแท็บเล็ตและโทรศัพท์แบบพับที่กางออก</string>
     <string name="double_tap_seek">ข้ามด้วยการแตะสองครั้ง</string>
     <string name="double_tap_seek_summary">ระยะที่ข้ามเมื่อแตะวิดีโอสองครั้ง</string>
     <string name="double_tap_seek_3">3 วินาที</string>

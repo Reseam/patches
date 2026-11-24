@@ -137,6 +137,8 @@
     <string name="remove_share_tracking_summary">Removes the parameters X adds to track who shared a link.</string>
     <string name="share_link_provider">Share link provider</string>
     <string name="share_link_provider_summary">The host of shared post links.</string>
+    <string name="phone_layout">Phone layout on large screens</string>
+    <string name="phone_layout_summary">Keeps the navigation bar at the bottom on tablets and unfolded phones.</string>
     <string name="double_tap_seek">Double-tap seek</string>
     <string name="double_tap_seek_summary">How far a double tap on a video jumps.</string>
     <string name="double_tap_seek_3">3 seconds</string>

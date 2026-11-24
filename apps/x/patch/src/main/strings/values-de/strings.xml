@@ -38,6 +38,8 @@
     <string name="save_media_description">Speichert Fotos, Videos und GIFs in einem Ordner deiner Wahl, benannt nach ihrem Post.</string>
     <string name="show_sensitive_media">Sensible Medien anzeigen</string>
     <string name="show_sensitive_media_description">Zeigt sensible Medien ohne Unschärfe oder Warnung.</string>
+    <string name="phone_layout">Smartphone-Layout auf großen Bildschirmen</string>
+    <string name="phone_layout_description">Behält die Navigationsleiste auf Tablets und aufgeklappten Smartphones unten, wie auf einem Smartphone.</string>
     <string name="double_tap_seek">Sprungweite beim Doppeltippen</string>
     <string name="double_tap_seek_description">Legt fest, wie weit Doppeltippen in einem Video springt.</string>
     <string name="customize_navigation_bar">Navigationsleiste anpassen</string>

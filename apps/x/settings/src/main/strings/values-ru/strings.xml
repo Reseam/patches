@@ -135,6 +135,8 @@
     <string name="remove_share_tracking_summary">Убирает параметры, которые X добавляет, чтобы отслеживать, кто поделился ссылкой.</string>
     <string name="share_link_provider">Сервис для ссылок</string>
     <string name="share_link_provider_summary">Хост ссылок на посты, которыми вы делитесь.</string>
+    <string name="phone_layout">Телефонный макет на больших экранах</string>
+    <string name="phone_layout_summary">Оставляет панель навигации внизу на планшетах и разложенных телефонах.</string>
     <string name="double_tap_seek">Перемотка двойным касанием</string>
     <string name="double_tap_seek_summary">На сколько перематывает двойное касание в видео.</string>
     <string name="double_tap_seek_3">3 секунды</string>

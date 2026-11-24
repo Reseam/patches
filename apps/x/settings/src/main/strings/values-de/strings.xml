@@ -133,6 +133,8 @@
     <string name="remove_share_tracking_summary">Entfernt die Parameter, die X anhängt, um zu verfolgen, wer einen Link geteilt hat.</string>
     <string name="share_link_provider">Anbieter für geteilte Links</string>
     <string name="share_link_provider_summary">Der Host geteilter Beitragslinks.</string>
+    <string name="phone_layout">Smartphone-Layout auf großen Bildschirmen</string>
+    <string name="phone_layout_summary">Behält die Navigationsleiste auf Tablets und aufgeklappten Smartphones unten.</string>
     <string name="double_tap_seek">Sprungweite beim Doppeltippen</string>
     <string name="double_tap_seek_summary">Wie weit Doppeltippen in einem Video springt.</string>
     <string name="double_tap_seek_3">3 Sekunden</string>

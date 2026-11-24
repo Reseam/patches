@@ -38,6 +38,8 @@
     <string name="save_media_description">تصاویر، ویڈیوز اور GIFs کو ان کی پوسٹ کے نام سے آپ کے منتخب کردہ فولڈر میں محفوظ کرتا ہے۔</string>
     <string name="show_sensitive_media">حساس میڈیا دکھائیں</string>
     <string name="show_sensitive_media_description">حساس میڈیا کو دھندلاہٹ یا وارننگ کے بغیر دکھاتا ہے۔</string>
+    <string name="phone_layout">بڑی اسکرینز پر فون لے آؤٹ</string>
+    <string name="phone_layout_description">ٹیبلیٹس اور کھلے ہوئے فولڈ ایبل فونز پر نیویگیشن بار کو فون کی طرح نیچے رکھتا ہے۔</string>
     <string name="double_tap_seek">ڈبل ٹیپ سیک</string>
     <string name="double_tap_seek_description">طے کرتا ہے کہ ویڈیو پر ڈبل ٹیپ کتنا آگے یا پیچھے لے جائے۔</string>
     <string name="customize_navigation_bar">نیویگیشن بار حسب ضرورت بنائیں</string>

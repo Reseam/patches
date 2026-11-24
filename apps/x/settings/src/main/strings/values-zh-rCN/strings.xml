@@ -132,6 +132,8 @@
     <string name="remove_share_tracking_summary">移除 X 为跟踪链接分享者而添加的参数。</string>
     <string name="share_link_provider">分享链接提供方</string>
     <string name="share_link_provider_summary">分享的帖子链接所用的域名。</string>
+    <string name="phone_layout">大屏幕上使用手机布局</string>
+    <string name="phone_layout_summary">在平板和展开的折叠屏手机上，导航栏保持在底部。</string>
     <string name="double_tap_seek">双击快进/快退</string>
     <string name="double_tap_seek_summary">在视频上双击时跳转的时长。</string>
     <string name="double_tap_seek_3">3 秒</string>

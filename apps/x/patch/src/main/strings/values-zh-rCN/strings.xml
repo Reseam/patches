@@ -38,6 +38,8 @@
     <string name="save_media_description">将照片、视频和 GIF 以所属帖子命名，保存到你选择的文件夹。</string>
     <string name="show_sensitive_media">显示敏感媒体</string>
     <string name="show_sensitive_media_description">显示敏感媒体，不加模糊或警告。</string>
+    <string name="phone_layout">大屏幕上使用手机布局</string>
+    <string name="phone_layout_description">在平板和展开的折叠屏手机上，导航栏像在手机上一样保持在底部。</string>
     <string name="double_tap_seek">双击快进/快退</string>
     <string name="double_tap_seek_description">设置在视频上双击时跳转的时长。</string>
     <string name="customize_navigation_bar">自定义导航栏</string>

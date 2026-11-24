@@ -133,6 +133,8 @@
     <string name="remove_share_tracking_summary">Quita los parámetros que X añade para rastrear quién compartió un enlace.</string>
     <string name="share_link_provider">Proveedor de enlaces para compartir</string>
     <string name="share_link_provider_summary">El servidor de los enlaces de publicaciones compartidos.</string>
+    <string name="phone_layout">Diseño de teléfono en pantallas grandes</string>
+    <string name="phone_layout_summary">Mantiene la barra de navegación abajo en tablets y teléfonos desplegados.</string>
     <string name="double_tap_seek">Salto con doble toque</string>
     <string name="double_tap_seek_summary">Cuánto salta un doble toque en un video.</string>
     <string name="double_tap_seek_3">3 segundos</string>
