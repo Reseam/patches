@@ -37,6 +37,21 @@ object AdsSettings : SettingsGroup(TwitchStrings) {
             icon = Vector.lucide("server"),
         )
     val customEmbeddedAdsProxy by text(default = "", icon = Vector.lucide("link"))
+    val swapEmbeddedAds by toggle(default = false, icon = Vector.lucide("arrow-right-left"))
+    val swapEmbeddedAdsClientId by
+        choice(
+            default = "kimne78kx3ncx6brgo4mv6wki5h1ko",
+            choices =
+                listOf(
+                    Choice("kimne78kx3ncx6brgo4mv6wki5h1ko", TwitchStrings.swapEmbeddedAdsClientIdWeb),
+                    Choice("kd1unb4b3q4t58fwlpcbzcbnm76a8fp", TwitchStrings.swapEmbeddedAdsClientIdAndroid),
+                    Choice("ue6666qo983tsx6so1t0vnawi233wa", TwitchStrings.swapEmbeddedAdsClientIdTv),
+                    Choice("85lcqzxpb9bqu9z6ga1ol55du", TwitchStrings.swapEmbeddedAdsClientIdIos),
+                    Choice("d6g6o112aam5s8q2di888us9o3kuyh", TwitchStrings.swapEmbeddedAdsClientIdDeveloper),
+                    Choice("1t8ink24g3pvtp2cs75qn1vxuk001t", TwitchStrings.swapEmbeddedAdsClientIdAppeals),
+                ),
+            icon = Vector.lucide("id-card"),
+        )
     val ignoreAdEvents by toggle(default = true, icon = Vector.lucide("bell-off"))
 }
 
@@ -72,6 +87,7 @@ object ChatSettings : SettingsGroup(TwitchStrings) {
     val hideLeaderboards by toggle(default = false, icon = Vector.lucide("trophy"))
     val hideBitsButtons by toggle(default = false, icon = Vector.lucide("gem"))
     val hideChannelPointsButtons by toggle(default = false, icon = Vector.lucide("coins"))
+    val hideUniqueChatBanner by toggle(default = false, icon = Vector.lucide("copy-x"))
     val hideCommunityHighlights by toggle(default = false, icon = Vector.lucide("pin-off"))
     val hideChatBadges by toggle(default = false, icon = Vector.lucide("badge-x"))
     val hideWelcomeMessage by toggle(default = true, icon = Vector.lucide("message-square-off"))

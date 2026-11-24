@@ -3,7 +3,9 @@
     <string name="block_embedded_ads">Block embedded ads</string>
     <string name="block_embedded_ads_description">Loads live streams without ads through a third-party proxy, which sees your IP address and the channels you watch.</string>
     <string name="block_video_ads">Block video ads</string>
-    <string name="block_video_ads_description">Blocks the ads Twitch requests itself, but ads inside live streams need Block embedded ads.</string>
+    <string name="block_video_ads_description">Blocks the ads Twitch requests itself, but ads inside live streams need Block embedded ads or Swap embedded ads.</string>
+    <string name="swap_embedded_ads">Swap embedded ads</string>
+    <string name="swap_embedded_ads_description">Plays an ad-free copy of a live stream from Twitch during its ad breaks, without a proxy.</string>
     <string name="ignore_ad_events">Ignore ad events</string>
     <string name="ignore_ad_events_description">Ignores the ad breaks and ad tracking Twitch announces during a stream.</string>
     <string name="settings_entry">Reseam settings entry</string>
@@ -42,6 +44,8 @@
     <string name="hide_bits_buttons_description">Hides the Bits button next to the chat field and the Cheer button in landscape chat.</string>
     <string name="hide_channel_points_buttons">Hide channel points buttons</string>
     <string name="hide_channel_points_buttons_description">Hides the Channel Points button next to the chat field and in landscape chat.</string>
+    <string name="hide_unique_chat_banner">Hide unique chat banner</string>
+    <string name="hide_unique_chat_banner_description">Hides the Unique Chat banner above the chat field.</string>
     <string name="hide_community_highlights">Hide community highlights</string>
     <string name="hide_community_highlights_description">Hides pinned messages, hype trains, polls, predictions and the other highlights above chat.</string>
     <string name="hide_chat_badges">Hide chat badges</string>

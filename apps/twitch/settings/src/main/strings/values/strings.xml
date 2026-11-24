@@ -2,7 +2,7 @@
 <resources>
     <string name="block_video_ads">Block video ads</string>
     <string name="block_embedded_ads">Block embedded ads</string>
-    <string name="block_embedded_ads_summary">The proxy sees your IP address and the channels you watch.</string>
+    <string name="block_embedded_ads_summary">The proxy sees your IP address and the channels you watch. Drops may not count while it serves the stream.</string>
     <string name="embedded_ads_proxy">Ad-free proxy</string>
     <string name="embedded_ads_proxy_eu_luminous" translatable="false">eu.luminous.dev</string>
     <string name="embedded_ads_proxy_eu2_luminous" translatable="false">eu2.luminous.dev</string>
@@ -21,6 +21,16 @@
     <string name="embedded_ads_proxy_custom">Custom</string>
     <string name="custom_embedded_ads_proxy">Custom proxy</string>
     <string name="custom_embedded_ads_proxy_summary">The address of a Luminous or TTV LOL compatible proxy, used when Ad-free proxy is Custom.</string>
+    <string name="swap_embedded_ads">Swap embedded ads</string>
+    <string name="swap_embedded_ads_summary">During an ad break, plays the copy of the stream that Twitch sends its popout or embedded player, which often has no ads. Drops may not count during the swap.</string>
+    <string name="swap_embedded_ads_client_id">Swap identity</string>
+    <string name="swap_embedded_ads_client_id_summary">The Twitch app that Swap embedded ads identifies as when it asks Twitch for a copy of the stream. Web is the default. Try another app if ad breaks stop being swapped.</string>
+    <string name="swap_embedded_ads_client_id_web">Web</string>
+    <string name="swap_embedded_ads_client_id_android" translatable="false">Android</string>
+    <string name="swap_embedded_ads_client_id_tv">TV</string>
+    <string name="swap_embedded_ads_client_id_ios" translatable="false">iOS</string>
+    <string name="swap_embedded_ads_client_id_developer">Developer</string>
+    <string name="swap_embedded_ads_client_id_appeals">Appeals</string>
     <string name="ignore_ad_events">Ignore ad events</string>
     <string name="block_analytics">Block analytics</string>
     <string name="disable_update_prompts">Disable update prompts</string>
@@ -35,6 +45,7 @@
     <string name="hide_leaderboards">Hide leaderboards</string>
     <string name="hide_bits_buttons">Hide bits buttons</string>
     <string name="hide_channel_points_buttons">Hide channel points buttons</string>
+    <string name="hide_unique_chat_banner">Hide unique chat banner</string>
     <string name="hide_community_highlights">Hide community highlights</string>
     <string name="hide_chat_badges">Hide chat badges</string>
     <string name="hide_welcome_message">Hide welcome message</string>
