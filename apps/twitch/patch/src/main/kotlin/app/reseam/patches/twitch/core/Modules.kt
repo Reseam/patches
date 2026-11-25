@@ -3,8 +3,6 @@
 
 package app.reseam.patches.twitch.core
 
-import app.reseam.patch.JsCodeScope
-import app.reseam.patch.JsValue
 import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patches.bundle.reactModule
@@ -29,7 +27,3 @@ internal val twitchModules = patch {
         }
     }
 }
-
-/** The exports object of the Metro module whose factory this hook runs in, its sixth parameter. */
-internal val JsCodeScope.moduleExports: JsValue
-    get() = param(5)

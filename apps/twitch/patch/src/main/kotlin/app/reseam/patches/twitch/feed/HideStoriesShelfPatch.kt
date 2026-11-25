@@ -8,10 +8,10 @@ import app.reseam.patch.function
 import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
+import app.reseam.patches.bundle.moduleExports
 import app.reseam.patches.twitch.TwitchPatchStrings
 import app.reseam.patches.twitch.core.TWITCH
 import app.reseam.patches.twitch.core.TwitchSettingsPages
-import app.reseam.patches.twitch.core.moduleExports
 import app.reseam.patches.twitch.core.twitchSettings
 import app.reseam.twitch.bindings.Feed
 import app.reseam.twitch.settings.FeedSettings

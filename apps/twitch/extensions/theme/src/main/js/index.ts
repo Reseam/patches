@@ -33,12 +33,9 @@ export function applyTheme(
     lightBackgroundName: string,
 ) {
     if (tokens == null) return;
-    const purpleSteps = colorSteps(purples);
     const greySteps = colorSteps(greys);
-    const names = [...purpleSteps, ...greySteps].map(([, name]) => name);
-    const colors = appColors([...names, darkBackgroundName, lightBackgroundName]);
-    if (changedPurples == null) changedPurples = changedColors(purpleSteps, colors);
-    const replacements = new Map([...changedPurples, ...changedColors(greySteps, colors)]);
+    const colors = appColors([...greySteps.map(([, name]) => name), darkBackgroundName, lightBackgroundName]);
+    const replacements = new Map([...appPurples(purples), ...changedColors(greySteps, colors)]);
     // Without Material You, or before Android 12, the app's colors keep Twitch's values.
     if (replacements.size > 0) {
         const seen = new Set<object>();
