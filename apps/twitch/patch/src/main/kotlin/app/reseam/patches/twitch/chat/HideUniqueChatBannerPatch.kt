@@ -18,7 +18,7 @@ import app.reseam.twitch.settings.TwitchStrings
 val hideUniqueChatBanner = patch(TwitchPatchStrings.hideUniqueChatBanner) {
     description(TwitchPatchStrings.hideUniqueChatBannerDescription)
     compatibleWith(TWITCH)
-    settings(twitchSettings, section(TwitchSettingsPages.Chat, TwitchStrings.sectionChatButtons, ChatSettings.hideUniqueChatBanner))
+    settings(twitchSettings, section(TwitchSettingsPages.Chat, TwitchStrings.sectionCommunityHighlights, ChatSettings.hideUniqueChatBanner))
 
     execute {
         // The tray switches between chat modes in place, so it runs its React hooks first.

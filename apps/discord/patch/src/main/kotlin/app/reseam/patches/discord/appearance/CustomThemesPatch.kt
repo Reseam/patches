@@ -18,13 +18,13 @@ import app.reseam.patch.patch
 import app.reseam.patch.settings.gate
 import app.reseam.patch.settings.section
 import app.reseam.patch.settings.whenEnabled
+import app.reseam.patches.bundle.moduleExports
 import app.reseam.patches.discord.DiscordPatchStrings
 import app.reseam.patches.discord.core.DISCORD
 import app.reseam.patches.discord.core.createMessageContent
 import app.reseam.patches.discord.core.discordModules
 import app.reseam.patches.discord.core.discordSettings
 import app.reseam.patches.discord.core.getPackages
-import app.reseam.patches.discord.core.moduleExports
 import app.reseam.patches.discord.core.settingRows
 
 val customThemes = patch(DiscordPatchStrings.customThemes) {

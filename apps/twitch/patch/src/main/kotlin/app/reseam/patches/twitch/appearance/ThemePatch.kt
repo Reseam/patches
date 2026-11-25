@@ -8,6 +8,7 @@ import app.reseam.patch.function
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
+import app.reseam.patches.bundle.moduleExports
 import app.reseam.patches.twitch.TwitchPatchStrings
 import app.reseam.patches.twitch.core.TWITCH
 import app.reseam.patches.twitch.core.twitchModules
@@ -49,13 +50,17 @@ val theme = patch(TwitchPatchStrings.theme) {
     execute {
         resources.addColor(DARK_BACKGROUND, options[darkThemeBackgroundColor])
         resources.addColor(LIGHT_BACKGROUND, options[lightThemeBackgroundColor])
-        if (options[materialYou]) {
+        // React Native screens write Twitch's purples as hex, so they find each one by its value in the APK.
+        val purples = if (options[materialYou]) {
             resources.addColor(DARK_BACKGROUND, "@android:color/system_neutral1_900", DYNAMIC_COLORS)
             resources.addColor(LIGHT_BACKGROUND, "@android:color/system_neutral1_50", DYNAMIC_COLORS)
-            purpleTones.forEach { (purple, tone) ->
-                require(resources.exists("color", purple)) { "color/$purple is missing" }
+            purpleTones.entries.joinToString(",") { (purple, tone) ->
+                val color = requireNotNull(resources.getRaw("color", purple)) { "color/$purple is missing" }
                 resources.addColor(purple, "@android:color/system_accent1_$tone", DYNAMIC_COLORS)
+                "#%06x=%s".format(color and 0xFFFFFFL, purple)
             }
+        } else {
+            ""
         }
         require(resources.exists("color", "background_body")) { "color/background_body is missing" }
         resources.addColor("background_body", "@color/$LIGHT_BACKGROUND")
@@ -63,8 +68,7 @@ val theme = patch(TwitchPatchStrings.theme) {
 
         // React Native screens read the same colors back at startup, through a Reseam module.
         systemPrefsModules.after { returnValue(ThemeModule.withThemeModule(result, param(0))) }
-        // A Metro factory's sixth parameter is the module's exports.
-        themeTokens.after { Theme.applyTheme(param(5), string(DARK_BACKGROUND), string(LIGHT_BACKGROUND)) }
+        themeTokens.after { Theme.applyTheme(moduleExports, string(purples), string(DARK_BACKGROUND), string(LIGHT_BACKGROUND)) }
     }
 }
 
