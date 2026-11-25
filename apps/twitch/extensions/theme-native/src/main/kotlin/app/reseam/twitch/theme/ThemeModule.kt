@@ -3,7 +3,6 @@
 
 package app.reseam.twitch.theme
 
-import app.reseam.bundle.identifier
 import app.reseam.runtime.Export
 import com.facebook.react.bridge.NativeModule
 import com.facebook.react.bridge.ReactApplicationContext
@@ -25,8 +24,7 @@ class ThemeModule(context: ReactApplicationContext) : ReactContextBaseJavaModule
     fun colors(names: String): String {
         val colors = JSONObject()
         for (name in names.split(',')) {
-            val id = reactApplicationContext.identifier(name, "color")
-            if (id != 0) colors.put(name, hex(reactApplicationContext.getColor(id)))
+            reactApplicationContext.colorHex(name)?.let { colors.put(name, it) }
         }
         return colors.toString()
     }
@@ -37,10 +35,4 @@ class ThemeModule(context: ReactApplicationContext) : ReactContextBaseJavaModule
         fun withThemeModule(modules: List<NativeModule>?, context: ReactApplicationContext): List<NativeModule> =
             modules.orEmpty() + ThemeModule(context)
     }
-}
-
-private fun hex(color: Int): String {
-    val rgb = "#" + (color and 0xFFFFFF).toString(16).padStart(6, '0')
-    val alpha = color ushr 24
-    return if (alpha == 0xFF) rgb else rgb + alpha.toString(16).padStart(2, '0')
 }

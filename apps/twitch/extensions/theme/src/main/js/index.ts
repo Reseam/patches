@@ -34,18 +34,13 @@ const PURPLES: Record<string, string> = {
 // Shadows write their color inside a longer string.
 const HEX_COLOR = /#[0-9a-f]{6}\b/gi;
 
+let changedPurples: Map<string, string> | undefined;
+let changedNormalizedPurples: Map<number, number> | undefined;
+
 /** Gives the themes of Twitch's design tokens the app's purple colors, and the background colors named [darkBackgroundName] and [lightBackgroundName]. */
 export function applyTheme(tokens: Tokens | null | undefined, darkBackgroundName: string, lightBackgroundName: string) {
-    const themeModule = NativeModules.ReseamTwitchTheme;
-    if (tokens == null || themeModule == null) return;
-    // One call for every color, because each call blocks the JavaScript thread.
-    const names = [...Object.values(PURPLES), darkBackgroundName, lightBackgroundName];
-    const colors: Record<string, string> = JSON.parse(themeModule.colors(names.join(",")));
-    const purples = new Map<string, string>();
-    for (const [hex, name] of Object.entries(PURPLES)) {
-        const color = colors[name];
-        if (color != null && color !== hex) purples.set(hex, color);
-    }
+    if (tokens == null) return;
+    const purples = appPurples();
     // Without Material You, or before Android 12, the app's purple colors keep Twitch's values.
     if (purples.size > 0) {
         const seen = new Set<object>();
@@ -53,8 +48,45 @@ export function applyTheme(tokens: Tokens | null | undefined, darkBackgroundName
             recolor(value, purples, seen);
         }
     }
-    setBackground(tokens.darkTheme, colors[darkBackgroundName]);
-    setBackground(tokens.lightTheme, colors[lightBackgroundName]);
+    const backgrounds = appColors([darkBackgroundName, lightBackgroundName]);
+    setBackground(tokens.darkTheme, backgrounds[darkBackgroundName]);
+    setBackground(tokens.lightTheme, backgrounds[lightBackgroundName]);
+}
+
+/** Returns [color], a `0xrrggbbaa` number from normalizeColor, with the app's color for its purple step and the same alpha. */
+export function recolorNormalized(color: unknown) {
+    if (typeof color !== "number") return color;
+    const replacement = appNormalizedPurples().get(color >>> 8);
+    return replacement == null ? color : ((replacement << 8) | (color & 0xff)) >>> 0;
+}
+
+/** Returns the app's colors among [names], each as `#rrggbb`, or `#rrggbbaa` when it is translucent. */
+function appColors(names: string[]): Record<string, string> {
+    const themeModule = NativeModules.ReseamTwitchTheme;
+    // One call for several colors, because each call blocks the JavaScript thread.
+    return themeModule == null ? {} : JSON.parse(themeModule.colors(names.join(",")));
+}
+
+/** Returns the steps of Twitch's purple scale whose app color differs, mapped to that color. */
+function appPurples(): Map<string, string> {
+    if (changedPurples != null) return changedPurples;
+    const colors = appColors(Object.values(PURPLES));
+    changedPurples = new Map();
+    for (const [hex, name] of Object.entries(PURPLES)) {
+        const color = colors[name];
+        if (color != null && color !== hex) changedPurples.set(hex, color);
+    }
+    return changedPurples;
+}
+
+/** Returns the same steps as [appPurples], as the `0xrrggbb` numbers that a normalized color holds above its alpha. */
+function appNormalizedPurples(): Map<number, number> {
+    if (changedNormalizedPurples != null) return changedNormalizedPurples;
+    changedNormalizedPurples = new Map();
+    for (const [hex, color] of appPurples()) {
+        changedNormalizedPurples.set(parseInt(hex.slice(1), 16), parseInt(color.slice(1, 7), 16));
+    }
+    return changedNormalizedPurples;
 }
 
 function recolor(value: unknown, purples: Map<string, string>, seen: Set<object>) {

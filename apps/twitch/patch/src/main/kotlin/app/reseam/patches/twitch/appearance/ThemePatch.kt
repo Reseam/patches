@@ -3,21 +3,25 @@
 
 package app.reseam.patches.twitch.appearance
 
+import app.reseam.patch.PatchRuntime
 import app.reseam.patch.after
 import app.reseam.patch.function
 import app.reseam.patch.klass
 import app.reseam.patch.method
+import app.reseam.patch.methods
 import app.reseam.patch.patch
 import app.reseam.patches.twitch.TwitchPatchStrings
 import app.reseam.patches.twitch.core.TWITCH
 import app.reseam.patches.twitch.core.twitchModules
 import app.reseam.twitch.bindings.Theme
 import app.reseam.twitch.theme.bindings.ThemeModule
+import app.reseam.twitch.theme.bindings.WebTheme
 
 private const val DARK_DEFAULT = "#FF0E0E10"
 private const val LIGHT_DEFAULT = "#FFF7F7F8"
 private const val DARK_BACKGROUND = "reseam_twitch_theme_dark_background"
 private const val LIGHT_BACKGROUND = "reseam_twitch_theme_light_background"
+private const val WEB_ASSETS = "assets/public/assets/"
 
 // System dynamic colors exist from Android 12.
 private const val DYNAMIC_COLORS = "v31"
@@ -65,6 +69,18 @@ val theme = patch(TwitchPatchStrings.theme) {
         systemPrefsModules.after { returnValue(ThemeModule.withThemeModule(result, param(0))) }
         // A Metro factory's sixth parameter is the module's exports.
         themeTokens.after { Theme.applyTheme(param(5), string(DARK_BACKGROUND), string(LIGHT_BACKGROUND)) }
+
+        // Twitch's web pages read the same colors from a style that their web view clients add.
+        val pageRequests = localPageRequests.all
+        require(pageRequests.isNotEmpty()) { "No web view client serves Twitch's local web pages" }
+        pageRequests.forEach { pageRequest ->
+            pageRequest.after { returnValue(WebTheme.withTheme(result, param(0), string(DARK_BACKGROUND), string(LIGHT_BACKGROUND))) }
+        }
+
+        // Only Material You changes the purple steps, which some React Native components and web stylesheets write themselves.
+        if (options[materialYou]) normalizeColor.after { returnValue(Theme.recolorNormalized(result)) }
+        val stylesheetPurples = if (options[materialYou]) pointStylesheetPurplesAtVariables() else 0
+        log.info("Themed the web pages of ${pageRequests.size} web view clients, and $stylesheetPurples purple colors in their stylesheets")
     }
 }
 
@@ -99,4 +115,61 @@ private val themeTokens = function {
     name("")
     strings("darkTheme", "lightTheme", "overlayTheme", "twitchPurple")
     paramCount(7)
+}
+
+// Both web view clients of Twitch's portals serve /wv/ paths from local portals-<path>.html or portals.html files.
+private val localPageRequests = methods("localPageRequests") {
+    name("shouldInterceptRequest")
+    strings("/wv/", "portals-")
+}
+
+// React Native's normalizeColor turns each color of a style into a number, 0xrrggbbaa.
+private val normalizeColor = function {
+    name("normalizeColor")
+    strings("normalizeColorObject")
+    paramCount(1)
+}
+
+// Twitch's purple scale as its web stylesheets write it, by step. Step 1 has no app color.
+private val stylesheetPurpleSteps = mapOf(
+    "0d031c" to 2,
+    "15052e" to 3,
+    "23094e" to 4,
+    "330c6e" to 5,
+    "451093" to 6,
+    "5c16c5" to 7,
+    "772ce8" to 8,
+    "9147ff" to 9,
+    "a970ff" to 10,
+    "bf94ff" to 11,
+    "d1b3ff" to 12,
+    "e3d1ff" to 13,
+    "ede0ff" to 14,
+    "f3ebff" to 15,
+)
+
+// The lookahead skips translucent colors such as #9147ff40, which start with a step.
+private val stylesheetPurple = Regex(
+    "#(${stylesheetPurpleSteps.keys.joinToString("|")})(?![0-9a-f])",
+    RegexOption.IGNORE_CASE,
+)
+
+/** Points the purple steps that the web stylesheets hard-code at the pages' purple variables, and returns how many it changed. */
+private fun PatchRuntime.pointStylesheetPurplesAtVariables(): Int {
+    var changed = 0
+    for (path in files.list()) {
+        if (!path.startsWith(WEB_ASSETS) || !path.endsWith(".css")) continue
+        val stylesheet = files.read(path)?.decodeToString() ?: error("Cannot read $path")
+        var purples = 0
+        // The hard-coded color stays as the fallback.
+        val themed = stylesheetPurple.replace(stylesheet) { purple ->
+            purples++
+            "var(--color-twitch-purple-${stylesheetPurpleSteps.getValue(purple.groupValues[1].lowercase())},${purple.value})"
+        }
+        if (purples == 0) continue
+        files.write(path, themed.encodeToByteArray())
+        changed += purples
+    }
+    require(changed > 0) { "The web stylesheets no longer hard-code Twitch purple" }
+    return changed
 }
