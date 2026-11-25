@@ -26,14 +26,14 @@ private const val DARK_DEFAULT = "#FF0E0E10"
 private const val LIGHT_DEFAULT = "#FFF7F7F8"
 private const val DARK_BACKGROUND = "reseam_twitch_theme_dark_background"
 private const val LIGHT_BACKGROUND = "reseam_twitch_theme_light_background"
-private const val DARKEST_GREY = "hinted_grey_1"
-private const val LIGHTEST_GREY = "hinted_grey_15"
-private const val COMPOSE_DARKEST_GREY = 0xFF0E0E10
-private const val COMPOSE_LIGHTEST_GREY = 0xFFF7F7F8
+private const val GREY = "hinted_grey_"
 private const val WEB_ASSETS = "assets/public/assets/"
 
 // System dynamic colors exist from Android 12.
 private const val DYNAMIC_COLORS = "v31"
+
+// Material You's surface and container colors exist from Android 14.
+private const val SURFACE_COLORS = "v34"
 
 val theme = patch(TwitchPatchStrings.theme) {
     description(TwitchPatchStrings.themeDescription)
@@ -65,16 +65,19 @@ val theme = patch(TwitchPatchStrings.theme) {
         if (options[materialYou]) {
             resources.addColor(DARK_BACKGROUND, "@android:color/system_neutral1_900", DYNAMIC_COLORS)
             resources.addColor(LIGHT_BACKGROUND, "@android:color/system_neutral1_50", DYNAMIC_COLORS)
+            // On Android 14 the cards get Material You's container colors, so the background takes the surface color
+            // those containers are built around.
+            resources.addColor(DARK_BACKGROUND, "@android:color/system_surface_dark", SURFACE_COLORS)
+            resources.addColor(LIGHT_BACKGROUND, "@android:color/system_surface_light", SURFACE_COLORS)
             purpleTones.forEach { (purple, tone) ->
                 require(resources.exists("color", purple)) { "color/$purple is missing" }
                 resources.addColor(purple, "@android:color/system_accent1_$tone", DYNAMIC_COLORS)
             }
             // Twitch paints the areas behind the system bars and some lists with the ends of its grey scale, which
             // are also the backgrounds it ships. Text uses them too, so a custom background color leaves them alone.
-            require(resources.exists("color", DARKEST_GREY)) { "color/$DARKEST_GREY is missing" }
-            require(resources.exists("color", LIGHTEST_GREY)) { "color/$LIGHTEST_GREY is missing" }
-            resources.addColor(DARKEST_GREY, "@color/$DARK_BACKGROUND", DYNAMIC_COLORS)
-            resources.addColor(LIGHTEST_GREY, "@color/$LIGHT_BACKGROUND", DYNAMIC_COLORS)
+            addGrey(1, "@color/$DARK_BACKGROUND", DYNAMIC_COLORS)
+            addGrey(15, "@color/$LIGHT_BACKGROUND", DYNAMIC_COLORS)
+            surfaceGreys.forEach { (step, color) -> addGrey(step, "@android:color/$color", SURFACE_COLORS) }
         }
         require(resources.exists("color", "background_body")) { "color/background_body is missing" }
         resources.addColor("background_body", "@color/$LIGHT_BACKGROUND")
@@ -91,14 +94,14 @@ val theme = patch(TwitchPatchStrings.theme) {
             pageRequest.after { returnValue(WebTheme.withTheme(result, param(0), string(DARK_BACKGROUND), string(LIGHT_BACKGROUND))) }
         }
 
-        // Only Material You changes the purple steps and the ends of the grey scale, which React Native components, web
-        // stylesheets and Compose screens such as Settings also write themselves.
+        // Only Material You changes the purple and grey steps. React Native components and web stylesheets also write
+        // the purple steps themselves, and Compose screens such as Settings write the grey steps.
         if (options[materialYou]) {
             normalizeColor.after { returnValue(Theme.recolorNormalized(result)) }
-            val darkestGrey = resourceId("color", DARKEST_GREY).toInt()
-            val lightestGrey = resourceId("color", LIGHTEST_GREY).toInt()
-            composeDarkestGrey.after { capture("darkestGrey").assign(ComposeColors.appColor(capture("darkestGrey"), int(darkestGrey))) }
-            composeLightestGrey.after { capture("lightestGrey").assign(ComposeColors.appColor(capture("lightestGrey"), int(lightestGrey))) }
+            composeGreys.forEach { (step, composeGrey) ->
+                val grey = resourceId("color", "$GREY$step").toInt()
+                composeGrey.after { capture("greyStep$step").assign(ComposeColors.appColor(capture("greyStep$step"), int(grey))) }
+            }
         }
         val stylesheetPurples = if (options[materialYou]) pointStylesheetPurplesAtVariables() else 0
         log.info("Themed the web pages of ${pageRequests.size} web view clients, and $stylesheetPurples purple colors in their stylesheets")
@@ -123,6 +126,20 @@ private val purpleTones = mapOf(
     "twitch_purple_13" to 100,
     "twitch_purple_14" to 100,
     "twitch_purple_15" to 50,
+)
+
+// Cards and borders use the grey steps between the background and the text. Each one gets the Material You color
+// that is about as far from the surface color as the step is from Twitch's background. Step 6 waits for Android 14
+// with the others, so it stays lighter than step 5.
+private val surfaceGreys = mapOf(
+    2 to "system_surface_container_dark",
+    3 to "system_surface_container_high_dark",
+    4 to "system_surface_container_highest_dark",
+    5 to "system_surface_bright_dark",
+    6 to "system_neutral1_700",
+    12 to "system_surface_container_highest_light",
+    13 to "system_surface_container_high_light",
+    14 to "system_surface_container_light",
 )
 
 // Twitch's React Native libraries keep their names. R8 renames React Native's package types,
@@ -151,21 +168,34 @@ private val normalizeColor = function {
     paramCount(1)
 }
 
+// The grey steps that Twitch's Compose tokens build from their own ARGB value and keep. The class also builds steps 5
+// and 11 without keeping them.
+private val composeGreyArgbs = mapOf(
+    1 to 0xFF0E0E10,
+    2 to 0xFF18181B,
+    3 to 0xFF1F1F23,
+    4 to 0xFF26262C,
+    6 to 0xFF3B3B44,
+    12 to 0xFFDEDEE3,
+    13 to 0xFFE6E6EA,
+    15 to 0xFFF7F7F8,
+)
+
 // Twitch's Compose color tokens build every color once, in the token class's initializer.
 private val composeColorTokens = method("composeColorTokens") {
     name("<clinit>")
-    literals(COMPOSE_DARKEST_GREY, COMPOSE_LIGHTEST_GREY)
+    literals(composeGreyArgbs.getValue(1), composeGreyArgbs.getValue(15))
 }
 
-private val composeDarkestGrey = composeColorTokens
-    .point("darkestGreyArgb") { literal(COMPOSE_DARKEST_GREY) }
-    .next { resultOf(Type.Long) }
-    .captureAs("darkestGrey", Type.Long)
+private val composeGreyArgbPoints = composeGreyArgbs.mapValues { (step, argb) ->
+    composeColorTokens.point("greyStep${step}Argb") { literal(argb) }
+}
 
-private val composeLightestGrey = composeColorTokens
-    .point("lightestGreyArgb") { literal(COMPOSE_LIGHTEST_GREY) }
-    .next { resultOf(Type.Long) }
-    .captureAs("lightestGrey", Type.Long)
+// The class builds step 14 from a register it loaded for an earlier color, so its color is the last result before
+// the ARGB value of step 15.
+private val composeGreys = composeGreyArgbPoints.map { (step, argbPoint) -> step to argbPoint.next { resultOf(Type.Long) } }
+    .plus(14 to composeGreyArgbPoints.getValue(15).previous { resultOf(Type.Long) })
+    .map { (step, result) -> step to result.captureAs("greyStep$step", Type.Long) }
 
 // Twitch's purple scale as its web stylesheets write it, by step. Step 1 has no app color.
 private val stylesheetPurpleSteps = mapOf(
@@ -209,4 +239,11 @@ private fun PatchRuntime.pointStylesheetPurplesAtVariables(): Int {
     }
     require(changed > 0) { "The web stylesheets no longer hard-code Twitch purple" }
     return changed
+}
+
+/** Points step [step] of Twitch's grey scale at [color] where the resource qualifier [qualifier] applies. */
+private fun PatchRuntime.addGrey(step: Int, color: String, qualifier: String) {
+    val grey = "$GREY$step"
+    require(resources.exists("color", grey)) { "color/$grey is missing" }
+    resources.addColor(grey, color, qualifier)
 }

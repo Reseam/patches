@@ -81,5 +81,5 @@
     <string name="theme_light_theme_background_color">Light background color</string>
     <string name="theme_light_theme_background_color_description">The color that replaces the light background of Twitch, as #AARRGGBB.</string>
     <string name="theme_material_you">Material You</string>
-    <string name="theme_material_you_description">Uses colors from your wallpaper for Twitch purple and the backgrounds on Android 12 and newer, in place of the background color options.</string>
+    <string name="theme_material_you_description">Uses colors from your wallpaper in place of the background color options. Twitch purple and the backgrounds change on Android 12 and newer, and cards on Android 14 and newer.</string>
 </resources>
