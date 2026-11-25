@@ -13,7 +13,7 @@ import app.reseam.patch.point
 
 const val TWITCH_PACKAGE = "tv.twitch.android.app"
 
-val TWITCH: CompatiblePackage = TWITCH_PACKAGE("32.2.0")
+val TWITCH: CompatiblePackage = TWITCH_PACKAGE("32.1.0", "32.2.0")
 
 // The base class of every native player's presenter.
 val playerPresenter = klass("playerPresenter") { strings("playerStateAndEventDisposable") }
@@ -69,7 +69,3 @@ val chatLine = function {
     name("ChatLineComponent")
     paramCount(1)
 }
-
-// Native code calls the IVS network classes, so they keep their names.
-val ivsRequest = klass("com.amazonaws.ivs.net.Request")
-val ivsRequestUrl = ivsRequest.method("getUrl")

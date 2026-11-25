@@ -7,6 +7,8 @@ import app.reseam.patch.JsCodeScope
 import app.reseam.patch.JsValue
 import app.reseam.patch.function
 import app.reseam.patch.patch
+import app.reseam.patches.bundle.reactModule
+import app.reseam.patches.bundle.reactNativeModule
 
 /** Declares the app modules that Twitch's JavaScript extensions import. */
 internal val twitchModules = patch {
@@ -14,22 +16,8 @@ internal val twitchModules = patch {
 
     execute {
         hermes.modules {
-            module(
-                "react",
-                function {
-                    name("isValidElement")
-                    strings("\$\$typeof")
-                    paramCount(1)
-                }.module,
-            )
-            module(
-                "react-native",
-                function {
-                    name("")
-                    strings("unstable_NativeText", "unstable_batchedUpdates")
-                    paramCount(7)
-                }.module,
-            )
+            module("react", reactModule)
+            module("react-native", reactNativeModule)
             // The module also exports the wrapped IconRefresh that the player draws.
             module(
                 "twitch:icons/IconRefresh",

@@ -51,7 +51,6 @@ val defaultVideoQuality = patch(TwitchPatchStrings.defaultVideoQuality) {
         appEntry { VideoQuality.init(application) }
 
         // A quality picked in the player still wins over the default.
-        // Where R8 inlines Twitch's lookup, argument 1 is the whole key instead of its suffix, so the unsaved ending still gives a key with nothing saved under it.
         val verticalReads = verticalTheatreQualityReads.all
         require(verticalReads.isNotEmpty()) { "The vertical theatre no longer reads the saved quality" }
         val startQualities = verticalReads + theatreQualityRead
@@ -87,8 +86,8 @@ val defaultVideoQuality = patch(TwitchPatchStrings.defaultVideoQuality) {
     }
 }
 
-// In each reader, the one call that takes two strings and returns one is Twitch's saved quality lookup.
-// Where R8 inlines that lookup, it is the preference read the lookup made.
+// In each reader, the one call that takes two strings and returns one is Twitch's saved quality lookup, or, where R8
+// inlines it, the preference read it made. That read takes the whole key as argument 1, which still ends up unsaved.
 private val theatreQualityRead = method("theatreQuality") {
     strings("auto")
     accesses { owner(CLIP_QUALITY); name("Quality480p") }

@@ -11,6 +11,7 @@ import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.settings.addReactPackage
 import app.reseam.patch.settings.settingsHost
+import app.reseam.patches.bundle.moduleExports
 import app.reseam.patches.bundle.reseamAbout
 import app.reseam.patches.bundle.reseamBrand
 
