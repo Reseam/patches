@@ -3,10 +3,10 @@
 
 package app.reseam.patches.discord.core
 
-import app.reseam.patch.JsCodeScope
-import app.reseam.patch.JsValue
 import app.reseam.patch.function
 import app.reseam.patch.patch
+import app.reseam.patches.bundle.reactModule
+import app.reseam.patches.bundle.reactNativeModule
 
 /**
  * Declares the app modules Discord's extensions import. Each of Discord's own source files passes
@@ -18,14 +18,7 @@ internal val discordModules = patch {
 
     execute {
         hermes.modules {
-            module(
-                "react",
-                function {
-                    name("isValidElement")
-                    strings("\$\$typeof")
-                    paramCount(1)
-                }.module,
-            )
+            module("react", reactModule)
             module(
                 "react/jsx-runtime",
                 function {
@@ -33,14 +26,7 @@ internal val discordModules = patch {
                     paramCount(3)
                 }.module,
             )
-            module(
-                "react-native",
-                function {
-                    name("")
-                    strings("unstable_NativeText", "unstable_batchedUpdates")
-                    paramCount(7)
-                }.module,
-            )
+            module("react-native", reactNativeModule)
             prefix("discord:") { path ->
                 function {
                     name("")
@@ -51,7 +37,3 @@ internal val discordModules = patch {
         }
     }
 }
-
-/** The exports object of the Metro module whose factory this hook runs in, its sixth parameter. */
-internal val JsCodeScope.moduleExports: JsValue
-    get() = param(5)

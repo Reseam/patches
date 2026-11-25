@@ -13,7 +13,7 @@ import app.reseam.patch.point
 
 const val TWITCH_PACKAGE = "tv.twitch.android.app"
 
-val TWITCH: CompatiblePackage = TWITCH_PACKAGE("32.1.0")
+val TWITCH: CompatiblePackage = TWITCH_PACKAGE("32.1.0", "32.2.0")
 
 // The base class of every native player's presenter.
 val playerPresenter = klass("playerPresenter") { strings("playerStateAndEventDisposable") }
@@ -34,7 +34,11 @@ val isStaff = method("isStaff") {
 }
 
 val viewerLandingCreate = klass("tv.twitch.android.feature.viewer.landing.ViewerLandingActivity")
-    .method("onCreate") { strings("destinationOrdinal") }
+    .method("onCreate")
+
+// Twitch's React Native libraries keep their names. R8 renames React Native's package types,
+// so a Reseam module joins the module list of a package that Twitch already registers.
+val reactNativeModules = klass("com.twitchrn.systemprefs.TwitchSystemPrefsPackage").method("createNativeModules")
 
 // The React Native theatre's top-right buttons.
 val controlsOverlay = function {

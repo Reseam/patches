@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="block_embedded_ads">Block embedded ads</string>
-    <string name="block_embedded_ads_description">Loads live streams without ads through a third-party proxy, which sees your IP address and the channels you watch.</string>
+    <string name="block_embedded_ads_description">Plays live streams without the ads inside them, from a third-party proxy or from Twitch\'s popout player.</string>
     <string name="block_video_ads">Block video ads</string>
     <string name="block_video_ads_description">Blocks the ads Twitch requests itself, but ads inside live streams need Block embedded ads.</string>
     <string name="ignore_ad_events">Ignore ad events</string>
@@ -44,6 +44,8 @@
     <string name="hide_channel_points_buttons_description">Hides the Channel Points button next to the chat field and in landscape chat.</string>
     <string name="hide_community_highlights">Hide community highlights</string>
     <string name="hide_community_highlights_description">Hides pinned messages, hype trains, polls, predictions and the other highlights above chat.</string>
+    <string name="hide_unique_chat_banner">Hide unique chat banner</string>
+    <string name="hide_unique_chat_banner_description">Hides the Unique Chat banner above the chat field.</string>
     <string name="hide_chat_badges">Hide chat badges</string>
     <string name="hide_chat_badges_description">Hides the badges next to names in chat.</string>
     <string name="hide_welcome_message">Hide welcome message</string>
@@ -56,6 +58,8 @@
     <string name="hide_blocked_messages_description">In channels you moderate, removes the placeholder Twitch shows for a blocked user\'s message.</string>
     <string name="shrink_giant_emotes">Shrink giant emotes</string>
     <string name="shrink_giant_emotes_description">Shows emotes gigantified with Bits at normal size.</string>
+    <string name="third_party_emotes">Third-party emotes</string>
+    <string name="third_party_emotes_description">Shows 7TV, BetterTTV and FrankerFaceZ emotes in chat, loaded from those services.</string>
     <string name="hide_sub_and_gift_notices">Hide sub and gift notices</string>
     <string name="hide_sub_and_gift_notices_description">Hides the chat lines for subs, resubs and gift subs.</string>
     <string name="hide_shared_chat_from_other_channels">Hide shared chat from other channels</string>
@@ -70,4 +74,12 @@
     <string name="hide_content_classification_label_description">Hides labels such as Intended for certain audiences at the top of the player.</string>
     <string name="skip_mature_content_warnings">Skip mature content warnings</string>
     <string name="skip_mature_content_warnings_description">Starts streams and videos labeled for mature audiences without the warning screen.</string>
+    <string name="theme">Theme</string>
+    <string name="theme_description">Changes the light and dark background colors.</string>
+    <string name="theme_dark_theme_background_color">Dark background color</string>
+    <string name="theme_dark_theme_background_color_description">The color that replaces the dark background of Twitch, as #AARRGGBB.</string>
+    <string name="theme_light_theme_background_color">Light background color</string>
+    <string name="theme_light_theme_background_color_description">The color that replaces the light background of Twitch, as #AARRGGBB.</string>
+    <string name="theme_material_you">Material You</string>
+    <string name="theme_material_you_description">Uses colors from your wallpaper in place of the background color options. Twitch purple and the backgrounds change on Android 12 and newer, and cards on Android 14 and newer.</string>
 </resources>

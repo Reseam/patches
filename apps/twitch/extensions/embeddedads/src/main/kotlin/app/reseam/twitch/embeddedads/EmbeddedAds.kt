@@ -24,17 +24,14 @@ private var proxyPausedUntil = 0L
 
 @Export
 fun playlistUrl(url: String?): String? {
-    if (url == null) return null
-    val channelStart = proxiedChannelStart(url)
-    if (channelStart < 0) return url
-    val channel = url.substring(channelStart, url.indexOf(PLAYLIST_EXTENSION, channelStart))
+    val channel = url?.let(::proxiedChannel) ?: return url
     return playlistPrefix() + channel + PLAYLIST_EXTENSION + PROXY_QUERY
 }
 
 // The proxy gets none of the player's headers, so none of its tokens.
 @Export
 fun playlistHeaders(url: String?, headers: Map<String, String>?): Map<String, String>? =
-    if (url != null && proxiedChannelStart(url) >= 0) emptyMap() else headers
+    if (url?.let(::proxiedChannel) != null) emptyMap() else headers
 
 @Export
 fun onResponse(status: Int, url: String?) {
@@ -46,13 +43,18 @@ fun onFailure(url: String?) {
     if (isProxied(url)) pauseProxy()
 }
 
-/** The channel's start in a live playlist URL the proxy should serve, or -1. */
-private fun proxiedChannelStart(url: String): Int {
-    if (!url.startsWith(LIVE_PLAYLIST_PREFIX) || System.currentTimeMillis() < proxyPausedUntil) return -1
+/** The channel of a live playlist URL the proxy should serve, or null. */
+private fun proxiedChannel(url: String): String? =
+    if (AdsSettings.embeddedAdsMethod.value != "proxy" || System.currentTimeMillis() < proxyPausedUntil) null else channelOf(url)
+
+/** The channel of a live playlist URL, or null. */
+internal fun channelOf(url: String): String? {
+    if (!url.startsWith(LIVE_PLAYLIST_PREFIX)) return null
     val channelPath = url.indexOf(CHANNEL_PATH, LIVE_PLAYLIST_PREFIX.length - 1)
-    if (channelPath < 0) return -1
+    if (channelPath < 0) return null
     val channelStart = channelPath + CHANNEL_PATH.length
-    return if (url.indexOf(PLAYLIST_EXTENSION, channelStart) > channelStart) channelStart else -1
+    val extension = url.indexOf(PLAYLIST_EXTENSION, channelStart)
+    return if (extension > channelStart) url.substring(channelStart, extension) else null
 }
 
 /** The chosen proxy's playlist path; a custom value that is not an https base URL falls back to the default. */

@@ -2,8 +2,13 @@
 <resources>
     <string name="block_video_ads">Block video ads</string>
     <string name="block_embedded_ads">Block embedded ads</string>
-    <string name="block_embedded_ads_summary">The proxy sees your IP address and the channels you watch.</string>
+    <string name="block_embedded_ads_summary">Drops may not count while an ad-free stream plays.</string>
+    <string name="embedded_ads_method">Ad-free stream</string>
+    <string name="embedded_ads_method_summary">A proxy serves the whole stream, while a swap plays the stream of Twitch\'s popout player during ad breaks.</string>
+    <string name="embedded_ads_method_proxy">Proxy</string>
+    <string name="embedded_ads_method_swap">Swap</string>
     <string name="embedded_ads_proxy">Ad-free proxy</string>
+    <string name="embedded_ads_proxy_summary">The proxy sees your IP address and the channels you watch.</string>
     <string name="embedded_ads_proxy_eu_luminous" translatable="false">eu.luminous.dev</string>
     <string name="embedded_ads_proxy_eu2_luminous" translatable="false">eu2.luminous.dev</string>
     <string name="embedded_ads_proxy_eu3_luminous" translatable="false">eu3.luminous.dev</string>
@@ -21,6 +26,14 @@
     <string name="embedded_ads_proxy_custom">Custom</string>
     <string name="custom_embedded_ads_proxy">Custom proxy</string>
     <string name="custom_embedded_ads_proxy_summary">The address of a Luminous or TTV LOL compatible proxy, used when Ad-free proxy is Custom.</string>
+    <string name="swap_embedded_ads_client_id">Swap identity</string>
+    <string name="swap_embedded_ads_client_id_summary">The Twitch app that a swap identifies as when it asks Twitch for a copy of the stream. Web is the default. Try another app if ad breaks stop being swapped.</string>
+    <string name="swap_embedded_ads_client_id_web">Web</string>
+    <string name="swap_embedded_ads_client_id_android" translatable="false">Android</string>
+    <string name="swap_embedded_ads_client_id_tv">TV</string>
+    <string name="swap_embedded_ads_client_id_ios" translatable="false">iOS</string>
+    <string name="swap_embedded_ads_client_id_developer">Developer</string>
+    <string name="swap_embedded_ads_client_id_appeals">Appeals</string>
     <string name="ignore_ad_events">Ignore ad events</string>
     <string name="block_analytics">Block analytics</string>
     <string name="disable_update_prompts">Disable update prompts</string>
@@ -36,6 +49,7 @@
     <string name="hide_bits_buttons">Hide bits buttons</string>
     <string name="hide_channel_points_buttons">Hide channel points buttons</string>
     <string name="hide_community_highlights">Hide community highlights</string>
+    <string name="hide_unique_chat_banner">Hide unique chat banner</string>
     <string name="hide_chat_badges">Hide chat badges</string>
     <string name="hide_welcome_message">Hide welcome message</string>
     <string name="keep_deleted_messages">Keep deleted messages</string>
@@ -44,6 +58,11 @@
     <string name="keep_chat_after_a_clear">Keep chat after a clear</string>
     <string name="hide_blocked_messages">Hide blocked messages</string>
     <string name="shrink_giant_emotes">Shrink giant emotes</string>
+    <string name="third_party_emotes">Third-party emotes</string>
+    <string name="third_party_emotes_summary">The emote services see your IP address and the channels whose chat you open.</string>
+    <string name="seven_tv_emotes" translatable="false">7TV</string>
+    <string name="bttv_emotes" translatable="false">BetterTTV</string>
+    <string name="ffz_emotes" translatable="false">FrankerFaceZ</string>
     <string name="hide_sub_and_gift_notices">Hide sub and gift notices</string>
     <string name="hide_shared_chat_from_other_channels">Hide shared chat from other channels</string>
     <string name="hide_watch_streaks">Hide watch streaks</string>
@@ -97,6 +116,7 @@
     <string name="section_chat_buttons">Chat buttons</string>
     <string name="section_community_highlights">Community highlights</string>
     <string name="section_chat_messages">Chat messages</string>
+    <string name="section_emotes">Emotes</string>
     <string name="section_video_ads">Video ads</string>
     <string name="section_embedded_ads">Embedded ads</string>
     <string name="section_promotions">Promotions</string>

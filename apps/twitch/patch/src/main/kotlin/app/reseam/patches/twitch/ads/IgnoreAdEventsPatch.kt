@@ -4,6 +4,7 @@
 package app.reseam.patches.twitch.ads
 
 import app.reseam.patch.Type
+import app.reseam.patch.field
 import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.patch
@@ -34,7 +35,12 @@ val ignoreAdEvents = patch(TwitchPatchStrings.ignoreAdEvents) {
                 whenTrue(string("commercial").callVirtual("java.lang.String", "equals", "(Ljava/lang/Object;)Z", param(0))) { returnVoid() }
             }
             ivsMetadataHandler.before { whenTrue(AdEvents.isAdMetadata(param(0))) { returnVoid() } }
-            reactNativeAdCueRoute.before { whenTrue(AdEvents.isAdCue(param(0))) { returnVoid() } }
+            // In version 32.2.0 the router returns an outcome, and the player does nothing on None.
+            reactNativeAdCueRoute.before {
+                whenTrue(AdEvents.isAdCue(param(0))) {
+                    if (reactNativeAdCueRoute.returnType == Type.Void) returnVoid() else returnValue(staticField(noAdCueOutcome))
+                }
+            }
         }
     }
 }
@@ -59,3 +65,4 @@ private val ivsMetadataHandler = method("ivsMetadataHandler") {
 
 // React Native classes keep their names.
 private val reactNativeAdCueRoute = klass("com.twitchrn.player.AdMetadataCueRouter").method("route")
+private val noAdCueOutcome = klass($$"com.twitchrn.player.AdCueOutcome$None").field("INSTANCE")
