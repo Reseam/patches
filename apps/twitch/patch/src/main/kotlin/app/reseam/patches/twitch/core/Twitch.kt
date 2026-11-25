@@ -36,6 +36,10 @@ val isStaff = method("isStaff") {
 val viewerLandingCreate = klass("tv.twitch.android.feature.viewer.landing.ViewerLandingActivity")
     .method("onCreate")
 
+// Twitch's React Native libraries keep their names. R8 renames React Native's package types,
+// so a Reseam module joins the module list of a package that Twitch already registers.
+val reactNativeModules = klass("com.twitchrn.systemprefs.TwitchSystemPrefsPackage").method("createNativeModules")
+
 // The React Native theatre's top-right buttons.
 val controlsOverlay = function {
     name("PlayerControlsOverlay")

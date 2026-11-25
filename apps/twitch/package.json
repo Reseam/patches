@@ -1,7 +1,9 @@
 {
   "private": true,
   "devDependencies": {
+    "@react-native/virtualized-lists": "0.86.0",
     "@types/react": "19.2.18",
-    "csstype": "3.2.3"
+    "csstype": "3.2.3",
+    "react-native": "0.86.0"
   }
 }

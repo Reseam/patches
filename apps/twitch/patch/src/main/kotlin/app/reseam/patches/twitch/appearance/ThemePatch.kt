@@ -8,7 +8,6 @@ import app.reseam.patch.Type
 import app.reseam.patch.after
 import app.reseam.patch.before
 import app.reseam.patch.function
-import app.reseam.patch.klass
 import app.reseam.patch.method
 import app.reseam.patch.methods
 import app.reseam.patch.patch
@@ -16,6 +15,7 @@ import app.reseam.patch.point
 import app.reseam.patches.bundle.moduleExports
 import app.reseam.patches.twitch.TwitchPatchStrings
 import app.reseam.patches.twitch.core.TWITCH
+import app.reseam.patches.twitch.core.reactNativeModules
 import app.reseam.patches.twitch.core.resourceId
 import app.reseam.patches.twitch.core.twitchModules
 import app.reseam.twitch.bindings.Theme
@@ -89,7 +89,7 @@ val theme = patch(TwitchPatchStrings.theme) {
         resources.addColor("background_body", "@color/$DARK_BACKGROUND", "night")
 
         // React Native screens read the same colors back at startup, through a Reseam module.
-        systemPrefsModules.after { returnValue(ThemeModule.withThemeModule(result, param(0))) }
+        reactNativeModules.after { returnValue(ThemeModule.withThemeModule(result, param(0))) }
         themeTokens.after {
             Theme.applyTheme(moduleExports, string(purples), string(greys), string(DARK_BACKGROUND), string(LIGHT_BACKGROUND))
         }
@@ -159,11 +159,6 @@ private val surfaceGreys = mapOf(
     13 to "system_surface_container_high_light",
     14 to "system_surface_container_light",
 )
-
-// Twitch's React Native libraries keep their names. R8 renames React Native's package types,
-// so the Reseam module joins the module list of a package that Twitch already registers.
-private val systemPrefsModules = klass("com.twitchrn.systemprefs.TwitchSystemPrefsPackage")
-    .method("createNativeModules")
 
 // @twitch-rn/tokens builds the dark, light and overlay themes of the React Native screens once,
 // when the app first loads it.

@@ -58,6 +58,8 @@
     <string name="hide_blocked_messages_description">In channels you moderate, removes the placeholder Twitch shows for a blocked user\'s message.</string>
     <string name="shrink_giant_emotes">Shrink giant emotes</string>
     <string name="shrink_giant_emotes_description">Shows emotes gigantified with Bits at normal size.</string>
+    <string name="third_party_emotes">Third-party emotes</string>
+    <string name="third_party_emotes_description">Shows 7TV, BetterTTV and FrankerFaceZ emotes in chat, loaded from those services.</string>
     <string name="hide_sub_and_gift_notices">Hide sub and gift notices</string>
     <string name="hide_sub_and_gift_notices_description">Hides the chat lines for subs, resubs and gift subs.</string>
     <string name="hide_shared_chat_from_other_channels">Hide shared chat from other channels</string>
