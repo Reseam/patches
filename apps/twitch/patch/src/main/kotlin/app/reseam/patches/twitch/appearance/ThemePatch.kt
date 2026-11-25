@@ -6,6 +6,7 @@ package app.reseam.patches.twitch.appearance
 import app.reseam.patch.PatchRuntime
 import app.reseam.patch.Type
 import app.reseam.patch.after
+import app.reseam.patch.before
 import app.reseam.patch.function
 import app.reseam.patch.klass
 import app.reseam.patch.method
@@ -28,6 +29,8 @@ private const val DARK_BACKGROUND = "reseam_twitch_theme_dark_background"
 private const val LIGHT_BACKGROUND = "reseam_twitch_theme_light_background"
 private const val GREY = "hinted_grey_"
 private const val WEB_ASSETS = "assets/public/assets/"
+private const val WEB_VIEW = "Landroid/webkit/WebView;"
+private const val SET = "Ljava/util/Set;"
 
 // System dynamic colors exist from Android 12.
 private const val DYNAMIC_COLORS = "v31"
@@ -92,6 +95,15 @@ val theme = patch(TwitchPatchStrings.theme) {
         require(pageRequests.isNotEmpty()) { "No web view client serves Twitch's local web pages" }
         pageRequests.forEach { pageRequest ->
             pageRequest.after { returnValue(WebTheme.withTheme(result, param(0), string(DARK_BACKGROUND), string(LIGHT_BACKGROUND))) }
+        }
+        // WebView loads some pages, such as the notification settings, from twitch.tv without asking the clients.
+        // Each bridge also adds a script that runs at the start of every page it opens, through one shared helper.
+        val bridgeScriptAdder = bridgeScriptSetups.all
+            .map { setup -> setup.point { invokeStatic { params(WEB_VIEW, Type.String, SET) } }.callee() }
+            .distinctBy { it.descriptor }
+            .singleOrNull() ?: error("Twitch's bridges no longer add their page script through one helper")
+        bridgeScriptAdder.before {
+            param(1).assign(WebTheme.withThemeScript(param(1), param(0), string(DARK_BACKGROUND), string(LIGHT_BACKGROUND)))
         }
 
         // Only Material You changes the purple and grey steps. React Native components and web stylesheets also write
@@ -159,6 +171,12 @@ private val themeTokens = function {
 private val localPageRequests = methods("localPageRequests") {
     name("shouldInterceptRequest")
     strings("/wv/", "portals-")
+}
+
+// Twitch's Capacitor bridges hand their bridge script to AndroidX WebKit's addDocumentStartJavaScript.
+private val bridgeScriptSetups = methods("bridgeScriptSetups") {
+    strings("DOCUMENT_START_SCRIPT")
+    calls { params(WEB_VIEW, Type.String, SET) }
 }
 
 // React Native's normalizeColor turns each color of a style into a number, 0xrrggbbaa.
