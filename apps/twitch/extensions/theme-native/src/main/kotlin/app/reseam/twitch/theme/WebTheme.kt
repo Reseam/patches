@@ -58,9 +58,10 @@ fun withThemeScript(script: String?, view: WebView?, darkBackgroundName: String,
     if (script == null || view == null) return script
     val css = JSONObject.quote(view.context.themeCss(darkBackgroundName, lightBackgroundName))
     // At the start of a page, <html> can still be missing, so the style waits for it.
-    return script + "\n;(function(){var s=document.createElement('style');s.textContent=$css;" +
-        "function add(){var p=document.head||document.documentElement;if(p)p.appendChild(s);return !!p}" +
-        "if(!add())new MutationObserver(function(r,o){if(add())o.disconnect()}).observe(document,{childList:true})})();"
+    return script + "\n;(function(){var style=document.createElement('style');style.textContent=$css;" +
+        "function add(){var parent=document.head||document.documentElement;if(parent)parent.appendChild(style);return !!parent}" +
+        "if(!add())new MutationObserver(function(records,observer){if(add())observer.disconnect()})" +
+        ".observe(document,{childList:true})})();"
 }
 
 /** Returns style rules that set the purple and grey steps and the body background of a web page to the app's colors. */

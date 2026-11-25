@@ -96,10 +96,12 @@ val theme = patch(TwitchPatchStrings.theme) {
         pageRequests.forEach { pageRequest ->
             pageRequest.after { returnValue(WebTheme.withTheme(result, param(0), string(DARK_BACKGROUND), string(LIGHT_BACKGROUND))) }
         }
-        // WebView loads some pages, such as the notification settings, from twitch.tv without asking the clients.
-        // Each bridge also adds a script that runs at the start of every page it opens, through one shared helper.
+        // WebView loads some pages, such as the notification settings, from twitch.tv, because the clients pass those
+        // requests through. Each bridge also adds a script that runs at the start of every page it opens, through one
+        // shared helper.
         val bridgeScriptAdder = bridgeScriptSetups.all
-            .map { setup -> setup.point { invokeStatic { params(WEB_VIEW, Type.String, SET) } }.callee() }
+            .ifEmpty { error("No Capacitor bridge adds a document start script") }
+            .map { it.point { invokeStatic { params(WEB_VIEW, Type.String, SET) } }.callee() }
             .distinctBy { it.descriptor }
             .singleOrNull() ?: error("Twitch's bridges no longer add their page script through one helper")
         bridgeScriptAdder.before {
@@ -173,7 +175,8 @@ private val localPageRequests = methods("localPageRequests") {
     strings("/wv/", "portals-")
 }
 
-// Twitch's Capacitor bridges hand their bridge script to AndroidX WebKit's addDocumentStartJavaScript.
+// Twitch's Capacitor bridges hand their bridge script to AndroidX WebKit's addDocumentStartJavaScript. R8 renames
+// both bridge classes, so the target finds every bridge and the patch checks that they share the helper it hooks.
 private val bridgeScriptSetups = methods("bridgeScriptSetups") {
     strings("DOCUMENT_START_SCRIPT")
     calls { params(WEB_VIEW, Type.String, SET) }
