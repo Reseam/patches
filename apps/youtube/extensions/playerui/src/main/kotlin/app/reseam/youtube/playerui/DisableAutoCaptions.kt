@@ -11,21 +11,21 @@ import app.reseam.runtime.Export
 import app.reseam.youtube.core.debug
 import app.reseam.youtube.settings.PlayerOverlaySettings
 
-@Volatile private var captionsButtonStatus = false
+@Volatile private var userChoseTrack = false
 
 @Export
 fun disableAutoCaptions(): Boolean {
     // A chosen captions language turns captions on by design.
     val disable =
         PlayerOverlaySettings.disableAutoCaptions.value &&
-            !captionsButtonStatus &&
+            !userChoseTrack &&
             PlayerOverlaySettings.captionLanguage.value == CAPTION_LANGUAGE_OFF
-    Logger.debug { "DisableAutoCaptions: $disable status=$captionsButtonStatus" }
+    Logger.debug { "DisableAutoCaptions: $disable userChoseTrack=$userChoseTrack" }
     return disable
 }
 
 @Export
-fun setCaptionsButtonStatus(status: Boolean) {
-    captionsButtonStatus = status
-    Logger.debug { "DisableAutoCaptions.status: $status" }
+fun setUserChoseTrack(chose: Boolean) {
+    userChoseTrack = chose
+    Logger.debug { "DisableAutoCaptions.userChoseTrack: $chose" }
 }
