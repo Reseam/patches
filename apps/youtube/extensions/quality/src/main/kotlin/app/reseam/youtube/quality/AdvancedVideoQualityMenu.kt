@@ -9,7 +9,6 @@ package app.reseam.youtube.quality
 import android.view.Choreographer
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewTreeObserver
 import android.widget.ListView
 import app.reseam.bundle.Logger
 import app.reseam.runtime.Export
@@ -41,17 +40,19 @@ private fun openAdvancedMenu(list: ViewGroup) {
 
 // The quick menu is a dialog window that YouTube hides and shows again for later menus, and the full
 // list opens in another one, so the quick menu window stays transparent only until it is hidden.
+// A probe view gets the window visibility on every API level; ViewTreeObserver's listener needs API 34.
 private fun hideUntilWindowHidden(sheet: View) {
-    sheet.alpha = 0f
-    val observer = sheet.viewTreeObserver
-    observer.addOnWindowVisibilityChangeListener(
-        object : ViewTreeObserver.OnWindowVisibilityChangeListener {
+    val root = sheet as? ViewGroup ?: return
+    root.alpha = 0f
+    root.addView(
+        object : View(root.context) {
             override fun onWindowVisibilityChanged(visibility: Int) {
-                if (visibility == View.VISIBLE) return
-                sheet.alpha = 1f
-                if (observer.isAlive) observer.removeOnWindowVisibilityChangeListener(this)
+                super.onWindowVisibilityChanged(visibility)
+                if (visibility == VISIBLE) return
+                root.alpha = 1f
+                root.post { root.removeView(this) }
             }
-        }
+        }.apply { visibility = View.GONE }
     )
 }
 
