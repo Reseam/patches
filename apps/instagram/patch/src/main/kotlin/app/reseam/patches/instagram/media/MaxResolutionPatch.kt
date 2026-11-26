@@ -25,7 +25,10 @@ val maxResolution = patch(InstagramPatchStrings.maxResolution) {
     execute {
         gate(MediaSettings.maxResolution) {
             imageUrlSelector.before {
-                returnValue(paramOfType(Type.List)[int(0)].cast(EXTENDED_IMAGE_URL))
+                val candidates = paramOfType(Type.List)
+                whenFalse(candidates.callInterface(Type.List, "isEmpty", "()Z")) {
+                    returnValue(candidates[int(0)].cast(EXTENDED_IMAGE_URL))
+                }
             }
         }
         // The server sizes image candidates to the screen in the User-Agent. Doubling the density
